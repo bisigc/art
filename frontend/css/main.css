@@ -10,3 +10,27 @@ body {
 .dropdown:hover .dropdown-menu {
     display: block;
 }
+
+.progress { 
+    height: 2em;
+}
+
+.progress span {
+    display: block;
+    height: 100%;
+    line-height: 2.3em;
+    font-weight: 500;
+    font-size: 14pt;
+    text-align: center;
+    width: 100%;
+}
+
+.ng-invalid.ng-dirty {
+    border-color: red;
+    border-width: 3px;
+}
+
+.ng-valid.ng-dirty {
+    border-color: green;
+    border-width: 3px;
+}
