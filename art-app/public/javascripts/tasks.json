@@ -1,0 +1,253 @@
+{
+	"items":[
+		{
+			"id":1657,
+			"properties":[
+				
+			],
+			"parent":null,
+			"name":"A new Task Template"
+		},
+		{
+			"id":20,
+			"properties":[
+				{
+					"id":21,
+					"property":{
+						"id":5,
+						"name":"Assignee"
+					},
+					"value":"Project Planner"
+				},
+				{
+					"id":22,
+					"property":{
+						"id":6,
+						"name":"Type"
+					},
+					"value":"Task"
+				},
+				{
+					"id":23,
+					"property":{
+						"id":7,
+						"name":"Description"
+					},
+					"value":"Rank every item for every criterion."
+				}
+			],
+			"parent":null,
+			"name":"Define criterion values"
+		},
+		{
+			"id":11,
+			"properties":[
+				{
+					"id":12,
+					"property":{
+						"id":5,
+						"name":"Assignee"
+					},
+					"value":"Project Planner"
+				},
+				{
+					"id":13,
+					"property":{
+						"id":6,
+						"name":"Type"
+					},
+					"value":"Task"
+				}
+			],
+			"parent":null,
+			"name":"Define criterions"
+		},
+		{
+			"id":25,
+			"properties":[
+				{
+					"id":26,
+					"property":{
+						"id":6,
+						"name":"Type"
+					},
+					"value":"Task"
+				},
+				{
+					"id":28,
+					"property":{
+						"id":6,
+						"name":"Type"
+					},
+					"value":"Sub Task"
+				}
+			],
+			"parent":null,
+			"name":"Hold decision meeting"
+		},
+		{
+			"id":27,
+			"properties":[
+				
+			],
+			"parent":{
+				"id":25,
+				"properties":[
+					{
+						"id":26,
+						"property":{
+							"id":6,
+							"name":"Type"
+						},
+						"value":"Task"
+					},
+					{
+						"id":28,
+						"property":{
+							"id":6,
+							"name":"Type"
+						},
+						"value":"Sub Task"
+					}
+				],
+				"parent":null,
+				"name":"Hold decision meeting"
+			},
+			"name":"Invite to decision meeting"
+		},
+		{
+			"id":1000000000000000008,
+			"properties":[
+				
+			],
+			"parent":null,
+			"name":"My example Task Template"
+		},
+		{
+			"id":1000000000000000013,
+			"properties":[
+				
+			],
+			"parent":null,
+			"name":"My example Task Template"
+		},
+		{
+			"id":1000000000000000025,
+			"properties":[
+				
+			],
+			"parent":null,
+			"name":"My example Task Template"
+		},
+		{
+			"id":1000000000000000031,
+			"properties":[
+				
+			],
+			"parent":null,
+			"name":"My example Task Template"
+		},
+		{
+			"id":1000000000000000033,
+			"properties":[
+				
+			],
+			"parent":null,
+			"name":"My example Task Template"
+		},
+		{
+			"id":1601,
+			"properties":[
+				
+			],
+			"parent":null,
+			"name":"My example
+Task Template 2"
+		},
+		{
+			"id":1603,
+			"properties":[
+				
+			],
+			"parent":null,
+			"name":"My example Task Template 2"
+		},
+		{
+			"id":1605,
+			"properties":[
+				
+			],
+			"parent":null,
+			"name":"My example Task Template 2"
+		},
+		{
+			"id":1641,
+			"properties":[
+				{
+					"id":1000000000000000029,
+					"property":{
+						"id":1640,
+						"name":"My example Task Property 2"
+					},
+					"value":"My example Value"
+				}
+			],
+			"parent":null,
+			"name":"My example Task Template 2"
+		},
+		{
+			"id":1644,
+			"properties":[
+				{
+					"id":1000000000000000030,
+					"property":{
+						"id":1643,
+						"name":"My example Task Property 2"
+					},
+					"value":"My example Value"
+				}
+			],
+			"parent":null,
+			"name":"My example Task Template 2"
+		},
+		{
+			"id":1607,
+			"properties":[
+				
+			],
+			"parent":null,
+			"name":"My example Task Template 7"
+		},
+		{
+			"id":15,
+			"properties":[
+				{
+					"id":16,
+					"property":{
+						"id":5,
+						"name":"Assignee"
+					},
+					"value":"Customer"
+				},
+				{
+					"id":17,
+					"property":{
+						"id":6,
+						"name":"Type"
+					},
+					"value":"Task"
+				}
+			],
+			"parent":null,
+			"name":"Rank criterions"
+		},
+		{
+			"id":1550,
+			"properties":[
+				
+			],
+			"parent":null,
+			"name":"Test-Test-Test"
+		}
+	]
+}
