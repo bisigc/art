@@ -22,6 +22,8 @@ echo "Gattering app name and version from buildfile..."
 APPNAME=`grep "^name" $BUILDFILE | sed 's/name.*\"\"\"\(.*\)\"\"\"/\1/'` 
 # Grepping version:  version := "1.0-SNAPSHOT"
 VERSION=`grep "^version" $BUILDFILE | sed 's/version.*\"\(.*\)\"/\1/'` 
+SRVPORT=`grep "playDefaultPort" $BUILDFILE | sed 's/.*playDefaultPort := \([0-9]*\)/\1/'`
+
 
 DISTFILE=$APPNAME-$VERSION.zip
 INSTALLPATH=/opt/$APPNAME
@@ -34,7 +36,7 @@ PIDFILEPATH=$INSTALLPATH/server.pid
 if [ -d $INSTALLPATH ]; then
   log_i "Installpath exists: $INSTALLPATH"
   log_i "Checking for running server..."
-  if [ -d $PIDFILEPATH]; then
+  if [ -d $PIDFILEPATH ]; then
     PID=`cat "$PIDFILEPATH"`
     log_i "Found process: $PID"
     log_i "Stopping application..."
@@ -67,7 +69,7 @@ if [ -d $INSTALLPATH ]; then
   log_i "Zipping $ZIPFILENAME finished"
 
   log_i "Deleteing old version files..."
-  find . -not -name "old_versions" -maxdepth 1 -exec rm -r {} \;
+  find . -not -name "$OLDVERSIONDIR" -maxdepth 1 -exec rm -r {} \;
 
 else
   log_i "Installpath does not yet exist"
@@ -79,7 +81,7 @@ cd $INSTALLPATH
 
 NEWVERSION=$WORKSPACE/target/universal/$DISTFILE
 log_i "Unzipping new version from $NEWVERSION to $INSTALLPATH" 
-unzip $WORKSPACE/target/universal/$DISTFILE -d $INSTALLPATH
+unzip $NEWVERSION -d $INSTALLPATH
 log_i "Unzipping done."
 
 log_i "Creating version file..."
@@ -89,7 +91,7 @@ log_i "Move files from $INSTALLPATH/$APPNAME-$VERSION to $INSTALLPATH"
 mv $INSTALLPATH/$APPNAME-$VERSION/* $INSTALLPATH/.
 rm -r $INSTALLPATH/$APPNAME-$VERSION 
 
-log_i "Starting server..."
+log_i "Starting server on port $SRVPORT..."
 cd $INSTALLPATH/logs
 nohup $INSTALLPATH/bin/$APPNAME -Dpidfile.path=$PIDFILEPATH &
 
