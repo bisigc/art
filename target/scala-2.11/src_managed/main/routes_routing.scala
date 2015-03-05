@@ -1,6 +1,6 @@
-// @SOURCE:/Users/cbi/Documents/play-apps/art-app/conf/routes
-// @HASH:8f3735ee3fbe8c203707e007568537b059e3ef91
-// @DATE:Sun Nov 30 14:46:46 CET 2014
+// @SOURCE:/Users/cbi/Documents/git-repos/ART/conf/routes
+// @HASH:9553c37170cca44b3d086a85f84fe3b55e2307cf
+// @DATE:Thu Mar 05 17:05:48 CET 2015
 
 
 import play.core._
@@ -47,12 +47,12 @@ HandlerDef(this.getClass.getClassLoader, "", "controllers.EEPPIController", "lis
         
 
 // @LINE:10
-private[this] lazy val controllers_Assets_at2_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("assets/"),DynamicPart("file", """.+""",false))))
+private[this] lazy val controllers_Assets_at2_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),DynamicPart("file", """.+""",false))))
 private[this] lazy val controllers_Assets_at2_invoker = createInvoker(
 controllers.Assets.at(fakeValue[String], fakeValue[String]),
-HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "at", Seq(classOf[String], classOf[String]),"GET", """ Map static resources from the /public folder to the /assets URL path""", Routes.prefix + """assets/$file<.+>"""))
+HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "at", Seq(classOf[String], classOf[String]),"GET", """ Map static resources from the /public folder to the /assets URL path""", Routes.prefix + """$file<.+>"""))
         
-def documentation = List(("""GET""", prefix,"""controllers.Application.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """listAll""","""controllers.EEPPIController.listAll()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
+def documentation = List(("""GET""", prefix,"""controllers.Application.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """listAll""","""controllers.EEPPIController.listAll()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
   case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
   case l => s ++ l.asInstanceOf[List[(String,String,String)]]
 }}

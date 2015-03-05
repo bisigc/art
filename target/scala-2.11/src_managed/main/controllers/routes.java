@@ -1,6 +1,6 @@
-// @SOURCE:/Users/cbi/Documents/play-apps/art-app/conf/routes
-// @HASH:8f3735ee3fbe8c203707e007568537b059e3ef91
-// @DATE:Sun Nov 30 14:46:46 CET 2014
+// @SOURCE:/Users/cbi/Documents/git-repos/ART/conf/routes
+// @HASH:9553c37170cca44b3d086a85f84fe3b55e2307cf
+// @DATE:Thu Mar 05 17:05:48 CET 2015
 
 package controllers;
 

@@ -1,6 +1,6 @@
-// @SOURCE:/Users/cbi/Documents/play-apps/art-app/conf/routes
-// @HASH:8f3735ee3fbe8c203707e007568537b059e3ef91
-// @DATE:Sun Nov 30 14:46:46 CET 2014
+// @SOURCE:/Users/cbi/Documents/git-repos/ART/conf/routes
+// @HASH:9553c37170cca44b3d086a85f84fe3b55e2307cf
+// @DATE:Thu Mar 05 17:05:48 CET 2015
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -27,7 +27,7 @@ class ReverseAssets {
 // @LINE:10
 def at(file:String): Call = {
    implicit val _rrc = new ReverseRouteContext(Map(("path", "/public")))
-   Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[PathBindable[String]].unbind("file", file))
+   Call("GET", _prefix + { _defaultPrefix } + implicitly[PathBindable[String]].unbind("file", file))
 }
                         
 
@@ -80,7 +80,7 @@ def at : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Assets.at",
    """
       function(file) {
-      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "assets/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("file", file)})
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("file", file)})
       }
    """
 )
@@ -140,7 +140,7 @@ class ReverseAssets {
 
 // @LINE:10
 def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Assets.at(path, file), HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "at", Seq(classOf[String], classOf[String]), "GET", """ Map static resources from the /public folder to the /assets URL path""", _prefix + """assets/$file<.+>""")
+   controllers.Assets.at(path, file), HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "at", Seq(classOf[String], classOf[String]), "GET", """ Map static resources from the /public folder to the /assets URL path""", _prefix + """$file<.+>""")
 )
                       
 

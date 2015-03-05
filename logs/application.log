@@ -1,131 +1,20 @@
-2014-12-19 13:28:36,141 - [INFO] - from play in pool-4-thread-4 
-Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+2015-03-05 17:05:57,253 - [INFO] - from play in pool-52-thread-2 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9085
 
-2014-12-19 13:28:52,291 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
+2015-03-05 17:06:02,740 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
 JDBC URL = jdbc:mysql://localhost/art, Username = art_user, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
 
-2014-12-19 13:28:52,617 - [INFO] - from play in play-internal-execution-context-1 
+2015-03-05 17:06:03,102 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:mysql://localhost/art
 
-2014-12-19 13:28:53,256 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-03-05 17:06:03,629 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
 
-2014-12-19 13:28:53,263 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-03-05 17:06:03,635 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 
             select id, hash, apply_script, revert_script from play_evolutions order by id
         
 
-2014-12-19 13:28:53,413 - [INFO] - from play in play-internal-execution-context-1 
+2015-03-05 17:06:03,837 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
-
-2014-12-19 13:28:54,554 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-9 
-select t0.id c0, t0.from_service c1, t0.json_data c2, t0.created c3 from eeppidata t0
-
-2014-12-19 13:30:06,870 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-12 
-select t0.id c0, t0.from_service c1, t0.json_data c2, t0.created c3 from eeppidata t0
-
-2014-12-19 13:32:07,716 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
-Shutting down connection pool...
-
-2014-12-19 13:32:07,717 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
-Terminating pool watch thread
-
-2014-12-19 13:32:07,719 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
-Connection pool has been shutdown.
-
-2014-12-19 13:32:07,719 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
-Connection pool has been shut down
-
-2014-12-19 13:32:07,770 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
-JDBC URL = jdbc:mysql://localhost/art, Username = art_user, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
-
-2014-12-19 13:32:07,811 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:mysql://localhost/art
-
-2014-12-19 13:32:07,838 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
-select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
-
-2014-12-19 13:32:07,840 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
-
-            select id, hash, apply_script, revert_script from play_evolutions order by id
-        
-
-2014-12-19 13:32:07,847 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2014-12-19 13:32:07,994 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-21 
-select t0.id c0, t0.from_service c1, t0.json_data c2, t0.created c3 from eeppidata t0
-
-2014-12-19 13:34:54,824 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-2 
-Shutting down connection pool...
-
-2014-12-19 13:34:54,825 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
-Terminating pool watch thread
-
-2014-12-19 13:34:54,827 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-2 
-Connection pool has been shutdown.
-
-2014-12-19 13:34:54,827 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-2 
-Connection pool has been shut down
-
-2014-12-19 13:34:54,886 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-2 
-JDBC URL = jdbc:mysql://localhost/art, Username = art_user, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
-
-2014-12-19 13:34:54,925 - [INFO] - from play in play-internal-execution-context-2 
-database [default] connected at jdbc:mysql://localhost/art
-
-2014-12-19 13:34:54,950 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-2 
-select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
-
-2014-12-19 13:34:54,951 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-2 
-
-            select id, hash, apply_script, revert_script from play_evolutions order by id
-        
-
-2014-12-19 13:34:54,958 - [INFO] - from play in play-internal-execution-context-2 
-Application started (Dev)
-
-2014-12-19 13:34:55,081 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-23 
-select t0.id c0, t0.from_service c1, t0.json_data c2, t0.created c3 from eeppidata t0
-
-2014-12-19 13:36:36,692 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-32 
-select t0.id c0, t0.from_service c1, t0.json_data c2, t0.created c3 from eeppidata t0
-
-2014-12-19 13:36:53,133 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-30 
-select t0.id c0, t0.from_service c1, t0.json_data c2, t0.created c3 from eeppidata t0
-
-2014-12-19 13:56:41,454 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-5 
-Shutting down connection pool...
-
-2014-12-19 13:56:41,455 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
-Terminating pool watch thread
-
-2014-12-19 13:56:41,457 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-5 
-Connection pool has been shutdown.
-
-2014-12-19 13:56:41,457 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-5 
-Connection pool has been shut down
-
-2014-12-19 13:56:41,516 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-5 
-JDBC URL = jdbc:mysql://localhost/art, Username = art_user, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
-
-2014-12-19 13:56:41,546 - [INFO] - from play in play-internal-execution-context-5 
-database [default] connected at jdbc:mysql://localhost/art
-
-2014-12-19 13:56:41,578 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-5 
-select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
-
-2014-12-19 13:56:41,579 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-5 
-
-            select id, hash, apply_script, revert_script from play_evolutions order by id
-        
-
-2014-12-19 13:56:41,585 - [INFO] - from play in play-internal-execution-context-5 
-Application started (Dev)
-
-2014-12-19 13:56:41,790 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-41 
-select t0.id c0, t0.from_service c1, t0.json_data c2, t0.created c3 from eeppidata t0
-
-2014-12-19 14:28:45,443 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-39 
-select t0.id c0, t0.from_service c1, t0.json_data c2, t0.created c3 from eeppidata t0
 
