@@ -4,21 +4,25 @@
 # --- !Ups
 
 create table eeppidata (
-  id                        bigint auto_increment not null,
+  id                        bigint not null,
   from_service              varchar(255),
   json_data                 varchar(255),
-  created                   datetime,
+  created                   timestamp,
   constraint pk_eeppidata primary key (id))
 ;
+
+create sequence eeppidata_seq;
 
 
 
 
 # --- !Downs
 
-SET FOREIGN_KEY_CHECKS=0;
+SET REFERENTIAL_INTEGRITY FALSE;
 
-drop table eeppidata;
+drop table if exists eeppidata;
 
-SET FOREIGN_KEY_CHECKS=1;
+SET REFERENTIAL_INTEGRITY TRUE;
+
+drop sequence if exists eeppidata_seq;
 

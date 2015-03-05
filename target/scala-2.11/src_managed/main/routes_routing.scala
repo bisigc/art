@@ -1,6 +1,6 @@
 // @SOURCE:/Users/cbi/Documents/git-repos/ART/conf/routes
 // @HASH:9553c37170cca44b3d086a85f84fe3b55e2307cf
-// @DATE:Thu Mar 05 17:05:48 CET 2015
+// @DATE:Thu Mar 05 17:30:54 CET 2015
 
 
 import play.core._
