@@ -18,3 +18,15 @@ select id, hash, apply_script, revert_script, state, last_problem from play_evol
 2015-03-05 17:06:03,837 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
+2015-03-05 17:11:09,148 - [INFO] - from com.jolbox.bonecp.BoneCP in pool-52-thread-2 
+Shutting down connection pool...
+
+2015-03-05 17:11:09,149 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2015-03-05 17:11:09,151 - [INFO] - from com.jolbox.bonecp.BoneCP in pool-52-thread-2 
+Connection pool has been shutdown.
+
+2015-03-05 17:11:09,151 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in pool-52-thread-2 
+Connection pool has been shut down
+
