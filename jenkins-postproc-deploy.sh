@@ -9,6 +9,7 @@ echo "==============================================="
 . cbi_bash_functions.sh
 
 BUILDFILE=$WORKSPACE/build.sbt
+MAXMEM=256
 
 if [ -f $BUILDFILE ]; then
   log_i "Found Buildfile: $BUILDFILE"
@@ -23,8 +24,6 @@ APPNAME=`grep "^name" $BUILDFILE | sed 's/name.*\"\"\"\(.*\)\"\"\"/\1/'`
 # Grepping version:  version := "1.0-SNAPSHOT"
 VERSION=`grep "^version" $BUILDFILE | sed 's/version.*\"\(.*\)\"/\1/'` 
 SRVPORT=`grep "playDefaultPort" $BUILDFILE | sed 's/.*playDefaultPort := \([0-9]*\)/\1/'`
-MAXMEM=`grep "^maxmem" $BUILDFILE | sed 's/maxmem.*\"\(.*\)\"/\1/'` 
-
 
 DISTFILE=$APPNAME-$VERSION.zip
 INSTALLPATH=/opt/$APPNAME
