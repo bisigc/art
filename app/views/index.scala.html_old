@@ -1,7 +1,194 @@
-@(message: String)
+<!DOCTYPE html>
+<html lang="de" ng-app="art">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="@routes.Assets.at("images/favicon.ico")">
+        <title>Architectural Refactoring Tool</title>
+        <link href="@routes.Assets.at("stylesheets/bootstrap.min.css")" rel="stylesheet">
+        <link href="@routes.Assets.at("stylesheets/main.css")" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+    </head>
 
-@main("Welcome to Play Test") {
+    <body>
 
-    @play20.welcome(message, style = "Java")
+        <div class="container" ng-controller="MenuController as menuCtrl">
 
-}
+            <!-- Static navbar -->
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"><img src="images/art_logo_small.png" height="100%"/></a>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li ng-class="{ active:menuCtrl.isMenuSet('home')}"><a href ng-click="menuCtrl.setMenu('home')">Home</a></li>
+                            <li ng-class="{ active:menuCtrl.isMenuSet('ars')}"><a href ng-click="menuCtrl.setMenu('ars')">ARs</a></li>
+                            <li ng-class="{ active:menuCtrl.isMenuSet('about')}"><a href ng-click="menuCtrl.setMenu('about')">About</a></li>
+                            <li ng-class="{ active:menuCtrl.isMenuSet('contact')}"><a href ng-click="menuCtrl.setMenu('contact')">Contact</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li class="divider"></li>
+                                    <li class="dropdown-header">Nav header</li>
+                                    <li><a href="#">Separated link</a></li>
+                                    <li><a href="#">One more separated link</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right" ng-controller="UserController as userCtrl">
+                            <li>{{userCtrl.user.name}}</li>
+                            <li><img ng-src="{{userCtrl.user.avatar}}" height="40px" /></li>
+                            <!-- li class="active"><a href="./">Default <span class="sr-only">(current)</span></a></li -->
+                            <li ng-class="{ active:menuCtrl.isMenuSet('profile')}"><a href="#profile" ng-click="menuCtrl.setMenu('profile')">Profile</a></li>
+                            <li ng-hide="userCtrl.user.loggedin"><a href="#login">Login</a></li>
+                            <li ng-show="userCtrl.user.loggedin"><a href="#logout">Logout</a></li>
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div><!--/.container-fluid -->
+            </nav>
+
+            <!-- Main component for a primary marketing message or call to action -->
+            <div class="jumbotron" ng-show="menuCtrl.isMenuSet('home')">
+                <h1>Architectural Refactoring</h1>
+                <p>Home home Home</p>
+                <p>
+                    <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
+                </p>
+            </div>
+
+            <div class="jumbotron" ng-show="menuCtrl.isMenuSet('ars')" ng-controller="ARController as arCtrl">
+                <h2>Architectural Refactorings</h2>
+                <p>Add an Architectural Refactoring fill out the form:</p>
+                <p>
+                    <a class="btn btn-lg btn-primary" ng-class=" active:arCtrl.formvisible" href role="button" ng-click="arCtrl.showForm(!arCtrl.formvisible);arCtrl.setProgValue()">Add AR &raquo;</a>
+                </p>
+                <div name="arFormContainer" ng-show="arCtrl.formvisible">
+                    <p>
+                        Completeness:
+                        <!-- progressbar class="progress-striped active" value="dynamic" type="{{arCtrl.type}}">{{arCtrl.type}} <i ng-show="arCtrl.showWarning">!!! Watch out !!!</i></progressbar -->
+                        <progress><bar ng-repeat="bar in arCtrl.progStacked track by $index" value="bar.value" type="{{bar.type}}"><span ng-hide="bar.value < 5">{{bar.value}}%</span></bar></progress>
+                    </p>
+                    <form name="arForm" ng-submit="arForm.$valid && arCtrl.addAr()" novalidate>
+                        <!-- Live Preview -->
+                        <blockquote>
+                            Name: {{arCtrl.ar.name}}
+                        </blockquote>
+                        <!--  Review Form -->
+                        <h4>Submit an AR</h4>
+                        <!-- fieldset class="form-group">
+<select class="form-control" ng-options="stars for stars in [5,4,3,2,1]"  title="Stars">
+<option value="">Rate the Product</option>
+</select>
+</fieldset -->
+                        <p>
+                            Form valid: {{arForm.$valid}}
+                        </p>
+                        <fieldset class="form-group">
+                            <label for="name">Name</label>
+                            <input class="form-control" placeholder="Write a short review of the product..." title="name" id="name" ng-model="arCtrl.ar.name" required></input>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="context">Context</label>
+                            <textarea class="form-control" placeholder="Write a short review of the product..." title="context" id="context" ng-model="arCtrl.ar.context" required></textarea>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="quality_attr">Quality Attributes</label>
+                            <textarea class="form-control" placeholder="Write a short review of the product..." title="quality_attr" id="quality_attr" ng-model="arCtrl.ar.quality_attr" required></textarea>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="smell">Smells</label>
+                            <textarea class="form-control" placeholder="Write a short review of the product..." title="smell" id="smell" ng-model="arCtrl.ar.smell" required></textarea>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="arc_decisions">Architectural decisions to be reviewed</label>
+                            <textarea class="form-control" placeholder="Write a short review of the product..." title="arc_decisions" id="arc_decisions" ng-model="arCtrl.ar.arc_decisions" required></textarea>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="refactoring">Refactorings</label>
+                            <textarea class="form-control" placeholder="Write a short review of the product..." title="refactoring" id="refactoring" ng-model="arCtrl.ar.refactoring" required></textarea>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="affected_comp">Affected Components</label>
+                            <textarea class="form-control" placeholder="Write a short review of the product..." title="affected_comp" id="affected_comp" ng-model="arCtrl.ar.affected_comp" required></textarea>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="exec_tasks">Execution Tasks</label>
+                            <textarea class="form-control" placeholder="Write a short review of the product..." title="exec_tasks" id="exec_tasks" ng-model="arCtrl.ar.exec_tasks" required></textarea>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="referenced_ars">Referenced ARs</label>
+                            <textarea class="form-control" placeholder="Write a short review of the product..." title="referenced_ars" id="referenced_ars" ng-model="arCtrl.ar.referenced_ars" required></textarea>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="links">Links</label>
+                            <textarea class="form-control" placeholder="Write a short review of the product..." title="links" id="links" ng-model="arCtrl.ar.links" required></textarea>
+                        </fieldset>
+                        <!-- fieldset class="form-group">
+<input type="email" class="form-control" placeholder="jimmyDean&#64;example.org" title="Email" />
+</fieldset -->
+                        <fieldset class="form-group">
+                            <input type="submit" class="btn btn-primary pull-right" value="Submit AR" />
+                        </fieldset>
+                    </form>
+                    <ul ng-repeat="ar in arCtrl.arlist">
+                        <li>
+                            <blockquote>
+                                {{ar.name}}
+                                {{ar.createdOn | date}}
+                            </blockquote>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="jumbotron" ng-show="menuCtrl.isMenuSet('about')">
+                <h1>About</h1>
+                <p>About about About</p>
+                <p>
+                    <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
+                </p>
+            </div>
+
+
+            <div class="jumbotron" ng-show="menuCtrl.isMenuSet('contact')">
+                <h1>Contact</h1>
+                <p>Contact contact Contact</p>
+                <p>
+                    <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
+                </p>
+            </div>
+
+            <div class="jumbotron" ng-show="menuCtrl.isMenuSet('profile')">
+                <h1>Profile</h1>
+                <p>Profile profile profile</p>
+                <p>
+                    <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
+                </p>
+            </div>
+
+        </div> <!-- /container -->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script type="text/javascript" src="@routes.Assets.at("javascripts/libs/angular.min.js")"></script>
+        <script type="text/javascript" src="@routes.Assets.at("javascripts/app.js")"></script>
+        <script type="text/javascript" src="@routes.Assets.at("javascripts/libs/bootstrap.min.js")"></script>
+        <script type="text/javascript" src="@routes.Assets.at("javascripts/libs/ui-bootstrap-tpls-0.12.0.min.js")"></script>
+    </body>
+</html>
