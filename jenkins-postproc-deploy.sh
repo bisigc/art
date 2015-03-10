@@ -29,6 +29,7 @@ DISTFILE=$APPNAME-$VERSION.zip
 INSTALLPATH=/opt/$APPNAME
 OLDVERSIONDIR=old_versions
 OLDVERSIONPATH=$INSTALLPATH/$OLDVERSIONDIR
+LOGPATH=$INSTALLPATH/logs
 VERSIONFILE=$INSTALLPATH/VERSION.TXT
 PIDFILEPATH=$INSTALLPATH/server.pid
   
@@ -68,7 +69,7 @@ if [ -d $INSTALLPATH ]; then
   zip -r $ZIPFILEPATH * -x $OLDVERSIONDIR
   log_i "Zipping $ZIPFILENAME finished"
 
-  log_i "Deleteing old version files..."
+  log_i "Deleting old version files..."
   find . -not -name "$OLDVERSIONDIR" -maxdepth 1 -exec rm -r {} \;
 
 else
@@ -92,6 +93,10 @@ mv $INSTALLPATH/$APPNAME-$VERSION/* $INSTALLPATH/.
 rm -r $INSTALLPATH/$APPNAME-$VERSION 
 
 log_i "Starting server on port $SRVPORT..."
+if [ ! -d "$LOGPATH" ]; then
+  log_i "Logpath $LOGPATH does not yet exist, creating ..."
+  mkdir $LODPATH
+fi
 cd $INSTALLPATH/logs
 nohup $INSTALLPATH/bin/$APPNAME -Dpidfile.path=$PIDFILEPATH &
 
