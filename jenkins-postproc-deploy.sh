@@ -107,6 +107,9 @@ cd $INSTALLPATH/logs
 export BUILD_ID=dontKillMe
 nohup $INSTALLPATH/bin/$APPNAME -mem $MAXMEM -J-server -Dpidfile.path=$PIDFILEPATH -Dhttp.port=$SRVPORT &
 
+# sleep quickly to be sure the pid file exists
+sleep 5
+
 PID=`cat $PIDFILEPATH`
 log_i "Server started with PID $PID"
 
