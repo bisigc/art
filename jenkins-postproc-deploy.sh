@@ -95,7 +95,7 @@ rm -r $INSTALLPATH/$APPNAME-$VERSION
 log_i "Starting server on port $SRVPORT..."
 if [ ! -d "$LOGPATH" ]; then
   log_i "Logpath $LOGPATH does not yet exist, creating ..."
-  mkdir $LODPATH
+  mkdir $LOGDPATH
 fi
 cd $INSTALLPATH/logs
 nohup $INSTALLPATH/bin/$APPNAME -Dpidfile.path=$PIDFILEPATH &
