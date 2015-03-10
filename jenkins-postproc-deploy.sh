@@ -75,7 +75,12 @@ if [ -d $INSTALLPATH ]; then
 else
   log_i "Installpath does not yet exist"
   log_i "Creating directory: $INSTALLPATH"
-  mkdir $INSTALLPATH
+  mkdir $INSTALLPATH || true
+  if [ ! -d $INSTALLPATH ]; then
+    log_e "Creation of directory $INSTALLPATH failed"
+    log_e "Please create the directory manually and grant the jenkins user: mkdir $INSTALLPATH;chown jenkins:jenkins $INSTALLPATH"
+    exit 1
+  fi
 fi
 
 cd $INSTALLPATH
