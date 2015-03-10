@@ -103,6 +103,8 @@ if [ ! -d "$LOGPATH" ]; then
   mkdir $LOGPATH
 fi
 cd $INSTALLPATH/logs
+# Setting this BUILD_ID is a workaround so jenkins will not kill the background process after the build process has finished.
+export BUILD_ID=dontKillMe
 nohup $INSTALLPATH/bin/$APPNAME -mem $MAXMEM -J-server -Dpidfile.path=$PIDFILEPATH -Dhttp.port=$SRVPORT &
 
 PID=`cat $PIDFILEPATH`
