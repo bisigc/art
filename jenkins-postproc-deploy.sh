@@ -103,7 +103,7 @@ if [ ! -d "$LOGPATH" ]; then
   mkdir $LOGPATH
 fi
 cd $INSTALLPATH/logs
-nohup $INSTALLPATH/bin/$APPNAME -mem $MAXMEM -J-server -Dpidfile.path=$PIDFILEPATH &
+nohup $INSTALLPATH/bin/$APPNAME -mem $MAXMEM -J-server -Dpidfile.path=$PIDFILEPATH -Dhttp.port=$SRVPORT &
 
 PID=`cat $PIDFILEPATH`
 log_i "Server started with PID $PID"
