@@ -23,6 +23,7 @@ APPNAME=`grep "^name" $BUILDFILE | sed 's/name.*\"\"\"\(.*\)\"\"\"/\1/'`
 # Grepping version:  version := "1.0-SNAPSHOT"
 VERSION=`grep "^version" $BUILDFILE | sed 's/version.*\"\(.*\)\"/\1/'` 
 SRVPORT=`grep "playDefaultPort" $BUILDFILE | sed 's/.*playDefaultPort := \([0-9]*\)/\1/'`
+MAXMEM=`grep "^maxmem" $BUILDFILE | sed 's/maxmem.*\"\(.*\)\"/\1/'` 
 
 
 DISTFILE=$APPNAME-$VERSION.zip
@@ -98,7 +99,7 @@ if [ ! -d "$LOGPATH" ]; then
   mkdir $LOGPATH
 fi
 cd $INSTALLPATH/logs
-nohup $INSTALLPATH/bin/$APPNAME -Dpidfile.path=$PIDFILEPATH &
+nohup $INSTALLPATH/bin/$APPNAME -mem $MAXMEM -J-server -Dpidfile.path=$PIDFILEPATH &
 
 PID=`cat $PIDFILEPATH`
 log_i "Server started with PID $PID"
