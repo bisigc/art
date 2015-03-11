@@ -60,7 +60,7 @@ shutdown_pid () {
     kill $PID
 
     CNT=1
-    while [ -d /proc/$PID && $CNT -lt 6 ]; do
+    while [ -d /proc/$PID ] && [ $CNT -lt 6 ]; do
       sleep 3
       log_i "Waiting for shutdown ($CNT)..."
     done
@@ -71,7 +71,7 @@ shutdown_pid () {
       kill -9 $PID
 
       CNT=1
-      while [ -d /proc/$PID && $CNT -lt 6 ]; do
+      while [ -d /proc/$PID ] && [ $CNT -lt 6 ]; do
         sleep 3
         log_i "Waiting for forced shutdown ($CNT)..."
       done
