@@ -38,7 +38,7 @@ if [ -d $INSTALLPATH ]; then
   log_i "Installpath exists: $INSTALLPATH"
   log_i "Checking for running server..."
   if [ -d $PIDFILEPATH ]; then
-    PID=`cat "$PIDFILEPATH"`
+    PID=`cat $PIDFILEPATH`
     log_i "Found process: $PID"
     log_i "Stopping application..."
     shutdown_pid $PID
