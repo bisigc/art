@@ -105,7 +105,7 @@ fi
 cd $INSTALLPATH/logs
 # Setting this BUILD_ID is a workaround so jenkins will not kill the background process after the build process has finished.
 export BUILD_ID=dontKillMe
-nohup $INSTALLPATH/bin/$APPNAME -mem $MAXMEM -J-server -Dpidfile.path=$PIDFILEPATH -Dhttp.port=$SRVPORT &
+nohup $INSTALLPATH/bin/$APPNAME -mem $MAXMEM -J-server -Dpidfile.path=$PIDFILEPATH -Dconfig.resource=application.jenkins.conf -Dhttp.port=$SRVPORT &
 
 # sleep quickly to be sure the pid file exists
 sleep 5
