@@ -6,7 +6,7 @@ echo "==       deployment script by cbisig         =="
 echo "==============================================="
 
 # Including some bash functions
-. cbi_bash_functions.sh
+. common_bash_functions.sh
 
 BUILDFILE=$WORKSPACE/build.sbt
 MAXMEM=256
@@ -105,15 +105,25 @@ fi
 cd $INSTALLPATH/logs
 # Setting this BUILD_ID is a workaround so jenkins will not kill the background process after the build process has finished.
 export BUILD_ID=dontKillMe
-CMD="nohup $INSTALLPATH/bin/$APPNAME -mem $MAXMEM -J-server -Dpidfile.path=$PIDFILEPATH -Dapplication.context=/$APPNAME/ -Dhttp.port=$SRVPORT &"
+CMD="nohup $INSTALLPATH/bin/$APPNAME -mem $MAXMEM -J-server -Dpidfile.path=$PIDFILEPATH -Dapplication.context=/$APPNAME/ -Dhttp.port=$SRVPORT"
 log_i "Executing the following command for starting the server: $CMD"
-$CMD
+$CMD &
 
 # sleep quickly to be sure the pid file exists
 sleep 5
+CNT=1
+while [ ! -f $PIDFILEPATH ] && [ $CNT -lt 6 ]; do
+  sleep 1
+  log_i "Waiting for start of server... ($CNT of max 5)"
+  CNT=$((CNT+1))
+done
 
-PID=`cat $PIDFILEPATH`
-log_i "Server started with PID $PID"
-
-log_i "Deployment of new server version finished!"
+if [ -f $PIDFILEPATH ]; then
+  PID=`cat $PIDFILEPATH`
+  log_i "Server started with PID $PID"
+  log_i "Deployment of new server version finished!"
+else
+  log_e "No PID file yet. Server failed to start. Please check."
+  exit 1
+fi
 
