@@ -9,6 +9,19 @@
     });
 
     app.controller('MenuController', function(){
+        this.menuItems = [
+            {"id":1,  "name": "home",         "fullname":"home",                                       "image":"images/art_logo_small.png", "type":"home",          "url":"home.html", "pos":"left", "order":5, "subItems":[]},
+            {"id":2,  "name": "ars",          "fullname":"Architectural Refactorings",                 "image":"",                          "type":"include",       "url":"home.html", "pos":"left", "order":10, "subItems":[]},
+            {"id":3,  "name": "addar",        "fullname":"Add Architectural Refactoring",              "image":"",                          "type":"include",       "url":"home.html", "pos":"left", "order":15, "subItems":[]},
+            {"id":4,  "name": "exectasks",    "fullname":"Execution Task",                             "image":"",                          "type":"include",       "url":"home.html", "pos":"left", "order":20, "subItems":[]},
+            {"id":5,  "name": "add-exectask", "fullname":"Add Execution Task Template",                "image":"",                          "type":"include",       "url":"home.html", "pos":"left", "order":25, "subItems":[]},
+            {"id":6,  "name": "smells",       "fullname":"Architectural Smells",                       "image":"",                          "type":"include",       "url":"home.html", "pos":"left", "order":30, "subItems":[]},
+            {"id":7,  "name": "armeta",       "fullname":"Architectural Refactoring Meta Information", "image":"",                          "type":"include",       "url":"home.html", "pos":"left", "order":40, "subItems":[]},
+            {"id":8,  "name": "wiki",         "fullname":"Wikipedia",                                  "image":"",                          "type":"link",          "url":"http://www.wikipedia.com", "pos":"left", "order":40, "subItems":[]},
+            {"id":8,  "name": "admin",        "fullname":"Administration",                             "image":"",                          "type":"dropdown",      "url":"home.html", "pos":"right", "order":45, "subItems":[{"id":11, "name": "Users", "image":"", "type":"include", "url":"useradmin.html", "pos":"left", "order":15, "subItems":[]}]},
+            {"id":9,  "name": "profile",      "fullname":"Profile",                                    "image":"",                          "type":"include",       "url":"home.html", "pos":"right", "order":50, "subItems":[]},
+            {"id":10, "name": "login",        "fullname":"Login",                                      "image":"",                          "type":"login-logout",  "url":"home.html", "pos":"right", "order":55, "subItems":[]}
+        ];
         this.menuItem = 'ars';
         this.setMenu = function(selectedMenu) {
             this.menuItem = selectedMenu;
