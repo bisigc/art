@@ -7,12 +7,32 @@ body {
     margin-bottom: 20px;
 }
 
+.nav {
+    margin-left: 0;
+}
+
+.even {
+    background-color: gray;
+}
+
+.odd {
+    background-color: white;
+}
+
 .dropdown:hover .dropdown-menu {
     display: block;
 }
 
 .progress { 
     height: 2em;
+}
+
+.homeitem {
+    margin: 0;
+}
+
+.menuItem {
+    border-right: 1px solid lightgray;
 }
 
 .progress span {

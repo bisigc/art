@@ -38,6 +38,7 @@ Seq[Any](format.raw/*1.1*/("""<!DOCTYPE html>
         <title>Architectural Refactoring Tool</title>
         <link href=""""),_display_(/*11.22*/routes/*11.28*/.Assets.at("stylesheets/bootstrap.min.css")),format.raw/*11.71*/("""" rel="stylesheet">
         <link href=""""),_display_(/*12.22*/routes/*12.28*/.Assets.at("stylesheets/main.css")),format.raw/*12.62*/("""" rel="stylesheet">
+        <link href=""""),_display_(/*13.22*/routes/*13.28*/.Assets.at("stylesheets/jqcloud.min.css")),format.raw/*13.69*/("""" rel="stylesheet">
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -51,45 +52,28 @@ Seq[Any](format.raw/*1.1*/("""<!DOCTYPE html>
 
             <!-- Static navbar -->
             <nav class="navbar navbar-default">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="#"><img src="images/art_logo_small.png" height="100%"/></a>
-                    </div>
+                <div class="container">
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <li ng-class=""""),format.raw/*38.43*/("""{"""),format.raw/*38.44*/(""" """),format.raw/*38.45*/("""active:menuCtrl.isMenuSet('home')"""),format.raw/*38.78*/("""}"""),format.raw/*38.79*/(""""><a href ng-click="menuCtrl.setMenu('home')">Home</a></li>
-                            <li ng-class=""""),format.raw/*39.43*/("""{"""),format.raw/*39.44*/(""" """),format.raw/*39.45*/("""active:menuCtrl.isMenuSet('ars')"""),format.raw/*39.77*/("""}"""),format.raw/*39.78*/(""""><a href ng-click="menuCtrl.setMenu('ars')">ARs</a></li>
-                            <li ng-class=""""),format.raw/*40.43*/("""{"""),format.raw/*40.44*/(""" """),format.raw/*40.45*/("""active:menuCtrl.isMenuSet('about')"""),format.raw/*40.79*/("""}"""),format.raw/*40.80*/(""""><a href ng-click="menuCtrl.setMenu('about')">About</a></li>
-                            <li ng-class=""""),format.raw/*41.43*/("""{"""),format.raw/*41.44*/(""" """),format.raw/*41.45*/("""active:menuCtrl.isMenuSet('contact')"""),format.raw/*41.81*/("""}"""),format.raw/*41.82*/(""""><a href ng-click="menuCtrl.setMenu('contact')">Contact</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Action</a></li>
-                                    <li><a href="#">Another action</a></li>
-                                    <li><a href="#">Something else here</a></li>
-                                    <li class="divider"></li>
-                                    <li class="dropdown-header">Nav header</li>
-                                    <li><a href="#">Separated link</a></li>
-                                    <li><a href="#">One more separated link</a></li>
+                            <li ng-repeat="menuItem in menuCtrl.menuItems" class="menuItem" ng-switch on="menuItem.type" ng-if="menuItem.pos === 'left'" ng-class=""""),format.raw/*30.164*/("""{"""),format.raw/*30.165*/(""" """),format.raw/*30.166*/("""active:menuCtrl.isMenuSet(menuItem.name), dropdown:menuItem.type === 'dropdown'"""),format.raw/*30.245*/("""}"""),format.raw/*30.246*/("""">
+                                <a href ng-switch-when="dropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">"""),format.raw/*31.150*/("""{"""),format.raw/*31.151*/("""{"""),format.raw/*31.152*/("""menuItem.fullname"""),format.raw/*31.169*/("""}"""),format.raw/*31.170*/("""}"""),format.raw/*31.171*/(""" """),format.raw/*31.172*/("""<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu" ng-switch-when="dropdown">
+                                    <li ng-class=""""),format.raw/*33.51*/("""{"""),format.raw/*33.52*/(""" """),format.raw/*33.53*/("""active:menuCtrl.isMenuSet(submenuItem.name)"""),format.raw/*33.96*/("""}"""),format.raw/*33.97*/("""" ng-repeat="submenuItem in menuItem.subItems"><a href ng-click="menuCtrl.setMenu(submenuItem.name)">"""),format.raw/*33.198*/("""{"""),format.raw/*33.199*/("""{"""),format.raw/*33.200*/("""submenuItem.fullname"""),format.raw/*33.220*/("""}"""),format.raw/*33.221*/("""}"""),format.raw/*33.222*/("""</a></li>
                                 </ul>
+                                <a href ng-switch-when="home" class="homeitem" ng-click="menuCtrl.setMenu(menuItem.name)"><img ng-src=""""),format.raw/*35.136*/("""{"""),format.raw/*35.137*/("""{"""),format.raw/*35.138*/("""menuItem.image"""),format.raw/*35.152*/("""}"""),format.raw/*35.153*/("""}"""),format.raw/*35.154*/("""" /></a>
+                                <a href ng-switch-default ng-click="menuCtrl.setMenu(menuItem.name)">"""),format.raw/*36.102*/("""{"""),format.raw/*36.103*/("""{"""),format.raw/*36.104*/("""menuItem.fullname"""),format.raw/*36.121*/("""}"""),format.raw/*36.122*/("""}"""),format.raw/*36.123*/("""</a>
                             </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right" ng-controller="UserController as userCtrl">
-                            <li>"""),format.raw/*56.33*/("""{"""),format.raw/*56.34*/("""{"""),format.raw/*56.35*/("""userCtrl.user.name"""),format.raw/*56.53*/("""}"""),format.raw/*56.54*/("""}"""),format.raw/*56.55*/("""</li>
-                            <li><img ng-src=""""),format.raw/*57.46*/("""{"""),format.raw/*57.47*/("""{"""),format.raw/*57.48*/("""userCtrl.user.avatar"""),format.raw/*57.68*/("""}"""),format.raw/*57.69*/("""}"""),format.raw/*57.70*/("""" height="40px" /></li>
+                            <li ng-show="userCtrl.user.loggedin"><a href>"""),format.raw/*40.74*/("""{"""),format.raw/*40.75*/("""{"""),format.raw/*40.76*/("""userCtrl.user.name"""),format.raw/*40.94*/("""}"""),format.raw/*40.95*/("""}"""),format.raw/*40.96*/("""</a></li>
+                            <li ng-show="userCtrl.user.loggedin"><img ng-src=""""),format.raw/*41.79*/("""{"""),format.raw/*41.80*/("""{"""),format.raw/*41.81*/("""userCtrl.user.avatar"""),format.raw/*41.101*/("""}"""),format.raw/*41.102*/("""}"""),format.raw/*41.103*/("""" height="40px" /></li>
                             <!-- li class="active"><a href="./">Default <span class="sr-only">(current)</span></a></li -->
-                            <li ng-class=""""),format.raw/*59.43*/("""{"""),format.raw/*59.44*/(""" """),format.raw/*59.45*/("""active:menuCtrl.isMenuSet('profile')"""),format.raw/*59.81*/("""}"""),format.raw/*59.82*/(""""><a href="#profile" ng-click="menuCtrl.setMenu('profile')">Profile</a></li>
-                            <li ng-hide="userCtrl.user.loggedin"><a href="#login">Login</a></li>
-                            <li ng-show="userCtrl.user.loggedin"><a href="#logout">Logout</a></li>
+                            <li ng-show="userCtrl.user.loggedin" ng-class=""""),format.raw/*43.76*/("""{"""),format.raw/*43.77*/(""" """),format.raw/*43.78*/("""active:menuCtrl.isMenuSet('profile')"""),format.raw/*43.114*/("""}"""),format.raw/*43.115*/(""""><a href="#profile" ng-click="menuCtrl.setMenu('profile')">Profile</a></li>
+                            <li ng-hide="userCtrl.user.loggedin"><a href ng-click="userCtrl.login()">Login</a></li>
+                            <li ng-show="userCtrl.user.loggedin"><a href ng-click="userCtrl.logout()">Logout</a></li>
                         </ul>
                     </div><!--/.nav-collapse -->
-                </div><!--/.container-fluid -->
+                </div>
             </nav>
 
             <!-- Main component for a primary marketing message or call to action -->
@@ -101,8 +85,38 @@ Seq[Any](format.raw/*1.1*/("""<!DOCTYPE html>
                 </p>
             </div>
 
-            <div class="jumbotron" ng-show="menuCtrl.isMenuSet('ars')" ng-controller="ARController as arCtrl">
-                <h2>Architectural Refactorings</h2>
+            <div ng-show="menuCtrl.isMenuSet('ars')" ng-controller="ARController as arCtrl">
+                <div class="jumbotron">
+                    <h1>Architectural Refactorings</h1>
+                    <p>Descewrfwerfwerf</p>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <table id="searchObjResults" class="table table-striped table-hover">
+                            <tr><th>Name</th><th>Description</th><th>Smells</th></tr>
+                            <tr><td><input ng-model="search.name" placeholder="Enter search criteria" /></td><td><input ng-model="search.desc" placeholder="Enter search criteria" /></td><td><input ng-model="search.smells.name" placeholder="Enter search criteria" /></td></tr>
+                            <tr><th><a href="" ng-click="reverseName=!reverseName;arCtrl.order('name', reverseName)">Name <span ng-show="reverseName">&#x25B2;</span><span ng-show="!reverseName">&#x25BC;</span></a></th><th><a href="" ng-click="reverseDesc=!reverseDesc;arCtrl.order('desc', reverseDesc)">Description <span ng-show="reverseDesc">&#x25B2;</span><span ng-show="!reverseDesc">&#x25BC;</span></a></th><th><a href="" ng-click="reverseSmells=!reverseSmells;arCtrl.order('smells.name', reverseSmells)">Smells <span ng-show="reverseSmells">&#x25B2;</span><span ng-show="!reverseSmells">&#x25BC;</span></a></th></tr>
+                            <tr ng-repeat="ar in arCtrl.arlist | filter:search">
+                                <td>"""),format.raw/*72.37*/("""{"""),format.raw/*72.38*/("""{"""),format.raw/*72.39*/("""ar.name"""),format.raw/*72.46*/("""}"""),format.raw/*72.47*/("""}"""),format.raw/*72.48*/("""</td>
+                                <td>"""),format.raw/*73.37*/("""{"""),format.raw/*73.38*/("""{"""),format.raw/*73.39*/("""ar.desc"""),format.raw/*73.46*/("""}"""),format.raw/*73.47*/("""}"""),format.raw/*73.48*/("""</td>
+                                <td><span ng-repeat="smell in ar.smells">"""),format.raw/*74.74*/("""{"""),format.raw/*74.75*/("""{"""),format.raw/*74.76*/("""smell.name"""),format.raw/*74.86*/("""}"""),format.raw/*74.87*/("""}"""),format.raw/*74.88*/(""", </span></td>
+                            </tr>
+                        </table>
+                        <pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></pagination>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Smell Cloud</div>
+                            <div class="panel-body">
+                                <jqcloud words="arCtrl.words" width="320" height="320" steps="6"></jqcloud>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="jumbotron" ng-show="menuCtrl.isMenuSet('addar')" ng-controller="ARController as arCtrl">
+                <h2>Add Architectural Refactoring</h2>
                 <p>Add an Architectural Refactoring fill out the form:</p>
                 <p>
                     <a class="btn btn-lg btn-primary" ng-class=" active:arCtrl.formvisible" href role="button" ng-click="arCtrl.showForm(!arCtrl.formvisible);arCtrl.setProgValue()">Add AR &raquo;</a>
@@ -110,14 +124,14 @@ Seq[Any](format.raw/*1.1*/("""<!DOCTYPE html>
                 <div name="arFormContainer" ng-show="arCtrl.formvisible">
                     <p>
                         Completeness:
-                        <!-- progressbar class="progress-striped active" value="dynamic" type=""""),format.raw/*85.96*/("""{"""),format.raw/*85.97*/("""{"""),format.raw/*85.98*/("""arCtrl.type"""),format.raw/*85.109*/("""}"""),format.raw/*85.110*/("""}"""),format.raw/*85.111*/("""">"""),format.raw/*85.113*/("""{"""),format.raw/*85.114*/("""{"""),format.raw/*85.115*/("""arCtrl.type"""),format.raw/*85.126*/("""}"""),format.raw/*85.127*/("""}"""),format.raw/*85.128*/(""" """),format.raw/*85.129*/("""<i ng-show="arCtrl.showWarning">!!! Watch out !!!</i></progressbar -->
-                        <progress><bar ng-repeat="bar in arCtrl.progStacked track by $index" value="bar.value" type=""""),format.raw/*86.118*/("""{"""),format.raw/*86.119*/("""{"""),format.raw/*86.120*/("""bar.type"""),format.raw/*86.128*/("""}"""),format.raw/*86.129*/("""}"""),format.raw/*86.130*/(""""><span ng-hide="bar.value < 5">"""),format.raw/*86.162*/("""{"""),format.raw/*86.163*/("""{"""),format.raw/*86.164*/("""bar.value"""),format.raw/*86.173*/("""}"""),format.raw/*86.174*/("""}"""),format.raw/*86.175*/("""%</span></bar></progress>
+                        <!-- progressbar class="progress-striped active" value="dynamic" type=""""),format.raw/*99.96*/("""{"""),format.raw/*99.97*/("""{"""),format.raw/*99.98*/("""arCtrl.type"""),format.raw/*99.109*/("""}"""),format.raw/*99.110*/("""}"""),format.raw/*99.111*/("""">"""),format.raw/*99.113*/("""{"""),format.raw/*99.114*/("""{"""),format.raw/*99.115*/("""arCtrl.type"""),format.raw/*99.126*/("""}"""),format.raw/*99.127*/("""}"""),format.raw/*99.128*/(""" """),format.raw/*99.129*/("""<i ng-show="arCtrl.showWarning">!!! Watch out !!!</i></progressbar -->
+                        <progress><bar ng-repeat="bar in arCtrl.progStacked track by $index" value="bar.value" type=""""),format.raw/*100.118*/("""{"""),format.raw/*100.119*/("""{"""),format.raw/*100.120*/("""bar.type"""),format.raw/*100.128*/("""}"""),format.raw/*100.129*/("""}"""),format.raw/*100.130*/(""""><span ng-hide="bar.value < 5">"""),format.raw/*100.162*/("""{"""),format.raw/*100.163*/("""{"""),format.raw/*100.164*/("""bar.value"""),format.raw/*100.173*/("""}"""),format.raw/*100.174*/("""}"""),format.raw/*100.175*/("""%</span></bar></progress>
                     </p>
                     <form name="arForm" ng-submit="arForm.$valid && arCtrl.addAr()" novalidate>
                         <!-- Live Preview -->
                         <blockquote>
-                            Name: """),format.raw/*91.35*/("""{"""),format.raw/*91.36*/("""{"""),format.raw/*91.37*/("""arCtrl.ar.name"""),format.raw/*91.51*/("""}"""),format.raw/*91.52*/("""}"""),format.raw/*91.53*/("""
-                        """),format.raw/*92.25*/("""</blockquote>
+                            Name: """),format.raw/*105.35*/("""{"""),format.raw/*105.36*/("""{"""),format.raw/*105.37*/("""arCtrl.ar.name"""),format.raw/*105.51*/("""}"""),format.raw/*105.52*/("""}"""),format.raw/*105.53*/("""
+                        """),format.raw/*106.25*/("""</blockquote>
                         <!--  Review Form -->
                         <h4>Submit an AR</h4>
                         <!-- fieldset class="form-group">
@@ -126,98 +140,92 @@ Seq[Any](format.raw/*1.1*/("""<!DOCTYPE html>
 </select>
 </fieldset -->
                         <p>
-                            Form valid: """),format.raw/*101.41*/("""{"""),format.raw/*101.42*/("""{"""),format.raw/*101.43*/("""arForm.$valid"""),format.raw/*101.56*/("""}"""),format.raw/*101.57*/("""}"""),format.raw/*101.58*/("""
-                        """),format.raw/*102.25*/("""</p>
+                            Form valid: """),format.raw/*115.41*/("""{"""),format.raw/*115.42*/("""{"""),format.raw/*115.43*/("""arForm.$valid"""),format.raw/*115.56*/("""}"""),format.raw/*115.57*/("""}"""),format.raw/*115.58*/("""
+                        """),format.raw/*116.25*/("""</p>
                         <fieldset class="form-group">
                             <label for="name">Name</label>
                             <input class="form-control" placeholder="Write a short review of the product..." title="name" id="name" ng-model="arCtrl.ar.name" required></input>
                         </fieldset>
-                        <fieldset class="form-group">
-                            <label for="context">Context</label>
-                            <textarea class="form-control" placeholder="Write a short review of the product..." title="context" id="context" ng-model="arCtrl.ar.context" required></textarea>
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <label for="quality_attr">Quality Attributes</label>
-                            <textarea class="form-control" placeholder="Write a short review of the product..." title="quality_attr" id="quality_attr" ng-model="arCtrl.ar.quality_attr" required></textarea>
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <label for="smell">Smells</label>
-                            <textarea class="form-control" placeholder="Write a short review of the product..." title="smell" id="smell" ng-model="arCtrl.ar.smell" required></textarea>
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <label for="arc_decisions">Architectural decisions to be reviewed</label>
-                            <textarea class="form-control" placeholder="Write a short review of the product..." title="arc_decisions" id="arc_decisions" ng-model="arCtrl.ar.arc_decisions" required></textarea>
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <label for="refactoring">Refactorings</label>
-                            <textarea class="form-control" placeholder="Write a short review of the product..." title="refactoring" id="refactoring" ng-model="arCtrl.ar.refactoring" required></textarea>
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <label for="affected_comp">Affected Components</label>
-                            <textarea class="form-control" placeholder="Write a short review of the product..." title="affected_comp" id="affected_comp" ng-model="arCtrl.ar.affected_comp" required></textarea>
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <label for="exec_tasks">Execution Tasks</label>
-                            <textarea class="form-control" placeholder="Write a short review of the product..." title="exec_tasks" id="exec_tasks" ng-model="arCtrl.ar.exec_tasks" required></textarea>
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <label for="referenced_ars">Referenced ARs</label>
-                            <textarea class="form-control" placeholder="Write a short review of the product..." title="referenced_ars" id="referenced_ars" ng-model="arCtrl.ar.referenced_ars" required></textarea>
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <label for="links">Links</label>
-                            <textarea class="form-control" placeholder="Write a short review of the product..." title="links" id="links" ng-model="arCtrl.ar.links" required></textarea>
-                        </fieldset>
-                        <!-- fieldset class="form-group">
+                    <fieldset class="form-group">
+                        <label for="context">Context</label>
+                        <textarea class="form-control" placeholder="Write a short review of the product..." title="context" id="context" ng-model="arCtrl.ar.context" required></textarea>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="quality_attr">Quality Attributes</label>
+                        <textarea class="form-control" placeholder="Write a short review of the product..." title="quality_attr" id="quality_attr" ng-model="arCtrl.ar.quality_attr" required></textarea>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="smell">Smells</label>
+                        <textarea class="form-control" placeholder="Write a short review of the product..." title="smell" id="smell" ng-model="arCtrl.ar.smell" required></textarea>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="arc_decisions">Architectural decisions to be reviewed</label>
+                        <textarea class="form-control" placeholder="Write a short review of the product..." title="arc_decisions" id="arc_decisions" ng-model="arCtrl.ar.arc_decisions" required></textarea>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="refactoring">Refactorings</label>
+                        <textarea class="form-control" placeholder="Write a short review of the product..." title="refactoring" id="refactoring" ng-model="arCtrl.ar.refactoring" required></textarea>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="affected_comp">Affected Components</label>
+                        <textarea class="form-control" placeholder="Write a short review of the product..." title="affected_comp" id="affected_comp" ng-model="arCtrl.ar.affected_comp" required></textarea>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="exec_tasks">Execution Tasks</label>
+                        <textarea class="form-control" placeholder="Write a short review of the product..." title="exec_tasks" id="exec_tasks" ng-model="arCtrl.ar.exec_tasks" required></textarea>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="referenced_ars">Referenced ARs</label>
+                        <textarea class="form-control" placeholder="Write a short review of the product..." title="referenced_ars" id="referenced_ars" ng-model="arCtrl.ar.referenced_ars" required></textarea>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="links">Links</label>
+                        <textarea class="form-control" placeholder="Write a short review of the product..." title="links" id="links" ng-model="arCtrl.ar.links" required></textarea>
+                    </fieldset>
+                    <!-- fieldset class="form-group">
 <input type="email" class="form-control" placeholder="jimmyDean&#64;example.org" title="Email" />
 </fieldset -->
-                        <fieldset class="form-group">
-                            <input type="submit" class="btn btn-primary pull-right" value="Submit AR" />
-                        </fieldset>
+                    <fieldset class="form-group">
+                        <input type="submit" class="btn btn-primary pull-right" value="Submit AR" />
+                    </fieldset>
                     </form>
-                    <ul ng-repeat="ar in arCtrl.arlist">
-                        <li>
-                            <blockquote>
-                                """),format.raw/*153.33*/("""{"""),format.raw/*153.34*/("""{"""),format.raw/*153.35*/("""ar.name"""),format.raw/*153.42*/("""}"""),format.raw/*153.43*/("""}"""),format.raw/*153.44*/("""
-                                """),format.raw/*154.33*/("""{"""),format.raw/*154.34*/("""{"""),format.raw/*154.35*/("""ar.createdOn | date"""),format.raw/*154.54*/("""}"""),format.raw/*154.55*/("""}"""),format.raw/*154.56*/("""
-                            """),format.raw/*155.29*/("""</blockquote>
-                        </li>
-                    </ul>
-                </div>
             </div>
+        </div>
 
-            <div class="jumbotron" ng-show="menuCtrl.isMenuSet('about')">
-                <h1>About</h1>
-                <p>About about About</p>
-                <p>
-                    <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
-                </p>
-            </div>
+        <div class="jumbotron" ng-show="menuCtrl.isMenuSet('about')">
+            <h1>About</h1>
+            <p>About about About</p>
+            <p>
+                <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
+            </p>
+        </div>
 
 
-            <div class="jumbotron" ng-show="menuCtrl.isMenuSet('contact')">
-                <h1>Contact</h1>
-                <p>Contact contact Contact</p>
-                <p>
-                    <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
-                </p>
-            </div>
+        <div class="jumbotron" ng-show="menuCtrl.isMenuSet('contact')">
+            <h1>Contact</h1>
+            <p>Contact contact Contact</p>
+            <p>
+                <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
+            </p>
+        </div>
 
-            <div class="jumbotron" ng-show="menuCtrl.isMenuSet('profile')">
-                <h1>Profile</h1>
-                <p>Profile profile profile</p>
-                <p>
-                    <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
-                </p>
-            </div>
+        <div class="jumbotron" ng-show="menuCtrl.isMenuSet('profile')">
+            <h1>Profile</h1>
+            <p>Profile profile profile</p>
+            <p>
+                <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
+            </p>
+        </div>
 
         </div> <!-- /container -->
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script type="text/javascript" src=""""),_display_(/*189.46*/routes/*189.52*/.Assets.at("javascripts/libs/angular.min.js")),format.raw/*189.97*/(""""></script>
-        <script type="text/javascript" src=""""),_display_(/*190.46*/routes/*190.52*/.Assets.at("javascripts/app.js")),format.raw/*190.84*/(""""></script>
-        <script type="text/javascript" src=""""),_display_(/*191.46*/routes/*191.52*/.Assets.at("javascripts/libs/bootstrap.min.js")),format.raw/*191.99*/(""""></script>
-        <script type="text/javascript" src=""""),_display_(/*192.46*/routes/*192.52*/.Assets.at("javascripts/libs/ui-bootstrap-tpls-0.12.0.min.js")),format.raw/*192.114*/(""""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src=""""),_display_(/*195.42*/routes/*195.48*/.Assets.at("javascripts/libs/angular.min.js")),format.raw/*195.93*/(""""></script>
+    <script type="text/javascript" src=""""),_display_(/*196.42*/routes/*196.48*/.Assets.at("javascripts/app.js")),format.raw/*196.80*/(""""></script>
+    <script type="text/javascript" src=""""),_display_(/*197.42*/routes/*197.48*/.Assets.at("javascripts/libs/bootstrap.min.js")),format.raw/*197.95*/(""""></script>
+    <script type="text/javascript" src=""""),_display_(/*198.42*/routes/*198.48*/.Assets.at("javascripts/libs/jqcloud.min.js")),format.raw/*198.93*/(""""></script>
+    <script type="text/javascript" src=""""),_display_(/*199.42*/routes/*199.48*/.Assets.at("javascripts/libs/angular-jqcloud.js")),format.raw/*199.97*/(""""></script>
+    <script type="text/javascript" src=""""),_display_(/*200.42*/routes/*200.48*/.Assets.at("javascripts/libs/ui-bootstrap-tpls-0.12.0.min.js")),format.raw/*200.110*/(""""></script>
     </body>
 </html>"""))}
   }
@@ -231,11 +239,11 @@ Seq[Any](format.raw/*1.1*/("""<!DOCTYPE html>
 }
               /*
                   -- GENERATED --
-                  DATE: Thu Mar 05 17:30:56 CET 2015
+                  DATE: Fri Mar 20 00:46:56 CET 2015
                   SOURCE: /Users/cbi/Documents/git-repos/ART/app/views/index.scala.html
-                  HASH: d6034076c4af2fcfe7bb824875946342d6728dae
-                  MATRIX: 798->0|1168->344|1182->350|1234->382|1339->460|1354->466|1418->509|1486->550|1501->556|1556->590|2933->1939|2962->1940|2991->1941|3052->1974|3081->1975|3211->2077|3240->2078|3269->2079|3329->2111|3358->2112|3486->2212|3515->2213|3544->2214|3606->2248|3635->2249|3767->2353|3796->2354|3825->2355|3889->2391|3918->2392|5071->3517|5100->3518|5129->3519|5175->3537|5204->3538|5233->3539|5312->3590|5341->3591|5370->3592|5418->3612|5447->3613|5476->3614|5693->3803|5722->3804|5751->3805|5815->3841|5844->3842|7440->5410|7469->5411|7498->5412|7538->5423|7568->5424|7598->5425|7629->5427|7659->5428|7689->5429|7729->5440|7759->5441|7789->5442|7819->5443|8036->5631|8066->5632|8096->5633|8133->5641|8163->5642|8193->5643|8254->5675|8284->5676|8314->5677|8352->5686|8382->5687|8412->5688|8704->5952|8733->5953|8762->5954|8804->5968|8833->5969|8862->5970|8915->5995|9333->6384|9363->6385|9393->6386|9435->6399|9465->6400|9495->6401|9549->6426|13754->10602|13784->10603|13814->10604|13850->10611|13880->10612|13910->10613|13972->10646|14002->10647|14032->10648|14080->10667|14110->10668|14140->10669|14198->10698|15547->12019|15563->12025|15630->12070|15715->12127|15731->12133|15785->12165|15870->12222|15886->12228|15955->12275|16040->12332|16056->12338|16141->12400
-                  LINES: 29->1|37->9|37->9|37->9|39->11|39->11|39->11|40->12|40->12|40->12|66->38|66->38|66->38|66->38|66->38|67->39|67->39|67->39|67->39|67->39|68->40|68->40|68->40|68->40|68->40|69->41|69->41|69->41|69->41|69->41|84->56|84->56|84->56|84->56|84->56|84->56|85->57|85->57|85->57|85->57|85->57|85->57|87->59|87->59|87->59|87->59|87->59|113->85|113->85|113->85|113->85|113->85|113->85|113->85|113->85|113->85|113->85|113->85|113->85|113->85|114->86|114->86|114->86|114->86|114->86|114->86|114->86|114->86|114->86|114->86|114->86|114->86|119->91|119->91|119->91|119->91|119->91|119->91|120->92|129->101|129->101|129->101|129->101|129->101|129->101|130->102|181->153|181->153|181->153|181->153|181->153|181->153|182->154|182->154|182->154|182->154|182->154|182->154|183->155|217->189|217->189|217->189|218->190|218->190|218->190|219->191|219->191|219->191|220->192|220->192|220->192
+                  HASH: b76ee2955976585713949717e89070991e5c12d3
+                  MATRIX: 798->0|1168->344|1182->350|1234->382|1339->460|1354->466|1418->509|1486->550|1501->556|1556->590|1624->631|1639->637|1701->678|2550->1498|2580->1499|2610->1500|2718->1579|2748->1580|2929->1732|2959->1733|2989->1734|3035->1751|3065->1752|3095->1753|3125->1754|3332->1933|3361->1934|3390->1935|3461->1978|3490->1979|3620->2080|3650->2081|3680->2082|3729->2102|3759->2103|3789->2104|4001->2287|4031->2288|4061->2289|4104->2303|4134->2304|4164->2305|4303->2415|4333->2416|4363->2417|4409->2434|4439->2435|4469->2436|4747->2686|4776->2687|4805->2688|4851->2706|4880->2707|4909->2708|5025->2796|5054->2797|5083->2798|5132->2818|5162->2819|5192->2820|5442->3042|5471->3043|5500->3044|5565->3080|5595->3081|8022->5480|8051->5481|8080->5482|8115->5489|8144->5490|8173->5491|8243->5533|8272->5534|8301->5535|8336->5542|8365->5543|8394->5544|8501->5623|8530->5624|8559->5625|8597->5635|8626->5636|8655->5637|10181->7135|10210->7136|10239->7137|10279->7148|10309->7149|10339->7150|10370->7152|10400->7153|10430->7154|10470->7165|10500->7166|10530->7167|10560->7168|10778->7356|10809->7357|10840->7358|10878->7366|10909->7367|10940->7368|11002->7400|11033->7401|11064->7402|11103->7411|11134->7412|11165->7413|11458->7677|11488->7678|11518->7679|11561->7693|11591->7694|11621->7695|11675->7720|12093->8109|12123->8110|12153->8111|12195->8124|12225->8125|12255->8126|12309->8151|17345->13159|17361->13165|17428->13210|17509->13263|17525->13269|17579->13301|17660->13354|17676->13360|17745->13407|17826->13460|17842->13466|17909->13511|17990->13564|18006->13570|18077->13619|18158->13672|18174->13678|18259->13740
+                  LINES: 29->1|37->9|37->9|37->9|39->11|39->11|39->11|40->12|40->12|40->12|41->13|41->13|41->13|58->30|58->30|58->30|58->30|58->30|59->31|59->31|59->31|59->31|59->31|59->31|59->31|61->33|61->33|61->33|61->33|61->33|61->33|61->33|61->33|61->33|61->33|61->33|63->35|63->35|63->35|63->35|63->35|63->35|64->36|64->36|64->36|64->36|64->36|64->36|68->40|68->40|68->40|68->40|68->40|68->40|69->41|69->41|69->41|69->41|69->41|69->41|71->43|71->43|71->43|71->43|71->43|100->72|100->72|100->72|100->72|100->72|100->72|101->73|101->73|101->73|101->73|101->73|101->73|102->74|102->74|102->74|102->74|102->74|102->74|127->99|127->99|127->99|127->99|127->99|127->99|127->99|127->99|127->99|127->99|127->99|127->99|127->99|128->100|128->100|128->100|128->100|128->100|128->100|128->100|128->100|128->100|128->100|128->100|128->100|133->105|133->105|133->105|133->105|133->105|133->105|134->106|143->115|143->115|143->115|143->115|143->115|143->115|144->116|223->195|223->195|223->195|224->196|224->196|224->196|225->197|225->197|225->197|226->198|226->198|226->198|227->199|227->199|227->199|228->200|228->200|228->200
                   -- GENERATED --
               */
           
