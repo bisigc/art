@@ -19,8 +19,7 @@
     var words = [
         {text: "Smell1", weight: 13, handlers: {
             click: function() {
-                //ARController.setSmellFilter('Smell1');
-                artCtrl.search.smells.name = 'Smell1';
+                document.getElementById('smellname').value = 'Smell1';
             }
         }},
         {text: "Smell4", weight: 10.5},

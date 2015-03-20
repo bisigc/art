@@ -27,10 +27,6 @@ body {
     height: 2em;
 }
 
-.homeitem {
-    margin: 0;
-}
-
 .menuItem {
     border-right: 1px solid lightgray;
 }
