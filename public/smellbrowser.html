@@ -1,0 +1,78 @@
+<div ng-controller="SmellController as smellCtrl">
+    <div class="jumbotron">
+        <h2>Smell Browser</h2>
+        <p>Add an Architectural Refactoring fill out the form:</p>
+        <p>
+            <a class="btn btn-lg btn-primary" ng-class="{ active:smellCtrl.formvisible}" href role="button" ng-click="smellCtrl.showForm(!smellCtrl.formvisible)">Add Smell &raquo;</a>
+        </p>
+        <div ng-show="smellCtrl.formvisible">
+            <form name="smellForm" ng-submit="smellForm.$valid && smellCtrl.saveSmell()" novalidate>
+                <h4>Add new Smell</h4>
+                <p>
+                    Form valid: {{smellForm.$valid}}
+                </p>
+                <fieldset class="form-group">
+                    <label for="name">Name</label>
+                    <input class="form-control" placeholder="Write a short review of the product..." title="name" id="name" ng-model="smellCtrl.smell.name" required></input>
+                </fieldset>
+            <fieldset class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" placeholder="Write a short review of the product..." title="description" id="description" ng-model="smellCtrl.smell.description" required></textarea>
+            </fieldset>
+            <fieldset class="form-group">
+                <label for="keywords">Keywords</label>
+                <input class="form-control" placeholder="Write a short review of the product..." title="keywords" id="keywords" ng-model="smellCtrl.smell.keywords" required></input>
+            </fieldset>
+            <fieldset class="form-group">
+                <label for="group">Group</label>
+                <!-- select ui-select2 class="form-control" ng-model="" ng-options="group.id as group.name for group in smellCtrl.groups" title="group" id="group" required></select -->
+                <ui-select ng-model="smellCtrl.smell.group" theme="selectize" ng-disabled="disabled" required>
+                    <ui-select-match placeholder="Select or search a group in the list...">{{$select.selected.name}}</ui-select-match>
+                    <ui-select-choices repeat="group in smellCtrl.groups | filter: $select.search">
+                        <span ng-bind-html="group.name | highlight: $select.search"></span>
+                        <!-- small ng-bind-html="country.code | highlight: $select.search"></small -->
+                    </ui-select-choices>
+                </ui-select>
+            </fieldset>
+            <fieldset class="form-group">
+                <label for="tecdebtidx">Technical Debt Index</label><br />
+                 <label ng-repeat="n in [0,1,2]" class="btn btn-default">
+                 <input type="radio" name="tecdebtidx" ng-model="smellCtrl.smell.tecdebtidx" ng-value="n" required/>
+                 </label>
+                <br />
+                 <label ng-repeat="n in [3,4,5]" class="btn btn-default">
+                 <input type="radio" name="tecdebtidx" ng-model="smellCtrl.smell.tecdebtidx" ng-value="n" required/>
+                 </label>
+                <br />
+                 <label ng-repeat="n in [6,7,8]" class="btn btn-default">
+                 <input type="radio" name="tecdebtidx" ng-model="smellCtrl.smell.tecdebtidx" ng-value="n" required/>
+                 </label>
+                
+                <!-- select class="form-control" ng-model="smellCtrl.smell.tecdebtidx" ng-options="group.id as group.name for group in smellCtrl.groups" title="tecdebtidx" id="tecdebtidx" required></select -->
+            </fieldset>
+            <fieldset class="form-group">
+                <input type="submit" class="btn btn-primary pull-right" value="Save Smell" />
+            </fieldset>
+            </form>
+    </div>
+</div>
+<div>
+    <div> {{smellCtrl.smellcallstatus}}</div>
+    <table id="searchObjResults" class="table table-striped table-hover">
+        <tr><th>Name</th><th>Description</th><th>Smells</th></tr>
+        <tr><td><input ng-model="search.name" placeholder="Enter search criteria" /></td><td><input ng-model="search.description" placeholder="Enter search criteria" /></td><td><input ng-model="search.smell.name" id="smellname" placeholder="Enter search criteria" /></td></tr>
+        <tr><th><a href="" ng-click="reverseName=!reverseName;order('name', reverseName)">Name <span ng-show="reverseName">&#x25B2;</span><span ng-show="!reverseName">&#x25BC;</span></a></th><th><a href="" ng-click="reverseDesc=!reverseDesc;order('desc', reverseDesc)">Description <span ng-show="reverseDesc">&#x25B2;</span><span ng-show="!reverseDesc">&#x25BC;</span></a></th><th><a href="" ng-click="reverseSmells=!reverseSmells;order('smells.name', reverseSmells)">Smells <span ng-show="reverseSmells">&#x25B2;</span><span ng-show="!reverseSmells">&#x25BC;</span></a></th></tr>
+        <tr ng-show="smellCtrl.formvisible">
+            <td>{{smellCtrl.smell.name}}&nbsp;</td>
+            <td>{{smellCtrl.smell.description}}</td>
+            <td>{{smellCtrl.smell.weight}}</td>
+        </tr>
+        <tr ng-repeat="smell in smelllist | filter:search">
+            <td>{{smell.name}}</td>
+            <td>{{smell.description}}</td>
+            <td>{{smell.weight}}</td>
+        </tr>
+    </table>
+    <pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></pagination>
+</div>
+</div>

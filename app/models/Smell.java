@@ -22,7 +22,7 @@ public class Smell extends Model {
 	private Double weight;
 	@ManyToOne
 	private Artprop group;
-	private Double tecdebtidx;
+	private Double tecdebtidx; // probability times (x) impact
 	private Timestamp modified;
 	private Timestamp created;
 

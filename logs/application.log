@@ -1,16 +1,16 @@
-2015-03-25 11:25:26,918 - [INFO] - from play in pool-5-thread-4 
+2015-03-25 22:08:54,875 - [INFO] - from play in pool-5-thread-2 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9085
 
-2015-03-25 11:25:30,981 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
+2015-03-25 22:08:59,265 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
 JDBC URL = jdbc:h2:mem:play;MODE=MYSQL;DB_CLOSE_DELAY=-1, Username = art_user, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
 
-2015-03-25 11:25:31,197 - [INFO] - from play in play-internal-execution-context-1 
+2015-03-25 22:08:59,558 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:h2:mem:play
 
-2015-03-25 11:25:31,792 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-03-25 22:09:00,300 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
 
-2015-03-25 11:25:31,793 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-03-25 22:09:00,302 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 
               create table play_evolutions (
                   id int not null primary key, hash varchar(255) not null,
@@ -22,15 +22,15 @@ select id, hash, apply_script, revert_script, state, last_problem from play_evol
               )
           
 
-2015-03-25 11:25:31,794 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-03-25 22:09:00,303 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 
             select id, hash, apply_script, revert_script from play_evolutions order by id
         
 
-2015-03-25 11:25:31,801 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-03-25 22:09:00,312 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
 
-2015-03-25 11:25:31,806 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-1 
+2015-03-25 22:09:00,320 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-1 
 insert into play_evolutions values(1, '698b9612e737a1d1cbda28aadcf6584fb406e1a6', 2015-03-25, 'create table artprop (
 id                        bigint auto_increment not null,
 categorie                 varchar(255),
@@ -74,14 +74,14 @@ SET REFERENTIAL_INTEGRITY TRUE;
 
 drop sequence if exists eeppidata_seq;', 'applying_up', '')
 
-2015-03-25 11:25:31,812 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-03-25 22:09:00,326 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 create table artprop (
 id                        bigint auto_increment not null,
 categorie                 varchar(255),
 name                      varchar(255),
 constraint pk_artprop primary key (id))
 
-2015-03-25 11:25:31,817 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-03-25 22:09:00,331 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 create table eeppidata (
 id                        bigint not null,
 from_service              varchar(255),
@@ -89,7 +89,7 @@ json_data                 varchar(255),
 created                   timestamp,
 constraint pk_eeppidata primary key (id))
 
-2015-03-25 11:25:31,818 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-03-25 22:09:00,332 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 create table smell (
 id                        bigint auto_increment not null,
 name                      varchar(255),
@@ -102,19 +102,19 @@ modified                  timestamp,
 created                   timestamp,
 constraint pk_smell primary key (id))
 
-2015-03-25 11:25:31,819 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-03-25 22:09:00,335 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 create sequence eeppidata_seq
 
-2015-03-25 11:25:31,819 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-03-25 22:09:00,336 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 alter table smell add constraint fk_smell_group_1 foreign key (group_id) references artprop (id) on delete restrict on update restrict
 
-2015-03-25 11:25:31,826 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-03-25 22:09:00,349 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 create index ix_smell_group_1 on smell (group_id)
 
-2015-03-25 11:25:31,827 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-03-25 22:09:00,350 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 update play_evolutions set state = 'applied' where id = 1
 
-2015-03-25 11:25:31,830 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-1 
+2015-03-25 22:09:00,353 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-1 
 insert into play_evolutions values(2, 'f7eecb2c0511e47be0b508a8fc1639e55cd75353', 2015-03-25, 'INSERT INTO artprop(name,categorie) VALUES ('Prop1','Cat1');
 INSERT INTO artprop(name,categorie) VALUES ('Prop2','Cat1');
 INSERT INTO artprop(name,categorie) VALUES ('Prop3','Cat2');
@@ -140,70 +140,863 @@ VALUES ('Smell6','This is Smell6','keyword5,keyword6,keyword7',0.1,2,5.5,Current
 INSERT INTO smell(name,description,keywords,weight,group_id,tecdebtidx,modified,created)
 VALUES ('Smell7','This is Smell7','keyword5,keyword6,keyword7',0.1,2,5.5,Current_timestamp,Current_timestamp);', '', 'applying_up', '')
 
-2015-03-25 11:25:31,830 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-03-25 22:09:00,354 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 INSERT INTO artprop(name,categorie) VALUES ('Prop1','Cat1')
 
-2015-03-25 11:25:31,831 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-03-25 22:09:00,355 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 INSERT INTO artprop(name,categorie) VALUES ('Prop2','Cat1')
 
-2015-03-25 11:25:31,832 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-03-25 22:09:00,356 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 INSERT INTO artprop(name,categorie) VALUES ('Prop3','Cat2')
 
-2015-03-25 11:25:31,832 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-03-25 22:09:00,356 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 INSERT INTO smell(name,description,keywords,weight,group_id,tecdebtidx,modified,created)
 VALUES ('Smell1','This is Smell1','keyword1,keyword2,keyword3',0.5,1,12.5,Current_timestamp,Current_timestamp)
 
-2015-03-25 11:25:31,834 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-03-25 22:09:00,357 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 INSERT INTO smell(name,description,keywords,weight,group_id,tecdebtidx,modified,created)
 VALUES ('Smell2','This is Smell2','keyword2,keyword4,keyword5',0.25,2,10.5,Current_timestamp,Current_timestamp)
 
-2015-03-25 11:25:31,834 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-03-25 22:09:00,358 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 INSERT INTO smell(name,description,keywords,weight,group_id,tecdebtidx,modified,created)
 VALUES ('Smell3','This is Smell3','keyword1,keyword2,keyword3',0.5,1,4.5,Current_timestamp,Current_timestamp)
 
-2015-03-25 11:25:31,835 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-03-25 22:09:00,358 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 INSERT INTO smell(name,description,keywords,weight,group_id,tecdebtidx,modified,created)
 VALUES ('Smell4','This is Smell4','keyword5,keyword6,keyword7',0.1,2,5.5,Current_timestamp,Current_timestamp)
 
-2015-03-25 11:25:31,835 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-03-25 22:09:00,359 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 INSERT INTO smell(name,description,keywords,weight,group_id,tecdebtidx,modified,created)
 VALUES ('Smell5','This is Smell5','keyword5,keyword6,keyword7',0.1,2,5.5,Current_timestamp,Current_timestamp)
 
-2015-03-25 11:25:31,836 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-03-25 22:09:00,360 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 INSERT INTO smell(name,description,keywords,weight,group_id,tecdebtidx,modified,created)
 VALUES ('Smell6','This is Smell6','keyword5,keyword6,keyword7',0.1,2,5.5,Current_timestamp,Current_timestamp)
 
-2015-03-25 11:25:31,837 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-03-25 22:09:00,360 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 INSERT INTO smell(name,description,keywords,weight,group_id,tecdebtidx,modified,created)
 VALUES ('Smell7','This is Smell7','keyword5,keyword6,keyword7',0.1,2,5.5,Current_timestamp,Current_timestamp)
 
-2015-03-25 11:25:31,838 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-03-25 22:09:00,361 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 update play_evolutions set state = 'applied' where id = 2
 
-2015-03-25 11:25:31,839 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-03-25 22:09:00,361 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
 
-2015-03-25 11:25:31,950 - [INFO] - from play in play-internal-execution-context-1 
+2015-03-25 22:09:00,536 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2015-03-25 11:25:33,859 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-9 
+2015-03-25 22:09:01,762 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-7 
 select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
 
-2015-03-25 11:25:33,958 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-7 
+2015-03-25 22:09:01,885 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-2 
 select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
 
-2015-03-25 11:29:58,592 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-5 
+2015-03-25 22:09:05,807 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-8 
 select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
 
-2015-03-25 11:30:53,343 - [INFO] - from com.jolbox.bonecp.BoneCP in pool-5-thread-4 
+2015-03-25 22:11:02,866 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
 Shutting down connection pool...
 
-2015-03-25 11:30:53,344 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+2015-03-25 22:11:02,872 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
 Terminating pool watch thread
 
-2015-03-25 11:30:53,345 - [INFO] - from com.jolbox.bonecp.BoneCP in pool-5-thread-4 
+2015-03-25 22:11:02,877 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
 Connection pool has been shutdown.
 
-2015-03-25 11:30:53,346 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in pool-5-thread-4 
+2015-03-25 22:11:02,877 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
+Connection pool has been shut down
+
+2015-03-25 22:11:03,002 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
+JDBC URL = jdbc:h2:mem:play;MODE=MYSQL;DB_CLOSE_DELAY=-1, Username = art_user, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2015-03-25 22:11:03,008 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:mem:play
+
+2015-03-25 22:11:03,105 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+
+2015-03-25 22:11:03,106 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+
+            select id, hash, apply_script, revert_script from play_evolutions order by id
+        
+
+2015-03-25 22:11:03,115 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-03-25 22:11:03,127 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-10 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 22:11:03,557 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-10 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 22:11:03,685 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-4 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 22:14:13,502 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-19 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 22:14:13,723 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-19 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 22:14:56,644 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
+Shutting down connection pool...
+
+2015-03-25 22:14:56,645 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2015-03-25 22:14:56,646 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
+Connection pool has been shutdown.
+
+2015-03-25 22:14:56,646 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
+Connection pool has been shut down
+
+2015-03-25 22:14:56,701 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
+JDBC URL = jdbc:h2:mem:play;MODE=MYSQL;DB_CLOSE_DELAY=-1, Username = art_user, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2015-03-25 22:14:56,708 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:mem:play
+
+2015-03-25 22:14:56,805 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+
+2015-03-25 22:14:56,808 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+
+            select id, hash, apply_script, revert_script from play_evolutions order by id
+        
+
+2015-03-25 22:14:56,816 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-03-25 22:14:56,941 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-29 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 22:14:57,051 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-28 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 22:15:11,460 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-3 
+Shutting down connection pool...
+
+2015-03-25 22:15:11,461 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2015-03-25 22:15:11,463 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-3 
+Connection pool has been shutdown.
+
+2015-03-25 22:15:11,463 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-3 
+Connection pool has been shut down
+
+2015-03-25 22:15:11,518 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-3 
+JDBC URL = jdbc:h2:mem:play;MODE=MYSQL;DB_CLOSE_DELAY=-1, Username = art_user, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2015-03-25 22:15:11,522 - [INFO] - from play in play-internal-execution-context-3 
+database [default] connected at jdbc:h2:mem:play
+
+2015-03-25 22:15:11,600 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-3 
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+
+2015-03-25 22:15:11,601 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-3 
+
+            select id, hash, apply_script, revert_script from play_evolutions order by id
+        
+
+2015-03-25 22:15:11,607 - [INFO] - from play in play-internal-execution-context-3 
+Application started (Dev)
+
+2015-03-25 22:15:12,101 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-25 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 22:15:24,900 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-31 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 22:15:26,327 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-23 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 22:15:34,629 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-33 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 22:15:47,800 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-3 
+Shutting down connection pool...
+
+2015-03-25 22:15:47,801 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2015-03-25 22:15:47,801 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-3 
+Connection pool has been shutdown.
+
+2015-03-25 22:15:47,801 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-3 
+Connection pool has been shut down
+
+2015-03-25 22:15:47,834 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-3 
+JDBC URL = jdbc:h2:mem:play;MODE=MYSQL;DB_CLOSE_DELAY=-1, Username = art_user, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2015-03-25 22:15:47,839 - [INFO] - from play in play-internal-execution-context-3 
+database [default] connected at jdbc:h2:mem:play
+
+2015-03-25 22:15:47,908 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-3 
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+
+2015-03-25 22:15:47,909 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-3 
+
+            select id, hash, apply_script, revert_script from play_evolutions order by id
+        
+
+2015-03-25 22:15:47,915 - [INFO] - from play in play-internal-execution-context-3 
+Application started (Dev)
+
+2015-03-25 22:15:48,284 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-34 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 22:15:51,027 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-34 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 22:16:07,887 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-5 
+Shutting down connection pool...
+
+2015-03-25 22:16:07,887 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2015-03-25 22:16:07,888 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-5 
+Connection pool has been shutdown.
+
+2015-03-25 22:16:07,889 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-5 
+Connection pool has been shut down
+
+2015-03-25 22:16:07,921 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-5 
+JDBC URL = jdbc:h2:mem:play;MODE=MYSQL;DB_CLOSE_DELAY=-1, Username = art_user, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2015-03-25 22:16:07,924 - [INFO] - from play in play-internal-execution-context-5 
+database [default] connected at jdbc:h2:mem:play
+
+2015-03-25 22:16:08,004 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-5 
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+
+2015-03-25 22:16:08,006 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-5 
+
+            select id, hash, apply_script, revert_script from play_evolutions order by id
+        
+
+2015-03-25 22:16:08,012 - [INFO] - from play in play-internal-execution-context-5 
+Application started (Dev)
+
+2015-03-25 22:16:08,361 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-41 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 22:16:22,422 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-6 
+Shutting down connection pool...
+
+2015-03-25 22:16:22,423 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2015-03-25 22:16:22,424 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-6 
+Connection pool has been shutdown.
+
+2015-03-25 22:16:22,424 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-6 
+Connection pool has been shut down
+
+2015-03-25 22:16:22,485 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-6 
+JDBC URL = jdbc:h2:mem:play;MODE=MYSQL;DB_CLOSE_DELAY=-1, Username = art_user, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2015-03-25 22:16:22,489 - [INFO] - from play in play-internal-execution-context-6 
+database [default] connected at jdbc:h2:mem:play
+
+2015-03-25 22:16:22,551 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-6 
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+
+2015-03-25 22:16:22,551 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-6 
+
+            select id, hash, apply_script, revert_script from play_evolutions order by id
+        
+
+2015-03-25 22:16:22,558 - [INFO] - from play in play-internal-execution-context-6 
+Application started (Dev)
+
+2015-03-25 22:16:23,019 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-43 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 22:17:04,265 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-47 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 22:17:51,144 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-6 
+Shutting down connection pool...
+
+2015-03-25 22:17:51,144 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2015-03-25 22:17:51,144 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-6 
+Connection pool has been shutdown.
+
+2015-03-25 22:17:51,145 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-6 
+Connection pool has been shut down
+
+2015-03-25 22:17:51,176 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-6 
+JDBC URL = jdbc:h2:mem:play;MODE=MYSQL;DB_CLOSE_DELAY=-1, Username = art_user, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2015-03-25 22:17:51,179 - [INFO] - from play in play-internal-execution-context-6 
+database [default] connected at jdbc:h2:mem:play
+
+2015-03-25 22:17:51,249 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-6 
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+
+2015-03-25 22:17:51,249 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-6 
+
+            select id, hash, apply_script, revert_script from play_evolutions order by id
+        
+
+2015-03-25 22:17:51,255 - [INFO] - from play in play-internal-execution-context-6 
+Application started (Dev)
+
+2015-03-25 22:17:51,662 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-54 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 22:17:51,869 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-53 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 22:18:02,205 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-53 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 22:18:14,205 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-53 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 22:18:24,827 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-46 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 22:18:30,278 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-46 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 22:21:59,299 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-9 
+Shutting down connection pool...
+
+2015-03-25 22:21:59,300 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2015-03-25 22:21:59,300 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-9 
+Connection pool has been shutdown.
+
+2015-03-25 22:21:59,300 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-9 
+Connection pool has been shut down
+
+2015-03-25 22:21:59,329 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-9 
+JDBC URL = jdbc:h2:mem:play;MODE=MYSQL;DB_CLOSE_DELAY=-1, Username = art_user, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2015-03-25 22:21:59,332 - [INFO] - from play in play-internal-execution-context-9 
+database [default] connected at jdbc:h2:mem:play
+
+2015-03-25 22:21:59,409 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-9 
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+
+2015-03-25 22:21:59,410 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-9 
+
+            select id, hash, apply_script, revert_script from play_evolutions order by id
+        
+
+2015-03-25 22:21:59,415 - [INFO] - from play in play-internal-execution-context-9 
+Application started (Dev)
+
+2015-03-25 22:21:59,906 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-59 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 22:22:06,758 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-52 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 22:25:38,073 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-10 
+Shutting down connection pool...
+
+2015-03-25 22:25:38,074 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2015-03-25 22:25:38,078 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-10 
+Connection pool has been shutdown.
+
+2015-03-25 22:25:38,078 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-10 
+Connection pool has been shut down
+
+2015-03-25 22:25:38,108 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-10 
+JDBC URL = jdbc:h2:mem:play;MODE=MYSQL;DB_CLOSE_DELAY=-1, Username = art_user, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2015-03-25 22:25:38,113 - [INFO] - from play in play-internal-execution-context-10 
+database [default] connected at jdbc:h2:mem:play
+
+2015-03-25 22:25:38,181 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-10 
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+
+2015-03-25 22:25:38,183 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-10 
+
+            select id, hash, apply_script, revert_script from play_evolutions order by id
+        
+
+2015-03-25 22:25:38,190 - [INFO] - from play in play-internal-execution-context-10 
+Application started (Dev)
+
+2015-03-25 22:25:38,759 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-67 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 22:25:46,651 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-67 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 22:25:49,225 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-68 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 22:25:54,636 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-68 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 22:26:10,688 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-57 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 22:27:06,844 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-11 
+Shutting down connection pool...
+
+2015-03-25 22:27:06,845 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2015-03-25 22:27:06,845 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-11 
+Connection pool has been shutdown.
+
+2015-03-25 22:27:06,846 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-11 
+Connection pool has been shut down
+
+2015-03-25 22:27:06,878 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-11 
+JDBC URL = jdbc:h2:mem:play;MODE=MYSQL;DB_CLOSE_DELAY=-1, Username = art_user, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2015-03-25 22:27:06,880 - [INFO] - from play in play-internal-execution-context-11 
+database [default] connected at jdbc:h2:mem:play
+
+2015-03-25 22:27:06,944 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-11 
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+
+2015-03-25 22:27:06,945 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-11 
+
+            select id, hash, apply_script, revert_script from play_evolutions order by id
+        
+
+2015-03-25 22:27:06,952 - [INFO] - from play in play-internal-execution-context-11 
+Application started (Dev)
+
+2015-03-25 22:27:07,527 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-69 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 22:27:17,789 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-73 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 22:27:21,862 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-73 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 22:49:20,316 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-82 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 22:51:30,430 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-81 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 22:51:37,097 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-84 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 22:57:17,580 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-102 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 22:57:23,599 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-102 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 23:01:23,192 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-111 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 23:01:23,266 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-111 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 1  
+
+2015-03-25 23:01:23,267 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-111 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 2  
+
+2015-03-25 23:01:55,389 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-106 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 23:01:58,183 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-106 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 23:01:58,185 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-106 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 1  
+
+2015-03-25 23:01:58,186 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-106 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 2  
+
+2015-03-25 23:02:01,043 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-106 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 23:02:02,748 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-106 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 23:02:02,750 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-106 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 1  
+
+2015-03-25 23:02:02,753 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-106 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 2  
+
+2015-03-25 23:04:50,033 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-120 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 23:04:50,034 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-120 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 1  
+
+2015-03-25 23:04:50,035 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-120 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 2  
+
+2015-03-25 23:05:55,796 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-121 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 23:05:55,797 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-121 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 1  
+
+2015-03-25 23:05:55,798 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-121 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 2  
+
+2015-03-25 23:07:02,739 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-130 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 23:07:02,740 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-130 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 1  
+
+2015-03-25 23:07:02,741 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-130 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 2  
+
+2015-03-25 23:07:18,742 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-130 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 23:07:18,743 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-130 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 1  
+
+2015-03-25 23:07:18,743 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-130 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 2  
+
+2015-03-25 23:10:05,262 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-140 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 23:10:05,263 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-140 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 1  
+
+2015-03-25 23:10:05,264 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-140 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 2  
+
+2015-03-25 23:12:20,836 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-147 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 23:12:20,838 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-147 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 1  
+
+2015-03-25 23:12:20,838 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-147 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 2  
+
+2015-03-25 23:14:43,296 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-151 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 23:14:43,298 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-151 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 1  
+
+2015-03-25 23:14:43,298 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-151 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 2  
+
+2015-03-25 23:20:10,384 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-156 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 23:20:10,385 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-156 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 1  
+
+2015-03-25 23:20:10,386 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-156 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 2  
+
+2015-03-25 23:43:06,976 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-21 
+Shutting down connection pool...
+
+2015-03-25 23:43:06,978 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2015-03-25 23:43:06,979 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-21 
+Connection pool has been shutdown.
+
+2015-03-25 23:43:06,979 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-21 
+Connection pool has been shut down
+
+2015-03-25 23:43:07,010 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-21 
+JDBC URL = jdbc:h2:mem:play;MODE=MYSQL;DB_CLOSE_DELAY=-1, Username = art_user, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2015-03-25 23:43:07,013 - [INFO] - from play in play-internal-execution-context-21 
+database [default] connected at jdbc:h2:mem:play
+
+2015-03-25 23:43:07,082 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-21 
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+
+2015-03-25 23:43:07,082 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-21 
+
+            select id, hash, apply_script, revert_script from play_evolutions order by id
+        
+
+2015-03-25 23:43:07,086 - [INFO] - from play in play-internal-execution-context-21 
+Application started (Dev)
+
+2015-03-25 23:48:29,036 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-23 
+Shutting down connection pool...
+
+2015-03-25 23:48:29,037 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2015-03-25 23:48:29,038 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-23 
+Connection pool has been shutdown.
+
+2015-03-25 23:48:29,038 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-23 
+Connection pool has been shut down
+
+2015-03-25 23:48:29,070 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-23 
+JDBC URL = jdbc:h2:mem:play;MODE=MYSQL;DB_CLOSE_DELAY=-1, Username = art_user, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2015-03-25 23:48:29,072 - [INFO] - from play in play-internal-execution-context-23 
+database [default] connected at jdbc:h2:mem:play
+
+2015-03-25 23:48:29,145 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-23 
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+
+2015-03-25 23:48:29,145 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-23 
+
+            select id, hash, apply_script, revert_script from play_evolutions order by id
+        
+
+2015-03-25 23:48:29,151 - [INFO] - from play in play-internal-execution-context-23 
+Application started (Dev)
+
+2015-03-25 23:48:29,604 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-160 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 23:48:29,616 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-160 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 1  
+
+2015-03-25 23:48:29,617 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-160 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 2  
+
+2015-03-25 23:51:59,393 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-24 
+Shutting down connection pool...
+
+2015-03-25 23:51:59,394 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2015-03-25 23:51:59,394 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-24 
+Connection pool has been shutdown.
+
+2015-03-25 23:51:59,394 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-24 
+Connection pool has been shut down
+
+2015-03-25 23:51:59,424 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-24 
+JDBC URL = jdbc:h2:mem:play;MODE=MYSQL;DB_CLOSE_DELAY=-1, Username = art_user, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2015-03-25 23:51:59,426 - [INFO] - from play in play-internal-execution-context-24 
+database [default] connected at jdbc:h2:mem:play
+
+2015-03-25 23:51:59,494 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-24 
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+
+2015-03-25 23:51:59,494 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-24 
+
+            select id, hash, apply_script, revert_script from play_evolutions order by id
+        
+
+2015-03-25 23:51:59,499 - [INFO] - from play in play-internal-execution-context-24 
+Application started (Dev)
+
+2015-03-25 23:51:59,946 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-179 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 23:51:59,956 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-179 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 1  
+
+2015-03-25 23:51:59,957 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-179 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 2  
+
+2015-03-25 23:54:47,260 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-187 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 23:54:47,261 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-187 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 1  
+
+2015-03-25 23:54:47,262 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-187 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 2  
+
+2015-03-25 23:57:39,589 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-26 
+Shutting down connection pool...
+
+2015-03-25 23:57:39,589 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2015-03-25 23:57:39,590 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-26 
+Connection pool has been shutdown.
+
+2015-03-25 23:57:39,590 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-26 
+Connection pool has been shut down
+
+2015-03-25 23:57:39,619 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-26 
+JDBC URL = jdbc:h2:mem:play;MODE=MYSQL;DB_CLOSE_DELAY=-1, Username = art_user, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2015-03-25 23:57:39,621 - [INFO] - from play in play-internal-execution-context-26 
+database [default] connected at jdbc:h2:mem:play
+
+2015-03-25 23:57:39,696 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-26 
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+
+2015-03-25 23:57:39,697 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-26 
+
+            select id, hash, apply_script, revert_script from play_evolutions order by id
+        
+
+2015-03-25 23:57:39,701 - [INFO] - from play in play-internal-execution-context-26 
+Application started (Dev)
+
+2015-03-25 23:57:40,075 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-188 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 23:57:40,084 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-188 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 1  
+
+2015-03-25 23:57:40,085 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-188 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 2  
+
+2015-03-25 23:58:30,727 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-194 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 23:58:30,731 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-194 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 1  
+
+2015-03-25 23:58:30,734 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-194 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 2  
+
+2015-03-26 00:03:44,593 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-205 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-26 00:03:44,595 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-205 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 1  
+
+2015-03-26 00:03:44,598 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-205 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 2  
+
+2015-03-26 00:09:14,736 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-198 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-26 00:09:14,738 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-198 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 1  
+
+2015-03-26 00:09:14,738 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-198 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 2  
+
+2015-03-26 00:10:15,013 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-218 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-26 00:10:15,014 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-218 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 1  
+
+2015-03-26 00:10:15,015 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-218 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 2  
+
+2015-03-26 00:10:34,354 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-222 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-26 00:10:34,356 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-222 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 1  
+
+2015-03-26 00:10:34,357 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-222 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 2  
+
+2015-03-26 00:10:37,594 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-216 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-26 00:10:37,595 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-216 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 1  
+
+2015-03-26 00:10:37,596 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-216 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 2  
+
+2015-03-26 00:10:53,808 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-215 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-26 00:10:53,809 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-215 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 1  
+
+2015-03-26 00:10:53,809 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-215 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 2  
+
+2015-03-26 00:11:17,050 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-221 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-26 00:11:17,051 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-221 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 1  
+
+2015-03-26 00:11:17,052 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-221 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 2  
+
+2015-03-26 00:13:30,713 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-235 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-26 00:13:30,716 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-235 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 1  
+
+2015-03-26 00:13:30,717 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-235 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 2  
+
+2015-03-26 00:14:18,533 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-240 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-26 00:14:18,535 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-240 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 1  
+
+2015-03-26 00:14:18,537 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-240 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 2  
+
+2015-03-26 00:23:46,049 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-244 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-26 00:23:46,050 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-244 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 1  
+
+2015-03-26 00:23:46,051 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-244 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 2  
+
+2015-03-26 00:25:19,956 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-257 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-26 00:25:19,957 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-257 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 1  
+
+2015-03-26 00:25:19,957 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-257 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 2  
+
+2015-03-26 00:25:57,591 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-259 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-26 00:25:57,592 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-259 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 1  
+
+2015-03-26 00:25:57,593 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-259 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 2  
+
+2015-03-26 00:27:15,699 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-254 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-26 00:27:16,895 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-254 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-26 00:27:16,896 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-254 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 1  
+
+2015-03-26 00:27:16,897 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-254 
+select t0.id c0, t0.categorie c1, t0.name c2 from artprop t0 where t0.id = 2  
+
+2015-03-26 00:27:19,435 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-254 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-26 00:27:30,876 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-254 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-26 00:27:39,250 - [INFO] - from com.jolbox.bonecp.BoneCP in pool-5-thread-2 
+Shutting down connection pool...
+
+2015-03-26 00:27:39,251 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2015-03-26 00:27:39,251 - [INFO] - from com.jolbox.bonecp.BoneCP in pool-5-thread-2 
+Connection pool has been shutdown.
+
+2015-03-26 00:27:39,251 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in pool-5-thread-2 
 Connection pool has been shut down
 

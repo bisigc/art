@@ -1,0 +1,76 @@
+            <div class="jumbotron" ng-controller="ARController as arCtrl">
+                <h2>Add Architectural Refactoring</h2>
+                <p>Add an Architectural Refactoring fill out the form:</p>
+                <p>
+                    <a class="btn btn-lg btn-primary" ng-class="{ active:arCtrl.formvisible}" href role="button" ng-click="arCtrl.showForm(!arCtrl.formvisible);arCtrl.setProgValue()">Add AR &raquo;</a>
+                </p>
+                <div name="arFormContainer" ng-show="arCtrl.formvisible">
+                    <p>
+                        Completeness:
+                        <!-- progressbar class="progress-striped active" value="dynamic" type="{{arCtrl.type}}">{{arCtrl.type}} <i ng-show="arCtrl.showWarning">!!! Watch out !!!</i></progressbar -->
+                        <progress><bar ng-repeat="bar in arCtrl.progStacked track by $index" value="bar.value" type="{{bar.type}}"><span ng-hide="bar.value < 5">{{bar.value}}%</span></bar></progress>
+                    </p>
+                    <form name="arForm" ng-submit="arForm.$valid && arCtrl.addAr()" novalidate>
+                        <!-- Live Preview -->
+                        <blockquote>
+                            Name: {{arCtrl.ar.name}}
+                        </blockquote>
+                        <!--  Review Form -->
+                        <h4>Submit an AR</h4>
+                        <!-- fieldset class="form-group">
+<select class="form-control" ng-options="stars for stars in [5,4,3,2,1]"  title="Stars">
+<option value="">Rate the Product</option>
+</select>
+</fieldset -->
+                        <p>
+                            Form valid: {{arForm.$valid}}
+                        </p>
+                        <fieldset class="form-group">
+                            <label for="name">Name</label>
+                            <input class="form-control" placeholder="Write a short review of the product..." title="name" id="name" ng-model="arCtrl.ar.name" required></input>
+                        </fieldset>
+                    <fieldset class="form-group">
+                        <label for="context">Context</label>
+                        <textarea class="form-control" placeholder="Write a short review of the product..." title="context" id="context" ng-model="arCtrl.ar.context" required></textarea>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="quality_attr">Quality Attributes</label>
+                        <textarea class="form-control" placeholder="Write a short review of the product..." title="quality_attr" id="quality_attr" ng-model="arCtrl.ar.quality_attr" required></textarea>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="smell">Smells</label>
+                        <textarea class="form-control" placeholder="Write a short review of the product..." title="smell" id="smell" ng-model="arCtrl.ar.smell" required></textarea>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="arc_decisions">Architectural decisions to be reviewed</label>
+                        <textarea class="form-control" placeholder="Write a short review of the product..." title="arc_decisions" id="arc_decisions" ng-model="arCtrl.ar.arc_decisions" required></textarea>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="refactoring">Refactorings</label>
+                        <textarea class="form-control" placeholder="Write a short review of the product..." title="refactoring" id="refactoring" ng-model="arCtrl.ar.refactoring" required></textarea>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="affected_comp">Affected Components</label>
+                        <textarea class="form-control" placeholder="Write a short review of the product..." title="affected_comp" id="affected_comp" ng-model="arCtrl.ar.affected_comp" required></textarea>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="exec_tasks">Execution Tasks</label>
+                        <textarea class="form-control" placeholder="Write a short review of the product..." title="exec_tasks" id="exec_tasks" ng-model="arCtrl.ar.exec_tasks" required></textarea>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="referenced_ars">Referenced ARs</label>
+                        <textarea class="form-control" placeholder="Write a short review of the product..." title="referenced_ars" id="referenced_ars" ng-model="arCtrl.ar.referenced_ars" required></textarea>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="links">Links</label>
+                        <textarea class="form-control" placeholder="Write a short review of the product..." title="links" id="links" ng-model="arCtrl.ar.links" required></textarea>
+                    </fieldset>
+                    <!-- fieldset class="form-group">
+<input type="email" class="form-control" placeholder="jimmyDean&#64;example.org" title="Email" />
+</fieldset -->
+                    <fieldset class="form-group">
+                        <input type="submit" class="btn btn-primary pull-right" value="Submit AR" />
+                    </fieldset>
+                    </form>
+            </div>
+        </div>
