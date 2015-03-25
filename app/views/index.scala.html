@@ -57,7 +57,7 @@
                 </p>
             </div>
 
-            <div ng-show="menuCtrl.isMenuSet('ars')" ng-controller="ARController as arCtrl">
+            <div id="ARdiv" ng-show="menuCtrl.isMenuSet('ars')" ng-controller="ARController as arCtrl">
                 <div class="jumbotron">
                     <h1>Architectural Refactorings</h1>
                     <p>Descewrfwerfwerf</p>
@@ -68,7 +68,7 @@
                             <tr><th>Name</th><th>Description</th><th>Smells</th></tr>
                             <tr><td><input ng-model="search.name" placeholder="Enter search criteria" /></td><td><input ng-model="search.desc" placeholder="Enter search criteria" /></td><td><input ng-model="search.smells.name" id="smellname" placeholder="Enter search criteria" /></td></tr>
                             <tr><th><a href="" ng-click="reverseName=!reverseName;arCtrl.order('name', reverseName)">Name <span ng-show="reverseName">&#x25B2;</span><span ng-show="!reverseName">&#x25BC;</span></a></th><th><a href="" ng-click="reverseDesc=!reverseDesc;arCtrl.order('desc', reverseDesc)">Description <span ng-show="reverseDesc">&#x25B2;</span><span ng-show="!reverseDesc">&#x25BC;</span></a></th><th><a href="" ng-click="reverseSmells=!reverseSmells;arCtrl.order('smells.name', reverseSmells)">Smells <span ng-show="reverseSmells">&#x25B2;</span><span ng-show="!reverseSmells">&#x25BC;</span></a></th></tr>
-                            <tr ng-repeat="ar in arCtrl.arlist | filter:search">
+                            <tr ng-repeat="ar in arlist | filter:search">
                                 <td>{{ar.name}}</td>
                                 <td>{{ar.desc}}</td>
                                 <td><span ng-repeat="smell in ar.smells">{{smell.name}}, </span></td>
@@ -78,9 +78,9 @@
                     </div>
                     <div class="col-md-4">
                         <div class="panel panel-default">
-                            <div class="panel-heading">Smell Cloud</div>
+                            <div class="panel-heading">Smell Cloud {{cloudcallstatus}}</div>
                             <div class="panel-body">
-                                <jqcloud words="arCtrl.words" width="320" height="320" steps="6"></jqcloud>
+                                <jqcloud words="words" width="320" height="320" steps="6"></jqcloud>
                             </div>
                         </div>
                     </div>
@@ -91,7 +91,7 @@
                 <h2>Add Architectural Refactoring</h2>
                 <p>Add an Architectural Refactoring fill out the form:</p>
                 <p>
-                    <a class="btn btn-lg btn-primary" ng-class=" active:arCtrl.formvisible" href role="button" ng-click="arCtrl.showForm(!arCtrl.formvisible);arCtrl.setProgValue()">Add AR &raquo;</a>
+                    <a class="btn btn-lg btn-primary" ng-class="{ active:arCtrl.formvisible}" href role="button" ng-click="arCtrl.showForm(!arCtrl.formvisible);arCtrl.setProgValue()">Add AR &raquo;</a>
                 </p>
                 <div name="arFormContainer" ng-show="arCtrl.formvisible">
                     <p>
@@ -193,6 +193,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script type="text/javascript" src="@routes.Assets.at("javascripts/libs/angular.min.js")"></script>
+    <script type="text/javascript" src="@routes.Assets.at("javascripts/libs/angular-resource.min.js")"></script>
     <script type="text/javascript" src="@routes.Assets.at("javascripts/app.js")"></script>
     <script type="text/javascript" src="@routes.Assets.at("javascripts/libs/bootstrap.min.js")"></script>
     <script type="text/javascript" src="@routes.Assets.at("javascripts/libs/jqcloud.min.js")"></script>

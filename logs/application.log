@@ -1,16 +1,16 @@
-2015-03-20 00:52:46,122 - [INFO] - from play in pool-5-thread-4 
+2015-03-25 11:25:26,918 - [INFO] - from play in pool-5-thread-4 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9085
 
-2015-03-20 00:52:51,455 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
+2015-03-25 11:25:30,981 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
 JDBC URL = jdbc:h2:mem:play;MODE=MYSQL;DB_CLOSE_DELAY=-1, Username = art_user, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
 
-2015-03-20 00:52:51,680 - [INFO] - from play in play-internal-execution-context-1 
+2015-03-25 11:25:31,197 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:h2:mem:play
 
-2015-03-20 00:52:52,143 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-03-25 11:25:31,792 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
 
-2015-03-20 00:52:52,146 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-03-25 11:25:31,793 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 
               create table play_evolutions (
                   id int not null primary key, hash varchar(255) not null,
@@ -22,16 +22,23 @@ select id, hash, apply_script, revert_script, state, last_problem from play_evol
               )
           
 
-2015-03-20 00:52:52,148 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-03-25 11:25:31,794 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 
             select id, hash, apply_script, revert_script from play_evolutions order by id
         
 
-2015-03-20 00:52:52,158 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-03-25 11:25:31,801 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
 
-2015-03-20 00:52:52,167 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-1 
-insert into play_evolutions values(1, '396abb03b1f083d0c54001093d2d6a0bb2fe950b', 2015-03-20, 'create table eeppidata (
+2015-03-25 11:25:31,806 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-1 
+insert into play_evolutions values(1, '698b9612e737a1d1cbda28aadcf6584fb406e1a6', 2015-03-25, 'create table artprop (
+id                        bigint auto_increment not null,
+categorie                 varchar(255),
+name                      varchar(255),
+constraint pk_artprop primary key (id))
+;
+
+create table eeppidata (
 id                        bigint not null,
 from_service              varchar(255),
 json_data                 varchar(255),
@@ -39,15 +46,42 @@ created                   timestamp,
 constraint pk_eeppidata primary key (id))
 ;
 
-create sequence eeppidata_seq;', 'SET REFERENTIAL_INTEGRITY FALSE;
+create table smell (
+id                        bigint auto_increment not null,
+name                      varchar(255),
+description               varchar(255),
+keywords                  varchar(255),
+weight                    double,
+group_id                  bigint,
+tecdebtidx                double,
+modified                  timestamp,
+created                   timestamp,
+constraint pk_smell primary key (id))
+;
+
+create sequence eeppidata_seq;
+
+alter table smell add constraint fk_smell_group_1 foreign key (group_id) references artprop (id) on delete restrict on update restrict;
+create index ix_smell_group_1 on smell (group_id);', 'SET REFERENTIAL_INTEGRITY FALSE;
+
+drop table if exists artprop;
 
 drop table if exists eeppidata;
+
+drop table if exists smell;
 
 SET REFERENTIAL_INTEGRITY TRUE;
 
 drop sequence if exists eeppidata_seq;', 'applying_up', '')
 
-2015-03-20 00:52:52,174 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-03-25 11:25:31,812 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+create table artprop (
+id                        bigint auto_increment not null,
+categorie                 varchar(255),
+name                      varchar(255),
+constraint pk_artprop primary key (id))
+
+2015-03-25 11:25:31,817 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 create table eeppidata (
 id                        bigint not null,
 from_service              varchar(255),
@@ -55,85 +89,121 @@ json_data                 varchar(255),
 created                   timestamp,
 constraint pk_eeppidata primary key (id))
 
-2015-03-20 00:52:52,175 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-03-25 11:25:31,818 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+create table smell (
+id                        bigint auto_increment not null,
+name                      varchar(255),
+description               varchar(255),
+keywords                  varchar(255),
+weight                    double,
+group_id                  bigint,
+tecdebtidx                double,
+modified                  timestamp,
+created                   timestamp,
+constraint pk_smell primary key (id))
+
+2015-03-25 11:25:31,819 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 create sequence eeppidata_seq
 
-2015-03-20 00:52:52,176 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-03-25 11:25:31,819 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+alter table smell add constraint fk_smell_group_1 foreign key (group_id) references artprop (id) on delete restrict on update restrict
+
+2015-03-25 11:25:31,826 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+create index ix_smell_group_1 on smell (group_id)
+
+2015-03-25 11:25:31,827 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 update play_evolutions set state = 'applied' where id = 1
 
-2015-03-20 00:52:52,178 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-03-25 11:25:31,830 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-1 
+insert into play_evolutions values(2, 'f7eecb2c0511e47be0b508a8fc1639e55cd75353', 2015-03-25, 'INSERT INTO artprop(name,categorie) VALUES ('Prop1','Cat1');
+INSERT INTO artprop(name,categorie) VALUES ('Prop2','Cat1');
+INSERT INTO artprop(name,categorie) VALUES ('Prop3','Cat2');
+
+INSERT INTO smell(name,description,keywords,weight,group_id,tecdebtidx,modified,created)
+VALUES ('Smell1','This is Smell1','keyword1,keyword2,keyword3',0.5,1,12.5,Current_timestamp,Current_timestamp);
+
+INSERT INTO smell(name,description,keywords,weight,group_id,tecdebtidx,modified,created)
+VALUES ('Smell2','This is Smell2','keyword2,keyword4,keyword5',0.25,2,10.5,Current_timestamp,Current_timestamp);
+
+INSERT INTO smell(name,description,keywords,weight,group_id,tecdebtidx,modified,created)
+VALUES ('Smell3','This is Smell3','keyword1,keyword2,keyword3',0.5,1,4.5,Current_timestamp,Current_timestamp);
+
+INSERT INTO smell(name,description,keywords,weight,group_id,tecdebtidx,modified,created)
+VALUES ('Smell4','This is Smell4','keyword5,keyword6,keyword7',0.1,2,5.5,Current_timestamp,Current_timestamp);
+
+INSERT INTO smell(name,description,keywords,weight,group_id,tecdebtidx,modified,created)
+VALUES ('Smell5','This is Smell5','keyword5,keyword6,keyword7',0.1,2,5.5,Current_timestamp,Current_timestamp);
+
+INSERT INTO smell(name,description,keywords,weight,group_id,tecdebtidx,modified,created)
+VALUES ('Smell6','This is Smell6','keyword5,keyword6,keyword7',0.1,2,5.5,Current_timestamp,Current_timestamp);
+
+INSERT INTO smell(name,description,keywords,weight,group_id,tecdebtidx,modified,created)
+VALUES ('Smell7','This is Smell7','keyword5,keyword6,keyword7',0.1,2,5.5,Current_timestamp,Current_timestamp);', '', 'applying_up', '')
+
+2015-03-25 11:25:31,830 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+INSERT INTO artprop(name,categorie) VALUES ('Prop1','Cat1')
+
+2015-03-25 11:25:31,831 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+INSERT INTO artprop(name,categorie) VALUES ('Prop2','Cat1')
+
+2015-03-25 11:25:31,832 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+INSERT INTO artprop(name,categorie) VALUES ('Prop3','Cat2')
+
+2015-03-25 11:25:31,832 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+INSERT INTO smell(name,description,keywords,weight,group_id,tecdebtidx,modified,created)
+VALUES ('Smell1','This is Smell1','keyword1,keyword2,keyword3',0.5,1,12.5,Current_timestamp,Current_timestamp)
+
+2015-03-25 11:25:31,834 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+INSERT INTO smell(name,description,keywords,weight,group_id,tecdebtidx,modified,created)
+VALUES ('Smell2','This is Smell2','keyword2,keyword4,keyword5',0.25,2,10.5,Current_timestamp,Current_timestamp)
+
+2015-03-25 11:25:31,834 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+INSERT INTO smell(name,description,keywords,weight,group_id,tecdebtidx,modified,created)
+VALUES ('Smell3','This is Smell3','keyword1,keyword2,keyword3',0.5,1,4.5,Current_timestamp,Current_timestamp)
+
+2015-03-25 11:25:31,835 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+INSERT INTO smell(name,description,keywords,weight,group_id,tecdebtidx,modified,created)
+VALUES ('Smell4','This is Smell4','keyword5,keyword6,keyword7',0.1,2,5.5,Current_timestamp,Current_timestamp)
+
+2015-03-25 11:25:31,835 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+INSERT INTO smell(name,description,keywords,weight,group_id,tecdebtidx,modified,created)
+VALUES ('Smell5','This is Smell5','keyword5,keyword6,keyword7',0.1,2,5.5,Current_timestamp,Current_timestamp)
+
+2015-03-25 11:25:31,836 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+INSERT INTO smell(name,description,keywords,weight,group_id,tecdebtidx,modified,created)
+VALUES ('Smell6','This is Smell6','keyword5,keyword6,keyword7',0.1,2,5.5,Current_timestamp,Current_timestamp)
+
+2015-03-25 11:25:31,837 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+INSERT INTO smell(name,description,keywords,weight,group_id,tecdebtidx,modified,created)
+VALUES ('Smell7','This is Smell7','keyword5,keyword6,keyword7',0.1,2,5.5,Current_timestamp,Current_timestamp)
+
+2015-03-25 11:25:31,838 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+update play_evolutions set state = 'applied' where id = 2
+
+2015-03-25 11:25:31,839 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
 
-2015-03-20 00:52:52,347 - [INFO] - from play in play-internal-execution-context-1 
+2015-03-25 11:25:31,950 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2015-03-20 01:18:23,304 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-4 
+2015-03-25 11:25:33,859 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-9 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 11:25:33,958 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-7 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 11:29:58,592 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-5 
+select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
+
+2015-03-25 11:30:53,343 - [INFO] - from com.jolbox.bonecp.BoneCP in pool-5-thread-4 
 Shutting down connection pool...
 
-2015-03-20 01:18:23,306 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+2015-03-25 11:30:53,344 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
 Terminating pool watch thread
 
-2015-03-20 01:18:23,307 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-4 
+2015-03-25 11:30:53,345 - [INFO] - from com.jolbox.bonecp.BoneCP in pool-5-thread-4 
 Connection pool has been shutdown.
 
-2015-03-20 01:18:23,307 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-4 
-Connection pool has been shut down
-
-2015-03-20 01:18:23,374 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-4 
-JDBC URL = jdbc:h2:mem:play;MODE=MYSQL;DB_CLOSE_DELAY=-1, Username = art_user, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
-
-2015-03-20 01:18:23,378 - [INFO] - from play in play-internal-execution-context-4 
-database [default] connected at jdbc:h2:mem:play
-
-2015-03-20 01:18:23,486 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-4 
-select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
-
-2015-03-20 01:18:23,486 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-4 
-
-            select id, hash, apply_script, revert_script from play_evolutions order by id
-        
-
-2015-03-20 01:18:23,500 - [INFO] - from play in play-internal-execution-context-4 
-Application started (Dev)
-
-2015-03-20 01:32:05,276 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-14 
-Shutting down connection pool...
-
-2015-03-20 01:32:05,277 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
-Terminating pool watch thread
-
-2015-03-20 01:32:05,278 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-14 
-Connection pool has been shutdown.
-
-2015-03-20 01:32:05,278 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-14 
-Connection pool has been shut down
-
-2015-03-20 01:32:05,319 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-14 
-JDBC URL = jdbc:h2:mem:play;MODE=MYSQL;DB_CLOSE_DELAY=-1, Username = art_user, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
-
-2015-03-20 01:32:05,322 - [INFO] - from play in play-internal-execution-context-14 
-database [default] connected at jdbc:h2:mem:play
-
-2015-03-20 01:32:05,389 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-14 
-select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
-
-2015-03-20 01:32:05,390 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-14 
-
-            select id, hash, apply_script, revert_script from play_evolutions order by id
-        
-
-2015-03-20 01:32:05,397 - [INFO] - from play in play-internal-execution-context-14 
-Application started (Dev)
-
-2015-03-20 01:56:50,977 - [INFO] - from com.jolbox.bonecp.BoneCP in pool-5-thread-4 
-Shutting down connection pool...
-
-2015-03-20 01:56:50,979 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
-Terminating pool watch thread
-
-2015-03-20 01:56:50,979 - [INFO] - from com.jolbox.bonecp.BoneCP in pool-5-thread-4 
-Connection pool has been shutdown.
-
-2015-03-20 01:56:50,979 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in pool-5-thread-4 
+2015-03-25 11:30:53,346 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in pool-5-thread-4 
 Connection pool has been shut down
 
