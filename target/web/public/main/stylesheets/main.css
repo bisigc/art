@@ -11,14 +11,6 @@ body {
     margin-left: 0;
 }
 
-.even {
-    background-color: gray;
-}
-
-.odd {
-    background-color: white;
-}
-
 .dropdown:hover .dropdown-menu {
     display: block;
 }
@@ -50,3 +42,33 @@ body {
     border-color: green;
     border-width: 3px;
 }
+
+/* Technical Debt Index Selector */
+
+.problabel {
+             filter:  progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083);  /* IE6,IE7 */
+         -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083)"; /* IE8 */
+     -moz-transform: rotate(-90.0deg);  /* FF3.5+ */
+      -ms-transform: rotate(-90.0deg);  /* IE9+ */
+       -o-transform: rotate(-90.0deg);  /* Opera 10.5 */
+  -webkit-transform: rotate(-90.0deg);  /* Safari 3.1+, Chrome */
+          transform: rotate(-90.0deg);  /* Standard */
+}
+
+.implabel {
+	text-align: center;
+    height: 50px;
+    vertical-align: middle;
+}
+
+.dbt-idx-ll { background-color: #5CBD5C; }
+.dbt-idx-lm { background-color: #94D494; }
+.dbt-idx-lh { background-color: #FFD685; }
+.dbt-idx-ml { background-color: #94D494; }
+.dbt-idx-mm { background-color: #FFD685; }
+.dbt-idx-mh { background-color: #FFAF9B; }
+.dbt-idx-hl { background-color: #FFD685; }
+.dbt-idx-hm { background-color: #FFAF9B; }
+.dbt-idx-hh { background-color: #FF8D70; }
+
+/*  */

@@ -27,14 +27,15 @@ public class SmellController extends Controller {
 			buf.append(smell.getName());
 			buf.append("\", \"weight\": ");
 			buf.append(smell.getWeight());
-			buf.append(",    \"handlers\": { \"click\": \"function(){setSmell('");
+			buf.append(",    \"handlers\": { \"click\": function(){setSmell('");
 			buf.append(smell.getName());
-			buf.append("');}\" }},");
+			buf.append("');} }},");
 		}
 		buf.delete(buf.length()-1, buf.length());
 	    buf.append("]");
 	    System.out.println(buf);
-	    return ok(Json.parse(buf.toString()));
+//	    return ok(Json.parse(buf.toString()));
+	    return ok(buf.toString());
 	}
 	
 	public static Result getSmell(Long id) {

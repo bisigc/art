@@ -1,60 +1,78 @@
 <div ng-controller="SmellController as smellCtrl">
-    <div class="jumbotron">
-        <h2>Smell Browser</h2>
-        <p>Add an Architectural Refactoring fill out the form:</p>
+		<div class="page-header">
+		  <h1>Smell Browser <small>Subtext for header</small></h1>
+		</div>
+		<div class="well">
         <p>
-            <a class="btn btn-lg btn-primary" ng-class="{ active:smellCtrl.formvisible}" href role="button" ng-click="smellCtrl.showForm(!smellCtrl.formvisible)">Add Smell &raquo;</a>
+            <a class="btn btn-primary" ng-class="{ active:smellCtrl.formvisible}" href role="button" ng-click="smellCtrl.showForm(!smellCtrl.formvisible)">Add Smell &raquo;</a>
         </p>
         <div ng-show="smellCtrl.formvisible">
             <form name="smellForm" ng-submit="smellForm.$valid && smellCtrl.saveSmell()" novalidate>
-                <h4>Add new Smell</h4>
-                <p>
-                    Form valid: {{smellForm.$valid}}
-                </p>
-                <fieldset class="form-group">
-                    <label for="name">Name</label>
-                    <input class="form-control" placeholder="Write a short review of the product..." title="name" id="name" ng-model="smellCtrl.smell.name" required></input>
-                </fieldset>
+    			<div class="row">
+	    			<div class="col-md-7">
+		                <fieldset class="form-group">
+		                    <label for="name">Name</label>
+		                    <input class="form-control" placeholder="Name of the Smell..." title="name" id="name" ng-model="smellCtrl.smell.name" required></input>
+		                </fieldset>
+			            <fieldset class="form-group">
+			                <label for="description">Description</label>
+			                <textarea class="form-control" placeholder="Description of the Smell..." title="description" id="description" ng-model="smellCtrl.smell.description" required></textarea>
+			            </fieldset>
+			            <fieldset class="form-group">
+			                <label for="keywords">Keywords</label>
+			                <input class="form-control" placeholder="Keywords to search for a Smell..." title="keywords" id="keywords" ng-model="smellCtrl.smell.keywords" required></input>
+			            </fieldset>
+	            	</div>
+            		<div class="col-md-5">
+			            <fieldset class="form-group">
+			                <label for="group">Group</label>
+			                <!-- select ui-select2 class="form-control" ng-model="" ng-options="group.id as group.name for group in smellCtrl.groups" title="group" id="group" required></select -->
+			                <ui-select ng-model="smellCtrl.smell.group" theme="selectize" ng-disabled="disabled" required>
+			                    <ui-select-match placeholder="Select or search a group in the list...">{{$select.selected.name}}</ui-select-match>
+			                    <ui-select-choices repeat="group in smellCtrl.groups | filter: $select.search">
+			                        <span ng-bind-html="group.name | highlight: $select.search"></span>
+			                        <!-- small ng-bind-html="country.code | highlight: $select.search"></small -->
+			                    </ui-select-choices>
+			                </ui-select>
+			            </fieldset>
+			            <fieldset class="form-group">
+			                <label for="tecdebtidx">Technical Debt Index</label><br />
+			                <table>
+				                <tr>
+				                	<td id="problabel" class="problabel">Probability</td>
+				                	<td>
+						                 <label ng-repeat="n in ['lh','mh','hh']" class="btn btn-default dbt-idx-{{n}}">
+						                 <input type="radio" name="tecdebtidx" ng-model="smellCtrl.smell.tecdebtidx" ng-value="n" required/>
+						                 </label>
+						                <br />
+						                 <label ng-repeat="n in ['lm','mm','hm']" class="btn btn-default dbt-idx-{{n}}">
+						                 <input type="radio" name="tecdebtidx" ng-model="smellCtrl.smell.tecdebtidx" ng-value="n" required/>
+						                 </label>
+						                <br />
+						                 <label ng-repeat="n in ['ll','ml','hl']" class="btn btn-default dbt-idx-{{n}}">
+						                 <input type="radio" name="tecdebtidx" ng-model="smellCtrl.smell.tecdebtidx" ng-value="n" required/>
+						                 </label>
+						            </td>
+				                </tr>
+				                <tr>
+				                	<td></td><td class="implabel">Impact</td>
+				                </tr>
+			               	</table>
+			               	<script type="text/javascript">
+                                $(document).ready(function () {
+                                    $('#problabel').width(10);
+                                });
+							</script>
+			                <!-- select class="form-control" ng-model="smellCtrl.smell.tecdebtidx" ng-options="group.id as group.name for group in smellCtrl.groups" title="tecdebtidx" id="tecdebtidx" required></select -->
+			            </fieldset>
+            		</div>
+            	</div>
             <fieldset class="form-group">
-                <label for="description">Description</label>
-                <textarea class="form-control" placeholder="Write a short review of the product..." title="description" id="description" ng-model="smellCtrl.smell.description" required></textarea>
-            </fieldset>
-            <fieldset class="form-group">
-                <label for="keywords">Keywords</label>
-                <input class="form-control" placeholder="Write a short review of the product..." title="keywords" id="keywords" ng-model="smellCtrl.smell.keywords" required></input>
-            </fieldset>
-            <fieldset class="form-group">
-                <label for="group">Group</label>
-                <!-- select ui-select2 class="form-control" ng-model="" ng-options="group.id as group.name for group in smellCtrl.groups" title="group" id="group" required></select -->
-                <ui-select ng-model="smellCtrl.smell.group" theme="selectize" ng-disabled="disabled" required>
-                    <ui-select-match placeholder="Select or search a group in the list...">{{$select.selected.name}}</ui-select-match>
-                    <ui-select-choices repeat="group in smellCtrl.groups | filter: $select.search">
-                        <span ng-bind-html="group.name | highlight: $select.search"></span>
-                        <!-- small ng-bind-html="country.code | highlight: $select.search"></small -->
-                    </ui-select-choices>
-                </ui-select>
-            </fieldset>
-            <fieldset class="form-group">
-                <label for="tecdebtidx">Technical Debt Index</label><br />
-                 <label ng-repeat="n in [0,1,2]" class="btn btn-default">
-                 <input type="radio" name="tecdebtidx" ng-model="smellCtrl.smell.tecdebtidx" ng-value="n" required/>
-                 </label>
-                <br />
-                 <label ng-repeat="n in [3,4,5]" class="btn btn-default">
-                 <input type="radio" name="tecdebtidx" ng-model="smellCtrl.smell.tecdebtidx" ng-value="n" required/>
-                 </label>
-                <br />
-                 <label ng-repeat="n in [6,7,8]" class="btn btn-default">
-                 <input type="radio" name="tecdebtidx" ng-model="smellCtrl.smell.tecdebtidx" ng-value="n" required/>
-                 </label>
-                
-                <!-- select class="form-control" ng-model="smellCtrl.smell.tecdebtidx" ng-options="group.id as group.name for group in smellCtrl.groups" title="tecdebtidx" id="tecdebtidx" required></select -->
-            </fieldset>
-            <fieldset class="form-group">
+				Form valid: {{smellForm.$valid}}
                 <input type="submit" class="btn btn-primary pull-right" value="Save Smell" />
             </fieldset>
-            </form>
-    </div>
+		</form>
+	</div>
 </div>
 <div>
     <div> {{smellCtrl.smellcallstatus}}</div>
