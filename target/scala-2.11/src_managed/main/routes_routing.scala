@@ -1,6 +1,6 @@
 // @SOURCE:/Users/cbi/Documents/git-repos/ART/conf/routes
-// @HASH:87471b13483a9544e3d23017922a88cd022679f3
-// @DATE:Wed Mar 25 09:22:58 CET 2015
+// @HASH:7ee568d65d05f077a116612f091dd2ed4f0a52d8
+// @DATE:Thu Apr 02 16:09:06 CEST 2015
 
 
 import play.core._
@@ -89,12 +89,54 @@ HandlerDef(this.getClass.getClassLoader, "", "controllers.SmellController", "del
         
 
 // @LINE:18
-private[this] lazy val controllers_Assets_at8_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),DynamicPart("file", """.+""",false))))
-private[this] lazy val controllers_Assets_at8_invoker = createInvoker(
+private[this] lazy val controllers_PropertyController_getAllProperties8_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("property"))))
+private[this] lazy val controllers_PropertyController_getAllProperties8_invoker = createInvoker(
+controllers.PropertyController.getAllProperties(),
+HandlerDef(this.getClass.getClassLoader, "", "controllers.PropertyController", "getAllProperties", Nil,"GET", """Property service""", Routes.prefix + """property"""))
+        
+
+// @LINE:19
+private[this] lazy val controllers_PropertyController_getProperties9_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("property/categorie/"),DynamicPart("cat", """[^/]+""",true))))
+private[this] lazy val controllers_PropertyController_getProperties9_invoker = createInvoker(
+controllers.PropertyController.getProperties(fakeValue[String]),
+HandlerDef(this.getClass.getClassLoader, "", "controllers.PropertyController", "getProperties", Seq(classOf[String]),"GET", """""", Routes.prefix + """property/categorie/$cat<[^/]+>"""))
+        
+
+// @LINE:20
+private[this] lazy val controllers_PropertyController_getProperty10_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("property/"),DynamicPart("id", """[^/]+""",true))))
+private[this] lazy val controllers_PropertyController_getProperty10_invoker = createInvoker(
+controllers.PropertyController.getProperty(fakeValue[Long]),
+HandlerDef(this.getClass.getClassLoader, "", "controllers.PropertyController", "getProperty", Seq(classOf[Long]),"GET", """""", Routes.prefix + """property/$id<[^/]+>"""))
+        
+
+// @LINE:21
+private[this] lazy val controllers_PropertyController_createProperty11_route = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("property"))))
+private[this] lazy val controllers_PropertyController_createProperty11_invoker = createInvoker(
+controllers.PropertyController.createProperty(),
+HandlerDef(this.getClass.getClassLoader, "", "controllers.PropertyController", "createProperty", Nil,"POST", """""", Routes.prefix + """property"""))
+        
+
+// @LINE:22
+private[this] lazy val controllers_PropertyController_updateProperty12_route = Route("PUT", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("property/"),DynamicPart("id", """[^/]+""",true))))
+private[this] lazy val controllers_PropertyController_updateProperty12_invoker = createInvoker(
+controllers.PropertyController.updateProperty(fakeValue[Long]),
+HandlerDef(this.getClass.getClassLoader, "", "controllers.PropertyController", "updateProperty", Seq(classOf[Long]),"PUT", """""", Routes.prefix + """property/$id<[^/]+>"""))
+        
+
+// @LINE:23
+private[this] lazy val controllers_PropertyController_deleteProperty13_route = Route("DELETE", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("property/"),DynamicPart("id", """[^/]+""",true))))
+private[this] lazy val controllers_PropertyController_deleteProperty13_invoker = createInvoker(
+controllers.PropertyController.deleteProperty(fakeValue[Long]),
+HandlerDef(this.getClass.getClassLoader, "", "controllers.PropertyController", "deleteProperty", Seq(classOf[Long]),"DELETE", """""", Routes.prefix + """property/$id<[^/]+>"""))
+        
+
+// @LINE:26
+private[this] lazy val controllers_Assets_at14_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),DynamicPart("file", """.+""",false))))
+private[this] lazy val controllers_Assets_at14_invoker = createInvoker(
 controllers.Assets.at(fakeValue[String], fakeValue[String]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "at", Seq(classOf[String], classOf[String]),"GET", """ Map static resources from the /public folder to the /assets URL path""", Routes.prefix + """$file<.+>"""))
         
-def documentation = List(("""GET""", prefix,"""controllers.Application.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """listAll""","""controllers.EEPPIController.listAll()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smells""","""controllers.SmellController.getAllSmells()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smells/forcloud""","""controllers.SmellController.getCloudSmells()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smells/$id<[^/]+>""","""controllers.SmellController.getSmell(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smells""","""controllers.SmellController.createSmell()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smells/$id<[^/]+>""","""controllers.SmellController.updateSmell(id:Long)"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smells/$id<[^/]+>""","""controllers.SmellController.deleteSmell(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
+def documentation = List(("""GET""", prefix,"""controllers.Application.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """listAll""","""controllers.EEPPIController.listAll()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smells""","""controllers.SmellController.getAllSmells()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smells/forcloud""","""controllers.SmellController.getCloudSmells()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smells/$id<[^/]+>""","""controllers.SmellController.getSmell(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smells""","""controllers.SmellController.createSmell()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smells/$id<[^/]+>""","""controllers.SmellController.updateSmell(id:Long)"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smells/$id<[^/]+>""","""controllers.SmellController.deleteSmell(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property""","""controllers.PropertyController.getAllProperties()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property/categorie/$cat<[^/]+>""","""controllers.PropertyController.getProperties(cat:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property/$id<[^/]+>""","""controllers.PropertyController.getProperty(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property""","""controllers.PropertyController.createProperty()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property/$id<[^/]+>""","""controllers.PropertyController.updateProperty(id:Long)"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property/$id<[^/]+>""","""controllers.PropertyController.deleteProperty(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
   case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
   case l => s ++ l.asInstanceOf[List[(String,String,String)]]
 }}
@@ -167,9 +209,57 @@ case controllers_SmellController_deleteSmell7_route(params) => {
         
 
 // @LINE:18
-case controllers_Assets_at8_route(params) => {
+case controllers_PropertyController_getAllProperties8_route(params) => {
+   call { 
+        controllers_PropertyController_getAllProperties8_invoker.call(controllers.PropertyController.getAllProperties())
+   }
+}
+        
+
+// @LINE:19
+case controllers_PropertyController_getProperties9_route(params) => {
+   call(params.fromPath[String]("cat", None)) { (cat) =>
+        controllers_PropertyController_getProperties9_invoker.call(controllers.PropertyController.getProperties(cat))
+   }
+}
+        
+
+// @LINE:20
+case controllers_PropertyController_getProperty10_route(params) => {
+   call(params.fromPath[Long]("id", None)) { (id) =>
+        controllers_PropertyController_getProperty10_invoker.call(controllers.PropertyController.getProperty(id))
+   }
+}
+        
+
+// @LINE:21
+case controllers_PropertyController_createProperty11_route(params) => {
+   call { 
+        controllers_PropertyController_createProperty11_invoker.call(controllers.PropertyController.createProperty())
+   }
+}
+        
+
+// @LINE:22
+case controllers_PropertyController_updateProperty12_route(params) => {
+   call(params.fromPath[Long]("id", None)) { (id) =>
+        controllers_PropertyController_updateProperty12_invoker.call(controllers.PropertyController.updateProperty(id))
+   }
+}
+        
+
+// @LINE:23
+case controllers_PropertyController_deleteProperty13_route(params) => {
+   call(params.fromPath[Long]("id", None)) { (id) =>
+        controllers_PropertyController_deleteProperty13_invoker.call(controllers.PropertyController.deleteProperty(id))
+   }
+}
+        
+
+// @LINE:26
+case controllers_Assets_at14_route(params) => {
    call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
-        controllers_Assets_at8_invoker.call(controllers.Assets.at(path, file))
+        controllers_Assets_at14_invoker.call(controllers.Assets.at(path, file))
    }
 }
         

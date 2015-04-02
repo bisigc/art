@@ -14,5 +14,13 @@ POST    /smells                 controllers.SmellController.createSmell()
 PUT     /smells/:id             controllers.SmellController.updateSmell(id: Long)
 DELETE  /smells/:id             controllers.SmellController.deleteSmell(id: Long)
 
+#Property service
+GET     /property                 controllers.PropertyController.getAllProperties()
+GET     /property/categorie/:cat  controllers.PropertyController.getProperties(cat: String)
+GET     /property/:id             controllers.PropertyController.getProperty(id: Long)
+POST    /property                 controllers.PropertyController.createProperty()
+PUT     /property/:id             controllers.PropertyController.updateProperty(id: Long)
+DELETE  /property/:id             controllers.PropertyController.deleteProperty(id: Long)
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /*file                      controllers.Assets.at(path="/public", file)

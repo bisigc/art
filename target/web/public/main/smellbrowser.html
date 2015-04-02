@@ -29,7 +29,7 @@
 			                <!-- select ui-select2 class="form-control" ng-model="" ng-options="group.id as group.name for group in smellCtrl.groups" title="group" id="group" required></select -->
 			                <ui-select ng-model="smell.group_id" theme="selectize" ng-disabled="disabled" required>
 			                    <ui-select-match placeholder="Select or search a group in the list...">{{$select.selected.name}}</ui-select-match>
-			                    <ui-select-choices repeat="group in smellCtrl.groups | filter: $select.search">
+			                    <ui-select-choices repeat="group in groups | filter: $select.search">
 			                        <span ng-bind-html="group.name | highlight: $select.search"></span>
 			                        <!-- small ng-bind-html="country.code | highlight: $select.search"></small -->
 			                    </ui-select-choices>
@@ -79,7 +79,6 @@
             		</div>
             	</div>
             <fieldset class="form-group">
-				Form valid: {{smellForm.$valid}}
                 <button type="submit" class="btn btn-primary pull-right" ng-disabled="smellForm.$invalid">Save Smell</button>
             </fieldset>
 		</form>
@@ -87,22 +86,45 @@
 </div>
 <div>
     <table id="searchObjResults" class="table table-striped table-hover">
-        <tr><th>Name</th><th>Description</th><th>Weight</th><th>TecDebtIdx</th><th></th></tr>
-        <tr><td><input ng-model="search.name" placeholder="Enter search criteria" /></td><td><input ng-model="search.description" placeholder="Enter search criteria" /></td><td><input ng-model="search.weight" placeholder="Enter search criteria" /></td><td><input ng-model="search.tecdebtidx" placeholder="Enter search criteria" /></td><td></td></tr>
-        <tr><th><a href="" ng-click="reverseName=!reverseName;order('name', reverseName)">Name <span ng-show="reverseName">&#x25B2;</span><span ng-show="!reverseName">&#x25BC;</span></a></th><th><a href="" ng-click="reverseDesc=!reverseDesc;order('description', reverseDesc)">Description <span ng-show="reverseDesc">&#x25B2;</span><span ng-show="!reverseDesc">&#x25BC;</span></a></th><th><a href="" ng-click="reverseWeight=!reverseWeight;order('weight', reverseWeight)">Weight <span ng-show="reverseWeight">&#x25B2;</span><span ng-show="!reverseWeight">&#x25BC;</span></a></th><th><a href="" ng-click="reverseDebtIdx=!reverseDebtIdx;order('tecdebtidx', reverseDebtIdx)">TecDebtIdx <span ng-show="reverseDebtIdx">&#x25B2;</span><span ng-show="!reverseDebtIdx">&#x25BC;</span></a></th><th></th></tr>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Weight</th>
+            <th>Group</th>
+            <th>TecDebtIdx</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td><input ng-model="search.name" placeholder="Enter search criteria" /></td>
+            <td><input ng-model="search.description" placeholder="Enter search criteria" /></td>
+            <td><input ng-model="search.weight" placeholder="Enter search criteria" /></td>
+            <td><input ng-model="search.group_id" placeholder="Enter search criteria" /></td>
+            <td><input ng-model="search.tecdebtidx" placeholder="Enter search criteria" /></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th><a href ng-click="rname=!rname;order('name', rname)">Name <span ng-show="rname">&#x25B2;</span><span ng-show="!rname">&#x25BC;</span></a></th>
+            <th><a href ng-click="rdesc=!rdesc;order('description', rdesc)">Description <span ng-show="rdesc">&#x25B2;</span><span ng-show="!rdesc">&#x25BC;</span></a></th>
+            <th><a href ng-click="rweight=!rweight;order('weight', rweight)">Weight <span ng-show="rweight">&#x25B2;</span><span ng-show="!rweight">&#x25BC;</span></a></th>
+            <th><a href ng-click="rgroup=!rgroup;order('group_id', rgroup)">Group <span ng-show="rgroup">&#x25B2;</span><span ng-show="!rgroup">&#x25BC;</span></a></th>
+            <th><a href ng-click="rdebtidx=!rdebtidx;order('tecdebtidx', rdebtidx)">TecDebtIdx <span ng-show="rdebtidx">&#x25B2;</span><span ng-show="!rdebtidx">&#x25BC;</span></a></th>
+            <th></th>
+        </tr>
         <tr ng-show="smellCtrl.formvisible">
             <td>{{smell.name}}&nbsp;</td>
             <td>{{smell.description}}</td>
             <td>{{smell.weight}}</td>
+            <td>{{groups[smell.group_id.id - 1].name}}</td>
             <td class="dbt-idx-{{smell.tecdebtidx}}">{{smell.tecdebtidx}}</td>
             <td></td>
         </tr>
-        <tr ng-repeat="smellItem in smelllist | filter:search">
+        <tr ng-repeat="smellItem in smelllist | filter:search" ng-dblclick="openSmell(smellItem.id)">
             <td>{{smellItem.name}}</td>
             <td>{{smellItem.description}}</td>
             <td>{{smellItem.weight}}</td>
+            <td>{{groups[smellItem.group_id.id - 1].name}}</td>
             <td class="dbt-idx-{{smellItem.tecdebtidx}}">{{smellItem.tecdebtidx}}</td>
-            <td><span class="glyphicon glyphicon-pencil"></span>&nbsp;<a href ng-click="deleteSmell(smellItem.id)"><span class="glyphicon glyphicon-trash"></span></a></td>
+            <td><a href ng-click="openSmell(smellItem.id)"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;<a href ng-click="deleteSmell(smellItem.id)"><span class="glyphicon glyphicon-trash"></span></a></td>
         </tr>
     </table>
     <pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></pagination>

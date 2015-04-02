@@ -3,8 +3,18 @@ body {
     padding-bottom: 50px;
 }
 
-.navbar {
-    margin-bottom: 20px;
+.navbar-collapse {
+    padding-left: 0;
+}
+
+.navbar-nav li {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.navbar-nav li a {
+    padding-top: 4px;
+    padding-bottom: 4px;
 }
 
 .nav {
@@ -12,10 +22,7 @@ body {
 }
 
 .menuimage {
-    height: 20px;
-    padding: 0;
-    margin: 0;
-    border: 0;
+    height: 40px;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -28,6 +35,20 @@ body {
 
 .menuItem {
     border-right: 1px solid lightgray;
+    width: 100px;
+    height: 50px;
+}
+
+.well {
+    padding: 10px 10px 0 10px;
+}
+    
+.well p {
+    margin-bottom: 10px;
+}
+
+.menuItem:hover {
+    background-color: lightgray;
 }
 
 .progress span {
@@ -48,6 +69,10 @@ body {
 .ng-valid.ng-dirty {
     border-color: green;
     border-width: 3px;
+}
+
+.smell-desc-txt {
+    height: 100px;
 }
 
 /* Technical Debt Index Selector */

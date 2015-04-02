@@ -1,7 +1,13 @@
 # --- !Ups
-INSERT INTO artprop(name,categorie) VALUES ('Prop1','Cat1');
-INSERT INTO artprop(name,categorie) VALUES ('Prop2','Cat1');
-INSERT INTO artprop(name,categorie) VALUES ('Prop3','Cat2');
+INSERT INTO property(categorie,key,name,description,orderidx) VALUES ('SmellGroups','group1','Group 1','desc',1);
+INSERT INTO property(categorie,key,name,description,orderidx) VALUES ('SmellGroups','group2','Group 2','desc',2);
+INSERT INTO property(categorie,key,name,description,orderidx) VALUES ('SmellGroups','group3','Group 3','desc',3);
+INSERT INTO property(categorie,key,name,description,orderidx) VALUES ('SmellGroups','group4','Group 4','desc',4);
+INSERT INTO property(categorie,key,name,description,orderidx) VALUES ('SmellGroups','group5','Group 5','desc',5);
+INSERT INTO property(categorie,key,name,description,orderidx) VALUES ('SmellGroups','group6','Group 6','desc',6);
+INSERT INTO property(categorie,key,name,description,orderidx) VALUES ('SmellGroups','group7','Group 7','desc',7);
+INSERT INTO property(categorie,key,name,description,orderidx) VALUES ('OtherCategorie','group5','Group 5','desc',5);
+INSERT INTO property(categorie,key,name,description,orderidx) VALUES ('OtherCategorie','group5','Group 5','desc',5);
 
 INSERT INTO smell(name,description,keywords,weight,group_id,tecdebtidx,modified,created)
 VALUES ('Smell1','This is Smell1','keyword1,keyword2,keyword3',2.0,1,'lm',Current_timestamp,Current_timestamp);
