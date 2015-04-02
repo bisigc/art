@@ -11,8 +11,9 @@
         <link href="@routes.Assets.at("stylesheets/bootstrap.min.css")" rel="stylesheet">
         <link href="@routes.Assets.at("stylesheets/main.css")" rel="stylesheet">
         <link href="@routes.Assets.at("stylesheets/select.css")" rel="stylesheet">
-          <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.8.5/css/selectize.default.css">
+        <link href="@routes.Assets.at("stylesheets/selectize.default.css")" rel="stylesheet" >
         <link href="@routes.Assets.at("stylesheets/jqcloud.min.css")" rel="stylesheet">
+        <link href="@routes.Assets.at("stylesheets/ngNotificationsBar.min.css")" rel="stylesheet">
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -34,7 +35,7 @@
                                 <ul class="dropdown-menu" role="menu" ng-switch-when="dropdown">
                                     <li ng-class="{ active:menuCtrl.isMenuSet(submenuItem.name)}" ng-repeat="submenuItem in menuItem.subItems"><a href ng-click="menuCtrl.setMenu(submenuItem.name)">{{submenuItem.fullname}}</a></li>
                                 </ul>
-                                <a href ng-switch-when="home" class="homeitem" ng-click="menuCtrl.setMenu(menuItem.name)"><img ng-src="{{menuItem.image}}" /></a>
+                                <a href ng-switch-when="home" class="homeitem" ng-click="menuCtrl.setMenu(menuItem.name)"><img ng-src="{{menuItem.image}}" class="menuimage" /></a>
                                 <a href ng-switch-default ng-click="menuCtrl.setMenu(menuItem.name)">{{menuItem.fullname}}</a>
                             </li>
                         </ul>
@@ -53,8 +54,9 @@
             <div ng-include="menuCtrl.menuItem"></div>
 
         </div> <!-- /container -->
+        <notifications-bar class="notifications"></notifications-bar>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="@routes.Assets.at("javascripts/libs/jquery-1.11.2.min.js")"></script>
     <script type="text/javascript" src="@routes.Assets.at("javascripts/libs/angular.min.js")"></script>
     <script type="text/javascript" src="@routes.Assets.at("javascripts/libs/angular-resource.min.js")"></script>
     <script type="text/javascript" src="@routes.Assets.at("javascripts/libs/angular-sanitize.min.js")"></script>
@@ -64,5 +66,6 @@
     <script type="text/javascript" src="@routes.Assets.at("javascripts/libs/select.js")"></script>
     <script type="text/javascript" src="@routes.Assets.at("javascripts/libs/angular-jqcloud.js")"></script>
     <script type="text/javascript" src="@routes.Assets.at("javascripts/libs/ui-bootstrap-tpls-0.12.0.min.js")"></script>
+    <script type="text/javascript" src="@routes.Assets.at("javascripts/libs/ngNotificationsBar.min.js")"></script>
     </body>
 </html>

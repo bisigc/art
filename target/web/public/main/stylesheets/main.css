@@ -1,6 +1,6 @@
 body {
     padding-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
 }
 
 .navbar {
@@ -9,6 +9,13 @@ body {
 
 .nav {
     margin-left: 0;
+}
+
+.menuimage {
+    height: 20px;
+    padding: 0;
+    margin: 0;
+    border: 0;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -45,6 +52,10 @@ body {
 
 /* Technical Debt Index Selector */
 
+.idxtable {
+    text-align: center;
+}
+
 .problabel {
              filter:  progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083);  /* IE6,IE7 */
          -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083)"; /* IE8 */
@@ -56,8 +67,7 @@ body {
 }
 
 .implabel {
-	text-align: center;
-    height: 50px;
+    height: 40px;
     vertical-align: middle;
 }
 
@@ -71,4 +81,4 @@ body {
 .dbt-idx-hm { background-color: #FFAF9B; }
 .dbt-idx-hh { background-color: #FF8D70; }
 
-/*  */
+/* End Technical Debt Index Selector */

@@ -22,7 +22,7 @@ public class Smell extends Model {
 	private Double weight;
 	@ManyToOne
 	private Artprop group;
-	private Double tecdebtidx; // probability times (x) impact
+	private String tecdebtidx; // probability times (x) impact
 	private Timestamp modified;
 	private Timestamp created;
 
@@ -42,8 +42,8 @@ public class Smell extends Model {
 	public void setWeight(Double weight) { this.weight = weight; }
 	public Artprop getGroup_id() { return group; }
 	public void setGroup_id(Artprop group_id) { this.group = group_id; }
-	public Double getTecdebtidx() { return tecdebtidx; }
-	public void setTecdebtidx(Double tecdebtidx) { this.tecdebtidx = tecdebtidx; }
+	public String getTecdebtidx() { return tecdebtidx; }
+	public void setTecdebtidx(String tecdebtidx) { this.tecdebtidx = tecdebtidx; }
 	public Timestamp getModified() { return modified; }
 	public void setModified(Timestamp modified) { this.modified = modified; }
 	public Timestamp getCreated() { return created; }

@@ -25,7 +25,7 @@ create table smell (
   keywords                  varchar(255),
   weight                    double,
   group_id                  bigint,
-  tecdebtidx                double,
+  tecdebtidx                varchar(255),
   modified                  timestamp,
   created                   timestamp,
   constraint pk_smell primary key (id))
