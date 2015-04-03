@@ -2,11 +2,13 @@ package models;
 
 import java.sql.Timestamp;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class ArchitecturalRefactoring {
@@ -16,6 +18,10 @@ public class ArchitecturalRefactoring {
 	private Long id;
 	private String name;
 	private String description;
+	@OneToOne(cascade=CascadeType.PERSIST, mappedBy="ar")
+	private Discussion discussion;
+	@OneToOne(cascade=CascadeType.PERSIST, mappedBy="ar")
+	private Discussion commentary;
 	@ManyToOne
 	private User editor;
 	private Timestamp modified;
@@ -34,4 +40,10 @@ public class ArchitecturalRefactoring {
 	public void setModified(Timestamp modified) { this.modified = modified; }
 	public Timestamp getCreated() { return created; }
 	public void setCreated(Timestamp created) { this.created = created; }
+	public Discussion getDiscussion() { return discussion; }
+	public void setDiscussion(Discussion discussion) { this.discussion = discussion; }
+	public Discussion getCommentary() { return commentary; }
+	public void setCommentary(Discussion commentary) { this.commentary = commentary; }
+	public User getEditor() { return editor; }
+	public void setEditor(User editor) { this.editor = editor; }
 }

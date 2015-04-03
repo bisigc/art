@@ -2,6 +2,7 @@ package models;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,7 +17,7 @@ public class Role {
 	private Long id;
 	private String name;
 	private String description;
-	@OneToMany
+	@OneToMany(cascade=CascadeType.PERSIST, mappedBy="role")
 	private List<User> users;
 
 	//Getters & Setters

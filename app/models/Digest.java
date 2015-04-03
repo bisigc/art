@@ -1,10 +1,15 @@
 package models;
 
+import java.security.GeneralSecurityException;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+
+import tools.Crypto;
 
 @Entity
 public class Digest {
@@ -15,7 +20,18 @@ public class Digest {
 	private String salt;
 	private String scrypt;
 	@OneToOne
+	@PrimaryKeyJoinColumn
 	private User user;
+	
+	public boolean isPasswordValid(String password) throws GeneralSecurityException {
+		return Crypto.isPasswordValid(password, this);
+	}
+	
+	public void generateDigest(String password) {
+		Digest digest = Crypto.generateDigest(password);
+		this.salt = digest.getSalt();
+		this.scrypt = digest.getScrypt();
+	}
 
 	//Getters & Setters
 	public Long getId() { return id; }

@@ -16,6 +16,8 @@ public class Comment {
 	private Long id;
 	private String comment;
 	@ManyToOne
+	private Discussion discussion;
+	@ManyToOne
 	private User user;
 	private Timestamp modified;
 	private Timestamp created;

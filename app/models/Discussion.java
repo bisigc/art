@@ -3,6 +3,7 @@ package models;
 import java.sql.Timestamp;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -10,6 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 public class Discussion {
@@ -17,12 +20,12 @@ public class Discussion {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	@Id
 	@Enumerated(EnumType.STRING)
 	private DiscussionType type;
-	@Id
+	@OneToOne
+	@PrimaryKeyJoinColumn
 	private ArchitecturalRefactoring ar;	
-	@OneToMany
+	@OneToMany(cascade=CascadeType.PERSIST, mappedBy="discussion")
 	private List<Comment> comments;
 	private Timestamp created;
 	
