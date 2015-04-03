@@ -1,6 +1,7 @@
 <classpath>
   <classpathentry kind="src" path="app" output="target/scala-2.11/classes"/>
   <classpathentry kind="src" path="test" output="target/scala-2.11/test-classes"/>
+  <classpathentry kind="lib" path="./lib/scrypt-1.4.0.jar"/>
   <classpathentry kind="con" path="org.scala-ide.sdt.launching.SCALA_CONTAINER"/>
   <classpathentry kind="lib" path="/Users/cbi/.ivy2/cache/com.typesafe.play/twirl-api_2.11/jars/twirl-api_2.11-1.0.2.jar"/>
   <classpathentry kind="lib" path="/Users/cbi/.ivy2/cache/org.apache.commons/commons-lang3/jars/commons-lang3-3.1.jar"/>

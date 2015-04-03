@@ -38,4 +38,8 @@ VALUES 	(1,		'root',			'Root',						'',										'',	                           
        	(14,	'login',		'Login',					'',                     				'',                          	'login-logout',  	'', 	'right', 	60, 	1);
 
 
-
+INSERT INTO role
+		(id, name, description)
+VALUES	(1, 'Admin', 'ART Administrator'),
+		(2, 'Editor', 'Architecture Expert entering architectural refactorings into the ART.'),
+		(3, 'Applier', 'Searchs for architectural refactorings base on smells.');

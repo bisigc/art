@@ -286,3 +286,6 @@ run
 compile
 comile
 compile
+eclipse
+git status
+compile
