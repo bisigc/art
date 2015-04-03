@@ -3,12 +3,18 @@
 
 # --- !Ups
 
-create table eeppidata (
-  id                        bigint not null,
-  from_service              varchar(255),
-  json_data                 varchar(255),
-  created                   timestamp,
-  constraint pk_eeppidata primary key (id))
+create table menuitem (
+  id                        bigint auto_increment not null,
+  menuitem_id               bigint not null,
+  name                      varchar(255),
+  fullname                  varchar(255),
+  tooltip                   varchar(255),
+  image                     varchar(255),
+  type                      varchar(255),
+  url                       varchar(255),
+  pos                       varchar(255),
+  ordering                  integer,
+  constraint pk_menuitem primary key (id))
 ;
 
 create table property (
@@ -34,10 +40,10 @@ create table smell (
   constraint pk_smell primary key (id))
 ;
 
-create sequence eeppidata_seq;
-
-alter table smell add constraint fk_smell_group_1 foreign key (group_id) references property (id) on delete restrict on update restrict;
-create index ix_smell_group_1 on smell (group_id);
+alter table menuitem add constraint fk_menuitem_menuitem_1 foreign key (menuitem_id) references menuitem (id) on delete restrict on update restrict;
+create index ix_menuitem_menuitem_1 on menuitem (menuitem_id);
+alter table smell add constraint fk_smell_group_2 foreign key (group_id) references property (id) on delete restrict on update restrict;
+create index ix_smell_group_2 on smell (group_id);
 
 
 
@@ -45,13 +51,11 @@ create index ix_smell_group_1 on smell (group_id);
 
 SET REFERENTIAL_INTEGRITY FALSE;
 
-drop table if exists eeppidata;
+drop table if exists menuitem;
 
 drop table if exists property;
 
 drop table if exists smell;
 
 SET REFERENTIAL_INTEGRITY TRUE;
-
-drop sequence if exists eeppidata_seq;
 

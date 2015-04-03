@@ -29,27 +29,27 @@
             <nav class="navbar navbar-default">
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <li ng-repeat="menuItem in menuCtrl.menuItems" class="menuItem" ng-switch on="menuItem.type" ng-if="menuItem.pos === 'left'" ng-class="{ active:menuCtrl.isMenuSet(menuItem.name), dropdown:menuItem.type === 'dropdown'}">
-                                <a href ng-switch-when="dropdown" class="dropdown-toggle" data-toggle="dropdown" title="{{menuItem.tooltip}}" role="button" aria-expanded="false">{{menuItem.fullname}} <span class="caret"></span></a>
+                            <li ng-repeat="menui in menuItems" class="menuItem" ng-switch on="menui.type" ng-if="menui.pos === 'left'" ng-class="{ active:isMenuSet(menui.name), dropdown:menui.type === 'dropdown'}">
+                                <a href ng-switch-when="dropdown" class="dropdown-toggle" data-toggle="dropdown" title="{{menui.tooltip}}" role="button" aria-expanded="false">{{menui.fullname}} <span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu" ng-switch-when="dropdown">
-                                    <li ng-class="{ active:menuCtrl.isMenuSet(submenuItem.name)}" ng-repeat="submenuItem in menuItem.subItems"><a href ng-click="menuCtrl.setMenu(submenuItem.name)" title="{{submenuItem.tooltip}}" >{{submenuItem.fullname}}</a></li>
+                                    <li ng-class="{ active:isMenuSet(submenui.name)}" ng-repeat="submenui in menui.subItems"><a href ng-click="setMenu(submenui.name)" title="{{submenui.tooltip}}" >{{submenui.fullname}}</a></li>
                                 </ul>
-                                <a href ng-switch-when="home" class="homeitem" title="{{menuItem.tooltip}}" ng-click="menuCtrl.setMenu(menuItem.name)"><img ng-src="{{menuItem.image}}" class="menuimage" /></a>
-                                <a href ng-switch-default ng-click="menuCtrl.setMenu(menuItem.name)" title="{{menuItem.tooltip}}">{{menuItem.fullname}}</a>
+                                <a href ng-switch-when="home" class="homeitem" title="{{menui.tooltip}}" ng-click="setMenu(menui.name)"><img ng-src="{{menui.image}}" class="menuimage" /></a>
+                                <a href ng-switch-default ng-click="setMenu(menui.name)" title="{{menui.tooltip}}">{{menui.fullname}}</a>
                             </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right" ng-controller="UserController as userCtrl">
                             <li ng-show="userCtrl.user.loggedin"><a href>{{userCtrl.user.name}}</a></li>
                             <li ng-show="userCtrl.user.loggedin"><img ng-src="{{userCtrl.user.avatar}}" height="40px" /></li>
                             <!-- li class="active"><a href="./">Default <span class="sr-only">(current)</span></a></li -->
-                            <li ng-show="userCtrl.user.loggedin" ng-class="{ active:menuCtrl.isMenuSet('profile')}"><a href ng-click="menuCtrl.setMenu('profile')">Profile</a></li>
+                            <li ng-show="userCtrl.user.loggedin" ng-class="{ active:isMenuSet('profile')}"><a href ng-click="setMenu('profile')">Profile</a></li>
                             <li ng-hide="userCtrl.user.loggedin"><a href ng-click="userCtrl.login()">Login</a></li>
                             <li ng-show="userCtrl.user.loggedin"><a href ng-click="userCtrl.logout()">Logout</a></li>
                         </ul>
                     </div><!--/.nav-collapse -->
             </nav>
             
-            <div ng-include="menuCtrl.menuItem"></div>
+            <div ng-include="menuItem"></div>
 
         </div> <!-- /container -->
         <notifications-bar class="notifications"></notifications-bar>

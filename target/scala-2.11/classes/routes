@@ -4,7 +4,6 @@
 
 # Home page
 GET     /                           controllers.Application.index()
-GET     /listAll                    controllers.EEPPIController.listAll()
 
 #Smell service
 GET     /smells                 controllers.SmellController.getAllSmells()
@@ -21,6 +20,13 @@ GET     /property/:id             controllers.PropertyController.getProperty(id:
 POST    /property                 controllers.PropertyController.createProperty()
 PUT     /property/:id             controllers.PropertyController.updateProperty(id: Long)
 DELETE  /property/:id             controllers.PropertyController.deleteProperty(id: Long)
+
+#Menu service
+GET     /menu	                  controllers.MenuController.getMenuitems()
+GET     /menu/:id             	  controllers.MenuController.getMenuitem(id: Long)
+POST    /menu                 	  controllers.MenuController.createMenuitem()
+PUT     /menu/:id             	  controllers.MenuController.updateMenuitem(id: Long)
+DELETE  /menu/:id              	  controllers.MenuController.deleteMenuitem(id: Long)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /*file                      controllers.Assets.at(path="/public", file)

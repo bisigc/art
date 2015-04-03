@@ -2,20 +2,6 @@
     var user = { "name": 'Cbi', "loggedin": true, "avatar": 'images/avatars/avatar1.png' };
     var ars = [{ "name":"AR1", "desc":"blabladesc 1", "smells":[{"id":1,"name":"Smell1"},{"id":5,"name":"Smell5"}] }, { "name":"AR2", "desc":"Holderadio 2", "smells":[{"id":2,"name":"Smell2"},{"id":5,"name":"Smell5"}] }, { "name":"AR3", "desc":"Auto Velo 3", "smells":[{"id":2,"name":"Smell2"},{"id":7,"name":"Smell7"}] }, { "name":"AR4", "desc":"blabladesc 1", "smells":[{"id":2,"name":"Smell2"},{"id":6,"name":"Smell6"}] }, { "name":"AR5", "desc":"Holderadio 2", "smells":[{"id":1,"name":"Smell1"},{"id":5,"name":"Smell5"}] }, { "name":"AR6", "desc":"Auto Velo 3", "smells":[{"id":3,"name":"Smell3"},{"id":5,"name":"Smell5"}] }, { "name":"AR7", "desc":"blabladesc 1", "smells":[{"id":3,"name":"Smell3"},{"id":4,"name":"Smell4"}] }, { "name":"AR8", "desc":"Holderadio 2", "smells":[{"id":4,"name":"Smell4"},{"id":7,"name":"Smell7"}] }, { "name":"AR9", "desc":"Auto Velo 3", "smells":[{"id":1,"name":"Smell1"},{"id":5,"name":"Smell5"}] }];
     var app = angular.module('art', ['ui.bootstrap','angular-jqcloud','ngResource','ngSanitize','ui.select','ngNotificationsBar']);
-    var menuItems = [
-        {"id":1,  "name": "home",         "fullname":"home",                  "tooltip":"",                     "image":"images/art_logo_small.png", "type":"home",          "url":"home.html", "pos":"left", "order":5, "subItems":[]},
-        {"id":2,  "name": "ars",          "fullname":"AR Browser",            "tooltip":"Architectural Refactoring Browser",                            "image":"",                          "type":"include",       "url":"home.html", "pos":"left", "order":10, "subItems":[]},
-        {"id":3,  "name": "smellbrowser",       "fullname":"Smell Browser",   "tooltip":"",                    "image":"",                          "type":"include",       "url":"home.html", "pos":"left", "order":30, "subItems":[]},
-        {"id":4,  "name": "taskbrowser", "fullname":"Task Browser",           "tooltip":"",           "image":"",                          "type":"include",       "url":"home.html", "pos":"left", "order":25, "subItems":[]},
-        {"id":5,  "name": "smellasses",   "fullname":"Smell Self-Assessment", "tooltip":"Refactoring Qualification",                               "image":"",                          "type":"include",       "url":"home.html", "pos":"left", "order":20, "subItems":[]},
-        {"id":6,  "name": "armeta",       "fullname":"AR Meta Info",          "tooltip":"Architectural Refactoring Meta Info",                     "image":"",                          "type":"include",       "url":"home.html", "pos":"left", "order":40, "subItems":[]},
-        //{"id":8,  "name": "wiki",         "fullname":"Wikipedia",           "tooltip":"",                       "image":"",                          "type":"link",          "url":"http://www.wikipedia.com", "pos":"left", "order":40, "subItems":[]},
-        {"id":8,  "name": "admin",        "fullname":"Admin",                 "tooltip":"",                     "image":"",                          "type":"dropdown",      "url":"home.html", "pos":"left", "order":45, "subItems":[{"id":11, "name": "users", "fullname": "Users","tooltip":"","image":"", "type":"include", "url":"useradmin.html", "pos":"left", "order":15, "subItems":[]},{"id":13, "name": "other", "fullname": "Other","tooltip":"","image":"", "type":"include", "url":"useradmin.html", "pos":"left", "order":15, "subItems":[]}]},
-        {"id":9,  "name": "about",        "fullname":"About",                 "tooltip":"",                    "image":"",                          "type":"include",       "url":"home.html", "pos":"left", "order":15, "subItems":[]},
-        {"id":10,  "name": "contact",        "fullname":"Contact",            "tooltip":"",                         "image":"",                          "type":"include",       "url":"home.html", "pos":"left", "order":15, "subItems":[]},
-        {"id":11,  "name": "profile",      "fullname":"Profile",              "tooltip":"",                      "image":"",                          "type":"include",       "url":"home.html", "pos":"right", "order":50, "subItems":[]},
-        {"id":12, "name": "login",        "fullname":"Login",                 "tooltip":"",                     "image":"",                          "type":"login-logout",  "url":"home.html", "pos":"right", "order":55, "subItems":[]}
-    ];
 
     var setSmell = function(smell){ 
         var input = $('#smellname');
@@ -46,17 +32,22 @@
         }
     }]);
 
-    app.controller('MenuController', function(){
-        this.menuItems = menuItems;
-        this.menuItem = 'smellbrowser.html';
-        this.setMenu = function(selectedMenu) {
-            this.menuItem = selectedMenu + '.html';
+    app.controller('MenuController', ['MenuService', 'notifications', '$scope', function(MenuService, notifications, $scope){
+        $scope.menuItems = [];
+        MenuService.get({},function(data, status, headers, config) {
+            $scope.menuItems = data;
+        }, function(error, status, headers, config) {
+            notifications.showError("Failed to load Menu.");
+        }); 
+        $scope.menuItem = 'smellbrowser.html';
+        $scope.setMenu = function(selectedMenu) {
+            $scope.menuItem = selectedMenu + '.html';
         };
 
-        this.isMenuSet = function(isSet) {
-            return isSet === this.menuItem;
+        $scope.isMenuSet = function(isSet) {
+            return isSet === $scope.menuItem;
         };
-    });
+    }]);
 
     app.controller('ARController', ['CloudSmells','$scope','$filter', function(CloudSmells, $scope, $filter) {
         var orderBy = $filter('orderBy');
@@ -172,7 +163,7 @@
             });  
         };
         $scope.loadGroups();
-        
+
         $scope.smellcallstatus = "not yet called";
 
         this.showForm = function(visible) {
@@ -231,7 +222,7 @@
                     return id;
                 }
             }});
-            
+
             modalInstance.result.then(function () {
                 $scope.loadSmells();
                 notifications.showSuccess("Smells loaded.");
@@ -277,7 +268,7 @@
             });  
         };
         $scope.getSmell(smellid);
-        
+
         $scope.updateSmell = function() {
             SmellService.update({id: $scope.singleSmell.id}, $scope.singleSmell,function(data, status, headers, config) {
                 $modalInstance.close();
@@ -333,7 +324,13 @@
             get: { method: 'GET', isArray: true }
         });
     }]);
-    
+
+    app.factory('MenuService', ['$resource', function ($resource) {
+        return $resource('/menu', {}, {
+            get: { method: 'GET', isArray: true }
+        });
+    }]);
+
 
     // EEPPI services
     app.factory("Tasks", function($resource) {
