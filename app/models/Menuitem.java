@@ -10,14 +10,14 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import play.db.ebean.Model;
-
 @Entity
-public class Menuitem extends Model {
+public class Menuitem {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long			id;
+	@ManyToOne
+	private Menuitem		menuitem;
 	private String			name;
 	private String 			fullname;
 	private String			tooltip;
@@ -26,11 +26,8 @@ public class Menuitem extends Model {
 	private String			url;
 	private String  		pos;
 	private Integer			ordering;
-	@OneToMany(cascade=CascadeType.PERSIST)
+	@OneToMany(cascade=CascadeType.PERSIST, mappedBy="menuitem")
 	private List<Menuitem>	subItems;
-	
-	public static Finder<Long, Menuitem> find = new Finder<Long, Menuitem>(
-			Long.class, Menuitem.class);
 
 	//Getters & Setters
 	public Long getId() { return id; }

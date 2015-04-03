@@ -5,22 +5,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import play.db.ebean.Model;
-
 @Entity
-public class Property extends Model {
+public class Property {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long	id;
 	private String	categorie;
-	private String	key;
+	private String	attribute;
 	private String	name;
 	private String	description;
 	private Integer	orderidx;
-
-	public static Finder<Long, Property> find = new Finder<Long, Property>(
-			Long.class, Property.class);
 
 	//Getters & Setters
 	public Long getId() { return id; }
@@ -29,8 +24,8 @@ public class Property extends Model {
 	public void setName(String name) { this.name = name; }
 	public String getCategorie() { return categorie; }
 	public void setCategorie(String categorie) { this.categorie = categorie; }
-	public String getKey() { return key; }
-	public void setKey(String key) { this.key = key; }
+	public String getAttribute() { return attribute; }
+	public void setAttribute(String key) { this.attribute = key; }
 	public String getDescription() { return description; }
 	public void setDescription(String description) { this.description = description; }
 	public Integer getOrderidx() { return orderidx; }

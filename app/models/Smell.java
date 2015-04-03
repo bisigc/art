@@ -1,17 +1,14 @@
 package models;
 
 import java.sql.Timestamp;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import play.db.ebean.Model;
-
 @Entity
-public class Smell extends Model {
+public class Smell {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -25,9 +22,6 @@ public class Smell extends Model {
 	private String tecdebtidx; // probability times (x) impact
 	private Timestamp modified;
 	private Timestamp created;
-
-	public static Finder<Long, Smell> find = new Finder<Long, Smell>(
-			Long.class, Smell.class);
 
 	//Getters & Setters
 	public Long getId() { return id; }

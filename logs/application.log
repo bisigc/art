@@ -1,289 +1,95 @@
-2015-04-03 09:17:14,641 - [INFO] - from play in pool-5-thread-4 
+2015-04-03 18:45:49,673 - [INFO] - from play in pool-5-thread-2 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9085
 
-2015-04-03 09:17:19,781 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
-JDBC URL = jdbc:h2:mem:play;MODE=MYSQL;DB_CLOSE_DELAY=-1, Username = art_user, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+2015-04-03 18:45:52,805 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
 
-2015-04-03 09:17:19,946 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:mem:play
+2015-04-03 18:45:53,105 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:mysql://localhost/art
 
-2015-04-03 09:17:20,508 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
-select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+2015-04-03 18:45:54,573 - [ERROR] - from play in play-internal-execution-context-1 
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'key,name,description,orderidx)
+VALUES	('SmellGroups','group1','Group 1','desc',1' at line 1 [ERROR:1064, SQLSTATE:42000]
 
-2015-04-03 09:17:20,514 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
-
-              create table play_evolutions (
-                  id int not null primary key, hash varchar(255) not null,
-                  applied_at timestamp not null,
-                  apply_script text,
-                  revert_script text,
-                  state varchar(255),
-                  last_problem text
-              )
-          
-
-2015-04-03 09:17:20,515 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
-
-            select id, hash, apply_script, revert_script from play_evolutions order by id
-        
-
-2015-04-03 09:17:20,521 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
-select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
-
-2015-04-03 09:17:20,528 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-1 
-insert into play_evolutions values(1, '6ca0489ffb26a3d3ad43535699168628f2392cf9', 2015-04-03, 'create table menuitem (
-id                        bigint auto_increment not null,
-menuitem_id               bigint not null,
-name                      varchar(255),
-fullname                  varchar(255),
-tooltip                   varchar(255),
-image                     varchar(255),
-type                      varchar(255),
-url                       varchar(255),
-pos                       varchar(255),
-ordering                  integer,
-constraint pk_menuitem primary key (id))
-;
-
-create table property (
-id                        bigint auto_increment not null,
-categorie                 varchar(255),
-key                       varchar(255),
-name                      varchar(255),
-description               varchar(255),
-orderidx                  integer,
-constraint pk_property primary key (id))
-;
-
-create table smell (
-id                        bigint auto_increment not null,
-name                      varchar(255),
-description               varchar(255),
-keywords                  varchar(255),
-weight                    double,
-group_id                  bigint,
-tecdebtidx                varchar(255),
-modified                  timestamp,
-created                   timestamp,
-constraint pk_smell primary key (id))
-;
-
-alter table menuitem add constraint fk_menuitem_menuitem_1 foreign key (menuitem_id) references menuitem (id) on delete restrict on update restrict;
-create index ix_menuitem_menuitem_1 on menuitem (menuitem_id);
-alter table smell add constraint fk_smell_group_2 foreign key (group_id) references property (id) on delete restrict on update restrict;
-create index ix_smell_group_2 on smell (group_id);', 'SET REFERENTIAL_INTEGRITY FALSE;
-
-drop table if exists menuitem;
-
-drop table if exists property;
-
-drop table if exists smell;
-
-SET REFERENTIAL_INTEGRITY TRUE;', 'applying_up', '')
-
-2015-04-03 09:17:20,532 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
-create table menuitem (
-id                        bigint auto_increment not null,
-menuitem_id               bigint not null,
-name                      varchar(255),
-fullname                  varchar(255),
-tooltip                   varchar(255),
-image                     varchar(255),
-type                      varchar(255),
-url                       varchar(255),
-pos                       varchar(255),
-ordering                  integer,
-constraint pk_menuitem primary key (id))
-
-2015-04-03 09:17:20,536 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
-create table property (
-id                        bigint auto_increment not null,
-categorie                 varchar(255),
-key                       varchar(255),
-name                      varchar(255),
-description               varchar(255),
-orderidx                  integer,
-constraint pk_property primary key (id))
-
-2015-04-03 09:17:20,536 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
-create table smell (
-id                        bigint auto_increment not null,
-name                      varchar(255),
-description               varchar(255),
-keywords                  varchar(255),
-weight                    double,
-group_id                  bigint,
-tecdebtidx                varchar(255),
-modified                  timestamp,
-created                   timestamp,
-constraint pk_smell primary key (id))
-
-2015-04-03 09:17:20,537 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
-alter table menuitem add constraint fk_menuitem_menuitem_1 foreign key (menuitem_id) references menuitem (id) on delete restrict on update restrict
-
-2015-04-03 09:17:20,542 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
-create index ix_menuitem_menuitem_1 on menuitem (menuitem_id)
-
-2015-04-03 09:17:20,542 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
-alter table smell add constraint fk_smell_group_2 foreign key (group_id) references property (id) on delete restrict on update restrict
-
-2015-04-03 09:17:20,546 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
-create index ix_smell_group_2 on smell (group_id)
-
-2015-04-03 09:17:20,550 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
-update play_evolutions set state = 'applied' where id = 1
-
-2015-04-03 09:17:20,553 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-internal-execution-context-1 
-insert into play_evolutions values(2, 'bf8e557dd3be2e8ad609cd8529535a659920f2e1', 2015-04-03, 'INSERT INTO property(categorie,key,name,description,orderidx)
-VALUES	('SmellGroups','group1','Group 1','desc',1),
-('SmellGroups','group2','Group 2','desc',2),
-('SmellGroups','group3','Group 3','desc',3),
-('SmellGroups','group4','Group 4','desc',4),
-('SmellGroups','group5','Group 5','desc',5),
-('SmellGroups','group6','Group 6','desc',6),
-('SmellGroups','group7','Group 7','desc',7),
-('OtherCategorie','group5','Group 5','desc',5),
-('OtherCategorie','group5','Group 5','desc',5);
-
-INSERT INTO smell(name,description,keywords,weight,group_id,tecdebtidx,modified,created)
-VALUES	('Smell1','This is Smell1','keyword1,keyword2,keyword3',2.0,1,'lm',Current_timestamp,Current_timestamp),
-('Smell2','This is Smell2','keyword2,keyword4,keyword5',2.0,2,'lm',Current_timestamp,Current_timestamp),
-('Smell3','This is Smell3','keyword1,keyword2,keyword3',3.0,1,'lm',Current_timestamp,Current_timestamp),
-('Smell4','This is Smell4','keyword5,keyword6,keyword7',1.0,2,'lm',Current_timestamp,Current_timestamp),
-('Smell5','This is Smell5','keyword5,keyword6,keyword7',5.0,2,'lm',Current_timestamp,Current_timestamp),
-('Smell6','This is Smell6','keyword5,keyword6,keyword7',6.0,2,'lm',Current_timestamp,Current_timestamp),
-('Smell7','This is Smell7','keyword5,keyword6,keyword7',1.0,2,'lm',Current_timestamp,Current_timestamp);
+2015-04-03 18:45:54,583 - [ERROR] - from application in New I/O worker #1 
 
 
-INSERT INTO menuitem
-(id,	name,			fullname,					tooltip,								image,							type,				url,	pos,		ordering,	menuitem_id)
-VALUES 	(1,		'root',			'Root',						'',										'',	                            'root',				'',		'',		    0,		1),
-(2,		'home',			'home',						'',										'images/art_logo_small.png',	'home',				'',		'left',		5,		1),
-(3,		'ars',			'AR Browser',				'Architectural Refactoring Browser',    '',                          	'include', 	     	'', 	'left', 	10, 	1),
-(4,		'smellbrowser',	'Smell Browser',			'',                    					'',                          	'include',       	'', 	'left', 	30, 	1),
-(5,		'taskbrowser',	'Task Browser',				'',           							'',                          	'include',       	'', 	'left', 	25, 	1),
-(6,		'smellasses',	'Smell Self-Assessment',	'Refactoring Qualification',           	'',                          	'include',       	'', 	'left', 	20, 	1),
-(7,		'armeta',		'AR Meta Info',				'Architectural Refactoring Meta Info',	'',                          	'include',       	'', 	'left', 	40, 	1),
-(8,		'admin',		'Admin',					'',                     				'',                          	'dropdown',      	'', 	'left', 	45, 	1),
-(9,		'users', 		'Users',					'',										'', 							'include', 			'', 	'left', 	5,  	8),
-(10,	'other', 		'Other',					'',										'',								'include', 			'',		'left', 	10, 	8),
-(11,	'about',		'About',					'',                    					'',                          	'include',       	'', 	'left', 	50, 	1),
-(12,	'contact',		'Contact',					'',                         			'',                          	'include',       	'', 	'left', 	55, 	1),
-(13,	'profile',      'Profile',					'',                      				'',                          	'include',       	'', 	'right', 	60, 	1),
-(14,	'login',		'Login',					'',                     				'',                          	'login-logout',  	'', 	'right', 	65, 	1);', '', 'applying_up', '')
+! @6lkmkhdkd - Internal server error, for (GET) [/] ->
 
-2015-04-03 09:17:20,554 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
-INSERT INTO property(categorie,key,name,description,orderidx)
-VALUES	('SmellGroups','group1','Group 1','desc',1),
-('SmellGroups','group2','Group 2','desc',2),
-('SmellGroups','group3','Group 3','desc',3),
-('SmellGroups','group4','Group 4','desc',4),
-('SmellGroups','group5','Group 5','desc',5),
-('SmellGroups','group6','Group 6','desc',6),
-('SmellGroups','group7','Group 7','desc',7),
-('OtherCategorie','group5','Group 5','desc',5),
-('OtherCategorie','group5','Group 5','desc',5)
+play.api.db.evolutions.InconsistentDatabase: Database 'default' is in an inconsistent state![An evolution has not been applied properly. Please check the problem and resolve it manually before marking it as resolved.]
+	at play.api.db.evolutions.Evolutions$.checkEvolutionsState(Evolutions.scala:196) ~[play-jdbc_2.11-2.3.6.jar:2.3.6]
+	at play.api.db.evolutions.Evolutions$.databaseEvolutions(Evolutions.scala:367) ~[play-jdbc_2.11-2.3.6.jar:2.3.6]
+	at play.api.db.evolutions.Evolutions$$anonfun$evolutionScript$2.apply(Evolutions.scala:332) ~[play-jdbc_2.11-2.3.6.jar:2.3.6]
+	at play.api.db.evolutions.Evolutions$$anonfun$evolutionScript$2.apply(Evolutions.scala:330) ~[play-jdbc_2.11-2.3.6.jar:2.3.6]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.11.1.jar:na]
+	at play.api.db.evolutions.Evolutions$.evolutionScript(Evolutions.scala:330) ~[play-jdbc_2.11-2.3.6.jar:2.3.6]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1$$anonfun$apply$1.apply$mcV$sp(Evolutions.scala:486) ~[play-jdbc_2.11-2.3.6.jar:2.3.6]
+	at play.api.db.evolutions.EvolutionsPlugin.withLock(Evolutions.scala:531) ~[play-jdbc_2.11-2.3.6.jar:2.3.6]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:485) ~[play-jdbc_2.11-2.3.6.jar:2.3.6]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:483) ~[play-jdbc_2.11-2.3.6.jar:2.3.6]
+	at scala.collection.immutable.List.foreach(List.scala:383) ~[scala-library-2.11.1.jar:na]
+	at play.api.db.evolutions.EvolutionsPlugin.onStart(Evolutions.scala:483) ~[play-jdbc_2.11-2.3.6.jar:2.3.6]
+	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:91) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:91) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.collection.immutable.List.foreach(List.scala:383) ~[scala-library-2.11.1.jar:na]
+	at play.api.Play$$anonfun$start$1.apply$mcV$sp(Play.scala:91) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:91) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:91) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.Play$.start(Play.scala:90) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:157) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:130) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.11.1.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:130) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:128) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.util.Success.flatMap(Try.scala:230) ~[scala-library-2.11.1.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:128) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:120) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.11.1.jar:na]
 
-2015-04-03 09:17:20,556 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
-INSERT INTO smell(name,description,keywords,weight,group_id,tecdebtidx,modified,created)
-VALUES	('Smell1','This is Smell1','keyword1,keyword2,keyword3',2.0,1,'lm',Current_timestamp,Current_timestamp),
-('Smell2','This is Smell2','keyword2,keyword4,keyword5',2.0,2,'lm',Current_timestamp,Current_timestamp),
-('Smell3','This is Smell3','keyword1,keyword2,keyword3',3.0,1,'lm',Current_timestamp,Current_timestamp),
-('Smell4','This is Smell4','keyword5,keyword6,keyword7',1.0,2,'lm',Current_timestamp,Current_timestamp),
-('Smell5','This is Smell5','keyword5,keyword6,keyword7',5.0,2,'lm',Current_timestamp,Current_timestamp),
-('Smell6','This is Smell6','keyword5,keyword6,keyword7',6.0,2,'lm',Current_timestamp,Current_timestamp),
-('Smell7','This is Smell7','keyword5,keyword6,keyword7',1.0,2,'lm',Current_timestamp,Current_timestamp)
+2015-04-03 18:46:43,526 - [WARN] - from play in play-internal-execution-context-1 
+Error stopping plugin
+java.lang.NullPointerException: null
+	at play.libs.ws.ning.NingWSPlugin.onStop(NingWSPlugin.java:31) ~[play-java-ws_2.11-2.3.6.jar:2.3.6]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1$$anonfun$apply$mcV$sp$2.apply(Play.scala:108) [play_2.11-2.3.6.jar:2.3.6]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1$$anonfun$apply$mcV$sp$2.apply(Play.scala:107) [play_2.11-2.3.6.jar:2.3.6]
+	at scala.collection.immutable.List.foreach(List.scala:383) [scala-library-2.11.1.jar:na]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1.apply$mcV$sp(Play.scala:107) [play_2.11-2.3.6.jar:2.3.6]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1.apply(Play.scala:107) [play_2.11-2.3.6.jar:2.3.6]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1.apply(Play.scala:107) [play_2.11-2.3.6.jar:2.3.6]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) [play_2.11-2.3.6.jar:2.3.6]
+	at play.api.Play$$anonfun$stop$1.apply(Play.scala:106) [play_2.11-2.3.6.jar:2.3.6]
+	at play.api.Play$$anonfun$stop$1.apply(Play.scala:105) [play_2.11-2.3.6.jar:2.3.6]
+	at scala.Option.map(Option.scala:145) [scala-library-2.11.1.jar:na]
+	at play.api.Play$.stop(Play.scala:105) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:142) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:130) [play_2.11-2.3.6.jar:2.3.6]
+	at scala.Option.map(Option.scala:145) [scala-library-2.11.1.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:130) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:128) [play_2.11-2.3.6.jar:2.3.6]
+	at scala.util.Success.flatMap(Try.scala:230) [scala-library-2.11.1.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:128) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:120) [play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.11.1.jar:na]
 
-2015-04-03 09:17:20,558 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
-INSERT INTO menuitem
-(id,	name,			fullname,					tooltip,								image,							type,				url,	pos,		ordering,	menuitem_id)
-VALUES 	(1,		'root',			'Root',						'',										'',	                            'root',				'',		'',		    0,		1),
-(2,		'home',			'home',						'',										'images/art_logo_small.png',	'home',				'',		'left',		5,		1),
-(3,		'ars',			'AR Browser',				'Architectural Refactoring Browser',    '',                          	'include', 	     	'', 	'left', 	10, 	1),
-(4,		'smellbrowser',	'Smell Browser',			'',                    					'',                          	'include',       	'', 	'left', 	30, 	1),
-(5,		'taskbrowser',	'Task Browser',				'',           							'',                          	'include',       	'', 	'left', 	25, 	1),
-(6,		'smellasses',	'Smell Self-Assessment',	'Refactoring Qualification',           	'',                          	'include',       	'', 	'left', 	20, 	1),
-(7,		'armeta',		'AR Meta Info',				'Architectural Refactoring Meta Info',	'',                          	'include',       	'', 	'left', 	40, 	1),
-(8,		'admin',		'Admin',					'',                     				'',                          	'dropdown',      	'', 	'left', 	45, 	1),
-(9,		'users', 		'Users',					'',										'', 							'include', 			'', 	'left', 	5,  	8),
-(10,	'other', 		'Other',					'',										'',								'include', 			'',		'left', 	10, 	8),
-(11,	'about',		'About',					'',                    					'',                          	'include',       	'', 	'left', 	50, 	1),
-(12,	'contact',		'Contact',					'',                         			'',                          	'include',       	'', 	'left', 	55, 	1),
-(13,	'profile',      'Profile',					'',                      				'',                          	'include',       	'', 	'right', 	60, 	1),
-(14,	'login',		'Login',					'',                     				'',                          	'login-logout',  	'', 	'right', 	65, 	1)
+2015-04-03 18:46:43,566 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
 
-2015-04-03 09:17:20,563 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
-update play_evolutions set state = 'applied' where id = 2
+2015-04-03 18:46:43,606 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:mysql://localhost/art
 
-2015-04-03 09:17:20,563 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
-select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
-
-2015-04-03 09:17:20,650 - [INFO] - from play in play-internal-execution-context-1 
+2015-04-03 18:46:43,879 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
-
-2015-04-03 09:17:22,400 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-4 
-select t0.id c0, t0.name c1, t0.fullname c2, t0.tooltip c3, t0.image c4, t0.type c5, t0.url c6, t0.pos c7, t0.ordering c8 from menuitem t0 where t0.name <> 'root'  and menuitem_id = 1  order by t0.ordering
-
-2015-04-03 09:17:22,472 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-6 
-select t0.id c0, t0.name c1, t0.description c2, t0.keywords c3, t0.weight c4, t0.tecdebtidx c5, t0.modified c6, t0.created c7, t0.group_id c8 from smell t0
-
-2015-04-03 09:17:22,474 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-2 
-select t0.id c0, t0.categorie c1, t0.key c2, t0.name c3, t0.description c4, t0.orderidx c5 from property t0 where t0.categorie = 'SmellGroups' 
-
-2015-04-03 09:17:22,529 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-6 
-select t0.id c0, t0.categorie c1, t0.key c2, t0.name c3, t0.description c4, t0.orderidx c5 from property t0 where t0.id = 1  
-
-2015-04-03 09:17:22,532 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-6 
-select t0.id c0, t0.categorie c1, t0.key c2, t0.name c3, t0.description c4, t0.orderidx c5 from property t0 where t0.id = 2  
-
-2015-04-03 09:17:22,642 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-4 
-select t0.menuitem_id c0, t0.id c1, t0.name c2, t0.fullname c3, t0.tooltip c4, t0.image c5, t0.type c6, t0.url c7, t0.pos c8, t0.ordering c9 from menuitem t0 where (t0.menuitem_id) in (2) 
-
-2015-04-03 09:17:22,648 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-4 
-select t0.menuitem_id c0, t0.id c1, t0.name c2, t0.fullname c3, t0.tooltip c4, t0.image c5, t0.type c6, t0.url c7, t0.pos c8, t0.ordering c9 from menuitem t0 where (t0.menuitem_id) in (3) 
-
-2015-04-03 09:17:22,649 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-4 
-select t0.menuitem_id c0, t0.id c1, t0.name c2, t0.fullname c3, t0.tooltip c4, t0.image c5, t0.type c6, t0.url c7, t0.pos c8, t0.ordering c9 from menuitem t0 where (t0.menuitem_id) in (6) 
-
-2015-04-03 09:17:22,653 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-4 
-select t0.menuitem_id c0, t0.id c1, t0.name c2, t0.fullname c3, t0.tooltip c4, t0.image c5, t0.type c6, t0.url c7, t0.pos c8, t0.ordering c9 from menuitem t0 where (t0.menuitem_id) in (5) 
-
-2015-04-03 09:17:22,655 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-4 
-select t0.menuitem_id c0, t0.id c1, t0.name c2, t0.fullname c3, t0.tooltip c4, t0.image c5, t0.type c6, t0.url c7, t0.pos c8, t0.ordering c9 from menuitem t0 where (t0.menuitem_id) in (4) 
-
-2015-04-03 09:17:22,658 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-4 
-select t0.menuitem_id c0, t0.id c1, t0.name c2, t0.fullname c3, t0.tooltip c4, t0.image c5, t0.type c6, t0.url c7, t0.pos c8, t0.ordering c9 from menuitem t0 where (t0.menuitem_id) in (7) 
-
-2015-04-03 09:17:22,659 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-4 
-select t0.menuitem_id c0, t0.id c1, t0.name c2, t0.fullname c3, t0.tooltip c4, t0.image c5, t0.type c6, t0.url c7, t0.pos c8, t0.ordering c9 from menuitem t0 where (t0.menuitem_id) in (8) 
-
-2015-04-03 09:17:22,667 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-4 
-select t0.menuitem_id c0, t0.id c1, t0.name c2, t0.fullname c3, t0.tooltip c4, t0.image c5, t0.type c6, t0.url c7, t0.pos c8, t0.ordering c9 from menuitem t0 where (t0.menuitem_id) in (9) 
-
-2015-04-03 09:17:22,673 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-4 
-select t0.menuitem_id c0, t0.id c1, t0.name c2, t0.fullname c3, t0.tooltip c4, t0.image c5, t0.type c6, t0.url c7, t0.pos c8, t0.ordering c9 from menuitem t0 where (t0.menuitem_id) in (10) 
-
-2015-04-03 09:17:22,674 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-4 
-select t0.menuitem_id c0, t0.id c1, t0.name c2, t0.fullname c3, t0.tooltip c4, t0.image c5, t0.type c6, t0.url c7, t0.pos c8, t0.ordering c9 from menuitem t0 where (t0.menuitem_id) in (11) 
-
-2015-04-03 09:17:22,675 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-4 
-select t0.menuitem_id c0, t0.id c1, t0.name c2, t0.fullname c3, t0.tooltip c4, t0.image c5, t0.type c6, t0.url c7, t0.pos c8, t0.ordering c9 from menuitem t0 where (t0.menuitem_id) in (12) 
-
-2015-04-03 09:17:22,675 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-4 
-select t0.menuitem_id c0, t0.id c1, t0.name c2, t0.fullname c3, t0.tooltip c4, t0.image c5, t0.type c6, t0.url c7, t0.pos c8, t0.ordering c9 from menuitem t0 where (t0.menuitem_id) in (13) 
-
-2015-04-03 09:17:22,676 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-4 
-select t0.menuitem_id c0, t0.id c1, t0.name c2, t0.fullname c3, t0.tooltip c4, t0.image c5, t0.type c6, t0.url c7, t0.pos c8, t0.ordering c9 from menuitem t0 where (t0.menuitem_id) in (14) 
-
-2015-04-03 09:19:09,314 - [INFO] - from com.jolbox.bonecp.BoneCP in pool-5-thread-4 
-Shutting down connection pool...
-
-2015-04-03 09:19:09,315 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
-Terminating pool watch thread
-
-2015-04-03 09:19:09,316 - [INFO] - from com.jolbox.bonecp.BoneCP in pool-5-thread-4 
-Connection pool has been shutdown.
-
-2015-04-03 09:19:09,316 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in pool-5-thread-4 
-Connection pool has been shut down
 

@@ -220,9 +220,8 @@
 
             modalInstance.result.then(function () {
                 $scope.loadSmells();
-                notifications.showSuccess("Smells loaded.");
             }, function () {
-                notifications.showSuccess("Smell closed");
+                //notifications.showSuccess("Smell closed");
             });
         };
 

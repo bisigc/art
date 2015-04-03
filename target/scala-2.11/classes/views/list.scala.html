@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="artApp">
+
+<head>
+<title>title</title>
+<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+<link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-resource.js"></script>
+<script src="@routes.Assets.at("javascripts/angular-drag-and-drop-lists.js")"></script>
+</head>
+
+<body>
+	<div ng-controller="eeppiCtrl">
+		<h2>EEPPI Task Templates</h2>
+		<p>Task Templates Check (Msg: {{ msg1 }}):</p>
+		<ul dnd-list="tasks.items">
+			<li ng-repeat="task in tasks.items">{{ task.id + ', ' + task.name }}</li>
+		</ul>
+	</div>
+	
+	<div ng-controller="adRepoElementCtrl">
+		<h2>ADRepo Elements</h2>
+		<p>Elements Check (Msg: {{ msg2 }}):</p>
+		<ul dnd-list="element">
+			<li ng-model="element">{{ element.id + ', ' + element.name }}</li>
+		</ul>
+	</div>
+	
+	<div ng-controller="ownTaskCtrl">
+		<h2>Own Task Templates</h2>
+		<p>Task Templates (Msg: {{ msg3 }}):</p>
+		<ul dnd-list="owntasks">
+			<li ng-repeat="mytask in owntasks" dnd-draggable="mytask"
+				dnd-moved="owntasks.splice($index, 1)" dnd-effect-allowed="move"
+				dnd-selected="models.selected = mytask"
+				ng-class="{'selected': mytask.selected === mytask}">{{
+				mytask.id + ', ' + mytask.from_service + ', ' + mytask.created }}</li>
+		</ul>
+	</div>
+
+	<script src="@routes.Assets.at("javascripts/artApp.js")"></script>
+	<script src="@routes.Assets.at("javascripts/artCtrls.js")"></script>
+</body>
+</html>

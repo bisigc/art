@@ -4,24 +4,23 @@ import java.sql.Timestamp;
 import java.util.List;
 
 import models.Smell;
+import play.db.jpa.JPA;
+import play.db.jpa.Transactional;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
 
 public class SmellController extends Controller {
 
-	// public static Result listAll() {
-	// return ok(index.render("Your new application is ready."));
-	// }
-
+	@Transactional(readOnly=true)
 	public static Result getAllSmells() {
-		List<Smell> data = Smell.find.all();
+		List<Smell> data = JPA.em().createQuery("select a from Smell a", Smell.class).getResultList();
 		return ok(Json.toJson(data));
-		//return ok(Json.parse("['name':'Wert1']"));
 	}
 	
+	@Transactional(readOnly=true)
 	public static Result getCloudSmells() {
-		List<Smell> data = Smell.find.all();
+		List<Smell> data = JPA.em().createQuery("select a from Smell a", Smell.class).getResultList();
 		StringBuffer buf = new StringBuffer("[");
 		for (Smell smell : data) {
 			buf.append("{\"text\": \"");
@@ -35,35 +34,39 @@ public class SmellController extends Controller {
 		buf.delete(buf.length()-1, buf.length());
 	    buf.append("]");
 	    System.out.println(buf);
-//	    return ok(Json.parse(buf.toString()));
 	    return ok(Json.parse(buf.toString()));
 	}
 	
+	@Transactional(readOnly=true)
 	public static Result getSmell(Long id) {
-		Smell smell = Smell.find.byId(id);
+		Smell smell = JPA.em().find(Smell.class, id);
 		return smell == null ? notFound() : ok(Json.toJson(smell));
 	}
 	
+	@Transactional
 	public static Result createSmell() {
 	    Smell newSmell = Json.fromJson(request().body().asJson(), Smell.class);
 	    Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 	    newSmell.setCreated(currentTime);
 	    newSmell.setModified(currentTime);
 	    newSmell.setWeight(1.0);
-	    newSmell.save();
-	    Smell inserted = Smell.find.byId(newSmell.getId());
+	    JPA.em().persist(newSmell);
+	    Smell inserted = JPA.em().find(Smell.class, newSmell.getId());
 	    return created(Json.toJson(inserted));
 	}
 	
+	@Transactional
 	public static Result updateSmell(Long id) {
 	    Smell smell = Json.fromJson(request().body().asJson(), Smell.class);
-	    smell.update(id);
-	    Smell updated = Smell.find.byId(smell.getId());
+	    JPA.em().merge(smell);
+	    Smell updated = JPA.em().find(Smell.class, smell.getId());
 	    return ok(Json.toJson(updated));
 	}
 	
+	@Transactional
 	public static Result deleteSmell(Long id) {
-	    Smell.find.byId(id).delete();
+	    Smell smell = JPA.em().find(Smell.class, id);
+		JPA.em().remove(smell);
 	    return noContent();
 	}
 }

@@ -10,15 +10,10 @@
     };
 
     app.config(['notificationsConfigProvider', function (notificationsConfigProvider) {
-        // auto hide
         notificationsConfigProvider.setAutoHide(true);
-        // delay before hide
         notificationsConfigProvider.setHideDelay(5000);
-        // support HTML
         notificationsConfigProvider.setAcceptHTML(true);
     }]);
-
-    //var words = [{"text":"Smell1","weight":0.5,"handlers":{"click":"function(){setSmell('Smell1');}"}},{"text":"Smell2","weight":0.25,"handlers":{"click":"function(){setSmell('Smell2');}"}},{"text":"Smell3","weight":0.5,"handlers":{"click":"function(){setSmell('Smell3');}"}},{"text":"Smell4","weight":0.1,"handlers":{"click":"function(){setSmell('Smell4');}"}}];
 
     app.controller('UserController', ['notifications', function(notifications){
         this.user = user;
@@ -225,9 +220,8 @@
 
             modalInstance.result.then(function () {
                 $scope.loadSmells();
-                notifications.showSuccess("Smells loaded.");
             }, function () {
-                notifications.showSuccess("Smell closed");
+                //notifications.showSuccess("Smell closed");
             });
         };
 
