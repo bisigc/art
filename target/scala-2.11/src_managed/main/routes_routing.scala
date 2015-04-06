@@ -1,6 +1,6 @@
 // @SOURCE:/Users/cbi/Documents/git-repos/ART/conf/routes
-// @HASH:83395b601ecb68cae5b8c38b0b74278f7ac39fd2
-// @DATE:Fri Apr 03 14:37:25 CEST 2015
+// @HASH:6d1d04fe4649a8b071fa8853366da53e50df7b4b
+// @DATE:Sun Apr 05 21:01:12 CEST 2015
 
 
 import play.core._
@@ -159,12 +159,54 @@ HandlerDef(this.getClass.getClassLoader, "", "controllers.MenuController", "dele
         
 
 // @LINE:32
-private[this] lazy val controllers_Assets_at18_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),DynamicPart("file", """.+""",false))))
-private[this] lazy val controllers_Assets_at18_invoker = createInvoker(
+private[this] lazy val controllers_ExecTaskTypeController_getExecTaskTypes18_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("exectasktype"))))
+private[this] lazy val controllers_ExecTaskTypeController_getExecTaskTypes18_invoker = createInvoker(
+controllers.ExecTaskTypeController.getExecTaskTypes(),
+HandlerDef(this.getClass.getClassLoader, "", "controllers.ExecTaskTypeController", "getExecTaskTypes", Nil,"GET", """Menu service""", Routes.prefix + """exectasktype"""))
+        
+
+// @LINE:33
+private[this] lazy val controllers_ExecTaskTypeController_getEmptyExecTaskType19_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("exectasktype/empty"))))
+private[this] lazy val controllers_ExecTaskTypeController_getEmptyExecTaskType19_invoker = createInvoker(
+controllers.ExecTaskTypeController.getEmptyExecTaskType(),
+HandlerDef(this.getClass.getClassLoader, "", "controllers.ExecTaskTypeController", "getEmptyExecTaskType", Nil,"GET", """""", Routes.prefix + """exectasktype/empty"""))
+        
+
+// @LINE:34
+private[this] lazy val controllers_ExecTaskTypeController_getExecTaskType20_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("exectasktype/"),DynamicPart("id", """[^/]+""",true))))
+private[this] lazy val controllers_ExecTaskTypeController_getExecTaskType20_invoker = createInvoker(
+controllers.ExecTaskTypeController.getExecTaskType(fakeValue[Long]),
+HandlerDef(this.getClass.getClassLoader, "", "controllers.ExecTaskTypeController", "getExecTaskType", Seq(classOf[Long]),"GET", """""", Routes.prefix + """exectasktype/$id<[^/]+>"""))
+        
+
+// @LINE:35
+private[this] lazy val controllers_ExecTaskTypeController_createExecTaskType21_route = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("exectasktype"))))
+private[this] lazy val controllers_ExecTaskTypeController_createExecTaskType21_invoker = createInvoker(
+controllers.ExecTaskTypeController.createExecTaskType(),
+HandlerDef(this.getClass.getClassLoader, "", "controllers.ExecTaskTypeController", "createExecTaskType", Nil,"POST", """""", Routes.prefix + """exectasktype"""))
+        
+
+// @LINE:36
+private[this] lazy val controllers_ExecTaskTypeController_updateExecTaskType22_route = Route("PUT", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("exectasktype/"),DynamicPart("id", """[^/]+""",true))))
+private[this] lazy val controllers_ExecTaskTypeController_updateExecTaskType22_invoker = createInvoker(
+controllers.ExecTaskTypeController.updateExecTaskType(fakeValue[Long]),
+HandlerDef(this.getClass.getClassLoader, "", "controllers.ExecTaskTypeController", "updateExecTaskType", Seq(classOf[Long]),"PUT", """""", Routes.prefix + """exectasktype/$id<[^/]+>"""))
+        
+
+// @LINE:37
+private[this] lazy val controllers_ExecTaskTypeController_deleteExecTaskType23_route = Route("DELETE", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("exectasktype/"),DynamicPart("id", """[^/]+""",true))))
+private[this] lazy val controllers_ExecTaskTypeController_deleteExecTaskType23_invoker = createInvoker(
+controllers.ExecTaskTypeController.deleteExecTaskType(fakeValue[Long]),
+HandlerDef(this.getClass.getClassLoader, "", "controllers.ExecTaskTypeController", "deleteExecTaskType", Seq(classOf[Long]),"DELETE", """""", Routes.prefix + """exectasktype/$id<[^/]+>"""))
+        
+
+// @LINE:40
+private[this] lazy val controllers_Assets_at24_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),DynamicPart("file", """.+""",false))))
+private[this] lazy val controllers_Assets_at24_invoker = createInvoker(
 controllers.Assets.at(fakeValue[String], fakeValue[String]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "at", Seq(classOf[String], classOf[String]),"GET", """ Map static resources from the /public folder to the /assets URL path""", Routes.prefix + """$file<.+>"""))
         
-def documentation = List(("""GET""", prefix,"""controllers.Application.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smells""","""controllers.SmellController.getAllSmells()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smells/forcloud""","""controllers.SmellController.getCloudSmells()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smells/$id<[^/]+>""","""controllers.SmellController.getSmell(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smells""","""controllers.SmellController.createSmell()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smells/$id<[^/]+>""","""controllers.SmellController.updateSmell(id:Long)"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smells/$id<[^/]+>""","""controllers.SmellController.deleteSmell(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property""","""controllers.PropertyController.getAllProperties()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property/categorie/$cat<[^/]+>""","""controllers.PropertyController.getProperties(cat:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property/$id<[^/]+>""","""controllers.PropertyController.getProperty(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property""","""controllers.PropertyController.createProperty()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property/$id<[^/]+>""","""controllers.PropertyController.updateProperty(id:Long)"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property/$id<[^/]+>""","""controllers.PropertyController.deleteProperty(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """menu""","""controllers.MenuController.getMenuitems()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """menu/$id<[^/]+>""","""controllers.MenuController.getMenuitem(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """menu""","""controllers.MenuController.createMenuitem()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """menu/$id<[^/]+>""","""controllers.MenuController.updateMenuitem(id:Long)"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """menu/$id<[^/]+>""","""controllers.MenuController.deleteMenuitem(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
+def documentation = List(("""GET""", prefix,"""controllers.Application.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smells""","""controllers.SmellController.getAllSmells()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smells/forcloud""","""controllers.SmellController.getCloudSmells()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smells/$id<[^/]+>""","""controllers.SmellController.getSmell(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smells""","""controllers.SmellController.createSmell()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smells/$id<[^/]+>""","""controllers.SmellController.updateSmell(id:Long)"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smells/$id<[^/]+>""","""controllers.SmellController.deleteSmell(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property""","""controllers.PropertyController.getAllProperties()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property/categorie/$cat<[^/]+>""","""controllers.PropertyController.getProperties(cat:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property/$id<[^/]+>""","""controllers.PropertyController.getProperty(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property""","""controllers.PropertyController.createProperty()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property/$id<[^/]+>""","""controllers.PropertyController.updateProperty(id:Long)"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property/$id<[^/]+>""","""controllers.PropertyController.deleteProperty(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """menu""","""controllers.MenuController.getMenuitems()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """menu/$id<[^/]+>""","""controllers.MenuController.getMenuitem(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """menu""","""controllers.MenuController.createMenuitem()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """menu/$id<[^/]+>""","""controllers.MenuController.updateMenuitem(id:Long)"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """menu/$id<[^/]+>""","""controllers.MenuController.deleteMenuitem(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """exectasktype""","""controllers.ExecTaskTypeController.getExecTaskTypes()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """exectasktype/empty""","""controllers.ExecTaskTypeController.getEmptyExecTaskType()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """exectasktype/$id<[^/]+>""","""controllers.ExecTaskTypeController.getExecTaskType(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """exectasktype""","""controllers.ExecTaskTypeController.createExecTaskType()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """exectasktype/$id<[^/]+>""","""controllers.ExecTaskTypeController.updateExecTaskType(id:Long)"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """exectasktype/$id<[^/]+>""","""controllers.ExecTaskTypeController.deleteExecTaskType(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
   case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
   case l => s ++ l.asInstanceOf[List[(String,String,String)]]
 }}
@@ -317,9 +359,57 @@ case controllers_MenuController_deleteMenuitem17_route(params) => {
         
 
 // @LINE:32
-case controllers_Assets_at18_route(params) => {
+case controllers_ExecTaskTypeController_getExecTaskTypes18_route(params) => {
+   call { 
+        controllers_ExecTaskTypeController_getExecTaskTypes18_invoker.call(controllers.ExecTaskTypeController.getExecTaskTypes())
+   }
+}
+        
+
+// @LINE:33
+case controllers_ExecTaskTypeController_getEmptyExecTaskType19_route(params) => {
+   call { 
+        controllers_ExecTaskTypeController_getEmptyExecTaskType19_invoker.call(controllers.ExecTaskTypeController.getEmptyExecTaskType())
+   }
+}
+        
+
+// @LINE:34
+case controllers_ExecTaskTypeController_getExecTaskType20_route(params) => {
+   call(params.fromPath[Long]("id", None)) { (id) =>
+        controllers_ExecTaskTypeController_getExecTaskType20_invoker.call(controllers.ExecTaskTypeController.getExecTaskType(id))
+   }
+}
+        
+
+// @LINE:35
+case controllers_ExecTaskTypeController_createExecTaskType21_route(params) => {
+   call { 
+        controllers_ExecTaskTypeController_createExecTaskType21_invoker.call(controllers.ExecTaskTypeController.createExecTaskType())
+   }
+}
+        
+
+// @LINE:36
+case controllers_ExecTaskTypeController_updateExecTaskType22_route(params) => {
+   call(params.fromPath[Long]("id", None)) { (id) =>
+        controllers_ExecTaskTypeController_updateExecTaskType22_invoker.call(controllers.ExecTaskTypeController.updateExecTaskType(id))
+   }
+}
+        
+
+// @LINE:37
+case controllers_ExecTaskTypeController_deleteExecTaskType23_route(params) => {
+   call(params.fromPath[Long]("id", None)) { (id) =>
+        controllers_ExecTaskTypeController_deleteExecTaskType23_invoker.call(controllers.ExecTaskTypeController.deleteExecTaskType(id))
+   }
+}
+        
+
+// @LINE:40
+case controllers_Assets_at24_route(params) => {
    call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
-        controllers_Assets_at18_invoker.call(controllers.Assets.at(path, file))
+        controllers_Assets_at24_invoker.call(controllers.Assets.at(path, file))
    }
 }
         

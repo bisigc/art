@@ -1,0 +1,41 @@
+<div>
+    <script type="text/javascript">
+        $(function () {
+            $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
+            $('.tree li.parent_li > span').on('click', function (e) {
+                var children = $(this).parent('li.parent_li').find(' > ul > li');
+                if (children.is(":visible")) {
+                    children.hide('fast');
+                    $(this).attr('title', 'Expand this branch').find(' > i').addClass('glyphicon-plus-sign').removeClass('glyphicon-minus-sign');
+                } else {
+                    children.show('fast');
+                    $(this).attr('title', 'Collapse this branch').find(' > i').addClass('glyphicon-minus-sign').removeClass('glyphicon-plus-sign');
+                }
+                e.stopPropagation();
+            });
+        });
+    </script>
+    <script type="text/ng-template"  id="execTaskTypeNode.html">
+        <span><i class="glyphicon glyphicon-folder-open"></i> <input ng-model="task.name"></input></span> <a href="">Goes somewhere</a>
+        <button type="button" class="btn btn-default btn-sm" ng-click="add(task)">
+              <i class="glyphicon glyphicon-plus"></i>
+        </button>&nbsp;
+        <button type="button" class="btn btn-default btn-sm" ng-click="delete(task)" ng-show="task.subTasks.length > 0">
+              <i class="glyphicon glyphicon-remove"></i>
+        </button>
+        <ul>
+            <li ng-repeat="task in task.subTasks" ng-include="'execTaskTypeNode.html'"></li>
+        </ul>
+    </script>
+
+    <div class="page-header">
+        <h1>Execution Task Types <small>Edit</small></h1>
+    </div>
+    <div ng-controller="ExecTaskTypeController as etypeCtrl" class="tree well">
+        <ul>
+            <li ng-repeat="task in exectypes" ng-include="'execTaskTypeNode.html'"></li>
+        </ul>
+        <button type="button" ng-click="save()">Save Changes</button>
+        <div>{{exectypes}}</div>
+    </div>
+</div>

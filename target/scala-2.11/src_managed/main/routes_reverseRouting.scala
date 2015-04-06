@@ -1,6 +1,6 @@
 // @SOURCE:/Users/cbi/Documents/git-repos/ART/conf/routes
-// @HASH:83395b601ecb68cae5b8c38b0b74278f7ac39fd2
-// @DATE:Fri Apr 03 14:37:25 CEST 2015
+// @HASH:6d1d04fe4649a8b071fa8853366da53e50df7b4b
+// @DATE:Sun Apr 05 21:01:12 CEST 2015
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -15,6 +15,12 @@ import _root_.play.libs.F
 import Router.queryString
 
 
+// @LINE:40
+// @LINE:37
+// @LINE:36
+// @LINE:35
+// @LINE:34
+// @LINE:33
 // @LINE:32
 // @LINE:29
 // @LINE:28
@@ -36,14 +42,68 @@ import Router.queryString
 // @LINE:6
 package controllers {
 
-// @LINE:32
+// @LINE:40
 class ReverseAssets {
 
 
-// @LINE:32
+// @LINE:40
 def at(file:String): Call = {
    implicit val _rrc = new ReverseRouteContext(Map(("path", "/public")))
    Call("GET", _prefix + { _defaultPrefix } + implicitly[PathBindable[String]].unbind("file", file))
+}
+                        
+
+}
+                          
+
+// @LINE:37
+// @LINE:36
+// @LINE:35
+// @LINE:34
+// @LINE:33
+// @LINE:32
+class ReverseExecTaskTypeController {
+
+
+// @LINE:36
+def updateExecTaskType(id:Long): Call = {
+   import ReverseRouteContext.empty
+   Call("PUT", _prefix + { _defaultPrefix } + "exectasktype/" + implicitly[PathBindable[Long]].unbind("id", id))
+}
+                        
+
+// @LINE:34
+def getExecTaskType(id:Long): Call = {
+   import ReverseRouteContext.empty
+   Call("GET", _prefix + { _defaultPrefix } + "exectasktype/" + implicitly[PathBindable[Long]].unbind("id", id))
+}
+                        
+
+// @LINE:32
+def getExecTaskTypes(): Call = {
+   import ReverseRouteContext.empty
+   Call("GET", _prefix + { _defaultPrefix } + "exectasktype")
+}
+                        
+
+// @LINE:37
+def deleteExecTaskType(id:Long): Call = {
+   import ReverseRouteContext.empty
+   Call("DELETE", _prefix + { _defaultPrefix } + "exectasktype/" + implicitly[PathBindable[Long]].unbind("id", id))
+}
+                        
+
+// @LINE:35
+def createExecTaskType(): Call = {
+   import ReverseRouteContext.empty
+   Call("POST", _prefix + { _defaultPrefix } + "exectasktype")
+}
+                        
+
+// @LINE:33
+def getEmptyExecTaskType(): Call = {
+   import ReverseRouteContext.empty
+   Call("GET", _prefix + { _defaultPrefix } + "exectasktype/empty")
 }
                         
 
@@ -221,6 +281,12 @@ def index(): Call = {
                   
 
 
+// @LINE:40
+// @LINE:37
+// @LINE:36
+// @LINE:35
+// @LINE:34
+// @LINE:33
 // @LINE:32
 // @LINE:29
 // @LINE:28
@@ -243,16 +309,94 @@ def index(): Call = {
 package controllers.javascript {
 import ReverseRouteContext.empty
 
-// @LINE:32
+// @LINE:40
 class ReverseAssets {
 
 
-// @LINE:32
+// @LINE:40
 def at : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Assets.at",
    """
       function(file) {
       return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("file", file)})
+      }
+   """
+)
+                        
+
+}
+              
+
+// @LINE:37
+// @LINE:36
+// @LINE:35
+// @LINE:34
+// @LINE:33
+// @LINE:32
+class ReverseExecTaskTypeController {
+
+
+// @LINE:36
+def updateExecTaskType : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.ExecTaskTypeController.updateExecTaskType",
+   """
+      function(id) {
+      return _wA({method:"PUT", url:"""" + _prefix + { _defaultPrefix } + """" + "exectasktype/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("id", id)})
+      }
+   """
+)
+                        
+
+// @LINE:34
+def getExecTaskType : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.ExecTaskTypeController.getExecTaskType",
+   """
+      function(id) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "exectasktype/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("id", id)})
+      }
+   """
+)
+                        
+
+// @LINE:32
+def getExecTaskTypes : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.ExecTaskTypeController.getExecTaskTypes",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "exectasktype"})
+      }
+   """
+)
+                        
+
+// @LINE:37
+def deleteExecTaskType : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.ExecTaskTypeController.deleteExecTaskType",
+   """
+      function(id) {
+      return _wA({method:"DELETE", url:"""" + _prefix + { _defaultPrefix } + """" + "exectasktype/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("id", id)})
+      }
+   """
+)
+                        
+
+// @LINE:35
+def createExecTaskType : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.ExecTaskTypeController.createExecTaskType",
+   """
+      function() {
+      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "exectasktype"})
+      }
+   """
+)
+                        
+
+// @LINE:33
+def getEmptyExecTaskType : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.ExecTaskTypeController.getEmptyExecTaskType",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "exectasktype/empty"})
       }
    """
 )
@@ -504,6 +648,12 @@ def index : JavascriptReverseRoute = JavascriptReverseRoute(
         
 
 
+// @LINE:40
+// @LINE:37
+// @LINE:36
+// @LINE:35
+// @LINE:34
+// @LINE:33
 // @LINE:32
 // @LINE:29
 // @LINE:28
@@ -526,13 +676,61 @@ def index : JavascriptReverseRoute = JavascriptReverseRoute(
 package controllers.ref {
 
 
-// @LINE:32
+// @LINE:40
 class ReverseAssets {
 
 
-// @LINE:32
+// @LINE:40
 def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Assets.at(path, file), HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "at", Seq(classOf[String], classOf[String]), "GET", """ Map static resources from the /public folder to the /assets URL path""", _prefix + """$file<.+>""")
+)
+                      
+
+}
+                          
+
+// @LINE:37
+// @LINE:36
+// @LINE:35
+// @LINE:34
+// @LINE:33
+// @LINE:32
+class ReverseExecTaskTypeController {
+
+
+// @LINE:36
+def updateExecTaskType(id:Long): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.ExecTaskTypeController.updateExecTaskType(id), HandlerDef(this.getClass.getClassLoader, "", "controllers.ExecTaskTypeController", "updateExecTaskType", Seq(classOf[Long]), "PUT", """""", _prefix + """exectasktype/$id<[^/]+>""")
+)
+                      
+
+// @LINE:34
+def getExecTaskType(id:Long): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.ExecTaskTypeController.getExecTaskType(id), HandlerDef(this.getClass.getClassLoader, "", "controllers.ExecTaskTypeController", "getExecTaskType", Seq(classOf[Long]), "GET", """""", _prefix + """exectasktype/$id<[^/]+>""")
+)
+                      
+
+// @LINE:32
+def getExecTaskTypes(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.ExecTaskTypeController.getExecTaskTypes(), HandlerDef(this.getClass.getClassLoader, "", "controllers.ExecTaskTypeController", "getExecTaskTypes", Seq(), "GET", """Menu service""", _prefix + """exectasktype""")
+)
+                      
+
+// @LINE:37
+def deleteExecTaskType(id:Long): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.ExecTaskTypeController.deleteExecTaskType(id), HandlerDef(this.getClass.getClassLoader, "", "controllers.ExecTaskTypeController", "deleteExecTaskType", Seq(classOf[Long]), "DELETE", """""", _prefix + """exectasktype/$id<[^/]+>""")
+)
+                      
+
+// @LINE:35
+def createExecTaskType(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.ExecTaskTypeController.createExecTaskType(), HandlerDef(this.getClass.getClassLoader, "", "controllers.ExecTaskTypeController", "createExecTaskType", Seq(), "POST", """""", _prefix + """exectasktype""")
+)
+                      
+
+// @LINE:33
+def getEmptyExecTaskType(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.ExecTaskTypeController.getEmptyExecTaskType(), HandlerDef(this.getClass.getClassLoader, "", "controllers.ExecTaskTypeController", "getEmptyExecTaskType", Seq(), "GET", """""", _prefix + """exectasktype/empty""")
 )
                       
 

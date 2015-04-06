@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,7 +17,7 @@ public class Menuitem {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long			id;
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Menuitem		menuitem;
 	private String			name;
 	private String 			fullname;
@@ -46,8 +47,8 @@ public class Menuitem {
 	public void setUrl(String url) { this.url = url; }
 	public String getPos() { return pos; }
 	public void setPos(String pos) { this.pos = pos; }
-	public Integer getOrder() { return ordering; }
-	public void setOrder(Integer order) { this.ordering = order; }
+	public Integer getOrdering() { return ordering; }
+	public void setOrdering(Integer order) { this.ordering = order; }
 	public List<Menuitem> getSubItems() { return subItems; }
 	public void setSubItems(List<Menuitem> subItems) { this.subItems = subItems; }
 }

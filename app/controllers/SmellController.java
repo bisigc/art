@@ -10,6 +10,8 @@ import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
 
+import com.fasterxml.jackson.databind.JsonNode;
+
 public class SmellController extends Controller {
 
 	@Transactional(readOnly=true)
@@ -23,18 +25,23 @@ public class SmellController extends Controller {
 		List<Smell> data = JPA.em().createQuery("select a from Smell a", Smell.class).getResultList();
 		StringBuffer buf = new StringBuffer("[");
 		for (Smell smell : data) {
-			buf.append("{\"text\": \"");
+			buf.append("{\"text\":\"");
 			buf.append(smell.getName());
-			buf.append("\", \"weight\": ");
+			buf.append("\",\"weight\":");
 			buf.append(smell.getWeight());
-			buf.append(",    \"handlers\": { \"click\": \"function(){setSmell('");
+			buf.append(",\"handlers\":{\"click\":function(){setSmell('");
 			buf.append(smell.getName());
-			buf.append("');}\" }},");
+			buf.append("');}}},");
 		}
-		buf.delete(buf.length()-1, buf.length());
+		
+		// remove last "," but only if there where smells found.
+		if(data.size() > 0) {
+			buf.delete(buf.length()-1, buf.length());
+		}
+		
 	    buf.append("]");
 	    System.out.println(buf);
-	    return ok(Json.parse(buf.toString()));
+	    return ok(buf.toString()).as("application/json");
 	}
 	
 	@Transactional(readOnly=true)
