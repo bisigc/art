@@ -4,6 +4,8 @@ import java.sql.Timestamp;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,6 +26,8 @@ public class ArchitecturalRefactoring {
 	private Discussion commentary;
 	@ManyToOne
 	private User editor;
+	@Enumerated(EnumType.STRING)
+	private Status status;
 	private Timestamp modified;
 	private Timestamp created;
 
@@ -46,4 +50,6 @@ public class ArchitecturalRefactoring {
 	public void setCommentary(Discussion commentary) { this.commentary = commentary; }
 	public User getEditor() { return editor; }
 	public void setEditor(User editor) { this.editor = editor; }
+	public Status getStatus() { return status; }
+	public void setStatus(Status status) { this.status = status; }
 }

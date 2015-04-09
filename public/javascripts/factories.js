@@ -3,10 +3,18 @@ app.factory("OwnTasks", function($resource) {
     return $resource("http://localhost:9000/listAll", {});
 });
 
-app.factory("CloudSmells", ['$resource', function($resource) {
+/*app.factory("CloudSmells", ['$resource', function($resource) {
     return $resource(_contextPath + 'smells/forcloud', 
                      {},
-                     {get: {method:'GET'}});
+                     {get: {method:'GET', isArray: true}});
+}]);*/
+
+app.factory("CloudSmells", ['$http', function($http) {
+    return {
+        get: function() {
+            return $http.get(_contextPath + 'smells/forcloud');
+        }
+    }
 }]);
 
 //{output: 'json', callback:'JSON_CALLBACK'},
@@ -36,6 +44,12 @@ app.factory('GroupService', ['$resource', function ($resource) {
 
 app.factory('MenuService', ['$resource', function ($resource) {
     return $resource(_contextPath + 'menu', {}, {
+        get: { method: 'GET', isArray: true }
+    });
+}]);
+
+app.factory('StatusService', ['$resource', function ($resource) {
+    return $resource(_contextPath + 'status', {}, {
         get: { method: 'GET', isArray: true }
     });
 }]);

@@ -1,7 +1,10 @@
 package models;
 
 import java.sql.Timestamp;
+
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,8 +23,11 @@ public class Smell {
 	@ManyToOne
 	private Property group;
 	private String tecdebtidx; // probability times (x) impact
+	@Enumerated(EnumType.STRING)
+	private Status status;
 	private Timestamp modified;
 	private Timestamp created;
+	
 
 	//Getters & Setters
 	public Long getId() { return id; }
@@ -42,4 +48,8 @@ public class Smell {
 	public void setModified(Timestamp modified) { this.modified = modified; }
 	public Timestamp getCreated() { return created; }
 	public void setCreated(Timestamp created) { this.created = created; }
+	public Property getGroup() { return group; }
+	public void setGroup(Property group) { this.group = group; }
+	public Status getStatus() { return status; }
+	public void setStatus(Status status) { this.status = status; }
 }

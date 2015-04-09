@@ -120,7 +120,7 @@
             </tr>
             <tr ng-repeat="smellItem in smelllist | filter:search" ng-dblclick="openSmell(smellItem.id)">
                 <td>{{smellItem.name}}</td>
-                <td>{{smellItem.description}}</td>
+                <td ng-bind-html="smellItem.description | limitHtml: 30"></td>
                 <td>{{smellItem.weight}}</td>
                 <td>{{groups[smellItem.group_id.id - 1].name}}</td>
                 <td class="dbt-idx-{{smellItem.tecdebtidx}}">{{smellItem.tecdebtidx}}</td>

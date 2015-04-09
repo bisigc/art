@@ -28,13 +28,16 @@ POST    /menu                 	  controllers.MenuController.createMenuitem()
 PUT     /menu/:id             	  controllers.MenuController.updateMenuitem(id: Long)
 DELETE  /menu/:id              	  controllers.MenuController.deleteMenuitem(id: Long)
 
-#Menu service
+#ExecTaskType service
 GET     /exectasktype              controllers.ExecTaskTypeController.getExecTaskTypes()
 GET     /exectasktype/empty        controllers.ExecTaskTypeController.getEmptyExecTaskType()
 GET     /exectasktype/:id          controllers.ExecTaskTypeController.getExecTaskType(id: Long)
 POST    /exectasktype              controllers.ExecTaskTypeController.createExecTaskType()
 PUT     /exectasktype/:id          controllers.ExecTaskTypeController.updateExecTaskType(id: Long)
 DELETE  /exectasktype/:id          controllers.ExecTaskTypeController.deleteExecTaskType(id: Long)
+
+#Status service
+GET     /status		               controllers.StatusController.getStatus()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /*file                    controllers.Assets.at(path="/public", file)

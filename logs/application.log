@@ -1,42 +1,159 @@
-2015-04-06 01:17:31,242 - [INFO] - from play in pool-5-thread-3 
+2015-04-06 02:04:18,584 - [INFO] - from play in pool-5-thread-3 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9085
 
-2015-04-06 01:17:33,941 - [INFO] - from play in play-internal-execution-context-1 
+2015-04-06 02:04:22,657 - [INFO] - from play in play-internal-execution-context-1 
 datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
 
-2015-04-06 01:17:34,332 - [INFO] - from play in play-internal-execution-context-1 
+2015-04-06 02:04:23,036 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:mysql://localhost/art
 
-2015-04-06 01:17:36,626 - [INFO] - from play in play-internal-execution-context-1 
+2015-04-06 02:04:25,349 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2015-04-06 01:23:22,666 - [INFO] - from play in play-internal-execution-context-1 
+2015-04-07 15:38:44,062 - [INFO] - from play in play-internal-execution-context-21 
 datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
 
-2015-04-06 01:23:22,703 - [INFO] - from play in play-internal-execution-context-1 
+2015-04-07 15:38:44,085 - [INFO] - from play in play-internal-execution-context-21 
 database [default] connected at jdbc:mysql://localhost/art
 
-2015-04-06 01:23:23,256 - [INFO] - from play in play-internal-execution-context-1 
+2015-04-07 15:38:44,604 - [INFO] - from play in play-internal-execution-context-21 
 Application started (Dev)
 
-2015-04-06 01:28:44,206 - [INFO] - from play in play-internal-execution-context-2 
+2015-04-07 16:00:43,583 - [INFO] - from play in play-internal-execution-context-23 
 datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
 
-2015-04-06 01:28:44,240 - [INFO] - from play in play-internal-execution-context-2 
+2015-04-07 16:00:43,611 - [INFO] - from play in play-internal-execution-context-23 
 database [default] connected at jdbc:mysql://localhost/art
 
-2015-04-06 01:28:44,673 - [INFO] - from play in play-internal-execution-context-2 
+2015-04-07 16:00:44,111 - [INFO] - from play in play-internal-execution-context-23 
 Application started (Dev)
 
-2015-04-06 01:28:52,108 - [ERROR] - from play in play-akka.actor.default-dispatcher-36 
-Cannot invoke the action, eventually got an error: javax.persistence.EntityNotFoundException: Unable to find models.ExecTaskType with id 1
+2015-04-07 16:13:18,031 - [INFO] - from play in play-internal-execution-context-25 
+datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
 
-2015-04-06 01:28:52,132 - [ERROR] - from application in play-akka.actor.default-dispatcher-36 
+2015-04-07 16:13:18,059 - [INFO] - from play in play-internal-execution-context-25 
+database [default] connected at jdbc:mysql://localhost/art
+
+2015-04-07 16:13:18,488 - [INFO] - from play in play-internal-execution-context-25 
+Application started (Dev)
+
+2015-04-07 18:09:24,490 - [INFO] - from play in play-internal-execution-context-26 
+datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
+
+2015-04-07 18:09:24,516 - [INFO] - from play in play-internal-execution-context-26 
+database [default] connected at jdbc:mysql://localhost/art
+
+2015-04-07 18:09:24,901 - [INFO] - from play in play-internal-execution-context-26 
+Application started (Dev)
+
+2015-04-07 20:22:10,424 - [INFO] - from play in play-internal-execution-context-49 
+datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
+
+2015-04-07 20:22:10,452 - [INFO] - from play in play-internal-execution-context-49 
+database [default] connected at jdbc:mysql://localhost/art
+
+2015-04-07 20:22:10,900 - [INFO] - from play in play-internal-execution-context-49 
+Application started (Dev)
+
+2015-04-07 20:40:05,922 - [INFO] - from play in play-internal-execution-context-50 
+datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
+
+2015-04-07 20:40:05,950 - [INFO] - from play in play-internal-execution-context-50 
+database [default] connected at jdbc:mysql://localhost/art
+
+2015-04-07 20:40:06,395 - [INFO] - from play in play-internal-execution-context-50 
+Application started (Dev)
+
+2015-04-07 20:43:48,367 - [INFO] - from play in play-internal-execution-context-50 
+datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
+
+2015-04-07 20:43:48,398 - [INFO] - from play in play-internal-execution-context-50 
+database [default] connected at jdbc:mysql://localhost/art
+
+2015-04-07 20:43:48,787 - [INFO] - from play in play-internal-execution-context-50 
+Application started (Dev)
+
+2015-04-08 12:17:20,288 - [INFO] - from play in play-internal-execution-context-52 
+datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
+
+2015-04-08 12:17:20,311 - [INFO] - from play in play-internal-execution-context-52 
+database [default] connected at jdbc:mysql://localhost/art
+
+2015-04-08 12:17:20,811 - [INFO] - from play in play-internal-execution-context-52 
+Application started (Dev)
+
+2015-04-08 12:30:56,368 - [INFO] - from play in play-internal-execution-context-52 
+datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
+
+2015-04-08 12:30:56,386 - [INFO] - from play in play-internal-execution-context-52 
+database [default] connected at jdbc:mysql://localhost/art
+
+2015-04-08 12:30:56,790 - [INFO] - from play in play-internal-execution-context-52 
+Application started (Dev)
+
+2015-04-08 12:56:01,874 - [INFO] - from play in play-internal-execution-context-57 
+datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
+
+2015-04-08 12:56:01,895 - [INFO] - from play in play-internal-execution-context-57 
+database [default] connected at jdbc:mysql://localhost/art
+
+2015-04-08 12:56:02,293 - [INFO] - from play in play-internal-execution-context-57 
+Application started (Dev)
+
+2015-04-08 12:57:33,150 - [INFO] - from play in play-internal-execution-context-57 
+datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
+
+2015-04-08 12:57:33,169 - [INFO] - from play in play-internal-execution-context-57 
+database [default] connected at jdbc:mysql://localhost/art
+
+2015-04-08 12:57:33,508 - [INFO] - from play in play-internal-execution-context-57 
+Application started (Dev)
+
+2015-04-08 12:58:08,196 - [INFO] - from play in play-internal-execution-context-57 
+datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
+
+2015-04-08 12:58:08,226 - [INFO] - from play in play-internal-execution-context-57 
+database [default] connected at jdbc:mysql://localhost/art
+
+2015-04-08 12:58:08,676 - [INFO] - from play in play-internal-execution-context-57 
+Application started (Dev)
+
+2015-04-08 13:00:48,055 - [INFO] - from play in play-internal-execution-context-58 
+datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
+
+2015-04-08 13:00:48,071 - [INFO] - from play in play-internal-execution-context-58 
+database [default] connected at jdbc:mysql://localhost/art
+
+2015-04-08 13:00:48,461 - [INFO] - from play in play-internal-execution-context-58 
+Application started (Dev)
+
+2015-04-08 13:19:48,042 - [INFO] - from play in play-internal-execution-context-64 
+datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
+
+2015-04-08 13:19:48,072 - [INFO] - from play in play-internal-execution-context-64 
+database [default] connected at jdbc:mysql://localhost/art
+
+2015-04-08 13:19:48,493 - [INFO] - from play in play-internal-execution-context-64 
+Application started (Dev)
+
+2015-04-08 14:14:12,923 - [INFO] - from play in play-internal-execution-context-64 
+datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
+
+2015-04-08 14:14:12,951 - [INFO] - from play in play-internal-execution-context-64 
+database [default] connected at jdbc:mysql://localhost/art
+
+2015-04-08 14:14:13,363 - [INFO] - from play in play-internal-execution-context-64 
+Application started (Dev)
+
+2015-04-08 14:14:15,711 - [ERROR] - from play in play-akka.actor.default-dispatcher-641 
+Cannot invoke the action, eventually got an error: java.lang.IllegalArgumentException: Unknown name value [PUBLISHED] for enum class [models.Status]
+
+2015-04-08 14:14:15,776 - [ERROR] - from application in play-akka.actor.default-dispatcher-641 
 
 
-! @6lld9iii3 - Internal server error, for (PUT) [/exectasktype/2] ->
+! @6lm5k9499 - Internal server error, for (GET) [/smells] ->
 
-play.api.Application$$anon$1: Execution exception[[EntityNotFoundException: Unable to find models.ExecTaskType with id 1]]
+play.api.Application$$anon$1: Execution exception[[IllegalArgumentException: Unknown name value [PUBLISHED] for enum class [models.Status]]]
 	at play.api.Application$class.handleError(Application.scala:296) ~[play_2.11-2.3.6.jar:2.3.6]
 	at play.api.DefaultApplication.handleError(Application.scala:402) [play_2.11-2.3.6.jar:2.3.6]
 	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$4.apply(PlayDefaultUpstreamHandler.scala:320) [play_2.11-2.3.6.jar:2.3.6]
@@ -59,36 +176,34 @@ play.api.Application$$anon$1: Execution exception[[EntityNotFoundException: Unab
 	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.11.1.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.11.1.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.11.1.jar:na]
-Caused by: javax.persistence.EntityNotFoundException: Unable to find models.ExecTaskType with id 1
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$JpaEntityNotFoundDelegate.handleEntityNotFound(EntityManagerFactoryBuilderImpl.java:183) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.event.internal.DefaultLoadEventListener.returnNarrowedProxy(DefaultLoadEventListener.java:307) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.event.internal.DefaultLoadEventListener.proxyOrLoad(DefaultLoadEventListener.java:267) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.event.internal.DefaultLoadEventListener.onLoad(DefaultLoadEventListener.java:151) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.internal.SessionImpl.fireLoad(SessionImpl.java:1070) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.internal.SessionImpl.access$2000(SessionImpl.java:176) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.load(SessionImpl.java:2551) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.internal.SessionImpl.get(SessionImpl.java:960) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsDetached(DefaultMergeEventListener.java:306) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:186) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:886) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:868) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.engine.spi.CascadingActions$6.cascade(CascadingActions.java:277) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.engine.internal.Cascade.cascadeToOne(Cascade.java:350) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.engine.internal.Cascade.cascadeAssociation(Cascade.java:293) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.engine.internal.Cascade.cascadeProperty(Cascade.java:161) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.engine.internal.Cascade.cascade(Cascade.java:118) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.event.internal.AbstractSaveEventListener.cascadeBeforeSave(AbstractSaveEventListener.java:432) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsTransient(DefaultMergeEventListener.java:248) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsDetached(DefaultMergeEventListener.java:317) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:186) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:85) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:876) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:858) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:863) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.merge(AbstractEntityManagerImpl.java:1196) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
-	at controllers.ExecTaskTypeController.updateExecTaskType(ExecTaskTypeController.java:61) ~[classes/:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$23$$anonfun$apply$23.apply(routes_routing.scala:396) ~[classes/:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$23$$anonfun$apply$23.apply(routes_routing.scala:396) ~[classes/:na]
+Caused by: java.lang.IllegalArgumentException: Unknown name value [PUBLISHED] for enum class [models.Status]
+	at org.hibernate.type.EnumType$NamedEnumValueMapper.fromName(EnumType.java:467) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.EnumType$NamedEnumValueMapper.getValue(EnumType.java:452) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.EnumType.nullSafeGet(EnumType.java:107) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.CustomType.nullSafeGet(CustomType.java:127) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.AbstractType.hydrate(AbstractType.java:106) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.hydrate(AbstractEntityPersister.java:2969) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.loadFromResultSet(Loader.java:1696) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.instanceNotYetLoaded(Loader.java:1628) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.getRow(Loader.java:1515) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.getRowFromResultSet(Loader.java:726) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.processResultSet(Loader.java:953) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doQuery(Loader.java:921) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:355) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2554) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2540) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2370) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.list(Loader.java:2365) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:497) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:387) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.performList(HQLQueryPlan.java:236) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.internal.SessionImpl.list(SessionImpl.java:1264) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.internal.QueryImpl.list(QueryImpl.java:103) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.list(QueryImpl.java:573) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.getResultList(QueryImpl.java:449) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at controllers.SmellController.getAllSmells(SmellController.java:19) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$2$$anonfun$apply$2.apply(routes_routing.scala:235) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$2$$anonfun$apply$2.apply(routes_routing.scala:235) ~[classes/:na]
 	at play.core.Router$HandlerInvokerFactory$$anon$4.resultCall(Router.scala:264) ~[play_2.11-2.3.6.jar:2.3.6]
 	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.invocation(Router.scala:255) ~[play_2.11-2.3.6.jar:2.3.6]
 	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:55) ~[play_2.11-2.3.6.jar:2.3.6]
@@ -125,24 +240,24 @@ Caused by: javax.persistence.EntityNotFoundException: Unable to find models.Exec
 	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library-2.11.1.jar:na]
 	... 6 common frames omitted
 
-2015-04-06 01:32:07,185 - [INFO] - from play in play-internal-execution-context-2 
+2015-04-08 14:14:46,300 - [INFO] - from play in play-internal-execution-context-64 
 datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
 
-2015-04-06 01:32:07,217 - [INFO] - from play in play-internal-execution-context-2 
+2015-04-08 14:14:46,318 - [INFO] - from play in play-internal-execution-context-64 
 database [default] connected at jdbc:mysql://localhost/art
 
-2015-04-06 01:32:07,790 - [INFO] - from play in play-internal-execution-context-2 
+2015-04-08 14:14:46,649 - [INFO] - from play in play-internal-execution-context-64 
 Application started (Dev)
 
-2015-04-06 01:32:13,798 - [ERROR] - from play in play-akka.actor.default-dispatcher-40 
-Cannot invoke the action, eventually got an error: javax.persistence.EntityNotFoundException: Unable to find models.ExecTaskType with id 1
+2015-04-08 14:14:48,681 - [ERROR] - from play in play-akka.actor.default-dispatcher-648 
+Cannot invoke the action, eventually got an error: java.lang.IllegalArgumentException: Unknown name value [PUBLISHED] for enum class [models.Status]
 
-2015-04-06 01:32:13,801 - [ERROR] - from application in play-akka.actor.default-dispatcher-40 
+2015-04-08 14:14:48,684 - [ERROR] - from application in play-akka.actor.default-dispatcher-648 
 
 
-! @6llda450l - Internal server error, for (PUT) [/exectasktype/2] ->
+! @6lm5kb11m - Internal server error, for (GET) [/smells] ->
 
-play.api.Application$$anon$1: Execution exception[[EntityNotFoundException: Unable to find models.ExecTaskType with id 1]]
+play.api.Application$$anon$1: Execution exception[[IllegalArgumentException: Unknown name value [PUBLISHED] for enum class [models.Status]]]
 	at play.api.Application$class.handleError(Application.scala:296) ~[play_2.11-2.3.6.jar:2.3.6]
 	at play.api.DefaultApplication.handleError(Application.scala:402) [play_2.11-2.3.6.jar:2.3.6]
 	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$4.apply(PlayDefaultUpstreamHandler.scala:320) [play_2.11-2.3.6.jar:2.3.6]
@@ -165,36 +280,34 @@ play.api.Application$$anon$1: Execution exception[[EntityNotFoundException: Unab
 	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.11.1.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.11.1.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.11.1.jar:na]
-Caused by: javax.persistence.EntityNotFoundException: Unable to find models.ExecTaskType with id 1
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$JpaEntityNotFoundDelegate.handleEntityNotFound(EntityManagerFactoryBuilderImpl.java:183) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.event.internal.DefaultLoadEventListener.returnNarrowedProxy(DefaultLoadEventListener.java:307) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.event.internal.DefaultLoadEventListener.proxyOrLoad(DefaultLoadEventListener.java:267) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.event.internal.DefaultLoadEventListener.onLoad(DefaultLoadEventListener.java:151) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.internal.SessionImpl.fireLoad(SessionImpl.java:1070) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.internal.SessionImpl.access$2000(SessionImpl.java:176) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.load(SessionImpl.java:2551) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.internal.SessionImpl.get(SessionImpl.java:960) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsDetached(DefaultMergeEventListener.java:306) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:186) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:886) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:868) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.engine.spi.CascadingActions$6.cascade(CascadingActions.java:277) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.engine.internal.Cascade.cascadeToOne(Cascade.java:350) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.engine.internal.Cascade.cascadeAssociation(Cascade.java:293) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.engine.internal.Cascade.cascadeProperty(Cascade.java:161) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.engine.internal.Cascade.cascade(Cascade.java:118) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.event.internal.AbstractSaveEventListener.cascadeBeforeSave(AbstractSaveEventListener.java:432) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsTransient(DefaultMergeEventListener.java:248) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsDetached(DefaultMergeEventListener.java:317) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:186) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:85) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:876) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:858) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:863) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.merge(AbstractEntityManagerImpl.java:1196) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
-	at controllers.ExecTaskTypeController.updateExecTaskType(ExecTaskTypeController.java:61) ~[classes/:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$23$$anonfun$apply$23.apply(routes_routing.scala:396) ~[classes/:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$23$$anonfun$apply$23.apply(routes_routing.scala:396) ~[classes/:na]
+Caused by: java.lang.IllegalArgumentException: Unknown name value [PUBLISHED] for enum class [models.Status]
+	at org.hibernate.type.EnumType$NamedEnumValueMapper.fromName(EnumType.java:467) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.EnumType$NamedEnumValueMapper.getValue(EnumType.java:452) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.EnumType.nullSafeGet(EnumType.java:107) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.CustomType.nullSafeGet(CustomType.java:127) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.AbstractType.hydrate(AbstractType.java:106) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.hydrate(AbstractEntityPersister.java:2969) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.loadFromResultSet(Loader.java:1696) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.instanceNotYetLoaded(Loader.java:1628) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.getRow(Loader.java:1515) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.getRowFromResultSet(Loader.java:726) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.processResultSet(Loader.java:953) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doQuery(Loader.java:921) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:355) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2554) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2540) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2370) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.list(Loader.java:2365) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:497) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:387) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.performList(HQLQueryPlan.java:236) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.internal.SessionImpl.list(SessionImpl.java:1264) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.internal.QueryImpl.list(QueryImpl.java:103) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.list(QueryImpl.java:573) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.getResultList(QueryImpl.java:449) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at controllers.SmellController.getAllSmells(SmellController.java:19) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$2$$anonfun$apply$2.apply(routes_routing.scala:235) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$2$$anonfun$apply$2.apply(routes_routing.scala:235) ~[classes/:na]
 	at play.core.Router$HandlerInvokerFactory$$anon$4.resultCall(Router.scala:264) ~[play_2.11-2.3.6.jar:2.3.6]
 	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.invocation(Router.scala:255) ~[play_2.11-2.3.6.jar:2.3.6]
 	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:55) ~[play_2.11-2.3.6.jar:2.3.6]
@@ -231,154 +344,15 @@ Caused by: javax.persistence.EntityNotFoundException: Unable to find models.Exec
 	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library-2.11.1.jar:na]
 	... 6 common frames omitted
 
-2015-04-06 01:35:50,446 - [INFO] - from play in play-internal-execution-context-5 
-datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
+2015-04-08 14:20:42,360 - [ERROR] - from play in play-akka.actor.default-dispatcher-657 
+Cannot invoke the action, eventually got an error: java.lang.IllegalArgumentException: Unknown name value [PUBLISHED] for enum class [models.Status]
 
-2015-04-06 01:35:50,478 - [INFO] - from play in play-internal-execution-context-5 
-database [default] connected at jdbc:mysql://localhost/art
-
-2015-04-06 01:35:51,057 - [INFO] - from play in play-internal-execution-context-5 
-Application started (Dev)
-
-2015-04-06 01:35:58,201 - [ERROR] - from org.hibernate.engine.jdbc.spi.SqlExceptionHelper in play-akka.actor.default-dispatcher-49 
-Cannot delete or update a parent row: a foreign key constraint fails (`art`.`exectasktype`, CONSTRAINT `FK_svn6hnkjoy1l6jjgr6fsm69vi` FOREIGN KEY (`parent_id`) REFERENCES `ExecTaskType` (`id`))
-
-2015-04-06 01:35:58,205 - [ERROR] - from play in play-akka.actor.default-dispatcher-49 
-Cannot invoke the action, eventually got an error: javax.persistence.RollbackException: Error while committing the transaction
-
-2015-04-06 01:35:58,207 - [ERROR] - from application in play-akka.actor.default-dispatcher-49 
+2015-04-08 14:20:42,363 - [ERROR] - from application in play-akka.actor.default-dispatcher-657 
 
 
-! @6lldagopl - Internal server error, for (PUT) [/exectasktype/2] ->
+! @6lm5l546n - Internal server error, for (GET) [/smells] ->
 
-play.api.Application$$anon$1: Execution exception[[RollbackException: Error while committing the transaction]]
-	at play.api.Application$class.handleError(Application.scala:296) ~[play_2.11-2.3.6.jar:2.3.6]
-	at play.api.DefaultApplication.handleError(Application.scala:402) [play_2.11-2.3.6.jar:2.3.6]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$4.apply(PlayDefaultUpstreamHandler.scala:320) [play_2.11-2.3.6.jar:2.3.6]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$4.apply(PlayDefaultUpstreamHandler.scala:320) [play_2.11-2.3.6.jar:2.3.6]
-	at scala.Option.map(Option.scala:145) [scala-library-2.11.1.jar:na]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:320) [play_2.11-2.3.6.jar:2.3.6]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:316) [play_2.11-2.3.6.jar:2.3.6]
-	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) [scala-library-2.11.1.jar:na]
-	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) [scala-library-2.11.1.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.11.1.jar:na]
-	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:46) [play-iteratees_2.11-2.3.6.jar:2.3.6]
-	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library-2.11.1.jar:na]
-	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library-2.11.1.jar:na]
-	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library-2.11.1.jar:na]
-	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library-2.11.1.jar:na]
-	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library-2.11.1.jar:na]
-	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library-2.11.1.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.11.1.jar:na]
-	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:40) [play_2.11-2.3.6.jar:2.3.6]
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:41) [akka-actor_2.11-2.3.4.jar:na]
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:393) [akka-actor_2.11-2.3.4.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library-2.11.1.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.11.1.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.11.1.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.11.1.jar:na]
-Caused by: javax.persistence.RollbackException: Error while committing the transaction
-	at org.hibernate.jpa.internal.TransactionImpl.commit(TransactionImpl.java:94) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
-	at play.db.jpa.JPA$2.apply(JPA.java:193) ~[play-java-jpa_2.11-2.3.6.jar:2.3.6]
-	at play.core.j.FPromiseHelper$$anonfun$map$1.apply(FPromiseHelper.scala:98) ~[play_2.11-2.3.6.jar:2.3.6]
-	at scala.util.Success$$anonfun$map$1.apply(Try.scala:236) ~[scala-library-2.11.1.jar:na]
-	at scala.util.Try$.apply(Try.scala:191) ~[scala-library-2.11.1.jar:na]
-	at scala.util.Success.map(Try.scala:236) ~[scala-library-2.11.1.jar:na]
-	... 10 common frames omitted
-Caused by: javax.persistence.PersistenceException: org.hibernate.exception.ConstraintViolationException: could not execute statement
-	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1763) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1677) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.jpa.internal.TransactionImpl.commit(TransactionImpl.java:82) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
-	... 15 common frames omitted
-Caused by: org.hibernate.exception.ConstraintViolationException: could not execute statement
-	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:72) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:49) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:126) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:112) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:211) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.engine.jdbc.batch.internal.NonBatchingBatch.addToBatch(NonBatchingBatch.java:62) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.persister.entity.AbstractEntityPersister.delete(AbstractEntityPersister.java:3400) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.persister.entity.AbstractEntityPersister.delete(AbstractEntityPersister.java:3630) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.action.internal.EntityDeleteAction.execute(EntityDeleteAction.java:114) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:465) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:351) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:350) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:56) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.internal.SessionImpl.flush(SessionImpl.java:1222) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:425) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.engine.transaction.internal.jdbc.JdbcTransaction.beforeTransactionCommit(JdbcTransaction.java:101) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.engine.transaction.spi.AbstractTransactionImpl.commit(AbstractTransactionImpl.java:177) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.jpa.internal.TransactionImpl.commit(TransactionImpl.java:77) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
-	... 15 common frames omitted
-Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails (`art`.`exectasktype`, CONSTRAINT `FK_svn6hnkjoy1l6jjgr6fsm69vi` FOREIGN KEY (`parent_id`) REFERENCES `ExecTaskType` (`id`))
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.8.0_25]
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:1.8.0_25]
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.8.0_25]
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:408) ~[na:1.8.0_25]
-	at com.mysql.jdbc.Util.handleNewInstance(Util.java:377) ~[mysql-connector-java-5.1.34.jar:5.1.34]
-	at com.mysql.jdbc.Util.getInstance(Util.java:360) ~[mysql-connector-java-5.1.34.jar:5.1.34]
-	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:971) ~[mysql-connector-java-5.1.34.jar:5.1.34]
-	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3887) ~[mysql-connector-java-5.1.34.jar:5.1.34]
-	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3823) ~[mysql-connector-java-5.1.34.jar:5.1.34]
-	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2435) ~[mysql-connector-java-5.1.34.jar:5.1.34]
-	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2582) ~[mysql-connector-java-5.1.34.jar:5.1.34]
-	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2530) ~[mysql-connector-java-5.1.34.jar:5.1.34]
-	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1907) ~[mysql-connector-java-5.1.34.jar:5.1.34]
-	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2141) ~[mysql-connector-java-5.1.34.jar:5.1.34]
-	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2077) ~[mysql-connector-java-5.1.34.jar:5.1.34]
-	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2062) ~[mysql-connector-java-5.1.34.jar:5.1.34]
-	at com.jolbox.bonecp.PreparedStatementHandle.executeUpdate(PreparedStatementHandle.java:205) ~[bonecp-0.8.0.RELEASE.jar:na]
-	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:208) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
-	... 28 common frames omitted
-
-2015-04-06 01:35:58,225 - [ERROR] - from akka.dispatch.Dispatcher in play-akka.actor.default-dispatcher-52 
-EntityManager is closed
-java.lang.IllegalStateException: EntityManager is closed
-	at org.hibernate.jpa.internal.EntityManagerImpl.checkOpen(EntityManagerImpl.java:105) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.jpa.internal.EntityManagerImpl.checkOpen(EntityManagerImpl.java:96) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
-	at org.hibernate.jpa.internal.EntityManagerImpl.close(EntityManagerImpl.java:148) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
-	at play.db.jpa.JPA$3.invoke(JPA.java:209) ~[play-java-jpa_2.11-2.3.6.jar:2.3.6]
-	at play.db.jpa.JPA$3.invoke(JPA.java:203) ~[play-java-jpa_2.11-2.3.6.jar:2.3.6]
-	at play.core.j.FPromiseHelper$$anonfun$onFailure$1.applyOrElse(FPromiseHelper.scala:116) ~[play_2.11-2.3.6.jar:2.3.6]
-	at play.core.j.FPromiseHelper$$anonfun$onFailure$1.applyOrElse(FPromiseHelper.scala:116) ~[play_2.11-2.3.6.jar:2.3.6]
-	at scala.concurrent.Future$$anonfun$onFailure$1.apply(Future.scala:136) ~[scala-library-2.11.1.jar:na]
-	at scala.concurrent.Future$$anonfun$onFailure$1.apply(Future.scala:134) ~[scala-library-2.11.1.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) ~[scala-library-2.11.1.jar:na]
-	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:40) ~[play_2.11-2.3.6.jar:2.3.6]
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:41) ~[akka-actor_2.11-2.3.4.jar:na]
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:393) [akka-actor_2.11-2.3.4.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library-2.11.1.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.11.1.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.11.1.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.11.1.jar:na]
-
-2015-04-06 01:40:14,825 - [INFO] - from play in play-internal-execution-context-6 
-datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
-
-2015-04-06 01:40:14,859 - [INFO] - from play in play-internal-execution-context-6 
-database [default] connected at jdbc:mysql://localhost/art
-
-2015-04-06 01:40:15,274 - [INFO] - from play in play-internal-execution-context-6 
-Application started (Dev)
-
-2015-04-06 01:40:49,844 - [INFO] - from play in play-internal-execution-context-7 
-datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
-
-2015-04-06 01:40:49,876 - [INFO] - from play in play-internal-execution-context-7 
-database [default] connected at jdbc:mysql://localhost/art
-
-2015-04-06 01:40:50,231 - [INFO] - from play in play-internal-execution-context-7 
-Application started (Dev)
-
-2015-04-06 01:40:57,194 - [ERROR] - from play in play-akka.actor.default-dispatcher-61 
-Cannot invoke the action, eventually got an error: java.lang.NullPointerException: null content
-
-2015-04-06 01:40:57,197 - [ERROR] - from application in play-akka.actor.default-dispatcher-61 
-
-
-! @6lldb7p7b - Internal server error, for (PUT) [/exectasktype/2] ->
-
-play.api.Application$$anon$1: Execution exception[[NullPointerException: null content]]
+play.api.Application$$anon$1: Execution exception[[IllegalArgumentException: Unknown name value [PUBLISHED] for enum class [models.Status]]]
 	at play.api.Application$class.handleError(Application.scala:296) ~[play_2.11-2.3.6.jar:2.3.6]
 	at play.api.DefaultApplication.handleError(Application.scala:402) [play_2.11-2.3.6.jar:2.3.6]
 	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$4.apply(PlayDefaultUpstreamHandler.scala:320) [play_2.11-2.3.6.jar:2.3.6]
@@ -401,12 +375,34 @@ play.api.Application$$anon$1: Execution exception[[NullPointerException: null co
 	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.11.1.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.11.1.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.11.1.jar:na]
-Caused by: java.lang.NullPointerException: null content
-	at play.mvc.Results$Status.<init>(Results.java:1326) ~[play_2.11-2.3.6.jar:2.3.6]
-	at play.mvc.Results.ok(Results.java:171) ~[play_2.11-2.3.6.jar:2.3.6]
-	at controllers.ExecTaskTypeController.updateExecTaskType(ExecTaskTypeController.java:63) ~[classes/:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$23$$anonfun$apply$23.apply(routes_routing.scala:396) ~[classes/:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$23$$anonfun$apply$23.apply(routes_routing.scala:396) ~[classes/:na]
+Caused by: java.lang.IllegalArgumentException: Unknown name value [PUBLISHED] for enum class [models.Status]
+	at org.hibernate.type.EnumType$NamedEnumValueMapper.fromName(EnumType.java:467) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.EnumType$NamedEnumValueMapper.getValue(EnumType.java:452) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.EnumType.nullSafeGet(EnumType.java:107) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.CustomType.nullSafeGet(CustomType.java:127) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.AbstractType.hydrate(AbstractType.java:106) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.hydrate(AbstractEntityPersister.java:2969) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.loadFromResultSet(Loader.java:1696) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.instanceNotYetLoaded(Loader.java:1628) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.getRow(Loader.java:1515) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.getRowFromResultSet(Loader.java:726) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.processResultSet(Loader.java:953) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doQuery(Loader.java:921) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:355) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2554) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2540) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2370) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.list(Loader.java:2365) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:497) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:387) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.performList(HQLQueryPlan.java:236) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.internal.SessionImpl.list(SessionImpl.java:1264) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.internal.QueryImpl.list(QueryImpl.java:103) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.list(QueryImpl.java:573) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.getResultList(QueryImpl.java:449) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at controllers.SmellController.getAllSmells(SmellController.java:19) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$2$$anonfun$apply$2.apply(routes_routing.scala:235) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$2$$anonfun$apply$2.apply(routes_routing.scala:235) ~[classes/:na]
 	at play.core.Router$HandlerInvokerFactory$$anon$4.resultCall(Router.scala:264) ~[play_2.11-2.3.6.jar:2.3.6]
 	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.invocation(Router.scala:255) ~[play_2.11-2.3.6.jar:2.3.6]
 	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:55) ~[play_2.11-2.3.6.jar:2.3.6]
@@ -443,57 +439,871 @@ Caused by: java.lang.NullPointerException: null content
 	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library-2.11.1.jar:na]
 	... 6 common frames omitted
 
-2015-04-06 01:41:54,881 - [INFO] - from play in play-internal-execution-context-7 
+2015-04-08 14:23:37,847 - [ERROR] - from play in play-akka.actor.default-dispatcher-661 
+Cannot invoke the action, eventually got an error: java.lang.IllegalArgumentException: Unknown name value [PUBLISHED] for enum class [models.Status]
+
+2015-04-08 14:23:37,850 - [ERROR] - from application in play-akka.actor.default-dispatcher-661 
+
+
+! @6lm5lf3m9 - Internal server error, for (GET) [/smells/forcloud] ->
+
+play.api.Application$$anon$1: Execution exception[[IllegalArgumentException: Unknown name value [PUBLISHED] for enum class [models.Status]]]
+	at play.api.Application$class.handleError(Application.scala:296) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.handleError(Application.scala:402) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$4.apply(PlayDefaultUpstreamHandler.scala:320) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$4.apply(PlayDefaultUpstreamHandler.scala:320) [play_2.11-2.3.6.jar:2.3.6]
+	at scala.Option.map(Option.scala:145) [scala-library-2.11.1.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:320) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:316) [play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.11.1.jar:na]
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:46) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:23) [scala-library-2.11.1.jar:na]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:41) [akka-actor_2.11-2.3.4.jar:na]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:393) [akka-actor_2.11-2.3.4.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.11.1.jar:na]
+Caused by: java.lang.IllegalArgumentException: Unknown name value [PUBLISHED] for enum class [models.Status]
+	at org.hibernate.type.EnumType$NamedEnumValueMapper.fromName(EnumType.java:467) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.EnumType$NamedEnumValueMapper.getValue(EnumType.java:452) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.EnumType.nullSafeGet(EnumType.java:107) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.CustomType.nullSafeGet(CustomType.java:127) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.AbstractType.hydrate(AbstractType.java:106) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.hydrate(AbstractEntityPersister.java:2969) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.loadFromResultSet(Loader.java:1696) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.instanceNotYetLoaded(Loader.java:1628) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.getRow(Loader.java:1515) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.getRowFromResultSet(Loader.java:726) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.processResultSet(Loader.java:953) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doQuery(Loader.java:921) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:355) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2554) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2540) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2370) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.list(Loader.java:2365) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:497) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:387) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.performList(HQLQueryPlan.java:236) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.internal.SessionImpl.list(SessionImpl.java:1264) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.internal.QueryImpl.list(QueryImpl.java:103) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.list(QueryImpl.java:573) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.getResultList(QueryImpl.java:449) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at controllers.SmellController.getCloudSmells(SmellController.java:25) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$3$$anonfun$apply$3.apply(routes_routing.scala:243) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$3$$anonfun$apply$3.apply(routes_routing.scala:243) ~[classes/:na]
+	at play.core.Router$HandlerInvokerFactory$$anon$4.resultCall(Router.scala:264) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.invocation(Router.scala:255) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:55) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:23) ~[play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:21) ~[play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.JPA.withTransactionAsync(JPA.java:180) ~[play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.TransactionalAction.call(TransactionalAction.java:18) ~[play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.JavaAction$$anonfun$11.apply(JavaAction.scala:82) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.JavaAction$$anonfun$11.apply(JavaAction.scala:82) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:40) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:46) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:32) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$.apply(Future.scala:31) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.Future$.apply(Future.scala:492) ~[scala-library-2.11.1.jar:na]
+	at play.core.j.JavaAction$class.apply(JavaAction.scala:82) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.apply(Router.scala:252) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:130) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:130) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:129) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:128) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.Option.map(Option.scala:145) [scala-library-2.11.1.jar:na]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:128) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:121) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:483) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:483) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:519) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:519) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:496) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:496) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library-2.11.1.jar:na]
+	... 6 common frames omitted
+
+2015-04-08 14:23:49,154 - [ERROR] - from play in play-akka.actor.default-dispatcher-661 
+Cannot invoke the action, eventually got an error: java.lang.IllegalArgumentException: Unknown name value [PUBLISHED] for enum class [models.Status]
+
+2015-04-08 14:23:49,157 - [ERROR] - from application in play-akka.actor.default-dispatcher-661 
+
+
+! @6lm5lfkf6 - Internal server error, for (GET) [/smells] ->
+
+play.api.Application$$anon$1: Execution exception[[IllegalArgumentException: Unknown name value [PUBLISHED] for enum class [models.Status]]]
+	at play.api.Application$class.handleError(Application.scala:296) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.handleError(Application.scala:402) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$4.apply(PlayDefaultUpstreamHandler.scala:320) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$4.apply(PlayDefaultUpstreamHandler.scala:320) [play_2.11-2.3.6.jar:2.3.6]
+	at scala.Option.map(Option.scala:145) [scala-library-2.11.1.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:320) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:316) [play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.11.1.jar:na]
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:46) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:23) [scala-library-2.11.1.jar:na]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:41) [akka-actor_2.11-2.3.4.jar:na]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:393) [akka-actor_2.11-2.3.4.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.11.1.jar:na]
+Caused by: java.lang.IllegalArgumentException: Unknown name value [PUBLISHED] for enum class [models.Status]
+	at org.hibernate.type.EnumType$NamedEnumValueMapper.fromName(EnumType.java:467) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.EnumType$NamedEnumValueMapper.getValue(EnumType.java:452) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.EnumType.nullSafeGet(EnumType.java:107) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.CustomType.nullSafeGet(CustomType.java:127) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.AbstractType.hydrate(AbstractType.java:106) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.hydrate(AbstractEntityPersister.java:2969) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.loadFromResultSet(Loader.java:1696) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.instanceNotYetLoaded(Loader.java:1628) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.getRow(Loader.java:1515) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.getRowFromResultSet(Loader.java:726) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.processResultSet(Loader.java:953) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doQuery(Loader.java:921) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:355) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2554) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2540) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2370) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.list(Loader.java:2365) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:497) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:387) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.performList(HQLQueryPlan.java:236) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.internal.SessionImpl.list(SessionImpl.java:1264) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.internal.QueryImpl.list(QueryImpl.java:103) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.list(QueryImpl.java:573) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.getResultList(QueryImpl.java:449) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at controllers.SmellController.getAllSmells(SmellController.java:19) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$2$$anonfun$apply$2.apply(routes_routing.scala:235) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$2$$anonfun$apply$2.apply(routes_routing.scala:235) ~[classes/:na]
+	at play.core.Router$HandlerInvokerFactory$$anon$4.resultCall(Router.scala:264) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.invocation(Router.scala:255) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:55) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:23) ~[play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:21) ~[play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.JPA.withTransactionAsync(JPA.java:180) ~[play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.TransactionalAction.call(TransactionalAction.java:18) ~[play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.JavaAction$$anonfun$11.apply(JavaAction.scala:82) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.JavaAction$$anonfun$11.apply(JavaAction.scala:82) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:40) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:46) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:32) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$.apply(Future.scala:31) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.Future$.apply(Future.scala:492) ~[scala-library-2.11.1.jar:na]
+	at play.core.j.JavaAction$class.apply(JavaAction.scala:82) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.apply(Router.scala:252) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:130) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:130) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:129) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:128) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.Option.map(Option.scala:145) [scala-library-2.11.1.jar:na]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:128) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:121) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:483) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:483) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:519) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:519) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:496) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:496) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library-2.11.1.jar:na]
+	... 6 common frames omitted
+
+2015-04-08 14:26:03,401 - [ERROR] - from play in play-akka.actor.default-dispatcher-668 
+Cannot invoke the action, eventually got an error: java.lang.IllegalArgumentException: Unknown name value [PUBLISHED] for enum class [models.Status]
+
+2015-04-08 14:26:03,404 - [ERROR] - from application in play-akka.actor.default-dispatcher-668 
+
+
+! @6lm5lnb4f - Internal server error, for (GET) [/smells/forcloud] ->
+
+play.api.Application$$anon$1: Execution exception[[IllegalArgumentException: Unknown name value [PUBLISHED] for enum class [models.Status]]]
+	at play.api.Application$class.handleError(Application.scala:296) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.handleError(Application.scala:402) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$4.apply(PlayDefaultUpstreamHandler.scala:320) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$4.apply(PlayDefaultUpstreamHandler.scala:320) [play_2.11-2.3.6.jar:2.3.6]
+	at scala.Option.map(Option.scala:145) [scala-library-2.11.1.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:320) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:316) [play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.11.1.jar:na]
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:46) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:23) [scala-library-2.11.1.jar:na]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:41) [akka-actor_2.11-2.3.4.jar:na]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:393) [akka-actor_2.11-2.3.4.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.11.1.jar:na]
+Caused by: java.lang.IllegalArgumentException: Unknown name value [PUBLISHED] for enum class [models.Status]
+	at org.hibernate.type.EnumType$NamedEnumValueMapper.fromName(EnumType.java:467) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.EnumType$NamedEnumValueMapper.getValue(EnumType.java:452) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.EnumType.nullSafeGet(EnumType.java:107) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.CustomType.nullSafeGet(CustomType.java:127) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.AbstractType.hydrate(AbstractType.java:106) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.hydrate(AbstractEntityPersister.java:2969) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.loadFromResultSet(Loader.java:1696) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.instanceNotYetLoaded(Loader.java:1628) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.getRow(Loader.java:1515) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.getRowFromResultSet(Loader.java:726) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.processResultSet(Loader.java:953) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doQuery(Loader.java:921) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:355) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2554) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2540) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2370) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.list(Loader.java:2365) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:497) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:387) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.performList(HQLQueryPlan.java:236) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.internal.SessionImpl.list(SessionImpl.java:1264) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.internal.QueryImpl.list(QueryImpl.java:103) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.list(QueryImpl.java:573) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.getResultList(QueryImpl.java:449) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at controllers.SmellController.getCloudSmells(SmellController.java:25) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$3$$anonfun$apply$3.apply(routes_routing.scala:243) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$3$$anonfun$apply$3.apply(routes_routing.scala:243) ~[classes/:na]
+	at play.core.Router$HandlerInvokerFactory$$anon$4.resultCall(Router.scala:264) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.invocation(Router.scala:255) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:55) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:23) ~[play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:21) ~[play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.JPA.withTransactionAsync(JPA.java:180) ~[play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.TransactionalAction.call(TransactionalAction.java:18) ~[play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.JavaAction$$anonfun$11.apply(JavaAction.scala:82) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.JavaAction$$anonfun$11.apply(JavaAction.scala:82) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:40) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:46) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:32) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$.apply(Future.scala:31) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.Future$.apply(Future.scala:492) ~[scala-library-2.11.1.jar:na]
+	at play.core.j.JavaAction$class.apply(JavaAction.scala:82) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.apply(Router.scala:252) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:130) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:130) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:129) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:128) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.Option.map(Option.scala:145) [scala-library-2.11.1.jar:na]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:128) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:121) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:483) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:483) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:519) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:519) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:496) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:496) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library-2.11.1.jar:na]
+	... 6 common frames omitted
+
+2015-04-08 14:26:10,325 - [ERROR] - from play in play-akka.actor.default-dispatcher-669 
+Cannot invoke the action, eventually got an error: java.lang.IllegalArgumentException: Unknown name value [PUBLISHED] for enum class [models.Status]
+
+2015-04-08 14:26:10,328 - [ERROR] - from application in play-akka.actor.default-dispatcher-669 
+
+
+! @6lm5lnlan - Internal server error, for (GET) [/smells] ->
+
+play.api.Application$$anon$1: Execution exception[[IllegalArgumentException: Unknown name value [PUBLISHED] for enum class [models.Status]]]
+	at play.api.Application$class.handleError(Application.scala:296) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.handleError(Application.scala:402) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$4.apply(PlayDefaultUpstreamHandler.scala:320) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$4.apply(PlayDefaultUpstreamHandler.scala:320) [play_2.11-2.3.6.jar:2.3.6]
+	at scala.Option.map(Option.scala:145) [scala-library-2.11.1.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:320) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:316) [play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.11.1.jar:na]
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:46) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:23) [scala-library-2.11.1.jar:na]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:41) [akka-actor_2.11-2.3.4.jar:na]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:393) [akka-actor_2.11-2.3.4.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.11.1.jar:na]
+Caused by: java.lang.IllegalArgumentException: Unknown name value [PUBLISHED] for enum class [models.Status]
+	at org.hibernate.type.EnumType$NamedEnumValueMapper.fromName(EnumType.java:467) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.EnumType$NamedEnumValueMapper.getValue(EnumType.java:452) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.EnumType.nullSafeGet(EnumType.java:107) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.CustomType.nullSafeGet(CustomType.java:127) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.AbstractType.hydrate(AbstractType.java:106) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.hydrate(AbstractEntityPersister.java:2969) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.loadFromResultSet(Loader.java:1696) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.instanceNotYetLoaded(Loader.java:1628) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.getRow(Loader.java:1515) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.getRowFromResultSet(Loader.java:726) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.processResultSet(Loader.java:953) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doQuery(Loader.java:921) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:355) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2554) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2540) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2370) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.list(Loader.java:2365) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:497) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:387) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.performList(HQLQueryPlan.java:236) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.internal.SessionImpl.list(SessionImpl.java:1264) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.internal.QueryImpl.list(QueryImpl.java:103) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.list(QueryImpl.java:573) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.getResultList(QueryImpl.java:449) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at controllers.SmellController.getAllSmells(SmellController.java:19) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$2$$anonfun$apply$2.apply(routes_routing.scala:235) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$2$$anonfun$apply$2.apply(routes_routing.scala:235) ~[classes/:na]
+	at play.core.Router$HandlerInvokerFactory$$anon$4.resultCall(Router.scala:264) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.invocation(Router.scala:255) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:55) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:23) ~[play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:21) ~[play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.JPA.withTransactionAsync(JPA.java:180) ~[play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.TransactionalAction.call(TransactionalAction.java:18) ~[play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.JavaAction$$anonfun$11.apply(JavaAction.scala:82) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.JavaAction$$anonfun$11.apply(JavaAction.scala:82) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:40) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:46) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:32) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$.apply(Future.scala:31) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.Future$.apply(Future.scala:492) ~[scala-library-2.11.1.jar:na]
+	at play.core.j.JavaAction$class.apply(JavaAction.scala:82) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.apply(Router.scala:252) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:130) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:130) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:129) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:128) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.Option.map(Option.scala:145) [scala-library-2.11.1.jar:na]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:128) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:121) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:483) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:483) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:519) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:519) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:496) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:496) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library-2.11.1.jar:na]
+	... 6 common frames omitted
+
+2015-04-08 14:28:05,841 - [INFO] - from play in play-internal-execution-context-64 
 datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
 
-2015-04-06 01:41:54,915 - [INFO] - from play in play-internal-execution-context-7 
+2015-04-08 14:28:05,873 - [INFO] - from play in play-internal-execution-context-64 
 database [default] connected at jdbc:mysql://localhost/art
 
-2015-04-06 01:41:55,308 - [INFO] - from play in play-internal-execution-context-7 
+2015-04-08 14:28:06,253 - [INFO] - from play in play-internal-execution-context-64 
 Application started (Dev)
 
-2015-04-06 01:43:33,707 - [INFO] - from play in play-internal-execution-context-7 
+2015-04-08 14:28:06,261 - [ERROR] - from play in play-akka.actor.default-dispatcher-672 
+Cannot invoke the action, eventually got an error: java.lang.IllegalArgumentException: Unknown name value [PUBLISHED] for enum class [models.Status]
+
+2015-04-08 14:28:06,265 - [ERROR] - from application in play-akka.actor.default-dispatcher-672 
+
+
+! @6lm5m4ao1 - Internal server error, for (GET) [/smells/forcloud] ->
+
+play.api.Application$$anon$1: Execution exception[[IllegalArgumentException: Unknown name value [PUBLISHED] for enum class [models.Status]]]
+	at play.api.Application$class.handleError(Application.scala:296) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.handleError(Application.scala:402) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$4.apply(PlayDefaultUpstreamHandler.scala:320) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$4.apply(PlayDefaultUpstreamHandler.scala:320) [play_2.11-2.3.6.jar:2.3.6]
+	at scala.Option.map(Option.scala:145) [scala-library-2.11.1.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:320) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:316) [play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.11.1.jar:na]
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:46) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:23) [scala-library-2.11.1.jar:na]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:41) [akka-actor_2.11-2.3.4.jar:na]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:393) [akka-actor_2.11-2.3.4.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.11.1.jar:na]
+Caused by: java.lang.IllegalArgumentException: Unknown name value [PUBLISHED] for enum class [models.Status]
+	at org.hibernate.type.EnumType$NamedEnumValueMapper.fromName(EnumType.java:467) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.EnumType$NamedEnumValueMapper.getValue(EnumType.java:452) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.EnumType.nullSafeGet(EnumType.java:107) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.CustomType.nullSafeGet(CustomType.java:127) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.AbstractType.hydrate(AbstractType.java:106) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.hydrate(AbstractEntityPersister.java:2969) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.loadFromResultSet(Loader.java:1696) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.instanceNotYetLoaded(Loader.java:1628) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.getRow(Loader.java:1515) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.getRowFromResultSet(Loader.java:726) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.processResultSet(Loader.java:953) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doQuery(Loader.java:921) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:355) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2554) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2540) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2370) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.list(Loader.java:2365) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:497) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:387) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.performList(HQLQueryPlan.java:236) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.internal.SessionImpl.list(SessionImpl.java:1264) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.internal.QueryImpl.list(QueryImpl.java:103) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.list(QueryImpl.java:573) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.getResultList(QueryImpl.java:449) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at controllers.SmellController.getCloudSmells(SmellController.java:25) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$3$$anonfun$apply$3.apply(routes_routing.scala:243) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$3$$anonfun$apply$3.apply(routes_routing.scala:243) ~[classes/:na]
+	at play.core.Router$HandlerInvokerFactory$$anon$4.resultCall(Router.scala:264) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.invocation(Router.scala:255) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:55) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:23) ~[play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:21) ~[play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.JPA.withTransactionAsync(JPA.java:180) ~[play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.TransactionalAction.call(TransactionalAction.java:18) ~[play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.JavaAction$$anonfun$11.apply(JavaAction.scala:82) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.JavaAction$$anonfun$11.apply(JavaAction.scala:82) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:40) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:46) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:32) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$.apply(Future.scala:31) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.Future$.apply(Future.scala:492) ~[scala-library-2.11.1.jar:na]
+	at play.core.j.JavaAction$class.apply(JavaAction.scala:82) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.apply(Router.scala:252) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:130) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:130) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:129) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:128) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.Option.map(Option.scala:145) [scala-library-2.11.1.jar:na]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:128) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:121) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:483) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:483) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:519) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:519) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:496) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:496) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library-2.11.1.jar:na]
+	... 6 common frames omitted
+
+2015-04-08 14:28:09,775 - [ERROR] - from play in play-akka.actor.default-dispatcher-672 
+Cannot invoke the action, eventually got an error: java.lang.IllegalArgumentException: Unknown name value [PUBLISHED] for enum class [models.Status]
+
+2015-04-08 14:28:09,777 - [ERROR] - from application in play-akka.actor.default-dispatcher-672 
+
+
+! @6lm5m4g33 - Internal server error, for (GET) [/smells] ->
+
+play.api.Application$$anon$1: Execution exception[[IllegalArgumentException: Unknown name value [PUBLISHED] for enum class [models.Status]]]
+	at play.api.Application$class.handleError(Application.scala:296) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.handleError(Application.scala:402) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$4.apply(PlayDefaultUpstreamHandler.scala:320) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$4.apply(PlayDefaultUpstreamHandler.scala:320) [play_2.11-2.3.6.jar:2.3.6]
+	at scala.Option.map(Option.scala:145) [scala-library-2.11.1.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:320) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:316) [play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.11.1.jar:na]
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:46) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:23) [scala-library-2.11.1.jar:na]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:41) [akka-actor_2.11-2.3.4.jar:na]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:393) [akka-actor_2.11-2.3.4.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.11.1.jar:na]
+Caused by: java.lang.IllegalArgumentException: Unknown name value [PUBLISHED] for enum class [models.Status]
+	at org.hibernate.type.EnumType$NamedEnumValueMapper.fromName(EnumType.java:467) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.EnumType$NamedEnumValueMapper.getValue(EnumType.java:452) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.EnumType.nullSafeGet(EnumType.java:107) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.CustomType.nullSafeGet(CustomType.java:127) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.AbstractType.hydrate(AbstractType.java:106) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.hydrate(AbstractEntityPersister.java:2969) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.loadFromResultSet(Loader.java:1696) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.instanceNotYetLoaded(Loader.java:1628) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.getRow(Loader.java:1515) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.getRowFromResultSet(Loader.java:726) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.processResultSet(Loader.java:953) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doQuery(Loader.java:921) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:355) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2554) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2540) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2370) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.list(Loader.java:2365) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:497) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:387) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.performList(HQLQueryPlan.java:236) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.internal.SessionImpl.list(SessionImpl.java:1264) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.internal.QueryImpl.list(QueryImpl.java:103) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.list(QueryImpl.java:573) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.getResultList(QueryImpl.java:449) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at controllers.SmellController.getAllSmells(SmellController.java:19) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$2$$anonfun$apply$2.apply(routes_routing.scala:235) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$2$$anonfun$apply$2.apply(routes_routing.scala:235) ~[classes/:na]
+	at play.core.Router$HandlerInvokerFactory$$anon$4.resultCall(Router.scala:264) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.invocation(Router.scala:255) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:55) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:23) ~[play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:21) ~[play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.JPA.withTransactionAsync(JPA.java:180) ~[play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.TransactionalAction.call(TransactionalAction.java:18) ~[play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.JavaAction$$anonfun$11.apply(JavaAction.scala:82) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.JavaAction$$anonfun$11.apply(JavaAction.scala:82) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:40) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:46) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:32) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$.apply(Future.scala:31) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.Future$.apply(Future.scala:492) ~[scala-library-2.11.1.jar:na]
+	at play.core.j.JavaAction$class.apply(JavaAction.scala:82) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.apply(Router.scala:252) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:130) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:130) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:129) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:128) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.Option.map(Option.scala:145) [scala-library-2.11.1.jar:na]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:128) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:121) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:483) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:483) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:519) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:519) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:496) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:496) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library-2.11.1.jar:na]
+	... 6 common frames omitted
+
+2015-04-08 14:29:12,847 - [INFO] - from play in play-internal-execution-context-64 
 datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
 
-2015-04-06 01:43:33,737 - [INFO] - from play in play-internal-execution-context-7 
+2015-04-08 14:29:12,863 - [INFO] - from play in play-internal-execution-context-64 
 database [default] connected at jdbc:mysql://localhost/art
 
-2015-04-06 01:43:34,090 - [INFO] - from play in play-internal-execution-context-7 
+2015-04-08 14:29:13,211 - [INFO] - from play in play-internal-execution-context-64 
 Application started (Dev)
 
-2015-04-06 01:47:44,987 - [INFO] - from play in play-internal-execution-context-7 
+2015-04-08 14:29:16,537 - [ERROR] - from play in play-akka.actor.default-dispatcher-677 
+Cannot invoke the action, eventually got an error: java.lang.IllegalArgumentException: Unknown name value [] for enum class [models.Status]
+
+2015-04-08 14:29:16,550 - [ERROR] - from application in play-akka.actor.default-dispatcher-677 
+
+
+! @6lm5m8an8 - Internal server error, for (GET) [/smells] ->
+
+play.api.Application$$anon$1: Execution exception[[IllegalArgumentException: Unknown name value [] for enum class [models.Status]]]
+	at play.api.Application$class.handleError(Application.scala:296) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.handleError(Application.scala:402) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$4.apply(PlayDefaultUpstreamHandler.scala:320) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$4.apply(PlayDefaultUpstreamHandler.scala:320) [play_2.11-2.3.6.jar:2.3.6]
+	at scala.Option.map(Option.scala:145) [scala-library-2.11.1.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:320) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:316) [play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.11.1.jar:na]
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:46) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:23) [scala-library-2.11.1.jar:na]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:41) [akka-actor_2.11-2.3.4.jar:na]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:393) [akka-actor_2.11-2.3.4.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.11.1.jar:na]
+Caused by: java.lang.IllegalArgumentException: Unknown name value [] for enum class [models.Status]
+	at org.hibernate.type.EnumType$NamedEnumValueMapper.fromName(EnumType.java:467) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.EnumType$NamedEnumValueMapper.getValue(EnumType.java:452) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.EnumType.nullSafeGet(EnumType.java:107) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.CustomType.nullSafeGet(CustomType.java:127) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.AbstractType.hydrate(AbstractType.java:106) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.hydrate(AbstractEntityPersister.java:2969) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.loadFromResultSet(Loader.java:1696) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.instanceNotYetLoaded(Loader.java:1628) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.getRow(Loader.java:1515) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.getRowFromResultSet(Loader.java:726) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.processResultSet(Loader.java:953) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doQuery(Loader.java:921) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:355) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2554) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2540) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2370) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.list(Loader.java:2365) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:497) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:387) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.performList(HQLQueryPlan.java:236) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.internal.SessionImpl.list(SessionImpl.java:1264) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.internal.QueryImpl.list(QueryImpl.java:103) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.list(QueryImpl.java:573) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.getResultList(QueryImpl.java:449) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at controllers.SmellController.getAllSmells(SmellController.java:19) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$2$$anonfun$apply$2.apply(routes_routing.scala:235) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$2$$anonfun$apply$2.apply(routes_routing.scala:235) ~[classes/:na]
+	at play.core.Router$HandlerInvokerFactory$$anon$4.resultCall(Router.scala:264) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.invocation(Router.scala:255) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:55) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:23) ~[play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:21) ~[play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.JPA.withTransactionAsync(JPA.java:180) ~[play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.TransactionalAction.call(TransactionalAction.java:18) ~[play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.JavaAction$$anonfun$11.apply(JavaAction.scala:82) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.JavaAction$$anonfun$11.apply(JavaAction.scala:82) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:40) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:46) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:32) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$.apply(Future.scala:31) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.Future$.apply(Future.scala:492) ~[scala-library-2.11.1.jar:na]
+	at play.core.j.JavaAction$class.apply(JavaAction.scala:82) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.apply(Router.scala:252) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:130) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:130) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:129) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:128) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.Option.map(Option.scala:145) [scala-library-2.11.1.jar:na]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:128) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:121) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:483) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:483) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:519) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:519) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:496) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:496) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library-2.11.1.jar:na]
+	... 6 common frames omitted
+
+2015-04-08 14:29:29,526 - [INFO] - from play in play-internal-execution-context-64 
 datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
 
-2015-04-06 01:47:45,012 - [INFO] - from play in play-internal-execution-context-7 
+2015-04-08 14:29:29,544 - [INFO] - from play in play-internal-execution-context-64 
 database [default] connected at jdbc:mysql://localhost/art
 
-2015-04-06 01:47:45,396 - [INFO] - from play in play-internal-execution-context-7 
+2015-04-08 14:29:29,998 - [INFO] - from play in play-internal-execution-context-64 
 Application started (Dev)
 
-2015-04-06 01:48:12,127 - [INFO] - from play in play-internal-execution-context-7 
+2015-04-08 14:29:32,141 - [ERROR] - from play in play-akka.actor.default-dispatcher-683 
+Cannot invoke the action, eventually got an error: java.lang.IllegalArgumentException: Unknown name value [] for enum class [models.Status]
+
+2015-04-08 14:29:32,150 - [ERROR] - from application in play-akka.actor.default-dispatcher-683 
+
+
+! @6lm5m97p7 - Internal server error, for (GET) [/smells] ->
+
+play.api.Application$$anon$1: Execution exception[[IllegalArgumentException: Unknown name value [] for enum class [models.Status]]]
+	at play.api.Application$class.handleError(Application.scala:296) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.handleError(Application.scala:402) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$4.apply(PlayDefaultUpstreamHandler.scala:320) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$4.apply(PlayDefaultUpstreamHandler.scala:320) [play_2.11-2.3.6.jar:2.3.6]
+	at scala.Option.map(Option.scala:145) [scala-library-2.11.1.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:320) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:316) [play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.11.1.jar:na]
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:46) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:23) [scala-library-2.11.1.jar:na]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:41) [akka-actor_2.11-2.3.4.jar:na]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:393) [akka-actor_2.11-2.3.4.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.11.1.jar:na]
+Caused by: java.lang.IllegalArgumentException: Unknown name value [] for enum class [models.Status]
+	at org.hibernate.type.EnumType$NamedEnumValueMapper.fromName(EnumType.java:467) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.EnumType$NamedEnumValueMapper.getValue(EnumType.java:452) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.EnumType.nullSafeGet(EnumType.java:107) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.CustomType.nullSafeGet(CustomType.java:127) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.type.AbstractType.hydrate(AbstractType.java:106) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.hydrate(AbstractEntityPersister.java:2969) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.loadFromResultSet(Loader.java:1696) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.instanceNotYetLoaded(Loader.java:1628) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.getRow(Loader.java:1515) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.getRowFromResultSet(Loader.java:726) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.processResultSet(Loader.java:953) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doQuery(Loader.java:921) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:355) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2554) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2540) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2370) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.list(Loader.java:2365) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:497) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:387) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.performList(HQLQueryPlan.java:236) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.internal.SessionImpl.list(SessionImpl.java:1264) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.internal.QueryImpl.list(QueryImpl.java:103) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.list(QueryImpl.java:573) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.getResultList(QueryImpl.java:449) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at controllers.SmellController.getAllSmells(SmellController.java:19) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$2$$anonfun$apply$2.apply(routes_routing.scala:235) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$2$$anonfun$apply$2.apply(routes_routing.scala:235) ~[classes/:na]
+	at play.core.Router$HandlerInvokerFactory$$anon$4.resultCall(Router.scala:264) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.invocation(Router.scala:255) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:55) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:23) ~[play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:21) ~[play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.JPA.withTransactionAsync(JPA.java:180) ~[play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.TransactionalAction.call(TransactionalAction.java:18) ~[play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.JavaAction$$anonfun$11.apply(JavaAction.scala:82) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.JavaAction$$anonfun$11.apply(JavaAction.scala:82) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:40) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:46) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:32) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$.apply(Future.scala:31) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.Future$.apply(Future.scala:492) ~[scala-library-2.11.1.jar:na]
+	at play.core.j.JavaAction$class.apply(JavaAction.scala:82) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.apply(Router.scala:252) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:130) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:130) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:129) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:128) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.Option.map(Option.scala:145) [scala-library-2.11.1.jar:na]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:128) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:121) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:483) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:483) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:519) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:519) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:496) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:496) ~[play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library-2.11.1.jar:na]
+	... 6 common frames omitted
+
+2015-04-08 14:30:23,287 - [INFO] - from play in play-internal-execution-context-65 
 datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
 
-2015-04-06 01:48:12,155 - [INFO] - from play in play-internal-execution-context-7 
+2015-04-08 14:30:23,308 - [INFO] - from play in play-internal-execution-context-65 
 database [default] connected at jdbc:mysql://localhost/art
 
-2015-04-06 01:48:12,534 - [INFO] - from play in play-internal-execution-context-7 
+2015-04-08 14:30:23,659 - [INFO] - from play in play-internal-execution-context-65 
 Application started (Dev)
 
-2015-04-06 01:50:43,024 - [INFO] - from play in play-internal-execution-context-11 
+2015-04-08 14:41:47,984 - [INFO] - from play in play-internal-execution-context-66 
 datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
 
-2015-04-06 01:50:43,052 - [INFO] - from play in play-internal-execution-context-11 
+2015-04-08 14:41:48,110 - [INFO] - from play in play-internal-execution-context-66 
 database [default] connected at jdbc:mysql://localhost/art
 
-2015-04-06 01:50:43,392 - [INFO] - from play in play-internal-execution-context-11 
+2015-04-08 14:41:49,351 - [INFO] - from play in play-internal-execution-context-66 
 Application started (Dev)
 
-2015-04-06 01:52:27,127 - [INFO] - from play in play-internal-execution-context-12 
+2015-04-08 14:44:16,639 - [INFO] - from play in play-internal-execution-context-66 
 datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
 
-2015-04-06 01:52:27,151 - [INFO] - from play in play-internal-execution-context-12 
+2015-04-08 14:44:16,682 - [INFO] - from play in play-internal-execution-context-66 
 database [default] connected at jdbc:mysql://localhost/art
 
-2015-04-06 01:52:27,516 - [INFO] - from play in play-internal-execution-context-12 
+2015-04-08 14:44:17,080 - [INFO] - from play in play-internal-execution-context-66 
+Application started (Dev)
+
+2015-04-08 15:06:41,508 - [INFO] - from play in play-internal-execution-context-73 
+datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
+
+2015-04-08 15:06:41,529 - [INFO] - from play in play-internal-execution-context-73 
+database [default] connected at jdbc:mysql://localhost/art
+
+2015-04-08 15:06:41,909 - [INFO] - from play in play-internal-execution-context-73 
+Application started (Dev)
+
+2015-04-08 15:08:15,567 - [INFO] - from play in play-internal-execution-context-73 
+datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
+
+2015-04-08 15:08:15,592 - [INFO] - from play in play-internal-execution-context-73 
+database [default] connected at jdbc:mysql://localhost/art
+
+2015-04-08 15:08:15,933 - [INFO] - from play in play-internal-execution-context-73 
+Application started (Dev)
+
+2015-04-08 15:54:58,736 - [INFO] - from play in play-internal-execution-context-75 
+datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
+
+2015-04-08 15:54:58,756 - [INFO] - from play in play-internal-execution-context-75 
+database [default] connected at jdbc:mysql://localhost/art
+
+2015-04-08 15:54:59,140 - [INFO] - from play in play-internal-execution-context-75 
+Application started (Dev)
+
+2015-04-08 15:56:26,047 - [INFO] - from play in play-internal-execution-context-75 
+datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
+
+2015-04-08 15:56:26,066 - [INFO] - from play in play-internal-execution-context-75 
+database [default] connected at jdbc:mysql://localhost/art
+
+2015-04-08 15:56:26,389 - [INFO] - from play in play-internal-execution-context-75 
+Application started (Dev)
+
+2015-04-08 15:59:15,591 - [INFO] - from play in play-internal-execution-context-75 
+datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
+
+2015-04-08 15:59:15,610 - [INFO] - from play in play-internal-execution-context-75 
+database [default] connected at jdbc:mysql://localhost/art
+
+2015-04-08 15:59:15,975 - [INFO] - from play in play-internal-execution-context-75 
+Application started (Dev)
+
+2015-04-08 16:02:27,196 - [INFO] - from play in play-internal-execution-context-75 
+datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
+
+2015-04-08 16:02:27,290 - [INFO] - from play in play-internal-execution-context-75 
+database [default] connected at jdbc:mysql://localhost/art
+
+2015-04-08 16:02:27,853 - [INFO] - from play in play-internal-execution-context-75 
 Application started (Dev)
 

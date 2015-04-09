@@ -30,9 +30,13 @@
     border-radius:5px;
     display:inline-block;
     padding:3px 8px;
-    text-decoration:none
+    text-decoration:none;
+    width: 410px;
 }
-.tree li.parent_li>span {
+.tree li span input {
+    width: 340px;
+}
+.tree li.parent_li>span>i {
     cursor:pointer
 }
 .tree>ul>li::before, .tree>ul>li::after {
@@ -40,9 +44,4 @@
 }
 .tree li:last-child::before {
     height:30px
-}
-.tree li.parent_li>span:hover, .tree li.parent_li>span:hover+ul li span {
-    background:#eee;
-    border:1px solid #94a0b4;
-    color:#000
 }

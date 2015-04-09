@@ -1,6 +1,6 @@
 // @SOURCE:/Users/cbi/Documents/git-repos/ART/conf/routes
-// @HASH:6d1d04fe4649a8b071fa8853366da53e50df7b4b
-// @DATE:Sun Apr 05 21:01:12 CEST 2015
+// @HASH:967d6d2085267b2ca74adf56474fd5040aded288
+// @DATE:Wed Apr 08 12:17:15 CEST 2015
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -15,6 +15,7 @@ import _root_.play.libs.F
 import Router.queryString
 
 
+// @LINE:43
 // @LINE:40
 // @LINE:37
 // @LINE:36
@@ -42,11 +43,11 @@ import Router.queryString
 // @LINE:6
 package controllers {
 
-// @LINE:40
+// @LINE:43
 class ReverseAssets {
 
 
-// @LINE:40
+// @LINE:43
 def at(file:String): Call = {
    implicit val _rrc = new ReverseRouteContext(Map(("path", "/public")))
    Call("GET", _prefix + { _defaultPrefix } + implicitly[PathBindable[String]].unbind("file", file))
@@ -264,6 +265,20 @@ def getAllSmells(): Call = {
 }
                           
 
+// @LINE:40
+class ReverseStatusController {
+
+
+// @LINE:40
+def getStatus(): Call = {
+   import ReverseRouteContext.empty
+   Call("GET", _prefix + { _defaultPrefix } + "status")
+}
+                        
+
+}
+                          
+
 // @LINE:6
 class ReverseApplication {
 
@@ -281,6 +296,7 @@ def index(): Call = {
                   
 
 
+// @LINE:43
 // @LINE:40
 // @LINE:37
 // @LINE:36
@@ -309,11 +325,11 @@ def index(): Call = {
 package controllers.javascript {
 import ReverseRouteContext.empty
 
-// @LINE:40
+// @LINE:43
 class ReverseAssets {
 
 
-// @LINE:40
+// @LINE:43
 def at : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Assets.at",
    """
@@ -627,6 +643,24 @@ def getAllSmells : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
+// @LINE:40
+class ReverseStatusController {
+
+
+// @LINE:40
+def getStatus : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.StatusController.getStatus",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "status"})
+      }
+   """
+)
+                        
+
+}
+              
+
 // @LINE:6
 class ReverseApplication {
 
@@ -648,6 +682,7 @@ def index : JavascriptReverseRoute = JavascriptReverseRoute(
         
 
 
+// @LINE:43
 // @LINE:40
 // @LINE:37
 // @LINE:36
@@ -676,11 +711,11 @@ def index : JavascriptReverseRoute = JavascriptReverseRoute(
 package controllers.ref {
 
 
-// @LINE:40
+// @LINE:43
 class ReverseAssets {
 
 
-// @LINE:40
+// @LINE:43
 def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Assets.at(path, file), HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "at", Seq(classOf[String], classOf[String]), "GET", """ Map static resources from the /public folder to the /assets URL path""", _prefix + """$file<.+>""")
 )
@@ -712,7 +747,7 @@ def getExecTaskType(id:Long): play.api.mvc.HandlerRef[_] = new play.api.mvc.Hand
 
 // @LINE:32
 def getExecTaskTypes(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.ExecTaskTypeController.getExecTaskTypes(), HandlerDef(this.getClass.getClassLoader, "", "controllers.ExecTaskTypeController", "getExecTaskTypes", Seq(), "GET", """Menu service""", _prefix + """exectasktype""")
+   controllers.ExecTaskTypeController.getExecTaskTypes(), HandlerDef(this.getClass.getClassLoader, "", "controllers.ExecTaskTypeController", "getExecTaskTypes", Seq(), "GET", """ExecTaskType service""", _prefix + """exectasktype""")
 )
                       
 
@@ -868,6 +903,19 @@ def updateSmell(id:Long): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerR
 // @LINE:9
 def getAllSmells(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.SmellController.getAllSmells(), HandlerDef(this.getClass.getClassLoader, "", "controllers.SmellController", "getAllSmells", Seq(), "GET", """Smell service""", _prefix + """smells""")
+)
+                      
+
+}
+                          
+
+// @LINE:40
+class ReverseStatusController {
+
+
+// @LINE:40
+def getStatus(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.StatusController.getStatus(), HandlerDef(this.getClass.getClassLoader, "", "controllers.StatusController", "getStatus", Seq(), "GET", """Status service""", _prefix + """status""")
 )
                       
 

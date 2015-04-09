@@ -9,14 +9,14 @@ VALUES  ('SmellGroups','group1','Group 1','desc',1),
         ('OtherCategorie','group5','Group 5','desc',5),
         ('OtherCategorie','group5','Group 5','desc',5);
 
-INSERT INTO smell(name,description,keywords,weight,group_id,tecdebtidx,modified,created)
-VALUES ('Smell1','This is Smell1','keyword1,keyword2,keyword3',2.0,1,'lm',Current_timestamp,Current_timestamp),
-       ('Smell2','This is Smell2','keyword2,keyword4,keyword5',2.0,2,'lm',Current_timestamp,Current_timestamp),
-       ('Smell3','This is Smell3','keyword1,keyword2,keyword3',3.0,1,'lm',Current_timestamp,Current_timestamp),
-       ('Smell4','This is Smell4','keyword5,keyword6,keyword7',1.0,2,'lm',Current_timestamp,Current_timestamp),
-       ('Smell5','This is Smell5','keyword5,keyword6,keyword7',5.0,2,'lm',Current_timestamp,Current_timestamp),
-       ('Smell6','This is Smell6','keyword5,keyword6,keyword7',6.0,2,'lm',Current_timestamp,Current_timestamp),
-       ('Smell7','This is Smell7','keyword5,keyword6,keyword7',1.0,2,'lm',Current_timestamp,Current_timestamp);
+INSERT INTO smell(name,description,keywords,weight,group_id,tecdebtidx,status,modified,created)
+VALUES ('Smell1','This is Smell1','keyword1,keyword2,keyword3',2.0,1,'lm','published',Current_timestamp,Current_timestamp),
+       ('Smell2','This is Smell2','keyword2,keyword4,keyword5',2.0,2,'lm','published',Current_timestamp,Current_timestamp),
+       ('Smell3','This is Smell3','keyword1,keyword2,keyword3',3.0,1,'lm','published',Current_timestamp,Current_timestamp),
+       ('Smell4','This is Smell4','keyword5,keyword6,keyword7',1.0,2,'lm','published',Current_timestamp,Current_timestamp),
+       ('Smell5','This is Smell5','keyword5,keyword6,keyword7',5.0,2,'lm','published',Current_timestamp,Current_timestamp),
+       ('Smell6','This is Smell6','keyword5,keyword6,keyword7',6.0,2,'lm','published',Current_timestamp,Current_timestamp),
+       ('Smell7','This is Smell7','keyword5,keyword6,keyword7',1.0,2,'lm','published',Current_timestamp,Current_timestamp);
 
 INSERT INTO menuitem
         (id, name,            fullname,                tooltip,                               image,                        type,           url,   pos,     ordering, menuitem_id)
@@ -44,6 +44,19 @@ VALUES (1, 'Admin',   'ART Administrator'),
        
        
 INSERT INTO ExecTaskType
-       (id, name, description, ordering, parent_id)
-VALUES (1,  'root', '', 1, 1),	
-       (2,  'Execution Task Type', '', 1, 1);
+       (id, description, name, ordering, parent_id)
+VALUES (1,  '', 'root', 1, 1),	
+       (2,  '', 'Execution Task Type', 1, 1),
+	   (3,  '','Analysis Task',0,2),
+       (4,  '','Measurement Task',0,3),
+       (5,  '','Design Task',0,2),
+       (6,  '','Decision Task',0,5),
+       (7,  '','Development Task',0,2),
+       (8,  '','Admin Task',0,2),
+       (9,  '','Systemmanagement Task',0,8),
+       (10, '','ITIL Task',0,9),
+       (11, '','Testing Task',0,2),
+       (12, '','Integration Task',0,2),
+       (13, '','Commercial Task',0,2),
+       (14, '','Communication Task',0,2),
+       (15, '','Documentation Task',0,14);

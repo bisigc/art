@@ -18,7 +18,7 @@
         </div>
         <div class="col-md-4">
             <div class="panel panel-default">
-                <div class="panel-heading">Smell Cloud {{cloudcallstatus}}</div>
+                <div class="panel-heading">Smell Cloud <span ng-bind-html="cloudcallstatus"></span></div>
                 <div class="panel-body">
                     <jqcloud words="words" width="320" height="320" steps="6"></jqcloud>
                 </div>

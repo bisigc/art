@@ -1,6 +1,6 @@
 // @SOURCE:/Users/cbi/Documents/git-repos/ART/conf/routes
-// @HASH:6d1d04fe4649a8b071fa8853366da53e50df7b4b
-// @DATE:Sun Apr 05 21:01:12 CEST 2015
+// @HASH:967d6d2085267b2ca74adf56474fd5040aded288
+// @DATE:Wed Apr 08 12:17:15 CEST 2015
 
 
 import play.core._
@@ -162,7 +162,7 @@ HandlerDef(this.getClass.getClassLoader, "", "controllers.MenuController", "dele
 private[this] lazy val controllers_ExecTaskTypeController_getExecTaskTypes18_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("exectasktype"))))
 private[this] lazy val controllers_ExecTaskTypeController_getExecTaskTypes18_invoker = createInvoker(
 controllers.ExecTaskTypeController.getExecTaskTypes(),
-HandlerDef(this.getClass.getClassLoader, "", "controllers.ExecTaskTypeController", "getExecTaskTypes", Nil,"GET", """Menu service""", Routes.prefix + """exectasktype"""))
+HandlerDef(this.getClass.getClassLoader, "", "controllers.ExecTaskTypeController", "getExecTaskTypes", Nil,"GET", """ExecTaskType service""", Routes.prefix + """exectasktype"""))
         
 
 // @LINE:33
@@ -201,12 +201,19 @@ HandlerDef(this.getClass.getClassLoader, "", "controllers.ExecTaskTypeController
         
 
 // @LINE:40
-private[this] lazy val controllers_Assets_at24_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),DynamicPart("file", """.+""",false))))
-private[this] lazy val controllers_Assets_at24_invoker = createInvoker(
+private[this] lazy val controllers_StatusController_getStatus24_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("status"))))
+private[this] lazy val controllers_StatusController_getStatus24_invoker = createInvoker(
+controllers.StatusController.getStatus(),
+HandlerDef(this.getClass.getClassLoader, "", "controllers.StatusController", "getStatus", Nil,"GET", """Status service""", Routes.prefix + """status"""))
+        
+
+// @LINE:43
+private[this] lazy val controllers_Assets_at25_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),DynamicPart("file", """.+""",false))))
+private[this] lazy val controllers_Assets_at25_invoker = createInvoker(
 controllers.Assets.at(fakeValue[String], fakeValue[String]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "at", Seq(classOf[String], classOf[String]),"GET", """ Map static resources from the /public folder to the /assets URL path""", Routes.prefix + """$file<.+>"""))
         
-def documentation = List(("""GET""", prefix,"""controllers.Application.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smells""","""controllers.SmellController.getAllSmells()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smells/forcloud""","""controllers.SmellController.getCloudSmells()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smells/$id<[^/]+>""","""controllers.SmellController.getSmell(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smells""","""controllers.SmellController.createSmell()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smells/$id<[^/]+>""","""controllers.SmellController.updateSmell(id:Long)"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smells/$id<[^/]+>""","""controllers.SmellController.deleteSmell(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property""","""controllers.PropertyController.getAllProperties()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property/categorie/$cat<[^/]+>""","""controllers.PropertyController.getProperties(cat:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property/$id<[^/]+>""","""controllers.PropertyController.getProperty(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property""","""controllers.PropertyController.createProperty()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property/$id<[^/]+>""","""controllers.PropertyController.updateProperty(id:Long)"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property/$id<[^/]+>""","""controllers.PropertyController.deleteProperty(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """menu""","""controllers.MenuController.getMenuitems()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """menu/$id<[^/]+>""","""controllers.MenuController.getMenuitem(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """menu""","""controllers.MenuController.createMenuitem()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """menu/$id<[^/]+>""","""controllers.MenuController.updateMenuitem(id:Long)"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """menu/$id<[^/]+>""","""controllers.MenuController.deleteMenuitem(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """exectasktype""","""controllers.ExecTaskTypeController.getExecTaskTypes()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """exectasktype/empty""","""controllers.ExecTaskTypeController.getEmptyExecTaskType()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """exectasktype/$id<[^/]+>""","""controllers.ExecTaskTypeController.getExecTaskType(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """exectasktype""","""controllers.ExecTaskTypeController.createExecTaskType()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """exectasktype/$id<[^/]+>""","""controllers.ExecTaskTypeController.updateExecTaskType(id:Long)"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """exectasktype/$id<[^/]+>""","""controllers.ExecTaskTypeController.deleteExecTaskType(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
+def documentation = List(("""GET""", prefix,"""controllers.Application.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smells""","""controllers.SmellController.getAllSmells()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smells/forcloud""","""controllers.SmellController.getCloudSmells()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smells/$id<[^/]+>""","""controllers.SmellController.getSmell(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smells""","""controllers.SmellController.createSmell()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smells/$id<[^/]+>""","""controllers.SmellController.updateSmell(id:Long)"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smells/$id<[^/]+>""","""controllers.SmellController.deleteSmell(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property""","""controllers.PropertyController.getAllProperties()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property/categorie/$cat<[^/]+>""","""controllers.PropertyController.getProperties(cat:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property/$id<[^/]+>""","""controllers.PropertyController.getProperty(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property""","""controllers.PropertyController.createProperty()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property/$id<[^/]+>""","""controllers.PropertyController.updateProperty(id:Long)"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property/$id<[^/]+>""","""controllers.PropertyController.deleteProperty(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """menu""","""controllers.MenuController.getMenuitems()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """menu/$id<[^/]+>""","""controllers.MenuController.getMenuitem(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """menu""","""controllers.MenuController.createMenuitem()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """menu/$id<[^/]+>""","""controllers.MenuController.updateMenuitem(id:Long)"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """menu/$id<[^/]+>""","""controllers.MenuController.deleteMenuitem(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """exectasktype""","""controllers.ExecTaskTypeController.getExecTaskTypes()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """exectasktype/empty""","""controllers.ExecTaskTypeController.getEmptyExecTaskType()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """exectasktype/$id<[^/]+>""","""controllers.ExecTaskTypeController.getExecTaskType(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """exectasktype""","""controllers.ExecTaskTypeController.createExecTaskType()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """exectasktype/$id<[^/]+>""","""controllers.ExecTaskTypeController.updateExecTaskType(id:Long)"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """exectasktype/$id<[^/]+>""","""controllers.ExecTaskTypeController.deleteExecTaskType(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """status""","""controllers.StatusController.getStatus()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
   case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
   case l => s ++ l.asInstanceOf[List[(String,String,String)]]
 }}
@@ -407,9 +414,17 @@ case controllers_ExecTaskTypeController_deleteExecTaskType23_route(params) => {
         
 
 // @LINE:40
-case controllers_Assets_at24_route(params) => {
+case controllers_StatusController_getStatus24_route(params) => {
+   call { 
+        controllers_StatusController_getStatus24_invoker.call(controllers.StatusController.getStatus())
+   }
+}
+        
+
+// @LINE:43
+case controllers_Assets_at25_route(params) => {
    call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
-        controllers_Assets_at24_invoker.call(controllers.Assets.at(path, file))
+        controllers_Assets_at25_invoker.call(controllers.Assets.at(path, file))
    }
 }
         

@@ -337,3 +337,5 @@ run
 compile
 run
 exit
+compile
+run
