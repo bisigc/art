@@ -29,7 +29,7 @@ public class SmellController extends Controller {
 			buf.append(smell.getWeight());
 			buf.append(",\"handlers\":{\"click\":function(){setSmell('");
 			buf.append(smell.getName());
-			buf.append("');},}},");
+			buf.append("');}}},");
 		}
 		
 		// remove last "," but only if there where smells found.
@@ -38,8 +38,7 @@ public class SmellController extends Controller {
 		}
 		
 	    buf.append("]");
-	    System.out.println(buf);
-	    return ok(buf.toString()).as("text/plain");
+	    return ok(buf.toString());
 	}
 	
 	@Transactional(readOnly=true)

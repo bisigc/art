@@ -12,7 +12,8 @@ app.factory("OwnTasks", function($resource) {
 app.factory("CloudSmells", ['$http', function($http) {
     return {
         get: function() {
-            return $http.get(_contextPath + 'smells/forcloud');
+            return $http({method: "GET", url: _contextPath + 'smells/forcloud', transformResponse: [] });
+            //return $http.get(_contextPath + 'smells/forcloud');
         }
     }
 }]);

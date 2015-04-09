@@ -24,6 +24,17 @@ app.config(['notificationsConfigProvider', function (notificationsConfigProvider
     notificationsConfigProvider.setAcceptHTML(true);
 }]);
 
+app.config(['$provide', function($provide){
+    $provide.decorator('taOptions', ['$delegate', function(taOptions){
+        taOptions.toolbar = [
+            ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'pre'],
+            ['bold', 'italics', 'underline', 'ul', 'ol', 'redo', 'undo', 'clear'],
+            ['html', 'insertLink']
+        ];
+        return taOptions;
+    }]);
+}]);
+
 app.controller('UserController', ['notifications', function(notifications){
     this.user = user;
     this.login = function() {
@@ -44,7 +55,7 @@ app.controller('MenuController', ['MenuService', 'notifications', '$scope', func
     }, function(error, status, headers, config) {
         notifications.showError("Failed to load Menu.");
     }); 
-    $scope.menuItem = 'exectypes.html';
+    $scope.menuItem = 'smellasses.html';
     $scope.setMenu = function(selectedMenu) {
         $scope.menuItem = selectedMenu + '.html';
     };
@@ -54,21 +65,21 @@ app.controller('MenuController', ['MenuService', 'notifications', '$scope', func
     };
 }]);
 
-app.controller('ARController', ['CloudSmells','$scope','$filter', function(CloudSmells, $scope, $filter) {
+app.controller('ARController', ['CloudSmells','notifications','$scope','$filter', function(CloudSmells, notifications, $scope, $filter) {
     var orderBy = $filter('orderBy');
     $scope.arlist = ars;
     this.formvisible = true;
-    $scope.words;
+    $scope.words = [];
     //$scope.words = words;
     $scope.cloudcallstatus = '&nbsp;<i class="glyphicon glyphicon-refresh glyphicon-refresh-animate"/> Loading...';
 
     this.loadCloud = function () {
-        var promise = CloudSmells.get();
-        promise.then(function(data, status, headers, config) {
-            $scope.words = data;
+        CloudSmells.get().success(function(data,status,headers,config){
+            $scope.words = eval(data);
             $scope.cloudcallstatus = "OK";
-        }, function(error, status, headers, config) {
+        }).error(function(data,status,headers,config){
             $scope.cloudcallstatus = "NOK";
+            notifications.showError("Failed to load SmellCloud")
         });
     }
     this.loadCloud();
@@ -317,27 +328,27 @@ app.controller("ExecTaskTypeController", ['ExecTaskTypesService', 'ExecTaskTypeS
     }, function(error, status, headers, config) {
         notifications.showError("Failed to load EmptyExecutionTaskTypes.");
     }); 
-    
+
     $scope.delete = function(task) {
         task.subTasks = [];
     };
-    
+
     /*$scope.deleteCurrent = function(subTasks, task) {
         var index = subTasks.indexOf(task);
         subTasks.splice(index,1);
     };*/
-    
+
     $scope.hasChildren = function(task) {
         return task.subTasks.length > 0;
     }
-        
-    
+
+
     $scope.add = function(task) {
         var post = task.subTasks.length + 1;
         var newName = task.name + '-' + post;
         task.subTasks.push(angular.copy(this.emptyexectype));
     };
-    
+
     $scope.save = function() {
         ExecTaskTypeService.update({id: $scope.exectypes[0].id}, $scope.exectypes, function(data, status, headers, config) {
             $scope.emptyexectype = data;

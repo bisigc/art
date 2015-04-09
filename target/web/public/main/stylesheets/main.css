@@ -99,14 +99,12 @@ body {
     to { transform: scale(1) rotate(360deg);}
 }
     
-.ta-editor {
-  min-height: 300px;
-  height: auto;
-  overflow: auto;
-  font-family: inherit;
-  font-size: 100%;
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
 }
-
+    
 /* Technical Debt Index Selector */
 
 .idxtable {
