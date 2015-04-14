@@ -17,7 +17,7 @@
         <link href="@routes.Assets.at("stylesheets/tree.css")" rel="stylesheet">
         <link href="@routes.Assets.at("stylesheets/font-awesome.min.css")" rel="stylesheet">
         <link href="@routes.Assets.at("stylesheets/textAngular.css")" rel="stylesheet">
-        <link href="@routes.Assets.at("stylesheets/checkboxsquared.css")" rel="stylesheet">
+        <link href="@routes.Assets.at("stylesheets/awesome-bootstrap-checkbox.css")" rel="stylesheet">
         <script type="text/javascript">
             var _contextPath = "@routes.Assets.at("")";
         </script>
@@ -41,17 +41,14 @@
                                 <ul class="dropdown-menu" role="menu" ng-switch-when="dropdown">
                                     <li ng-class="{ active:isMenuSet(submenui.name)}" ng-repeat="submenui in menui.subItems"><a href ng-click="setMenu(submenui.name)" title="{{submenui.tooltip}}" >{{submenui.fullname}}</a></li>
                                 </ul>
-                                <a href ng-switch-when="home" class="homeitem" title="{{menui.tooltip}}" ng-click="setMenu(menui.name)"><img ng-src="{{menui.image}}" class="menuimage" /></a>
+                                <a href ng-switch-when="home" class="homeitem" title="{{menui.tooltip}}" ng-click="setMenu(menui.name)"><img ng-src="{{menui.image}}" class="menuimage img-responsive center-block" /></a>
                                 <a href ng-switch-default ng-click="setMenu(menui.name)" title="{{menui.tooltip}}">{{menui.fullname}}</a>
                             </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right" ng-controller="UserController as userCtrl">
-                            <li ng-show="userCtrl.user.loggedin"><a href>{{userCtrl.user.name}}</a></li>
-                            <li ng-show="userCtrl.user.loggedin"><img ng-src="{{userCtrl.user.avatar}}" height="40px" /></li>
-                            <!-- li class="active"><a href="./">Default <span class="sr-only">(current)</span></a></li -->
-                            <li ng-show="userCtrl.user.loggedin" ng-class="{ active:isMenuSet('profile')}"><a href ng-click="setMenu('profile')">Profile</a></li>
-                            <li ng-hide="userCtrl.user.loggedin"><a href ng-click="userCtrl.login()">Login</a></li>
-                            <li ng-show="userCtrl.user.loggedin"><a href ng-click="userCtrl.logout()">Logout</a></li>
+                            <li ng-show="userCtrl.user.loggedin" class="menuItem menuuser" ng-class="{ active:isMenuSet('profile.html')}"><a href ng-click="setMenu('profile')"><img ng-src="{{userCtrl.user.avatar}}" class="avatar img-circle" /> {{userCtrl.user.firstname}} {{userCtrl.user.surname}}</a></li>
+                            <li ng-hide="userCtrl.user.loggedin" class="menuItem"><a href ng-click="userCtrl.login()">Login</a></li>
+                            <li ng-show="userCtrl.user.loggedin" class="menuItem"><a href ng-click="userCtrl.logout()">Logout</a></li>
                         </ul>
                     </div><!--/.nav-collapse -->
             </nav>
@@ -65,8 +62,11 @@
     <script type="text/javascript" src="@routes.Assets.at("javascripts/libs/angular.min.js")"></script>
     <script type="text/javascript" src="@routes.Assets.at("javascripts/libs/angular-resource.min.js")"></script>
     <script type="text/javascript" src="@routes.Assets.at("javascripts/libs/angular-sanitize.min.js")"></script>
+    <script type="text/javascript" src="@routes.Assets.at("javascripts/mockdata.js")"></script>
     <script type="text/javascript" src="@routes.Assets.at("javascripts/app.js")"></script>
     <script type="text/javascript" src="@routes.Assets.at("javascripts/factories.js")"></script>
+    <script type="text/javascript" src="@routes.Assets.at("javascripts/config.js")"></script>
+    <script type="text/javascript" src="@routes.Assets.at("javascripts/filterdirectives.js")"></script>
     <script type="text/javascript" src="@routes.Assets.at("javascripts/libs/bootstrap.min.js")"></script>
     <script type="text/javascript" src="@routes.Assets.at("javascripts/libs/jqcloud.min.js")"></script>
     <script type="text/javascript" src="@routes.Assets.at("javascripts/libs/textAngular-rangy.min.js")"></script>

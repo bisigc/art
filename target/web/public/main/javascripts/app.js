@@ -1,5 +1,3 @@
-var user = { "name": 'Cbi', "loggedin": true, "avatar": 'images/avatars/avatar1.png' };
-var ars = [{ "name":"AR1", "desc":"blabladesc 1", "smells":[{"id":1,"name":"Smell1"},{"id":5,"name":"Smell5"}] }, { "name":"AR2", "desc":"Holderadio 2", "smells":[{"id":2,"name":"Smell2"},{"id":5,"name":"Smell5"}] }, { "name":"AR3", "desc":"Auto Velo 3", "smells":[{"id":2,"name":"Smell2"},{"id":7,"name":"Smell7"}] }, { "name":"AR4", "desc":"blabladesc 1", "smells":[{"id":2,"name":"Smell2"},{"id":6,"name":"Smell6"}] }, { "name":"AR5", "desc":"Holderadio 2", "smells":[{"id":1,"name":"Smell1"},{"id":5,"name":"Smell5"}] }, { "name":"AR6", "desc":"Auto Velo 3", "smells":[{"id":3,"name":"Smell3"},{"id":5,"name":"Smell5"}] }, { "name":"AR7", "desc":"blabladesc 1", "smells":[{"id":3,"name":"Smell3"},{"id":4,"name":"Smell4"}] }, { "name":"AR8", "desc":"Holderadio 2", "smells":[{"id":4,"name":"Smell4"},{"id":7,"name":"Smell7"}] }, { "name":"AR9", "desc":"Auto Velo 3", "smells":[{"id":1,"name":"Smell1"},{"id":5,"name":"Smell5"}] }];
 var app = angular.module('art', ['ui.bootstrap','angular-jqcloud','ngResource','ngSanitize','ui.select','ngNotificationsBar','textAngular']);
 
 var setSmell = function(smell){ 
@@ -7,33 +5,6 @@ var setSmell = function(smell){
     input.val(smell);
     input.trigger('input');
 };
-
-app.filter('limitHtml', function() {
-    return function(text, limit) {
-
-        var changedString = String(text).replace(/<[^>]+>/gm, '');
-        var length = changedString.length;
-
-        return changedString.length > limit ? changedString.substr(0, limit - 1) : changedString; 
-    }
-});
-
-app.config(['notificationsConfigProvider', function (notificationsConfigProvider) {
-    notificationsConfigProvider.setAutoHide(true);
-    notificationsConfigProvider.setHideDelay(5000);
-    notificationsConfigProvider.setAcceptHTML(true);
-}]);
-
-app.config(['$provide', function($provide){
-    $provide.decorator('taOptions', ['$delegate', function(taOptions){
-        taOptions.toolbar = [
-            ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'pre'],
-            ['bold', 'italics', 'underline', 'ul', 'ol', 'redo', 'undo', 'clear'],
-            ['html', 'insertLink']
-        ];
-        return taOptions;
-    }]);
-}]);
 
 app.controller('UserController', ['notifications', function(notifications){
     this.user = user;
@@ -45,6 +16,11 @@ app.controller('UserController', ['notifications', function(notifications){
         this.user.loggedin = false;
         notifications.showSuccess("Logged out");
     }
+}]);
+
+app.controller('UserProfileController', ['notifications', '$scope', function(notifications, $scope){
+    $scope.startpages = ['home','arbrowser','smellbrowser','taskbrowser'];
+    $scope.user = user;
 }]);
 
 app.controller('MenuController', ['MenuService', 'notifications', '$scope', function(MenuService, notifications, $scope){
@@ -163,6 +139,28 @@ app.controller('ARController', ['CloudSmells','notifications','$scope','$filter'
     this.setProgValue();
 
 
+}]);
+
+app.controller('SmellAssessController', ['SmellsService', 'notifications','$scope', function(SmellsService, notifications, $scope) {
+    $scope.counter = 0;
+    $scope.smellgroups = smellgroups;
+    $scope.selectedSmells = [];
+    $scope.getSmellCount = function () {
+        $scope.counter = Math.floor((Math.random() * 100) + 1);;
+    }
+    $scope.toggleSelection = function toggleSelection(smell_id) {
+        var idx = $scope.selectedSmells.indexOf(smell_id);
+
+        // is currently selected
+        if (idx > -1) {
+            $scope.selectedSmells.splice(idx, 1);
+        }
+        // is newly selected
+        else {
+            $scope.selectedSmells.push(smell_id);
+        }
+        $scope.getSmellCount();
+    };
 }]);
 
 app.controller('SmellController', ['SmellsService','SmellService', 'GroupService','notifications','$scope','$filter','$modal', function(SmellsService, SmellService, GroupService, notifications, $scope, $filter, $modal) {

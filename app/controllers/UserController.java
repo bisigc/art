@@ -2,8 +2,6 @@ package controllers;
 
 import java.util.List;
 
-import javax.persistence.TypedQuery;
-
 import models.User;
 import play.db.jpa.JPA;
 import play.db.jpa.Transactional;
@@ -15,12 +13,7 @@ public class UserController extends Controller {
 	
 	@Transactional(readOnly=true)
 	public static Result getUsers() {
-		TypedQuery<User> query = JPA.em().createQuery("select a from User a where a.name != :arg1 and a.User = :arg2 order by ordering asc", User.class);
-		query.setParameter("arg1", "root");
-		User user = new User();
-		user.setId(new Long(1));
-		query.setParameter("arg2", user);
-		List<User> data = query.getResultList();
+		List<User> data = JPA.em().createQuery("select a from User a", User.class).getResultList();
 		return ok(Json.toJson(data));
 	}
 	

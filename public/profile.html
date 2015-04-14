@@ -1,7 +1,74 @@
-<div class="jumbotron">
-    <h1>Profile</h1>
-    <p>Profile profile profile</p>
-    <p>
-        <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
-    </p>
+<div ng-controller="UserProfileController as userCtrl">
+    <div class="page-header">
+        <h1>User Profile <small>{{user.firstname}} {{user.surname}}</small></h1>
+    </div>
+    <div class="well">
+        <div class="row">
+            <div class="col-md-8">
+                <form name="userProfileForm" ng-submit="userProfileForm.$valid && updateProfile()" novalidate>
+                    <fieldset class="form-group">
+                        <label for="firstname">Firstname</label>
+                        <input class="form-control" title="firstname" id="firstname" ng-model="user.firstname" required></input>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="surname">Surname</label>
+                        <input class="form-control" title="surname" id="surname" ng-model="user.surname" required></input>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="company">Company</label>
+                        <input class="form-control" title="company" id="company" ng-model="user.company" required></input>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="email">E-Mail</label>
+                        <input class="form-control" title="email" id="email" ng-model="user.email" required></input>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="keywords">Avatar</label>
+                        <img ng-src="{{user.avatar}}" class="avatar-big img-circle" />
+                        <input class="file" id="avatar" name="avatar" type="file" ng-model="user.avatar">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="group">Startpage</label>
+                        <ui-select ng-model="user.startpage" theme="selectize" ng-disabled="disabled" required>
+                            <ui-select-match>{{$select.selected.startpage}}</ui-select-match>
+                            <ui-select-choices repeat="page in startpages | filter: $select.search">
+                                <span ng-bind-html="page | highlight: $select.search"></span>
+                            </ui-select-choices>
+                        </ui-select>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="group">Role</label>
+                        <ui-select ng-model="user.role_id" theme="selectize" ng-disabled="disabled" required>
+                            <ui-select-match>{{$select.selected.role}}</ui-select-match>
+                            <ui-select-choices repeat="role in roles | filter: $select.search">
+                                <span ng-bind-html="role.name | highlight: $select.search"></span>
+                            </ui-select-choices>
+                        </ui-select>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <button type="submit" class="btn btn-primary pull-right" ng-disabled="userProfileForm.$invalid">Save Profile</button>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="col-md-4">
+                <form name="pwUpdateForm" ng-submit="pwUpdateForm.$valid && updatePassword()" novalidate>
+                    <fieldset class="form-group">
+                        <label for="currentpassword">Current-Password</label>
+                        <input class="form-control" title="currentpassword" type="password" name="currentpassword" id="currentpassword" ng-model="user.digest.current" required></input>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="newpassword">New-Password</label>
+                        <input class="form-control" title="newpassword" type="password" name="newpassword" id="newpassword" ng-model="user.digest.new" required></input>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="repeatpassword">Repeat-Password</label>
+                        <input class="form-control" title="repeatpassword" type="password" name="repeatpassword" id="repeatpassword" ng-model="user.digest.repeat" required></input>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <button type="submit" class="btn btn-primary pull-right" ng-disabled="pwUpdateForm.$invalid">Update Password</button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>

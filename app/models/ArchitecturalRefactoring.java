@@ -28,6 +28,7 @@ public class ArchitecturalRefactoring {
 	private User editor;
 	@Enumerated(EnumType.STRING)
 	private Status status;
+	private Boolean active;
 	private Timestamp modified;
 	private Timestamp created;
 
@@ -52,4 +53,6 @@ public class ArchitecturalRefactoring {
 	public void setEditor(User editor) { this.editor = editor; }
 	public Status getStatus() { return status; }
 	public void setStatus(Status status) { this.status = status; }
+	public Boolean getActive() { return active; }
+	public void setActive(Boolean active) { this.active = active; }
 }

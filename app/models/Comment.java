@@ -15,6 +15,7 @@ public class Comment {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	private String comment;
+	private Long likes;
 	@ManyToOne
 	private Discussion discussion;
 	@ManyToOne
@@ -27,6 +28,8 @@ public class Comment {
 	public void setId(Long id) { this.id = id; }
 	public String getComment() { return comment; }
 	public void setComment(String comment) { this.comment = comment; }
+	public Long getLikes() { return likes; }
+	public void setLikes(Long likes) { this.likes = likes; }
 	public User getUser() { return user; }
 	public void setUser(User user) { this.user = user; }
 	public Timestamp getModified() { return modified; }

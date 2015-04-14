@@ -21,8 +21,37 @@ body {
     margin-left: 0;
 }
 
-.menuimage {
+.title-image {
+    height: 300px;
+    -webkit-transition: all 50ms linear;
+    -moz-transition: all 50ms linear;
+    -o-transition: all 50ms linear;
+    -ms-transition: all 50ms linear;
+    transition: all 50ms linear;
+}
+
+.avatar-big {
+    height: 100px;
+    background-color: darkgray;
+    display: inline-block;
+}
+
+.avatar {
     height: 40px;
+    background-color: darkgray;
+    display: inline-block;
+}
+
+.img-circle {
+    -webkit-transition: all 50ms linear;
+    -moz-transition: all 50ms linear;
+    -o-transition: all 50ms linear;
+    -ms-transition: all 50ms linear;
+    transition: all 50ms linear;
+}
+
+.menuimage {
+    height: 43px;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -37,6 +66,24 @@ body {
     border-right: 1px solid lightgray;
     width: 100px;
     height: 50px;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.menuItem a {
+    display: block;
+    height: 50px;
+    vertical-align: middle;
+}
+
+.menuItem ul li a {
+    height: 30px;
+    text-align: left;
+}
+
+.menuuser {
+    width: 200px;
 }
 
 .well {
@@ -58,6 +105,22 @@ body {
 
 .menuItem:hover {
     background-color: lightgray;
+}
+
+.label-default {
+    -webkit-transition: background-color 500ms linear;
+    -moz-transition: background-color 500ms linear;
+    -o-transition: background-color 500ms linear;
+    -ms-transition: background-color 500ms linear;
+    transition: background-color 500ms linear;
+}
+
+.label-success {
+    -webkit-transition: background-color 200ms linear;
+    -moz-transition: background-color 200ms linear;
+    -o-transition: background-color 200ms linear;
+    -ms-transition: background-color 200ms linear;
+    transition: background-color 200ms linear;
 }
 
 .progress span {
@@ -137,3 +200,54 @@ body {
 .dbt-idx-hh { background-color: #FF8D70; }
 
 /* End Technical Debt Index Selector */
+    
+    /* columns of same height styles */
+
+.row-full-height {
+  height: 100%;
+}
+.col-full-height {
+  height: 100%;
+  vertical-align: middle;
+}
+.row-same-height {
+  display: table;
+  width: 100%;
+  /* fix overflow */
+  table-layout: fixed;
+}
+.col-xs-height {
+  display: table-cell;
+  float: none !important;
+}
+
+@media (min-width: 768px) {
+  .col-sm-height {
+    display: table-cell;
+    float: none !important;
+  }
+}
+@media (min-width: 992px) {
+  .col-md-height {
+    display: table-cell;
+    float: none !important;
+  }
+}
+@media (min-width: 1200px) {
+  .col-lg-height {
+    display: table-cell;
+    float: none !important;
+  }
+}
+
+/* vertical alignment styles */
+
+.col-top {
+  vertical-align: top;
+}
+.col-middle {
+  vertical-align: middle;
+}
+.col-bottom {
+  vertical-align: bottom;
+}

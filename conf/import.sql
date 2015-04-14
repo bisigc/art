@@ -22,7 +22,7 @@ INSERT INTO menuitem
         (id, name,            fullname,                tooltip,                               image,                        type,           url,   pos,     ordering, menuitem_id)
 VALUES  (1,  'root',          'Root',                  '',                                    '',                           'root',         '',    '',      0,        1),
         (2,  'home',          'home',                  '',                                    'images/art_logo_small.png',  'home',         '',    'left',  5,        1),
-        (3,  'ars',           'AR Browser',            'Architectural Refactoring Browser',   '',                           'include',      '',    'left',  10,       1),
+        (3,  'arbrowser',     'AR Browser',            'Architectural Refactoring Browser',   '',                           'include',      '',    'left',  10,       1),
         (4,  'smellbrowser',  'Smell Browser',         '',                                    '',                           'include',      '',    'left',  15,       1),
         (5,  'taskbrowser',   'Task Browser',          '',                                    '',                           'include',      '',    'left',  25,       1),
         (6,  'smellasses',    'Smell Self-Assessment', 'Refactoring Qualification',           '',                           'include',      '',    'left',  30,       1),

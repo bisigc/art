@@ -21,6 +21,7 @@ public class User {
 	private String email;
 	private String company;
 	private String avatar;
+	private String startpage;
 	@ManyToOne
 	private Role role;
 	@OneToOne(cascade=CascadeType.PERSIST, mappedBy="user")
@@ -41,6 +42,8 @@ public class User {
 	public void setCompany(String company) { this.company = company; }
 	public String getAvatar() { return avatar; }
 	public void setAvatar(String avatar) { this.avatar = avatar; }
+	public String getStartpage() { return startpage; }
+	public void setStartpage(String startpage) { this.startpage = startpage; }
 	public Role getRole() { return role; }
 	public void setRole(Role role) { this.role = role; }
 	public Digest getDigest() { return digest; }
