@@ -14,6 +14,7 @@ libraryDependencies ++= Seq(
   javaJpa.exclude("org.hibernate.javax.persistence", "hibernate-jpa-2.0-api"),
   "org.hibernate" % "hibernate-entitymanager" % "4.3.8.Final",
   "mysql" % "mysql-connector-java" % "5.1.34",
+  "com.google.inject" % "guice" % "4.0-beta",
   cache,
   javaWs
 )

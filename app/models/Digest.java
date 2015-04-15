@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
-import tools.Crypto;
+import utils.crypto.Crypto;
 
 @Entity
 public class Digest {

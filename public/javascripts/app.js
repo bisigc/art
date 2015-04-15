@@ -261,7 +261,7 @@ app.controller('SmellController', ['SmellsService','SmellService', 'GroupService
     $scope.bigCurrentPage = 1;
 }]);
 
-app.controller('SmellUpdateController', ['SmellService', 'GroupService', 'StatusService', 'notifications', '$modalInstance', '$scope', 'smellid', function (SmellService, GroupService, StatusService, notifications, $modalInstance, $scope, smellid) {
+app.controller('SmellUpdateController', ['SmellService', 'SmellsService','GroupService', 'StatusService', 'notifications', '$modalInstance', '$scope', 'smellid', function (SmellService, SmellsService, GroupService, StatusService, notifications, $modalInstance, $scope, smellid) {
     $scope.status = [];
     $scope.loadStatus = function () {
         StatusService.get({},function(data, status, headers, config) {
@@ -291,7 +291,7 @@ app.controller('SmellUpdateController', ['SmellService', 'GroupService', 'Status
     $scope.getSmell(smellid);
 
     $scope.updateSmell = function() {
-        SmellService.update({id: $scope.singleSmell.id}, $scope.singleSmell,function(data, status, headers, config) {
+        SmellsService.update($scope.singleSmell,function(data, status, headers, config) {
             $modalInstance.close();
             notifications.showSuccess("Smell has been updated.");
         }, function(error, status, headers, config) {
@@ -348,7 +348,7 @@ app.controller("ExecTaskTypeController", ['ExecTaskTypesService', 'ExecTaskTypeS
     };
 
     $scope.save = function() {
-        ExecTaskTypeService.update({id: $scope.exectypes[0].id}, $scope.exectypes, function(data, status, headers, config) {
+        ExecTaskTypesService.update($scope.exectypes, function(data, status, headers, config) {
             $scope.emptyexectype = data;
             notifications.showSuccess("Exec Task Types have been saved.");
         }, function(error, status, headers, config) {

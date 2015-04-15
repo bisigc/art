@@ -3,41 +3,41 @@
 # ~~~~
 
 # Home page
-GET     /                         controllers.Application.index()
+GET     /                         @controllers.Application.index()
 
 #Smell service
-GET     /smells                   controllers.SmellController.getAllSmells()
-GET     /smells/forcloud          controllers.SmellController.getCloudSmells()
-GET     /smells/:id               controllers.SmellController.getSmell(id: Long)
-POST    /smells                   controllers.SmellController.createSmell()
-PUT     /smells/:id               controllers.SmellController.updateSmell(id: Long)
-DELETE  /smells/:id               controllers.SmellController.deleteSmell(id: Long)
+GET     /smells                   @controllers.smell.SmellController.getAll()
+GET     /smells/forcloud          @controllers.smell.SmellController.getCloudSmells()
+GET     /smells/:id               @controllers.smell.SmellController.get(id: Long)
+POST    /smells                   @controllers.smell.SmellController.create()
+PUT     /smells                   @controllers.smell.SmellController.update()
+DELETE  /smells/:id               @controllers.smell.SmellController.delete(id: Long)
 
 #Property service
-GET     /property                 controllers.PropertyController.getAllProperties()
-GET     /property/categorie/:cat  controllers.PropertyController.getProperties(cat: String)
-GET     /property/:id             controllers.PropertyController.getProperty(id: Long)
-POST    /property                 controllers.PropertyController.createProperty()
-PUT     /property/:id             controllers.PropertyController.updateProperty(id: Long)
-DELETE  /property/:id             controllers.PropertyController.deleteProperty(id: Long)
+GET     /property                 @controllers.property.PropertyController.getAll()
+GET     /property/categorie/:cat  @controllers.property.PropertyController.getCategorie(cat: String)
+GET     /property/:id             @controllers.property.PropertyController.get(id: Long)
+POST    /property                 @controllers.property.PropertyController.create()
+PUT     /property                 @controllers.property.PropertyController.update()
+DELETE  /property/:id             @controllers.property.PropertyController.delete(id: Long)
 
 #Menu service
-GET     /menu	                  controllers.MenuController.getMenuitems()
-GET     /menu/:id             	  controllers.MenuController.getMenuitem(id: Long)
-POST    /menu                 	  controllers.MenuController.createMenuitem()
-PUT     /menu/:id             	  controllers.MenuController.updateMenuitem(id: Long)
-DELETE  /menu/:id              	  controllers.MenuController.deleteMenuitem(id: Long)
+GET     /menu	                  @controllers.menu.MenuController.getAll()
+GET     /menu/:id                 @controllers.menu.MenuController.get(id: Long)
+POST    /menu                     @controllers.menu.MenuController.create()
+PUT     /menu                     @controllers.menu.MenuController.update()
+DELETE  /menu/:id                 @controllers.menu.MenuController.delete(id: Long)
 
 #ExecTaskType service
-GET     /exectasktype              controllers.ExecTaskTypeController.getExecTaskTypes()
-GET     /exectasktype/empty        controllers.ExecTaskTypeController.getEmptyExecTaskType()
-GET     /exectasktype/:id          controllers.ExecTaskTypeController.getExecTaskType(id: Long)
-POST    /exectasktype              controllers.ExecTaskTypeController.createExecTaskType()
-PUT     /exectasktype/:id          controllers.ExecTaskTypeController.updateExecTaskType(id: Long)
-DELETE  /exectasktype/:id          controllers.ExecTaskTypeController.deleteExecTaskType(id: Long)
+GET     /exectasktype             @controllers.task.ExecTaskTypeController.getAll()
+GET     /exectasktype/empty       @controllers.task.ExecTaskTypeController.getEmptyExecTaskType()
+GET     /exectasktype/:id         @controllers.task.ExecTaskTypeController.get(id: Long)
+POST    /exectasktype             @controllers.task.ExecTaskTypeController.create()
+PUT     /exectasktype             @controllers.task.ExecTaskTypeController.update()
+DELETE  /exectasktype/:id         @controllers.task.ExecTaskTypeController.delete(id: Long)
 
 #Status service
-GET     /status		               controllers.StatusController.getStatus()
+GET     /status                   @controllers.status.StatusController.get()
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /*file                    controllers.Assets.at(path="/public", file)
+GET     /*file                     controllers.Assets.at(path="/public", file)

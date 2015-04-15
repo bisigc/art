@@ -25,6 +25,7 @@ app.factory("SmellsService", ['$resource', function($resource) {
                      {},
                      {
         get: {method:'GET', isArray: true},
+        update: { method: 'PUT' },
         create: { method: 'POST' }
     });
 }]);
@@ -32,7 +33,6 @@ app.factory("SmellsService", ['$resource', function($resource) {
 app.factory('SmellService', ['$resource', function ($resource) {
     return $resource(_contextPath + 'smells/:id', {}, {
         get: { method: 'GET' },
-        update: { method: 'PUT', params: {id: '@id'} },
         delete: { method: 'DELETE', params: {id: '@id'} }
     });
 }]);
@@ -60,6 +60,7 @@ app.factory("ExecTaskTypesService", ['$resource', function($resource) {
                      {},
                      {
         get: {method:'GET', isArray: true},
+        update: { method: 'PUT' },
         create: { method: 'POST' }
     });
 }]);
@@ -67,7 +68,6 @@ app.factory("ExecTaskTypesService", ['$resource', function($resource) {
 app.factory('ExecTaskTypeService', ['$resource', function ($resource) {
     return $resource(_contextPath + 'exectasktype/:id', {}, {
         get: { method: 'GET' },
-        update: { method: 'PUT', params: {id: '@id'} },
         delete: { method: 'DELETE', params: {id: '@id'} }
     });
 }]);

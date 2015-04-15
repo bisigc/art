@@ -7,7 +7,7 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies for art-app#art-app_2.11;1.0-SNAPSHOT [compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.1 [compile->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.11.1 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@69b18c0e[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@279af3d8[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-lang#scala-library;2.11.1[0m
 [0m[[0mdebug[0m] [0m	local: revision in cache: org.scala-lang#scala-library;2.11.1[0m
 [0m[[0mdebug[0m] [0m	found org.scala-lang#scala-library;2.11.1 in sbt-chain[0m
@@ -791,7 +791,7 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.typesafe.play#play-java-jdbc_2.11;2.3.6 [compile->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.typesafe.play#play-java-jpa_2.11;2.3.6 [compile->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving com.typesafe.play#play-java-jpa_2.11;2.3.6 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@44317d6d[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@6d3e2ef7[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: com.typesafe.play#play-java-jpa_2.11;2.3.6[0m
 [0m[[0mdebug[0m] [0m	local: revision in cache: com.typesafe.play#play-java-jpa_2.11;2.3.6[0m
 [0m[[0mdebug[0m] [0m	found com.typesafe.play#play-java-jpa_2.11;2.3.6 in sbt-chain[0m
@@ -960,25 +960,243 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.34 [compile->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving mysql#mysql-connector-java;5.1.34 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: mysql#mysql-connector-java;5.1.34 {compile=[default(compile)]}[0m
-[0m[[0mdebug[0m] [0m		tried /Users/cbi/.ivy2/local/mysql/mysql-connector-java/5.1.34/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	local: no ivy file found for mysql#mysql-connector-java;5.1.34[0m
-[0m[[0mdebug[0m] [0m		tried file:/usr/local/activator-1.2.10-minimal/repository/mysql/mysql-connector-java/5.1.34/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	activator-local: no ivy file found for mysql#mysql-connector-java;5.1.34[0m
-[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.34/mysql-connector-java-5.1.34.pom[0m
-[0m[[0mdebug[0m] [0m	public: found md file for mysql#mysql-connector-java;5.1.34[0m
-[0m[[0mdebug[0m] [0m		=> http://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.34/mysql-connector-java-5.1.34.pom (5.1.34)[0m
-[0m[[0mdebug[0m] [0mdownloading http://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.34/mysql-connector-java-5.1.34.pom ...[0m
-[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.34/mysql-connector-java-5.1.34.pom[0m
-[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.34/mysql-connector-java-5.1.34.pom.sha1[0m
-[0m[[0mdebug[0m] [0msha1 OK for http://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.34/mysql-connector-java-5.1.34.pom[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] mysql#mysql-connector-java;5.1.34!mysql-connector-java.pom(pom.original) (374ms)[0m
-[0m[[0mdebug[0m] [0m		tried /Users/cbi/.ivy2/local/mysql/mysql-connector-java/5.1.34/jars/mysql-connector-java.jar[0m
-[0m[[0mdebug[0m] [0m		tried file:/usr/local/activator-1.2.10-minimal/repository/mysql/mysql-connector-java/5.1.34/jars/mysql-connector-java.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.34/mysql-connector-java-5.1.34.jar[0m
-[0m[[0mdebug[0m] [0m	found mysql#mysql-connector-java;5.1.34 in public[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: mysql#mysql-connector-java;5.1.34[0m
+[0m[[0mdebug[0m] [0m	local: revision in cache: mysql#mysql-connector-java;5.1.34[0m
+[0m[[0mdebug[0m] [0m	found mysql#mysql-connector-java;5.1.34 in sbt-chain[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.34 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.34 [compile->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.34 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->default(compile)][0m
+[0m[[0minfo[0m] [0mResolving com.google.inject#guice;4.0-beta ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: com.google.inject#guice;4.0-beta {compile=[default(compile)]}[0m
+[0m[[0mdebug[0m] [0m		tried /Users/cbi/.ivy2/local/com.google.inject/guice/4.0-beta/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	local: no ivy file found for com.google.inject#guice;4.0-beta[0m
+[0m[[0mdebug[0m] [0m		tried file:/usr/local/activator-1.2.10-minimal/repository/com.google.inject/guice/4.0-beta/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	activator-local: no ivy file found for com.google.inject#guice;4.0-beta[0m
+[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/com/google/inject/guice/4.0-beta/guice-4.0-beta.pom[0m
+[0m[[0mdebug[0m] [0m	public: found md file for com.google.inject#guice;4.0-beta[0m
+[0m[[0mdebug[0m] [0m		=> http://repo1.maven.org/maven2/com/google/inject/guice/4.0-beta/guice-4.0-beta.pom (4.0-beta)[0m
+[0m[[0mdebug[0m] [0mdownloading http://repo1.maven.org/maven2/com/google/inject/guice/4.0-beta/guice-4.0-beta.pom ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/com/google/inject/guice/4.0-beta/guice-4.0-beta.pom[0m
+[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/com/google/inject/guice/4.0-beta/guice-4.0-beta.pom.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for http://repo1.maven.org/maven2/com/google/inject/guice/4.0-beta/guice-4.0-beta.pom[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] com.google.inject#guice;4.0-beta!guice.pom(pom.original) (398ms)[0m
+[0m[[0minfo[0m] [0mResolving com.google.inject#guice-parent;4.0-beta ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: com.google.inject#guice-parent;4.0-beta {}[0m
+[0m[[0mdebug[0m] [0m		tried /Users/cbi/.ivy2/local/com.google.inject/guice-parent/4.0-beta/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	local: no ivy file found for com.google.inject#guice-parent;4.0-beta[0m
+[0m[[0mdebug[0m] [0m		tried file:/usr/local/activator-1.2.10-minimal/repository/com.google.inject/guice-parent/4.0-beta/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	activator-local: no ivy file found for com.google.inject#guice-parent;4.0-beta[0m
+[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/com/google/inject/guice-parent/4.0-beta/guice-parent-4.0-beta.pom[0m
+[0m[[0mdebug[0m] [0m	public: found md file for com.google.inject#guice-parent;4.0-beta[0m
+[0m[[0mdebug[0m] [0m		=> http://repo1.maven.org/maven2/com/google/inject/guice-parent/4.0-beta/guice-parent-4.0-beta.pom (4.0-beta)[0m
+[0m[[0mdebug[0m] [0mdownloading http://repo1.maven.org/maven2/com/google/inject/guice-parent/4.0-beta/guice-parent-4.0-beta.pom ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/com/google/inject/guice-parent/4.0-beta/guice-parent-4.0-beta.pom[0m
+[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/com/google/inject/guice-parent/4.0-beta/guice-parent-4.0-beta.pom.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for http://repo1.maven.org/maven2/com/google/inject/guice-parent/4.0-beta/guice-parent-4.0-beta.pom[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] com.google.inject#guice-parent;4.0-beta!guice-parent.pom(pom.original) (392ms)[0m
+[0m[[0minfo[0m] [0mResolving com.google#google;5 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: com.google#google;5 {}[0m
+[0m[[0mdebug[0m] [0m		tried /Users/cbi/.ivy2/local/com.google/google/5/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	local: no ivy file found for com.google#google;5[0m
+[0m[[0mdebug[0m] [0m		tried file:/usr/local/activator-1.2.10-minimal/repository/com.google/google/5/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	activator-local: no ivy file found for com.google#google;5[0m
+[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/com/google/google/5/google-5.pom[0m
+[0m[[0mdebug[0m] [0m	public: found md file for com.google#google;5[0m
+[0m[[0mdebug[0m] [0m		=> http://repo1.maven.org/maven2/com/google/google/5/google-5.pom (5)[0m
+[0m[[0mdebug[0m] [0mdownloading http://repo1.maven.org/maven2/com/google/google/5/google-5.pom ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/com/google/google/5/google-5.pom[0m
+[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/com/google/google/5/google-5.pom.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for http://repo1.maven.org/maven2/com/google/google/5/google-5.pom[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] com.google#google;5!google.pom(pom.original) (404ms)[0m
+[0m[[0mdebug[0m] [0m		tried /Users/cbi/.ivy2/local/com.google/google/5/jars/google.jar[0m
+[0m[[0mdebug[0m] [0m		tried file:/usr/local/activator-1.2.10-minimal/repository/com.google/google/5/jars/google.jar[0m
+[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/com/google/google/5/google-5.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo1.maven.org/maven2/com/google/google/5/google-5.jar[0m
+[0m[[0mdebug[0m] [0m		tried http://repo.typesafe.com/typesafe/releases/com/google/google/5/google-5.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo.typesafe.com/typesafe/releases/com/google/google/5/google-5.jar[0m
+[0m[[0mdebug[0m] [0m		tried http://repo.typesafe.com/typesafe/ivy-releases/com.google/google/5/jars/google.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo.typesafe.com/typesafe/ivy-releases/com.google/google/5/jars/google.jar[0m
+[0m[[0mdebug[0m] [0m		tried http://repo.typesafe.com/typesafe/releases/com/google/google/5/google-5.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo.typesafe.com/typesafe/releases/com/google/google/5/google-5.jar[0m
+[0m[[0mdebug[0m] [0m		tried /Users/cbi/.ivy2/local/com.google.inject/guice-parent/4.0-beta/jars/guice-parent.jar[0m
+[0m[[0mdebug[0m] [0m		tried file:/usr/local/activator-1.2.10-minimal/repository/com.google.inject/guice-parent/4.0-beta/jars/guice-parent.jar[0m
+[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/com/google/inject/guice-parent/4.0-beta/guice-parent-4.0-beta.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo1.maven.org/maven2/com/google/inject/guice-parent/4.0-beta/guice-parent-4.0-beta.jar[0m
+[0m[[0mdebug[0m] [0m		tried http://repo.typesafe.com/typesafe/releases/com/google/inject/guice-parent/4.0-beta/guice-parent-4.0-beta.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo.typesafe.com/typesafe/releases/com/google/inject/guice-parent/4.0-beta/guice-parent-4.0-beta.jar[0m
+[0m[[0mdebug[0m] [0m		tried http://repo.typesafe.com/typesafe/ivy-releases/com.google.inject/guice-parent/4.0-beta/jars/guice-parent.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo.typesafe.com/typesafe/ivy-releases/com.google.inject/guice-parent/4.0-beta/jars/guice-parent.jar[0m
+[0m[[0mdebug[0m] [0m		tried http://repo.typesafe.com/typesafe/releases/com/google/inject/guice-parent/4.0-beta/guice-parent-4.0-beta.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo.typesafe.com/typesafe/releases/com/google/inject/guice-parent/4.0-beta/guice-parent-4.0-beta.jar[0m
+[0m[[0mdebug[0m] [0m		tried /Users/cbi/.ivy2/local/com.google.inject/guice/4.0-beta/jars/guice.jar[0m
+[0m[[0mdebug[0m] [0m		tried file:/usr/local/activator-1.2.10-minimal/repository/com.google.inject/guice/4.0-beta/jars/guice.jar[0m
+[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/com/google/inject/guice/4.0-beta/guice-4.0-beta.jar[0m
+[0m[[0mdebug[0m] [0m	found com.google.inject#guice;4.0-beta in public[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [compile->master(*)][0m
+[0m[[0minfo[0m] [0mResolving javax.inject#javax.inject;1 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: javax.inject#javax.inject;1 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: javax.inject#javax.inject;1[0m
+[0m[[0mdebug[0m] [0m	local: revision in cache: javax.inject#javax.inject;1[0m
+[0m[[0mdebug[0m] [0m	found javax.inject#javax.inject;1 in sbt-chain[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [compile->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [compile->master(*)][0m
+[0m[[0minfo[0m] [0mResolving aopalliance#aopalliance;1.0 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: aopalliance#aopalliance;1.0 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: aopalliance#aopalliance;1.0[0m
+[0m[[0mdebug[0m] [0m	local: revision in cache: aopalliance#aopalliance;1.0[0m
+[0m[[0mdebug[0m] [0m	found aopalliance#aopalliance;1.0 in sbt-chain[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [compile->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;11.0.1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;16.0.1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;11.0.1 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;16.0.1 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [compile->master(*)][0m
+[0m[[0minfo[0m] [0mResolving cglib#cglib;3.0 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: cglib#cglib;3.0 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0m		tried /Users/cbi/.ivy2/local/cglib/cglib/3.0/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	local: no ivy file found for cglib#cglib;3.0[0m
+[0m[[0mdebug[0m] [0m		tried file:/usr/local/activator-1.2.10-minimal/repository/cglib/cglib/3.0/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	activator-local: no ivy file found for cglib#cglib;3.0[0m
+[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/cglib/cglib/3.0/cglib-3.0.pom[0m
+[0m[[0mdebug[0m] [0m	public: found md file for cglib#cglib;3.0[0m
+[0m[[0mdebug[0m] [0m		=> http://repo1.maven.org/maven2/cglib/cglib/3.0/cglib-3.0.pom (3.0)[0m
+[0m[[0mdebug[0m] [0mdownloading http://repo1.maven.org/maven2/cglib/cglib/3.0/cglib-3.0.pom ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/cglib/cglib/3.0/cglib-3.0.pom[0m
+[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/cglib/cglib/3.0/cglib-3.0.pom.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for http://repo1.maven.org/maven2/cglib/cglib/3.0/cglib-3.0.pom[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] cglib#cglib;3.0!cglib.pom(pom.original) (424ms)[0m
+[0m[[0mdebug[0m] [0m		tried /Users/cbi/.ivy2/local/cglib/cglib/3.0/jars/cglib.jar[0m
+[0m[[0mdebug[0m] [0m		tried file:/usr/local/activator-1.2.10-minimal/repository/cglib/cglib/3.0/jars/cglib.jar[0m
+[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/cglib/cglib/3.0/cglib-3.0.jar[0m
+[0m[[0mdebug[0m] [0m	found cglib#cglib;3.0 in public[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [compile->master(*)][0m
+[0m[[0minfo[0m] [0mResolving org.ow2.asm#asm;4.0 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.ow2.asm#asm;4.0 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0m		tried /Users/cbi/.ivy2/local/org.ow2.asm/asm/4.0/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	local: no ivy file found for org.ow2.asm#asm;4.0[0m
+[0m[[0mdebug[0m] [0m		tried file:/usr/local/activator-1.2.10-minimal/repository/org.ow2.asm/asm/4.0/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	activator-local: no ivy file found for org.ow2.asm#asm;4.0[0m
+[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/org/ow2/asm/asm/4.0/asm-4.0.pom[0m
+[0m[[0mdebug[0m] [0m	public: found md file for org.ow2.asm#asm;4.0[0m
+[0m[[0mdebug[0m] [0m		=> http://repo1.maven.org/maven2/org/ow2/asm/asm/4.0/asm-4.0.pom (4.0)[0m
+[0m[[0mdebug[0m] [0mdownloading http://repo1.maven.org/maven2/org/ow2/asm/asm/4.0/asm-4.0.pom ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/ow2/asm/asm/4.0/asm-4.0.pom[0m
+[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/ow2/asm/asm/4.0/asm-4.0.pom.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for http://repo1.maven.org/maven2/org/ow2/asm/asm/4.0/asm-4.0.pom[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.ow2.asm#asm;4.0!asm.pom(pom.original) (481ms)[0m
+[0m[[0minfo[0m] [0mResolving org.ow2.asm#asm-parent;4.0 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.ow2.asm#asm-parent;4.0 {}[0m
+[0m[[0mdebug[0m] [0m		tried /Users/cbi/.ivy2/local/org.ow2.asm/asm-parent/4.0/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	local: no ivy file found for org.ow2.asm#asm-parent;4.0[0m
+[0m[[0mdebug[0m] [0m		tried file:/usr/local/activator-1.2.10-minimal/repository/org.ow2.asm/asm-parent/4.0/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	activator-local: no ivy file found for org.ow2.asm#asm-parent;4.0[0m
+[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/org/ow2/asm/asm-parent/4.0/asm-parent-4.0.pom[0m
+[0m[[0mdebug[0m] [0m	public: found md file for org.ow2.asm#asm-parent;4.0[0m
+[0m[[0mdebug[0m] [0m		=> http://repo1.maven.org/maven2/org/ow2/asm/asm-parent/4.0/asm-parent-4.0.pom (4.0)[0m
+[0m[[0mdebug[0m] [0mdownloading http://repo1.maven.org/maven2/org/ow2/asm/asm-parent/4.0/asm-parent-4.0.pom ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/ow2/asm/asm-parent/4.0/asm-parent-4.0.pom[0m
+[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/ow2/asm/asm-parent/4.0/asm-parent-4.0.pom.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for http://repo1.maven.org/maven2/org/ow2/asm/asm-parent/4.0/asm-parent-4.0.pom[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.ow2.asm#asm-parent;4.0!asm-parent.pom(pom.original) (601ms)[0m
+[0m[[0minfo[0m] [0mResolving org.ow2#ow2;1.3 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.ow2#ow2;1.3 {}[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.ow2#ow2;1.3[0m
+[0m[[0mdebug[0m] [0m	local: revision in cache: org.ow2#ow2;1.3[0m
+[0m[[0mdebug[0m] [0m		tried /Users/cbi/.ivy2/local/org.ow2.asm/asm-parent/4.0/jars/asm-parent.jar[0m
+[0m[[0mdebug[0m] [0m		tried file:/usr/local/activator-1.2.10-minimal/repository/org.ow2.asm/asm-parent/4.0/jars/asm-parent.jar[0m
+[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/org/ow2/asm/asm-parent/4.0/asm-parent-4.0.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo1.maven.org/maven2/org/ow2/asm/asm-parent/4.0/asm-parent-4.0.jar[0m
+[0m[[0mdebug[0m] [0m		tried http://repo.typesafe.com/typesafe/releases/org/ow2/asm/asm-parent/4.0/asm-parent-4.0.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo.typesafe.com/typesafe/releases/org/ow2/asm/asm-parent/4.0/asm-parent-4.0.jar[0m
+[0m[[0mdebug[0m] [0m		tried http://repo.typesafe.com/typesafe/ivy-releases/org.ow2.asm/asm-parent/4.0/jars/asm-parent.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo.typesafe.com/typesafe/ivy-releases/org.ow2.asm/asm-parent/4.0/jars/asm-parent.jar[0m
+[0m[[0mdebug[0m] [0m		tried http://repo.typesafe.com/typesafe/releases/org/ow2/asm/asm-parent/4.0/asm-parent-4.0.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo.typesafe.com/typesafe/releases/org/ow2/asm/asm-parent/4.0/asm-parent-4.0.jar[0m
+[0m[[0mdebug[0m] [0m		tried /Users/cbi/.ivy2/local/org.ow2.asm/asm/4.0/jars/asm.jar[0m
+[0m[[0mdebug[0m] [0m		tried file:/usr/local/activator-1.2.10-minimal/repository/org.ow2.asm/asm/4.0/jars/asm.jar[0m
+[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/org/ow2/asm/asm/4.0/asm-4.0.jar[0m
+[0m[[0mdebug[0m] [0m	found org.ow2.asm#asm;4.0 in public[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [compile->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [compile->master(*)][0m
+[0m[[0minfo[0m] [0mResolving org.ow2.asm#asm-util;4.0 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.ow2.asm#asm-util;4.0 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0m		tried /Users/cbi/.ivy2/local/org.ow2.asm/asm-util/4.0/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	local: no ivy file found for org.ow2.asm#asm-util;4.0[0m
+[0m[[0mdebug[0m] [0m		tried file:/usr/local/activator-1.2.10-minimal/repository/org.ow2.asm/asm-util/4.0/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	activator-local: no ivy file found for org.ow2.asm#asm-util;4.0[0m
+[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/org/ow2/asm/asm-util/4.0/asm-util-4.0.pom[0m
+[0m[[0mdebug[0m] [0m	public: found md file for org.ow2.asm#asm-util;4.0[0m
+[0m[[0mdebug[0m] [0m		=> http://repo1.maven.org/maven2/org/ow2/asm/asm-util/4.0/asm-util-4.0.pom (4.0)[0m
+[0m[[0mdebug[0m] [0mdownloading http://repo1.maven.org/maven2/org/ow2/asm/asm-util/4.0/asm-util-4.0.pom ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/ow2/asm/asm-util/4.0/asm-util-4.0.pom[0m
+[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/ow2/asm/asm-util/4.0/asm-util-4.0.pom.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for http://repo1.maven.org/maven2/org/ow2/asm/asm-util/4.0/asm-util-4.0.pom[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.ow2.asm#asm-util;4.0!asm-util.pom(pom.original) (416ms)[0m
+[0m[[0minfo[0m] [0mResolving org.ow2.asm#asm-parent;4.0 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.ow2.asm#asm-parent;4.0 {}[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.ow2.asm#asm-parent;4.0[0m
+[0m[[0mdebug[0m] [0m	local: revision in cache: org.ow2.asm#asm-parent;4.0[0m
+[0m[[0mdebug[0m] [0m		tried /Users/cbi/.ivy2/local/org.ow2.asm/asm-util/4.0/jars/asm-util.jar[0m
+[0m[[0mdebug[0m] [0m		tried file:/usr/local/activator-1.2.10-minimal/repository/org.ow2.asm/asm-util/4.0/jars/asm-util.jar[0m
+[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/org/ow2/asm/asm-util/4.0/asm-util-4.0.jar[0m
+[0m[[0mdebug[0m] [0m	found org.ow2.asm#asm-util;4.0 in public[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [compile->master(*)][0m
+[0m[[0minfo[0m] [0mResolving org.ow2.asm#asm-tree;4.0 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.ow2.asm#asm-tree;4.0 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0m		tried /Users/cbi/.ivy2/local/org.ow2.asm/asm-tree/4.0/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	local: no ivy file found for org.ow2.asm#asm-tree;4.0[0m
+[0m[[0mdebug[0m] [0m		tried file:/usr/local/activator-1.2.10-minimal/repository/org.ow2.asm/asm-tree/4.0/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	activator-local: no ivy file found for org.ow2.asm#asm-tree;4.0[0m
+[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/org/ow2/asm/asm-tree/4.0/asm-tree-4.0.pom[0m
+[0m[[0mdebug[0m] [0m	public: found md file for org.ow2.asm#asm-tree;4.0[0m
+[0m[[0mdebug[0m] [0m		=> http://repo1.maven.org/maven2/org/ow2/asm/asm-tree/4.0/asm-tree-4.0.pom (4.0)[0m
+[0m[[0mdebug[0m] [0mdownloading http://repo1.maven.org/maven2/org/ow2/asm/asm-tree/4.0/asm-tree-4.0.pom ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/ow2/asm/asm-tree/4.0/asm-tree-4.0.pom[0m
+[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/ow2/asm/asm-tree/4.0/asm-tree-4.0.pom.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for http://repo1.maven.org/maven2/org/ow2/asm/asm-tree/4.0/asm-tree-4.0.pom[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.ow2.asm#asm-tree;4.0!asm-tree.pom(pom.original) (384ms)[0m
+[0m[[0minfo[0m] [0mResolving org.ow2.asm#asm-parent;4.0 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.ow2.asm#asm-parent;4.0 {}[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.ow2.asm#asm-parent;4.0[0m
+[0m[[0mdebug[0m] [0m	local: revision in cache: org.ow2.asm#asm-parent;4.0[0m
+[0m[[0mdebug[0m] [0m		tried /Users/cbi/.ivy2/local/org.ow2.asm/asm-tree/4.0/jars/asm-tree.jar[0m
+[0m[[0mdebug[0m] [0m		tried file:/usr/local/activator-1.2.10-minimal/repository/org.ow2.asm/asm-tree/4.0/jars/asm-tree.jar[0m
+[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/org/ow2/asm/asm-tree/4.0/asm-tree-4.0.jar[0m
+[0m[[0mdebug[0m] [0m	found org.ow2.asm#asm-tree;4.0 in public[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [compile->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;11.0.1 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;16.0.1 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;16.0.1 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.typesafe.play#play-cache_2.11;2.3.6 [compile->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving com.typesafe.play#play-cache_2.11;2.3.6 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: com.typesafe.play#play-cache_2.11;2.3.6 {compile=[default(compile)]}[0m
@@ -1722,6 +1940,45 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.34 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.34 [compile->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.34 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;11.0.1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;16.0.1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;11.0.1 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;16.0.1 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;11.0.1 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;16.0.1 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;16.0.1 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.typesafe.play#play-cache_2.11;2.3.6 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.typesafe.play#play-cache_2.11;2.3.6 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.typesafe.play#play-cache_2.11;2.3.6 [compile->compile][0m
@@ -2406,6 +2663,45 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.34 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.34 [compile->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.34 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;11.0.1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;16.0.1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;11.0.1 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;16.0.1 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;11.0.1 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;16.0.1 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;16.0.1 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.typesafe.play#play-cache_2.11;2.3.6 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.typesafe.play#play-cache_2.11;2.3.6 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.typesafe.play#play-cache_2.11;2.3.6 [compile->compile][0m
@@ -4438,6 +4734,45 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.34 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.34 [compile->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.34 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;11.0.1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;16.0.1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;11.0.1 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;16.0.1 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;11.0.1 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;16.0.1 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;16.0.1 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.typesafe.play#play-cache_2.11;2.3.6 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.typesafe.play#play-cache_2.11;2.3.6 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.typesafe.play#play-cache_2.11;2.3.6 [compile->compile][0m
@@ -5124,6 +5459,45 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.34 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.34 [compile->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.34 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;11.0.1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;16.0.1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;11.0.1 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;16.0.1 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;11.0.1 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;16.0.1 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;16.0.1 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.typesafe.play#play-cache_2.11;2.3.6 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.typesafe.play#play-cache_2.11;2.3.6 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.typesafe.play#play-cache_2.11;2.3.6 [compile->compile][0m
@@ -5810,6 +6184,45 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.34 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.34 [compile->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.34 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;11.0.1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;16.0.1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;11.0.1 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;16.0.1 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;11.0.1 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;16.0.1 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;16.0.1 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.typesafe.play#play-cache_2.11;2.3.6 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.typesafe.play#play-cache_2.11;2.3.6 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.typesafe.play#play-cache_2.11;2.3.6 [compile->compile][0m
@@ -7464,12 +7877,13 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.typesafe.play#play-java-jdbc_2.11;2.3.6!play-java-jdbc_2.11.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.typesafe.play#play-java-jpa_2.11;2.3.6!play-java-jpa_2.11.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.hibernate#hibernate-entitymanager;4.3.8.Final!hibernate-entitymanager.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.34/mysql-connector-java-5.1.34.jar[0m
-[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.34/mysql-connector-java-5.1.34.jar ...[0m
-[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.34/mysql-connector-java-5.1.34.jar[0m
-[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.34/mysql-connector-java-5.1.34.jar.sha1[0m
-[0m[[0mdebug[0m] [0msha1 OK for http://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.34/mysql-connector-java-5.1.34.jar[0m
-[0m[[0minfo[0m] [0m	[SUCCESSFUL ] mysql#mysql-connector-java;5.1.34!mysql-connector-java.jar (835ms)[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] mysql#mysql-connector-java;5.1.34!mysql-connector-java.jar[0m
+[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/com/google/inject/guice/4.0-beta/guice-4.0-beta.jar[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/com/google/inject/guice/4.0-beta/guice-4.0-beta.jar ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/com/google/inject/guice/4.0-beta/guice-4.0-beta.jar[0m
+[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/com/google/inject/guice/4.0-beta/guice-4.0-beta.jar.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for http://repo1.maven.org/maven2/com/google/inject/guice/4.0-beta/guice-4.0-beta.jar[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.google.inject#guice;4.0-beta!guice.jar (1483ms)[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.typesafe.play#play-cache_2.11;2.3.6!play-cache_2.11.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.typesafe.play#play-java-ws_2.11;2.3.6!play-java-ws_2.11.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.apache.commons#commons-lang3;3.1!commons-lang3.jar[0m
@@ -7529,6 +7943,32 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.jboss.spec.javax.transaction#jboss-transaction-api_1.2_spec;1.0.0.Final!jboss-transaction-api_1.2_spec.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] antlr#antlr;2.7.7!antlr.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.jboss#jandex;1.1.0.Final!jandex.jar[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] javax.inject#javax.inject;1!javax.inject.jar[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] aopalliance#aopalliance;1.0!aopalliance.jar[0m
+[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/cglib/cglib/3.0/cglib-3.0.jar[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/cglib/cglib/3.0/cglib-3.0.jar ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/cglib/cglib/3.0/cglib-3.0.jar[0m
+[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/cglib/cglib/3.0/cglib-3.0.jar.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for http://repo1.maven.org/maven2/cglib/cglib/3.0/cglib-3.0.jar[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] cglib#cglib;3.0!cglib.jar (649ms)[0m
+[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/org/ow2/asm/asm-util/4.0/asm-util-4.0.jar[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/ow2/asm/asm-util/4.0/asm-util-4.0.jar ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/ow2/asm/asm-util/4.0/asm-util-4.0.jar[0m
+[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/ow2/asm/asm-util/4.0/asm-util-4.0.jar.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for http://repo1.maven.org/maven2/org/ow2/asm/asm-util/4.0/asm-util-4.0.jar[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.ow2.asm#asm-util;4.0!asm-util.jar (378ms)[0m
+[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/org/ow2/asm/asm/4.0/asm-4.0.jar[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/ow2/asm/asm/4.0/asm-4.0.jar ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/ow2/asm/asm/4.0/asm-4.0.jar[0m
+[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/ow2/asm/asm/4.0/asm-4.0.jar.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for http://repo1.maven.org/maven2/org/ow2/asm/asm/4.0/asm-4.0.jar[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.ow2.asm#asm;4.0!asm.jar (380ms)[0m
+[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/org/ow2/asm/asm-tree/4.0/asm-tree-4.0.jar[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/ow2/asm/asm-tree/4.0/asm-tree-4.0.jar ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/ow2/asm/asm-tree/4.0/asm-tree-4.0.jar[0m
+[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/ow2/asm/asm-tree/4.0/asm-tree-4.0.jar.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for http://repo1.maven.org/maven2/org/ow2/asm/asm-tree/4.0/asm-tree-4.0.jar[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.ow2.asm#asm-tree;4.0!asm-tree.jar (388ms)[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] net.sf.ehcache#ehcache-core;2.6.8!ehcache-core.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.typesafe.play#play-ws_2.11;2.3.6!play-ws_2.11.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.ning#async-http-client;1.8.14!async-http-client.jar[0m
@@ -7608,7 +8048,7 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#scala-compiler;2.11.1!scala-compiler.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang.modules#scala-xml_2.11;1.0.2!scala-xml_2.11.jar(bundle)[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] jline#jline;2.11!jline.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 5163ms :: artifacts dl 905ms[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 12332ms :: artifacts dl 3349ms[0m
 [0m[[0mdebug[0m] [0m	report for art-app#art-app_2.11;1.0-SNAPSHOT compile produced in /Users/cbi/Documents/git-repos/ART/target/resolution-cache/reports/art-app-art-app_2.11-compile.xml[0m
 [0m[[0mdebug[0m] [0m	report for art-app#art-app_2.11;1.0-SNAPSHOT runtime produced in /Users/cbi/Documents/git-repos/ART/target/resolution-cache/reports/art-app-art-app_2.11-runtime.xml[0m
 [0m[[0mdebug[0m] [0m	report for art-app#art-app_2.11;1.0-SNAPSHOT test produced in /Users/cbi/Documents/git-repos/ART/target/resolution-cache/reports/art-app-art-app_2.11-test.xml[0m
@@ -7622,5 +8062,5 @@
 [0m[[0mdebug[0m] [0m	report for art-app#art-app_2.11;1.0-SNAPSHOT docs produced in /Users/cbi/Documents/git-repos/ART/target/resolution-cache/reports/art-app-art-app_2.11-docs.xml[0m
 [0m[[0mdebug[0m] [0m	report for art-app#art-app_2.11;1.0-SNAPSHOT pom produced in /Users/cbi/Documents/git-repos/ART/target/resolution-cache/reports/art-app-art-app_2.11-pom.xml[0m
 [0m[[0mdebug[0m] [0m	report for art-app#art-app_2.11;1.0-SNAPSHOT scala-tool produced in /Users/cbi/Documents/git-repos/ART/target/resolution-cache/reports/art-app-art-app_2.11-scala-tool.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (5163ms resolve - 905ms download)[0m
+[0m[[0mdebug[0m] [0m	resolve done (12332ms resolve - 3349ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m
