@@ -10,13 +10,18 @@ import play.db.jpa.JPA;
 import play.db.jpa.Transactional;
 import play.libs.Json;
 import play.mvc.Result;
+
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
+
 import controllers.AbstractCRUDController;
 import dao.GenericDAO;
 
 public class ExecTaskTypeController extends AbstractCRUDController<ExecTaskType, Long> {
 	
-	public ExecTaskTypeController(GenericDAO<ExecTaskType, Long> dao) {
-		this.dao = dao;
+	@Inject
+	public ExecTaskTypeController(@Named("ExecTaskTypeDAO") GenericDAO<ExecTaskType, Long> dao) {
+		super(dao);
 	}
 	
 	@Override

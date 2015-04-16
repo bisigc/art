@@ -36,24 +36,26 @@
             <nav class="navbar navbar-default">
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <li ng-repeat="menui in menuItems" class="menuItem" ng-switch on="menui.type" ng-if="menui.pos === 'left'" ng-class="{ active:isMenuSet(menui.name), dropdown:menui.type === 'dropdown'}">
-                                <a href ng-switch-when="dropdown" class="dropdown-toggle" data-toggle="dropdown" title="{{menui.tooltip}}" role="button" aria-expanded="false">{{menui.fullname}} <span class="caret"></span></a>
+                            <li ng-repeat="menui in menuItems" class="menuItem" ng-switch on="menui.type" ng-if="menui.pos === 'left'" ng-class="{dropdown:menui.type === 'dropdown'}">
+                                <a ng-switch-when="dropdown" class="dropdown-toggle" data-toggle="dropdown" title="{{menui.tooltip}}" role="button" aria-expanded="false">{{menui.fullname}} <span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu" ng-switch-when="dropdown">
-                                    <li ng-class="{ active:isMenuSet(submenui.name)}" ng-repeat="submenui in menui.subItems"><a href ng-click="setMenu(submenui.name)" title="{{submenui.tooltip}}" >{{submenui.fullname}}</a></li>
+                                    <li ng-repeat="submenui in menui.subItems"><a ui-sref="{{submenui.name}}" ui-sref-active="active" title="{{submenui.tooltip}}" >{{submenui.fullname}}</a></li>
                                 </ul>
-                                <a href ng-switch-when="home" class="homeitem" title="{{menui.tooltip}}" ng-click="setMenu(menui.name)"><img ng-src="{{menui.image}}" class="menuimage img-responsive center-block" /></a>
-                                <a href ng-switch-default ng-click="setMenu(menui.name)" title="{{menui.tooltip}}">{{menui.fullname}}</a>
+                                <a ng-switch-when="home" class="homeitem" title="{{menui.tooltip}}" ui-sref="{{menui.name}}" ui-sref-active="active"><img ng-src="{{menui.image}}" class="menuimage img-responsive center-block" /></a>
+                                <!-- a href ng-switch-default ng-click="setMenu(menui.name)" title="{{menui.tooltip}}">{{menui.fullname}}</a-->
+                                <a ng-switch-default ui-sref="{{menui.name}}" ui-sref-active="active" title="{{menui.tooltip}}">{{menui.fullname}}</a>
                             </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right" ng-controller="UserController as userCtrl">
-                            <li ng-show="userCtrl.user.loggedin" class="menuItem menuuser" ng-class="{ active:isMenuSet('profile.html')}"><a href ng-click="setMenu('profile')"><img ng-src="{{userCtrl.user.avatar}}" class="avatar img-circle" /> {{userCtrl.user.firstname}} {{userCtrl.user.surname}}</a></li>
+                            <li ng-show="userCtrl.user.loggedin" class="menuItem menuuser"><a ui-sref="profile"  ui-sref-active="active"><img ng-src="{{userCtrl.user.avatar}}" class="avatar img-circle" /> {{userCtrl.user.firstname}} {{userCtrl.user.surname}}</a></li>
                             <li ng-hide="userCtrl.user.loggedin" class="menuItem"><a href ng-click="userCtrl.login()">Login</a></li>
                             <li ng-show="userCtrl.user.loggedin" class="menuItem"><a href ng-click="userCtrl.logout()">Logout</a></li>
                         </ul>
                     </div><!--/.nav-collapse -->
             </nav>
             
-            <div ng-include="_contextPath + menuItem"></div>
+            <div ui-view></div>
+            <!-- div ng-include="_contextPath + menuItem"></div -->
 
         </div> <!-- /container -->
         <notifications-bar class="notifications"></notifications-bar>
@@ -62,6 +64,7 @@
     <script type="text/javascript" src="@routes.Assets.at("javascripts/libs/angular.min.js")"></script>
     <script type="text/javascript" src="@routes.Assets.at("javascripts/libs/angular-resource.min.js")"></script>
     <script type="text/javascript" src="@routes.Assets.at("javascripts/libs/angular-sanitize.min.js")"></script>
+    <script type="text/javascript" src="@routes.Assets.at("javascripts/libs/angular-ui-router.min.js")"></script>
     <script type="text/javascript" src="@routes.Assets.at("javascripts/mockdata.js")"></script>
     <script type="text/javascript" src="@routes.Assets.at("javascripts/app.js")"></script>
     <script type="text/javascript" src="@routes.Assets.at("javascripts/factories.js")"></script>

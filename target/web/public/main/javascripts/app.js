@@ -1,4 +1,4 @@
-var app = angular.module('art', ['ui.bootstrap','angular-jqcloud','ngResource','ngSanitize','ui.select','ngNotificationsBar','textAngular']);
+var app = angular.module('art', ['ui.router', 'ui.bootstrap','angular-jqcloud','ngResource','ngSanitize','ui.select','ngNotificationsBar','textAngular']);
 
 var setSmell = function(smell){ 
     var input = $('#smellname');
@@ -18,9 +18,15 @@ app.controller('UserController', ['notifications', function(notifications){
     }
 }]);
 
-app.controller('UserProfileController', ['notifications', '$scope', function(notifications, $scope){
+app.controller('UserProfileController', ['UsersService','RolesService','notifications', '$scope', function(UsersService, RolesService, notifications, $scope){
     $scope.startpages = ['home','arbrowser','smellbrowser','taskbrowser'];
     $scope.user = user;
+    $scope.roles = [];
+    RolesService.get({},function(data, status, headers, config) {
+        $scope.roles = data;
+    }, function(error, status, headers, config) {
+        notifications.showError("Failed to load Roles.");
+    });
 }]);
 
 app.controller('MenuController', ['MenuService', 'notifications', '$scope', function(MenuService, notifications, $scope){
@@ -31,7 +37,7 @@ app.controller('MenuController', ['MenuService', 'notifications', '$scope', func
     }, function(error, status, headers, config) {
         notifications.showError("Failed to load Menu.");
     }); 
-    $scope.menuItem = 'smellasses.html';
+    $scope.menuItem = 'home.html';
     $scope.setMenu = function(selectedMenu) {
         $scope.menuItem = selectedMenu + '.html';
     };

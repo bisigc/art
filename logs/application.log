@@ -1,12 +1,21 @@
-2015-04-15 10:25:01,551 - [INFO] - from play in pool-5-thread-2 
+2015-04-15 22:49:14,856 - [INFO] - from play in pool-41-thread-2 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9085
 
-2015-04-15 10:25:06,689 - [INFO] - from play in play-internal-execution-context-1 
+2015-04-15 22:49:23,762 - [INFO] - from play in play-internal-execution-context-1 
 datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
 
-2015-04-15 10:25:07,041 - [INFO] - from play in play-internal-execution-context-1 
+2015-04-15 22:49:24,058 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:mysql://localhost/art
 
-2015-04-15 10:25:09,059 - [INFO] - from play in play-internal-execution-context-1 
+2015-04-15 22:49:25,753 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-04-15 22:57:01,180 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
+
+2015-04-15 22:57:01,214 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:mysql://localhost/art
+
+2015-04-15 22:57:01,857 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 

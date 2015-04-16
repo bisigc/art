@@ -9,14 +9,18 @@ import play.db.jpa.JPA;
 import play.db.jpa.Transactional;
 import play.libs.Json;
 import play.mvc.Result;
+
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
+
 import controllers.AbstractCRUDController;
 import dao.GenericDAO;
 
 public class MenuController extends AbstractCRUDController<Menuitem, Long> {
 	
-	//@Inject
-	public MenuController(GenericDAO<Menuitem, Long> dao) {
-		this.dao = dao;
+	@Inject
+	public MenuController(@Named("MenuitemDAO") GenericDAO<Menuitem, Long> dao) {
+		super(dao);
 	}
 	
 	@Override

@@ -15,8 +15,8 @@
                         <input class="form-control" title="surname" id="surname" ng-model="user.surname" required></input>
                     </fieldset>
                     <fieldset class="form-group">
-                        <label for="company">Company</label>
-                        <input class="form-control" title="company" id="company" ng-model="user.company" required></input>
+                        <label for="company">Organisation</label>
+                        <input class="form-control" title="organisation" id="organisation" ng-model="user.organisation" required></input>
                     </fieldset>
                     <fieldset class="form-group">
                         <label for="email">E-Mail</label>
@@ -39,7 +39,7 @@
                     <fieldset class="form-group">
                         <label for="group">Role</label>
                         <ui-select ng-model="user.role_id" theme="selectize" ng-disabled="disabled" required>
-                            <ui-select-match>{{$select.selected.role}}</ui-select-match>
+                            <ui-select-match>{{$select.selected.name}}</ui-select-match>
                             <ui-select-choices repeat="role in roles | filter: $select.search">
                                 <span ng-bind-html="role.name | highlight: $select.search"></span>
                             </ui-select-choices>
@@ -57,11 +57,11 @@
                         <input class="form-control" title="currentpassword" type="password" name="currentpassword" id="currentpassword" ng-model="user.digest.current" required></input>
                     </fieldset>
                     <fieldset class="form-group">
-                        <label for="newpassword">New-Password</label>
+                        <label for="newpassword">New Password</label>
                         <input class="form-control" title="newpassword" type="password" name="newpassword" id="newpassword" ng-model="user.digest.new" required></input>
                     </fieldset>
                     <fieldset class="form-group">
-                        <label for="repeatpassword">Repeat-Password</label>
+                        <label for="repeatpassword">Repeat Password</label>
                         <input class="form-control" title="repeatpassword" type="password" name="repeatpassword" id="repeatpassword" ng-model="user.digest.repeat" required></input>
                     </fieldset>
                     <fieldset class="form-group">

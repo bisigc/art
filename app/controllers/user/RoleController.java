@@ -1,6 +1,6 @@
 package controllers.user;
 
-import models.User;
+import models.Role;
 
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
@@ -8,10 +8,10 @@ import com.google.inject.name.Named;
 import controllers.AbstractCRUDController;
 import dao.GenericDAO;
 
-public class UserController extends AbstractCRUDController<User, Long> {
+public class RoleController extends AbstractCRUDController<Role, Long> {
 	
 	@Inject
-	public UserController(@Named("UserDAO") GenericDAO<User, Long> dao) {
+	public RoleController(@Named("RoleDAO") GenericDAO<Role, Long> dao) {
 		super(dao);
 	}
 

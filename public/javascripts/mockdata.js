@@ -3,7 +3,7 @@ var user =
         "id":1,
         "firstname":"Christian",
         "surname":"Bisig",
-        "company":"HSR",
+        "organisation":"HSR",
         "email":"cbisig@hsr.ch",
         "role_id":1,
         "startpage":"profile",

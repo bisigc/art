@@ -15,6 +15,10 @@ public abstract class AbstractCRUDController<T, PK extends Serializable> extends
 	
 	protected GenericDAO<T, PK> dao;
 	
+	public AbstractCRUDController(GenericDAO<T, PK> dao) {
+		this.dao = dao;
+	}
+	
 	@Transactional(readOnly=true)
 	public Result find(TypedQuery<T> query) {
 		List<T> data = dao.find(query);

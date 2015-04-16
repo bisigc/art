@@ -7,13 +7,18 @@ import models.Smell;
 import play.db.jpa.Transactional;
 import play.libs.Json;
 import play.mvc.Result;
+
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
+
 import controllers.AbstractCRUDController;
 import dao.GenericDAO;
 
 public class SmellController extends AbstractCRUDController<Smell, Long> {
 	
-	public SmellController(GenericDAO<Smell, Long> dao) {
-		this.dao = dao;
+	@Inject
+	public SmellController(@Named("SmellDAO") GenericDAO<Smell, Long> dao) {
+		super(dao);
 	}
 
 	@Transactional(readOnly=true)

@@ -12,7 +12,7 @@ app.factory("OwnTasks", function($resource) {
 app.factory("CloudSmells", ['$http', function($http) {
     return {
         get: function() {
-            return $http({method: "GET", url: _contextPath + 'smells/forcloud', transformResponse: [] });
+            return $http({method: "GET", url: _contextPath + 'smell/forcloud', transformResponse: [] });
             //return $http.get(_contextPath + 'smells/forcloud');
         }
     }
@@ -21,7 +21,7 @@ app.factory("CloudSmells", ['$http', function($http) {
 //{output: 'json', callback:'JSON_CALLBACK'},
 
 app.factory("SmellsService", ['$resource', function($resource) {
-    return $resource(_contextPath + 'smells', 
+    return $resource(_contextPath + 'smell', 
                      {},
                      {
         get: {method:'GET', isArray: true},
@@ -31,7 +31,7 @@ app.factory("SmellsService", ['$resource', function($resource) {
 }]);
 
 app.factory('SmellService', ['$resource', function ($resource) {
-    return $resource(_contextPath + 'smells/:id', {}, {
+    return $resource(_contextPath + 'smell/:id', {}, {
         get: { method: 'GET' },
         delete: { method: 'DELETE', params: {id: '@id'} }
     });
@@ -45,6 +45,29 @@ app.factory('GroupService', ['$resource', function ($resource) {
 
 app.factory('MenuService', ['$resource', function ($resource) {
     return $resource(_contextPath + 'menu', {}, {
+        get: { method: 'GET', isArray: true }
+    });
+}]);
+
+app.factory("UsersService", ['$resource', function($resource) {
+    return $resource(_contextPath + 'user', 
+                     {},
+                     {
+        get: {method:'GET', isArray: true},
+        update: { method: 'PUT' },
+        create: { method: 'POST' }
+    });
+}]);
+
+app.factory('UserService', ['$resource', function ($resource) {
+    return $resource(_contextPath + 'user/:id', {}, {
+        get: { method: 'GET' },
+        delete: { method: 'DELETE', params: {id: '@id'} }
+    });
+}]);
+
+app.factory('RolesService', ['$resource', function ($resource) {
+    return $resource(_contextPath + 'userroles', {}, {
         get: { method: 'GET', isArray: true }
     });
 }]);

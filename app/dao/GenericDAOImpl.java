@@ -1,21 +1,23 @@
 package dao;
 
 import java.io.Serializable;
-import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 import javax.persistence.TypedQuery;
 
 import play.db.jpa.JPA;
 
-public abstract class GenericDAOImpl<T, PK extends Serializable> implements GenericDAO<T, PK> {
+import com.google.inject.Inject;
+import com.google.inject.TypeLiteral;
+
+public class GenericDAOImpl<T, PK extends Serializable> implements GenericDAO<T, PK> {
 	
 	private Class<T> model;
 	
 	@SuppressWarnings("unchecked")
-	public GenericDAOImpl() {
-		ParameterizedType parameterizedType = (ParameterizedType) getClass().getGenericSuperclass();
-		this.model = (Class<T>) parameterizedType.getActualTypeArguments()[0];
+	@Inject
+	public GenericDAOImpl(TypeLiteral<T> model) {
+		this.model = (Class<T>) model.getRawType();
 	}
 
 	@Override

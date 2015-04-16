@@ -6,12 +6,12 @@
 GET     /                         @controllers.Application.index()
 
 #Smell service
-GET     /smells                   @controllers.smell.SmellController.getAll()
-GET     /smells/forcloud          @controllers.smell.SmellController.getCloudSmells()
-GET     /smells/:id               @controllers.smell.SmellController.get(id: Long)
-POST    /smells                   @controllers.smell.SmellController.create()
-PUT     /smells                   @controllers.smell.SmellController.update()
-DELETE  /smells/:id               @controllers.smell.SmellController.delete(id: Long)
+GET     /smell                    @controllers.smell.SmellController.getAll()
+GET     /smell/forcloud           @controllers.smell.SmellController.getCloudSmells()
+GET     /smell/:id                @controllers.smell.SmellController.get(id: Long)
+POST    /smell                    @controllers.smell.SmellController.create()
+PUT     /smell                    @controllers.smell.SmellController.update()
+DELETE  /smell/:id                @controllers.smell.SmellController.delete(id: Long)
 
 #Property service
 GET     /property                 @controllers.property.PropertyController.getAll()
@@ -27,6 +27,14 @@ GET     /menu/:id                 @controllers.menu.MenuController.get(id: Long)
 POST    /menu                     @controllers.menu.MenuController.create()
 PUT     /menu                     @controllers.menu.MenuController.update()
 DELETE  /menu/:id                 @controllers.menu.MenuController.delete(id: Long)
+
+#User service
+GET     /user	                  @controllers.user.UserController.getAll()
+GET     /user/:id                 @controllers.user.UserController.get(id: Long)
+POST    /user                     @controllers.user.UserController.create()
+PUT     /user                     @controllers.user.UserController.update()
+DELETE  /user/:id                 @controllers.user.UserController.delete(id: Long)
+GET     /userroles	              @controllers.user.RoleController.getAll()
 
 #ExecTaskType service
 GET     /exectasktype             @controllers.task.ExecTaskTypeController.getAll()
