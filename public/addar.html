@@ -2,9 +2,9 @@
                 <h2>Add Architectural Refactoring</h2>
                 <p>Add an Architectural Refactoring fill out the form:</p>
                 <p>
-                    <a class="btn btn-lg btn-primary" ng-class="{ active:arCtrl.formvisible}" href role="button" ng-click="arCtrl.showForm(!arCtrl.formvisible);arCtrl.setProgValue()">Add AR &raquo;</a>
+                    <button class="btn btn-primary btn-sm" ng-click="arCtrl.setProgValue()">Random</button>
                 </p>
-                <div name="arFormContainer" ng-show="arCtrl.formvisible">
+                <div name="arFormContainer">
                     <p>
                         Completeness:
                         <!-- progressbar class="progress-striped active" value="dynamic" type="{{arCtrl.type}}">{{arCtrl.type}} <i ng-show="arCtrl.showWarning">!!! Watch out !!!</i></progressbar -->

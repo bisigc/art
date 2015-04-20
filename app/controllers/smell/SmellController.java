@@ -47,13 +47,24 @@ public class SmellController extends AbstractCRUDController<Smell, Long> {
 	@Override
 	@Transactional
 	public Result create() {
-	    Smell newSmell = Json.fromJson(request().body().asJson(), Smell.class);
+	    Smell smell = Json.fromJson(request().body().asJson(), dao.getModel());
 	    Timestamp currentTime = new Timestamp(System.currentTimeMillis());
-	    newSmell.setCreated(currentTime);
-	    newSmell.setModified(currentTime);
-	    newSmell.setWeight(1.0);
-	    newSmell.setStatus(models.Status.inReview);
-	    Smell inserted = dao.create(newSmell);
+	    smell.setCreated(currentTime);
+	    smell.setModified(currentTime);
+	    smell.setWeight(1.0);
+	    smell.setStatus(models.Status.draft);
+	    smell.configQuestionParents();
+	    Smell inserted = dao.create(smell);
 	    return created(Json.toJson(inserted));
+	}
+	
+	@Override
+	@Transactional
+	public Result update() {
+		Smell smell = Json.fromJson(request().body().asJson(), dao.getModel());
+	    Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+	    smell.setModified(currentTime);
+	    smell.configQuestionParents();
+	    return ok(Json.toJson(dao.update(smell)));
 	}
 }

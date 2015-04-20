@@ -13,6 +13,9 @@ POST    /smell                    @controllers.smell.SmellController.create()
 PUT     /smell                    @controllers.smell.SmellController.update()
 DELETE  /smell/:id                @controllers.smell.SmellController.delete(id: Long)
 
+#SmellGroup service
+GET     /smellgroup               @controllers.smell.SmellGroupController.getAll()
+
 #Property service
 GET     /property                 @controllers.property.PropertyController.getAll()
 GET     /property/categorie/:cat  @controllers.property.PropertyController.getCategorie(cat: String)

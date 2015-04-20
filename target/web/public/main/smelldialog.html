@@ -14,14 +14,23 @@
                 <input class="form-control" placeholder="Keywords to search for a Smell..." title="keywords" id="keywords" ng-model="singleSmell.keywords" required></input>
             </fieldset>
             <fieldset class="form-group">
-                <label for="group">Group</label>
-                <ui-select ng-model="singleSmell.group_id" theme="selectize" ng-disabled="disabled" required>
-                    <ui-select-match placeholder="Select or search a group in the list...">{{$select.selected.name}}</ui-select-match>
-                    <ui-select-choices repeat="group in groups | filter: $select.search">
-                        <span ng-bind-html="group.name | highlight: $select.search"></span>
-                        <!-- small ng-bind-html="country.code | highlight: $select.search"></small -->
-                    </ui-select-choices>
-                </ui-select>
+                <label for="question">Questions</label>                    
+                <div class="input-group">
+                    <input class="form-control" type="text" id="question" ng-model="questionToAdd" placeholder="Question..."></input>
+                    <span class="input-group-btn">
+                        <a class="btn btn-primary" ng-click="questionToAdd !== '' && addQuestion()">
+                            <i class="glyphicon glyphicon-plus"></i>
+                        </a>
+                    </span>
+                </div>
+                <div class="input-group" ng-repeat="question in singleSmell.questions track by $index">
+                    <input class="form-control" type="text" ng-model="question.question" readonly required></input>
+                    <span class="input-group-btn">
+                        <a class="btn btn-warning" ng-click="removeQuestion($index)">
+                            <i class="glyphicon glyphicon-minus"></i>
+                        </a>
+                    </span>
+                </div>
             </fieldset>
         </div>
     <div class="col-md-5">
@@ -31,6 +40,16 @@
                 <ui-select-match placeholder="Select or search a status in the list...">{{$select.selected}}</ui-select-match>
                 <ui-select-choices repeat="stat in status | filter: $select.search">
                     <span ng-bind-html="stat | highlight: $select.search"></span>
+                </ui-select-choices>
+            </ui-select>
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="group">Group</label>
+            <ui-select ng-model="singleSmell.group" theme="selectize" ng-disabled="disabled" required>
+                <ui-select-match placeholder="Select or search a group in the list...">{{$select.selected.name}}</ui-select-match>
+                <ui-select-choices repeat="group in groups | filter: $select.search">
+                    <span ng-bind-html="group.name | highlight: $select.search"></span>
+                    <!-- small ng-bind-html="country.code | highlight: $select.search"></small -->
                 </ui-select-choices>
             </ui-select>
         </fieldset>
@@ -82,7 +101,10 @@
     <text-angular name="smell-update-description" ng-model="singleSmell.description" required></text-angular>
 </fieldset>
 <fieldset class="form-group">
-    <button type="submit" class="btn btn-primary pull-right" ng-disabled="smellUpdateForm.$invalid">Save Smell</button>
+    <div class="pull-right">
+        <button type="submit" class="btn btn-primary" ng-disabled="smellUpdateForm.$invalid">Save Smell</button>
+        <button type="button" class="btn btn-warning" ng-click="$stateParams.cancel()">Cancel</button>
+    </div>
 </fieldset>
 </form>
 </div>

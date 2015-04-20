@@ -147,9 +147,16 @@ app.controller('ARController', ['CloudSmells','notifications','$scope','$filter'
 
 }]);
 
-app.controller('SmellAssessController', ['SmellsService', 'notifications','$scope', function(SmellsService, notifications, $scope) {
+app.controller('SmellAssessController', ['SmellGroupService', 'notifications','$scope', function(SmellGroupService, notifications, $scope) {
     $scope.counter = 0;
-    $scope.smellgroups = smellgroups;
+    $scope.groups = [];
+    SmellGroupService.get({},function(data, status, headers, config) {
+            $scope.groups = data;
+            //$scope.smellcallstatus = "OK";
+        }, function(error, status, headers, config) {
+            //$scope.smellcallstatus = "NOK";
+            notifications.showError("Failed to load Questionnaire.");
+        });  
     $scope.selectedSmells = [];
     $scope.getSmellCount = function () {
         $scope.counter = Math.floor((Math.random() * 100) + 1);;
@@ -169,13 +176,13 @@ app.controller('SmellAssessController', ['SmellsService', 'notifications','$scop
     };
 }]);
 
-app.controller('SmellController', ['SmellsService','SmellService', 'GroupService','notifications','$scope','$filter','$modal', function(SmellsService, SmellService, GroupService, notifications, $scope, $filter, $modal) {
+app.controller('SmellController', ['SmellsService','SmellService', 'SmellGroupService','notifications','$scope','$filter', function(SmellsService, SmellService, SmellGroupService, notifications, $scope, $filter) {
     var orderBy = $filter('orderBy');
     $scope.smelllist = [];
-    this.formvisible = true;
+    this.formvisible = false;
     $scope.groups = [];
     $scope.loadGroups = function () {
-        GroupService.get({cat: "SmellGroups"},function(data, status, headers, config) {
+        SmellGroupService.get({},function(data, status, headers, config) {
             $scope.groups = data;
             //$scope.smellcallstatus = "OK";
         }, function(error, status, headers, config) {
@@ -223,32 +230,31 @@ app.controller('SmellController', ['SmellsService','SmellService', 'GroupService
     };
     $scope.order('name', false);
 
-    $scope.smell = {};
+    $scope.initSmell = function () {
+        $scope.smell = {};
+        $scope.smell.questions = [];
+        $scope.questionToAdd = '';
+    }
+    $scope.initSmell();
     $scope.saveSmell = function() {
         SmellsService.create($scope.smell,function(data, status, headers, config) {
-            //$scope.smelllist = data;
-            //$scope.smellcallstatus = "OK";
             $scope.loadSmells();
             notifications.showSuccess("Smell has been added.");
+            $scope.initSmell();
         }, function(error, status, headers, config) {
-            //$scope.smellcallstatus = "NOK";
             notifications.showError("Failed to add Smell.");
         });  
-        $scope.smell = {};
     };
-
-    $scope.openSmell = function(id) {
-        var modalInstance = $modal.open({templateUrl: _contextPath + 'smelldialog.html', controller: 'SmellUpdateController', size: 'lg', resolve: {
-            smellid: function () {
-                return id;
-            }
-        }});
-
-        modalInstance.result.then(function () {
-            $scope.loadSmells();
-        }, function () {
-            //notifications.showSuccess("Smell closed");
+    
+    $scope.addQuestion = function () {
+        $scope.smell.questions.push({
+            question: $scope.questionToAdd
         });
+        $scope.questionToAdd = '';
+    };
+    
+    $scope.removeQuestion = function (idx) {
+        $scope.smell.questions.splice(idx, 1);
     };
 
     $scope.totalItems = 64;
@@ -267,7 +273,19 @@ app.controller('SmellController', ['SmellsService','SmellService', 'GroupService
     $scope.bigCurrentPage = 1;
 }]);
 
-app.controller('SmellUpdateController', ['SmellService', 'SmellsService','GroupService', 'StatusService', 'notifications', '$modalInstance', '$scope', 'smellid', function (SmellService, SmellsService, GroupService, StatusService, notifications, $modalInstance, $scope, smellid) {
+app.controller('SmellViewController', ['SmellService', 'notifications', '$stateParams', '$scope', function (SmellService, notifications, $stateParams, $scope) {
+    $scope.smell = [];
+    $scope.getSmell = function (smellid) {
+        SmellService.get({id: smellid},function(data, status, headers, config) {
+            $scope.smell = data;
+        }, function(error, status, headers, config) {
+            notifications.showError("Failed to load Smell.");
+        });
+    };
+    $scope.getSmell($stateParams.id);
+}]);
+
+app.controller('SmellUpdateController', ['SmellService', 'SmellsService','SmellGroupService', 'StatusService', 'notifications', '$modalInstance', '$scope', '$stateParams', 'smellid', function (SmellService, SmellsService, SmellGroupService, StatusService, notifications, $modalInstance, $scope, $stateParams, smellid) {
     $scope.status = [];
     $scope.loadStatus = function () {
         StatusService.get({},function(data, status, headers, config) {
@@ -280,7 +298,7 @@ app.controller('SmellUpdateController', ['SmellService', 'SmellsService','GroupS
     $scope.singleSmell = [];
     $scope.groups = [];
     $scope.loadGroups = function () {
-        GroupService.get({cat: 'SmellGroups'},function(data, status, headers, config) {
+        SmellGroupService.get({},function(data, status, headers, config) {
             $scope.groups = data;
         }, function(error, status, headers, config) {
             notifications.showError("Failed to load SmellsGroups.");
@@ -294,7 +312,7 @@ app.controller('SmellUpdateController', ['SmellService', 'SmellsService','GroupS
             notifications.showError("Failed to load Smell.");
         });  
     };
-    $scope.getSmell(smellid);
+    $scope.getSmell($stateParams.id);
 
     $scope.updateSmell = function() {
         SmellsService.update($scope.singleSmell,function(data, status, headers, config) {
@@ -303,15 +321,18 @@ app.controller('SmellUpdateController', ['SmellService', 'SmellsService','GroupS
         }, function(error, status, headers, config) {
             notifications.showError("Failed to update Smell.");
         });  
-        $scope.smell = {};
+        $scope.singleSmell = {};
     };
-
-    $scope.ok = function () {
-        $modalInstance.close($scope.selected.item);
+    
+    $scope.addQuestion = function () {
+        $scope.singleSmell.questions.push({
+            question: $scope.questionToAdd
+        });
+        $scope.questionToAdd = '';
     };
-
-    $scope.cancel = function () {
-        modalInstance.dismiss('cancel');
+    
+    $scope.removeQuestion = function (idx) {
+        $scope.singleSmell.questions.splice(idx, 1);
     };
 }]);
 

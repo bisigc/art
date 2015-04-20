@@ -30,6 +30,14 @@ app.factory("SmellsService", ['$resource', function($resource) {
     });
 }]);
 
+app.factory("SmellGroupService", ['$resource', function($resource) {
+    return $resource(_contextPath + 'smellgroup', 
+                     {},
+                     {
+        get: {method:'GET', isArray: true}
+    });
+}]);
+
 app.factory('SmellService', ['$resource', function ($resource) {
     return $resource(_contextPath + 'smell/:id', {}, {
         get: { method: 'GET' },
@@ -37,7 +45,7 @@ app.factory('SmellService', ['$resource', function ($resource) {
     });
 }]);
 
-app.factory('GroupService', ['$resource', function ($resource) {
+app.factory('PropertyService', ['$resource', function ($resource) {
     return $resource(_contextPath + 'property/categorie/:cat', {}, {
         get: { method: 'GET', isArray: true }
     });

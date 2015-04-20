@@ -32,30 +32,32 @@
                 <h2>Questionnaire <small>Found </small><span class="label label-default" hilighter="counter">{{counter}}</span><small> ARs</small></h2>
                 {{ selectedSmells }}
                 <form role="form">
-                    <div class="panel panel-default" ng-repeat="group in smellgroups">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">{{group.name}}</h3>
-                        </div>
-                        <div class="panel-body">
-                            <div ng-repeat="question in group.questions" class="row row-same-height">
-                                <div class="col-md-1 col-md-height">
-                                    <div class="checkbox checkbox-success">
-                                        <input 
-                                               type="checkbox"
-                                               name="selected[]"
-                                               value="{{question.smell_id}}"
-                                               ng-checked="selectedSmells.indexOf(question.smell_id) > -1"
-                                               ng-click="toggleSelection(question.smell_id)"
-                                               id="question-{{question.id}}" />
-                                        <label for="question-{{question.id}}"></label>
+                        <div class="panel panel-default" ng-repeat="group in groups">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">{{group.name}}</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div ng-repeat="smell in group.smells">
+                                    <div ng-repeat="question in smell.questions" class="row row-same-height">
+                                        <div class="col-md-1 col-md-height">
+                                            <div class="checkbox checkbox-success">
+                                                <input 
+                                                       type="checkbox"
+                                                       name="selected[]"
+                                                       value="{{smell.id}}"
+                                                       ng-checked="selectedSmells.indexOf(smell.id) > -1"
+                                                       ng-click="toggleSelection(smell.id)"
+                                                       id="question-{{question.id}}" />
+                                                <label for="question-{{question.id}}"></label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-11 col-md-height vcenter">
+                                            {{ question.question }}
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-11 col-md-height vcenter">
-                                    {{ question.question }}
-                                </div>
+                                    </div>
                             </div>
                         </div>
-                    </div>
                     <button type="submit" class="btn btn-primary pull-right" ng-click="plus()">Show ARs</button>
                 </form>
             </div>
