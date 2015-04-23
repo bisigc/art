@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.persistence.TypedQuery;
 
-import models.Property;
+import models.property.Property;
 import play.db.jpa.JPA;
 import play.db.jpa.Transactional;
 import play.libs.Json;

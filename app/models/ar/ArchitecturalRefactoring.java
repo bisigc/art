@@ -1,4 +1,4 @@
-package models;
+package models.ar;
 
 import java.sql.Timestamp;
 
@@ -11,6 +11,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+
+import models.discussion.Discussion;
+import models.status.Status;
+import models.user.User;
 
 @Entity
 public class ArchitecturalRefactoring {

@@ -81,6 +81,14 @@ VALUES (1, 'Admin',   'ART Administrator'),
        (3, 'Applier', 'Searchs for architectural refactorings base on smells.'),
        (4, 'nonLogin', 'Non Login User with only read rights.');
        
+INSERT INTO digest
+       (id, salt, scrypt)
+VALUES (1, '6jXwcJwzde0gnHW77GSxww==', '7tXGVoLVSYrQRoovswFzPbz0YKnioawIq931TSX4iVc=');
+
+INSERT INTO user
+       (id, firstname, lastname, email, organisation, avatar, startpage, homepage, role_id, modified, created)
+VALUES (1, 'Christian', 'Bisig', 'cbisig@hsr.ch', 'HSR', 'images/avatars/avatar1.png', 'home', 'http://www.hsr.ch', 1, Current_timestamp, Current_timestamp);
+       
        
 INSERT INTO ExecTaskType
        (id, description, name, ordering, parent_id)

@@ -1,4 +1,4 @@
-var app = angular.module('art', ['ui.router', 'ui.bootstrap','angular-jqcloud','ngResource','ngSanitize','ui.select','ngNotificationsBar','textAngular']);
+var app = angular.module('art', ['ui.router','ui.bootstrap','angular-jqcloud','ngResource','ngSanitize','ui.select','ngNotificationsBar','textAngular']);
 
 var setSmell = function(smell){ 
     var input = $('#smellname');
@@ -6,27 +6,67 @@ var setSmell = function(smell){
     input.trigger('input');
 };
 
-app.controller('UserController', ['notifications', function(notifications){
-    this.user = user;
-    this.login = function() {
-        this.user.loggedin = true;
-        notifications.showSuccess("Logged in");
-    }
-    this.logout = function() {
-        this.user.loggedin = false;
-        notifications.showSuccess("Logged out");
+app.controller('UserController', ['LoginService','LogoutService', 'notifications','$scope', '$state','currentUser', function(LoginService, LogoutService, notifications, $scope, $state, currentUser){
+    $scope.logindata = {"email":"cbisig@hsr.ch","password":"test"};
+    $scope.user = currentUser.profile;
+    $scope.login = function() {
+        LoginService.login($scope.logindata,function(data, status, headers, config) {
+            currentUser.profile = data;
+            notifications.showSuccess("Logged in");
+            $scope.logindata = {"email":"","password":""};
+            $state.go(currentUser.profile.startpage);
+        }, function(error, status, headers, config) {
+            notifications.showError("Login failed.");
+        });
+    };
+    $scope.logout = function() {
+        LogoutService.logout($scope.logindata,function(data, status, headers, config) {
+            notifications.showSuccess("Logged out");
+            $scope.logindata = {"email":"","password":""};
+            currentUser.profile = null;
+            $state.go('home');
+        }, function(error, status, headers, config) {
+            notifications.showError("Logout failed.");
+        });
+    };
+    
+    $scope.isLoggedin = function() {
+        return !(currentUser.profile == null);
     }
 }]);
 
-app.controller('UserProfileController', ['UsersService','RolesService','notifications', '$scope', function(UsersService, RolesService, notifications, $scope){
+app.controller('UserProfileController', ['UserService','UsersService','RolesService', 'ChangePwService','notifications', '$scope','currentUser', function(UserService, UsersService, RolesService, ChangePwService, notifications, $scope, currentUser){
     $scope.startpages = ['home','arbrowser','smellbrowser','taskbrowser'];
-    $scope.user = user;
+    $scope.user;
+    $scope.pw;
     $scope.roles = [];
     RolesService.get({},function(data, status, headers, config) {
         $scope.roles = data;
     }, function(error, status, headers, config) {
-        notifications.showError("Failed to load Roles.");
+        notifications.showSuccess("Failed to load Roles.");
     });
+    
+    UserService.get({id: currentUser.profile.id},function(data, status, headers, config) {
+        $scope.user = data;
+    }, function(error, status, headers, config) {
+        notifications.showError("Failed to load User data.");
+    });
+    
+    $scope.updateProfile = function() {
+        UsersService.update({},$scope.user,function(data, status, headers, config) {
+            notifications.showSuccess("Profile saved successful.");
+        }, function(error, status, headers, config) {
+            notifications.showError("Failed to save changes of profile.");
+        });
+    }
+    
+    $scope.changePassword = function() {
+        ChangePwService.update({},$scope.pw,function(data, status, headers, config) {
+            notifications.showSuccess("Password has been changed.");
+        }, function(error, status, headers, config) {
+            notifications.showError("Failed to change password.");
+        });
+    }
 }]);
 
 app.controller('MenuController', ['MenuService', 'notifications', '$scope', function(MenuService, notifications, $scope){
@@ -77,13 +117,14 @@ app.controller('ARController', ['CloudSmells','notifications','$scope','$filter'
     $scope.order = function(predicate, reverse) {
         $scope.arlist = orderBy($scope.arlist, predicate, reverse);
     };
+    
     $scope.order('name', false);
 
     $scope.setSmellFilter = function(smell) {
         //alert('Hell0');
         $scope.search.smells.name = smell;
         $scope.order();
-    }
+    };
 
     this.ar = {};
     /*this.addAr = function() {

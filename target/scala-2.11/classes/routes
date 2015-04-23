@@ -15,6 +15,10 @@ DELETE  /smell/:id                @controllers.smell.SmellController.delete(id: 
 
 #SmellGroup service
 GET     /smellgroup               @controllers.smell.SmellGroupController.getAll()
+GET     /smellgroup/:id           @controllers.smell.SmellGroupController.get(id: Long)
+POST    /smellgroup               @controllers.smell.SmellGroupController.create()
+PUT     /smellgroup               @controllers.smell.SmellGroupController.update()
+DELETE  /smellgroup/:id           @controllers.smell.SmellGroupController.delete(id: Long)
 
 #Property service
 GET     /property                 @controllers.property.PropertyController.getAll()
@@ -37,6 +41,9 @@ GET     /user/:id                 @controllers.user.UserController.get(id: Long)
 POST    /user                     @controllers.user.UserController.create()
 PUT     /user                     @controllers.user.UserController.update()
 DELETE  /user/:id                 @controllers.user.UserController.delete(id: Long)
+PUT     /changepw  	              @controllers.user.UserController.changePassword()
+PUT     /login  	              @controllers.user.UserController.login()
+GET     /logout  	              @controllers.user.UserController.logout()
 GET     /userroles	              @controllers.user.RoleController.getAll()
 
 #ExecTaskType service

@@ -3,22 +3,21 @@ app.factory("OwnTasks", function($resource) {
     return $resource("http://localhost:9000/listAll", {});
 });
 
-/*app.factory("CloudSmells", ['$resource', function($resource) {
-    return $resource(_contextPath + 'smells/forcloud', 
-                     {},
-                     {get: {method:'GET', isArray: true}});
-}]);*/
+app.factory("isAllowed", ['currentUser', function(currentUser) {
+    return {
+        check: function(roleArray) {
+            return currentUser.profile != null && !(roleArray.indexOf(currentUser.profile.role.name) == -1);
+        }
+    }
+}]);
 
 app.factory("CloudSmells", ['$http', function($http) {
     return {
         get: function() {
             return $http({method: "GET", url: _contextPath + 'smell/forcloud', transformResponse: [] });
-            //return $http.get(_contextPath + 'smells/forcloud');
         }
     }
 }]);
-
-//{output: 'json', callback:'JSON_CALLBACK'},
 
 app.factory("SmellsService", ['$resource', function($resource) {
     return $resource(_contextPath + 'smell', 
@@ -71,6 +70,24 @@ app.factory('UserService', ['$resource', function ($resource) {
     return $resource(_contextPath + 'user/:id', {}, {
         get: { method: 'GET' },
         delete: { method: 'DELETE', params: {id: '@id'} }
+    });
+}]);
+
+app.factory('ChangePwService', ['$resource', function ($resource) {
+    return $resource(_contextPath + 'changepw', {}, {
+        update: { method: 'PUT' }
+    });
+}]);
+
+app.factory('LoginService', ['$resource', function ($resource) {
+    return $resource(_contextPath + 'login', {}, {
+        login: { method: 'PUT' }
+    });
+}]);
+
+app.factory('LogoutService', ['$resource', function ($resource) {
+    return $resource(_contextPath + 'logout', {}, {
+        logout: { method: 'GET' }
     });
 }]);
 

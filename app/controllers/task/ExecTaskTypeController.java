@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.persistence.TypedQuery;
 
-import models.ExecTaskType;
+import models.task.ExecTaskType;
 import play.db.jpa.JPA;
 import play.db.jpa.Transactional;
 import play.libs.Json;

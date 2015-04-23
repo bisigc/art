@@ -1,6 +1,6 @@
 package controllers.smell;
 
-import models.SmellGroup;
+import models.smell.SmellGroup;
 
 import com.google.inject.Inject;
 import com.google.inject.name.Named;

@@ -1,4 +1,4 @@
-package models;
+package models.discussion;
 
 import java.sql.Timestamp;
 
@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
+import models.user.User;
 
 @Entity
 public class Comment {

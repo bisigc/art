@@ -7,6 +7,6 @@ import play.mvc.Result;
 public class StatusController extends Controller {
 	
 	public Result get() {
-		return ok(Json.toJson(models.Status.values()));
+		return ok(Json.toJson(models.status.Status.values()));
 	}
 }

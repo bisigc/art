@@ -3,7 +3,7 @@ package utils.crypto;
 import java.security.GeneralSecurityException;
 import java.util.Base64;
 
-import models.Digest;
+import models.user.Digest;
 
 import com.lambdaworks.crypto.SCrypt;
 import com.lambdaworks.crypto.SCryptUtil;
@@ -39,7 +39,7 @@ public class Crypto {
 	}
 	
 	public static void main(String [] args) throws Exception {
-		String password = "What ever";
+		String password = "test";
 		Digest digest = generateDigest(password);
 		System.out.println(digest.getSalt());
 		System.out.println(digest.getScrypt());

@@ -1,4 +1,4 @@
-package models;
+package models.discussion;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
+
+import models.ar.ArchitecturalRefactoring;
 
 @Entity
 public class Discussion {

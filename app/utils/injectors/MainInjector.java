@@ -1,12 +1,12 @@
 package utils.injectors;
 
-import models.ExecTaskType;
-import models.Menuitem;
-import models.Property;
-import models.Role;
-import models.Smell;
-import models.SmellGroup;
-import models.User;
+import models.menu.Menuitem;
+import models.property.Property;
+import models.smell.Smell;
+import models.smell.SmellGroup;
+import models.task.ExecTaskType;
+import models.user.Role;
+import models.user.User;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.TypeLiteral;

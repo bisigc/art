@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.persistence.TypedQuery;
 
-import models.Menuitem;
+import models.menu.Menuitem;
 import play.db.jpa.JPA;
 import play.db.jpa.Transactional;
 import play.libs.Json;

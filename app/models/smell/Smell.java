@@ -1,4 +1,4 @@
-package models;
+package models.smell;
 
 import java.sql.Timestamp;
 import java.util.HashMap;
@@ -15,6 +15,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import models.status.Status;
 
 @Entity
 public class Smell {

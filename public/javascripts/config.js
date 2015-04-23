@@ -1,12 +1,39 @@
-app.run(function ($rootScope, $state, $stateParams) {
+app.run(['$rootScope','$state','$stateParams','notifications','currentUser', 'isAllowed', function ($rootScope, $state, $stateParams, notifications, currentUser, isAllowed) {
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
-});
+    $rootScope.currentUser = currentUser;
+    $rootScope.isAllowed = isAllowed;
+    $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
+        var verifyLogin = function() {
+            var requireLogin = toState.data.requireLogin;
+            var allowedRoles = toState.data.allowedRoles;
+
+            if (requireLogin && currentUser.profile == null) {
+                event.preventDefault();
+                notifications.showWarning("Login required.");
+            } else if(requireLogin && currentUser.profile != null && allowedRoles.indexOf(currentUser.profile.role.name) == -1) {
+                event.preventDefault();
+                notifications.showWarning("Not enough permissions.");
+            }
+        }
+        verifyLogin();
+    });
+}]);
 
 app.config(['notificationsConfigProvider', function (notificationsConfigProvider) {
     notificationsConfigProvider.setAutoHide(true);
     notificationsConfigProvider.setHideDelay(5000);
     notificationsConfigProvider.setAcceptHTML(true);
+}]);
+
+app.config(['$provide', function($provide) {
+    var profile;
+    if(window.activeProfile == '') {
+        profile = null;
+    } else {
+        profile = angular.fromJson(atob(window.activeProfile));
+    }
+    $provide.value('currentUser', {"profile": profile});
 }]);
 
 app.config(['$provide', function($provide){
@@ -29,23 +56,34 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
     $stateProvider
         .state('home', {
         url: "",
-        templateUrl: _contextPath + "home.html"
+        templateUrl: _contextPath + "home.html",
+        data: { requireLogin: false }
     })
         .state('smellbrowser', {
         url: "/smellbrowser",
-        templateUrl: _contextPath + "smellbrowser.html"
+        templateUrl: _contextPath + "smellbrowser.html",
+        data: { requireLogin: false }
     })
         .state('arbrowser', {
         url: "/arbrowser",
         templateUrl: _contextPath + "arbrowser.html",
+        data: { requireLogin: false }
     })
         .state('addar', {
         url: "/addar",
         templateUrl: _contextPath + "addar.html",
+        data: { 
+            requireLogin: true,
+            allowedRoles: ["Admin", "Editor"]
+        }
     })
         .state('smellbrowser.edit', {
         url: "/edit/:id",
         templateUrl: _contextPath + "smellbrowser.html",
+        data: { 
+            requireLogin: true,
+            allowedRoles: ["Admin", "Editor"]
+        },
         onEnter: ['$stateParams', '$state', '$modal', function($stateParams, $state, $modal) {
             var modalInstance = $modal.open(
                 {
@@ -76,34 +114,45 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
     })
         .state('singlesmell', {
         url: "/smell/:id",
-        templateUrl: _contextPath + "singlesmell.html"
+        templateUrl: _contextPath + "singlesmell.html",
+        data: { requireLogin: false }
     })
         .state('taskbrowser', {
         url: "/taskbrowser",
         templateUrl: _contextPath + "taskbrowser.html",
+        data: { requireLogin: false }
     })
         .state('admin', {
         url: "/admin",
-        templateUrl: _contextPath + "admin.html"
+        templateUrl: _contextPath + "admin.html",
+        data: { 
+            requireLogin: true,
+            allowedRoles: ["Admin"]
+        }
     })
         .state('users', {
         url: "/users",
-        templateUrl: _contextPath + "users.html"
+        templateUrl: _contextPath + "users.html",
+        data: { requireLogin: true }
     })
         .state('exectypes', {
         url: "/exectypes",
-        templateUrl: _contextPath + "exectypes.html"
+        templateUrl: _contextPath + "exectypes.html",
+        data: { requireLogin: true }
     })
         .state('about', {
         url: "/about",
-        templateUrl: _contextPath + "about.html"
+        templateUrl: _contextPath + "about.html",
+        data: { requireLogin: false }
     })
         .state('profile', {
         url: "/profile",
-        templateUrl: _contextPath + "profile.html"
+        templateUrl: _contextPath + "profile.html",
+        data: { requireLogin: true }
     })
         .state('smellassess', {
         url: "/smellassess",
-        templateUrl: _contextPath + "smellassess.html"
+        templateUrl: _contextPath + "smellassess.html",
+        data: { requireLogin: false }
     });
 }]);

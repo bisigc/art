@@ -3,7 +3,7 @@ package controllers.smell;
 import java.sql.Timestamp;
 import java.util.List;
 
-import models.Smell;
+import models.smell.Smell;
 import play.db.jpa.Transactional;
 import play.libs.Json;
 import play.mvc.Result;
@@ -52,7 +52,7 @@ public class SmellController extends AbstractCRUDController<Smell, Long> {
 	    smell.setCreated(currentTime);
 	    smell.setModified(currentTime);
 	    smell.setWeight(1.0);
-	    smell.setStatus(models.Status.draft);
+	    smell.setStatus(models.status.Status.draft);
 	    smell.configQuestionParents();
 	    Smell inserted = dao.create(smell);
 	    return created(Json.toJson(inserted));

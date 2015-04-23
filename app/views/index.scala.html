@@ -1,3 +1,4 @@
+@(activeProfile: String)
 <!DOCTYPE html>
 <html lang="de" ng-app="art">
     <head>
@@ -20,6 +21,7 @@
         <link href="@routes.Assets.at("stylesheets/awesome-bootstrap-checkbox.css")" rel="stylesheet">
         <script type="text/javascript">
             var _contextPath = "@routes.Assets.at("")";
+            var activeProfile = "@activeProfile";
         </script>
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -47,9 +49,14 @@
                             </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right" ng-controller="UserController as userCtrl">
-                            <li ng-show="userCtrl.user.loggedin" class="menuItem menuuser"><a ui-sref="profile"  ui-sref-active="active"><img ng-src="{{userCtrl.user.avatar}}" class="avatar img-circle" /> {{userCtrl.user.firstname}} {{userCtrl.user.surname}}</a></li>
-                            <li ng-hide="userCtrl.user.loggedin" class="menuItem"><a href ng-click="userCtrl.login()">Login</a></li>
-                            <li ng-show="userCtrl.user.loggedin" class="menuItem"><a href ng-click="userCtrl.logout()">Logout</a></li>
+                            <li ng-show="isLoggedin()" class="menuItem menuuser"><a ui-sref="profile"  ui-sref-active="active"><img ng-src="{{currentUser.profile.avatar}}" class="avatar img-circle" /> {{currentUser.profile.firstname}} {{currentUser.profile.lastname}}</a></li>
+                            <li ng-hide="isLoggedin()" class="menuItem dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" title="Login" role="button" aria-expanded="false">Login <span class="caret"></span></a>
+                                <ul class="dropdown-menu login-dropdown" role="menu">
+                                    <li><div ng-include="_contextPath + 'login.html'"></div></li>
+                                </ul>
+                            </li>
+                            <li ng-show="isLoggedin()" class="menuItem"><a href ng-click="logout()">Logout</a></li>
                         </ul>
                     </div><!--/.nav-collapse -->
             </nav>
