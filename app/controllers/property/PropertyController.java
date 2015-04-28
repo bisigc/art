@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.TypedQuery;
 
 import models.property.Property;
+import play.Logger;
 import play.db.jpa.JPA;
 import play.db.jpa.Transactional;
 import play.libs.Json;
@@ -25,9 +26,16 @@ public class PropertyController extends AbstractCRUDController<Property, Long> {
 	
 	@Transactional(readOnly=true)
 	public Result getCategorie(String cat) {
-		TypedQuery<Property> query = JPA.em().createQuery("select a from Property a where a.categorie = :cat", Property.class);
-		query.setParameter("cat", cat);
-		List<Property> data = dao.find(query);
+		List<Property> data;
+		try {
+			TypedQuery<Property> query = JPA.em().createQuery("select a from Property a where a.categorie = :cat", Property.class);
+			query.setParameter("cat", cat);
+			data = dao.find(query);
+		} catch (Exception e) {
+			String msg = "Failed to get categorie of " + dao.getModel().getSimpleName();
+			Logger.error(msg, e);
+			return internalServerError(msg);
+		}
 		return ok(Json.toJson(data));
 	}
 }

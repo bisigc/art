@@ -8,8 +8,10 @@ import javax.persistence.TypedQuery;
 import play.db.jpa.JPA;
 
 import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import com.google.inject.TypeLiteral;
 
+@Singleton
 public class GenericDAOImpl<T, PK extends Serializable> implements GenericDAO<T, PK> {
 	
 	private Class<T> model;
@@ -27,7 +29,9 @@ public class GenericDAOImpl<T, PK extends Serializable> implements GenericDAO<T,
 	
 	@Override
 	public List<T> getAll() {
-		return JPA.em().createQuery("select a from " + model.getName() + " a", model).getResultList();
+		TypedQuery<T> query =  JPA.em().createQuery("select a from " + model.getName() + " a", model);
+		List<T> list = query.getResultList(); 
+		return list;
 	}
 
 	@Override

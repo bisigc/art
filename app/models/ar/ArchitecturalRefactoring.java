@@ -1,6 +1,7 @@
 package models.ar;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -9,10 +10,12 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import models.discussion.Discussion;
+import models.smell.Smell;
 import models.status.Status;
 import models.user.User;
 
@@ -24,6 +27,8 @@ public class ArchitecturalRefactoring {
 	private Long id;
 	private String name;
 	private String description;
+	@ManyToMany
+	private List<Smell> smells;
 	@OneToOne(cascade=CascadeType.PERSIST, mappedBy="ar")
 	private Discussion discussion;
 	@OneToOne(cascade=CascadeType.PERSIST, mappedBy="ar")
@@ -42,6 +47,8 @@ public class ArchitecturalRefactoring {
 	public String getName() { return name; }
 	public void setName(String name) { this.name = name; }
 	public String getDescription() { return description; }
+	public List<Smell> getSmells() { return smells; }
+	public void setSmells(List<Smell> smells) { this.smells = smells; }
 	public void setDescription(String description) { this.description = description; }
 	public User getUser() { return editor; }
 	public void setUser(User editor) { this.editor = editor; }

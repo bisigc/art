@@ -1,5 +1,7 @@
 package utils.injectors;
 
+import models.discussion.Comment;
+import models.discussion.Discussion;
 import models.menu.Menuitem;
 import models.property.Property;
 import models.smell.Smell;
@@ -7,6 +9,8 @@ import models.smell.SmellGroup;
 import models.task.ExecTaskType;
 import models.user.Role;
 import models.user.User;
+import utils.security.RoleChecker;
+import utils.security.RoleCheckerImpl;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.TypeLiteral;
@@ -28,5 +32,9 @@ public class MainInjector extends AbstractModule {
 		bind(new TypeLiteral<GenericDAO<ExecTaskType, Long>>(){}).annotatedWith(Names.named("ExecTaskTypeDAO")).to(new TypeLiteral<GenericDAOImpl<ExecTaskType, Long>>(){});
 		bind(new TypeLiteral<GenericDAO<Role, Long>>(){}).annotatedWith(Names.named("RoleDAO")).to(new TypeLiteral<GenericDAOImpl<Role, Long>>(){});
 		bind(new TypeLiteral<GenericDAO<User, Long>>(){}).annotatedWith(Names.named("UserDAO")).to(new TypeLiteral<GenericDAOImpl<User, Long>>(){});
+		bind(new TypeLiteral<GenericDAO<Discussion, Long>>(){}).annotatedWith(Names.named("DiscussionDAO")).to(new TypeLiteral<GenericDAOImpl<Discussion, Long>>(){});
+		bind(new TypeLiteral<GenericDAO<Comment, Long>>(){}).annotatedWith(Names.named("CommentDAO")).to(new TypeLiteral<GenericDAOImpl<Comment, Long>>(){});
+		bind(new TypeLiteral<RoleChecker>(){}).annotatedWith(Names.named("RoleChecker")).to(new TypeLiteral<RoleCheckerImpl>(){});
+		//.in(Scopes.SINGLETON);
 	}
 }

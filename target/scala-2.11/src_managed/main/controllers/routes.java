@@ -1,6 +1,6 @@
 // @SOURCE:/Users/cbi/Documents/git-repos/ART/conf/routes
-// @HASH:7b18c2bef1ea6e5542e1601bce7f51207757efa8
-// @DATE:Thu Apr 23 12:11:14 CEST 2015
+// @HASH:070b1c642e6320291676c1313a7c0b12f9c97410
+// @DATE:Mon Apr 27 14:19:51 CEST 2015
 
 package controllers;
 

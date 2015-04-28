@@ -36,4 +36,6 @@ public class Role {
 	public void setDescription(String description) { this.description = description; }
 	public List<User> getUsers() { return users; }
 	public void setUsers(List<User> users) { this.users = users; }
+	public List<Permission> getPermissions() { return permissions; }
+	public void setPermissions(List<Permission> permissions) { this.permissions = permissions; }
 }

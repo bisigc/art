@@ -31,7 +31,12 @@ app.config(['$provide', function($provide) {
     if(window.activeProfile == '') {
         profile = null;
     } else {
-        profile = angular.fromJson(atob(window.activeProfile));
+        var decoded = atob(window.activeProfile);
+        if(decoded == "Session timeout") {
+            profile = null;
+        } else {
+            profile = angular.fromJson(decoded);
+        }
     }
     $provide.value('currentUser', {"profile": profile});
 }]);
@@ -61,6 +66,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
     })
         .state('smellbrowser', {
         url: "/smellbrowser",
+        controller: "SmellController as smellCtrl",
         templateUrl: _contextPath + "smellbrowser.html",
         data: { requireLogin: false }
     })
@@ -117,6 +123,11 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
         templateUrl: _contextPath + "singlesmell.html",
         data: { requireLogin: false }
     })
+        .state('singlear', {
+        url: "/ar/:id",
+        templateUrl: _contextPath + "singlear.html",
+        data: { requireLogin: false }
+    })
         .state('taskbrowser', {
         url: "/taskbrowser",
         templateUrl: _contextPath + "taskbrowser.html",
@@ -133,12 +144,18 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
         .state('users', {
         url: "/users",
         templateUrl: _contextPath + "users.html",
-        data: { requireLogin: true }
+        data: { 
+            requireLogin: true,
+            allowedRoles: ["Admin"]
+        }
     })
         .state('exectypes', {
         url: "/exectypes",
         templateUrl: _contextPath + "exectypes.html",
-        data: { requireLogin: true }
+        data: { 
+            requireLogin: true,
+            allowedRoles: ["Admin", "Editor"]
+        }
     })
         .state('about', {
         url: "/about",
@@ -148,7 +165,10 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
         .state('profile', {
         url: "/profile",
         templateUrl: _contextPath + "profile.html",
-        data: { requireLogin: true }
+        data: { 
+            requireLogin: true,
+            allowedRoles: ["Admin", "Applier", "Editor"]
+        }
     })
         .state('smellassess', {
         url: "/smellassess",

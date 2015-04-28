@@ -1,3 +1,4 @@
+package utils;
 import play.GlobalSettings;
 import utils.injectors.MainInjector;
 
@@ -20,4 +21,7 @@ public class Global extends GlobalSettings {
 		return Guice.createInjector(new MainInjector());
 	}
 
+	public static Injector getInjector() {
+		return INJECTOR;
+	}
 }

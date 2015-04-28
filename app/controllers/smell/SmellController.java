@@ -4,10 +4,13 @@ import java.sql.Timestamp;
 import java.util.List;
 
 import models.smell.Smell;
+import play.Logger;
 import play.db.jpa.Transactional;
 import play.libs.Json;
 import play.mvc.Result;
+import utils.actions.SessionAuth;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 
@@ -23,7 +26,14 @@ public class SmellController extends AbstractCRUDController<Smell, Long> {
 
 	@Transactional(readOnly=true)
 	public Result getCloudSmells() {
-		List<Smell> data = dao.getAll();
+		List<Smell> data;
+		try {
+			data = dao.getAll();
+		} catch (Exception e) {
+			String msg = "Failed to get all " + dao.getModel().getSimpleName() + " for cloud.";
+			Logger.error(msg, e);
+			return internalServerError(msg);
+		}
 		StringBuffer buf = new StringBuffer("[");
 		for (Smell smell : data) {
 			buf.append("{\"text\":\"");
@@ -44,27 +54,48 @@ public class SmellController extends AbstractCRUDController<Smell, Long> {
 	    return ok(buf.toString());
 	}
 
+	@SessionAuth
 	@Override
 	@Transactional
 	public Result create() {
-	    Smell smell = Json.fromJson(request().body().asJson(), dao.getModel());
-	    Timestamp currentTime = new Timestamp(System.currentTimeMillis());
-	    smell.setCreated(currentTime);
-	    smell.setModified(currentTime);
-	    smell.setWeight(1.0);
-	    smell.setStatus(models.status.Status.draft);
-	    smell.configQuestionParents();
-	    Smell inserted = dao.create(smell);
+	    Smell inserted;
+	    JsonNode node = null;
+		try {
+			node = request().body().asJson();
+		    Smell smell = Json.fromJson(node, dao.getModel());
+		    Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		    smell.setCreated(currentTime);
+		    smell.setModified(currentTime);
+		    smell.setWeight(1.0);
+		    smell.setStatus(models.status.Status.draft);
+		    smell.configQuestionParents();
+			inserted = dao.create(smell);
+		} catch (Exception e) {
+			String msg =" Failed to create " + dao.getModel().getSimpleName() ;
+			Logger.error(msg + " JSON: " + node, e);
+			return internalServerError(msg);
+		}
 	    return created(Json.toJson(inserted));
 	}
 	
+	@SessionAuth
 	@Override
 	@Transactional
 	public Result update() {
-		Smell smell = Json.fromJson(request().body().asJson(), dao.getModel());
-	    Timestamp currentTime = new Timestamp(System.currentTimeMillis());
-	    smell.setModified(currentTime);
-	    smell.configQuestionParents();
-	    return ok(Json.toJson(dao.update(smell)));
+		Smell updated;
+		JsonNode node = null;
+		try {
+			node = request().body().asJson();
+			Smell smell = Json.fromJson(node, dao.getModel());
+		    Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		    smell.setModified(currentTime);
+		    smell.configQuestionParents();
+		    updated = dao.update(smell);
+		} catch (Exception e) {
+			String msg = "Failed to update " + dao.getModel().getSimpleName();
+			Logger.error(msg + " JSON: " + node, e);
+			return internalServerError(msg);
+		}
+		return ok(Json.toJson(updated));
 	}
 }

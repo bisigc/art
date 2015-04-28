@@ -38,18 +38,18 @@
             <nav class="navbar navbar-default">
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <li ng-repeat="menui in menuItems" class="menuItem" ng-switch on="menui.type" ng-if="menui.pos === 'left'" ng-class="{dropdown:menui.type === 'dropdown'}">
+                            <li ng-repeat="menui in menuItems" class="menuItem" ng-switch on="menui.type" ng-if="menui.pos === 'left'" ng-class="{dropdown:menui.type === 'dropdown', active:$state.is(menui.name)}">
                                 <a ng-switch-when="dropdown" class="dropdown-toggle" data-toggle="dropdown" title="{{menui.tooltip}}" role="button" aria-expanded="false">{{menui.fullname}} <span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu" ng-switch-when="dropdown">
-                                    <li ng-repeat="submenui in menui.subItems"><a ui-sref="{{submenui.name}}" ui-sref-active="active" title="{{submenui.tooltip}}" >{{submenui.fullname}}</a></li>
+                                    <li ng-repeat="submenui in menui.subItems"><a ui-sref="{{submenui.name}}" title="{{submenui.tooltip}}" >{{submenui.fullname}}</a></li>
                                 </ul>
-                                <a ng-switch-when="home" class="homeitem" title="{{menui.tooltip}}" ui-sref="{{menui.name}}" ui-sref-active="active"><img ng-src="{{menui.image}}" class="menuimage img-responsive center-block" /></a>
+                                <a ng-switch-when="home" class="homeitem" title="{{menui.tooltip}}" ui-sref="{{menui.name}}"><img ng-src="{{menui.image}}" class="menuimage img-responsive center-block" /></a>
                                 <!-- a href ng-switch-default ng-click="setMenu(menui.name)" title="{{menui.tooltip}}">{{menui.fullname}}</a-->
-                                <a ng-switch-default ui-sref="{{menui.name}}" ui-sref-active="active" title="{{menui.tooltip}}">{{menui.fullname}}</a>
+                                <a ng-switch-default ui-sref="{{menui.name}}" title="{{menui.tooltip}}">{{menui.fullname}}</a>
                             </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right" ng-controller="UserController as userCtrl">
-                            <li ng-show="isLoggedin()" class="menuItem menuuser"><a ui-sref="profile"  ui-sref-active="active"><img ng-src="{{currentUser.profile.avatar}}" class="avatar img-circle" /> {{currentUser.profile.firstname}} {{currentUser.profile.lastname}}</a></li>
+                            <li ng-show="isLoggedin()" class="menuItem menuuser" ng-class="{active:$state.is('profile')}"><a ui-sref="profile"><img ng-src="{{currentUser.profile.avatar}}" class="avatar img-circle" /> {{currentUser.profile.firstname}} {{currentUser.profile.lastname}}</a></li>
                             <li ng-hide="isLoggedin()" class="menuItem dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" title="Login" role="button" aria-expanded="false">Login <span class="caret"></span></a>
                                 <ul class="dropdown-menu login-dropdown" role="menu">

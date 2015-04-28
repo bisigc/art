@@ -6,28 +6,24 @@ var setSmell = function(smell){
     input.trigger('input');
 };
 
-app.controller('UserController', ['LoginService','LogoutService', 'notifications','$scope', '$state','currentUser', function(LoginService, LogoutService, notifications, $scope, $state, currentUser){
+app.controller('UserController', ['UserService', 'ReplyErrorHandler', 'notifications','$scope', '$state','currentUser', function(UserService, ReplyErrorHandler, notifications, $scope, $state, currentUser){
     $scope.logindata = {"email":"cbisig@hsr.ch","password":"test"};
     $scope.user = currentUser.profile;
     $scope.login = function() {
-        LoginService.login($scope.logindata,function(data, status, headers, config) {
+        UserService.login.login($scope.logindata,function(data, status, headers, config) {
             currentUser.profile = data;
             notifications.showSuccess("Logged in");
             $scope.logindata = {"email":"","password":""};
             $state.go(currentUser.profile.startpage);
-        }, function(error, status, headers, config) {
-            notifications.showError("Login failed.");
-        });
+        }, ReplyErrorHandler);
     };
     $scope.logout = function() {
-        LogoutService.logout($scope.logindata,function(data, status, headers, config) {
+        UserService.logout.logout($scope.logindata,function(data, status, headers, config) {
             notifications.showSuccess("Logged out");
             $scope.logindata = {"email":"","password":""};
             currentUser.profile = null;
             $state.go('home');
-        }, function(error, status, headers, config) {
-            notifications.showError("Logout failed.");
-        });
+        }, ReplyErrorHandler);
     };
     
     $scope.isLoggedin = function() {
@@ -35,48 +31,38 @@ app.controller('UserController', ['LoginService','LogoutService', 'notifications
     }
 }]);
 
-app.controller('UserProfileController', ['UserService','UsersService','RolesService', 'ChangePwService','notifications', '$scope','currentUser', function(UserService, UsersService, RolesService, ChangePwService, notifications, $scope, currentUser){
+app.controller('UserProfileController', ['UserService','RolesService', 'ReplyErrorHandler','notifications', '$scope','currentUser', function(UserService, RolesService, ReplyErrorHandler, notifications, $scope, currentUser){
     $scope.startpages = ['home','arbrowser','smellbrowser','taskbrowser'];
     $scope.user;
     $scope.pw;
     $scope.roles = [];
     RolesService.get({},function(data, status, headers, config) {
         $scope.roles = data;
-    }, function(error, status, headers, config) {
-        notifications.showSuccess("Failed to load Roles.");
-    });
+    }, ReplyErrorHandler);
     
-    UserService.get({id: currentUser.profile.id},function(data, status, headers, config) {
+    UserService.id.get({id: currentUser.profile.id},function(data, status, headers, config) {
         $scope.user = data;
-    }, function(error, status, headers, config) {
-        notifications.showError("Failed to load User data.");
-    });
+    }, ReplyErrorHandler);
     
     $scope.updateProfile = function() {
-        UsersService.update({},$scope.user,function(data, status, headers, config) {
+        UserService.noid.update({},$scope.user,function(data, status, headers, config) {
             notifications.showSuccess("Profile saved successful.");
-        }, function(error, status, headers, config) {
-            notifications.showError("Failed to save changes of profile.");
-        });
+        }, ReplyErrorHandler);
     }
     
     $scope.changePassword = function() {
-        ChangePwService.update({},$scope.pw,function(data, status, headers, config) {
+        UserService.pw.update({},$scope.pw,function(data, status, headers, config) {
             notifications.showSuccess("Password has been changed.");
-        }, function(error, status, headers, config) {
-            notifications.showError("Failed to change password.");
-        });
+        }, ReplyErrorHandler);
     }
 }]);
 
-app.controller('MenuController', ['MenuService', 'notifications', '$scope', function(MenuService, notifications, $scope){
+app.controller('MenuController', ['MenuService', 'ReplyErrorHandler', 'notifications', '$scope', function(MenuService, ReplyErrorHandler, notifications, $scope){
     $scope.menuItems = [];
     $scope.licenseFile = 'APACHE-LICENSE-2.0.txt';
     MenuService.get({},function(data, status, headers, config) {
         $scope.menuItems = data;
-    }, function(error, status, headers, config) {
-        notifications.showError("Failed to load Menu.");
-    }); 
+    }, ReplyErrorHandler); 
     $scope.menuItem = 'home.html';
     $scope.setMenu = function(selectedMenu) {
         $scope.menuItem = selectedMenu + '.html';
@@ -87,13 +73,28 @@ app.controller('MenuController', ['MenuService', 'notifications', '$scope', func
     };
 }]);
 
-app.controller('ARController', ['CloudSmells','notifications','$scope','$filter', function(CloudSmells, notifications, $scope, $filter) {
+app.controller('ArViewController', ['ArService', 'ReplyErrorHandler', '$stateParams', 'notifications','$scope', function(ArService, ReplyErrorHandler, $stateParams, notifications, $scope) {
+    $scope.ar = [];
+    ArService.id.get({id: $stateParams.id},function(data, status, headers, config) {
+        $scope.ar = data;
+    }, ReplyErrorHandler);
+    
+}]);
+    
+app.controller('ARController', ['ArService', 'CloudSmells', 'ReplyErrorHandler', 'notifications','$scope','$filter', function(ArService, CloudSmells, ReplyErrorHandler, notifications, $scope, $filter) {
     var orderBy = $filter('orderBy');
-    $scope.arlist = ars;
+    $scope.arlist = [];
     this.formvisible = true;
     $scope.words = [];
     //$scope.words = words;
     $scope.cloudcallstatus = '&nbsp;<i class="glyphicon glyphicon-refresh glyphicon-refresh-animate"/> Loading...';
+    
+    $scope.loadArs = function () {
+        ArService.noid.get({},function(data, status, headers, config) {
+            $scope.arlist = data;
+        }, ReplyErrorHandler);  
+    };
+    $scope.loadArs();
 
     this.loadCloud = function () {
         CloudSmells.get().success(function(data,status,headers,config){
@@ -188,16 +189,13 @@ app.controller('ARController', ['CloudSmells','notifications','$scope','$filter'
 
 }]);
 
-app.controller('SmellAssessController', ['SmellGroupService', 'notifications','$scope', function(SmellGroupService, notifications, $scope) {
+app.controller('SmellAssessController', ['SmellGroupService', 'ReplyErrorHandler', 'notifications','$scope', function(SmellGroupService, ReplyErrorHandler, notifications, $scope) {
     $scope.counter = 0;
     $scope.groups = [];
     SmellGroupService.get({},function(data, status, headers, config) {
             $scope.groups = data;
             //$scope.smellcallstatus = "OK";
-        }, function(error, status, headers, config) {
-            //$scope.smellcallstatus = "NOK";
-            notifications.showError("Failed to load Questionnaire.");
-        });  
+        }, ReplyErrorHandler);  
     $scope.selectedSmells = [];
     $scope.getSmellCount = function () {
         $scope.counter = Math.floor((Math.random() * 100) + 1);;
@@ -217,7 +215,7 @@ app.controller('SmellAssessController', ['SmellGroupService', 'notifications','$
     };
 }]);
 
-app.controller('SmellController', ['SmellsService','SmellService', 'SmellGroupService','notifications','$scope','$filter', function(SmellsService, SmellService, SmellGroupService, notifications, $scope, $filter) {
+app.controller('SmellController', ['SmellService', 'SmellGroupService', 'ReplyErrorHandler', 'notifications','$scope','$filter', function(SmellService, SmellGroupService, ReplyErrorHandler, notifications, $scope, $filter) {
     var orderBy = $filter('orderBy');
     $scope.smelllist = [];
     this.formvisible = false;
@@ -226,14 +224,9 @@ app.controller('SmellController', ['SmellsService','SmellService', 'SmellGroupSe
         SmellGroupService.get({},function(data, status, headers, config) {
             $scope.groups = data;
             //$scope.smellcallstatus = "OK";
-        }, function(error, status, headers, config) {
-            //$scope.smellcallstatus = "NOK";
-            notifications.showError("Failed to load SmellsGroups.");
-        });  
+        }, ReplyErrorHandler);  
     };
     $scope.loadGroups();
-
-    $scope.smellcallstatus = "not yet called";
 
     this.showForm = function(visible) {
         if(visible == true) {
@@ -244,26 +237,18 @@ app.controller('SmellController', ['SmellsService','SmellService', 'SmellGroupSe
     };
 
     $scope.loadSmells = function () {
-        SmellsService.get({},function(data, status, headers, config) {
+        SmellService.noid.get({},function(data, status, headers, config) {
             $scope.smelllist = data;
             //$scope.smellcallstatus = "OK";
-        }, function(error, status, headers, config) {
-            //$scope.smellcallstatus = "NOK";
-            notifications.showError("Failed to load Smells.");
-        });  
+        }, ReplyErrorHandler);  
     };
     $scope.loadSmells();
 
     $scope.deleteSmell = function (id) {
-        SmellService.delete({id: id},function(data, status, headers, config) {
-            //$scope.smelllist = data;
-            $scope.smellcallstatus = "OK";
+        SmellService.id.delete({id: id},function(data, status, headers, config) {
             $scope.loadSmells();
             notifications.showSuccess("Smell has been deleted.");
-        }, function(error, status, headers, config) {
-            $scope.smellcallstatus = "NOK";
-            notifications.showSuccess("Failed to delete Smell.");
-        });
+        }, ReplyErrorHandler);
     };
 
     $scope.order = function(predicate, reverse) {
@@ -278,13 +263,11 @@ app.controller('SmellController', ['SmellsService','SmellService', 'SmellGroupSe
     }
     $scope.initSmell();
     $scope.saveSmell = function() {
-        SmellsService.create($scope.smell,function(data, status, headers, config) {
+        SmellService.noid.create($scope.smell,function(data, status, headers, config) {
             $scope.loadSmells();
             notifications.showSuccess("Smell has been added.");
             $scope.initSmell();
-        }, function(error, status, headers, config) {
-            notifications.showError("Failed to add Smell.");
-        });  
+        }, ReplyErrorHandler);  
     };
     
     $scope.addQuestion = function () {
@@ -314,26 +297,22 @@ app.controller('SmellController', ['SmellsService','SmellService', 'SmellGroupSe
     $scope.bigCurrentPage = 1;
 }]);
 
-app.controller('SmellViewController', ['SmellService', 'notifications', '$stateParams', '$scope', function (SmellService, notifications, $stateParams, $scope) {
+app.controller('SmellViewController', ['SmellService', 'ReplyErrorHandler', 'notifications', '$stateParams', '$scope', function (SmellService, ReplyErrorHandler, notifications, $stateParams, $scope) {
     $scope.smell = [];
     $scope.getSmell = function (smellid) {
-        SmellService.get({id: smellid},function(data, status, headers, config) {
+        SmellService.id.get({id: smellid},function(data, status, headers, config) {
             $scope.smell = data;
-        }, function(error, status, headers, config) {
-            notifications.showError("Failed to load Smell.");
-        });
+        }, ReplyErrorHandler);
     };
     $scope.getSmell($stateParams.id);
 }]);
 
-app.controller('SmellUpdateController', ['SmellService', 'SmellsService','SmellGroupService', 'StatusService', 'notifications', '$modalInstance', '$scope', '$stateParams', 'smellid', function (SmellService, SmellsService, SmellGroupService, StatusService, notifications, $modalInstance, $scope, $stateParams, smellid) {
+app.controller('SmellUpdateController', ['SmellService','SmellGroupService', 'StatusService', 'ReplyErrorHandler', 'notifications', '$modalInstance', '$scope', '$stateParams', 'smellid', '$log', function (SmellService, SmellGroupService, StatusService, ReplyErrorHandler, notifications, $modalInstance, $scope, $stateParams, smellid, $log) {
     $scope.status = [];
     $scope.loadStatus = function () {
         StatusService.get({},function(data, status, headers, config) {
             $scope.status = data;
-        }, function(error, status, headers, config) {
-            notifications.showError("Failed to load Status.");
-        });  
+        }, ReplyErrorHandler);  
     };
     $scope.loadStatus();
     $scope.singleSmell = [];
@@ -341,28 +320,27 @@ app.controller('SmellUpdateController', ['SmellService', 'SmellsService','SmellG
     $scope.loadGroups = function () {
         SmellGroupService.get({},function(data, status, headers, config) {
             $scope.groups = data;
-        }, function(error, status, headers, config) {
-            notifications.showError("Failed to load SmellsGroups.");
-        });  
+        }, ReplyErrorHandler);  
     };
     $scope.loadGroups();
     $scope.getSmell = function (smellid) {
-        SmellService.get({id: smellid},function(data, status, headers, config) {
+        SmellService.id.get({id: smellid},function(data, status, headers, config) {
             $scope.singleSmell = data;
-        }, function(error, status, headers, config) {
-            notifications.showError("Failed to load Smell.");
-        });  
+        }, ReplyErrorHandler);  
     };
     $scope.getSmell($stateParams.id);
 
     $scope.updateSmell = function() {
-        SmellsService.update($scope.singleSmell,function(data, status, headers, config) {
+        SmellService.noid.update($scope.singleSmell,function(data, status, headers, config) {
             $modalInstance.close();
             notifications.showSuccess("Smell has been updated.");
-        }, function(error, status, headers, config) {
+            $scope.singleSmell = {};
+        }, ReplyErrorHandler);//, "Failed to update Smell"));
+                             
+                             /*function(error) {
+            
             notifications.showError("Failed to update Smell.");
-        });  
-        $scope.singleSmell = {};
+        });*/  
     };
     
     $scope.addQuestion = function () {
@@ -377,23 +355,19 @@ app.controller('SmellUpdateController', ['SmellService', 'SmellsService','SmellG
     };
 }]);
 
-app.controller("ExecTaskTypeController", ['ExecTaskTypesService', 'ExecTaskTypeService', 'EmptyExecTaskTypeService', 'notifications', '$scope', function(ExecTaskTypesService, ExecTaskTypeService, EmptyExecTaskTypeService, notifications, $scope) {
+app.controller("ExecTaskTypeController", ['ExecTaskTypeService', 'ReplyErrorHandler', 'notifications', '$scope', function(ExecTaskTypeService, ReplyErrorHandler, notifications, $scope) {
     $scope.exectypes = [];
     this.emptyexectype = [];
     $scope.loadExecTaskTypes = function() {
-        ExecTaskTypesService.get({},function(data, status, headers, config) {
+        ExecTaskTypeService.noid.get({},function(data, status, headers, config) {
             $scope.exectypes = data;
-        }, function(error, status, headers, config) {
-            notifications.showError("Failed to load ExecutionTaskTypes.");
-        });
+        }, ReplyErrorHandler);
     };
     $scope.loadExecTaskTypes();
 
-    EmptyExecTaskTypeService.get({},function(data, status, headers, config) {
+    ExecTaskTypeService.empty.get({},function(data, status, headers, config) {
         $scope.emptyexectype = data;
-    }, function(error, status, headers, config) {
-        notifications.showError("Failed to load EmptyExecutionTaskTypes.");
-    }); 
+    }, ReplyErrorHandler); 
 
     $scope.delete = function(task) {
         task.subTasks = [];
@@ -416,11 +390,9 @@ app.controller("ExecTaskTypeController", ['ExecTaskTypesService', 'ExecTaskTypeS
     };
 
     $scope.save = function() {
-        ExecTaskTypesService.update($scope.exectypes, function(data, status, headers, config) {
+        ExecTaskTypeService.noid.update($scope.exectypes, function(data, status, headers, config) {
             $scope.emptyexectype = data;
             notifications.showSuccess("Exec Task Types have been saved.");
-        }, function(error, status, headers, config) {
-            notifications.showError("Failed to update Exec Task Types.");
-        });  
+        }, ReplyErrorHandler);  
     }
 }]);

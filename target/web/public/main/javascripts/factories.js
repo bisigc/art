@@ -11,6 +11,38 @@ app.factory("isAllowed", ['currentUser', function(currentUser) {
     }
 }]);
 
+app.factory("ReplyErrorHandler", ['currentUser', 'notifications', '$log', function(currentUser, notifications, $log) {
+    return function(error) { //, msg) {
+        //$log.debug("data: " + error['data'] + " Text: " + error['statusText'] + ", Status: " + error['status'] + ", config: " + error['config']['url']+ ", method: " + error['config']['method']);
+        if(error['status'] == 401) {
+            if(error['data'] === "Session timeout") {
+                delete currentUser.profile;
+                notifications.showError("Session timeout, please relogin");
+            } else {
+                notifications.showError(error['data'] + " [" + error['status'] + "] to " + error['config']['method'] + " " + error['config']['url']);
+            }
+        } else if(error['status'] == 501) {
+            notifications.showError(error['data'] + ", Technical error [" + error['status'] + "], failed to " + error['config']['method'] + " " + error['config']['url']);
+        } else {
+            notifications.showError(error['data'] + ", Technical error [" + error['status'] + "], failed to " + error['config']['method'] + " " + error['config']['url']);
+        }
+    }
+}]);
+
+app.factory("ArService", ['$resource', function($resource) {
+    return {
+        noid: $resource(_contextPath + 'ar', {}, {
+            get: {method:'GET', isArray: true},
+            update: { method: 'PUT' },
+            create: { method: 'POST' }
+        }),
+        id: $resource(_contextPath + 'ar/:id', {}, {
+            get: { method: 'GET' },
+            delete: { method: 'DELETE', params: {id: '@id'} }
+        })
+    };
+}]);
+
 app.factory("CloudSmells", ['$http', function($http) {
     return {
         get: function() {
@@ -19,28 +51,23 @@ app.factory("CloudSmells", ['$http', function($http) {
     }
 }]);
 
-app.factory("SmellsService", ['$resource', function($resource) {
-    return $resource(_contextPath + 'smell', 
-                     {},
-                     {
-        get: {method:'GET', isArray: true},
-        update: { method: 'PUT' },
-        create: { method: 'POST' }
-    });
+app.factory("SmellService", ['$resource', function($resource) {
+    return {
+        noid: $resource(_contextPath + 'smell', {}, {
+            get: {method:'GET', isArray: true},
+            update: { method: 'PUT' },
+            create: { method: 'POST' }
+        }),
+        id: $resource(_contextPath + 'smell/:id', {}, {
+            get: { method: 'GET' },
+            delete: { method: 'DELETE', params: {id: '@id'} }
+        })
+    };
 }]);
 
 app.factory("SmellGroupService", ['$resource', function($resource) {
-    return $resource(_contextPath + 'smellgroup', 
-                     {},
-                     {
+    return $resource(_contextPath + 'smellgroup', {}, {
         get: {method:'GET', isArray: true}
-    });
-}]);
-
-app.factory('SmellService', ['$resource', function ($resource) {
-    return $resource(_contextPath + 'smell/:id', {}, {
-        get: { method: 'GET' },
-        delete: { method: 'DELETE', params: {id: '@id'} }
     });
 }]);
 
@@ -56,39 +83,27 @@ app.factory('MenuService', ['$resource', function ($resource) {
     });
 }]);
 
-app.factory("UsersService", ['$resource', function($resource) {
-    return $resource(_contextPath + 'user', 
-                     {},
-                     {
-        get: {method:'GET', isArray: true},
-        update: { method: 'PUT' },
-        create: { method: 'POST' }
-    });
-}]);
-
-app.factory('UserService', ['$resource', function ($resource) {
-    return $resource(_contextPath + 'user/:id', {}, {
-        get: { method: 'GET' },
-        delete: { method: 'DELETE', params: {id: '@id'} }
-    });
-}]);
-
-app.factory('ChangePwService', ['$resource', function ($resource) {
-    return $resource(_contextPath + 'changepw', {}, {
-        update: { method: 'PUT' }
-    });
-}]);
-
-app.factory('LoginService', ['$resource', function ($resource) {
-    return $resource(_contextPath + 'login', {}, {
-        login: { method: 'PUT' }
-    });
-}]);
-
-app.factory('LogoutService', ['$resource', function ($resource) {
-    return $resource(_contextPath + 'logout', {}, {
-        logout: { method: 'GET' }
-    });
+app.factory("UserService", ['$resource', function($resource) {
+    return {
+        noid: $resource(_contextPath + 'user', {}, {
+            get: {method:'GET', isArray: true},
+            update: { method: 'PUT' },
+            create: { method: 'POST' }
+        }),
+        id: $resource(_contextPath + 'user/:id', {}, {
+            get: { method: 'GET' },
+            delete: { method: 'DELETE', params: {id: '@id'} }
+        }),
+        pw: $resource(_contextPath + 'changepw', {}, {
+            update: { method: 'PUT' }
+        }), 
+        login: $resource(_contextPath + 'login', {}, {
+            login: { method: 'PUT' }
+        }),
+        logout: $resource(_contextPath + 'logout', {}, {
+            logout: { method: 'GET' }
+        })
+    };
 }]);
 
 app.factory('RolesService', ['$resource', function ($resource) {
@@ -103,29 +118,22 @@ app.factory('StatusService', ['$resource', function ($resource) {
     });
 }]);
 
-app.factory("ExecTaskTypesService", ['$resource', function($resource) {
-    return $resource(_contextPath + 'exectasktype', 
-                     {},
-                     {
-        get: {method:'GET', isArray: true},
-        update: { method: 'PUT' },
-        create: { method: 'POST' }
-    });
+app.factory("ExecTaskTypeService", ['$resource', function($resource) {
+    return {
+        noid: $resource(_contextPath + 'exectasktype', {}, {
+            get: {method:'GET', isArray: true},
+            update: { method: 'PUT' },
+            create: { method: 'POST' }
+        }),
+        id: $resource(_contextPath + 'exectasktype/:id', {}, {
+            get: { method: 'GET' },
+            delete: { method: 'DELETE', params: {id: '@id'} }
+        }),
+        empty: $resource(_contextPath + 'exectasktype/empty', {}, {
+            get: { method: 'GET' }
+        })
+    };
 }]);
-
-app.factory('ExecTaskTypeService', ['$resource', function ($resource) {
-    return $resource(_contextPath + 'exectasktype/:id', {}, {
-        get: { method: 'GET' },
-        delete: { method: 'DELETE', params: {id: '@id'} }
-    });
-}]);
-
-app.factory('EmptyExecTaskTypeService', ['$resource', function ($resource) {
-    return $resource(_contextPath + 'exectasktype/empty', {}, {
-        get: { method: 'GET' }
-    });
-}]);
-
 
 // EEPPI services
 app.factory("Tasks", function($resource) {

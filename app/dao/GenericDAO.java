@@ -8,10 +8,10 @@ import javax.persistence.TypedQuery;
 public interface GenericDAO<T, PK extends Serializable> {
 
 	Class<T> getModel();
-	List<T> getAll();
-	List<T> find(TypedQuery<T> query);
-	T create(T t);
-	T get(PK id);
-	T update(T t);
-	void delete(PK id);
+	List<T> getAll() throws Exception;
+	List<T> find(TypedQuery<T> query) throws Exception;
+	T create(T t) throws Exception;
+	T get(PK id) throws Exception;
+	T update(T t) throws Exception;
+	void delete(PK id) throws Exception;
 }

@@ -1,0 +1,4 @@
+[0m[[31merror[0m] [0m/Users/cbi/Documents/git-repos/ART/app/views/index.scala.html:41: Not parsed?[0m
+[0m[[31merror[0m] [0m                            <li ng-repeat="menui in menuItems" class="menuItem" ng-switch on="menui.type" ng-if="menui.pos === 'left'" ng-class="{dropdown:menui.type === 'dropdown', active:$state.is(menui.name)}}">[0m
+[0m[[31merror[0m] [0m                                                                                                                                                                                                                   ^[0m
+[0m[[31merror[0m] [0m(compile:[31mtwirlCompileTemplates[0m) Twirl compilation failed[0m

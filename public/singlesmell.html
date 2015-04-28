@@ -106,7 +106,7 @@
             <div class="panel-body" ng-bind-html="smell.description"></div>
         </div>
         <div>
-            <button type="submit" class="btn btn-primary pull-right" ng-disabled="smellForm.$invalid" ng-click="$state.go('smellbrowser.edit',{id: smell.id})">Edit Smell</button>
+            <button type="submit" class="btn btn-primary pull-right" ng-disabled="smellForm.$invalid" ng-click="$state.go('smellbrowser.edit',{id: smell.id})" ng-show="isAllowed.check(['Admin','Editor'])">Edit Smell</button>
         </div>
     </div>
 </div>

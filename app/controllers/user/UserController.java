@@ -9,10 +9,12 @@ import javax.security.auth.login.FailedLoginException;
 import models.user.Login;
 import models.user.NewPassword;
 import models.user.User;
+import play.Logger;
 import play.db.jpa.JPA;
 import play.db.jpa.Transactional;
 import play.libs.Json;
 import play.mvc.Result;
+import utils.actions.SessionAuth;
 import utils.crypto.Crypto;
 
 import com.google.inject.Inject;
@@ -34,9 +36,9 @@ public class UserController extends AbstractCRUDController<User, Long> {
 		TypedQuery<User> query = JPA.em().createQuery(
 				"select a from User a where a.email = :email", User.class);
 		query.setParameter("email", login.getEmail());
-		List<User> data = dao.find(query);
 		User user;
 		try {
+			List<User> data = dao.find(query);
 			if (null == data) {
 				throw new FailedLoginException();
 			} else {
@@ -51,12 +53,18 @@ public class UserController extends AbstractCRUDController<User, Long> {
 				if (success) {
 					session().clear();
 					session("email", user.getEmail());
+					session("role", user.getRole().getName());
+					session("time", Long.toString(System.currentTimeMillis()));
 				} else {
 					throw new FailedLoginException();
 				}
 			}
+		} catch (FailedLoginException e) {
+			return unauthorized("Login failed, Username or Password wrong.");
 		} catch (Exception e) {
-			return unauthorized(Json.toJson("[\"result\":\"failed\"]"));
+			String msg = "Login failed, due to a technical error.";
+			Logger.error(msg, e);
+			return internalServerError(msg);
 		}
 
 		return ok(Json.toJson(user));
@@ -67,6 +75,7 @@ public class UserController extends AbstractCRUDController<User, Long> {
 		return ok();
 	}
 	
+	@SessionAuth
 	@Transactional
 	public Result changePassword() {
 		NewPassword pw = Json.fromJson(request().body().asJson(), NewPassword.class);
@@ -74,9 +83,9 @@ public class UserController extends AbstractCRUDController<User, Long> {
 		TypedQuery<User> query = JPA.em().createQuery(
 				"select a from User a where a.email = :email", User.class);
 		query.setParameter("email", email);
-		List<User> data = dao.find(query);
 		User user;
 		try {
+			List<User> data = dao.find(query);
 			user = data.get(0);
 			boolean success = false;
 			try {
@@ -94,8 +103,12 @@ public class UserController extends AbstractCRUDController<User, Long> {
 			} else {
 				throw new FailedLoginException();
 			}
+		} catch (FailedLoginException e) {
+			return unauthorized("Not allowed to change password");
 		} catch (Exception e) {
-			return unauthorized(Json.toJson("[\"result\":\"failed\"]"));
+			String msg = "Password change failed, due to a technical error.";
+			Logger.error(msg, e);
+			return internalServerError(msg);
 		}
 
 		return ok();

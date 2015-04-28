@@ -5,6 +5,13 @@
 # Home page
 GET     /                         @controllers.Application.index()
 
+#AR service
+GET     /ar                       @controllers.ar.ARController.getAll()
+GET     /ar/:id                   @controllers.ar.ARController.get(id: Long)
+POST    /ar                       @controllers.ar.ARController.create()
+PUT     /ar                       @controllers.ar.ARController.update()
+DELETE  /ar/:id                   @controllers.ar.ARController.delete(id: Long)
+
 #Smell service
 GET     /smell                    @controllers.smell.SmellController.getAll()
 GET     /smell/forcloud           @controllers.smell.SmellController.getCloudSmells()
@@ -19,6 +26,20 @@ GET     /smellgroup/:id           @controllers.smell.SmellGroupController.get(id
 POST    /smellgroup               @controllers.smell.SmellGroupController.create()
 PUT     /smellgroup               @controllers.smell.SmellGroupController.update()
 DELETE  /smellgroup/:id           @controllers.smell.SmellGroupController.delete(id: Long)
+
+#Discussion service
+GET     /discussion               @controllers.discussion.DiscussionController.getAll()
+GET     /discussion/:id           @controllers.discussion.DiscussionController.get(id: Long)
+POST    /discussion               @controllers.discussion.DiscussionController.create()
+PUT     /discussion               @controllers.discussion.DiscussionController.update()
+DELETE  /discussion/:id           @controllers.discussion.DiscussionController.delete(id: Long)
+
+#Comment service
+GET     /comment                  @controllers.discussion.CommentController.getAll()
+GET     /comment/:id              @controllers.discussion.CommentController.get(id: Long)
+POST    /comment                  @controllers.discussion.CommentController.create()
+PUT     /comment                  @controllers.discussion.CommentController.update()
+DELETE  /comment/:id              @controllers.discussion.CommentController.delete(id: Long)
 
 #Property service
 GET     /property                 @controllers.property.PropertyController.getAll()

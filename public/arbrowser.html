@@ -28,11 +28,11 @@
                     <th><a href="" ng-click="reverseSmells=!reverseSmells;order('smells.name', reverseSmells)">Smells <span ng-show="reverseSmells">&#x25B2;</span><span ng-show="!reverseSmells">&#x25BC;</span></a></th>
                     <th></th>
                 </tr>
-                <tr ng-repeat="ar in arlist | filter:search">
+                <tr ng-repeat="ar in arlist | filter:search" ng-dblclick="$state.go('singlear',{id: ar.id})">
                     <td>{{ar.name}}</td>
                     <td>{{ar.desc}}</td>
                     <td><span ng-repeat="smell in ar.smells">{{smell.name}}, </span></td>
-                    <td><a href ng-click="openAr(ar.id)"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;<a href ng-click="deleteAr(smellItem.id)"><span class="glyphicon glyphicon-trash"></span></a></td>
+                    <td><a ui-sref="aredit({id: ar.id})" ng-show="isAllowed.check(['Admin','Editor'])"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;<a href ng-click="deleteAr(ar.id)" ng-show="isAllowed.check(['Admin'])"><span class="glyphicon glyphicon-trash"></span></a></td>
                 </tr>
             </table>
             <pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></pagination>
