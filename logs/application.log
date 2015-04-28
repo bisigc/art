@@ -1,810 +1,245 @@
-2015-04-27 19:36:00,997 - [INFO] - from play in pool-42-thread-3 
+2015-04-28 19:58:13,891 - [INFO] - from play in pool-5-thread-5 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9085
 
-2015-04-27 19:36:09,478 - [INFO] - from play in play-internal-execution-context-1 
+2015-04-28 19:58:18,096 - [INFO] - from play in play-internal-execution-context-1 
 datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
 
-2015-04-27 19:36:09,807 - [INFO] - from play in play-internal-execution-context-1 
+2015-04-28 19:58:18,528 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:mysql://localhost/art
 
-2015-04-27 19:36:12,096 - [INFO] - from play in play-internal-execution-context-1 
+2015-04-28 19:58:21,080 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2015-04-27 19:36:32,624 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 20:33:43,430 - [INFO] - from play in play-internal-execution-context-4 
+datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
+
+2015-04-28 20:33:43,460 - [INFO] - from play in play-internal-execution-context-4 
+database [default] connected at jdbc:mysql://localhost/art
+
+2015-04-28 20:33:44,371 - [INFO] - from play in play-internal-execution-context-4 
+Application started (Dev)
+
+2015-04-28 20:35:03,926 - [INFO] - from play in play-internal-execution-context-4 
+datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
+
+2015-04-28 20:35:03,959 - [INFO] - from play in play-internal-execution-context-4 
+database [default] connected at jdbc:mysql://localhost/art
+
+2015-04-28 20:35:04,596 - [INFO] - from play in play-internal-execution-context-4 
+Application started (Dev)
+
+2015-04-28 21:08:42,166 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
 Role: nonLogin
 
-2015-04-27 19:36:32,629 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,167 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
 Role: Applier
 
-2015-04-27 19:36:32,630 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,167 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
       Function: Applier
 
-2015-04-27 19:36:32,632 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,167 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:POST
 
-2015-04-27 19:36:32,632 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,167 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:PUT
 
-2015-04-27 19:36:32,633 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,167 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:DELETE
 
-2015-04-27 19:36:32,633 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,167 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
 Role: Admin
 
-2015-04-27 19:36:32,633 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,167 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
       Function: Admin
 
-2015-04-27 19:36:32,633 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,167 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:POST
 
-2015-04-27 19:36:32,633 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,167 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:PUT
 
-2015-04-27 19:36:32,633 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,167 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:DELETE
 
-2015-04-27 19:36:32,633 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,167 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
       Function: Admin
 
-2015-04-27 19:36:32,633 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,167 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:PUT
 
-2015-04-27 19:36:32,633 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,167 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
       Function: Admin
 
-2015-04-27 19:36:32,633 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,167 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:POST
 
-2015-04-27 19:36:32,633 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,168 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:PUT
 
-2015-04-27 19:36:32,633 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,168 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:DELETE
 
-2015-04-27 19:36:32,633 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,168 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
       Function: Admin
 
-2015-04-27 19:36:32,633 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,168 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:POST
 
-2015-04-27 19:36:32,633 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,168 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:PUT
 
-2015-04-27 19:36:32,633 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,168 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:DELETE
 
-2015-04-27 19:36:32,634 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,168 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
       Function: Admin
 
-2015-04-27 19:36:32,634 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,168 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:POST
 
-2015-04-27 19:36:32,634 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,168 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:PUT
 
-2015-04-27 19:36:32,634 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,168 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:DELETE
 
-2015-04-27 19:36:32,634 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,168 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
       Function: Admin
 
-2015-04-27 19:36:32,634 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,168 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:POST
 
-2015-04-27 19:36:32,634 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,168 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:PUT
 
-2015-04-27 19:36:32,634 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,168 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:DELETE
 
-2015-04-27 19:36:32,634 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,168 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
       Function: Admin
 
-2015-04-27 19:36:32,634 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,168 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:POST
 
-2015-04-27 19:36:32,634 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,168 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:PUT
 
-2015-04-27 19:36:32,634 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,168 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:DELETE
 
-2015-04-27 19:36:32,634 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,168 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
       Function: Admin
 
-2015-04-27 19:36:32,634 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,168 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:POST
 
-2015-04-27 19:36:32,634 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,168 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:PUT
 
-2015-04-27 19:36:32,635 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,168 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:DELETE
 
-2015-04-27 19:36:32,635 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,168 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
       Function: Admin
 
-2015-04-27 19:36:32,635 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,168 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:POST
 
-2015-04-27 19:36:32,635 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,168 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:PUT
 
-2015-04-27 19:36:32,635 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,168 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:DELETE
 
-2015-04-27 19:36:32,635 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,169 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
 Role: Editor
 
-2015-04-27 19:36:32,635 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,169 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
       Function: Editor
 
-2015-04-27 19:36:32,635 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,169 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:PUT
 
-2015-04-27 19:36:32,635 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,169 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
       Function: Editor
 
-2015-04-27 19:36:32,635 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,169 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:POST
 
-2015-04-27 19:36:32,635 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,169 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:PUT
 
-2015-04-27 19:36:32,636 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,169 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:DELETE
 
-2015-04-27 19:36:32,636 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,169 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
       Function: Editor
 
-2015-04-27 19:36:32,636 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,169 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:POST
 
-2015-04-27 19:36:32,636 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,169 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:PUT
 
-2015-04-27 19:36:32,636 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,169 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:DELETE
 
-2015-04-27 19:36:32,636 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,169 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
       Function: Editor
 
-2015-04-27 19:36:32,636 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,169 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:POST
 
-2015-04-27 19:36:32,636 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,169 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:PUT
 
-2015-04-27 19:36:32,636 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,169 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
       Function: Editor
 
-2015-04-27 19:36:32,636 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,169 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
                 Method:PUT
 
-2015-04-27 19:36:32,637 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,170 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
 httpMethod: PUT
 
-2015-04-27 19:36:32,637 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,170 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
 appContext: /
 
-2015-04-27 19:36:32,637 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
-function:   smell
+2015-04-28 21:08:42,170 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
+function:   user
 
-2015-04-27 19:36:32,637 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+2015-04-28 21:08:42,170 - [DEBUG] - from application in play-akka.actor.default-dispatcher-96 
 userrole:   Admin
 
-2015-04-27 20:42:35,802 - [INFO] - from play in play-internal-execution-context-1 
-datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
-
-2015-04-27 20:42:35,827 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:mysql://localhost/art
-
-2015-04-27 20:42:36,746 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-04-27 20:49:53,838 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-Role: nonLogin
-
-2015-04-27 20:49:53,839 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-Role: Applier
-
-2015-04-27 20:49:53,839 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-      Function: Applier
-
-2015-04-27 20:49:53,839 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:POST
-
-2015-04-27 20:49:53,839 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:PUT
-
-2015-04-27 20:49:53,839 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:DELETE
-
-2015-04-27 20:49:53,839 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-Role: Admin
-
-2015-04-27 20:49:53,839 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-      Function: Admin
-
-2015-04-27 20:49:53,839 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:POST
-
-2015-04-27 20:49:53,839 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:PUT
-
-2015-04-27 20:49:53,839 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:DELETE
-
-2015-04-27 20:49:53,839 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-      Function: Admin
-
-2015-04-27 20:49:53,839 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:PUT
-
-2015-04-27 20:49:53,839 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-      Function: Admin
-
-2015-04-27 20:49:53,839 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:POST
-
-2015-04-27 20:49:53,839 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:PUT
-
-2015-04-27 20:49:53,839 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:DELETE
-
-2015-04-27 20:49:53,839 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-      Function: Admin
-
-2015-04-27 20:49:53,839 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:POST
-
-2015-04-27 20:49:53,873 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:PUT
-
-2015-04-27 20:49:53,873 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:DELETE
-
-2015-04-27 20:49:53,873 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-      Function: Admin
-
-2015-04-27 20:49:53,873 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:POST
-
-2015-04-27 20:49:53,873 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:PUT
-
-2015-04-27 20:49:53,873 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:DELETE
-
-2015-04-27 20:49:53,873 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-      Function: Admin
-
-2015-04-27 20:49:53,873 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:POST
-
-2015-04-27 20:49:53,873 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:PUT
-
-2015-04-27 20:49:53,873 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:DELETE
-
-2015-04-27 20:49:53,874 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-      Function: Admin
-
-2015-04-27 20:49:53,874 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:POST
-
-2015-04-27 20:49:53,874 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:PUT
-
-2015-04-27 20:49:53,874 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:DELETE
-
-2015-04-27 20:49:53,874 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-      Function: Admin
-
-2015-04-27 20:49:53,874 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:POST
-
-2015-04-27 20:49:53,874 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:PUT
-
-2015-04-27 20:49:53,874 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:DELETE
-
-2015-04-27 20:49:53,874 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-      Function: Admin
-
-2015-04-27 20:49:53,874 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:POST
-
-2015-04-27 20:49:53,874 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:PUT
-
-2015-04-27 20:49:53,874 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:DELETE
-
-2015-04-27 20:49:53,874 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-Role: Editor
-
-2015-04-27 20:49:53,874 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-      Function: Editor
-
-2015-04-27 20:49:53,874 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:PUT
-
-2015-04-27 20:49:53,874 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-      Function: Editor
-
-2015-04-27 20:49:53,874 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:POST
-
-2015-04-27 20:49:53,874 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:PUT
-
-2015-04-27 20:49:53,874 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:DELETE
-
-2015-04-27 20:49:53,874 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-      Function: Editor
-
-2015-04-27 20:49:53,874 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:POST
-
-2015-04-27 20:49:53,874 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:PUT
-
-2015-04-27 20:49:53,874 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:DELETE
-
-2015-04-27 20:49:53,874 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-      Function: Editor
-
-2015-04-27 20:49:53,874 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:POST
-
-2015-04-27 20:49:53,874 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:PUT
-
-2015-04-27 20:49:53,874 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-      Function: Editor
-
-2015-04-27 20:49:53,874 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
-                Method:PUT
-
-2015-04-27 20:59:07,922 - [DEBUG] - from application in play-akka.actor.default-dispatcher-45 
-httpMethod: PUT
-
-2015-04-27 20:59:07,922 - [DEBUG] - from application in play-akka.actor.default-dispatcher-45 
-appContext: /
-
-2015-04-27 20:59:07,922 - [DEBUG] - from application in play-akka.actor.default-dispatcher-45 
-function:   smell
-
-2015-04-27 20:59:07,922 - [DEBUG] - from application in play-akka.actor.default-dispatcher-45 
-userrole:   Admin
-
-2015-04-27 21:53:49,993 - [INFO] - from play in play-internal-execution-context-8 
-datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
-
-2015-04-27 21:53:50,025 - [INFO] - from play in play-internal-execution-context-8 
-database [default] connected at jdbc:mysql://localhost/art
-
-2015-04-27 21:53:50,771 - [INFO] - from play in play-internal-execution-context-8 
-Application started (Dev)
-
-2015-04-27 21:55:41,193 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-Role: nonLogin
-
-2015-04-27 21:55:41,194 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-Role: Applier
-
-2015-04-27 21:55:41,194 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-      Function: Applier
-
-2015-04-27 21:55:41,194 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:POST
-
-2015-04-27 21:55:41,194 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:PUT
-
-2015-04-27 21:55:41,194 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:DELETE
-
-2015-04-27 21:55:41,194 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-Role: Admin
-
-2015-04-27 21:55:41,194 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-      Function: Admin
-
-2015-04-27 21:55:41,194 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:POST
-
-2015-04-27 21:55:41,194 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:PUT
-
-2015-04-27 21:55:41,194 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:DELETE
-
-2015-04-27 21:55:41,194 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-      Function: Admin
-
-2015-04-27 21:55:41,194 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:PUT
-
-2015-04-27 21:55:41,194 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-      Function: Admin
-
-2015-04-27 21:55:41,194 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:POST
-
-2015-04-27 21:55:41,194 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:PUT
-
-2015-04-27 21:55:41,194 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:DELETE
-
-2015-04-27 21:55:41,194 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-      Function: Admin
-
-2015-04-27 21:55:41,194 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:POST
-
-2015-04-27 21:55:41,194 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:PUT
-
-2015-04-27 21:55:41,194 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:DELETE
-
-2015-04-27 21:55:41,194 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-      Function: Admin
-
-2015-04-27 21:55:41,195 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:POST
-
-2015-04-27 21:55:41,195 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:PUT
-
-2015-04-27 21:55:41,195 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:DELETE
-
-2015-04-27 21:55:41,195 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-      Function: Admin
-
-2015-04-27 21:55:41,195 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:POST
-
-2015-04-27 21:55:41,195 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:PUT
-
-2015-04-27 21:55:41,195 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:DELETE
-
-2015-04-27 21:55:41,195 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-      Function: Admin
-
-2015-04-27 21:55:41,195 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:POST
-
-2015-04-27 21:55:41,195 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:PUT
-
-2015-04-27 21:55:41,195 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:DELETE
-
-2015-04-27 21:55:41,195 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-      Function: Admin
-
-2015-04-27 21:55:41,195 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:POST
-
-2015-04-27 21:55:41,195 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:PUT
-
-2015-04-27 21:55:41,195 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:DELETE
-
-2015-04-27 21:55:41,195 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-      Function: Admin
-
-2015-04-27 21:55:41,195 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:POST
-
-2015-04-27 21:55:41,195 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:PUT
-
-2015-04-27 21:55:41,195 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:DELETE
-
-2015-04-27 21:55:41,195 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-Role: Editor
-
-2015-04-27 21:55:41,195 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-      Function: Editor
-
-2015-04-27 21:55:41,195 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:PUT
-
-2015-04-27 21:55:41,195 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-      Function: Editor
-
-2015-04-27 21:55:41,195 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:POST
-
-2015-04-27 21:55:41,195 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:PUT
-
-2015-04-27 21:55:41,195 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:DELETE
-
-2015-04-27 21:55:41,195 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-      Function: Editor
-
-2015-04-27 21:55:41,195 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:POST
-
-2015-04-27 21:55:41,195 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:PUT
-
-2015-04-27 21:55:41,195 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:DELETE
-
-2015-04-27 21:55:41,195 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-      Function: Editor
-
-2015-04-27 21:55:41,195 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:POST
-
-2015-04-27 21:55:41,195 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:PUT
-
-2015-04-27 21:55:41,195 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-      Function: Editor
-
-2015-04-27 21:55:41,195 - [DEBUG] - from application in play-akka.actor.default-dispatcher-119 
-                Method:PUT
-
-2015-04-27 21:55:41,196 - [ERROR] - from application in play-akka.actor.default-dispatcher-119 
-unauth 2
-
-2015-04-27 22:08:22,647 - [ERROR] - from application in play-akka.actor.default-dispatcher-132 
-unauth 2
-
-2015-04-27 22:53:25,916 - [INFO] - from play in play-internal-execution-context-9 
-datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
-
-2015-04-27 22:53:25,948 - [INFO] - from play in play-internal-execution-context-9 
-database [default] connected at jdbc:mysql://localhost/art
-
-2015-04-27 22:53:26,697 - [INFO] - from play in play-internal-execution-context-9 
-Application started (Dev)
-
-2015-04-27 23:21:35,637 - [INFO] - from play in play-internal-execution-context-9 
-datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
-
-2015-04-27 23:21:35,665 - [INFO] - from play in play-internal-execution-context-9 
-database [default] connected at jdbc:mysql://localhost/art
-
-2015-04-27 23:21:36,499 - [INFO] - from play in play-internal-execution-context-9 
-Application started (Dev)
-
-2015-04-27 23:54:49,212 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-Role: nonLogin
-
-2015-04-27 23:54:49,214 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-Role: Applier
-
-2015-04-27 23:54:49,214 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-      Function: Applier
-
-2015-04-27 23:54:49,214 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:POST
-
-2015-04-27 23:54:49,214 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:PUT
-
-2015-04-27 23:54:49,215 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:DELETE
-
-2015-04-27 23:54:49,215 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-Role: Admin
-
-2015-04-27 23:54:49,215 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-      Function: Admin
-
-2015-04-27 23:54:49,215 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:POST
-
-2015-04-27 23:54:49,215 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:PUT
-
-2015-04-27 23:54:49,215 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:DELETE
-
-2015-04-27 23:54:49,215 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-      Function: Admin
-
-2015-04-27 23:54:49,215 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:PUT
-
-2015-04-27 23:54:49,215 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-      Function: Admin
-
-2015-04-27 23:54:49,215 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:POST
-
-2015-04-27 23:54:49,215 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:PUT
-
-2015-04-27 23:54:49,215 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:DELETE
-
-2015-04-27 23:54:49,215 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-      Function: Admin
-
-2015-04-27 23:54:49,215 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:POST
-
-2015-04-27 23:54:49,215 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:PUT
-
-2015-04-27 23:54:49,228 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:DELETE
-
-2015-04-27 23:54:49,228 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-      Function: Admin
-
-2015-04-27 23:54:49,228 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:POST
-
-2015-04-27 23:54:49,228 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:PUT
-
-2015-04-27 23:54:49,228 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:DELETE
-
-2015-04-27 23:54:49,228 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-      Function: Admin
-
-2015-04-27 23:54:49,228 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:POST
-
-2015-04-27 23:54:49,228 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:PUT
-
-2015-04-27 23:54:49,228 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:DELETE
-
-2015-04-27 23:54:49,229 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-      Function: Admin
-
-2015-04-27 23:54:49,229 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:POST
-
-2015-04-27 23:54:49,229 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:PUT
-
-2015-04-27 23:54:49,229 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:DELETE
-
-2015-04-27 23:54:49,229 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-      Function: Admin
-
-2015-04-27 23:54:49,229 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:POST
-
-2015-04-27 23:54:49,229 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:PUT
-
-2015-04-27 23:54:49,229 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:DELETE
-
-2015-04-27 23:54:49,231 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-      Function: Admin
-
-2015-04-27 23:54:49,231 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:POST
-
-2015-04-27 23:54:49,231 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:PUT
-
-2015-04-27 23:54:49,231 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:DELETE
-
-2015-04-27 23:54:49,231 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-Role: Editor
-
-2015-04-27 23:54:49,231 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-      Function: Editor
-
-2015-04-27 23:54:49,231 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:PUT
-
-2015-04-27 23:54:49,231 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-      Function: Editor
-
-2015-04-27 23:54:49,231 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:POST
-
-2015-04-27 23:54:49,231 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:PUT
-
-2015-04-27 23:54:49,231 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:DELETE
-
-2015-04-27 23:54:49,231 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-      Function: Editor
-
-2015-04-27 23:54:49,231 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:POST
-
-2015-04-27 23:54:49,231 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:PUT
-
-2015-04-27 23:54:49,231 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:DELETE
-
-2015-04-27 23:54:49,231 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-      Function: Editor
-
-2015-04-27 23:54:49,231 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:POST
-
-2015-04-27 23:54:49,231 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:PUT
-
-2015-04-27 23:54:49,231 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-      Function: Editor
-
-2015-04-27 23:54:49,231 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-                Method:PUT
-
-2015-04-28 00:42:22,503 - [INFO] - from play in play-internal-execution-context-12 
-datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
-
-2015-04-28 00:42:22,532 - [INFO] - from play in play-internal-execution-context-12 
-database [default] connected at jdbc:mysql://localhost/art
-
-2015-04-28 00:42:23,446 - [INFO] - from play in play-internal-execution-context-12 
-Application started (Dev)
-
-2015-04-28 00:44:50,171 - [INFO] - from play in play-internal-execution-context-12 
-datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
-
-2015-04-28 00:44:50,203 - [INFO] - from play in play-internal-execution-context-12 
-database [default] connected at jdbc:mysql://localhost/art
-
-2015-04-28 00:44:50,789 - [INFO] - from play in play-internal-execution-context-12 
-Application started (Dev)
-
-2015-04-28 00:46:26,256 - [INFO] - from play in play-internal-execution-context-13 
-datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
-
-2015-04-28 00:46:26,286 - [INFO] - from play in play-internal-execution-context-13 
-database [default] connected at jdbc:mysql://localhost/art
-
-2015-04-28 00:46:26,904 - [INFO] - from play in play-internal-execution-context-13 
-Application started (Dev)
-
-2015-04-28 00:48:57,998 - [ERROR] - from application in New I/O worker #7 
-
-
-! @6m1h3ppa6 - Internal server error, for (GET) [/] ->
-
-play.PlayExceptions$CompilationException: Compilation error[Not parsed?]
-	at play.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27) ~[na:na]
-	at play.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27) ~[na:na]
+2015-04-28 21:47:30,507 - [ERROR] - from application in New I/O worker #7 
+
+
+! @6m1nd687e - Internal server error, for (GET) [/] ->
+
+play.api.PlayException: Cannot init the Global object[null]
+	at play.api.WithDefaultGlobal$$anonfun$play$api$WithDefaultGlobal$$globalInstance$1.apply(Application.scala:59) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultGlobal$$anonfun$play$api$WithDefaultGlobal$$globalInstance$1.apply(Application.scala:53) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultGlobal$class.play$api$WithDefaultGlobal$$globalInstance(Application.scala:52) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultGlobal$$globalInstance$lzycompute(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultGlobal$$globalInstance(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultGlobal$class.global(Application.scala:68) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.global(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultConfiguration$class.play$api$WithDefaultConfiguration$$fullConfiguration(Application.scala:82) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultConfiguration$$fullConfiguration$lzycompute(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultConfiguration$$fullConfiguration(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultConfiguration$class.configuration(Application.scala:84) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.configuration(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.Application$class.$init$(Application.scala:274) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.<init>(Application.scala:406) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1$$anon$1.<init>(ApplicationProvider.scala:144) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:144) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:130) ~[play_2.11-2.3.6.jar:2.3.6]
 	at scala.Option.map(Option.scala:145) ~[scala-library-2.11.1.jar:na]
-	at play.PlayReloader$$anon$1$$anonfun$play$PlayReloader$$anon$$taskFailureHandler$1.apply(PlayReloader.scala:235) ~[na:na]
-	at play.PlayReloader$$anon$1$$anonfun$play$PlayReloader$$anon$$taskFailureHandler$1.apply(PlayReloader.scala:230) ~[na:na]
-	at scala.Option.map(Option.scala:145) ~[scala-library-2.11.1.jar:na]
-	at play.PlayReloader$$anon$1.play$PlayReloader$$anon$$taskFailureHandler(PlayReloader.scala:230) ~[na:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:90) ~[na:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:90) ~[na:na]
-	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library-2.11.1.jar:na]
-	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:90) ~[na:na]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:122) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:130) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:128) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.util.Success.flatMap(Try.scala:230) ~[scala-library-2.11.1.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:128) ~[play_2.11-2.3.6.jar:2.3.6]
 	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:120) ~[play_2.11-2.3.6.jar:2.3.6]
 	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.11.1.jar:na]
 	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.11.1.jar:na]
@@ -813,406 +248,406 @@ play.PlayExceptions$CompilationException: Compilation error[Not parsed?]
 	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.11.1.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.11.1.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.11.1.jar:na]
+Caused by: java.lang.ExceptionInInitializerError: null
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.8.0_25]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:1.8.0_25]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.8.0_25]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:408) ~[na:1.8.0_25]
+	at java.lang.Class.newInstance(Class.java:438) ~[na:1.8.0_25]
+	at play.api.WithDefaultGlobal$class.play$api$WithDefaultGlobal$$javaGlobal(Application.scala:31) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultGlobal$$javaGlobal$lzycompute(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultGlobal$$javaGlobal(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultGlobal$$anonfun$play$api$WithDefaultGlobal$$globalInstance$1.apply(Application.scala:54) ~[play_2.11-2.3.6.jar:2.3.6]
+	... 30 common frames omitted
+Caused by: java.lang.RuntimeException: There is no started application
+	at scala.sys.package$.error(package.scala:27) ~[scala-library-2.11.1.jar:na]
+	at play.api.Play$$anonfun$current$1.apply(Play.scala:71) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.Play$$anonfun$current$1.apply(Play.scala:71) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.Option.getOrElse(Option.scala:120) ~[scala-library-2.11.1.jar:na]
+	at play.api.Play$.current(Play.scala:71) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.Play.current(Play.scala) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.Play.application(Play.java:17) ~[play_2.11-2.3.6.jar:2.3.6]
+	at utils.Global.<clinit>(Global.java:23) ~[na:na]
+	... 39 common frames omitted
 
-2015-04-28 00:49:25,865 - [INFO] - from play in play-internal-execution-context-13 
+2015-04-28 21:49:11,895 - [ERROR] - from application in New I/O worker #7 
+
+
+! @6m1nd687e - Internal server error, for (GET) [/] ->
+
+play.api.PlayException: Cannot init the Global object[null]
+	at play.api.WithDefaultGlobal$$anonfun$play$api$WithDefaultGlobal$$globalInstance$1.apply(Application.scala:59) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultGlobal$$anonfun$play$api$WithDefaultGlobal$$globalInstance$1.apply(Application.scala:53) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultGlobal$class.play$api$WithDefaultGlobal$$globalInstance(Application.scala:52) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultGlobal$$globalInstance$lzycompute(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultGlobal$$globalInstance(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultGlobal$class.global(Application.scala:68) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.global(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultConfiguration$class.play$api$WithDefaultConfiguration$$fullConfiguration(Application.scala:82) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultConfiguration$$fullConfiguration$lzycompute(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultConfiguration$$fullConfiguration(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultConfiguration$class.configuration(Application.scala:84) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.configuration(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.Application$class.$init$(Application.scala:274) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.<init>(Application.scala:406) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1$$anon$1.<init>(ApplicationProvider.scala:144) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:144) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:130) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.11.1.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:130) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:128) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.util.Success.flatMap(Try.scala:230) ~[scala-library-2.11.1.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:128) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:120) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.11.1.jar:na]
+Caused by: java.lang.ExceptionInInitializerError: null
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.8.0_25]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:1.8.0_25]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.8.0_25]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:408) ~[na:1.8.0_25]
+	at java.lang.Class.newInstance(Class.java:438) ~[na:1.8.0_25]
+	at play.api.WithDefaultGlobal$class.play$api$WithDefaultGlobal$$javaGlobal(Application.scala:31) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultGlobal$$javaGlobal$lzycompute(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultGlobal$$javaGlobal(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultGlobal$$anonfun$play$api$WithDefaultGlobal$$globalInstance$1.apply(Application.scala:54) ~[play_2.11-2.3.6.jar:2.3.6]
+	... 30 common frames omitted
+Caused by: java.lang.RuntimeException: There is no started application
+	at scala.sys.package$.error(package.scala:27) ~[scala-library-2.11.1.jar:na]
+	at play.api.Play$$anonfun$current$1.apply(Play.scala:71) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.Play$$anonfun$current$1.apply(Play.scala:71) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.Option.getOrElse(Option.scala:120) ~[scala-library-2.11.1.jar:na]
+	at play.api.Play$.current(Play.scala:71) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.Play.current(Play.scala) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.Play.application(Play.java:17) ~[play_2.11-2.3.6.jar:2.3.6]
+	at utils.Global.<clinit>(Global.java:23) ~[na:na]
+	... 39 common frames omitted
+
+2015-04-28 21:49:14,360 - [ERROR] - from application in New I/O worker #7 
+
+
+! @6m1nd687e - Internal server error, for (GET) [/] ->
+
+play.api.PlayException: Cannot init the Global object[null]
+	at play.api.WithDefaultGlobal$$anonfun$play$api$WithDefaultGlobal$$globalInstance$1.apply(Application.scala:59) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultGlobal$$anonfun$play$api$WithDefaultGlobal$$globalInstance$1.apply(Application.scala:53) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultGlobal$class.play$api$WithDefaultGlobal$$globalInstance(Application.scala:52) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultGlobal$$globalInstance$lzycompute(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultGlobal$$globalInstance(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultGlobal$class.global(Application.scala:68) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.global(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultConfiguration$class.play$api$WithDefaultConfiguration$$fullConfiguration(Application.scala:82) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultConfiguration$$fullConfiguration$lzycompute(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultConfiguration$$fullConfiguration(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultConfiguration$class.configuration(Application.scala:84) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.configuration(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.Application$class.$init$(Application.scala:274) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.<init>(Application.scala:406) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1$$anon$1.<init>(ApplicationProvider.scala:144) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:144) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:130) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.11.1.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:130) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:128) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.util.Success.flatMap(Try.scala:230) ~[scala-library-2.11.1.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:128) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:120) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.11.1.jar:na]
+Caused by: java.lang.ExceptionInInitializerError: null
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.8.0_25]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:1.8.0_25]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.8.0_25]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:408) ~[na:1.8.0_25]
+	at java.lang.Class.newInstance(Class.java:438) ~[na:1.8.0_25]
+	at play.api.WithDefaultGlobal$class.play$api$WithDefaultGlobal$$javaGlobal(Application.scala:31) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultGlobal$$javaGlobal$lzycompute(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultGlobal$$javaGlobal(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultGlobal$$anonfun$play$api$WithDefaultGlobal$$globalInstance$1.apply(Application.scala:54) ~[play_2.11-2.3.6.jar:2.3.6]
+	... 30 common frames omitted
+Caused by: java.lang.RuntimeException: There is no started application
+	at scala.sys.package$.error(package.scala:27) ~[scala-library-2.11.1.jar:na]
+	at play.api.Play$$anonfun$current$1.apply(Play.scala:71) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.Play$$anonfun$current$1.apply(Play.scala:71) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.Option.getOrElse(Option.scala:120) ~[scala-library-2.11.1.jar:na]
+	at play.api.Play$.current(Play.scala:71) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.Play.current(Play.scala) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.Play.application(Play.java:17) ~[play_2.11-2.3.6.jar:2.3.6]
+	at utils.Global.<clinit>(Global.java:23) ~[na:na]
+	... 39 common frames omitted
+
+2015-04-28 21:54:56,890 - [ERROR] - from application in New I/O worker #8 
+
+
+! @6m1ne5iga - Internal server error, for (GET) [/] ->
+
+play.api.PlayException: Cannot init the Global object[null]
+	at play.api.WithDefaultGlobal$$anonfun$play$api$WithDefaultGlobal$$globalInstance$1.apply(Application.scala:59) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultGlobal$$anonfun$play$api$WithDefaultGlobal$$globalInstance$1.apply(Application.scala:53) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultGlobal$class.play$api$WithDefaultGlobal$$globalInstance(Application.scala:52) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultGlobal$$globalInstance$lzycompute(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultGlobal$$globalInstance(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultGlobal$class.global(Application.scala:68) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.global(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultConfiguration$class.play$api$WithDefaultConfiguration$$fullConfiguration(Application.scala:82) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultConfiguration$$fullConfiguration$lzycompute(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultConfiguration$$fullConfiguration(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultConfiguration$class.configuration(Application.scala:84) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.configuration(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.Application$class.$init$(Application.scala:274) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.<init>(Application.scala:406) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1$$anon$1.<init>(ApplicationProvider.scala:144) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:144) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:130) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.11.1.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:130) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:128) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.util.Success.flatMap(Try.scala:230) ~[scala-library-2.11.1.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:128) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:120) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.11.1.jar:na]
+Caused by: java.lang.ExceptionInInitializerError: null
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.8.0_25]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:1.8.0_25]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.8.0_25]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:408) ~[na:1.8.0_25]
+	at java.lang.Class.newInstance(Class.java:438) ~[na:1.8.0_25]
+	at play.api.WithDefaultGlobal$class.play$api$WithDefaultGlobal$$javaGlobal(Application.scala:31) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultGlobal$$javaGlobal$lzycompute(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultGlobal$$javaGlobal(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultGlobal$$anonfun$play$api$WithDefaultGlobal$$globalInstance$1.apply(Application.scala:54) ~[play_2.11-2.3.6.jar:2.3.6]
+	... 30 common frames omitted
+Caused by: java.lang.RuntimeException: There is no started application
+	at scala.sys.package$.error(package.scala:27) ~[scala-library-2.11.1.jar:na]
+	at play.api.Play$$anonfun$current$1.apply(Play.scala:71) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.Play$$anonfun$current$1.apply(Play.scala:71) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.Option.getOrElse(Option.scala:120) ~[scala-library-2.11.1.jar:na]
+	at play.api.Play$.current(Play.scala:71) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.Play.current(Play.scala) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.Play.application(Play.java:17) ~[play_2.11-2.3.6.jar:2.3.6]
+	at utils.Global.<clinit>(Global.java:23) ~[na:na]
+	... 39 common frames omitted
+
+2015-04-28 21:55:01,249 - [ERROR] - from application in New I/O worker #8 
+
+
+! @6m1ne5iga - Internal server error, for (GET) [/] ->
+
+play.api.PlayException: Cannot init the Global object[null]
+	at play.api.WithDefaultGlobal$$anonfun$play$api$WithDefaultGlobal$$globalInstance$1.apply(Application.scala:59) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultGlobal$$anonfun$play$api$WithDefaultGlobal$$globalInstance$1.apply(Application.scala:53) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultGlobal$class.play$api$WithDefaultGlobal$$globalInstance(Application.scala:52) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultGlobal$$globalInstance$lzycompute(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultGlobal$$globalInstance(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultGlobal$class.global(Application.scala:68) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.global(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultConfiguration$class.play$api$WithDefaultConfiguration$$fullConfiguration(Application.scala:82) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultConfiguration$$fullConfiguration$lzycompute(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultConfiguration$$fullConfiguration(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultConfiguration$class.configuration(Application.scala:84) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.configuration(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.Application$class.$init$(Application.scala:274) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.<init>(Application.scala:406) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1$$anon$1.<init>(ApplicationProvider.scala:144) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:144) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:130) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.11.1.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:130) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:128) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.util.Success.flatMap(Try.scala:230) ~[scala-library-2.11.1.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:128) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:120) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.11.1.jar:na]
+Caused by: java.lang.ExceptionInInitializerError: null
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.8.0_25]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:1.8.0_25]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.8.0_25]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:408) ~[na:1.8.0_25]
+	at java.lang.Class.newInstance(Class.java:438) ~[na:1.8.0_25]
+	at play.api.WithDefaultGlobal$class.play$api$WithDefaultGlobal$$javaGlobal(Application.scala:31) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultGlobal$$javaGlobal$lzycompute(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultGlobal$$javaGlobal(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultGlobal$$anonfun$play$api$WithDefaultGlobal$$globalInstance$1.apply(Application.scala:54) ~[play_2.11-2.3.6.jar:2.3.6]
+	... 30 common frames omitted
+Caused by: java.lang.RuntimeException: There is no started application
+	at scala.sys.package$.error(package.scala:27) ~[scala-library-2.11.1.jar:na]
+	at play.api.Play$$anonfun$current$1.apply(Play.scala:71) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.Play$$anonfun$current$1.apply(Play.scala:71) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.Option.getOrElse(Option.scala:120) ~[scala-library-2.11.1.jar:na]
+	at play.api.Play$.current(Play.scala:71) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.Play.current(Play.scala) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.Play.application(Play.java:17) ~[play_2.11-2.3.6.jar:2.3.6]
+	at utils.Global.<clinit>(Global.java:23) ~[na:na]
+	... 39 common frames omitted
+
+2015-04-28 21:55:03,637 - [ERROR] - from application in New I/O worker #8 
+
+
+! @6m1ne5iga - Internal server error, for (GET) [/] ->
+
+play.api.PlayException: Cannot init the Global object[null]
+	at play.api.WithDefaultGlobal$$anonfun$play$api$WithDefaultGlobal$$globalInstance$1.apply(Application.scala:59) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultGlobal$$anonfun$play$api$WithDefaultGlobal$$globalInstance$1.apply(Application.scala:53) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultGlobal$class.play$api$WithDefaultGlobal$$globalInstance(Application.scala:52) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultGlobal$$globalInstance$lzycompute(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultGlobal$$globalInstance(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultGlobal$class.global(Application.scala:68) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.global(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultConfiguration$class.play$api$WithDefaultConfiguration$$fullConfiguration(Application.scala:82) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultConfiguration$$fullConfiguration$lzycompute(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultConfiguration$$fullConfiguration(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultConfiguration$class.configuration(Application.scala:84) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.configuration(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.Application$class.$init$(Application.scala:274) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.<init>(Application.scala:406) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1$$anon$1.<init>(ApplicationProvider.scala:144) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:144) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:130) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.11.1.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:130) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:128) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.util.Success.flatMap(Try.scala:230) ~[scala-library-2.11.1.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:128) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:120) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.11.1.jar:na]
+Caused by: java.lang.ExceptionInInitializerError: null
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.8.0_25]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:1.8.0_25]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.8.0_25]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:408) ~[na:1.8.0_25]
+	at java.lang.Class.newInstance(Class.java:438) ~[na:1.8.0_25]
+	at play.api.WithDefaultGlobal$class.play$api$WithDefaultGlobal$$javaGlobal(Application.scala:31) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultGlobal$$javaGlobal$lzycompute(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultGlobal$$javaGlobal(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultGlobal$$anonfun$play$api$WithDefaultGlobal$$globalInstance$1.apply(Application.scala:54) ~[play_2.11-2.3.6.jar:2.3.6]
+	... 30 common frames omitted
+Caused by: java.lang.RuntimeException: There is no started application
+	at scala.sys.package$.error(package.scala:27) ~[scala-library-2.11.1.jar:na]
+	at play.api.Play$$anonfun$current$1.apply(Play.scala:71) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.Play$$anonfun$current$1.apply(Play.scala:71) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.Option.getOrElse(Option.scala:120) ~[scala-library-2.11.1.jar:na]
+	at play.api.Play$.current(Play.scala:71) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.Play.current(Play.scala) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.Play.application(Play.java:17) ~[play_2.11-2.3.6.jar:2.3.6]
+	at utils.Global.<clinit>(Global.java:23) ~[na:na]
+	... 39 common frames omitted
+
+2015-04-28 21:55:05,401 - [ERROR] - from application in New I/O worker #8 
+
+
+! @6m1ne5iga - Internal server error, for (GET) [/] ->
+
+play.api.PlayException: Cannot init the Global object[null]
+	at play.api.WithDefaultGlobal$$anonfun$play$api$WithDefaultGlobal$$globalInstance$1.apply(Application.scala:59) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultGlobal$$anonfun$play$api$WithDefaultGlobal$$globalInstance$1.apply(Application.scala:53) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultGlobal$class.play$api$WithDefaultGlobal$$globalInstance(Application.scala:52) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultGlobal$$globalInstance$lzycompute(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultGlobal$$globalInstance(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultGlobal$class.global(Application.scala:68) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.global(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultConfiguration$class.play$api$WithDefaultConfiguration$$fullConfiguration(Application.scala:82) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultConfiguration$$fullConfiguration$lzycompute(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultConfiguration$$fullConfiguration(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultConfiguration$class.configuration(Application.scala:84) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.configuration(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.Application$class.$init$(Application.scala:274) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.<init>(Application.scala:406) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1$$anon$1.<init>(ApplicationProvider.scala:144) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:144) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:130) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.11.1.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:130) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:128) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.util.Success.flatMap(Try.scala:230) ~[scala-library-2.11.1.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:128) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:120) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.11.1.jar:na]
+Caused by: java.lang.ExceptionInInitializerError: null
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.8.0_25]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:1.8.0_25]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.8.0_25]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:408) ~[na:1.8.0_25]
+	at java.lang.Class.newInstance(Class.java:438) ~[na:1.8.0_25]
+	at play.api.WithDefaultGlobal$class.play$api$WithDefaultGlobal$$javaGlobal(Application.scala:31) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultGlobal$$javaGlobal$lzycompute(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.DefaultApplication.play$api$WithDefaultGlobal$$javaGlobal(Application.scala:402) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.WithDefaultGlobal$$anonfun$play$api$WithDefaultGlobal$$globalInstance$1.apply(Application.scala:54) ~[play_2.11-2.3.6.jar:2.3.6]
+	... 30 common frames omitted
+Caused by: java.lang.RuntimeException: There is no started application
+	at scala.sys.package$.error(package.scala:27) ~[scala-library-2.11.1.jar:na]
+	at play.api.Play$$anonfun$current$1.apply(Play.scala:71) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.Play$$anonfun$current$1.apply(Play.scala:71) ~[play_2.11-2.3.6.jar:2.3.6]
+	at scala.Option.getOrElse(Option.scala:120) ~[scala-library-2.11.1.jar:na]
+	at play.api.Play$.current(Play.scala:71) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.api.Play.current(Play.scala) ~[play_2.11-2.3.6.jar:2.3.6]
+	at play.Play.application(Play.java:17) ~[play_2.11-2.3.6.jar:2.3.6]
+	at utils.Global.<clinit>(Global.java:23) ~[na:na]
+	... 39 common frames omitted
+
+2015-04-28 21:59:09,607 - [INFO] - from play in play-internal-execution-context-4 
 datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
 
-2015-04-28 00:49:25,891 - [INFO] - from play in play-internal-execution-context-13 
+2015-04-28 21:59:09,635 - [INFO] - from play in play-internal-execution-context-4 
 database [default] connected at jdbc:mysql://localhost/art
 
-2015-04-28 00:49:26,490 - [INFO] - from play in play-internal-execution-context-13 
+2015-04-28 21:59:10,483 - [INFO] - from play in play-internal-execution-context-4 
 Application started (Dev)
 
-2015-04-28 01:22:23,641 - [INFO] - from play in play-internal-execution-context-14 
+2015-04-28 22:00:25,748 - [INFO] - from play in play-internal-execution-context-4 
 datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
 
-2015-04-28 01:22:23,668 - [INFO] - from play in play-internal-execution-context-14 
+2015-04-28 22:00:25,776 - [INFO] - from play in play-internal-execution-context-4 
 database [default] connected at jdbc:mysql://localhost/art
 
-2015-04-28 01:22:24,318 - [INFO] - from play in play-internal-execution-context-14 
+2015-04-28 22:00:26,351 - [INFO] - from play in play-internal-execution-context-4 
 Application started (Dev)
 
-2015-04-28 01:23:11,919 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-Role: nonLogin
-
-2015-04-28 01:23:11,920 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-Role: Applier
-
-2015-04-28 01:23:11,920 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-      Function: Applier
-
-2015-04-28 01:23:11,920 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:POST
-
-2015-04-28 01:23:11,920 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:PUT
-
-2015-04-28 01:23:11,920 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:DELETE
-
-2015-04-28 01:23:11,920 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-Role: Admin
-
-2015-04-28 01:23:11,920 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-      Function: Admin
-
-2015-04-28 01:23:11,920 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:POST
-
-2015-04-28 01:23:11,920 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:PUT
-
-2015-04-28 01:23:11,920 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:DELETE
-
-2015-04-28 01:23:11,920 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-      Function: Admin
-
-2015-04-28 01:23:11,921 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:PUT
-
-2015-04-28 01:23:11,921 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-      Function: Admin
-
-2015-04-28 01:23:11,921 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:POST
-
-2015-04-28 01:23:11,921 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:PUT
-
-2015-04-28 01:23:11,921 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:DELETE
-
-2015-04-28 01:23:11,921 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-      Function: Admin
-
-2015-04-28 01:23:11,921 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:POST
-
-2015-04-28 01:23:11,936 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:PUT
-
-2015-04-28 01:23:11,937 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:DELETE
-
-2015-04-28 01:23:11,937 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-      Function: Admin
-
-2015-04-28 01:23:11,938 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:POST
-
-2015-04-28 01:23:11,938 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:PUT
-
-2015-04-28 01:23:11,938 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:DELETE
-
-2015-04-28 01:23:11,938 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-      Function: Admin
-
-2015-04-28 01:23:11,938 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:POST
-
-2015-04-28 01:23:11,938 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:PUT
-
-2015-04-28 01:23:11,938 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:DELETE
-
-2015-04-28 01:23:11,938 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-      Function: Admin
-
-2015-04-28 01:23:11,938 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:POST
-
-2015-04-28 01:23:11,938 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:PUT
-
-2015-04-28 01:23:11,938 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:DELETE
-
-2015-04-28 01:23:11,939 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-      Function: Admin
-
-2015-04-28 01:23:11,939 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:POST
-
-2015-04-28 01:23:11,939 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:PUT
-
-2015-04-28 01:23:11,939 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:DELETE
-
-2015-04-28 01:23:11,939 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-      Function: Admin
-
-2015-04-28 01:23:11,939 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:POST
-
-2015-04-28 01:23:11,940 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:PUT
-
-2015-04-28 01:23:11,940 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:DELETE
-
-2015-04-28 01:23:11,940 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-Role: Editor
-
-2015-04-28 01:23:11,940 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-      Function: Editor
-
-2015-04-28 01:23:11,940 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:PUT
-
-2015-04-28 01:23:11,940 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-      Function: Editor
-
-2015-04-28 01:23:11,941 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:POST
-
-2015-04-28 01:23:11,941 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:PUT
-
-2015-04-28 01:23:11,941 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:DELETE
-
-2015-04-28 01:23:11,941 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-      Function: Editor
-
-2015-04-28 01:23:11,941 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:POST
-
-2015-04-28 01:23:11,942 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:PUT
-
-2015-04-28 01:23:11,942 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:DELETE
-
-2015-04-28 01:23:11,942 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-      Function: Editor
-
-2015-04-28 01:23:11,943 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:POST
-
-2015-04-28 01:23:11,959 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:PUT
-
-2015-04-28 01:23:11,959 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-      Function: Editor
-
-2015-04-28 01:23:11,959 - [DEBUG] - from application in play-akka.actor.default-dispatcher-245 
-                Method:PUT
-
-2015-04-28 01:56:45,061 - [DEBUG] - from application in play-akka.actor.default-dispatcher-254 
-httpMethod: PUT
-
-2015-04-28 01:56:45,064 - [DEBUG] - from application in play-akka.actor.default-dispatcher-254 
-appContext: /
-
-2015-04-28 01:56:45,064 - [DEBUG] - from application in play-akka.actor.default-dispatcher-254 
-function:   smell
-
-2015-04-28 01:56:45,064 - [DEBUG] - from application in play-akka.actor.default-dispatcher-254 
-userrole:   Admin
-
-2015-04-28 02:26:34,887 - [INFO] - from play in play-internal-execution-context-16 
+2015-04-28 22:28:41,526 - [INFO] - from play in play-internal-execution-context-7 
 datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
 
-2015-04-28 02:26:34,910 - [INFO] - from play in play-internal-execution-context-16 
+2015-04-28 22:28:41,551 - [INFO] - from play in play-internal-execution-context-7 
 database [default] connected at jdbc:mysql://localhost/art
 
-2015-04-28 02:26:35,700 - [INFO] - from play in play-internal-execution-context-16 
+2015-04-28 22:28:42,157 - [INFO] - from play in play-internal-execution-context-7 
 Application started (Dev)
-
-2015-04-28 03:00:36,456 - [INFO] - from play in play-internal-execution-context-16 
-datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
-
-2015-04-28 03:00:36,477 - [INFO] - from play in play-internal-execution-context-16 
-database [default] connected at jdbc:mysql://localhost/art
-
-2015-04-28 03:00:37,303 - [INFO] - from play in play-internal-execution-context-16 
-Application started (Dev)
-
-2015-04-28 03:01:04,410 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-Role: nonLogin
-
-2015-04-28 03:01:04,411 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-Role: Applier
-
-2015-04-28 03:01:04,411 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-      Function: Applier
-
-2015-04-28 03:01:04,411 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:POST
-
-2015-04-28 03:01:04,411 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:PUT
-
-2015-04-28 03:01:04,411 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:DELETE
-
-2015-04-28 03:01:04,411 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-Role: Admin
-
-2015-04-28 03:01:04,411 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-      Function: Admin
-
-2015-04-28 03:01:04,411 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:POST
-
-2015-04-28 03:01:04,411 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:PUT
-
-2015-04-28 03:01:04,411 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:DELETE
-
-2015-04-28 03:01:04,411 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-      Function: Admin
-
-2015-04-28 03:01:04,411 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:PUT
-
-2015-04-28 03:01:04,411 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-      Function: Admin
-
-2015-04-28 03:01:04,411 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:POST
-
-2015-04-28 03:01:04,411 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:PUT
-
-2015-04-28 03:01:04,411 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:DELETE
-
-2015-04-28 03:01:04,411 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-      Function: Admin
-
-2015-04-28 03:01:04,411 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:POST
-
-2015-04-28 03:01:04,411 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:PUT
-
-2015-04-28 03:01:04,411 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:DELETE
-
-2015-04-28 03:01:04,411 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-      Function: Admin
-
-2015-04-28 03:01:04,411 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:POST
-
-2015-04-28 03:01:04,411 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:PUT
-
-2015-04-28 03:01:04,411 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:DELETE
-
-2015-04-28 03:01:04,411 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-      Function: Admin
-
-2015-04-28 03:01:04,411 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:POST
-
-2015-04-28 03:01:04,411 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:PUT
-
-2015-04-28 03:01:04,411 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:DELETE
-
-2015-04-28 03:01:04,412 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-      Function: Admin
-
-2015-04-28 03:01:04,412 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:POST
-
-2015-04-28 03:01:04,412 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:PUT
-
-2015-04-28 03:01:04,412 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:DELETE
-
-2015-04-28 03:01:04,412 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-      Function: Admin
-
-2015-04-28 03:01:04,412 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:POST
-
-2015-04-28 03:01:04,412 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:PUT
-
-2015-04-28 03:01:04,412 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:DELETE
-
-2015-04-28 03:01:04,412 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-      Function: Admin
-
-2015-04-28 03:01:04,412 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:POST
-
-2015-04-28 03:01:04,412 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:PUT
-
-2015-04-28 03:01:04,412 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:DELETE
-
-2015-04-28 03:01:04,412 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-Role: Editor
-
-2015-04-28 03:01:04,412 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-      Function: Editor
-
-2015-04-28 03:01:04,412 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:PUT
-
-2015-04-28 03:01:04,412 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-      Function: Editor
-
-2015-04-28 03:01:04,412 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:POST
-
-2015-04-28 03:01:04,412 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:PUT
-
-2015-04-28 03:01:04,412 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:DELETE
-
-2015-04-28 03:01:04,412 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-      Function: Editor
-
-2015-04-28 03:01:04,412 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:POST
-
-2015-04-28 03:01:04,412 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:PUT
-
-2015-04-28 03:01:04,412 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:DELETE
-
-2015-04-28 03:01:04,412 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-      Function: Editor
-
-2015-04-28 03:01:04,412 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:POST
-
-2015-04-28 03:01:04,412 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:PUT
-
-2015-04-28 03:01:04,412 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-      Function: Editor
-
-2015-04-28 03:01:04,412 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-                Method:PUT
-
-2015-04-28 03:01:04,413 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-httpMethod: PUT
-
-2015-04-28 03:01:04,413 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-appContext: /
-
-2015-04-28 03:01:04,413 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-function:   smell
-
-2015-04-28 03:01:04,413 - [DEBUG] - from application in play-akka.actor.default-dispatcher-310 
-userrole:   Admin
 

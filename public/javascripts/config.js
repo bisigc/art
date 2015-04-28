@@ -18,6 +18,10 @@ app.run(['$rootScope','$state','$stateParams','notifications','currentUser', 'is
         }
         verifyLogin();
     });
+    
+    $rootScope.$on('$stateChangeSuccess', function (evt, toState, toParams, fromState, fromParams) {
+        window.document.title = "Architectural Refactoring Tool > " + toState.title;
+    });
 }]);
 
 app.config(['notificationsConfigProvider', function (notificationsConfigProvider) {
@@ -55,29 +59,34 @@ app.config(['$provide', function($provide){
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     //
     // For any unmatched url, redirect to ""
-    $urlRouterProvider.otherwise("");
+    $urlRouterProvider.when('', '/');;
+    $urlRouterProvider.otherwise("/");
     //
     // Now set up the states
     $stateProvider
         .state('home', {
-        url: "",
+        url: "/",
         templateUrl: _contextPath + "home.html",
+        title: "Home",
         data: { requireLogin: false }
     })
         .state('smellbrowser', {
         url: "/smellbrowser",
         controller: "SmellController as smellCtrl",
         templateUrl: _contextPath + "smellbrowser.html",
+        title: "Smell Browser",
         data: { requireLogin: false }
     })
         .state('arbrowser', {
         url: "/arbrowser",
         templateUrl: _contextPath + "arbrowser.html",
+        title: "AR Browser",
         data: { requireLogin: false }
     })
         .state('addar', {
         url: "/addar",
         templateUrl: _contextPath + "addar.html",
+        title: "Add AR",
         data: { 
             requireLogin: true,
             allowedRoles: ["Admin", "Editor"]
@@ -86,6 +95,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
         .state('smellbrowser.edit', {
         url: "/edit/:id",
         templateUrl: _contextPath + "smellbrowser.html",
+        title: "Smell Edit",
         data: { 
             requireLogin: true,
             allowedRoles: ["Admin", "Editor"]
@@ -121,21 +131,25 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
         .state('singlesmell', {
         url: "/smell/:id",
         templateUrl: _contextPath + "singlesmell.html",
+        title: "Smell View",
         data: { requireLogin: false }
     })
         .state('singlear', {
         url: "/ar/:id",
         templateUrl: _contextPath + "singlear.html",
+        title: "AR View",
         data: { requireLogin: false }
     })
         .state('taskbrowser', {
         url: "/taskbrowser",
         templateUrl: _contextPath + "taskbrowser.html",
+        title: "Task Browser",
         data: { requireLogin: false }
     })
         .state('admin', {
         url: "/admin",
         templateUrl: _contextPath + "admin.html",
+        title: "Admin",
         data: { 
             requireLogin: true,
             allowedRoles: ["Admin"]
@@ -144,6 +158,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
         .state('users', {
         url: "/users",
         templateUrl: _contextPath + "users.html",
+        title: "Users",
         data: { 
             requireLogin: true,
             allowedRoles: ["Admin"]
@@ -152,6 +167,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
         .state('exectypes', {
         url: "/exectypes",
         templateUrl: _contextPath + "exectypes.html",
+        title: "Execution Task Types",
         data: { 
             requireLogin: true,
             allowedRoles: ["Admin", "Editor"]
@@ -160,11 +176,13 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
         .state('about', {
         url: "/about",
         templateUrl: _contextPath + "about.html",
+        title: "About",
         data: { requireLogin: false }
     })
         .state('profile', {
         url: "/profile",
         templateUrl: _contextPath + "profile.html",
+        title: "Profile",
         data: { 
             requireLogin: true,
             allowedRoles: ["Admin", "Applier", "Editor"]
@@ -173,6 +191,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
         .state('smellassess', {
         url: "/smellassess",
         templateUrl: _contextPath + "smellassess.html",
+        title: "Smell Self-Assessment",
         data: { requireLogin: false }
     });
 }]);

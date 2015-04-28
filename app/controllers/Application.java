@@ -58,9 +58,9 @@ public class Application extends Controller {
 				if(sessiontime > timeout) {
 					session().clear();
 					throw new SessionTimeoutException("Session timeout");
-				} else {
+				} /*else {
 					session("time", Long.toString(currenttime));
-				}
+				}*/
 			}
 			TypedQuery<User> query = JPA.em().createQuery(
 				"select a from User a where a.email = :email", User.class);

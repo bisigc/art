@@ -14,7 +14,11 @@ app.controller('UserController', ['UserService', 'ReplyErrorHandler', 'notificat
             currentUser.profile = data;
             notifications.showSuccess("Logged in");
             $scope.logindata = {"email":"","password":""};
-            $state.go(currentUser.profile.startpage);
+            if(currentUser.profile.startpage == "stay") {
+                $state.reload();
+            } else {
+                $state.go(currentUser.profile.startpage);
+            }
         }, ReplyErrorHandler);
     };
     $scope.logout = function() {
@@ -32,7 +36,7 @@ app.controller('UserController', ['UserService', 'ReplyErrorHandler', 'notificat
 }]);
 
 app.controller('UserProfileController', ['UserService','RolesService', 'ReplyErrorHandler','notifications', '$scope','currentUser', function(UserService, RolesService, ReplyErrorHandler, notifications, $scope, currentUser){
-    $scope.startpages = ['home','arbrowser','smellbrowser','taskbrowser'];
+    $scope.startpages = ['home','arbrowser','smellbrowser','taskbrowser', 'stay'];
     $scope.user;
     $scope.pw;
     $scope.roles = [];
@@ -83,7 +87,7 @@ app.controller('ArViewController', ['ArService', 'ReplyErrorHandler', '$statePar
     
 app.controller('ARController', ['ArService', 'CloudSmells', 'ReplyErrorHandler', 'notifications','$scope','$filter', function(ArService, CloudSmells, ReplyErrorHandler, notifications, $scope, $filter) {
     var orderBy = $filter('orderBy');
-    $scope.arlist = [];
+    $scope.arlist = ars;
     this.formvisible = true;
     $scope.words = [];
     //$scope.words = words;
@@ -94,7 +98,7 @@ app.controller('ARController', ['ArService', 'CloudSmells', 'ReplyErrorHandler',
             $scope.arlist = data;
         }, ReplyErrorHandler);  
     };
-    $scope.loadArs();
+    //$scope.loadArs();
 
     this.loadCloud = function () {
         CloudSmells.get().success(function(data,status,headers,config){

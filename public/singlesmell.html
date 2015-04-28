@@ -105,6 +105,14 @@
             </div>
             <div class="panel-body" ng-bind-html="smell.description"></div>
         </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Questions</h3>
+            </div>
+            <ul class="list-group">
+              <li class="list-group-item" ng-repeat="question in smell.questions">{{question.question}}</li>
+            </ul>
+        </div>
         <div>
             <button type="submit" class="btn btn-primary pull-right" ng-disabled="smellForm.$invalid" ng-click="$state.go('smellbrowser.edit',{id: smell.id})" ng-show="isAllowed.check(['Admin','Editor'])">Edit Smell</button>
         </div>

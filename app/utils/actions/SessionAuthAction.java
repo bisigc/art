@@ -42,7 +42,7 @@ public class SessionAuthAction extends Action.Simple {
 				Result unauthorized = Results.unauthorized("Session timeout");
 				return F.Promise.pure(unauthorized);
 			} else {
-				ctx.session().put("time", Long.toString(currenttime));
+				// ctx.session().put("time", Long.toString(currenttime));
 				String httpMethod = ctx._requestHeader().method();
 				String appContext = CONF.getString("application.context");
 				String function = ctx._requestHeader().path().split(appContext)[1].split("/")[0];
