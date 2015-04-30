@@ -16,6 +16,11 @@ import javax.persistence.PrimaryKeyJoinColumn;
 
 import models.ar.ArchitecturalRefactoring;
 
+/**
+ * Data model representing a {@link Discussion}.
+ * 
+ * @author cbi
+ */
 @Entity
 public class Discussion {
 

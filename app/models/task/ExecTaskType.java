@@ -15,6 +15,11 @@ import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+/**
+ * Data model representing a {@link ExecTaskType}.
+ * 
+ * @author cbi
+ */
 @Entity
 public class ExecTaskType {
 
@@ -31,11 +36,19 @@ public class ExecTaskType {
 	@OneToMany(cascade=CascadeType.ALL, orphanRemoval = true, mappedBy="parent")
 	private List<ExecTaskType>	subTasks;
 	
+	/**
+	 * Add a subtask to the list.
+	 * 
+	 * @param task
+	 */
 	public void addSubTasks(ExecTaskType task) {
 		task.setParent(this);
 		subTasks.add(task);
 	}
 	
+	/**
+	 * Sets all parent ids of the subtasks recursively.
+	 */
 	public void setParents() {
 		for (ExecTaskType execTaskType : subTasks) {
 			execTaskType.setParent(this);

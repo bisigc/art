@@ -9,6 +9,15 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+/**
+ * Annotation Interface which binds the request intercepter Action
+ * {@link SessionAuthAction} to every controller method which is annotated
+ * with {@link SessionAuth}.
+ * 
+ * Verifying session based login and the users permissions. 
+ * 
+ * @author cbi
+ */
 @With(SessionAuthAction.class)
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD, ElementType.TYPE})

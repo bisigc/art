@@ -10,6 +10,11 @@ import javax.persistence.ManyToOne;
 
 import models.user.User;
 
+/**
+ * Data model representing a {@link Comment}.
+ * 
+ * @author cbi
+ */
 @Entity
 public class Comment {
 

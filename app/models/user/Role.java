@@ -12,6 +12,11 @@ import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+/**
+ * Data model representing a {@link Role}.
+ * 
+ * @author cbi
+ */
 @Entity
 public class Role {
 

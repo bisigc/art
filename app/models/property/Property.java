@@ -5,6 +5,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/**
+ * Data model representing a {@link Property}.
+ * 
+ * @author cbi
+ */
 @Entity
 public class Property {
 

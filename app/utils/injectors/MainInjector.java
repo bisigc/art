@@ -19,6 +19,12 @@ import com.google.inject.name.Names;
 import dao.GenericDAO;
 import dao.GenericDAOImpl;
 
+/**
+ * Injector Modul class, contains the dependency injecting rules for the ART application
+ * used by the DI framework "Dice" from Google. 
+ * 
+ * @author cbi
+ */
 public class MainInjector extends AbstractModule {
 
 	@Override

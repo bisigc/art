@@ -6,9 +6,22 @@ import play.mvc.Result;
 
 import com.google.inject.Singleton;
 
+/**
+ * Extends the general class {@link play.mvc.Controller}. Contains one method which
+ * returns all values of the Enum {@link models.status.Status} as a JsonNode.
+ * Is annotated with {@link com.google.inject.Singleton}, which makes sure
+ * the DI framework creates only one instance of the class.
+ * 
+ * @author cbi
+ */
 @Singleton
 public class StatusController extends Controller {
 	
+	/**
+	 * Returns all values of the Enum {@link models.status.Status} as a JsonNode.
+	 * 
+	 * @return
+	 */
 	public Result get() {
 		return ok(Json.toJson(models.status.Status.values()));
 	}

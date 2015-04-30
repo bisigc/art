@@ -17,13 +17,31 @@ import com.google.inject.name.Named;
 import controllers.AbstractCRUDController;
 import dao.GenericDAO;
 
+/**
+ * Concrete implementation of an {@link AbstractCRUDController} to retrieve and manipulate
+ * {@link Smell} Objects via RESTful HTTP Request.
+ * 
+ * @author cbi
+ */
 public class SmellController extends AbstractCRUDController<Smell, Long> {
 	
+	/**
+	 * Constructor receives a {@link GenericDAO}. DI framework hook is "@Named("SmellDAO")".
+	 * 
+	 * @param dao
+	 */
 	@Inject
 	public SmellController(@Named("SmellDAO") GenericDAO<Smell, Long> dao) {
 		super(dao);
 	}
 
+	/**
+	 * Returns a string which can be interpreted as a Javascript Object (user function eval()). The
+	 * Javascript Object then contains a list of all {@link Smell} Objects in the format used as input 
+	 * for jcloud (Open Source Tag Cloud Library). 
+	 * 
+	 * @return
+	 */
 	@Transactional(readOnly=true)
 	public Result getCloudSmells() {
 		List<Smell> data;
@@ -54,6 +72,12 @@ public class SmellController extends AbstractCRUDController<Smell, Long> {
 	    return ok(buf.toString());
 	}
 
+	/**
+	 * Overwritten create method, which creates a new {@link Smell} object which has been
+	 * deserialized from the delivered JsonNode object, via the {@link GenericDAO} object.
+	 * 
+	 * @see controllers.AbstractCRUDController#create()
+	 */
 	@SessionAuth
 	@Override
 	@Transactional
@@ -78,6 +102,12 @@ public class SmellController extends AbstractCRUDController<Smell, Long> {
 	    return created(Json.toJson(inserted));
 	}
 	
+	/**
+	 * Overwritten updated method, saves changes of a {@link Smell} object which has been
+	 * deserialized from the delivered JsonNode object, via the {@link GenericDAO} object.
+	 * 
+	 * @see controllers.AbstractCRUDController#update()
+	 */
 	@SessionAuth
 	@Override
 	@Transactional

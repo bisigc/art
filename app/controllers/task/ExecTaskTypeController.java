@@ -20,13 +20,30 @@ import com.google.inject.name.Named;
 import controllers.AbstractCRUDController;
 import dao.GenericDAO;
 
+/**
+ * Concrete implementation of an {@link AbstractCRUDController} to retrieve and manipulate
+ * {@link ExecTaskType} Objects via RESTful HTTP Request.
+ * 
+ * @author cbi
+ */
 public class ExecTaskTypeController extends AbstractCRUDController<ExecTaskType, Long> {
 	
+	/**
+	 * Constructor receives a {@link GenericDAO}. DI framework hook is "@Named("ExecTaskTypeDAO")".
+	 * 
+	 * @param dao
+	 */
 	@Inject
 	public ExecTaskTypeController(@Named("ExecTaskTypeDAO") GenericDAO<ExecTaskType, Long> dao) {
 		super(dao);
 	}
 	
+	/**
+	 * Overwritten get All method with using custom query to prevent infinite loop selection
+	 * due to hierarchical data structure.
+	 * 
+	 * @return
+	 */
 	@Override
 	@Transactional(readOnly=true)
 	public Result getAll() {
@@ -46,6 +63,11 @@ public class ExecTaskTypeController extends AbstractCRUDController<ExecTaskType,
 		return ok(Json.toJson(data));
 	}
 	
+	/**
+	 * Delivers an empty JsonNode object with the structure of a {@link ExecTaskType} object.
+	 * 
+	 * @return
+	 */
 	public Result getEmptyExecTaskType() {
 		ExecTaskType task = new ExecTaskType();
 		task.setSubTasks(new ArrayList<ExecTaskType>());
@@ -55,6 +77,10 @@ public class ExecTaskTypeController extends AbstractCRUDController<ExecTaskType,
 		return ok(Json.toJson(task));
 	}
 	
+	/**
+	 * Overwritten update method to update the hierarchical data tree of {@link ExecTaskType}.
+	 * @see controllers.AbstractCRUDController#update()
+	 */
 	@SessionAuth
 	@Override
 	@Transactional

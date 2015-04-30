@@ -9,11 +9,14 @@ import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+/**
+ * Data model representing a {@link Question} which is part of a {@link Smell}.
+ * 
+ * @author cbi
+ */
 @Entity
 public class Question {
 
-	//private static final long serialVersionUID = -2657832215744368670L;
-	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;

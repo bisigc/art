@@ -9,6 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+/**
+ * Data model representing a {@link SmellGroup}.
+ * 
+ * @author cbi
+ */
 @Entity
 public class SmellGroup {
 

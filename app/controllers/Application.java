@@ -23,6 +23,14 @@ import com.google.inject.name.Named;
 
 import dao.GenericDAO;
 
+/**
+ * Extends the general class {@link play.mvc.Controller}. Contains the method which
+ * returns the index page of the ART application.
+ * Is annotated with {@link com.google.inject.Singleton}, which makes sure
+ * the DI framework creates only one instance of the class.
+ * 
+ * @author cbi
+ */
 @Singleton
 public class Application extends Controller {
 	
@@ -31,11 +39,22 @@ public class Application extends Controller {
 	private static long timeout = Long.parseLong(CONF.getString("default.sessiontimeout")) * 60 * 1000;
 
 	
+	/**
+	 * Constructor receives a {@link GenericDAO}. DI framework hook is "@Named("UserDAO")".
+	 * 
+	 * @param dao
+	 */
 	@Inject
 	public Application(@Named("UserDAO") GenericDAO<User, Long> dao) {
 		this.dao = dao;
 	}
 
+	/**
+	 * Returns the index page of the ART application. Before the load its is checked
+	 * if there is an existing session. If so, there logged ins userprofile is returned with the request.
+	 * 
+	 * @return
+	 */
 	@Transactional(readOnly=true)
 	public Result index() {
 		String activeProfile = new String(Base64.getEncoder().encode(checkLogin().getBytes()));
@@ -44,6 +63,12 @@ public class Application extends Controller {
 	}
 	
 	
+	/**
+	 * Checks if there is an active session and returns currents User profile
+	 * as a String (in JsonNode format).
+	 * 
+	 * @return
+	 */
 	public String checkLogin() {
 		User user;
 		try {

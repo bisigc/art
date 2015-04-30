@@ -11,11 +11,27 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.google.inject.TypeLiteral;
 
+/**
+ * Concrete implementation of a {@link GenericDAO}. The model is still
+ * generic and can be concretised with dependency injection.
+ * Is annotated with {@link com.google.inject.Singleton}, which makes sure
+ * the DI framework creates only one instance of the class.
+ * 
+ * @author cbi
+ *
+ * @param <T>
+ * @param <PK>
+ */
 @Singleton
 public class GenericDAOImpl<T, PK extends Serializable> implements GenericDAO<T, PK> {
 	
 	private Class<T> model;
 	
+	/**
+	 * Construction receives a TypeLiteral of the data model to be used.
+	 * 
+	 * @param model
+	 */
 	@SuppressWarnings("unchecked")
 	@Inject
 	public GenericDAOImpl(TypeLiteral<T> model) {

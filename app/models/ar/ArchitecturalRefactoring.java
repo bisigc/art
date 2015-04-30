@@ -19,6 +19,11 @@ import models.smell.Smell;
 import models.status.Status;
 import models.user.User;
 
+/**
+ * Data model representing an Architectural Refactoring.
+ * 
+ * @author cbi
+ */
 @Entity
 public class ArchitecturalRefactoring {
 

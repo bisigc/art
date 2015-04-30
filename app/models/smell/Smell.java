@@ -18,6 +18,11 @@ import javax.persistence.OneToMany;
 
 import models.status.Status;
 
+/**
+ * Data model representing a {@link Smell}.
+ * 
+ * @author cbi
+ */
 @Entity
 public class Smell {
 
@@ -41,6 +46,10 @@ public class Smell {
 	private Timestamp modified;
 	private Timestamp created;
 	
+
+	/**
+	 * Sets the parent id for all the questions in the question list. 
+	 */
 	public void configQuestionParents() {
 	    for (Question q : questions) {
 			q.setSmell(this);
@@ -65,6 +74,12 @@ public class Smell {
 	public Timestamp getCreated() { return created; }
 	public void setCreated(Timestamp created) { this.created = created; }
 	//Custom getGroup to prevent Json Deserialize from Looping (due to Smell List in SmellGroup
+
+	/**
+	 * getGroup Returns only the id and the name of the group as a Map and
+	 * not all the groups attributes.
+	 * @return
+	 */
 	public Map<String, Object> getGroup() {
 		Map<String, Object> group =  new HashMap<String, Object>();
 		group.put("id", this.group.getId());

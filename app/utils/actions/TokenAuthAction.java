@@ -17,15 +17,27 @@ import com.google.inject.name.Named;
 
 import dao.GenericDAO;
 
+/**
+ * HTTP Request Action. Verifying the request based on token 
+ * authentication. And verifying the users permissions.
+ * 
+ * @author cbi
+ */
 public class TokenAuthAction extends Action.Simple {
 
 	protected GenericDAO<User, Long> dao;
     
+	/**
+	 * Constructor receives a {@link GenericDAO}. DI framework hook is "@Named("UserDAO")".
+	 * 
+	 * @param dao
+	 */
 	@Inject
 	public TokenAuthAction(@Named("UserDAO") GenericDAO<User, Long> dao) {
 		this.dao = dao;
 	} 
 
+	@Override
 	public F.Promise<Result> call(Http.Context ctx) throws Throwable {
 		String token = getTokenFromHeader(ctx);
 		if (token != null) {
@@ -44,6 +56,12 @@ public class TokenAuthAction extends Action.Simple {
 		return F.Promise.pure(unauthorized);
 	}
 
+	/**
+	 * Extracts the authentication token from the HTTP header. 
+	 * 
+	 * @param ctx
+	 * @return
+	 */
 	private String getTokenFromHeader(Http.Context ctx) {
 		String[] authTokenHeaderValues = ctx.request().headers()
 				.get("X-AUTH-TOKEN");

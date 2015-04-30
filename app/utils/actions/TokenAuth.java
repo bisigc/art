@@ -9,6 +9,15 @@ import java.lang.annotation.Target;
 
 import play.mvc.With;
 
+/**
+ * Annotation Interface which binds the request intercepter Action
+ * {@link TokenAuthAction} to every controller method which is annotated
+ * with {@link TokenAuth}.
+ * 
+ * Verifying token based request and the users permissions. 
+ * 
+ * @author cbi
+ */
 @With(TokenAuthAction.class)
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD, ElementType.TYPE})

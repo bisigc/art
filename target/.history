@@ -1,8 +1,3 @@
-compile
-run
-compile
-run
-compile
 run
 compile
 run
@@ -497,4 +492,9 @@ run
 exit
 compile
 run
+exit
+helo
+help
+doc
+help doc
 exit

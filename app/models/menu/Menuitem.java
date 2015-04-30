@@ -11,6 +11,13 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+/**
+ * Data model representing a {@link MenuItem}.
+ * MenuItems have a hierarchical structure. A {@link MenuItem} has one parent
+ * and can have multiple children.
+ * 
+ * @author cbi
+ */
 @Entity
 public class Menuitem {
 

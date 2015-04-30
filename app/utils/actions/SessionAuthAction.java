@@ -13,12 +13,23 @@ import utils.security.RoleChecker;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 
+/**
+ * HTTP Request Action. Verifying the request based on user session
+ * login and verifying the users permissions.
+ * 
+ * @author cbi
+ */
 public class SessionAuthAction extends Action.Simple {
 	
 	private static Configuration CONF = Play.application().configuration();
 	private static long timeout = Long.parseLong(CONF.getString("default.sessiontimeout")) * 60 * 1000;
 	private RoleChecker roleChecker;
 	
+	/**
+	 * Constructor receives a {@link RoleChecker}. DI framework hook is "@Named("RoleChecker")".
+	 * 
+	 * @param dao
+	 */
 	@Inject
 	public SessionAuthAction(@Named("RoleChecker") RoleChecker rolechecker) {
 		this.roleChecker = rolechecker;

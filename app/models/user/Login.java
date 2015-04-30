@@ -1,6 +1,14 @@
 package models.user;
 
 
+
+/**
+ * Data model representing a {@link Login}.
+ * Has attribute email and password which is necessary
+ * for login.
+ * 
+ * @author cbi
+ */
 public class Login {
 
 	private String email;

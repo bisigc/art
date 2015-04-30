@@ -18,6 +18,12 @@ import com.google.inject.name.Named;
 
 import dao.GenericDAO;
 
+/**
+ * HTTP Request Action. Verifying the request based on HTTP basic
+ * authentication. And verifying the users permissions.
+ * 
+ * @author cbi
+ */
 public class BasicAuthAction extends Action.Simple {
 
     private static final String AUTHORIZATION = "authorization";
@@ -26,11 +32,19 @@ public class BasicAuthAction extends Action.Simple {
     
 	protected GenericDAO<User, Long> dao;
     
+	/**
+	 * Constructor receives a {@link GenericDAO}. DI framework hook is "@Named("UserDAO")".
+	 * 
+	 * @param dao
+	 */
 	@Inject
 	public BasicAuthAction(@Named("UserDAO") GenericDAO<User, Long> dao) {
 		this.dao = dao;
 	} 
 
+    /* (non-Javadoc)
+     * @see play.mvc.Action#call(play.mvc.Http.Context)
+     */
     @Override
     public F.Promise<Result> call(Http.Context context) throws Throwable {
 

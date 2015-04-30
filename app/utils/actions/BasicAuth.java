@@ -9,6 +9,15 @@ import java.lang.annotation.Target;
 
 import play.mvc.With;
 
+/**
+ * Annotation Interface which binds the request intercepter Action
+ * {@link BasicAuthAction} to every controller method which is annotated
+ * with {@link BasicAuth}.
+ * 
+ * Verifying basic HTTP authentication and user permissions.
+ * 
+ * @author cbi
+ */
 @With(BasicAuthAction.class)
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD, ElementType.TYPE})

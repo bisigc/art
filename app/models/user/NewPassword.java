@@ -1,6 +1,13 @@
 package models.user;
 
 
+
+/**
+ * Data model representing a {@link NewPassword}.
+ * Contains the necessary attributes to renew the password.
+ * 
+ * @author cbi
+ */
 public class NewPassword {
 
 	private String currentpassword;

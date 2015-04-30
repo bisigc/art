@@ -17,15 +17,40 @@ import com.google.inject.Singleton;
 
 import dao.GenericDAO;
 
+/**
+ * Abstract class represents a CRUD Controller with the most necessary methods.
+ * Create, update, get (read), get all (read all) and a generic query method find.
+ * The class contains a {@link GenericDAO} with the parameters T (Model Class) and PK (Private Key).
+ * Class is annotated with {@link com.google.inject.Singleton} which advises the DI framework
+ * to instantiate the class only once. 
+ * 
+ * @author cbi
+ *
+ * @param <T>
+ * @param <PK>
+ */
 @Singleton
 public abstract class AbstractCRUDController<T, PK extends Serializable> extends Controller {
 	
+	/**
+	 * Gerneric DAO
+	 */
 	protected GenericDAO<T, PK> dao;
 	
+	/**
+	 * Constructor receives a {@link GenericDAO} object. Which can be dependency injected.
+	 * @param dao
+	 */
 	public AbstractCRUDController(GenericDAO<T, PK> dao) {
 		this.dao = dao;
 	}
 	
+	/**
+	 * Find Method returns a list of model objects from the {@link GenericDAO}, depending on the given query.
+	 * 
+	 * @param query
+	 * @return
+	 */
 	@Transactional(readOnly=true)
 	public Result find(TypedQuery<T> query) {
 		List<T> data;
@@ -38,6 +63,10 @@ public abstract class AbstractCRUDController<T, PK extends Serializable> extends
 		return ok(Json.toJson(data));
 	}
 	
+	/**
+	 * getAll returns a list of all model objects from the {@link GenericDAO}.
+	 * @return
+	 */
 	@Transactional(readOnly=true)
 	public Result getAll() {
 		List<T> data;
@@ -51,6 +80,12 @@ public abstract class AbstractCRUDController<T, PK extends Serializable> extends
 		return ok(Json.toJson(data));
 	}
 	
+	/**
+	 * Returns the model object delivered by the {@link GenericDAO}, corresponding to the given primary key object. 
+	 * 
+	 * @param id
+	 * @return
+	 */
 	@Transactional(readOnly=true)
 	public Result get(PK id) {
 		T t;
@@ -64,6 +99,14 @@ public abstract class AbstractCRUDController<T, PK extends Serializable> extends
 		return t == null ? notFound() : ok(Json.toJson(t));
 	}
 	
+	/**
+	 * Creates a model object via the {@link GenericDAO}, given by the serialized Object of
+	 * the delivered JSON Node from the HTTP request.
+	 * Method is annotated with {@link SessionAuth} action, which intercepts the request, to
+	 * verify the callers session and permissions.
+	 * 
+	 * @return
+	 */
 	@SessionAuth
 	@Transactional
 	public Result create() {
@@ -80,6 +123,13 @@ public abstract class AbstractCRUDController<T, PK extends Serializable> extends
 		return created(Json.toJson(created));
 	}
 
+	/**
+	 * Updates a model object via the {@link GenericDAO} given by the serialized Object of the delivered JSON Node from the HTTP request. 
+	 * Method is annotated with {@link SessionAuth} action, which intercepts the request, to
+	 * verify the callers session and permissions.
+	 * 
+	 * @return
+	 */
 	@SessionAuth
 	@Transactional
 	public Result update() {
@@ -96,6 +146,14 @@ public abstract class AbstractCRUDController<T, PK extends Serializable> extends
 	    return ok(Json.toJson(updated));
 	}
 	
+	/**
+	 * Deletes a model object via the {@link GenericDAO}, given by the delivered primary key object.
+	 * Method is annotated with {@link SessionAuth} action, which intercepts the request, to
+	 * verify the callers session and permissions.
+	 * 
+	 * @param id
+	 * @return
+	 */
 	@SessionAuth
 	@Transactional
 	public Result delete(PK id) {

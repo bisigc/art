@@ -16,6 +16,12 @@ import com.google.inject.name.Named;
 
 import dao.GenericDAO;
 
+/**
+ * Concrete implementation of a RoleChecker. Annotated as {@link com.google.inject.Singleton}.
+ * Loads the existing permissions via a {@link GenericDAO} during instantiation and caches them.
+ * 
+ * @author cbi
+ */
 @Singleton
 public class RoleCheckerImpl implements RoleChecker {
 
@@ -23,6 +29,11 @@ public class RoleCheckerImpl implements RoleChecker {
 
 	private Map<String, Map<String, List<String>>> roles;
 
+	/**
+	 * Constructor receives a {@link GenericDAO}. DI framework hook is "@Named("RoleDAO")".
+	 * 
+	 * @param dao
+	 */
 	@Inject
 	public RoleCheckerImpl(@Named("RoleDAO") GenericDAO<Role, Long> dao) {
 		this.dao = dao;
@@ -50,6 +61,9 @@ public class RoleCheckerImpl implements RoleChecker {
 		}
 	}
 
+	/**
+	 * Loads the permissions via the {@link GenericDAO} object.
+	 */
 	private void loadPermissions() {
 		List<Role> dbroles;
 		try {
@@ -79,6 +93,9 @@ public class RoleCheckerImpl implements RoleChecker {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see utils.security.RoleChecker#isAllowed(java.lang.String, java.lang.String, java.lang.String)
+	 */
 	@Override
 	public boolean isAllowed(String role, String function, String httpMethod) {
 		boolean isallowed = false;

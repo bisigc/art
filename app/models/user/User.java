@@ -13,6 +13,11 @@ import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+/**
+ * Data model representing a {@link User}.
+ * 
+ * @author cbi
+ */
 @Entity
 public class User {
 

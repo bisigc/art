@@ -23,13 +23,31 @@ import com.google.inject.name.Named;
 import controllers.AbstractCRUDController;
 import dao.GenericDAO;
 
+/**
+ * Concrete implementation of an {@link AbstractCRUDController} to retrieve and manipulate
+ * {@link User} Objects via RESTful HTTP Request.
+ * 
+ * @author cbi
+ */
 public class UserController extends AbstractCRUDController<User, Long> {
 
+	/**
+	 * Constructor receives a {@link GenericDAO}. DI framework hook is "@Named("UserDAO")".
+	 * 
+	 * @param dao
+	 */
 	@Inject
 	public UserController(@Named("UserDAO") GenericDAO<User, Long> dao) {
 		super(dao);
 	}
 
+	/**
+	 * Processes a login request. Retrieving username (email) and password via a JsonNode.
+	 * Validates username and password, creates user session and returns the {@link User} object
+	 * as a JsonNode.
+	 * 
+	 * @return
+	 */
 	@Transactional(readOnly=true)
 	public Result login() {
 		Login login = Json.fromJson(request().body().asJson(), Login.class);
@@ -70,11 +88,23 @@ public class UserController extends AbstractCRUDController<User, Long> {
 		return ok(Json.toJson(user));
 	}
 
+	/**
+	 * Logout method. Clears the user session.
+	 * @return
+	 */
 	public Result logout() {
 		session().clear();
 		return ok();
 	}
 	
+	/**
+	 * changePassword Method receives the current password, the new password and
+	 * a repetition of the new password. The current password is being checked
+	 * and if the new password is the same as its repetition, it is saved via the {@link GenericDAO}
+	 * object. 
+	 * 
+	 * @return
+	 */
 	@SessionAuth
 	@Transactional
 	public Result changePassword() {
