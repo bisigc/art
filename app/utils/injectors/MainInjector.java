@@ -10,6 +10,7 @@ import models.property.Property;
 import models.smell.Smell;
 import models.smell.SmellGroup;
 import models.task.ExecTaskType;
+import models.task.TaskTemplate;
 import models.user.Role;
 import models.user.User;
 import utils.security.RoleChecker;
@@ -21,6 +22,7 @@ import com.google.inject.name.Names;
 
 import dao.GenericDAO;
 import dao.GenericDAOImpl;
+import dao.GenericDAORestImpl;
 
 /**
  * Injector Modul class, contains the dependency injecting rules for the ART application
@@ -46,6 +48,8 @@ public class MainInjector extends AbstractModule {
 		bind(new TypeLiteral<GenericDAO<Discussion, Long>>(){}).annotatedWith(Names.named("DiscussionDAO")).to(new TypeLiteral<GenericDAOImpl<Discussion, Long>>(){});
 		bind(new TypeLiteral<GenericDAO<Comment, Long>>(){}).annotatedWith(Names.named("CommentDAO")).to(new TypeLiteral<GenericDAOImpl<Comment, Long>>(){});
 		bind(new TypeLiteral<GenericDAO<Likeing, Long>>(){}).annotatedWith(Names.named("LikeingDAO")).to(new TypeLiteral<GenericDAOImpl<Likeing, Long>>(){});
+		bind(new TypeLiteral<GenericDAO<TaskTemplate, Long>>(){}).annotatedWith(Names.named("TaskTemplateDAO")).to(new TypeLiteral<GenericDAORestImpl<TaskTemplate, Long>>(){});
+		//bind(new TypeLiteral<GenericDAO<TaskTemplate, Long>>(){}).annotatedWith(Names.named("TaskTemplateDAO")).to(new TypeLiteral<GenericDAOImpl<TaskTemplate, Long>>(){});
 		bind(new TypeLiteral<RoleChecker>(){}).annotatedWith(Names.named("RoleChecker")).to(new TypeLiteral<RoleCheckerImpl>(){});
 		//.in(Scopes.SINGLETON);
 	}

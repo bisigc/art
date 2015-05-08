@@ -1,6 +1,4 @@
 run
-compile
-run
 exit
 comoile
 compile
@@ -497,4 +495,6 @@ run
 exit
 compile
 run
+exit
+compile
 exit

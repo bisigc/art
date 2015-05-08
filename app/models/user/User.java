@@ -16,7 +16,6 @@ import javax.persistence.OneToOne;
 import models.discussion.Comment;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 /**
  * Data model representing a {@link User}.
