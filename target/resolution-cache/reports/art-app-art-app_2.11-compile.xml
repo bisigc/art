@@ -6,8 +6,8 @@
 		module="art-app_2.11"
 		revision="1.0-SNAPSHOT"
 		conf="compile"
-		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-		date="20150414143903"/>
+		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool, echo-trace-compile, echo-trace-test, echo-weave, echo-sigar"
+		date="20150430154038"/>
 	<dependencies>
 		<module organisation="com.typesafe.play" name="play-java-ws_2.11">
 			<revision name="2.3.6" status="release" pubdate="20141130063610" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://playframework.com" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="72">
@@ -124,57 +124,57 @@
 			</revision>
 		</module>
 		<module organisation="com.google.inject" name="guice">
-			<revision name="4.0-beta" status="release" pubdate="20130801000226" resolver="public" artresolver="public" homepage="" downloaded="true" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="63">
-				<metadata-artifact status="successful" details="" size="8221" time="398" location="/Users/cbi/.ivy2/cache/com.google.inject/guice/ivy-4.0-beta.xml" searched="true" original-local-location="/Users/cbi/.ivy2/cache/com.google.inject/guice/ivy-4.0-beta.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/google/inject/guice/4.0-beta/guice-4.0-beta.pom"/>
+			<revision name="4.0-beta" status="release" pubdate="20130801000226" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="63">
+				<metadata-artifact status="no" details="" size="4414" time="0" location="/Users/cbi/.ivy2/cache/com.google.inject/guice/ivy-4.0-beta.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/google/inject/guice/4.0-beta/guice-4.0-beta.pom"/>
 				<caller organisation="art-app" name="art-app_2.11" conf="compile" rev="4.0-beta" rev-constraint-default="4.0-beta" rev-constraint-dynamic="4.0-beta" callerrev="1.0-SNAPSHOT"/>
 				<artifacts>
-					<artifact name="guice" type="jar" ext="jar" status="successful" details="" size="1488793" time="1483" location="/Users/cbi/.ivy2/cache/com.google.inject/guice/jars/guice-4.0-beta.jar">
+					<artifact name="guice" type="jar" ext="jar" status="no" details="" size="1488793" time="0" location="/Users/cbi/.ivy2/cache/com.google.inject/guice/jars/guice-4.0-beta.jar">
 						<origin-location is-local="false" location="http://repo1.maven.org/maven2/com/google/inject/guice/4.0-beta/guice-4.0-beta.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
 		</module>
 		<module organisation="cglib" name="cglib">
-			<revision name="3.0" status="release" pubdate="20130331184656" resolver="public" artresolver="public" homepage="http://cglib.sourceforge.net/" downloaded="true" searched="true" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="66">
+			<revision name="3.0" status="release" pubdate="20130331184656" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://cglib.sourceforge.net/" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="66">
 				<license name="ASF 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
-				<metadata-artifact status="successful" details="" size="1483" time="424" location="/Users/cbi/.ivy2/cache/cglib/cglib/ivy-3.0.xml" searched="true" original-local-location="/Users/cbi/.ivy2/cache/cglib/cglib/ivy-3.0.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/cglib/cglib/3.0/cglib-3.0.pom"/>
+				<metadata-artifact status="no" details="" size="2695" time="0" location="/Users/cbi/.ivy2/cache/cglib/cglib/ivy-3.0.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/cglib/cglib/3.0/cglib-3.0.pom"/>
 				<caller organisation="com.google.inject" name="guice" conf="default, compile, runtime, master" rev="3.0" rev-constraint-default="3.0" rev-constraint-dynamic="3.0" callerrev="4.0-beta"/>
 				<artifacts>
-					<artifact name="cglib" type="jar" ext="jar" status="successful" details="" size="282959" time="649" location="/Users/cbi/.ivy2/cache/cglib/cglib/jars/cglib-3.0.jar">
+					<artifact name="cglib" type="jar" ext="jar" status="no" details="" size="282959" time="0" location="/Users/cbi/.ivy2/cache/cglib/cglib/jars/cglib-3.0.jar">
 						<origin-location is-local="false" location="http://repo1.maven.org/maven2/cglib/cglib/3.0/cglib-3.0.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
 		</module>
 		<module organisation="org.ow2.asm" name="asm-util">
-			<revision name="4.0" status="release" pubdate="20111206202317" resolver="public" artresolver="public" homepage="" downloaded="true" searched="true" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="68">
-				<metadata-artifact status="successful" details="" size="2086" time="416" location="/Users/cbi/.ivy2/cache/org.ow2.asm/asm-util/ivy-4.0.xml" searched="true" original-local-location="/Users/cbi/.ivy2/cache/org.ow2.asm/asm-util/ivy-4.0.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/ow2/asm/asm-util/4.0/asm-util-4.0.pom"/>
+			<revision name="4.0" status="release" pubdate="20111206202317" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="68">
+				<metadata-artifact status="no" details="" size="4374" time="0" location="/Users/cbi/.ivy2/cache/org.ow2.asm/asm-util/ivy-4.0.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/ow2/asm/asm-util/4.0/asm-util-4.0.pom"/>
 				<caller organisation="com.google.inject" name="guice" conf="default, compile, runtime, master" rev="4.0" rev-constraint-default="4.0" rev-constraint-dynamic="4.0" callerrev="4.0-beta"/>
 				<artifacts>
-					<artifact name="asm-util" type="jar" ext="jar" status="successful" details="" size="36995" time="378" location="/Users/cbi/.ivy2/cache/org.ow2.asm/asm-util/jars/asm-util-4.0.jar">
+					<artifact name="asm-util" type="jar" ext="jar" status="no" details="" size="36995" time="0" location="/Users/cbi/.ivy2/cache/org.ow2.asm/asm-util/jars/asm-util-4.0.jar">
 						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/ow2/asm/asm-util/4.0/asm-util-4.0.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
 		</module>
 		<module organisation="org.ow2.asm" name="asm-tree">
-			<revision name="4.0" status="release" pubdate="20111206202301" resolver="public" artresolver="public" homepage="" downloaded="true" searched="true" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="69">
-				<metadata-artifact status="successful" details="" size="2081" time="384" location="/Users/cbi/.ivy2/cache/org.ow2.asm/asm-tree/ivy-4.0.xml" searched="true" original-local-location="/Users/cbi/.ivy2/cache/org.ow2.asm/asm-tree/ivy-4.0.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/ow2/asm/asm-tree/4.0/asm-tree-4.0.pom"/>
+			<revision name="4.0" status="release" pubdate="20111206202301" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="69">
+				<metadata-artifact status="no" details="" size="4369" time="0" location="/Users/cbi/.ivy2/cache/org.ow2.asm/asm-tree/ivy-4.0.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/ow2/asm/asm-tree/4.0/asm-tree-4.0.pom"/>
 				<caller organisation="org.ow2.asm" name="asm-util" conf="compile, runtime" rev="4.0" rev-constraint-default="4.0" rev-constraint-dynamic="4.0" callerrev="4.0"/>
 				<artifacts>
-					<artifact name="asm-tree" type="jar" ext="jar" status="successful" details="" size="21982" time="388" location="/Users/cbi/.ivy2/cache/org.ow2.asm/asm-tree/jars/asm-tree-4.0.jar">
+					<artifact name="asm-tree" type="jar" ext="jar" status="no" details="" size="21982" time="0" location="/Users/cbi/.ivy2/cache/org.ow2.asm/asm-tree/jars/asm-tree-4.0.jar">
 						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/ow2/asm/asm-tree/4.0/asm-tree-4.0.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
 		</module>
 		<module organisation="org.ow2.asm" name="asm">
-			<revision name="4.0" status="release" pubdate="20111206202219" resolver="public" artresolver="public" homepage="" downloaded="true" searched="true" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="67">
-				<metadata-artifact status="successful" details="" size="1933" time="481" location="/Users/cbi/.ivy2/cache/org.ow2.asm/asm/ivy-4.0.xml" searched="true" original-local-location="/Users/cbi/.ivy2/cache/org.ow2.asm/asm/ivy-4.0.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/ow2/asm/asm/4.0/asm-4.0.pom"/>
+			<revision name="4.0" status="release" pubdate="20111206202219" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="67">
+				<metadata-artifact status="no" details="" size="3744" time="0" location="/Users/cbi/.ivy2/cache/org.ow2.asm/asm/ivy-4.0.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/ow2/asm/asm/4.0/asm-4.0.pom"/>
 				<caller organisation="org.ow2.asm" name="asm-tree" conf="compile, runtime" rev="4.0" rev-constraint-default="4.0" rev-constraint-dynamic="4.0" callerrev="4.0"/>
 				<caller organisation="cglib" name="cglib" conf="compile, runtime" rev="4.0" rev-constraint-default="4.0" rev-constraint-dynamic="4.0" callerrev="3.0"/>
 				<artifacts>
-					<artifact name="asm" type="jar" ext="jar" status="successful" details="" size="46022" time="380" location="/Users/cbi/.ivy2/cache/org.ow2.asm/asm/jars/asm-4.0.jar">
+					<artifact name="asm" type="jar" ext="jar" status="no" details="" size="46022" time="0" location="/Users/cbi/.ivy2/cache/org.ow2.asm/asm/jars/asm-4.0.jar">
 						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/ow2/asm/asm/4.0/asm-4.0.jar"/>
 					</artifact>
 				</artifacts>

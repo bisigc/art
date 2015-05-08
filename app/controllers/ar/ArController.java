@@ -1,6 +1,6 @@
 package controllers.ar;
 
-import models.ar.ArchitecturalRefactoring;
+import models.ar.Ar;
 
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
@@ -10,11 +10,11 @@ import dao.GenericDAO;
 
 /**
  * Concrete implementation of an {@link AbstractCRUDController} to retrieve and manipulate
- * {@link models.ar.ArchitecturalRefactoring} Objects via RESTful HTTP Request.
+ * {@link models.ar.Ar} Objects via RESTful HTTP Request.
  * 
  * @author cbi
  */
-public class ARController extends AbstractCRUDController<ArchitecturalRefactoring, Long> {
+public class ArController extends AbstractCRUDController<Ar, Long> {
 	
 	/**
 	 * Constructor receives a {@link GenericDAO}. DI framework hook is "@Named("ArDAO")".
@@ -22,7 +22,7 @@ public class ARController extends AbstractCRUDController<ArchitecturalRefactorin
 	 * @param dao
 	 */
 	@Inject
-	public ARController(@Named("ArDAO") GenericDAO<ArchitecturalRefactoring, Long> dao) {
+	public ArController(@Named("ArDAO") GenericDAO<Ar, Long> dao) {
 		super(dao);
 	}
 

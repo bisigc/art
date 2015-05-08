@@ -58,6 +58,8 @@ public class GenericDAOImpl<T, PK extends Serializable> implements GenericDAO<T,
 	@Override
 	public T create(T t) {
 	    JPA.em().persist(t);
+	    JPA.em().flush();
+	    JPA.em().refresh(t);
 		return t;
 	}
 
@@ -69,6 +71,8 @@ public class GenericDAOImpl<T, PK extends Serializable> implements GenericDAO<T,
 	@Override
 	public T update(T t) {
 	    JPA.em().merge(t);
+	    JPA.em().flush();
+	    //JPA.em().refresh(t);
 		return t;
 	}
 

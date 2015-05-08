@@ -1,7 +1,10 @@
 package utils.injectors;
 
+import models.ar.Ar;
+import models.ar.ArVersion;
 import models.discussion.Comment;
 import models.discussion.Discussion;
+import models.discussion.Likeing;
 import models.menu.Menuitem;
 import models.property.Property;
 import models.smell.Smell;
@@ -31,6 +34,8 @@ public class MainInjector extends AbstractModule {
 	protected void configure() {
 		//bind(GenericDAO.class).to(MenuitemDAO.class);
 		//bind(new TypeLiteral<GenericDAO<Menuitem, Long>>(){}).to(new TypeLiteral<GenericDAOImpl<Menuitem, Long>>(){});
+		bind(new TypeLiteral<GenericDAO<Ar, Long>>(){}).annotatedWith(Names.named("ArDAO")).to(new TypeLiteral<GenericDAOImpl<Ar, Long>>(){});
+		bind(new TypeLiteral<GenericDAO<ArVersion, Long>>(){}).annotatedWith(Names.named("ArVersionDAO")).to(new TypeLiteral<GenericDAOImpl<ArVersion, Long>>(){});
 		bind(new TypeLiteral<GenericDAO<Menuitem, Long>>(){}).annotatedWith(Names.named("MenuitemDAO")).to(new TypeLiteral<GenericDAOImpl<Menuitem, Long>>(){});
 		bind(new TypeLiteral<GenericDAO<Property, Long>>(){}).annotatedWith(Names.named("PropertyDAO")).to(new TypeLiteral<GenericDAOImpl<Property, Long>>(){});
 		bind(new TypeLiteral<GenericDAO<Smell, Long>>(){}).annotatedWith(Names.named("SmellDAO")).to(new TypeLiteral<GenericDAOImpl<Smell, Long>>(){});
@@ -40,6 +45,7 @@ public class MainInjector extends AbstractModule {
 		bind(new TypeLiteral<GenericDAO<User, Long>>(){}).annotatedWith(Names.named("UserDAO")).to(new TypeLiteral<GenericDAOImpl<User, Long>>(){});
 		bind(new TypeLiteral<GenericDAO<Discussion, Long>>(){}).annotatedWith(Names.named("DiscussionDAO")).to(new TypeLiteral<GenericDAOImpl<Discussion, Long>>(){});
 		bind(new TypeLiteral<GenericDAO<Comment, Long>>(){}).annotatedWith(Names.named("CommentDAO")).to(new TypeLiteral<GenericDAOImpl<Comment, Long>>(){});
+		bind(new TypeLiteral<GenericDAO<Likeing, Long>>(){}).annotatedWith(Names.named("LikeingDAO")).to(new TypeLiteral<GenericDAOImpl<Likeing, Long>>(){});
 		bind(new TypeLiteral<RoleChecker>(){}).annotatedWith(Names.named("RoleChecker")).to(new TypeLiteral<RoleCheckerImpl>(){});
 		//.in(Scopes.SINGLETON);
 	}

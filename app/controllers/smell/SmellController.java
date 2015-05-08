@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.util.List;
 
 import models.smell.Smell;
+import models.status.ItemStatus;
 import play.Logger;
 import play.db.jpa.Transactional;
 import play.libs.Json;
@@ -90,8 +91,8 @@ public class SmellController extends AbstractCRUDController<Smell, Long> {
 		    Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		    smell.setCreated(currentTime);
 		    smell.setModified(currentTime);
-		    smell.setWeight(1.0);
-		    smell.setStatus(models.status.Status.draft);
+		    smell.setWeight(0);
+		    smell.setStatus(ItemStatus.draft);
 		    smell.configQuestionParents();
 			inserted = dao.create(smell);
 		} catch (Exception e) {

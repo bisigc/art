@@ -1,6 +1,7 @@
 package models.user;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -9,9 +10,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import models.discussion.Comment;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 /**
  * Data model representing a {@link User}.
@@ -37,6 +42,9 @@ public class User {
 	@JsonIgnore
 	@OneToOne(cascade=CascadeType.PERSIST, mappedBy="user")
 	private Digest digest;
+	//@OneToMany(cascade=CascadeType.ALL, mappedBy="user", orphanRemoval=true)
+	@OneToMany(cascade=CascadeType.PERSIST, mappedBy="user")
+	private List<Comment> comments;
 	private Timestamp modified;
 	private Timestamp created;
 		

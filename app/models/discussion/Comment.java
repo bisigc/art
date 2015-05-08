@@ -1,14 +1,19 @@
 package models.discussion;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import models.user.User;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 /**
  * Data model representing a {@link Comment}.
@@ -22,10 +27,12 @@ public class Comment {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	private String comment;
-	private Long likes;
+	@OneToMany(mappedBy="comment", orphanRemoval=true)
+	private List<Likeing> likes;
 	@ManyToOne
+	@JsonBackReference(value="DiscussionComment")
 	private Discussion discussion;
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	private User user;
 	private Timestamp modified;
 	private Timestamp created;
@@ -35,8 +42,11 @@ public class Comment {
 	public void setId(Long id) { this.id = id; }
 	public String getComment() { return comment; }
 	public void setComment(String comment) { this.comment = comment; }
-	public Long getLikes() { return likes; }
-	public void setLikes(Long likes) { this.likes = likes; }
+	// Returns only the size of the likes list.
+	public Integer getLikes() { return likes.size(); }
+	public void setLikes(List<Likeing> likes) { this.likes = likes; }
+	public Discussion getDiscussion() { return discussion; }
+	public void setDiscussion(Discussion discussion) { this.discussion = discussion; }
 	public User getUser() { return user; }
 	public void setUser(User user) { this.user = user; }
 	public Timestamp getModified() { return modified; }

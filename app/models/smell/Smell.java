@@ -16,7 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import models.status.Status;
+import models.status.ItemStatus;
 
 /**
  * Data model representing a {@link Smell}.
@@ -34,7 +34,7 @@ public class Smell {
 	private String name;
 	private String description;
 	private String keywords;
-	private Double weight;
+	private Integer weight;
 	@ManyToOne
 	private SmellGroup group;
 	private String tecdebtidx; // probability times (x) impact
@@ -42,7 +42,7 @@ public class Smell {
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="smell", orphanRemoval=true)
 	private List<Question> questions;
 	@Enumerated(EnumType.STRING)
-	private Status status;
+	private ItemStatus status;
 	private Timestamp modified;
 	private Timestamp created;
 	
@@ -65,8 +65,8 @@ public class Smell {
 	public void setDescription(String description) { this.description = description; }
 	public String getKeywords() { return keywords; }
 	public void setKeywords(String keywords) { this.keywords = keywords; }
-	public Double getWeight() { return weight; }
-	public void setWeight(Double weight) { this.weight = weight; }
+	public Integer getWeight() { return weight; }
+	public void setWeight(Integer weight) { this.weight = weight; }
 	public String getTecdebtidx() { return tecdebtidx; }
 	public void setTecdebtidx(String tecdebtidx) { this.tecdebtidx = tecdebtidx; }
 	public Timestamp getModified() { return modified; }
@@ -87,8 +87,8 @@ public class Smell {
 		return group;
 	}
 	public void setGroup(SmellGroup group) { this.group = group; }
-	public Status getStatus() { return status; }
-	public void setStatus(Status status) { this.status = status; }
+	public ItemStatus getStatus() { return status; }
+	public void setStatus(ItemStatus status) { this.status = status; }
 	public List<Question> getQuestions() { return questions; }
 	public void setQuestions(List<Question> questions) { this.questions = questions; }
 }

@@ -52,8 +52,10 @@ var smellgroups =
 var ars = 
     [
         { 
+            "id":1,
             "name":"AR1", 
-            "desc":"blabladesc 1", 
+            "desc":"blabladesc 1",
+            "discussion":1,
             "smells": 
             [
                 {
@@ -67,8 +69,10 @@ var ars =
             ]
         },
         {
+            "id":2,
             "name":"AR2",
             "desc":"Holderadio 2",
+            "discussion":2,
             "smells":
             [
                 {
@@ -82,8 +86,10 @@ var ars =
             ]
         },
         {
+            "id":3,
             "name":"AR3",
             "desc":"Auto Velo 3",
+            "discussion":3,
             "smells":
             [
                 {
@@ -97,8 +103,10 @@ var ars =
             ]
         },
         {
+            "id":4,
             "name":"AR4",
             "desc":"blabladesc 1",
+            "discussion":4,
             "smells":
             [
                 {
@@ -112,8 +120,10 @@ var ars =
             ]
         },
         {
+            "id":5,
             "name":"AR5",
             "desc":"Holderadio 2",
+            "discussion":5,
             "smells":
             [
                 {
@@ -127,8 +137,10 @@ var ars =
             ]
         },
         {
+            "id":6,
             "name":"AR6",
             "desc":"Auto Velo 3",
+            "discussion":6,
             "smells":
             [
                 {
@@ -142,8 +154,10 @@ var ars =
             ]
         },
         {
+            "id":7,
             "name":"AR7",
             "desc":"blabladesc 1",
+            "discussion":7,
             "smells":
             [
                 {
@@ -157,8 +171,10 @@ var ars =
             ]
         },
         {
+            "id":8,
             "name":"AR8",
             "desc":"Holderadio 2",
+            "discussion":8,
             "smells":
             [
                 {
@@ -172,8 +188,10 @@ var ars =
             ]
         },
         {
+            "id":9,
             "name":"AR9",
             "desc":"Auto Velo 3",
+            "discussion":9,
             "smells":
             [
                 {

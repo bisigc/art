@@ -6,12 +6,11 @@
             </h1>
         </div>
         <ul class="nav nav-tabs nav-justified">
-            <li role="presentation"><a href="#">v0.1</a></li>
-            <li role="presentation"><a href="#">v0.5</a></li>
-            <li role="presentation"><a href="#">v1.0</a></li>
-            <li role="presentation"><a href="#">v2.0</a></li>
-            <li role="presentation"><a href="#">v3.0</a></li>
-            <li role="presentation" class="active"><a href="#">Current Version</a></li>
+            <li role="presentation" ng-class="{active:currentar.id == arversion.id}" ng-repeat="arversion in ar.versions track by $index"><a href ng-click="setCurrentAr($index)">Version<br/>{{arversion.created | date:'yyyy-MM-dd HH:mm:ss'}}</a></li>
         </ul>
+    </div>
+    <div class="tab-content">
+        <div class="tab-pane active" id="tab">{{currentar.name}} {{currentar.created}}</div>
+        <div ui-view="discussionView"></div>
     </div>
 </div>

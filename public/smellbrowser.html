@@ -119,7 +119,7 @@
             <td><input ng-model="search.weight" placeholder="Enter search criteria" /></td>
             <td><input ng-model="search.group.name" placeholder="Enter search criteria" /></td>
             <td><input ng-model="search.tecdebtidx" placeholder="Enter search criteria" /></td>
-            <td><button type="button" class="btn btn-warning btn-sm" ng-click="search = []">clear</button></td>
+            <td><button type="button" class="btn btn-warning btn-sm" ng-click="search = []" popover="Clear filter fields" popover-trigger="mouseenter" popover-placement="right">clear</button></td>
         </tr>
         <tr>
             <th><a href ng-click="rname=!rname;order('name', rname)">Name <span ng-show="rname">&#x25B2;</span><span ng-show="!rname">&#x25BC;</span></a></th>

@@ -15,7 +15,8 @@ app.controller('UserController', ['UserService', 'ReplyErrorHandler', 'notificat
             notifications.showSuccess("Logged in");
             $scope.logindata = {"email":"","password":""};
             if(currentUser.profile.startpage == "stay") {
-                $state.reload();
+                $state.go($state.current, {}, {reload: true});
+                //$state.reload();
             } else {
                 $state.go(currentUser.profile.startpage);
             }
@@ -35,7 +36,7 @@ app.controller('UserController', ['UserService', 'ReplyErrorHandler', 'notificat
     }
 }]);
 
-app.controller('UserProfileController', ['UserService','RolesService', 'ReplyErrorHandler','notifications', '$scope','currentUser', function(UserService, RolesService, ReplyErrorHandler, notifications, $scope, currentUser){
+app.controller('UserProfileController', ['UserService', 'RolesService', 'AvatarUploader', 'ReplyErrorHandler','notifications', '$scope','currentUser', function(UserService, RolesService, AvatarUploader, ReplyErrorHandler, notifications, $scope, currentUser){
     $scope.startpages = ['home','arbrowser','smellbrowser','taskbrowser', 'stay'];
     $scope.user;
     $scope.pw;
@@ -57,7 +58,19 @@ app.controller('UserProfileController', ['UserService','RolesService', 'ReplyErr
     $scope.changePassword = function() {
         UserService.pw.update({},$scope.pw,function(data, status, headers, config) {
             notifications.showSuccess("Password has been changed.");
+            $scope.pw = null;
+            $scope.pwUpdateForm.$setPristine();
         }, ReplyErrorHandler);
+    }
+    
+    $scope.uploadAvatar = function() {
+        AvatarUploader.upload($scope.avatarimage).success(function(data,status,headers,config){
+            notifications.showSuccess("Avatar image has been uploaded.");
+            currentUser.profile.avatar = data;
+            $scope.avatarimage = null;
+        }).error(function(data,status,headers,config){
+            notifications.showError("Failed to upload avatar image");
+        });;
     }
 }]);
 
@@ -79,26 +92,75 @@ app.controller('MenuController', ['MenuService', 'ReplyErrorHandler', 'notificat
 
 app.controller('ArViewController', ['ArService', 'ReplyErrorHandler', '$stateParams', 'notifications','$scope', function(ArService, ReplyErrorHandler, $stateParams, notifications, $scope) {
     $scope.ar = [];
+    $scope.discussion_id;
+    $scope.comments;
+
+    $scope.currentar = [];
+    $scope.discussion_id;
+    $scope.comments;
+    $scope.setCurrentAr = function(id) {
+        $scope.currentar = $scope.ar.versions[id];
+        $scope.discussion_id = $scope.currentar.discussion.id;
+        $scope.comments = $scope.currentar.discussion.comments;
+    }
+
     ArService.id.get({id: $stateParams.id},function(data, status, headers, config) {
         $scope.ar = data;
+        $scope.setCurrentAr($scope.ar.versions.length - 1);
     }, ReplyErrorHandler);
-    
+
 }]);
+
+app.controller('DiscussionController', ['DiscussionService', 'CommentService', 'ReplyErrorHandler', '$stateParams', 'notifications','$scope', function(DiscussionService, CommentService, ReplyErrorHandler, $stateParams, notifications, $scope) {
+    $scope.newcomment;
+    $scope.init = function () {
+        $scope.newcomment = {};
+        $scope.newcomment.comment = '';
+    };
+    $scope.init();
     
-app.controller('ARController', ['ArService', 'CloudSmells', 'ReplyErrorHandler', 'notifications','$scope','$filter', function(ArService, CloudSmells, ReplyErrorHandler, notifications, $scope, $filter) {
+    $scope.updateComment = function (discussion_id, comment) {
+        CommentService.noid.update(comment, function(data, status, headers, config) {
+            notifications.showSuccess("Comment has been updated.");
+        }, ReplyErrorHandler); 
+    };
+
+    $scope.addComment = function (discussion_id) {
+        $scope.newcomment.discussion = { 'id': discussion_id };
+        CommentService.noid.create($scope.newcomment, function(data, status, headers, config) {
+            $scope.$parent.comments.unshift(data);
+            $scope.init();
+            notifications.showSuccess("Comment has been added.");
+        }, ReplyErrorHandler);
+    };
+
+    $scope.like = function(comment) {
+        CommentService.like.like({id: comment.id},function(data, status, headers, config) {
+            notifications.showSuccess("Comment has been liked.");
+            comment.likes++;
+        }, ReplyErrorHandler);
+    };
+    
+    /*$scope.discussion = [];
+    DiscussionService.id.get({id: $stateParams.discussion_id},function(data, status, headers, config) {
+        $scope.discussion = data;
+    }, ReplyErrorHandler);*/
+}]);
+
+app.controller('ARController', ['ArVersionService', 'CloudSmells', 'ReplyErrorHandler', 'notifications','$scope','$filter', function(ArVersionService, CloudSmells, ReplyErrorHandler, notifications, $scope, $filter) {
     var orderBy = $filter('orderBy');
-    $scope.arlist = ars;
+    $scope.arlist = []; //ars;
     this.formvisible = true;
     $scope.words = [];
     //$scope.words = words;
     $scope.cloudcallstatus = '&nbsp;<i class="glyphicon glyphicon-refresh glyphicon-refresh-animate"/> Loading...';
     
     $scope.loadArs = function () {
-        ArService.noid.get({},function(data, status, headers, config) {
+        ArVersionService.noid.get({},function(data, status, headers, config) {
             $scope.arlist = data;
         }, ReplyErrorHandler);  
     };
-    //$scope.loadArs();
+    $scope.loadArs();
 
     this.loadCloud = function () {
         CloudSmells.get().success(function(data,status,headers,config){
@@ -271,6 +333,7 @@ app.controller('SmellController', ['SmellService', 'SmellGroupService', 'ReplyEr
             $scope.loadSmells();
             notifications.showSuccess("Smell has been added.");
             $scope.initSmell();
+            $scope.smellForm.$setPristine();
         }, ReplyErrorHandler);  
     };
     
@@ -358,6 +421,14 @@ app.controller('SmellUpdateController', ['SmellService','SmellGroupService', 'St
         $scope.singleSmell.questions.splice(idx, 1);
     };
 }]);
+
+/*app.controller('DiscussionController', ['DiscussionService', 'ReplyErrorHandler', '$stateParams', 'notifications','$scope', function(DiscussionService, ReplyErrorHandler, $stateParams, notifications, $scope) {
+    $scope.discussion = [];
+    DiscussionService.id.get({id: $stateParams.id},function(data, status, headers, config) {
+        $scope.discussion = data;
+    }, ReplyErrorHandler);
+    
+}]);*/
 
 app.controller("ExecTaskTypeController", ['ExecTaskTypeService', 'ReplyErrorHandler', 'notifications', '$scope', function(ExecTaskTypeService, ReplyErrorHandler, notifications, $scope) {
     $scope.exectypes = [];

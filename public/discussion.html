@@ -1,0 +1,42 @@
+<div ng-controller="DiscussionController as disCtrl">
+    <hr/>
+    <div ng-show="isAllowed.check(['Admin','Editor','Applier'])">
+        <div class="input-group">
+            <label for="comment">New comment:</label>
+            <textarea class="form-control" rows="4" cols="80" id="comment" ng-model="newcomment.comment" placeholder="Comment..."></textarea>
+        </div><br/>
+        <button class="btn btn-primary btn-sm" ng-click="addComment($parent.discussion_id)" ng-disabled="newcomment.comment.length <= 0">Add Comment</button>
+        <button class="btn btn-warning btn-sm" ng-click="init()">Clear</button>
+    </div>
+    <div ng-hide="isAllowed.check(['Admin','Editor','Applier'])">
+        <div class="alert alert-info" role="alert">Login to add a comment.</div>
+    </div>
+    <hr ng-show="newcomment.comment.length > 0"/>
+    <div class="media bg-warning" ng-show="newcomment.comment.length > 0">
+        <div class="media-left media-top">
+            <a href="#">
+                <img class="media-object avatar img-circle" ng-src="{{_contextPath + currentUser.profile.avatar}}" alt="Avatar {{currentUser.profile.lastname}}">
+            </a>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">{{currentUser.profile.firstname}} {{currentUser.profile.lastname}} <small><i>Posted on {{comment.created | date:'yyyy-MM-dd HH:mm:ss' }}</i></small></h4>
+            <p ng-bind-html="newcomment.comment | breakFilter"></p>
+        </div>
+    </div>
+    <hr ng-show="$parent.comments.length > 0"/>
+    <div class="media-list">
+        <div class="media" ng-repeat-start="comment in $parent.comments | orderBy:'-created'">
+            <div class="media-left media-top">
+                <a href="#">
+                    <img class="media-object avatar img-circle" ng-src="{{_contextPath + comment.user.avatar}}" alt="Avatar {{comment.user.lastname}}">
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">{{comment.user.firstname}} {{comment.user.lastname}} <small><i>Posted on {{comment.created | date:'yyyy-MM-dd HH:mm:ss' }}</i>, <b>Likes <span class="label label-info">{{comment.likes}}</span> <a href ng-click="like(comment)" ng-show="isAllowed.check(['Admin','Applier','Editor'])"><span class="glyphicon glyphicon-thumbs-up"></span></a></b></small></h4>
+                <div class="pull-right"></div>
+                <p ng-bind-html="comment.comment | breakFilter"></p>
+            </div>
+        </div>
+        <hr ng-repeat-end/>
+    </div>
+</div>

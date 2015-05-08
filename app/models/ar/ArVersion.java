@@ -16,7 +16,7 @@ import javax.persistence.OneToOne;
 
 import models.discussion.Discussion;
 import models.smell.Smell;
-import models.status.Status;
+import models.status.ItemStatus;
 import models.user.User;
 
 /**
@@ -25,13 +25,15 @@ import models.user.User;
  * @author cbi
  */
 @Entity
-public class ArchitecturalRefactoring {
+public class ArVersion {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	private String name;
 	private String description;
+	@ManyToOne
+	private Ar arhead;
 	@ManyToMany
 	private List<Smell> smells;
 	@OneToOne(cascade=CascadeType.PERSIST, mappedBy="ar")
@@ -41,8 +43,7 @@ public class ArchitecturalRefactoring {
 	@ManyToOne
 	private User editor;
 	@Enumerated(EnumType.STRING)
-	private Status status;
-	private Boolean active;
+	private ItemStatus status;
 	private Timestamp modified;
 	private Timestamp created;
 
@@ -52,6 +53,11 @@ public class ArchitecturalRefactoring {
 	public String getName() { return name; }
 	public void setName(String name) { this.name = name; }
 	public String getDescription() { return description; }
+	// Return only the ID of the head AR to prevent loop in JSON.
+	public Long getArhead() {
+		return arhead.getId(); 
+	}
+	public void setArhead(Ar arhead) { this.arhead = arhead; }
 	public List<Smell> getSmells() { return smells; }
 	public void setSmells(List<Smell> smells) { this.smells = smells; }
 	public void setDescription(String description) { this.description = description; }
@@ -67,8 +73,6 @@ public class ArchitecturalRefactoring {
 	public void setCommentary(Discussion commentary) { this.commentary = commentary; }
 	public User getEditor() { return editor; }
 	public void setEditor(User editor) { this.editor = editor; }
-	public Status getStatus() { return status; }
-	public void setStatus(Status status) { this.status = status; }
-	public Boolean getActive() { return active; }
-	public void setActive(Boolean active) { this.active = active; }
+	public ItemStatus getStatus() { return status; }
+	public void setStatus(ItemStatus status) { this.status = status; }
 }

@@ -10,11 +10,13 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 
-import models.ar.ArchitecturalRefactoring;
+import models.ar.ArVersion;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 /**
  * Data model representing a {@link Discussion}.
@@ -29,14 +31,20 @@ public class Discussion {
 	private Long id;
 	@Enumerated(EnumType.STRING)
 	private DiscussionType type;
-	@OneToOne
-	@PrimaryKeyJoinColumn
-	private ArchitecturalRefactoring ar;	
+	@JsonIgnore
+	@ManyToOne
+	private ArVersion ar;	
 	@OneToMany(cascade=CascadeType.PERSIST, mappedBy="discussion")
+	@JsonManagedReference(value="DiscussionComment")
 	private List<Comment> comments;
 	private Timestamp created;
 	
 	
+	/**
+	 * Enum with the available types of discussions.
+	 * 
+	 * @author cbi
+	 */
 	public enum DiscussionType {
 	    COMMENTARY,
 	    DISCUSSION
@@ -47,8 +55,8 @@ public class Discussion {
 	public void setId(Long id) { this.id = id; }
 	public DiscussionType getType() { return type; }
 	public void setType(DiscussionType type) { this.type = type; }
-	public ArchitecturalRefactoring getAr() { return ar; }
-	public void setAr(ArchitecturalRefactoring ar) { this.ar = ar; }
+	public ArVersion getAr() { return ar; }
+	public void setAr(ArVersion ar) { this.ar = ar; }
 	public List<Comment> getComments() { return comments; }
 	public void setComments(List<Comment> comments) { this.comments = comments; }
 	public Timestamp getCreated() { return created; }

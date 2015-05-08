@@ -21,10 +21,14 @@ app.factory("ReplyErrorHandler", ['currentUser', 'notifications', '$log', functi
             } else {
                 notifications.showError(error['data'] + " [" + error['status'] + "] to " + error['config']['method'] + " " + error['config']['url']);
             }
-        } else if(error['status'] == 501) {
+        } else if(error['status'] == 404) {
+            notifications.showError("Object not found, " + "[" + error['status'] + "], " + error['config']['url']);
+        } else if(error['status'] == 409) {
+            notifications.showInfo(error['data']);
+        } else if(error['status'] == 500) {
             notifications.showError(error['data'] + ", Technical error [" + error['status'] + "], failed to " + error['config']['method'] + " " + error['config']['url']);
         } else {
-            notifications.showError(error['data'] + ", Technical error [" + error['status'] + "], failed to " + error['config']['method'] + " " + error['config']['url']);
+            notifications.showError(error['data'] + ", Unknown error [" + error['status'] + "], failed to " + error['config']['method'] + " " + error['config']['url']);
         }
     }
 }]);
@@ -43,10 +47,42 @@ app.factory("ArService", ['$resource', function($resource) {
     };
 }]);
 
+app.factory("ArVersionService", ['$resource', function($resource) {
+    return {
+        noid: $resource(_contextPath + 'arversion', {}, {
+            get: {method:'GET', isArray: true},
+            update: { method: 'PUT' },
+            create: { method: 'POST' }
+        }),
+        id: $resource(_contextPath + 'arversion/:id', {}, {
+            get: { method: 'GET' },
+            delete: { method: 'DELETE', params: {id: '@id'} }
+        })
+    };
+}]);
+
 app.factory("CloudSmells", ['$http', function($http) {
     return {
         get: function() {
             return $http({method: "GET", url: _contextPath + 'smell/forcloud', transformResponse: [] });
+        }
+    }
+}]);
+
+app.factory("FileUploader", ['$http', function($http) {
+    return {
+        upload: function(file, uploadUrl){
+            var fd = new FormData();
+            fd.append('file', file);
+            return $http.post(uploadUrl, fd, {transformRequest: angular.identity, headers: {'Content-Type': undefined} });
+        }
+    }
+}]);
+
+app.factory("AvatarUploader", ['FileUploader', function(FileUploader) {
+    return {
+        upload: function(file){
+            return FileUploader.upload(file, _contextPath + 'uploadavatar');
         }
     }
 }]);
@@ -81,6 +117,37 @@ app.factory('MenuService', ['$resource', function ($resource) {
     return $resource(_contextPath + 'menu', {}, {
         get: { method: 'GET', isArray: true }
     });
+}]);
+
+app.factory("DiscussionService", ['$resource', function($resource) {
+    return {
+        noid: $resource(_contextPath + 'discussion', {}, {
+            get: {method:'GET', isArray: true},
+            update: { method: 'PUT' },
+            create: { method: 'POST' }
+        }),
+        id: $resource(_contextPath + 'discussion/:id', {}, {
+            get: { method: 'GET' },
+            delete: { method: 'DELETE', params: {id: '@id'} }
+        })
+    };
+}]);
+
+app.factory("CommentService", ['$resource', function($resource) {
+    return {
+        noid: $resource(_contextPath + 'comment', {}, {
+            get: { method:'GET', isArray: true },
+            update: { method: 'PUT' },
+            create: { method: 'POST' }
+        }),
+        id: $resource(_contextPath + 'comment/:id', {}, {
+            get: { method: 'GET' },
+            delete: { method: 'DELETE', params: {id: '@id'} }
+        }),
+        like: $resource(_contextPath + 'like/:id', {}, {
+            like: { method: 'PUT', params: {id: '@id'} }
+        })
+    };
 }]);
 
 app.factory("UserService", ['$resource', function($resource) {

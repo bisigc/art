@@ -5,6 +5,7 @@ import java.lang.reflect.Method;
 import play.Application;
 import play.Configuration;
 import play.GlobalSettings;
+import play.Logger;
 import play.Play;
 import play.libs.F.Promise;
 import play.mvc.Action;
@@ -16,30 +17,36 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 
 /**
- * Global Settings for the ART application.
- * Sets up the DI framework configuration for Controllers and DAOs used in the ART application.
- * The overwritten Method onRequest resets the session time (in case of a logged in user session),
- * to prevent session timeout.
+ * Global Settings for the ART application. Sets up the DI framework
+ * configuration for Controllers and DAOs used in the ART application. The
+ * overwritten Method onRequest resets the session time (in case of a logged in
+ * user session), to prevent session timeout.
  * 
  * @author cbi
  */
 public class Global extends GlobalSettings {
 
 	private static Injector INJECTOR = createInjector();
-	
+
 	private Configuration conf;
 	private long timeout;
 
 	/**
-	 * Returns instances of the requested controller classes. Using
-	 * GUICE DI framework injector.
+	 * Returns instances of the requested controller classes. Using GUICE DI
+	 * framework injector.
 	 * 
 	 * @see play.GlobalSettings#getControllerInstance(java.lang.Class)
 	 */
 	@Override
 	public <A> A getControllerInstance(Class<A> controllerClass)
 			throws Exception {
-		A a = INJECTOR.getInstance(controllerClass);
+		A a = null;
+		try {
+			a = INJECTOR.getInstance(controllerClass);
+		} catch (Exception e) {
+			Logger.error("Could not instantiate " + controllerClass + ", you might want to check DI config.");
+			throw e;
+		}
 		return a;
 	}
 
@@ -47,22 +54,21 @@ public class Global extends GlobalSettings {
 	 * Creates an instance of the GUICE Dependency Injector. With the
 	 * configuration module {@link MainInjector}.
 	 * 
-	 * @return
+	 * @return created Guice injector object
 	 */
 	private static Injector createInjector() {
 		return Guice.createInjector(new MainInjector());
 	}
 
 	/**
-	 * Returns the instance of the GUICE injector object.
+	 * Returns the instance of the GUICE {@link com.google.inject.Injector}
+	 * object.
 	 * 
-	 * @return
+	 * @return Guice Injector instance
 	 */
 	public static Injector getInjector() {
 		return INJECTOR;
 	}
-	
-	
 
 	/**
 	 * Overwritten onStart method, loads default session timeout time.
@@ -77,10 +83,11 @@ public class Global extends GlobalSettings {
 	}
 
 	/**
-	 * Overwritten ethod onRequest resets the session time (in case of a logged in user session),
-	 * to prevent session timeout.
+	 * Overwritten ethod onRequest resets the session time (in case of a logged
+	 * in user session), to prevent session timeout.
 	 * 
-	 * @see play.GlobalSettings#onRequest(play.mvc.Http.Request, java.lang.reflect.Method)
+	 * @see play.GlobalSettings#onRequest(play.mvc.Http.Request,
+	 *      java.lang.reflect.Method)
 	 */
 	@Override
 	public Action.Simple onRequest(play.mvc.Http.Request request, Method method) {
@@ -88,13 +95,14 @@ public class Global extends GlobalSettings {
 		return new Action.Simple() {
 			@Override
 			public Promise<Result> call(Context ctx) throws Throwable {
-				if(ctx.session().get("email") != null) {
+				if (ctx.session().get("email") != null) {
 					long time = Long.parseLong(ctx.session().get("time"));
 					long currenttime = System.currentTimeMillis();
 					long sessiontime = currenttime - time;
-					
-					if(sessiontime > timeout) {
-						// Nothing has to be done here, timeout is handled by the SessionAuhtAction
+
+					if (sessiontime > timeout) {
+						// Nothing has to be done here, timeout is handled by
+						// the SessionAuhtAction
 					} else {
 						ctx.session().put("time", Long.toString(currenttime));
 					}

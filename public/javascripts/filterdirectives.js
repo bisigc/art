@@ -4,8 +4,14 @@ app.filter('limitHtml', function() {
         var changedString = String(text).replace(/<[^>]+>/gm, '');
         var length = changedString.length;
 
-        return changedString.length > limit ? changedString.substr(0, limit - 1) : changedString; 
+        return changedString.length > limit ? changedString.substr(0, limit - 1) + " ..." : changedString; 
     }
+});
+
+app.filter('breakFilter', function () {
+    return function (text) {
+        if (typeof text !== 'undefined' && text != null && text !== '') return text.replace(/\n/g, '<br />');
+    };
 });
 
 app.directive('hilighter', ['$timeout', function($timeout) {
@@ -51,3 +57,19 @@ app.directive('commentArea', function() {
                   '<li ng-repeat="cust in customers">{{ cust.name }}</li></ul>'
     };
 });
+
+app.directive('fileModel', ['$parse', function ($parse) {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+            var model = $parse(attrs.fileModel);
+            var modelSetter = model.assign;
+            
+            element.bind('change', function(){
+                scope.$apply(function(){
+                    modelSetter(scope, element[0].files[0]);
+                });
+            });
+        }
+    };
+}]);

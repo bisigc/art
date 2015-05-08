@@ -43,6 +43,7 @@ body {
     height: 100px;
     background-color: darkgray;
     display: inline-block;
+    margin-bottom: 17px;
 }
 
 .avatar {
@@ -295,4 +296,49 @@ body {
   font-size: 24px;
   line-height: 1.33;
   border-radius: 35px;
+}
+    
+    
+/* Bootstrap Tab Content */
+.tab-content {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    
+    -moz-border-radius-bottomright: 5px;
+    -webkit-border-radius-bottom-right: 5px;
+    border-bottom-right-radius: 5px; /* future proofing */
+    -khtml-border-radius-bottomright: 5px; /* for old Konqueror browsers */
+
+    -moz-border-radius-bottomleft: 5px;
+    -webkit-border-radius-bottom-left: 5px;
+    border-bottom-left-radius: 5px; /* future proofing */
+    -khtml-border-radius-bottomleft: 5px; /* for old Konqueror browsers */
+}
+
+.nav-tabs {
+    margin-bottom: 0;
+}
+    
+/* Form File Input Button */
+    
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
 }

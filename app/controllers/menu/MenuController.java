@@ -46,7 +46,7 @@ public class MenuController extends AbstractCRUDController<Menuitem, Long> {
 	public Result getAll() {
 		List<Menuitem> data;
 		try {
-			TypedQuery<Menuitem> query = JPA.em().createQuery("select a from Menuitem a where a.name != :arg1 and a.menuitem = :arg2 order by ordering asc", Menuitem.class);
+			TypedQuery<Menuitem> query = JPA.em().createQuery("select a from " + dao.getModel().getSimpleName() + " a where a.name != :arg1 and a.menuitem = :arg2 order by ordering asc", Menuitem.class);
 			query.setParameter("arg1", "root");
 			Menuitem menu = new Menuitem();
 			menu.setId(new Long(1));

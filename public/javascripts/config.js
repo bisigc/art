@@ -4,19 +4,16 @@ app.run(['$rootScope','$state','$stateParams','notifications','currentUser', 'is
     $rootScope.currentUser = currentUser;
     $rootScope.isAllowed = isAllowed;
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
-        var verifyLogin = function() {
-            var requireLogin = toState.data.requireLogin;
-            var allowedRoles = toState.data.allowedRoles;
+        var requireLogin = toState.data.requireLogin;
+        var allowedRoles = toState.data.allowedRoles;
 
-            if (requireLogin && currentUser.profile == null) {
-                event.preventDefault();
-                notifications.showWarning("Login required.");
-            } else if(requireLogin && currentUser.profile != null && allowedRoles.indexOf(currentUser.profile.role.name) == -1) {
-                event.preventDefault();
-                notifications.showWarning("Not enough permissions.");
-            }
+        if (requireLogin && currentUser.profile == null) {
+            event.preventDefault();
+            notifications.showWarning("Login required.");
+        } else if(requireLogin && currentUser.profile != null && allowedRoles.indexOf(currentUser.profile.role.name) == -1) {
+            event.preventDefault();
+            notifications.showWarning("Not enough permissions.");
         }
-        verifyLogin();
     });
     
     $rootScope.$on('$stateChangeSuccess', function (evt, toState, toParams, fromState, fromParams) {
@@ -130,15 +127,29 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
     })
         .state('singlesmell', {
         url: "/smell/:id",
-        templateUrl: _contextPath + "singlesmell.html",
         title: "Smell View",
-        data: { requireLogin: false }
+        data: { requireLogin: false },
+        views: {
+            '': {
+                templateUrl: _contextPath + "singlesmell.html"
+            }/*,
+            'discussionView@singlesmell': {
+                templateUrl: _contextPath + "discussion.html"
+            }*/
+        }
     })
         .state('singlear', {
         url: "/ar/:id",
-        templateUrl: _contextPath + "singlear.html",
         title: "AR View",
-        data: { requireLogin: false }
+        data: { requireLogin: false },
+        views: {
+            '': {
+                templateUrl: _contextPath + "singlear.html"
+            },
+            'discussionView@singlear': {
+                templateUrl: _contextPath + "discussion.html"
+            }
+        }
     })
         .state('taskbrowser', {
         url: "/taskbrowser",

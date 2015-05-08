@@ -49,7 +49,7 @@
                             </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right" ng-controller="UserController as userCtrl">
-                            <li ng-show="isLoggedin()" class="menuItem menuuser" ng-class="{active:$state.is('profile')}"><a ui-sref="profile"><img ng-src="{{currentUser.profile.avatar}}" class="avatar img-circle" /> {{currentUser.profile.firstname}} {{currentUser.profile.lastname}}</a></li>
+                            <li ng-show="isLoggedin()" class="menuItem menuuser" ng-class="{active:$state.is('profile')}"><a ui-sref="profile"><img ng-src="{{_contextPath + currentUser.profile.avatar}}" class="avatar img-circle" /> {{currentUser.profile.firstname}} {{currentUser.profile.lastname}}</a></li>
                             <li ng-hide="isLoggedin()" class="menuItem dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" title="Login" role="button" aria-expanded="false">Login <span class="caret"></span></a>
                                 <ul class="dropdown-menu login-dropdown" role="menu">

@@ -1,77 +1,98 @@
 <div ng-controller="UserProfileController as userCtrl">
     <div class="page-header">
-        <h1>User Profile <small>{{user.firstname}} {{user.surname}}</small></h1>
+        <h1>User Profile <small>{{user.firstname}} {{user.lastname}}</small></h1>
     </div>
-    <div class="well">
-        <div class="row">
-            <div class="col-md-8">
-                <form name="userProfileForm" ng-submit="userProfileForm.$valid && updateProfile()" novalidate>
-                    <fieldset class="form-group">
-                        <label for="firstname">Firstname</label>
-                        <input class="form-control" title="firstname" id="firstname" ng-model="user.firstname" required></input>
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <label for="lastname">Lastname</label>
-                        <input class="form-control" title="lastname" id="lastname" ng-model="user.lastname" required></input>
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <label for="company">Organisation</label>
-                        <input class="form-control" title="organisation" id="organisation" ng-model="user.organisation" required></input>
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <label for="email">E-Mail</label>
-                        <input class="form-control" title="email" id="email" ng-model="user.email" required></input>
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <label for="keywords">Avatar</label>
-                        <img ng-src="{{user.avatar}}" class="avatar-big img-circle" />
-                        <input class="file" id="avatar" name="avatar" type="file" ng-model="user.avatar">
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <label for="homepage">Homepage</label>
-                        <input class="form-control" title="homepage" id="homepage" ng-model="user.homepage" required></input>
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <label for="group">Startpage</label>
-                        <ui-select ng-model="user.startpage" theme="selectize" ng-disabled="disabled" required>
-                            <ui-select-match>{{$select.selected}}</ui-select-match>
-                            <ui-select-choices repeat="page in startpages | filter: $select.search">
-                                <span ng-bind-html="page | highlight: $select.search"></span>
-                            </ui-select-choices>
-                        </ui-select>
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <label for="group">Role</label>
-                        <ui-select ng-model="user.role" theme="selectize" ng-disabled="disabled" required>
-                            <ui-select-match>{{$select.selected.name}}</ui-select-match>
-                            <ui-select-choices repeat="role in roles | filter: $select.search">
-                                <span ng-bind-html="role.name | highlight: $select.search"></span>
-                            </ui-select-choices>
-                        </ui-select>
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <button type="submit" class="btn btn-primary pull-right" ng-disabled="userProfileForm.$invalid">Save Profile</button>
-                    </fieldset>
-                </form>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h3 class="panel-title">User Details</h3></div>
+                <div class="panel-body">
+                    <form name="userProfileForm" ng-submit="userProfileForm.$valid && updateProfile()" novalidate>
+                        <fieldset class="form-group">
+                            <label for="firstname">Firstname</label>
+                            <input class="form-control" title="firstname" id="firstname" ng-model="user.firstname" required></input>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="lastname">Lastname</label>
+                            <input class="form-control" title="lastname" id="lastname" ng-model="user.lastname" required></input>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="company">Organisation</label>
+                            <input class="form-control" title="organisation" id="organisation" ng-model="user.organisation" required></input>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="email">E-Mail</label>
+                            <input class="form-control" title="email" id="email" ng-model="user.email" required></input>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="homepage">Homepage</label>
+                            <input class="form-control" title="homepage" id="homepage" ng-model="user.homepage" required></input>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="group">Startpage</label>
+                            <ui-select ng-model="user.startpage" theme="selectize" ng-disabled="disabled" required>
+                                <ui-select-match>{{$select.selected}}</ui-select-match>
+                                <ui-select-choices repeat="page in startpages | filter: $select.search">
+                                    <span ng-bind-html="page | highlight: $select.search"></span>
+                                </ui-select-choices>
+                            </ui-select>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="group">Role</label>
+                            <ui-select ng-model="user.role" theme="selectize" ng-disabled="disabled" required>
+                                <ui-select-match>{{$select.selected.name}}</ui-select-match>
+                                <ui-select-choices repeat="role in roles | filter: $select.search">
+                                    <span ng-bind-html="role.name | highlight: $select.search"></span>
+                                </ui-select-choices>
+                            </ui-select>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <button type="submit" class="btn btn-primary pull-right" ng-disabled="userProfileForm.$invalid">Save Profile</button>
+                        </fieldset>
+                    </form>
+                </div>
             </div>
-            <div class="col-md-4">
-                <form name="pwUpdateForm" ng-submit="pwUpdateForm.$valid && changePassword()" novalidate>
-                    <fieldset class="form-group">
-                        <label for="currentpassword">Current Password</label>
-                        <input class="form-control" title="currentpassword" type="password" name="currentpassword" id="currentpassword" ng-model="pw.currentpassword" required></input>
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <label for="newpassword">New Password</label>
-                        <input class="form-control" title="newpassword" type="password" name="newpassword" id="newpassword" ng-model="pw.newpassword" required></input>
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <label for="repeatpassword">Repeat Password</label>
-                        <input class="form-control" title="repeatpassword" type="password" name="repeatpassword" id="repeatpassword" ng-model="pw.repeatpassword" required></input>
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <button type="submit" class="btn btn-primary pull-right" ng-disabled="pwUpdateForm.$invalid">Update Password</button>
-                    </fieldset>
-                </form>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h3 class="panel-title">Change password</h3></div>
+                <div class="panel-body">
+                    <form name="pwUpdateForm" ng-submit="pwUpdateForm.$valid && changePassword()" novalidate>
+                        <fieldset class="form-group">
+                            <label for="currentpassword">Current password</label>
+                            <input class="form-control" title="currentpassword" type="password" name="currentpassword" id="currentpassword" ng-model="pw.currentpassword" required></input>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="newpassword">New password</label>
+                            <input class="form-control" title="newpassword" type="password" name="newpassword" id="newpassword" ng-model="pw.newpassword" required></input>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="repeatpassword">Repeat password</label>
+                            <input class="form-control" title="repeatpassword" type="password" name="repeatpassword" id="repeatpassword" ng-model="pw.repeatpassword" required></input>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <button type="submit" class="btn btn-primary pull-right" ng-disabled="pwUpdateForm.$invalid">Update Password</button>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading"><h3 class="panel-title">Change avatar</h3></div>
+                <div class="panel-body">
+                    <form name="avatarForm" id="avatarForm" ng-submit="avatarForm.$valid && uploadAvatar()" novalidate>
+                        <img ng-src="{{_contextPath + currentUser.profile.avatar}}" class="avatar-big img-circle" />
+                        <br/>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary btn-file" type="button">Browse <input id="avatar" name="avatar" type="file" file-model="avatarimage" required></button>
+                            </span>
+                            <span class="form-control">{{avatarimage.name || "No file selected"}}</span>
+                        </div><br/>
+                        <fieldset class="form-group">
+                            <button type="submit" class="btn btn-primary pull-right" ng-disabled="avatarForm.$invalid">Upload avatar</button>
+                        </fieldset>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
