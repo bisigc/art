@@ -1,0 +1,92 @@
+<div ng-controller="UserCreateController as createUserCtrl">
+    <div class="page-header">
+        <h1>Register</h1>
+    </div>
+    {{user}}
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h3 class="panel-title">User Details</h3></div>
+                <div class="panel-body">
+                    <form name="userProfileForm" class="form-horizontal" ng-submit="userProfileForm.$valid && updateProfile()" novalidate>
+                        <fieldset class="form-group">
+                            <div class="col-sm-6">
+                                <label for="firstname">Firstname</label>
+                                <input class="form-control" title="firstname" id="firstname" ng-model="user.firstname" required></input>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="lastname">Lastname</label>
+                                <input class="form-control" title="lastname" id="lastname" ng-model="user.lastname" required></input>
+                            </div>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <div class="col-sm-12">
+                                <label for="company">Organisation</label>
+                                <input class="form-control" title="organisation" id="organisation" ng-model="user.organisation" required></input>
+                            </div>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <div class="col-sm-6">
+                                <label for="email">E-Mail</label>
+                                <input class="form-control" title="email" id="email" ng-model="user.email" required></input>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="homepage">Homepage</label>
+                                <input class="form-control" title="homepage" id="homepage" ng-model="user.homepage" required></input>
+                            </div>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <div class="col-sm-6">
+                                <label for="group">Startpage</label>
+                                <ui-select ng-model="user.startpage" theme="selectize" ng-disabled="disabled" required>
+                                    <ui-select-match>{{$select.selected}}</ui-select-match>
+                                    <ui-select-choices repeat="page in startpages | filter: $select.search">
+                                        <span ng-bind-html="page | highlight: $select.search"></span>
+                                    </ui-select-choices>
+                                </ui-select>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="group">Role</label>
+                                <ui-select ng-model="user.role" theme="selectize" ng-disabled="disabled" required>
+                                    <ui-select-match>{{$select.selected.name}}</ui-select-match>
+                                    <ui-select-choices repeat="role in roles | filter: $select.search">
+                                        <span ng-bind-html="role.name | highlight: $select.search"></span>
+                                    </ui-select-choices>
+                                </ui-select>
+                            </div>
+                        </fieldset>
+                        <fieldset class="form-group" ng-init="revalidate(user.password, repeatpassword)">
+                            <div class="col-sm-6">
+                                <label for="password">Password</label>
+                                <input class="form-control" title="password" type="password" name="password" id="password" ng-valid="pwcheck.valid" ng-change="revalidate(user.password, repeatpassword)" ng-model="user.password" required></input>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="repeatpassword">Repeat password</label>
+                                <input class="form-control" title="repeatpassword" type="password" name="repeatpassword" ng-valid="pwcheck.valid" ng-change="revalidate(user.password, repeatpassword)" id="repeatpassword" ng-model="repeatpassword" required></input>
+                            </div>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <div class="col-sm-12">
+                                <label>Password constraints</label>
+                                <ul class="list-inline">
+                                    <li ng-repeat="constraint in pwcheck.constraints">
+                                        <span>{{constraint.name + ' : ' }}</span>
+                                        <span class="glyphicon glyphicon-remove-sign text-danger font-size-large" ng-hide="constraint.valid"></span>
+                                        <span class="glyphicon glyphicon-ok-sign text-success font-size-large" ng-show="constraint.valid"></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <div class="col-sm-12">
+                                <button type="submit" class="btn btn-primary pull-right" ng-disabled="pwcheck.valid && userProfileForm.$invalid">Create User</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>

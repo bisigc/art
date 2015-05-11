@@ -14,7 +14,7 @@ import dao.GenericDAO;
  * 
  * @author cbi
  */
-public class TaskController extends AbstractCRUDController<TaskTemplate, Long> {
+public class TaskTemplateController extends AbstractCRUDController<TaskTemplate, Long> {
 	
 	/**
 	 * Constructor receives a {@link GenericDAO}. DI framework hook is "@Named("TaskTemplateDAO")".
@@ -22,7 +22,7 @@ public class TaskController extends AbstractCRUDController<TaskTemplate, Long> {
 	 * @param dao
 	 */
 	@Inject
-	public TaskController(@Named("TaskTemplateDAO") GenericDAO<TaskTemplate, Long> dao) {
+	public TaskTemplateController(@Named("TaskTemplateDAO") GenericDAO<TaskTemplate, Long> dao) {
 		super(dao);
 	}
 

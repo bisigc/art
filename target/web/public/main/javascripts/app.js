@@ -14,6 +14,7 @@ app.controller('UserController', ['UserService', 'ReplyErrorHandler', 'notificat
             currentUser.profile = data;
             notifications.showSuccess("Logged in");
             $scope.logindata = {"email":"","password":""};
+            $scope.loginform.$setPristine();
             if(currentUser.profile.startpage == "stay") {
                 $state.go($state.current, {}, {reload: true});
                 //$state.reload();
@@ -30,17 +31,14 @@ app.controller('UserController', ['UserService', 'ReplyErrorHandler', 'notificat
             $state.go('home');
         }, ReplyErrorHandler);
     };
-    
-    $scope.isLoggedin = function() {
-        return !(currentUser.profile == null);
-    }
 }]);
 
-app.controller('UserProfileController', ['UserService', 'RolesService', 'AvatarUploader', 'ReplyErrorHandler','notifications', '$scope','currentUser', function(UserService, RolesService, AvatarUploader, ReplyErrorHandler, notifications, $scope, currentUser){
+app.controller('UserProfileController', ['UserService', 'RolesService', 'AvatarUploader', 'ReplyErrorHandler', 'PasswordValidator', 'notifications', '$scope','currentUser', function(UserService, RolesService, AvatarUploader, ReplyErrorHandler, PasswordValidator, notifications, $scope, currentUser){
     $scope.startpages = ['home','arbrowser','smellbrowser','taskbrowser', 'stay'];
     $scope.user;
     $scope.pw;
     $scope.roles = [];
+    $scope.pwcheck = [];
     RolesService.get({},function(data, status, headers, config) {
         $scope.roles = data;
     }, ReplyErrorHandler);
@@ -72,6 +70,31 @@ app.controller('UserProfileController', ['UserService', 'RolesService', 'AvatarU
             notifications.showError("Failed to upload avatar image");
         });;
     }
+    
+    $scope.revalidate = function(pw, rpw) {
+       $scope.pwcheck = PasswordValidator.check(pw, rpw);
+    };
+}]);
+
+app.controller('UserCreateController', ['UserService', 'RolesService', 'ReplyErrorHandler', 'PasswordValidator', 'notifications', '$scope', '$state', function(UserService, RolesService, ReplyErrorHandler, PasswordValidator, notifications, $scope, $state){
+    $scope.startpages = ['home','arbrowser','smellbrowser','taskbrowser', 'stay'];
+    $scope.user;
+    $scope.roles = [];
+    $scope.pwcheck = [];
+    RolesService.get({},function(data, status, headers, config) {
+        $scope.roles = data;
+    }, ReplyErrorHandler);
+    
+    $scope.updateProfile = function() {
+        UserService.noid.create({},$scope.user,function(data, status, headers, config) {
+            notifications.showSuccess("User has been created.");
+            $state.go('home');
+        }, ReplyErrorHandler);
+    };
+    
+    $scope.revalidate = function(pw, rpw) {
+       $scope.pwcheck = PasswordValidator.check(pw, rpw);
+    };
 }]);
 
 app.controller('MenuController', ['MenuService', 'ReplyErrorHandler', 'notifications', '$scope', function(MenuService, ReplyErrorHandler, notifications, $scope){
@@ -80,14 +103,21 @@ app.controller('MenuController', ['MenuService', 'ReplyErrorHandler', 'notificat
     MenuService.get({},function(data, status, headers, config) {
         $scope.menuItems = data;
     }, ReplyErrorHandler); 
-    $scope.menuItem = 'home.html';
+    /*$scope.menuItem = 'home.html';
     $scope.setMenu = function(selectedMenu) {
         $scope.menuItem = selectedMenu + '.html';
     };
 
     $scope.isMenuSet = function(isSet) {
         return isSet === $scope.menuItem;
-    };
+    };*/
+}]);
+
+app.controller('StatsController', ['StatisticService', 'ReplyErrorHandler', 'notifications', '$scope', function(StatisticService, ReplyErrorHandler, notifications, $scope){
+    $scope.stats = [];
+    StatisticService.get({},function(data, status, headers, config) {
+        $scope.stats = data;
+    }, ReplyErrorHandler); 
 }]);
 
 app.controller('ArViewController', ['ArService', 'ReplyErrorHandler', '$stateParams', 'notifications','$scope', function(ArService, ReplyErrorHandler, $stateParams, notifications, $scope) {
@@ -420,6 +450,98 @@ app.controller('SmellUpdateController', ['SmellService','SmellGroupService', 'St
     $scope.removeQuestion = function (idx) {
         $scope.singleSmell.questions.splice(idx, 1);
     };
+}]);
+
+app.controller('TaskController', ['TaskService', 'ExecTaskTypeService', 'TaskPropertyService', 'ReplyErrorHandler', 'notifications','$scope','$filter', function(TaskService, ExecTaskTypeService, TaskPropertyService, ReplyErrorHandler, notifications, $scope, $filter) {
+    var orderBy = $filter('orderBy');
+    $scope.tasklist = [];
+    this.formvisible = false;
+    $scope.exectasktypes = [];
+    $scope.taskproperties = [];
+    $scope.loadExecTaskTypes = function () {
+        ExecTaskTypeService.get({},function(data, status, headers, config) {
+            $scope.exectasktypes = data;
+            //$scope.smellcallstatus = "OK";
+        }, ReplyErrorHandler);  
+    };
+    $scope.loadExecTaskTypes();
+    
+    $scope.loadTaskProperties = function () {
+        TaskPropertyService.get({},function(data, status, headers, config) {
+            $scope.taskproperties = data;
+            //$scope.smellcallstatus = "OK";
+        }, ReplyErrorHandler);  
+    };
+    $scope.loadTaskProperties();
+
+    this.showForm = function(visible) {
+        if(visible == true) {
+            this.formvisible = true;
+        } else {
+            this.formvisible = false;
+        }
+    };
+
+    $scope.loadTasks = function () {
+        TaskService.noid.get({},function(data, status, headers, config) {
+            $scope.tasklist = data;
+            //$scope.smellcallstatus = "OK";
+        }, ReplyErrorHandler);  
+    };
+    $scope.loadTasks();
+
+    $scope.deleteTask = function (id) {
+        TaskService.id.delete({id: id},function(data, status, headers, config) {
+            $scope.loadTasks();
+            notifications.showSuccess("Task has been deleted.");
+        }, ReplyErrorHandler);
+    };
+
+    $scope.order = function(predicate, reverse) {
+        $scope.tasklist = orderBy($scope.tasklist, predicate, reverse);
+    };
+    $scope.order('name', false);
+
+    $scope.initTask = function () {
+        $scope.task = {};
+        $scope.task.properties = [];
+        $scope.propertyToAdd = '';
+    }
+    $scope.initTask();
+    $scope.saveTask = function() {
+        TaskService.noid.create($scope.smell,function(data, status, headers, config) {
+            $scope.loadTasks();
+            notifications.showSuccess("Task has been added.");
+            $scope.initTask();
+            $scope.taskForm.$setPristine();
+        }, ReplyErrorHandler);  
+    };
+    
+    $scope.addProperty = function () {
+        $scope.task.questions.push({
+            property: $scope.propertyToAdd
+        });
+        $scope.questionToAdd = '';
+    };
+    
+    $scope.removeProperty = function (idx) {
+        $scope.task.property.splice(idx, 1);
+    };
+
+    $scope.totalItems = 64;
+    $scope.currentPage = 4;
+
+    $scope.setPage = function (pageNo) {
+        $scope.currentPage = pageNo;
+    };
+
+    $scope.pageChanged = function() {
+        $log.log('Page changed to: ' + $scope.currentPage);
+    };
+
+    $scope.maxSize = 5;
+    $scope.bigTotalItems = 175;
+    $scope.bigCurrentPage = 1;
 }]);
 
 /*app.controller('DiscussionController', ['DiscussionService', 'ReplyErrorHandler', '$stateParams', 'notifications','$scope', function(DiscussionService, ReplyErrorHandler, $stateParams, notifications, $scope) {

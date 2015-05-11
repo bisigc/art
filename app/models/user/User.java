@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 
 import models.discussion.Comment;
 
@@ -43,9 +44,15 @@ public class User {
 	private Digest digest;
 	//@OneToMany(cascade=CascadeType.ALL, mappedBy="user", orphanRemoval=true)
 	@OneToMany(cascade=CascadeType.PERSIST, mappedBy="user")
+	@JsonIgnore
 	private List<Comment> comments;
 	private Timestamp modified;
 	private Timestamp created;
+	
+	// Not mapped by jpa (only needed while user creation, but it is saved as Digest) 
+	@Transient
+	private String password;
+	
 		
 	//Getters & Setters
 	public Long getId() { return id; }
@@ -72,4 +79,8 @@ public class User {
 	public void setCreated(Timestamp created) { this.created = created; }
 	public String getHomepage() { return homepage; }
 	public void setHomepage(String homepage) { this.homepage = homepage; }
+	public List<Comment> getComments() { return comments; }
+	public void setComments(List<Comment> comments) { this.comments = comments; }
+	public String getPassword() { return password; }
+	public void setPassword(String password) { this.password = password; }
 }

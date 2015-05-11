@@ -1,0 +1,11 @@
+<svg>
+    <polyline points="10,90 50,50 90,90 180,40 230,60 290,100"
+              style="fill:none;stroke:#5cb85c;stroke-width:10" />
+    <polyline points="10,40 80,30 180,120 220,70 290,40"
+              style="fill:none;stroke:#5bc0de;stroke-width:10" />
+    <polyline points="10,120 90,110 120,90 190,70 240,120 290,110"
+              style="fill:none;stroke:#f0ad4e;stroke-width:10" />
+    <polyline points="10,10 10,140 290,140"
+              style="fill:none;stroke:#777;stroke-width:10" />
+    Sorry, your browser does not support inline SVG.
+</svg>

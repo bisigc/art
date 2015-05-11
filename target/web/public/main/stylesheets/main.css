@@ -342,3 +342,8 @@ body {
     cursor: inherit;
     display: block;
 }
+    
+/* Font sizes */
+.font-size-large {
+    font-size: 18px;
+}

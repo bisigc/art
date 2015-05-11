@@ -1,19 +1,23 @@
 package dao;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.persistence.TypedQuery;
 
+import play.Logger;
 import play.libs.F.Function;
 import play.libs.F.Promise;
 import play.libs.Json;
 import play.libs.ws.WS;
 import play.libs.ws.WSAuthScheme;
 import play.libs.ws.WSResponse;
+import utils.restconfig.RestServiceConfig;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.google.inject.TypeLiteral;
@@ -34,10 +38,7 @@ public class GenericDAORestImpl<T, PK extends Serializable> implements
 		GenericDAO<T, PK> {
 
 	private Class<T> model;
-	
-	private String url;
-	private String user;
-	private String password;
+	private RestServiceConfig config;
 
 	/**
 	 * Construction receives a TypeLiteral of the data model to be used.
@@ -46,7 +47,8 @@ public class GenericDAORestImpl<T, PK extends Serializable> implements
 	 */
 	@SuppressWarnings("unchecked")
 	@Inject
-	public GenericDAORestImpl(TypeLiteral<T> model) {
+	public GenericDAORestImpl(TypeLiteral<T> model, RestServiceConfig config) {
+		this.config = config;
 		this.model = (Class<T>) model.getRawType();
 	}
 
@@ -57,24 +59,25 @@ public class GenericDAORestImpl<T, PK extends Serializable> implements
 
 	@Override
 	public List<T> getAll() {
-		Promise<JsonNode> jsonPromise = WS.url(url)
-				.setAuth(user, password, WSAuthScheme.BASIC)
-				.setTimeout(1000).get()
+		Promise<JsonNode> jsonPromise = WS
+				.url(config.getUrl())
+				.setAuth(config.getUser(), config.getPassword(), WSAuthScheme.BASIC)
+				.setQueryParameter("basicAuth", "true")
+				.setTimeout(config.getTimeout()).get()
 				.map(new Function<WSResponse, JsonNode>() {
 					public JsonNode apply(WSResponse response) {
 						JsonNode json = response.asJson();
 						return json;
 					}
 				});
-		JsonNode node = jsonPromise.get(0);
-		ObjectMapper omapper = new ObjectMapper();
-		
-		List<T> objects;
-		try {
-			objects = omapper.readValue(node.asText(), omapper.getTypeFactory().constructCollectionType(List.class, model));
-		} catch (Exception e) {
-			return null;
+		JsonNode node = jsonPromise.get(config.getTimeout());
+		node = node.findValue("items");
+
+		List<T> objects = new ArrayList<T>();
+		for (Iterator<JsonNode> iterator = node.iterator(); iterator.hasNext();) {
+			objects.add(Json.fromJson((ObjectNode) iterator.next(), model));
 		}
+
 		return objects;
 	}
 
@@ -86,60 +89,67 @@ public class GenericDAORestImpl<T, PK extends Serializable> implements
 	@Override
 	public T create(T t) {
 		JsonNode node = Json.toJson(t);
-		Promise<JsonNode> jsonPromise = WS.url(url)
+		Promise<JsonNode> jsonPromise = WS
+				.url(config.getUrl())
 				.setContentType("application/json")
-				.setAuth(user, password, WSAuthScheme.BASIC)
-				.setTimeout(1000).post(node)
+				.setAuth(config.getUser(), config.getPassword(),
+						WSAuthScheme.BASIC)
+				.setQueryParameter("basicAuth", "true")
+				.setTimeout(config.getTimeout()).post(node)
 				.map(new Function<WSResponse, JsonNode>() {
 					public JsonNode apply(WSResponse response) {
 						JsonNode json = response.asJson();
 						return json;
 					}
 				});
-		node = jsonPromise.get(0);
+		node = jsonPromise.get(config.getTimeout());
 		return Json.fromJson(node, model);
 	}
 
 	@Override
 	public T get(PK id) {
-		Promise<JsonNode> jsonPromise = WS.url(url)
-				.setQueryParameter("id", id.toString())
-				.setAuth(user, password, WSAuthScheme.BASIC)
-				.setTimeout(1000).get()
+		Logger.error("+++++++ " + config.getUrl());
+		Promise<JsonNode> jsonPromise = WS
+				.url(config.getUrl() + "/" + id.toString())
+				.setAuth(config.getUser(), config.getPassword(),
+						WSAuthScheme.BASIC)
+				.setQueryParameter("basicAuth", "true")
+				.setTimeout(config.getTimeout()).get()
 				.map(new Function<WSResponse, JsonNode>() {
 					public JsonNode apply(WSResponse response) {
 						JsonNode json = response.asJson();
 						return json;
 					}
 				});
-		JsonNode node = jsonPromise.get(0);
+		JsonNode node = jsonPromise.get(config.getTimeout());
 		return Json.fromJson(node, model);
 	}
 
 	@Override
 	public T update(T t) {
 		JsonNode node = Json.toJson(t);
-		Promise<JsonNode> jsonPromise = WS.url(url)
+		Promise<JsonNode> jsonPromise = WS
+				.url(config.getUrl())
 				.setContentType("application/json")
-				.setAuth(user, password, WSAuthScheme.BASIC)
-				.setTimeout(1000).put(node)
-				.map(new Function<WSResponse, JsonNode>() {
+				.setAuth(config.getUser(), config.getPassword(),
+						WSAuthScheme.BASIC).setTimeout(config.getTimeout())
+				.put(node).map(new Function<WSResponse, JsonNode>() {
 					public JsonNode apply(WSResponse response) {
 						JsonNode json = response.asJson();
 						return json;
 					}
 				});
-		node = jsonPromise.get(0);
+		node = jsonPromise.get(config.getTimeout());
 		return Json.fromJson(node, model);
 	}
 
 	@Override
 	public void delete(PK id) {
-		WS.url(url)
+		WS.url(config.getUrl())
 				.setQueryParameter("id", id.toString())
-				.setAuth(user, password, WSAuthScheme.BASIC)
-				.setTimeout(1000).delete()
-				.map(new Function<WSResponse, JsonNode>() {
+				.setAuth(config.getUser(), config.getPassword(),
+						WSAuthScheme.BASIC).setTimeout(config.getTimeout())
+				.delete().map(new Function<WSResponse, JsonNode>() {
 					public JsonNode apply(WSResponse response) {
 						JsonNode json = response.asJson();
 						return json;

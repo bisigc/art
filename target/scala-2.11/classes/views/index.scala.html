@@ -49,14 +49,14 @@
                             </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right" ng-controller="UserController as userCtrl">
-                            <li ng-show="isLoggedin()" class="menuItem menuuser" ng-class="{active:$state.is('profile')}"><a ui-sref="profile"><img ng-src="{{_contextPath + currentUser.profile.avatar}}" class="avatar img-circle" /> {{currentUser.profile.firstname}} {{currentUser.profile.lastname}}</a></li>
-                            <li ng-hide="isLoggedin()" class="menuItem dropdown">
+                            <li ng-show="isLoggedin.check()" class="menuItem menuuser" ng-class="{active:$state.is('profile')}"><a ui-sref="profile"><img ng-src="{{_contextPath + currentUser.profile.avatar}}" class="avatar img-circle" /> {{currentUser.profile.firstname}} {{currentUser.profile.lastname}}</a></li>
+                            <li ng-hide="isLoggedin.check()" class="menuItem dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" title="Login" role="button" aria-expanded="false">Login <span class="caret"></span></a>
                                 <ul class="dropdown-menu login-dropdown" role="menu">
                                     <li><div ng-include="_contextPath + 'login.html'"></div></li>
                                 </ul>
                             </li>
-                            <li ng-show="isLoggedin()" class="menuItem"><a href ng-click="logout()">Logout</a></li>
+                            <li ng-show="isLoggedin.check()" class="menuItem"><a href ng-click="logout()">Logout</a></li>
                         </ul>
                     </div><!--/.nav-collapse -->
             </nav>

@@ -1,6 +1,5 @@
 package utils.actions;
 
-import java.util.Base64;
 import java.util.List;
 
 import javax.persistence.TypedQuery;
@@ -15,6 +14,7 @@ import play.mvc.Results;
 
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
+import com.lambdaworks.codec.Base64;
 
 import dao.GenericDAO;
 
@@ -56,7 +56,7 @@ public class BasicAuthAction extends Action.Simple {
         }
 
         String auth = authHeader.substring(6);
-        byte[] decodedAuth = Base64.getDecoder().decode(auth);
+        byte[] decodedAuth = Base64.decode(auth.toCharArray());
         String[] credString = new String(decodedAuth, "UTF-8").split(":");
 
         if (credString == null || credString.length != 2) {

@@ -10,9 +10,13 @@ import models.property.Property;
 import models.smell.Smell;
 import models.smell.SmellGroup;
 import models.task.ExecTaskType;
+import models.task.TaskProperty;
 import models.task.TaskTemplate;
 import models.user.Role;
 import models.user.User;
+import utils.restconfig.EPPITaskPropertyServConf;
+import utils.restconfig.EPPITaskTemplateServConf;
+import utils.restconfig.RestServiceConfig;
 import utils.security.RoleChecker;
 import utils.security.RoleCheckerImpl;
 
@@ -49,6 +53,10 @@ public class MainInjector extends AbstractModule {
 		bind(new TypeLiteral<GenericDAO<Comment, Long>>(){}).annotatedWith(Names.named("CommentDAO")).to(new TypeLiteral<GenericDAOImpl<Comment, Long>>(){});
 		bind(new TypeLiteral<GenericDAO<Likeing, Long>>(){}).annotatedWith(Names.named("LikeingDAO")).to(new TypeLiteral<GenericDAOImpl<Likeing, Long>>(){});
 		bind(new TypeLiteral<GenericDAO<TaskTemplate, Long>>(){}).annotatedWith(Names.named("TaskTemplateDAO")).to(new TypeLiteral<GenericDAORestImpl<TaskTemplate, Long>>(){});
+		bind(new TypeLiteral<GenericDAO<TaskProperty, Long>>(){}).annotatedWith(Names.named("TaskPropertyDAO")).to(new TypeLiteral<GenericDAORestImpl<TaskProperty, Long>>(){});
+		bind(new TypeLiteral<RestServiceConfig>(){}).to(new TypeLiteral<EPPITaskTemplateServConf>(){});
+		//bind(new TypeLiteral<RestServiceConfig>(){}).annotatedWith(Names.named("TaskTemplateDAO")).to(new TypeLiteral<EPPITaskTemplateServConf>(){});
+		//bind(new TypeLiteral<RestServiceConfig>(){}).annotatedWith(Names.named("TaskPropertyDAO")).to(new TypeLiteral<EPPITaskPropertyServConf>(){});
 		//bind(new TypeLiteral<GenericDAO<TaskTemplate, Long>>(){}).annotatedWith(Names.named("TaskTemplateDAO")).to(new TypeLiteral<GenericDAOImpl<TaskTemplate, Long>>(){});
 		bind(new TypeLiteral<RoleChecker>(){}).annotatedWith(Names.named("RoleChecker")).to(new TypeLiteral<RoleCheckerImpl>(){});
 		//.in(Scopes.SINGLETON);

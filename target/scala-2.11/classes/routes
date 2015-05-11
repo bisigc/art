@@ -77,6 +77,20 @@ GET     /logout  	              @controllers.user.UserController.logout()
 GET     /userroles	              @controllers.user.RoleController.getAll()
 POST    /uploadavatar             @controllers.user.UserController.uploadAvatar()
 
+#TaskTemplate service
+GET     /task                     @controllers.task.TaskTemplateController.getAll()
+GET     /task/:id                 @controllers.task.TaskTemplateController.get(id: Long)
+POST    /task                     @controllers.task.TaskTemplateController.create()
+PUT     /task                     @controllers.task.TaskTemplateController.update()
+DELETE  /task/:id                 @controllers.task.TaskTemplateController.delete(id: Long)
+
+#TaskProperty service
+GET     /taskproperty             @controllers.task.TaskPropertyController.getAll()
+GET     /taskproperty/:id         @controllers.task.TaskPropertyController.get(id: Long)
+POST    /taskproperty             @controllers.task.TaskPropertyController.create()
+PUT     /taskproperty             @controllers.task.TaskPropertyController.update()
+DELETE  /taskproperty/:id         @controllers.task.TaskPropertyController.delete(id: Long)
+
 #ExecTaskType service
 GET     /exectasktype             @controllers.task.ExecTaskTypeController.getAll()
 GET     /exectasktype/empty       @controllers.task.ExecTaskTypeController.getEmptyExecTaskType()
@@ -87,6 +101,9 @@ DELETE  /exectasktype/:id         @controllers.task.ExecTaskTypeController.delet
 
 #Status service
 GET     /status                   @controllers.status.StatusController.get()
+
+#Statistic service
+GET     /stats                    @controllers.statistic.StatisticController.get()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /*file                     controllers.Assets.at(path="/public", file)

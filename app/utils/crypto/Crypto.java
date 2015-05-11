@@ -1,10 +1,10 @@
 package utils.crypto;
 
 import java.security.GeneralSecurityException;
-import java.util.Base64;
 
 import models.user.Digest;
 
+import com.lambdaworks.codec.Base64;
 import com.lambdaworks.crypto.SCrypt;
 import com.lambdaworks.crypto.SCryptUtil;
 
@@ -58,8 +58,8 @@ public class Crypto {
 	 * @throws GeneralSecurityException
 	 */
 	public static String computeScryptHash(String password, String saltBase64) throws GeneralSecurityException {
-		byte [] hash = SCrypt.scrypt(password.getBytes(), Base64.getDecoder().decode(saltBase64), SCRYPT_N, SCRYPT_R, SCRYPT_P, SCRYPT_LENGTH);
-		return Base64.getEncoder().encodeToString(hash);
+		byte [] hash = SCrypt.scrypt(password.getBytes(), Base64.decode(saltBase64.toCharArray()), SCRYPT_N, SCRYPT_R, SCRYPT_P, SCRYPT_LENGTH);
+		return String.copyValueOf(Base64.encode(hash));
 	}
 	
 	/**

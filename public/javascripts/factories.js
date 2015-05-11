@@ -1,12 +1,35 @@
 // ART services
-app.factory("OwnTasks", function($resource) {
-    return $resource("http://localhost:9000/listAll", {});
-});
-
 app.factory("isAllowed", ['currentUser', function(currentUser) {
     return {
         check: function(roleArray) {
             return currentUser.profile != null && !(roleArray.indexOf(currentUser.profile.role.name) == -1);
+        }
+    }
+}]);
+    
+app.factory("isLoggedin", ['currentUser', function(currentUser) {
+    return {
+        check: function() {
+            return !(currentUser.profile == null);
+        }
+    }
+}]);
+
+app.factory("PasswordValidator", [function() {
+    return {
+        check: function(pw, rpw) {
+            return {
+                "valid": pw && /^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{8,20}$/.test(pw),
+                "constraints": 
+                [
+                    {"name": "A-Z",          "valid": (pw && /[A-Z]/.test(pw)) ? true : false },
+                    {"name": "a-z",          "valid": (pw && /[a-z]/.test(pw)) ? true : false },
+                    {"name": "!@#$&*",       "valid": (pw && /[!@#$&*]/.test(pw)) ? true : false },
+                    {"name": "0-9",          "valid": (pw && /[0-9]/.test(pw)) ? true : false },
+                    {"name": "Length(8-20)", "valid": (pw && /.{8,20}/.test(pw)) ? true : false },
+                    {"name": "equals",       "valid": (pw && pw == rpw) ? true : false }
+                ]
+            }
         }
     }
 }]);
@@ -185,6 +208,12 @@ app.factory('StatusService', ['$resource', function ($resource) {
     });
 }]);
 
+app.factory('StatisticService', ['$resource', function ($resource) {
+    return $resource(_contextPath + 'stats', {}, {
+        get: { method: 'GET', isArray: true }
+    });
+}]);
+
 app.factory("ExecTaskTypeService", ['$resource', function($resource) {
     return {
         noid: $resource(_contextPath + 'exectasktype', {}, {
@@ -202,16 +231,28 @@ app.factory("ExecTaskTypeService", ['$resource', function($resource) {
     };
 }]);
 
-// EEPPI services
-app.factory("Tasks", function($resource) {
-    return $resource("http://localhost:9990/taskTemplate", {});
-});
+app.factory("TaskService", ['$resource', function($resource) {
+    return {
+        noid: $resource(_contextPath + 'task', {}, {
+            get: {method:'GET', isArray: true},
+            update: { method: 'PUT' },
+            create: { method: 'POST' }
+        }),
+        id: $resource(_contextPath + 'task/:id', {}, {
+            get: { method: 'GET' },
+            delete: { method: 'DELETE', params: {id: '@id'} }
+        })    };
+}]);
 
-app.factory("Login", function($resource) {
-    return $resource("http://localhost:9990/user/login?name=cbi&password=test", {});
-});
-
-// ADRepo
-app.factory("Element", function($resource) {
-    return $resource("http://localhost:9940/element/19", {});
-});
+app.factory("TaskPropertyService", ['$resource', function($resource) {
+    return {
+        noid: $resource(_contextPath + 'taskproperty', {}, {
+            get: {method:'GET', isArray: true},
+            update: { method: 'PUT' },
+            create: { method: 'POST' }
+        }),
+        id: $resource(_contextPath + 'taskproperty/:id', {}, {
+            get: { method: 'GET' },
+            delete: { method: 'DELETE', params: {id: '@id'} }
+        })    };
+}]);

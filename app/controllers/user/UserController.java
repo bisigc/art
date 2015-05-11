@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.TypedQuery;
 import javax.security.auth.login.FailedLoginException;
 
+import models.user.Digest;
 import models.user.Login;
 import models.user.NewPassword;
 import models.user.User;
@@ -21,6 +22,7 @@ import play.mvc.Result;
 import utils.actions.SessionAuth;
 import utils.crypto.Crypto;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.google.common.io.Files;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
@@ -46,6 +48,32 @@ public class UserController extends AbstractCRUDController<User, Long> {
 	public UserController(@Named("UserDAO") GenericDAO<User, Long> dao) {
 		super(dao);
 	}
+	
+	/**
+	 * Creates a User object via the {@link GenericDAO}, given by the serialized Object of
+	 * the delivered JSON Node from the HTTP request.
+	 * 
+	 * @return
+	 */
+	@Transactional
+	public Result create() {
+		JsonNode node = request().body().asJson();
+		User created = null;
+		try {
+			User t = Json.fromJson(node, dao.getModel());
+			Digest digest = new Digest();
+			digest.generateDigest(t.getPassword());
+			created = dao.create(t);
+			created.setDigest(digest);
+			created.setAvatar(Play.application().configuration().getString("defaultavatar"));
+		} catch (Exception e) {
+			String msg = "Failed to create, " + dao.getModel().getSimpleName();
+			String email = (null == created) ? "User is null" : created.getEmail();
+			Logger.error(msg + " E-Mail: " + email, e);
+			return internalServerError(msg);
+		}
+		return created(Json.toJson(created));
+	}
 
 	/**
 	 * Processes a login request. Retrieving username (email) and password via a
@@ -63,7 +91,7 @@ public class UserController extends AbstractCRUDController<User, Long> {
 		User user;
 		try {
 			List<User> data = dao.find(query);
-			if (null == data) {
+			if (null == data || data.size() == 0) {
 				throw new FailedLoginException();
 			} else {
 				user = data.get(0);

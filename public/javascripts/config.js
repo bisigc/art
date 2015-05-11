@@ -1,8 +1,9 @@
-app.run(['$rootScope','$state','$stateParams','notifications','currentUser', 'isAllowed', function ($rootScope, $state, $stateParams, notifications, currentUser, isAllowed) {
+app.run(['$rootScope','$state','$stateParams','notifications','currentUser', 'isAllowed', 'isLoggedin', function ($rootScope, $state, $stateParams, notifications, currentUser, isAllowed, isLoggedin) {
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
     $rootScope.currentUser = currentUser;
     $rootScope.isAllowed = isAllowed;
+    $rootScope.isLoggedin = isLoggedin;
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
         var requireLogin = toState.data.requireLogin;
         var allowedRoles = toState.data.allowedRoles;
@@ -63,8 +64,24 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
     $stateProvider
         .state('home', {
         url: "/",
-        templateUrl: _contextPath + "home.html",
         title: "Home",
+        data: { requireLogin: false },
+        views: {
+            '': {
+                templateUrl: _contextPath + "home.html",
+            },
+            'statsView@home': {
+                templateUrl: _contextPath + "stats.html"
+            },
+            'loginView@home': {
+                templateUrl: _contextPath + "login.html"
+            }
+        }
+    })
+        .state('register', {
+        url: "/register",
+        templateUrl: _contextPath + "register.html",
+        title: "Register",
         data: { requireLogin: false }
     })
         .state('smellbrowser', {

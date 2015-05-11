@@ -1,6 +1,5 @@
 package controllers;
 
-import java.util.Base64;
 import java.util.List;
 
 import javax.persistence.TypedQuery;
@@ -20,6 +19,7 @@ import views.html.index;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.google.inject.name.Named;
+import com.lambdaworks.codec.Base64;
 
 import dao.GenericDAO;
 
@@ -57,7 +57,7 @@ public class Application extends Controller {
 	 */
 	@Transactional(readOnly=true)
 	public Result index() {
-		String activeProfile = new String(Base64.getEncoder().encode(checkLogin().getBytes()));
+		String activeProfile = new String(Base64.encode(checkLogin().getBytes()));
 		return ok(index.render(activeProfile));
 //		return ok(list.render());
 	}
