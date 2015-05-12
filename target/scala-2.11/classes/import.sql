@@ -1,15 +1,15 @@
-INSERT INTO property(categorie,attribute,name,description,orderidx)
+INSERT INTO Property(categorie,attribute,name,description,orderidx)
 VALUES  ('OtherCategorie','group5','Group 5','desc',5),
         ('OtherCategorie','group5','Group 5','desc',5);
         
-INSERT INTO smellgroup(name,description)
+INSERT INTO SmellGroup(name,description)
 VALUES  ('Performance','desc'),
         ('Complexity','desc'),
         ('Dependency','desc'),
         ('Security','desc'),
         ('Standards','desc');
         
-INSERT INTO smell(id, name,description,keywords,weight,group_id,tecdebtidx,status,modified,created)
+INSERT INTO Smell(id, name,description,keywords,weight,group_id,tecdebtidx,status,modified,created)
 VALUES (1, 'Smell1','This is Smell1','keyword1,keyword2,keyword3',2,1,'lm','published',Current_timestamp,Current_timestamp),
        (2, 'Smell2','This is Smell2','keyword2,keyword4,keyword5',2,2,'lm','published',Current_timestamp,Current_timestamp),
        (3, 'Smell3','This is Smell3','keyword1,keyword2,keyword3',3,1,'lm','published',Current_timestamp,Current_timestamp),
@@ -28,7 +28,7 @@ VALUES (1, 'Smell1','This is Smell1','keyword1,keyword2,keyword3',2,1,'lm','publ
        (16, 'Smell16','This is Smell16','keyword5,keyword6,keyword7',1,3,'lm','published',Current_timestamp,Current_timestamp),
        (17, 'Smell17','This is Smell17','keyword5,keyword6,keyword7',1,5,'lm','published',Current_timestamp,Current_timestamp);
 
-INSERT INTO question(question,smell_id)
+INSERT INTO Question(question,smell_id)
 VALUES ("Question1",1),
        ("Question2",1),
        ("Question3",6),
@@ -56,7 +56,7 @@ VALUES ("Question1",1),
        ("Question25",3),
        ("Question26",4);
 
-INSERT INTO menuitem
+INSERT INTO Menuitem
         (id, name,            fullname,                tooltip,                               image,                        type,           url,   pos,     ordering, menuitem_id)
 VALUES  (1,  'root',          'Root',                  '',                                    '',                           'root',         '',    '',      0,        1),
         (2,  'home',          'home',                  '',                                    'images/art_logo_small.png',  'home',         '',    'left',  5,        1),
@@ -74,14 +74,14 @@ VALUES  (1,  'root',          'Root',                  '',                      
         (15, 'login',         'Login',                 '',                                    '',                           'login-logout', '',    'right', 55,       1);
 
 
-INSERT INTO role
+INSERT INTO Role
        (id, name, description)
 VALUES (1, 'Admin',   'ART Administrator'),
        (2, 'Editor',  'Architecture Expert entering architectural refactorings into the ART.'),
        (3, 'Applier', 'Searchs for architectural refactorings base on smells.'),
        (4, 'nonLogin', 'Non Login User with only read rights.');
        
-INSERT INTO permission
+INSERT INTO Permission
        (id, function, httpMethod)
 VALUES (1,  'smell','POST'),
        (2,  'smell','PUT'),
@@ -111,7 +111,7 @@ VALUES (1,  'smell','POST'),
        (26, 'like','PUT'),
        (27, 'uploadavatar', 'POST');
        
-INSERT INTO role_permission
+INSERT INTO Role_Permission
        (role_id, permissions_id)
 VALUES (1,1),
        (1,2),
@@ -158,14 +158,14 @@ VALUES (1,1),
        (3,26),       
        (3,27);       
        
-INSERT INTO digest
+INSERT INTO Digest
        (id, salt, scrypt)
 VALUES (1, '6jXwcJwzde0gnHW77GSxww==', '7tXGVoLVSYrQRoovswFzPbz0YKnioawIq931TSX4iVc='),
        (2, '6jXwcJwzde0gnHW77GSxww==', '7tXGVoLVSYrQRoovswFzPbz0YKnioawIq931TSX4iVc='),
        (3, '6jXwcJwzde0gnHW77GSxww==', '7tXGVoLVSYrQRoovswFzPbz0YKnioawIq931TSX4iVc='),
        (4, '6jXwcJwzde0gnHW77GSxww==', '7tXGVoLVSYrQRoovswFzPbz0YKnioawIq931TSX4iVc=');
 
-INSERT INTO user
+INSERT INTO User
        (id, firstname, lastname, email, organisation, avatar, startpage, homepage, role_id, modified, created)
 VALUES (1, 'Christian', 'Bisig', 'cbisig@hsr.ch', 'HSR', 'images/avatars/avatar1.png', 'stay', 'http://www.hsr.ch', 1, Current_timestamp, Current_timestamp),
        (2, 'Hans', 'Admin', 'admin@hsr.ch', 'HSR', 'images/avatars/avatar1.png', 'stay', 'http://www.hsr.ch', 1, Current_timestamp, Current_timestamp),

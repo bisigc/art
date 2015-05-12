@@ -1,6 +1,3 @@
-run
-compile
-run
 compile
 run
 exit
@@ -489,6 +486,9 @@ run
 reload
 run
 reload
+compile
+run
+exit
 compile
 run
 exit
