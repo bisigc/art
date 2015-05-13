@@ -1,24 +1,24 @@
-2015-05-13 07:22:02,561 - [INFO] - from play in pool-16-thread-3 
+2015-05-13 21:06:50,953 - [INFO] - from play in pool-6-thread-2 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9085
 
-2015-05-13 07:22:20,457 - [INFO] - from play in play-internal-execution-context-1 
+2015-05-13 21:07:05,011 - [INFO] - from play in play-internal-execution-context-1 
 datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
 
-2015-05-13 07:22:20,744 - [INFO] - from play in play-internal-execution-context-1 
+2015-05-13 21:07:05,479 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:mysql://localhost/art
 
-2015-05-13 07:22:23,084 - [INFO] - from play in play-internal-execution-context-1 
+2015-05-13 21:07:09,083 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2015-05-13 07:29:05,498 - [ERROR] - from application in play-akka.actor.default-dispatcher-14 
-Failed to get All TaskPropertyType
-java.lang.RuntimeException: com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "properties" (class models.task.TaskPropertyType), not marked as ignorable (2 known properties: "id", "name"])
- at [Source: N/A; line: -1, column: -1] (through reference chain: models.task.TaskPropertyType["properties"])
-	at play.libs.Json.fromJson(Json.java:49) ~[play-json_2.11-2.3.6.jar:2.3.6]
-	at dao.GenericDAORestImpl.getAll(GenericDAORestImpl.java:78) ~[classes/:na]
-	at controllers.AbstractCRUDController.getAll(AbstractCRUDController.java:74) ~[classes/:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$60$$anonfun$apply$322.apply(routes_routing.scala:1029) [classes/:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$60$$anonfun$apply$322.apply(routes_routing.scala:1029) [classes/:na]
+2015-05-13 21:11:04,389 - [ERROR] - from application in play-akka.actor.default-dispatcher-13 
+Failed to search for ArVersion with Smells
+java.lang.NullPointerException: null
+	at java.io.StringReader.<init>(StringReader.java:50) ~[na:1.8.0_25]
+	at com.fasterxml.jackson.core.JsonFactory.createParser(JsonFactory.java:835) ~[jackson-core-2.3.2.jar:2.3.2]
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:2105) ~[jackson-databind-2.3.2.jar:2.3.2]
+	at controllers.ar.ArVersionController.arSmellSearchCount(ArVersionController.java:124) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$13$$anonfun$apply$185.apply(routes_routing.scala:667) [classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$13$$anonfun$apply$185.apply(routes_routing.scala:667) [classes/:na]
 	at play.core.Router$HandlerInvokerFactory$$anon$4.resultCall(Router.scala:264) [play_2.11-2.3.6.jar:2.3.6]
 	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.invocation(Router.scala:255) [play_2.11-2.3.6.jar:2.3.6]
 	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:55) [play_2.11-2.3.6.jar:2.3.6]
@@ -60,30 +60,16 @@ java.lang.RuntimeException: com.fasterxml.jackson.databind.exc.UnrecognizedPrope
 	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.11.1.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.11.1.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.11.1.jar:na]
-Caused by: com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "properties" (class models.task.TaskPropertyType), not marked as ignorable (2 known properties: "id", "name"])
- at [Source: N/A; line: -1, column: -1] (through reference chain: models.task.TaskPropertyType["properties"])
-	at com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException.from(UnrecognizedPropertyException.java:51) ~[jackson-databind-2.3.2.jar:2.3.2]
-	at com.fasterxml.jackson.databind.DeserializationContext.reportUnknownProperty(DeserializationContext.java:671) ~[jackson-databind-2.3.2.jar:2.3.2]
-	at com.fasterxml.jackson.databind.deser.std.StdDeserializer.handleUnknownProperty(StdDeserializer.java:771) ~[jackson-databind-2.3.2.jar:2.3.2]
-	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownProperty(BeanDeserializerBase.java:1297) ~[jackson-databind-2.3.2.jar:2.3.2]
-	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownVanilla(BeanDeserializerBase.java:1275) ~[jackson-databind-2.3.2.jar:2.3.2]
-	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:247) ~[jackson-databind-2.3.2.jar:2.3.2]
-	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:118) ~[jackson-databind-2.3.2.jar:2.3.2]
-	at com.fasterxml.jackson.databind.ObjectMapper._readValue(ObjectMapper.java:2965) ~[jackson-databind-2.3.2.jar:2.3.2]
-	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:1587) ~[jackson-databind-2.3.2.jar:2.3.2]
-	at com.fasterxml.jackson.databind.ObjectMapper.treeToValue(ObjectMapper.java:1931) ~[jackson-databind-2.3.2.jar:2.3.2]
-	at play.libs.Json.fromJson(Json.java:47) ~[play-json_2.11-2.3.6.jar:2.3.6]
-	... 45 common frames omitted
 
-2015-05-13 07:34:02,931 - [ERROR] - from application in play-akka.actor.default-dispatcher-32 
-Failed to get All TaskPropertyType
-java.lang.RuntimeException: com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "properties" (class models.task.TaskPropertyType), not marked as ignorable (2 known properties: "id", "name"])
- at [Source: N/A; line: -1, column: -1] (through reference chain: models.task.TaskPropertyType["properties"])
-	at play.libs.Json.fromJson(Json.java:49) ~[play-json_2.11-2.3.6.jar:2.3.6]
-	at dao.GenericDAORestImpl.getAll(GenericDAORestImpl.java:78) ~[classes/:na]
-	at controllers.AbstractCRUDController.getAll(AbstractCRUDController.java:74) ~[classes/:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$60$$anonfun$apply$322.apply(routes_routing.scala:1029) [classes/:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$60$$anonfun$apply$322.apply(routes_routing.scala:1029) [classes/:na]
+2015-05-13 21:11:29,561 - [ERROR] - from application in play-akka.actor.default-dispatcher-14 
+Failed to search for ArVersion with Smells
+java.lang.NullPointerException: null
+	at java.io.StringReader.<init>(StringReader.java:50) ~[na:1.8.0_25]
+	at com.fasterxml.jackson.core.JsonFactory.createParser(JsonFactory.java:835) ~[jackson-core-2.3.2.jar:2.3.2]
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:2105) ~[jackson-databind-2.3.2.jar:2.3.2]
+	at controllers.ar.ArVersionController.arSmellSearchCount(ArVersionController.java:124) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$13$$anonfun$apply$185.apply(routes_routing.scala:667) [classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$13$$anonfun$apply$185.apply(routes_routing.scala:667) [classes/:na]
 	at play.core.Router$HandlerInvokerFactory$$anon$4.resultCall(Router.scala:264) [play_2.11-2.3.6.jar:2.3.6]
 	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.invocation(Router.scala:255) [play_2.11-2.3.6.jar:2.3.6]
 	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:55) [play_2.11-2.3.6.jar:2.3.6]
@@ -125,30 +111,28 @@ java.lang.RuntimeException: com.fasterxml.jackson.databind.exc.UnrecognizedPrope
 	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.11.1.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.11.1.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.11.1.jar:na]
-Caused by: com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "properties" (class models.task.TaskPropertyType), not marked as ignorable (2 known properties: "id", "name"])
- at [Source: N/A; line: -1, column: -1] (through reference chain: models.task.TaskPropertyType["properties"])
-	at com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException.from(UnrecognizedPropertyException.java:51) ~[jackson-databind-2.3.2.jar:2.3.2]
-	at com.fasterxml.jackson.databind.DeserializationContext.reportUnknownProperty(DeserializationContext.java:671) ~[jackson-databind-2.3.2.jar:2.3.2]
-	at com.fasterxml.jackson.databind.deser.std.StdDeserializer.handleUnknownProperty(StdDeserializer.java:771) ~[jackson-databind-2.3.2.jar:2.3.2]
-	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownProperty(BeanDeserializerBase.java:1297) ~[jackson-databind-2.3.2.jar:2.3.2]
-	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownVanilla(BeanDeserializerBase.java:1275) ~[jackson-databind-2.3.2.jar:2.3.2]
-	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:247) ~[jackson-databind-2.3.2.jar:2.3.2]
-	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:118) ~[jackson-databind-2.3.2.jar:2.3.2]
-	at com.fasterxml.jackson.databind.ObjectMapper._readValue(ObjectMapper.java:2965) ~[jackson-databind-2.3.2.jar:2.3.2]
-	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:1587) ~[jackson-databind-2.3.2.jar:2.3.2]
-	at com.fasterxml.jackson.databind.ObjectMapper.treeToValue(ObjectMapper.java:1931) ~[jackson-databind-2.3.2.jar:2.3.2]
-	at play.libs.Json.fromJson(Json.java:47) ~[play-json_2.11-2.3.6.jar:2.3.6]
-	... 45 common frames omitted
 
-2015-05-13 07:34:08,004 - [ERROR] - from application in play-akka.actor.default-dispatcher-42 
-Failed to get All TaskPropertyType
-java.lang.RuntimeException: com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "properties" (class models.task.TaskPropertyType), not marked as ignorable (2 known properties: "id", "name"])
- at [Source: N/A; line: -1, column: -1] (through reference chain: models.task.TaskPropertyType["properties"])
-	at play.libs.Json.fromJson(Json.java:49) ~[play-json_2.11-2.3.6.jar:2.3.6]
-	at dao.GenericDAORestImpl.getAll(GenericDAORestImpl.java:78) ~[classes/:na]
-	at controllers.AbstractCRUDController.getAll(AbstractCRUDController.java:74) ~[classes/:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$60$$anonfun$apply$322.apply(routes_routing.scala:1029) [classes/:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$60$$anonfun$apply$322.apply(routes_routing.scala:1029) [classes/:na]
+2015-05-13 21:13:10,774 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
+
+2015-05-13 21:13:10,811 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:mysql://localhost/art
+
+2015-05-13 21:13:12,065 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-05-13 21:13:17,117 - [ERROR] - from application in play-akka.actor.default-dispatcher-19 
+Node: null
+
+2015-05-13 21:13:17,124 - [ERROR] - from application in play-akka.actor.default-dispatcher-19 
+Failed to search for ArVersion with Smells
+java.lang.NullPointerException: null
+	at java.io.StringReader.<init>(StringReader.java:50) ~[na:1.8.0_25]
+	at com.fasterxml.jackson.core.JsonFactory.createParser(JsonFactory.java:835) ~[jackson-core-2.3.2.jar:2.3.2]
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:2105) ~[jackson-databind-2.3.2.jar:2.3.2]
+	at controllers.ar.ArVersionController.arSmellSearchCount(ArVersionController.java:125) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$13$$anonfun$apply$185.apply(routes_routing.scala:667) [classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$13$$anonfun$apply$185.apply(routes_routing.scala:667) [classes/:na]
 	at play.core.Router$HandlerInvokerFactory$$anon$4.resultCall(Router.scala:264) [play_2.11-2.3.6.jar:2.3.6]
 	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.invocation(Router.scala:255) [play_2.11-2.3.6.jar:2.3.6]
 	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:55) [play_2.11-2.3.6.jar:2.3.6]
@@ -190,18 +174,4 @@ java.lang.RuntimeException: com.fasterxml.jackson.databind.exc.UnrecognizedPrope
 	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.11.1.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.11.1.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.11.1.jar:na]
-Caused by: com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "properties" (class models.task.TaskPropertyType), not marked as ignorable (2 known properties: "id", "name"])
- at [Source: N/A; line: -1, column: -1] (through reference chain: models.task.TaskPropertyType["properties"])
-	at com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException.from(UnrecognizedPropertyException.java:51) ~[jackson-databind-2.3.2.jar:2.3.2]
-	at com.fasterxml.jackson.databind.DeserializationContext.reportUnknownProperty(DeserializationContext.java:671) ~[jackson-databind-2.3.2.jar:2.3.2]
-	at com.fasterxml.jackson.databind.deser.std.StdDeserializer.handleUnknownProperty(StdDeserializer.java:771) ~[jackson-databind-2.3.2.jar:2.3.2]
-	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownProperty(BeanDeserializerBase.java:1297) ~[jackson-databind-2.3.2.jar:2.3.2]
-	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownVanilla(BeanDeserializerBase.java:1275) ~[jackson-databind-2.3.2.jar:2.3.2]
-	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:247) ~[jackson-databind-2.3.2.jar:2.3.2]
-	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:118) ~[jackson-databind-2.3.2.jar:2.3.2]
-	at com.fasterxml.jackson.databind.ObjectMapper._readValue(ObjectMapper.java:2965) ~[jackson-databind-2.3.2.jar:2.3.2]
-	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:1587) ~[jackson-databind-2.3.2.jar:2.3.2]
-	at com.fasterxml.jackson.databind.ObjectMapper.treeToValue(ObjectMapper.java:1931) ~[jackson-databind-2.3.2.jar:2.3.2]
-	at play.libs.Json.fromJson(Json.java:47) ~[play-json_2.11-2.3.6.jar:2.3.6]
-	... 45 common frames omitted
 

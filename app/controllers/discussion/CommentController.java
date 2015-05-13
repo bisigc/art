@@ -12,6 +12,7 @@ import utils.actions.SessionAuth;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import com.google.inject.name.Named;
 
 import controllers.AbstractCRUDController;
@@ -23,6 +24,7 @@ import dao.GenericDAO;
  * 
  * @author cbi
  */
+@Singleton
 public class CommentController extends AbstractCRUDController<Comment, Long> {
 	
 	/**

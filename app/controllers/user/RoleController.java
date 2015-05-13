@@ -3,6 +3,7 @@ package controllers.user;
 import models.user.Role;
 
 import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import com.google.inject.name.Named;
 
 import controllers.AbstractCRUDController;
@@ -14,6 +15,7 @@ import dao.GenericDAO;
  * 
  * @author cbi
  */
+@Singleton
 public class RoleController extends AbstractCRUDController<Role, Long> {
 	
 	/**

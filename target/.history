@@ -23,10 +23,6 @@ run
 compile
 run
 compile
-run
-compile
-run
-compile
 comile
 compile
 eclipse
@@ -497,4 +493,8 @@ compile
 run
 compile
 run
+exit
+compile
+run
+compile
 exit

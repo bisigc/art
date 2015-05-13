@@ -13,6 +13,7 @@ import play.mvc.Results;
 import utils.actions.SessionAuth;
 
 import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import com.google.inject.name.Named;
 
 import controllers.AbstractCRUDController;
@@ -24,6 +25,7 @@ import dao.GenericDAO;
  * 
  * @author cbi
  */
+@Singleton
 public class LikeController extends AbstractCRUDController<Likeing, Long> {
 	
 	/**

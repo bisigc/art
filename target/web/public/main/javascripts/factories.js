@@ -66,6 +66,12 @@ app.factory("ArService", ['$resource', function($resource) {
         id: $resource(_contextPath + 'ar/:id', {}, {
             get: { method: 'GET' },
             delete: { method: 'DELETE', params: {id: '@id'} }
+        }),
+        find: $resource(_contextPath + 'arsearch', {}, {
+            find: { method: 'POST' }
+        }),
+        count: $resource(_contextPath + 'arsearchcount', {}, {
+            get: { method: 'POST' }
         })
     };
 }]);

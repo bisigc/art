@@ -25,6 +25,7 @@ import utils.crypto.Crypto;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.google.common.io.Files;
 import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import com.google.inject.name.Named;
 
 import controllers.AbstractCRUDController;
@@ -36,6 +37,7 @@ import dao.GenericDAO;
  * 
  * @author cbi
  */
+@Singleton
 public class UserController extends AbstractCRUDController<User, Long> {
 
 	/**
@@ -211,6 +213,15 @@ public class UserController extends AbstractCRUDController<User, Long> {
 					String avatarPath = Play.application().configuration()
 							.getString("avatarimagepath");
 					File directory = new File(basePath + "/public/" + avatarPath);
+					
+					if(Logger.isDebugEnabled()) {
+						Logger.debug("Avatar upload path details:");
+						Logger.debug("basePath: " + basePath);
+						Logger.debug("avatarPath: " + avatarPath);
+						Logger.debug("directory: " + directory);
+						Logger.debug("fileExtention: " + fileExtention);
+					}
+					
 					File avatarFile = File.createTempFile("avatar", fileExtention, directory);
 					
 					Files.copy(file, avatarFile);

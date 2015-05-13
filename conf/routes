@@ -19,6 +19,9 @@ GET     /arversion/:id            @controllers.ar.ArVersionController.get(id: Lo
 POST    /arversion                @controllers.ar.ArVersionController.create()
 PUT     /arversion                @controllers.ar.ArVersionController.update()
 DELETE  /arversion/:id            @controllers.ar.ArVersionController.delete(id: Long)
+POST    /arsearch                 @controllers.ar.ArVersionController.arSmellSearch()
+POST    /arsearchcount            @controllers.ar.ArVersionController.arSmellSearchCount()
+
 
 #Smell service
 GET     /smell                    @controllers.smell.SmellController.getAll()

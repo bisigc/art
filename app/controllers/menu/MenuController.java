@@ -12,6 +12,7 @@ import play.libs.Json;
 import play.mvc.Result;
 
 import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import com.google.inject.name.Named;
 
 import controllers.AbstractCRUDController;
@@ -19,10 +20,11 @@ import dao.GenericDAO;
 
 /**
  * Concrete implementation of an {@link AbstractCRUDController} to retrieve and manipulate
- * {@link Menu} Objects via RESTful HTTP Request.
+ * {@link Menuitem} Objects via RESTful HTTP Request.
  * 
  * @author cbi
  */
+@Singleton
 public class MenuController extends AbstractCRUDController<Menuitem, Long> {
 	
 	/**
@@ -46,7 +48,7 @@ public class MenuController extends AbstractCRUDController<Menuitem, Long> {
 	public Result getAll() {
 		List<Menuitem> data;
 		try {
-			TypedQuery<Menuitem> query = JPA.em().createQuery("select a from " + dao.getModel().getSimpleName() + " a where a.name != :arg1 and a.menuitem = :arg2 order by ordering asc", Menuitem.class);
+			TypedQuery<Menuitem> query = JPA.em().createQuery("select a from " + dao.getModel().getSimpleName() + " a where a.name != :arg1 and a.menuitem = :arg2 order by ordering asc", dao.getModel());
 			query.setParameter("arg1", "root");
 			Menuitem menu = new Menuitem();
 			menu.setId(new Long(1));

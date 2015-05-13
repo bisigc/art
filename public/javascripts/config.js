@@ -106,6 +106,14 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             allowedRoles: ["Admin", "Editor"]
         }
     })
+        .state('arsearch', {
+        url: "/arsearch",
+        templateUrl: _contextPath + "arsearch.html",
+        title: "AR Search",
+        data: { 
+            requireLogin: false
+        }
+    })
         .state('smellbrowser.edit', {
         url: "/edit/:id",
         templateUrl: _contextPath + "smellbrowser.html",

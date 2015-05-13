@@ -3,6 +3,7 @@ package controllers.task;
 import models.task.TaskTemplate;
 
 import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import com.google.inject.name.Named;
 
 import controllers.AbstractCRUDController;
@@ -14,6 +15,7 @@ import dao.GenericDAO;
  * 
  * @author cbi
  */
+@Singleton
 public class TaskTemplateController extends AbstractCRUDController<TaskTemplate, Long> {
 	
 	/**

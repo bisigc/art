@@ -285,7 +285,7 @@ app.controller('ARController', ['ArVersionService', 'CloudSmells', 'ReplyErrorHa
 
 }]);
 
-app.controller('SmellAssessController', ['SmellGroupService', 'ReplyErrorHandler', 'notifications','$scope', function(SmellGroupService, ReplyErrorHandler, notifications, $scope) {
+app.controller('SmellAssessController', ['ArService', 'SmellGroupService', 'ReplyErrorHandler', 'notifications','$scope', function(ArService, SmellGroupService, ReplyErrorHandler, notifications, $scope) {
     $scope.counter = 0;
     $scope.groups = [];
     SmellGroupService.get({},function(data, status, headers, config) {
@@ -294,7 +294,12 @@ app.controller('SmellAssessController', ['SmellGroupService', 'ReplyErrorHandler
         }, ReplyErrorHandler);  
     $scope.selectedSmells = [];
     $scope.getSmellCount = function () {
-        $scope.counter = Math.floor((Math.random() * 100) + 1);;
+        ArService.count.get($scope.selectedSmells, function(data, status, headers, config) {
+            $scope.counter = data;
+            //$scope.smellcallstatus = "OK";
+        }, ReplyErrorHandler);  
+        
+        //$scope.counter = Math.floor((Math.random() * 100) + 1);;
     }
     $scope.toggleSelection = function toggleSelection(smell_id) {
         var idx = $scope.selectedSmells.indexOf(smell_id);
