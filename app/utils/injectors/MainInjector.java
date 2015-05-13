@@ -10,12 +10,12 @@ import models.property.Property;
 import models.smell.Smell;
 import models.smell.SmellGroup;
 import models.task.ExecTaskType;
-import models.task.TaskProperty;
+import models.task.TaskPropertyType;
 import models.task.TaskTemplate;
 import models.user.Role;
 import models.user.User;
-import utils.restconfig.EPPITaskPropertyServConf;
-import utils.restconfig.EPPITaskTemplateServConf;
+import utils.restconfig.EEPPITaskPropertyServConf;
+import utils.restconfig.EEPPITaskTemplateServConf;
 import utils.restconfig.RestServiceConfig;
 import utils.security.RoleChecker;
 import utils.security.RoleCheckerImpl;
@@ -24,9 +24,10 @@ import com.google.inject.AbstractModule;
 import com.google.inject.TypeLiteral;
 import com.google.inject.name.Names;
 
+import dao.EEPPITaskPropertyDAORestImpl;
+import dao.EEPPITaskTemplateDAORestImpl;
 import dao.GenericDAO;
 import dao.GenericDAOImpl;
-import dao.GenericDAORestImpl;
 
 /**
  * Injector Modul class, contains the dependency injecting rules for the ART application
@@ -52,10 +53,12 @@ public class MainInjector extends AbstractModule {
 		bind(new TypeLiteral<GenericDAO<Discussion, Long>>(){}).annotatedWith(Names.named("DiscussionDAO")).to(new TypeLiteral<GenericDAOImpl<Discussion, Long>>(){});
 		bind(new TypeLiteral<GenericDAO<Comment, Long>>(){}).annotatedWith(Names.named("CommentDAO")).to(new TypeLiteral<GenericDAOImpl<Comment, Long>>(){});
 		bind(new TypeLiteral<GenericDAO<Likeing, Long>>(){}).annotatedWith(Names.named("LikeingDAO")).to(new TypeLiteral<GenericDAOImpl<Likeing, Long>>(){});
-		bind(new TypeLiteral<GenericDAO<TaskTemplate, Long>>(){}).annotatedWith(Names.named("TaskTemplateDAO")).to(new TypeLiteral<GenericDAORestImpl<TaskTemplate, Long>>(){});
-		bind(new TypeLiteral<GenericDAO<TaskProperty, Long>>(){}).annotatedWith(Names.named("TaskPropertyDAO")).to(new TypeLiteral<GenericDAORestImpl<TaskProperty, Long>>(){});
-		bind(new TypeLiteral<RestServiceConfig>(){}).to(new TypeLiteral<EPPITaskTemplateServConf>(){});
-		//bind(new TypeLiteral<RestServiceConfig>(){}).annotatedWith(Names.named("TaskTemplateDAO")).to(new TypeLiteral<EPPITaskTemplateServConf>(){});
+		bind(new TypeLiteral<GenericDAO<TaskTemplate, Long>>(){}).annotatedWith(Names.named("TaskTemplateDAO")).to(new TypeLiteral<EEPPITaskTemplateDAORestImpl<TaskTemplate, Long>>(){});
+		bind(new TypeLiteral<GenericDAO<TaskPropertyType, Long>>(){}).annotatedWith(Names.named("TaskPropertyDAO")).to(new TypeLiteral<EEPPITaskPropertyDAORestImpl<TaskPropertyType, Long>>(){});
+		bind(RestServiceConfig.class).annotatedWith(Names.named("EEPPITaskTemplateServConf")).to(EEPPITaskTemplateServConf.class);
+		bind(RestServiceConfig.class).annotatedWith(Names.named("EEPPITaskPropertyServConf")).to(EEPPITaskPropertyServConf.class);
+		//bind(new TypeLiteral<RestServiceConfig>(){}).annotatedWith(Names.named("EEPPITaskTemplateServConf")).to(new TypeLiteral<EEPPITaskTemplateServConf>(){});
+		//bind(new TypeLiteral<RestServiceConfig>(){}).annotatedWith(Names.named("EEPPITaskPropertyServConf")).to(new TypeLiteral<EEPPITaskPropertyServConf>(){});
 		//bind(new TypeLiteral<RestServiceConfig>(){}).annotatedWith(Names.named("TaskPropertyDAO")).to(new TypeLiteral<EPPITaskPropertyServConf>(){});
 		//bind(new TypeLiteral<GenericDAO<TaskTemplate, Long>>(){}).annotatedWith(Names.named("TaskTemplateDAO")).to(new TypeLiteral<GenericDAOImpl<TaskTemplate, Long>>(){});
 		bind(new TypeLiteral<RoleChecker>(){}).annotatedWith(Names.named("RoleChecker")).to(new TypeLiteral<RoleCheckerImpl>(){});

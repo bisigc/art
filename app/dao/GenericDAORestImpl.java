@@ -133,6 +133,7 @@ public class GenericDAORestImpl<T, PK extends Serializable> implements
 				.setContentType("application/json")
 				.setAuth(config.getUser(), config.getPassword(),
 						WSAuthScheme.BASIC).setTimeout(config.getTimeout())
+				.setQueryParameter("basicAuth", "true")
 				.put(node).map(new Function<WSResponse, JsonNode>() {
 					public JsonNode apply(WSResponse response) {
 						JsonNode json = response.asJson();
@@ -149,6 +150,7 @@ public class GenericDAORestImpl<T, PK extends Serializable> implements
 				.setQueryParameter("id", id.toString())
 				.setAuth(config.getUser(), config.getPassword(),
 						WSAuthScheme.BASIC).setTimeout(config.getTimeout())
+				.setQueryParameter("basicAuth", "true")
 				.delete().map(new Function<WSResponse, JsonNode>() {
 					public JsonNode apply(WSResponse response) {
 						JsonNode json = response.asJson();

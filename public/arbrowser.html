@@ -32,7 +32,7 @@
                     <th></th>
                 </tr>
                 <tr ng-repeat="ar in arlist | filter:search" ng-dblclick="$state.go('singlear',{id: ar.arhead})">
-                    <td>{{ar.name}}</td>
+                    <td><a ui-sref="singlear({id: ar.arhead})">{{ar.name}}</a></td>
                     <td>{{ar.description}}</td>
                     <td><span ng-repeat="smell in ar.smells">{{smell.name}}, </span></td>
                     <td>{{ar.status}}</td>

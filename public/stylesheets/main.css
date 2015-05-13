@@ -323,6 +323,10 @@ body {
     
 /* Form File Input Button */
     
+.input-group-btn ui-select {
+    width: 100px;
+}
+    
 .btn-file {
     position: relative;
     overflow: hidden;

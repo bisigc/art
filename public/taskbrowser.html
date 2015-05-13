@@ -1,3 +1,24 @@
+<script type="text/ng-template"  id="execTaskTypeNode.html">
+    <span ng-init="childsvisible = true; descvisible = false">
+        <i class="glyphicon glyphicon-leaf" ng-show="!hasChildren(task)"/>
+        <i class="glyphicon glyphicon-plus-sign" tooltip="Show children" ng-show="hasChildren(task) && !childsvisible" ng-click="childsvisible = !childsvisible"/>
+        <i class="glyphicon glyphicon-minus-sign" tooltip="Hide children" ng-show="hasChildren(task) && childsvisible" ng-click="childsvisible = !childsvisible"/>
+        &nbsp;<input ng-model="task.name"/>&nbsp;
+        <i class="glyphicon glyphicon-chevron-right" tooltip="Show description" ng-show="!descvisible" ng-click="descvisible = !descvisible"/>
+        <i class="glyphicon glyphicon-chevron-down" tooltip="Hide description" ng-show="descvisible" ng-click="descvisible = !descvisible"/>
+    </span>
+    <button type="button" class="btn btn-default btn-sm" ng-click="add(task)" tooltip="Add child">
+        <i class="glyphicon glyphicon-plus"/>
+    </button>&nbsp;
+    <button type="button" class="btn btn-default btn-sm" ng-click="delete(task)" ng-show="task.subTasks.length > 0" tooltip="Remove children">
+        <i class="glyphicon glyphicon-remove"/>
+    </button>
+    <div ng-show="descvisible"><textarea ng-model="task.description" class="form-control"/></div>
+    <ul ng-show="childsvisible">
+        <li ng-repeat="task in task.subTasks" ng-include="'execTaskTypeNode.html'" ng-class="{ parent_li: hasChildren(task)}"/>
+    </ul>
+</script>
+
 <div ng-controller="TaskController as taskCtrl">
 		<div class="page-header">
 		  <h1>Task Browser</h1>
@@ -31,7 +52,6 @@
                     <label for="property">Properties</label> 
                         <div class="input-group">
                           <div class="input-group-btn">
-			                <label for="group">Execution Task Type</label>
 			                <ui-select ng-model="taskpropertyToAdd.id" theme="selectize" ng-disabled="disabled" required>
 			                    <ui-select-match placeholder="Select or search a group in the list...">{{$select.selected.name}}</ui-select-match>
 			                    <ui-select-choices repeat="taskproperty in taskproperties | filter: $select.search">

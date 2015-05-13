@@ -459,7 +459,7 @@ app.controller('TaskController', ['TaskService', 'ExecTaskTypeService', 'TaskPro
     $scope.exectasktypes = [];
     $scope.taskproperties = [];
     $scope.loadExecTaskTypes = function () {
-        ExecTaskTypeService.get({},function(data, status, headers, config) {
+        ExecTaskTypeService.noid.get({},function(data, status, headers, config) {
             $scope.exectasktypes = data;
             //$scope.smellcallstatus = "OK";
         }, ReplyErrorHandler);  
@@ -467,7 +467,7 @@ app.controller('TaskController', ['TaskService', 'ExecTaskTypeService', 'TaskPro
     $scope.loadExecTaskTypes();
     
     $scope.loadTaskProperties = function () {
-        TaskPropertyService.get({},function(data, status, headers, config) {
+        TaskPropertyService.noid.get({},function(data, status, headers, config) {
             $scope.taskproperties = data;
             //$scope.smellcallstatus = "OK";
         }, ReplyErrorHandler);  

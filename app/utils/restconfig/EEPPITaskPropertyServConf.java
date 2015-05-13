@@ -3,16 +3,16 @@ package utils.restconfig;
 import play.Play;
 
 /**
- * Implementation of a {@link RestServiceConfig} to use the EEPPI Task Template Service.
+ * Implementation of a {@link RestServiceConfig} to use the EEPPI Task Property Service.
  * Loads the configuration from the play application configuration file.
  *
  * @author cbi
  */
-public class EPPITaskTemplateServConf implements RestServiceConfig {
+public class EEPPITaskPropertyServConf implements RestServiceConfig {
 
 	@Override
 	public String getUrl() {
-		return Play.application().configuration().getString("service.eppi.tasktemplate.url");
+		return Play.application().configuration().getString("service.eppi.taskproperty.url");
 	}
 
 	@Override

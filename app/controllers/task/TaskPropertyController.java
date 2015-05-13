@@ -1,6 +1,7 @@
 package controllers.task;
 
 import models.task.TaskProperty;
+import models.task.TaskPropertyType;
 
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
@@ -14,7 +15,7 @@ import dao.GenericDAO;
  * 
  * @author cbi
  */
-public class TaskPropertyController extends AbstractCRUDController<TaskProperty, Long> {
+public class TaskPropertyController extends AbstractCRUDController<TaskPropertyType, Long> {
 	
 	/**
 	 * Constructor receives a {@link GenericDAO}. DI framework hook is "@Named("TaskPropertyDAO")".
@@ -22,7 +23,7 @@ public class TaskPropertyController extends AbstractCRUDController<TaskProperty,
 	 * @param dao
 	 */
 	@Inject
-	public TaskPropertyController(@Named("TaskPropertyDAO") GenericDAO<TaskProperty, Long> dao) {
+	public TaskPropertyController(@Named("TaskPropertyDAO") GenericDAO<TaskPropertyType, Long> dao) {
 		super(dao);
 	}
 
