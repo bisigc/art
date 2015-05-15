@@ -24,7 +24,7 @@ app.run(['$rootScope','$state','$stateParams','notifications','currentUser', 'is
 
 app.config(['notificationsConfigProvider', function (notificationsConfigProvider) {
     notificationsConfigProvider.setAutoHide(true);
-    notificationsConfigProvider.setHideDelay(5000);
+    notificationsConfigProvider.setHideDelay(7000);
     notificationsConfigProvider.setAcceptHTML(true);
 }]);
 
@@ -107,11 +107,24 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
         }
     })
         .state('arsearch', {
-        url: "/arsearch",
+        url: "/arsearch/:smellids",
+        controller: "ARSearchController as arSearchCtrl",
         templateUrl: _contextPath + "arsearch.html",
         title: "AR Search",
+        /*params: {
+            smellids: null,
+        },*/
         data: { 
             requireLogin: false
+        }
+    })  
+        .state('usersearches', {
+        url: "/usersearches",
+        templateUrl: _contextPath + "usersearches.html",
+        title: "User Searches",
+        data: { 
+            requireLogin: true,
+            allowedRoles: ["Admin", "Applier", "Editor"]
         }
     })
         .state('smellbrowser.edit', {

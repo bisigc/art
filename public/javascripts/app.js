@@ -14,7 +14,7 @@ app.controller('UserController', ['UserService', 'ReplyErrorHandler', 'notificat
             currentUser.profile = data;
             notifications.showSuccess("Logged in");
             $scope.logindata = {"email":"","password":""};
-            $scope.loginform.$setPristine();
+            //$scope.loginform.$setPristine();
             if(currentUser.profile.startpage == "stay") {
                 $state.go($state.current, {}, {reload: true});
                 //$state.reload();
@@ -33,7 +33,7 @@ app.controller('UserController', ['UserService', 'ReplyErrorHandler', 'notificat
     };
 }]);
 
-app.controller('UserProfileController', ['UserService', 'RolesService', 'AvatarUploader', 'ReplyErrorHandler', 'PasswordValidator', 'notifications', '$scope','currentUser', function(UserService, RolesService, AvatarUploader, ReplyErrorHandler, PasswordValidator, notifications, $scope, currentUser){
+app.controller('UserProfileController', ['UserService', 'RolesService', 'AvatarUploader', 'ReplyErrorHandler', 'PasswordValidator', 'notifications', '$scope','currentUser', '$state', function(UserService, RolesService, AvatarUploader, ReplyErrorHandler, PasswordValidator, notifications, $scope, currentUser, $state){
     $scope.startpages = ['home','arbrowser','smellbrowser','taskbrowser', 'stay'];
     $scope.user;
     $scope.pw;
@@ -61,14 +61,19 @@ app.controller('UserProfileController', ['UserService', 'RolesService', 'AvatarU
         }, ReplyErrorHandler);
     }
     
+    $scope.getTime = function() {
+        return new Date();
+    }
+    
     $scope.uploadAvatar = function() {
         AvatarUploader.upload($scope.avatarimage).success(function(data,status,headers,config){
             notifications.showSuccess("Avatar image has been uploaded.");
-            currentUser.profile.avatar = data;
             $scope.avatarimage = null;
+            $state.go($state.current, {}, {reload: true});
         }).error(function(data,status,headers,config){
-            notifications.showError("Failed to upload avatar image");
-        });;
+            $scope.avatarimage = null;
+            notifications.showError("Failed to upload avatar image: " + data);
+        });
     }
     
     $scope.revalidate = function(pw, rpw) {
@@ -281,39 +286,96 @@ app.controller('ARController', ['ArVersionService', 'CloudSmells', 'ReplyErrorHa
             */
     };
     this.setProgValue();
-
-
 }]);
 
-app.controller('SmellAssessController', ['ArService', 'SmellGroupService', 'ReplyErrorHandler', 'notifications','$scope', function(ArService, SmellGroupService, ReplyErrorHandler, notifications, $scope) {
-    $scope.counter = 0;
+
+app.controller('ARSearchController', ['ArVersionService', 'UserSearchService', 'ReplyErrorHandler', 'notifications','$scope', '$stateParams', '$filter', function(ArVersionService, UserSearchService, ReplyErrorHandler, notifications, $scope, $stateParams, $filter) {
+    var orderBy = $filter('orderBy');
+    $scope.arlist = []; //ars;
+    $scope.arsearch = {};
+    $scope.loadArs = function () {
+        ArVersionService.search.get(JSON.parse($stateParams.smellids),function(data, status, headers, config) {
+            $scope.arlist = data;
+        }, ReplyErrorHandler);  
+    };
+    $scope.loadArs();
+
+    $scope.order = function(predicate, reverse) {
+        $scope.arlist = orderBy($scope.arlist, predicate, reverse);
+    };
+    
+    $scope.order('name', false);
+    
+    $scope.saveSearch = function(form) {
+        $scope.arsearch.search = $stateParams.smellids;
+        UserSearchService.noid.create($scope.arsearch, function(data, status, headers, config) {
+            notifications.showSuccess("Search has been added to your profile.");
+            $scope.arsearch = {};
+            form.$setPristine();
+        }, ReplyErrorHandler);  
+    }
+}]);
+
+app.controller('UserSearchController', ['UserSearchService', 'ReplyErrorHandler', 'notifications','$scope', function(UserSearchService, ReplyErrorHandler, notifications, $scope, $stateParams) {
+    $scope.searchlist = []; //ars;
+    
+    $scope.loadSearches = function () {
+        UserSearchService.noid.get({},function(data, status, headers, config) {
+            $scope.searchlist = data;
+        }, ReplyErrorHandler);  
+    };
+    $scope.loadSearches();
+    
+    $scope.deleteSearch = function(searchid) {
+        UserSearchService.id.delete({id: searchid},function(data, status, headers, config) {
+            notifications.showSuccess("User search has been deleted.");
+            $scope.loadSearches();
+        }, ReplyErrorHandler);     
+    }
+}]);
+
+app.controller('SmellAssessController', ['ArVersionService', 'SmellGroupService', 'ReplyErrorHandler', 'notifications', '$scope', '$state', function(ArVersionService, SmellGroupService, ReplyErrorHandler, notifications, $scope, $state) {
+    $scope.counter;
     $scope.groups = [];
     SmellGroupService.get({},function(data, status, headers, config) {
             $scope.groups = data;
             //$scope.smellcallstatus = "OK";
         }, ReplyErrorHandler);  
-    $scope.selectedSmells = [];
+    $scope.selectedSmells;
+    
     $scope.getSmellCount = function () {
-        ArService.count.get($scope.selectedSmells, function(data, status, headers, config) {
+        ArVersionService.count($scope.selectedSmells).success(function(data,status,headers,config){
             $scope.counter = data;
-            //$scope.smellcallstatus = "OK";
-        }, ReplyErrorHandler);  
-        
-        //$scope.counter = Math.floor((Math.random() * 100) + 1);;
+        }).error(function(data,status,headers,config){
+            notifications.showError("Failed to get Ar count.");
+        });
+    };
+
+    $scope.resetForm = function() {
+        $scope.selectedSmells = {"smellids": [] };
+        $scope.counter = 0;
+    };
+    
+    $scope.resetForm();
+    
+    $scope.executeSearch = function() {
+        $state.go('arsearch', {smellids: JSON.stringify($scope.selectedSmells)})
     }
+    
     $scope.toggleSelection = function toggleSelection(smell_id) {
-        var idx = $scope.selectedSmells.indexOf(smell_id);
+        var idx = $scope.selectedSmells.smellids.indexOf(smell_id);
 
         // is currently selected
         if (idx > -1) {
-            $scope.selectedSmells.splice(idx, 1);
+            $scope.selectedSmells.smellids.splice(idx, 1);
         }
         // is newly selected
         else {
-            $scope.selectedSmells.push(smell_id);
+            $scope.selectedSmells.smellids.push(smell_id);
         }
         $scope.getSmellCount();
     };
+    
 }]);
 
 app.controller('SmellController', ['SmellService', 'SmellGroupService', 'ReplyErrorHandler', 'notifications','$scope','$filter', function(SmellService, SmellGroupService, ReplyErrorHandler, notifications, $scope, $filter) {

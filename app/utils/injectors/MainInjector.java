@@ -1,6 +1,7 @@
 package utils.injectors;
 
 import models.ar.Ar;
+import models.ar.ArSearch;
 import models.ar.ArVersion;
 import models.discussion.Comment;
 import models.discussion.Discussion;
@@ -43,6 +44,7 @@ public class MainInjector extends AbstractModule {
 		//bind(new TypeLiteral<GenericDAO<Menuitem, Long>>(){}).to(new TypeLiteral<GenericDAOImpl<Menuitem, Long>>(){});
 		bind(new TypeLiteral<GenericDAO<Ar, Long>>(){}).annotatedWith(Names.named("ArDAO")).to(new TypeLiteral<GenericDAOImpl<Ar, Long>>(){});
 		bind(new TypeLiteral<GenericDAO<ArVersion, Long>>(){}).annotatedWith(Names.named("ArVersionDAO")).to(new TypeLiteral<GenericDAOImpl<ArVersion, Long>>(){});
+		bind(new TypeLiteral<GenericDAO<ArSearch, Long>>(){}).annotatedWith(Names.named("ArSearchDAO")).to(new TypeLiteral<GenericDAOImpl<ArSearch, Long>>(){});
 		bind(new TypeLiteral<GenericDAO<Menuitem, Long>>(){}).annotatedWith(Names.named("MenuitemDAO")).to(new TypeLiteral<GenericDAOImpl<Menuitem, Long>>(){});
 		bind(new TypeLiteral<GenericDAO<Property, Long>>(){}).annotatedWith(Names.named("PropertyDAO")).to(new TypeLiteral<GenericDAOImpl<Property, Long>>(){});
 		bind(new TypeLiteral<GenericDAO<Smell, Long>>(){}).annotatedWith(Names.named("SmellDAO")).to(new TypeLiteral<GenericDAOImpl<Smell, Long>>(){});

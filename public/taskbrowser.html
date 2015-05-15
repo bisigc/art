@@ -109,7 +109,7 @@
         <tr ng-repeat="taskItem in tasklist | filter:search" ng-dblclick="openTask(taskItem.id)">
             <td>{{taskItem.name}}</td>
             <td>{{groups[taskItem.type_id.id - 1].name}}</td>
-            <td><a ui-sref="taskbrowser.edit({id: taskItem.id})" ng-show="isAllowed.check(['Admin','Editor'])"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;<a href ng-click="deleteTask(taskItem.id)" ng-show="isAllowed.check(['Admin'])"><span class="glyphicon glyphicon-trash"></span></a></td>
+            <td><a ui-sref="taskbrowser.edit({id: taskItem.id})" ng-if="isAllowed.check(['Admin','Editor'])"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;<a href ng-click="deleteTask(taskItem.id)" ng-if="isAllowed.check(['Admin'])"><span class="glyphicon glyphicon-trash"></span></a></td>
         </tr>
     </table>
     <pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></pagination>

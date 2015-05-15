@@ -109,7 +109,10 @@ VALUES (1,  'smell','POST'),
        (24, 'comment','PUT'),
        (25, 'comment','DELETE'),
        (26, 'like','PUT'),
-       (27, 'uploadavatar', 'POST');
+       (27, 'avatar', 'POST'),
+       (28, 'usersearch', 'GET'),
+       (29, 'usersearch', 'POST'),
+       (30, 'usersearch', 'DELETE');
        
 INSERT INTO Role_Permission
        (role_id, permissions_id)
@@ -140,6 +143,9 @@ VALUES (1,1),
        (1,25),
        (1,26),
        (1,27),
+       (1,28),
+       (1,29),
+       (1,30),
        (2,1),
        (2,2),
        (2,14),
@@ -152,11 +158,17 @@ VALUES (1,1),
        (2,25),       
        (2,26),
        (2,27),
+       (2,28),
+       (2,29),
+       (2,30),
        (3,23),       
        (3,24),       
        (3,25),
        (3,26),       
-       (3,27);       
+       (3,27),       
+       (3,28),       
+       (3,29),       
+       (3,30);       
        
 INSERT INTO Digest
        (id, salt, scrypt)
@@ -166,11 +178,11 @@ VALUES (1, '6jXwcJwzde0gnHW77GSxww==', '7tXGVoLVSYrQRoovswFzPbz0YKnioawIq931TSX4
        (4, '6jXwcJwzde0gnHW77GSxww==', '7tXGVoLVSYrQRoovswFzPbz0YKnioawIq931TSX4iVc=');
 
 INSERT INTO User
-       (id, firstname, lastname, email, organisation, avatar, startpage, homepage, role_id, modified, created)
-VALUES (1, 'Christian', 'Bisig', 'cbisig@hsr.ch', 'HSR', 'images/avatars/avatar1.png', 'stay', 'http://www.hsr.ch', 1, Current_timestamp, Current_timestamp),
-       (2, 'Hans', 'Admin', 'admin@hsr.ch', 'HSR', 'images/avatars/avatar1.png', 'stay', 'http://www.hsr.ch', 1, Current_timestamp, Current_timestamp),
-       (3, 'Hugo', 'Editor', 'editor@hsr.ch', 'HSR', 'images/avatars/avatar1.png', 'stay', 'http://www.hsr.ch', 2, Current_timestamp, Current_timestamp),
-       (4, 'Rudolf', 'Applier', 'applier@hsr.ch', 'HSR', 'images/avatars/avatar1.png', 'stay', 'http://www.hsr.ch', 3, Current_timestamp, Current_timestamp);
+       (id, firstname, lastname, email, organisation, startpage, homepage, role_id, modified, created)
+VALUES (1, 'Christian', 'Bisig', 'cbisig@hsr.ch', 'HSR', 'stay', 'http://www.hsr.ch', 1, Current_timestamp, Current_timestamp),
+       (2, 'Hans', 'Admin', 'admin@hsr.ch', 'HSR', 'stay', 'http://www.hsr.ch', 1, Current_timestamp, Current_timestamp),
+       (3, 'Hugo', 'Editor', 'editor@hsr.ch', 'HSR', 'stay', 'http://www.hsr.ch', 2, Current_timestamp, Current_timestamp),
+       (4, 'Rudolf', 'Applier', 'applier@hsr.ch', 'HSR', 'stay', 'http://www.hsr.ch', 3, Current_timestamp, Current_timestamp);
        
 INSERT INTO ExecTaskType
        (id, description, name, ordering, parent_id)
@@ -264,5 +276,14 @@ VALUES (1, "Comment 1", 1, 1, current_timestamp, current_timestamp),
        (8, "Comment 8", 8, 1, current_timestamp, current_timestamp),       
        (9, "Comment 9", 9, 1, current_timestamp, current_timestamp),       
        (10, "Comment 10", 10, 1, current_timestamp, current_timestamp),       
-       (11, "Comment 11", 11, 1, current_timestamp, current_timestamp);       
+       (11, "Comment 11", 11, 1, current_timestamp, current_timestamp);
+       
+INSERT INTO TaskPropertyType
+       (id, name)
+VALUES (7,"Assignee"),
+       (8,"Type"),
+       (9,"Description"),
+       (10,"Priority"),
+       (11,"Due Date"),
+       (12,"Estimated Duration");        
        

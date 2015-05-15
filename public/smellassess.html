@@ -3,6 +3,13 @@
         <h1>Smell Self-Assessment <small>Refactoring Qualification</small></h1>
     </div>
     <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-8">
+            <h2>Questionnaire</h2>
+            {{ selectedSmells }}
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -10,57 +17,49 @@
                 </div>
                 <div class="panel-body">
                 </div>
-
+            </div>
+            
+            <div class="affix">
+            <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Legend:</h3>
-                </div>
-                <div class="panel-body">
-                    <ul>
-                        <li><i class="glyphicon glyphicon-minus-sign"/> Show children</li>
-                        <li><i class="glyphicon glyphicon-plus-sign"/> Hide children</li>
-                        <li><i class="glyphicon glyphicon-chevron-right"/> Show description</li>
-                        <li><i class="glyphicon glyphicon-chevron-down"/> Hide description</li>
-                        <li><i class="glyphicon glyphicon-plus"/> Add a new child</li>
-                        <li><i class="glyphicon glyphicon-minus"/> Remove (Delete) all children</li>
-                        <li><i class="glyphicon glyphicon-leaf"/> Leaf without children</li>
-                    </ul>
+                    <h3 class="panel-title">Found <span class="label label-default" hilighter="counter">{{counter}}</span> Architectural Refactorings</h3>
                 </div>
             </div>
+                </div>
         </div>
         <div class="col-md-8">
-            <div>
-                <h2>Questionnaire <small>Found </small><span class="label label-default" hilighter="counter">{{counter}}</span><small> Architectural Refactorings</small></h2>
-                {{ selectedSmells }}
-                <form role="form">
-                        <div class="panel panel-default" ng-repeat="group in groups">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">{{group.name}}</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div ng-repeat="smell in group.smells">
-                                    <div ng-repeat="question in smell.questions" class="row row-same-height">
-                                        <div class="col-md-1 col-md-height">
-                                            <div class="checkbox checkbox-success">
-                                                <input 
-                                                       type="checkbox"
-                                                       name="selected[]"
-                                                       value="{{smell.id}}"
-                                                       ng-checked="selectedSmells.indexOf(smell.id) > -1"
-                                                       ng-click="toggleSelection(smell.id)"
-                                                       id="question-{{question.id}}" />
-                                                <label for="question-{{question.id}}"></label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-11 col-md-height vcenter">
-                                            {{ question.question }}
-                                        </div>
+            <form role="form">
+                <div class="panel panel-default" ng-repeat="group in groups">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{group.name}}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div ng-repeat="smell in group.smells">
+                            <div ng-repeat="question in smell.questions" class="row row-same-height">
+                                <div class="col-md-1 col-md-height">
+                                    <div class="checkbox checkbox-success">
+                                        <input 
+                                               type="checkbox"
+                                               name="selected[]"
+                                               value="{{smell.id}}"
+                                               ng-checked="selectedSmells.smellids.indexOf(smell.id) > -1"
+                                               ng-click="toggleSelection(smell.id)"
+                                               id="question-{{question.id}}" />
+                                        <label for="question-{{question.id}}"></label>
                                     </div>
-                                    </div>
+                                </div>
+                                <div class="col-md-11 col-md-height vcenter">
+                                    {{ question.question }}
+                                </div>
                             </div>
-                        </div>
-                    <button type="submit" class="btn btn-primary pull-right" ng-click="$state.go('arsearch', {smellids: selectedSmells})">Show ARs</button>
-                </form>
-            </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="pull-right">
+                    <button type="reset" class="btn btn-warning" ng-click="resetForm()" >Clear Questionnaire</button>&nbsp;
+                    <button type="submit" class="btn btn-primary" ng-click="executeSearch()">Show ARs</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

@@ -15,7 +15,7 @@
     <div class="media bg-warning" ng-show="newcomment.comment.length > 0">
         <div class="media-left media-top">
             <a href="#">
-                <img class="media-object avatar img-circle" ng-src="{{_contextPath + currentUser.profile.avatar}}" alt="Avatar {{currentUser.profile.lastname}}">
+                <img class="media-object avatar img-circle" ng-src="{{_contextPath + 'avatar/' + currentUser.profile.id}}" alt="Avatar {{currentUser.profile.lastname}}">
             </a>
         </div>
         <div class="media-body">
@@ -28,7 +28,7 @@
         <div class="media" ng-repeat-start="comment in $parent.comments | orderBy:'-created'">
             <div class="media-left media-top">
                 <a href="#">
-                    <img class="media-object avatar img-circle" ng-src="{{_contextPath + comment.user.avatar}}" alt="Avatar {{comment.user.lastname}}">
+                    <img class="media-object avatar img-circle" ng-src="{{_contextPath + 'avatar/' + comment.user.id}}" alt="Avatar {{comment.user.lastname}}">
                 </a>
             </div>
             <div class="media-body">

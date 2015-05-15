@@ -1,9 +1,11 @@
 package controllers.user;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.security.GeneralSecurityException;
 import java.util.List;
 
+import javax.imageio.ImageIO;
 import javax.persistence.TypedQuery;
 import javax.security.auth.login.FailedLoginException;
 
@@ -11,6 +13,9 @@ import models.user.Digest;
 import models.user.Login;
 import models.user.NewPassword;
 import models.user.User;
+
+import org.apache.commons.io.FileUtils;
+
 import play.Logger;
 import play.Play;
 import play.db.jpa.JPA;
@@ -23,7 +28,6 @@ import utils.actions.SessionAuth;
 import utils.crypto.Crypto;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.google.common.io.Files;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.google.inject.name.Named;
@@ -39,6 +43,8 @@ import dao.GenericDAO;
  */
 @Singleton
 public class UserController extends AbstractCRUDController<User, Long> {
+	
+	private byte [] cachedDefaultAavatar;
 
 	/**
 	 * Constructor receives a {@link GenericDAO}. DI framework hook is
@@ -67,7 +73,10 @@ public class UserController extends AbstractCRUDController<User, Long> {
 			digest.generateDigest(t.getPassword());
 			created = dao.create(t);
 			created.setDigest(digest);
-			created.setAvatar(Play.application().configuration().getString("defaultavatar"));
+			//created.setAvatar(Play.application().configuration().getString("defaultavatar"));
+			File avatar = Play.application().getFile("public/" + Play.application().configuration().getString("defaultavatar"));
+			byte [] imageBytes = FileUtils.readFileToByteArray(avatar);
+			created.setAvatar(imageBytes);
 		} catch (Exception e) {
 			String msg = "Failed to create, " + dao.getModel().getSimpleName();
 			String email = (null == created) ? "User is null" : created.getEmail();
@@ -182,6 +191,33 @@ public class UserController extends AbstractCRUDController<User, Long> {
 
 		return ok();
 	}
+	
+	/**
+	 * Returns the avatar image as binary Data for a delivered user id.
+	 * 
+	 * @param id
+	 * @return
+	 */
+	@Transactional(readOnly=true)
+	public Result getAvatar(Long id) {
+		try {
+			User user = dao.get(id);
+			byte [] imageBytes = user.getAvatar();
+			if (imageBytes == null) {
+				if(cachedDefaultAavatar == null) {
+					File avatar = Play.application().getFile("public/" + Play.application().configuration().getString("defaultavatar"));
+					imageBytes = FileUtils.readFileToByteArray(avatar);
+				} else {
+					imageBytes = cachedDefaultAavatar;
+				}
+			}
+			return ok(imageBytes).as("image/jpeg");
+		} catch (Exception e) {
+			String msg = "Failed to get avatar.";
+			Logger.error(msg, e);
+			return internalServerError(msg);
+		}
+	}
 
 	/**
 	 * Upload users Avatar image.
@@ -203,32 +239,30 @@ public class UserController extends AbstractCRUDController<User, Long> {
 				MultipartFormData body = request().body().asMultipartFormData();
 				FilePart picture = body.getFile("file");
 				if (picture != null) {
-					String fileName = picture.getFilename();
-					String fileExtention = fileName.substring(
-							fileName.lastIndexOf('.'), fileName.length());
-					//String contentType = picture.getContentType();
 					File file = picture.getFile();
-
-					String basePath = Play.application().path().getPath();
-					String avatarPath = Play.application().configuration()
-							.getString("avatarimagepath");
-					File directory = new File(basePath + "/public/" + avatarPath);
-					
-					if(Logger.isDebugEnabled()) {
-						Logger.debug("Avatar upload path details:");
-						Logger.debug("basePath: " + basePath);
-						Logger.debug("avatarPath: " + avatarPath);
-						Logger.debug("directory: " + directory);
-						Logger.debug("fileExtention: " + fileExtention);
+					String mime = picture.getContentType();
+					Logger.debug("Avatar mime: " + mime);
+					if(!mime.equals("image/jpeg") && !mime.equals("image/jpg") && !mime.equals("image/png") && !mime.equals("image/gif")) {
+						throw new IllegalArgumentException("Unsupported filetype.");
 					}
 					
-					File avatarFile = File.createTempFile("avatar", fileExtention, directory);
+					BufferedImage bimg = ImageIO.read(file);
+					int width          = bimg.getWidth();
+					int height         = bimg.getHeight();
+					Logger.debug("Avatar dimension: " + width + "x" + height);
 					
-					Files.copy(file, avatarFile);
-					String newAvatarPath = avatarPath + avatarFile.getName();
-					user.setAvatar(newAvatarPath);
-
-					return ok(newAvatarPath);
+					byte [] imageBytes = FileUtils.readFileToByteArray(file);
+					int size = imageBytes.length;
+					Logger.debug("Avatar size: " + size);
+					
+					if(width > 300 || height > 300) {
+						throw new IllegalArgumentException("Unsupported image dimension (" + width + "x" + height + ").");						
+					} else if(size > 1024 * 100) {
+						throw new IllegalArgumentException("Unsupported image size ("+ size + ").");						
+					}
+					
+					user.setAvatar(imageBytes);
+					return ok();
 				} else {
 					throw new IllegalArgumentException("Missing image.");
 				}

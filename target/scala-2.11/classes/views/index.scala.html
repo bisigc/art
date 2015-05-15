@@ -49,14 +49,21 @@
                             </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right" ng-controller="UserController as userCtrl">
-                            <li ng-show="isLoggedin.check()" class="menuItem menuuser" ng-class="{active:$state.is('profile')}"><a ui-sref="profile"><img ng-src="{{_contextPath + currentUser.profile.avatar}}" class="avatar img-circle" /> {{currentUser.profile.firstname}} {{currentUser.profile.lastname}}</a></li>
-                            <li ng-hide="isLoggedin.check()" class="menuItem dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" title="Login" role="button" aria-expanded="false">Login <span class="caret"></span></a>
+                            <li ng-if="isLoggedin.check()" class="menuItem menuuser dropdown" ng-class="{active:$state.is('profile')}">
+                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img ng-src="{{_contextPath + 'avatar/' + currentUser.profile.id}}" class="avatar img-circle" /> {{currentUser.profile.firstname}} {{currentUser.profile.lastname}} <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a ui-sref="profile">Profile</a></li>
+                                    <li><a ui-sref="usersearches">Saved Searches</a></li>
+                                    <li role="presentation" class="divider"></li>
+                                    <li><a href ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                                </ul>
+                            </li>
+                            <li ng-if="!isLoggedin.check()" class="menuItem dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" title="Login" role="button" aria-expanded="false"><span class="glyphicon glyphicon-log-in"></span> Login <span class="caret"></span></a>
                                 <ul class="dropdown-menu login-dropdown" role="menu">
                                     <li><div ng-include="_contextPath + 'login.html'"></div></li>
                                 </ul>
                             </li>
-                            <li ng-show="isLoggedin.check()" class="menuItem"><a href ng-click="logout()">Logout</a></li>
                         </ul>
                     </div><!--/.nav-collapse -->
             </nav>

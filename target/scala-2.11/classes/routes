@@ -22,7 +22,6 @@ DELETE  /arversion/:id            @controllers.ar.ArVersionController.delete(id:
 POST    /arsearch                 @controllers.ar.ArVersionController.arSmellSearch()
 POST    /arsearchcount            @controllers.ar.ArVersionController.arSmellSearchCount()
 
-
 #Smell service
 GET     /smell                    @controllers.smell.SmellController.getAll()
 GET     /smell/forcloud           @controllers.smell.SmellController.getCloudSmells()
@@ -78,7 +77,13 @@ PUT     /changepw  	              @controllers.user.UserController.changePasswor
 PUT     /login  	              @controllers.user.UserController.login()
 GET     /logout  	              @controllers.user.UserController.logout()
 GET     /userroles	              @controllers.user.RoleController.getAll()
-POST    /uploadavatar             @controllers.user.UserController.uploadAvatar()
+POST    /avatar                   @controllers.user.UserController.uploadAvatar()
+GET     /avatar/:id	              @controllers.user.UserController.getAvatar(id: Long)
+
+#User Searches
+GET     /usersearch               @controllers.ar.ArSearchController.getUserSearches()
+POST    /usersearch               @controllers.ar.ArSearchController.create()
+DELETE  /usersearch/:id           @controllers.ar.ArSearchController.delete(id: Long)
 
 #TaskTemplate service
 GET     /task                     @controllers.task.TaskTemplateController.getAll()

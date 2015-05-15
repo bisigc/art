@@ -1,6 +1,6 @@
 // @SOURCE:/Users/cbi/Documents/git-repos/ART/conf/routes
-// @HASH:f1a6ec0833de52fd31f294e594a7f81cafd9c77b
-// @DATE:Wed May 13 21:06:20 CEST 2015
+// @HASH:6fcb7e56bc35bff68214c49043ff0150bc3eb4c7
+// @DATE:Fri May 15 23:39:49 CEST 2015
 
 
 import play.core._
@@ -124,440 +124,468 @@ play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).g
 HandlerDef(this.getClass.getClassLoader, "", "controllers.ar.ArVersionController", "arSmellSearchCount", Nil,"POST", """""", Routes.prefix + """arsearchcount"""))
         
 
-// @LINE:27
+// @LINE:26
 private[this] lazy val controllers_smell_SmellController_getAll13_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("smell"))))
 private[this] lazy val controllers_smell_SmellController_getAll13_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.smell.SmellController]).getAll(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.smell.SmellController", "getAll", Nil,"GET", """Smell service""", Routes.prefix + """smell"""))
         
 
-// @LINE:28
+// @LINE:27
 private[this] lazy val controllers_smell_SmellController_getCloudSmells14_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("smell/forcloud"))))
 private[this] lazy val controllers_smell_SmellController_getCloudSmells14_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.smell.SmellController]).getCloudSmells(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.smell.SmellController", "getCloudSmells", Nil,"GET", """""", Routes.prefix + """smell/forcloud"""))
         
 
-// @LINE:29
+// @LINE:28
 private[this] lazy val controllers_smell_SmellController_get15_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("smell/"),DynamicPart("id", """[^/]+""",true))))
 private[this] lazy val controllers_smell_SmellController_get15_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.smell.SmellController]).get(fakeValue[Long]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.smell.SmellController", "get", Seq(classOf[Long]),"GET", """""", Routes.prefix + """smell/$id<[^/]+>"""))
         
 
-// @LINE:30
+// @LINE:29
 private[this] lazy val controllers_smell_SmellController_create16_route = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("smell"))))
 private[this] lazy val controllers_smell_SmellController_create16_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.smell.SmellController]).create(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.smell.SmellController", "create", Nil,"POST", """""", Routes.prefix + """smell"""))
         
 
-// @LINE:31
+// @LINE:30
 private[this] lazy val controllers_smell_SmellController_update17_route = Route("PUT", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("smell"))))
 private[this] lazy val controllers_smell_SmellController_update17_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.smell.SmellController]).update(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.smell.SmellController", "update", Nil,"PUT", """""", Routes.prefix + """smell"""))
         
 
-// @LINE:32
+// @LINE:31
 private[this] lazy val controllers_smell_SmellController_delete18_route = Route("DELETE", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("smell/"),DynamicPart("id", """[^/]+""",true))))
 private[this] lazy val controllers_smell_SmellController_delete18_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.smell.SmellController]).delete(fakeValue[Long]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.smell.SmellController", "delete", Seq(classOf[Long]),"DELETE", """""", Routes.prefix + """smell/$id<[^/]+>"""))
         
 
-// @LINE:35
+// @LINE:34
 private[this] lazy val controllers_smell_SmellGroupController_getAll19_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("smellgroup"))))
 private[this] lazy val controllers_smell_SmellGroupController_getAll19_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.smell.SmellGroupController]).getAll(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.smell.SmellGroupController", "getAll", Nil,"GET", """SmellGroup service""", Routes.prefix + """smellgroup"""))
         
 
-// @LINE:36
+// @LINE:35
 private[this] lazy val controllers_smell_SmellGroupController_get20_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("smellgroup/"),DynamicPart("id", """[^/]+""",true))))
 private[this] lazy val controllers_smell_SmellGroupController_get20_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.smell.SmellGroupController]).get(fakeValue[Long]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.smell.SmellGroupController", "get", Seq(classOf[Long]),"GET", """""", Routes.prefix + """smellgroup/$id<[^/]+>"""))
         
 
-// @LINE:37
+// @LINE:36
 private[this] lazy val controllers_smell_SmellGroupController_create21_route = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("smellgroup"))))
 private[this] lazy val controllers_smell_SmellGroupController_create21_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.smell.SmellGroupController]).create(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.smell.SmellGroupController", "create", Nil,"POST", """""", Routes.prefix + """smellgroup"""))
         
 
-// @LINE:38
+// @LINE:37
 private[this] lazy val controllers_smell_SmellGroupController_update22_route = Route("PUT", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("smellgroup"))))
 private[this] lazy val controllers_smell_SmellGroupController_update22_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.smell.SmellGroupController]).update(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.smell.SmellGroupController", "update", Nil,"PUT", """""", Routes.prefix + """smellgroup"""))
         
 
-// @LINE:39
+// @LINE:38
 private[this] lazy val controllers_smell_SmellGroupController_delete23_route = Route("DELETE", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("smellgroup/"),DynamicPart("id", """[^/]+""",true))))
 private[this] lazy val controllers_smell_SmellGroupController_delete23_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.smell.SmellGroupController]).delete(fakeValue[Long]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.smell.SmellGroupController", "delete", Seq(classOf[Long]),"DELETE", """""", Routes.prefix + """smellgroup/$id<[^/]+>"""))
         
 
-// @LINE:42
+// @LINE:41
 private[this] lazy val controllers_discussion_DiscussionController_getAll24_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("discussion"))))
 private[this] lazy val controllers_discussion_DiscussionController_getAll24_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.discussion.DiscussionController]).getAll(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.discussion.DiscussionController", "getAll", Nil,"GET", """Discussion service""", Routes.prefix + """discussion"""))
         
 
-// @LINE:43
+// @LINE:42
 private[this] lazy val controllers_discussion_DiscussionController_get25_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("discussion/"),DynamicPart("id", """[^/]+""",true))))
 private[this] lazy val controllers_discussion_DiscussionController_get25_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.discussion.DiscussionController]).get(fakeValue[Long]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.discussion.DiscussionController", "get", Seq(classOf[Long]),"GET", """""", Routes.prefix + """discussion/$id<[^/]+>"""))
         
 
-// @LINE:44
+// @LINE:43
 private[this] lazy val controllers_discussion_DiscussionController_create26_route = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("discussion"))))
 private[this] lazy val controllers_discussion_DiscussionController_create26_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.discussion.DiscussionController]).create(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.discussion.DiscussionController", "create", Nil,"POST", """""", Routes.prefix + """discussion"""))
         
 
-// @LINE:45
+// @LINE:44
 private[this] lazy val controllers_discussion_DiscussionController_update27_route = Route("PUT", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("discussion"))))
 private[this] lazy val controllers_discussion_DiscussionController_update27_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.discussion.DiscussionController]).update(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.discussion.DiscussionController", "update", Nil,"PUT", """""", Routes.prefix + """discussion"""))
         
 
-// @LINE:46
+// @LINE:45
 private[this] lazy val controllers_discussion_DiscussionController_delete28_route = Route("DELETE", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("discussion/"),DynamicPart("id", """[^/]+""",true))))
 private[this] lazy val controllers_discussion_DiscussionController_delete28_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.discussion.DiscussionController]).delete(fakeValue[Long]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.discussion.DiscussionController", "delete", Seq(classOf[Long]),"DELETE", """""", Routes.prefix + """discussion/$id<[^/]+>"""))
         
 
-// @LINE:49
+// @LINE:48
 private[this] lazy val controllers_discussion_CommentController_getAll29_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("comment"))))
 private[this] lazy val controllers_discussion_CommentController_getAll29_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.discussion.CommentController]).getAll(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.discussion.CommentController", "getAll", Nil,"GET", """Comment service""", Routes.prefix + """comment"""))
         
 
-// @LINE:50
+// @LINE:49
 private[this] lazy val controllers_discussion_CommentController_get30_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("comment/"),DynamicPart("id", """[^/]+""",true))))
 private[this] lazy val controllers_discussion_CommentController_get30_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.discussion.CommentController]).get(fakeValue[Long]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.discussion.CommentController", "get", Seq(classOf[Long]),"GET", """""", Routes.prefix + """comment/$id<[^/]+>"""))
         
 
-// @LINE:51
+// @LINE:50
 private[this] lazy val controllers_discussion_LikeController_like31_route = Route("PUT", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("like/"),DynamicPart("id", """[^/]+""",true))))
 private[this] lazy val controllers_discussion_LikeController_like31_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.discussion.LikeController]).like(fakeValue[Long]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.discussion.LikeController", "like", Seq(classOf[Long]),"PUT", """""", Routes.prefix + """like/$id<[^/]+>"""))
         
 
-// @LINE:52
+// @LINE:51
 private[this] lazy val controllers_discussion_CommentController_create32_route = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("comment"))))
 private[this] lazy val controllers_discussion_CommentController_create32_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.discussion.CommentController]).create(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.discussion.CommentController", "create", Nil,"POST", """""", Routes.prefix + """comment"""))
         
 
-// @LINE:53
+// @LINE:52
 private[this] lazy val controllers_discussion_CommentController_update33_route = Route("PUT", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("comment"))))
 private[this] lazy val controllers_discussion_CommentController_update33_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.discussion.CommentController]).update(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.discussion.CommentController", "update", Nil,"PUT", """""", Routes.prefix + """comment"""))
         
 
-// @LINE:54
+// @LINE:53
 private[this] lazy val controllers_discussion_CommentController_delete34_route = Route("DELETE", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("comment/"),DynamicPart("id", """[^/]+""",true))))
 private[this] lazy val controllers_discussion_CommentController_delete34_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.discussion.CommentController]).delete(fakeValue[Long]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.discussion.CommentController", "delete", Seq(classOf[Long]),"DELETE", """""", Routes.prefix + """comment/$id<[^/]+>"""))
         
 
-// @LINE:57
+// @LINE:56
 private[this] lazy val controllers_property_PropertyController_getAll35_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("property"))))
 private[this] lazy val controllers_property_PropertyController_getAll35_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.property.PropertyController]).getAll(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.property.PropertyController", "getAll", Nil,"GET", """Property service""", Routes.prefix + """property"""))
         
 
-// @LINE:58
+// @LINE:57
 private[this] lazy val controllers_property_PropertyController_getCategorie36_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("property/categorie/"),DynamicPart("cat", """[^/]+""",true))))
 private[this] lazy val controllers_property_PropertyController_getCategorie36_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.property.PropertyController]).getCategorie(fakeValue[String]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.property.PropertyController", "getCategorie", Seq(classOf[String]),"GET", """""", Routes.prefix + """property/categorie/$cat<[^/]+>"""))
         
 
-// @LINE:59
+// @LINE:58
 private[this] lazy val controllers_property_PropertyController_get37_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("property/"),DynamicPart("id", """[^/]+""",true))))
 private[this] lazy val controllers_property_PropertyController_get37_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.property.PropertyController]).get(fakeValue[Long]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.property.PropertyController", "get", Seq(classOf[Long]),"GET", """""", Routes.prefix + """property/$id<[^/]+>"""))
         
 
-// @LINE:60
+// @LINE:59
 private[this] lazy val controllers_property_PropertyController_create38_route = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("property"))))
 private[this] lazy val controllers_property_PropertyController_create38_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.property.PropertyController]).create(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.property.PropertyController", "create", Nil,"POST", """""", Routes.prefix + """property"""))
         
 
-// @LINE:61
+// @LINE:60
 private[this] lazy val controllers_property_PropertyController_update39_route = Route("PUT", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("property"))))
 private[this] lazy val controllers_property_PropertyController_update39_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.property.PropertyController]).update(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.property.PropertyController", "update", Nil,"PUT", """""", Routes.prefix + """property"""))
         
 
-// @LINE:62
+// @LINE:61
 private[this] lazy val controllers_property_PropertyController_delete40_route = Route("DELETE", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("property/"),DynamicPart("id", """[^/]+""",true))))
 private[this] lazy val controllers_property_PropertyController_delete40_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.property.PropertyController]).delete(fakeValue[Long]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.property.PropertyController", "delete", Seq(classOf[Long]),"DELETE", """""", Routes.prefix + """property/$id<[^/]+>"""))
         
 
-// @LINE:65
+// @LINE:64
 private[this] lazy val controllers_menu_MenuController_getAll41_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("menu"))))
 private[this] lazy val controllers_menu_MenuController_getAll41_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.menu.MenuController]).getAll(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.menu.MenuController", "getAll", Nil,"GET", """Menu service""", Routes.prefix + """menu"""))
         
 
-// @LINE:66
+// @LINE:65
 private[this] lazy val controllers_menu_MenuController_get42_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("menu/"),DynamicPart("id", """[^/]+""",true))))
 private[this] lazy val controllers_menu_MenuController_get42_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.menu.MenuController]).get(fakeValue[Long]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.menu.MenuController", "get", Seq(classOf[Long]),"GET", """""", Routes.prefix + """menu/$id<[^/]+>"""))
         
 
-// @LINE:67
+// @LINE:66
 private[this] lazy val controllers_menu_MenuController_create43_route = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("menu"))))
 private[this] lazy val controllers_menu_MenuController_create43_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.menu.MenuController]).create(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.menu.MenuController", "create", Nil,"POST", """""", Routes.prefix + """menu"""))
         
 
-// @LINE:68
+// @LINE:67
 private[this] lazy val controllers_menu_MenuController_update44_route = Route("PUT", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("menu"))))
 private[this] lazy val controllers_menu_MenuController_update44_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.menu.MenuController]).update(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.menu.MenuController", "update", Nil,"PUT", """""", Routes.prefix + """menu"""))
         
 
-// @LINE:69
+// @LINE:68
 private[this] lazy val controllers_menu_MenuController_delete45_route = Route("DELETE", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("menu/"),DynamicPart("id", """[^/]+""",true))))
 private[this] lazy val controllers_menu_MenuController_delete45_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.menu.MenuController]).delete(fakeValue[Long]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.menu.MenuController", "delete", Seq(classOf[Long]),"DELETE", """""", Routes.prefix + """menu/$id<[^/]+>"""))
         
 
-// @LINE:72
+// @LINE:71
 private[this] lazy val controllers_user_UserController_getAll46_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("user"))))
 private[this] lazy val controllers_user_UserController_getAll46_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.user.UserController]).getAll(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.user.UserController", "getAll", Nil,"GET", """User service""", Routes.prefix + """user"""))
         
 
-// @LINE:73
+// @LINE:72
 private[this] lazy val controllers_user_UserController_get47_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("user/"),DynamicPart("id", """[^/]+""",true))))
 private[this] lazy val controllers_user_UserController_get47_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.user.UserController]).get(fakeValue[Long]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.user.UserController", "get", Seq(classOf[Long]),"GET", """""", Routes.prefix + """user/$id<[^/]+>"""))
         
 
-// @LINE:74
+// @LINE:73
 private[this] lazy val controllers_user_UserController_create48_route = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("user"))))
 private[this] lazy val controllers_user_UserController_create48_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.user.UserController]).create(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.user.UserController", "create", Nil,"POST", """""", Routes.prefix + """user"""))
         
 
-// @LINE:75
+// @LINE:74
 private[this] lazy val controllers_user_UserController_update49_route = Route("PUT", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("user"))))
 private[this] lazy val controllers_user_UserController_update49_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.user.UserController]).update(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.user.UserController", "update", Nil,"PUT", """""", Routes.prefix + """user"""))
         
 
-// @LINE:76
+// @LINE:75
 private[this] lazy val controllers_user_UserController_delete50_route = Route("DELETE", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("user/"),DynamicPart("id", """[^/]+""",true))))
 private[this] lazy val controllers_user_UserController_delete50_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.user.UserController]).delete(fakeValue[Long]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.user.UserController", "delete", Seq(classOf[Long]),"DELETE", """""", Routes.prefix + """user/$id<[^/]+>"""))
         
 
-// @LINE:77
+// @LINE:76
 private[this] lazy val controllers_user_UserController_changePassword51_route = Route("PUT", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("changepw"))))
 private[this] lazy val controllers_user_UserController_changePassword51_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.user.UserController]).changePassword(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.user.UserController", "changePassword", Nil,"PUT", """""", Routes.prefix + """changepw"""))
         
 
-// @LINE:78
+// @LINE:77
 private[this] lazy val controllers_user_UserController_login52_route = Route("PUT", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("login"))))
 private[this] lazy val controllers_user_UserController_login52_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.user.UserController]).login(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.user.UserController", "login", Nil,"PUT", """""", Routes.prefix + """login"""))
         
 
-// @LINE:79
+// @LINE:78
 private[this] lazy val controllers_user_UserController_logout53_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("logout"))))
 private[this] lazy val controllers_user_UserController_logout53_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.user.UserController]).logout(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.user.UserController", "logout", Nil,"GET", """""", Routes.prefix + """logout"""))
         
 
-// @LINE:80
+// @LINE:79
 private[this] lazy val controllers_user_RoleController_getAll54_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("userroles"))))
 private[this] lazy val controllers_user_RoleController_getAll54_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.user.RoleController]).getAll(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.user.RoleController", "getAll", Nil,"GET", """""", Routes.prefix + """userroles"""))
         
 
-// @LINE:81
-private[this] lazy val controllers_user_UserController_uploadAvatar55_route = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("uploadavatar"))))
+// @LINE:80
+private[this] lazy val controllers_user_UserController_uploadAvatar55_route = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("avatar"))))
 private[this] lazy val controllers_user_UserController_uploadAvatar55_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.user.UserController]).uploadAvatar(),
-HandlerDef(this.getClass.getClassLoader, "", "controllers.user.UserController", "uploadAvatar", Nil,"POST", """""", Routes.prefix + """uploadavatar"""))
+HandlerDef(this.getClass.getClassLoader, "", "controllers.user.UserController", "uploadAvatar", Nil,"POST", """""", Routes.prefix + """avatar"""))
+        
+
+// @LINE:81
+private[this] lazy val controllers_user_UserController_getAvatar56_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("avatar/"),DynamicPart("id", """[^/]+""",true))))
+private[this] lazy val controllers_user_UserController_getAvatar56_invoker = createInvoker(
+play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.user.UserController]).getAvatar(fakeValue[Long]),
+HandlerDef(this.getClass.getClassLoader, "", "controllers.user.UserController", "getAvatar", Seq(classOf[Long]),"GET", """""", Routes.prefix + """avatar/$id<[^/]+>"""))
         
 
 // @LINE:84
-private[this] lazy val controllers_task_TaskTemplateController_getAll56_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("task"))))
-private[this] lazy val controllers_task_TaskTemplateController_getAll56_invoker = createInvoker(
+private[this] lazy val controllers_ar_ArSearchController_getUserSearches57_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("usersearch"))))
+private[this] lazy val controllers_ar_ArSearchController_getUserSearches57_invoker = createInvoker(
+play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.ar.ArSearchController]).getUserSearches(),
+HandlerDef(this.getClass.getClassLoader, "", "controllers.ar.ArSearchController", "getUserSearches", Nil,"GET", """User Searches""", Routes.prefix + """usersearch"""))
+        
+
+// @LINE:85
+private[this] lazy val controllers_ar_ArSearchController_create58_route = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("usersearch"))))
+private[this] lazy val controllers_ar_ArSearchController_create58_invoker = createInvoker(
+play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.ar.ArSearchController]).create(),
+HandlerDef(this.getClass.getClassLoader, "", "controllers.ar.ArSearchController", "create", Nil,"POST", """""", Routes.prefix + """usersearch"""))
+        
+
+// @LINE:86
+private[this] lazy val controllers_ar_ArSearchController_delete59_route = Route("DELETE", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("usersearch/"),DynamicPart("id", """[^/]+""",true))))
+private[this] lazy val controllers_ar_ArSearchController_delete59_invoker = createInvoker(
+play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.ar.ArSearchController]).delete(fakeValue[Long]),
+HandlerDef(this.getClass.getClassLoader, "", "controllers.ar.ArSearchController", "delete", Seq(classOf[Long]),"DELETE", """""", Routes.prefix + """usersearch/$id<[^/]+>"""))
+        
+
+// @LINE:89
+private[this] lazy val controllers_task_TaskTemplateController_getAll60_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("task"))))
+private[this] lazy val controllers_task_TaskTemplateController_getAll60_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.TaskTemplateController]).getAll(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.task.TaskTemplateController", "getAll", Nil,"GET", """TaskTemplate service""", Routes.prefix + """task"""))
         
 
-// @LINE:85
-private[this] lazy val controllers_task_TaskTemplateController_get57_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("task/"),DynamicPart("id", """[^/]+""",true))))
-private[this] lazy val controllers_task_TaskTemplateController_get57_invoker = createInvoker(
+// @LINE:90
+private[this] lazy val controllers_task_TaskTemplateController_get61_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("task/"),DynamicPart("id", """[^/]+""",true))))
+private[this] lazy val controllers_task_TaskTemplateController_get61_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.TaskTemplateController]).get(fakeValue[Long]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.task.TaskTemplateController", "get", Seq(classOf[Long]),"GET", """""", Routes.prefix + """task/$id<[^/]+>"""))
         
 
-// @LINE:86
-private[this] lazy val controllers_task_TaskTemplateController_create58_route = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("task"))))
-private[this] lazy val controllers_task_TaskTemplateController_create58_invoker = createInvoker(
+// @LINE:91
+private[this] lazy val controllers_task_TaskTemplateController_create62_route = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("task"))))
+private[this] lazy val controllers_task_TaskTemplateController_create62_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.TaskTemplateController]).create(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.task.TaskTemplateController", "create", Nil,"POST", """""", Routes.prefix + """task"""))
         
 
-// @LINE:87
-private[this] lazy val controllers_task_TaskTemplateController_update59_route = Route("PUT", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("task"))))
-private[this] lazy val controllers_task_TaskTemplateController_update59_invoker = createInvoker(
+// @LINE:92
+private[this] lazy val controllers_task_TaskTemplateController_update63_route = Route("PUT", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("task"))))
+private[this] lazy val controllers_task_TaskTemplateController_update63_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.TaskTemplateController]).update(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.task.TaskTemplateController", "update", Nil,"PUT", """""", Routes.prefix + """task"""))
         
 
-// @LINE:88
-private[this] lazy val controllers_task_TaskTemplateController_delete60_route = Route("DELETE", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("task/"),DynamicPart("id", """[^/]+""",true))))
-private[this] lazy val controllers_task_TaskTemplateController_delete60_invoker = createInvoker(
+// @LINE:93
+private[this] lazy val controllers_task_TaskTemplateController_delete64_route = Route("DELETE", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("task/"),DynamicPart("id", """[^/]+""",true))))
+private[this] lazy val controllers_task_TaskTemplateController_delete64_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.TaskTemplateController]).delete(fakeValue[Long]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.task.TaskTemplateController", "delete", Seq(classOf[Long]),"DELETE", """""", Routes.prefix + """task/$id<[^/]+>"""))
         
 
-// @LINE:91
-private[this] lazy val controllers_task_TaskPropertyController_getAll61_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("taskproperty"))))
-private[this] lazy val controllers_task_TaskPropertyController_getAll61_invoker = createInvoker(
+// @LINE:96
+private[this] lazy val controllers_task_TaskPropertyController_getAll65_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("taskproperty"))))
+private[this] lazy val controllers_task_TaskPropertyController_getAll65_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.TaskPropertyController]).getAll(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.task.TaskPropertyController", "getAll", Nil,"GET", """TaskProperty service""", Routes.prefix + """taskproperty"""))
         
 
-// @LINE:92
-private[this] lazy val controllers_task_TaskPropertyController_get62_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("taskproperty/"),DynamicPart("id", """[^/]+""",true))))
-private[this] lazy val controllers_task_TaskPropertyController_get62_invoker = createInvoker(
+// @LINE:97
+private[this] lazy val controllers_task_TaskPropertyController_get66_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("taskproperty/"),DynamicPart("id", """[^/]+""",true))))
+private[this] lazy val controllers_task_TaskPropertyController_get66_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.TaskPropertyController]).get(fakeValue[Long]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.task.TaskPropertyController", "get", Seq(classOf[Long]),"GET", """""", Routes.prefix + """taskproperty/$id<[^/]+>"""))
         
 
-// @LINE:93
-private[this] lazy val controllers_task_TaskPropertyController_create63_route = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("taskproperty"))))
-private[this] lazy val controllers_task_TaskPropertyController_create63_invoker = createInvoker(
+// @LINE:98
+private[this] lazy val controllers_task_TaskPropertyController_create67_route = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("taskproperty"))))
+private[this] lazy val controllers_task_TaskPropertyController_create67_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.TaskPropertyController]).create(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.task.TaskPropertyController", "create", Nil,"POST", """""", Routes.prefix + """taskproperty"""))
         
 
-// @LINE:94
-private[this] lazy val controllers_task_TaskPropertyController_update64_route = Route("PUT", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("taskproperty"))))
-private[this] lazy val controllers_task_TaskPropertyController_update64_invoker = createInvoker(
+// @LINE:99
+private[this] lazy val controllers_task_TaskPropertyController_update68_route = Route("PUT", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("taskproperty"))))
+private[this] lazy val controllers_task_TaskPropertyController_update68_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.TaskPropertyController]).update(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.task.TaskPropertyController", "update", Nil,"PUT", """""", Routes.prefix + """taskproperty"""))
         
 
-// @LINE:95
-private[this] lazy val controllers_task_TaskPropertyController_delete65_route = Route("DELETE", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("taskproperty/"),DynamicPart("id", """[^/]+""",true))))
-private[this] lazy val controllers_task_TaskPropertyController_delete65_invoker = createInvoker(
+// @LINE:100
+private[this] lazy val controllers_task_TaskPropertyController_delete69_route = Route("DELETE", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("taskproperty/"),DynamicPart("id", """[^/]+""",true))))
+private[this] lazy val controllers_task_TaskPropertyController_delete69_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.TaskPropertyController]).delete(fakeValue[Long]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.task.TaskPropertyController", "delete", Seq(classOf[Long]),"DELETE", """""", Routes.prefix + """taskproperty/$id<[^/]+>"""))
         
 
-// @LINE:98
-private[this] lazy val controllers_task_ExecTaskTypeController_getAll66_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("exectasktype"))))
-private[this] lazy val controllers_task_ExecTaskTypeController_getAll66_invoker = createInvoker(
+// @LINE:103
+private[this] lazy val controllers_task_ExecTaskTypeController_getAll70_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("exectasktype"))))
+private[this] lazy val controllers_task_ExecTaskTypeController_getAll70_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.ExecTaskTypeController]).getAll(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.task.ExecTaskTypeController", "getAll", Nil,"GET", """ExecTaskType service""", Routes.prefix + """exectasktype"""))
         
 
-// @LINE:99
-private[this] lazy val controllers_task_ExecTaskTypeController_getEmptyExecTaskType67_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("exectasktype/empty"))))
-private[this] lazy val controllers_task_ExecTaskTypeController_getEmptyExecTaskType67_invoker = createInvoker(
+// @LINE:104
+private[this] lazy val controllers_task_ExecTaskTypeController_getEmptyExecTaskType71_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("exectasktype/empty"))))
+private[this] lazy val controllers_task_ExecTaskTypeController_getEmptyExecTaskType71_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.ExecTaskTypeController]).getEmptyExecTaskType(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.task.ExecTaskTypeController", "getEmptyExecTaskType", Nil,"GET", """""", Routes.prefix + """exectasktype/empty"""))
         
 
-// @LINE:100
-private[this] lazy val controllers_task_ExecTaskTypeController_get68_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("exectasktype/"),DynamicPart("id", """[^/]+""",true))))
-private[this] lazy val controllers_task_ExecTaskTypeController_get68_invoker = createInvoker(
+// @LINE:105
+private[this] lazy val controllers_task_ExecTaskTypeController_get72_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("exectasktype/"),DynamicPart("id", """[^/]+""",true))))
+private[this] lazy val controllers_task_ExecTaskTypeController_get72_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.ExecTaskTypeController]).get(fakeValue[Long]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.task.ExecTaskTypeController", "get", Seq(classOf[Long]),"GET", """""", Routes.prefix + """exectasktype/$id<[^/]+>"""))
         
 
-// @LINE:101
-private[this] lazy val controllers_task_ExecTaskTypeController_create69_route = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("exectasktype"))))
-private[this] lazy val controllers_task_ExecTaskTypeController_create69_invoker = createInvoker(
+// @LINE:106
+private[this] lazy val controllers_task_ExecTaskTypeController_create73_route = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("exectasktype"))))
+private[this] lazy val controllers_task_ExecTaskTypeController_create73_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.ExecTaskTypeController]).create(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.task.ExecTaskTypeController", "create", Nil,"POST", """""", Routes.prefix + """exectasktype"""))
         
 
-// @LINE:102
-private[this] lazy val controllers_task_ExecTaskTypeController_update70_route = Route("PUT", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("exectasktype"))))
-private[this] lazy val controllers_task_ExecTaskTypeController_update70_invoker = createInvoker(
+// @LINE:107
+private[this] lazy val controllers_task_ExecTaskTypeController_update74_route = Route("PUT", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("exectasktype"))))
+private[this] lazy val controllers_task_ExecTaskTypeController_update74_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.ExecTaskTypeController]).update(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.task.ExecTaskTypeController", "update", Nil,"PUT", """""", Routes.prefix + """exectasktype"""))
         
 
-// @LINE:103
-private[this] lazy val controllers_task_ExecTaskTypeController_delete71_route = Route("DELETE", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("exectasktype/"),DynamicPart("id", """[^/]+""",true))))
-private[this] lazy val controllers_task_ExecTaskTypeController_delete71_invoker = createInvoker(
+// @LINE:108
+private[this] lazy val controllers_task_ExecTaskTypeController_delete75_route = Route("DELETE", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("exectasktype/"),DynamicPart("id", """[^/]+""",true))))
+private[this] lazy val controllers_task_ExecTaskTypeController_delete75_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.ExecTaskTypeController]).delete(fakeValue[Long]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.task.ExecTaskTypeController", "delete", Seq(classOf[Long]),"DELETE", """""", Routes.prefix + """exectasktype/$id<[^/]+>"""))
         
 
-// @LINE:106
-private[this] lazy val controllers_status_StatusController_get72_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("status"))))
-private[this] lazy val controllers_status_StatusController_get72_invoker = createInvoker(
+// @LINE:111
+private[this] lazy val controllers_status_StatusController_get76_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("status"))))
+private[this] lazy val controllers_status_StatusController_get76_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.status.StatusController]).get(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.status.StatusController", "get", Nil,"GET", """Status service""", Routes.prefix + """status"""))
         
 
-// @LINE:109
-private[this] lazy val controllers_statistic_StatisticController_get73_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("stats"))))
-private[this] lazy val controllers_statistic_StatisticController_get73_invoker = createInvoker(
+// @LINE:114
+private[this] lazy val controllers_statistic_StatisticController_get77_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("stats"))))
+private[this] lazy val controllers_statistic_StatisticController_get77_invoker = createInvoker(
 play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.statistic.StatisticController]).get(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.statistic.StatisticController", "get", Nil,"GET", """Statistic service""", Routes.prefix + """stats"""))
         
 
-// @LINE:112
-private[this] lazy val controllers_Assets_at74_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),DynamicPart("file", """.+""",false))))
-private[this] lazy val controllers_Assets_at74_invoker = createInvoker(
+// @LINE:117
+private[this] lazy val controllers_Assets_at78_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),DynamicPart("file", """.+""",false))))
+private[this] lazy val controllers_Assets_at78_invoker = createInvoker(
 controllers.Assets.at(fakeValue[String], fakeValue[String]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "at", Seq(classOf[String], classOf[String]),"GET", """ Map static resources from the /public folder to the /assets URL path""", Routes.prefix + """$file<.+>"""))
         
-def documentation = List(("""GET""", prefix,"""@controllers.Application@.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """ar""","""@controllers.ar.ArController@.getAll()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """ar/$id<[^/]+>""","""@controllers.ar.ArController@.get(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """ar""","""@controllers.ar.ArController@.create()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """ar""","""@controllers.ar.ArController@.update()"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """ar/$id<[^/]+>""","""@controllers.ar.ArController@.delete(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """arversion""","""@controllers.ar.ArVersionController@.getAll()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """arversion/$id<[^/]+>""","""@controllers.ar.ArVersionController@.get(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """arversion""","""@controllers.ar.ArVersionController@.create()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """arversion""","""@controllers.ar.ArVersionController@.update()"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """arversion/$id<[^/]+>""","""@controllers.ar.ArVersionController@.delete(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """arsearch""","""@controllers.ar.ArVersionController@.arSmellSearch()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """arsearchcount""","""@controllers.ar.ArVersionController@.arSmellSearchCount()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smell""","""@controllers.smell.SmellController@.getAll()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smell/forcloud""","""@controllers.smell.SmellController@.getCloudSmells()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smell/$id<[^/]+>""","""@controllers.smell.SmellController@.get(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smell""","""@controllers.smell.SmellController@.create()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smell""","""@controllers.smell.SmellController@.update()"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smell/$id<[^/]+>""","""@controllers.smell.SmellController@.delete(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smellgroup""","""@controllers.smell.SmellGroupController@.getAll()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smellgroup/$id<[^/]+>""","""@controllers.smell.SmellGroupController@.get(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smellgroup""","""@controllers.smell.SmellGroupController@.create()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smellgroup""","""@controllers.smell.SmellGroupController@.update()"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smellgroup/$id<[^/]+>""","""@controllers.smell.SmellGroupController@.delete(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """discussion""","""@controllers.discussion.DiscussionController@.getAll()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """discussion/$id<[^/]+>""","""@controllers.discussion.DiscussionController@.get(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """discussion""","""@controllers.discussion.DiscussionController@.create()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """discussion""","""@controllers.discussion.DiscussionController@.update()"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """discussion/$id<[^/]+>""","""@controllers.discussion.DiscussionController@.delete(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """comment""","""@controllers.discussion.CommentController@.getAll()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """comment/$id<[^/]+>""","""@controllers.discussion.CommentController@.get(id:Long)"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """like/$id<[^/]+>""","""@controllers.discussion.LikeController@.like(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """comment""","""@controllers.discussion.CommentController@.create()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """comment""","""@controllers.discussion.CommentController@.update()"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """comment/$id<[^/]+>""","""@controllers.discussion.CommentController@.delete(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property""","""@controllers.property.PropertyController@.getAll()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property/categorie/$cat<[^/]+>""","""@controllers.property.PropertyController@.getCategorie(cat:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property/$id<[^/]+>""","""@controllers.property.PropertyController@.get(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property""","""@controllers.property.PropertyController@.create()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property""","""@controllers.property.PropertyController@.update()"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property/$id<[^/]+>""","""@controllers.property.PropertyController@.delete(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """menu""","""@controllers.menu.MenuController@.getAll()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """menu/$id<[^/]+>""","""@controllers.menu.MenuController@.get(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """menu""","""@controllers.menu.MenuController@.create()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """menu""","""@controllers.menu.MenuController@.update()"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """menu/$id<[^/]+>""","""@controllers.menu.MenuController@.delete(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """user""","""@controllers.user.UserController@.getAll()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """user/$id<[^/]+>""","""@controllers.user.UserController@.get(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """user""","""@controllers.user.UserController@.create()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """user""","""@controllers.user.UserController@.update()"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """user/$id<[^/]+>""","""@controllers.user.UserController@.delete(id:Long)"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """changepw""","""@controllers.user.UserController@.changePassword()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """login""","""@controllers.user.UserController@.login()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """logout""","""@controllers.user.UserController@.logout()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """userroles""","""@controllers.user.RoleController@.getAll()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """uploadavatar""","""@controllers.user.UserController@.uploadAvatar()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """task""","""@controllers.task.TaskTemplateController@.getAll()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """task/$id<[^/]+>""","""@controllers.task.TaskTemplateController@.get(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """task""","""@controllers.task.TaskTemplateController@.create()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """task""","""@controllers.task.TaskTemplateController@.update()"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """task/$id<[^/]+>""","""@controllers.task.TaskTemplateController@.delete(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """taskproperty""","""@controllers.task.TaskPropertyController@.getAll()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """taskproperty/$id<[^/]+>""","""@controllers.task.TaskPropertyController@.get(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """taskproperty""","""@controllers.task.TaskPropertyController@.create()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """taskproperty""","""@controllers.task.TaskPropertyController@.update()"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """taskproperty/$id<[^/]+>""","""@controllers.task.TaskPropertyController@.delete(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """exectasktype""","""@controllers.task.ExecTaskTypeController@.getAll()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """exectasktype/empty""","""@controllers.task.ExecTaskTypeController@.getEmptyExecTaskType()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """exectasktype/$id<[^/]+>""","""@controllers.task.ExecTaskTypeController@.get(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """exectasktype""","""@controllers.task.ExecTaskTypeController@.create()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """exectasktype""","""@controllers.task.ExecTaskTypeController@.update()"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """exectasktype/$id<[^/]+>""","""@controllers.task.ExecTaskTypeController@.delete(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """status""","""@controllers.status.StatusController@.get()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """stats""","""@controllers.statistic.StatisticController@.get()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
+def documentation = List(("""GET""", prefix,"""@controllers.Application@.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """ar""","""@controllers.ar.ArController@.getAll()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """ar/$id<[^/]+>""","""@controllers.ar.ArController@.get(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """ar""","""@controllers.ar.ArController@.create()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """ar""","""@controllers.ar.ArController@.update()"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """ar/$id<[^/]+>""","""@controllers.ar.ArController@.delete(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """arversion""","""@controllers.ar.ArVersionController@.getAll()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """arversion/$id<[^/]+>""","""@controllers.ar.ArVersionController@.get(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """arversion""","""@controllers.ar.ArVersionController@.create()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """arversion""","""@controllers.ar.ArVersionController@.update()"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """arversion/$id<[^/]+>""","""@controllers.ar.ArVersionController@.delete(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """arsearch""","""@controllers.ar.ArVersionController@.arSmellSearch()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """arsearchcount""","""@controllers.ar.ArVersionController@.arSmellSearchCount()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smell""","""@controllers.smell.SmellController@.getAll()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smell/forcloud""","""@controllers.smell.SmellController@.getCloudSmells()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smell/$id<[^/]+>""","""@controllers.smell.SmellController@.get(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smell""","""@controllers.smell.SmellController@.create()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smell""","""@controllers.smell.SmellController@.update()"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smell/$id<[^/]+>""","""@controllers.smell.SmellController@.delete(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smellgroup""","""@controllers.smell.SmellGroupController@.getAll()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smellgroup/$id<[^/]+>""","""@controllers.smell.SmellGroupController@.get(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smellgroup""","""@controllers.smell.SmellGroupController@.create()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smellgroup""","""@controllers.smell.SmellGroupController@.update()"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """smellgroup/$id<[^/]+>""","""@controllers.smell.SmellGroupController@.delete(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """discussion""","""@controllers.discussion.DiscussionController@.getAll()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """discussion/$id<[^/]+>""","""@controllers.discussion.DiscussionController@.get(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """discussion""","""@controllers.discussion.DiscussionController@.create()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """discussion""","""@controllers.discussion.DiscussionController@.update()"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """discussion/$id<[^/]+>""","""@controllers.discussion.DiscussionController@.delete(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """comment""","""@controllers.discussion.CommentController@.getAll()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """comment/$id<[^/]+>""","""@controllers.discussion.CommentController@.get(id:Long)"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """like/$id<[^/]+>""","""@controllers.discussion.LikeController@.like(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """comment""","""@controllers.discussion.CommentController@.create()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """comment""","""@controllers.discussion.CommentController@.update()"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """comment/$id<[^/]+>""","""@controllers.discussion.CommentController@.delete(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property""","""@controllers.property.PropertyController@.getAll()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property/categorie/$cat<[^/]+>""","""@controllers.property.PropertyController@.getCategorie(cat:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property/$id<[^/]+>""","""@controllers.property.PropertyController@.get(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property""","""@controllers.property.PropertyController@.create()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property""","""@controllers.property.PropertyController@.update()"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """property/$id<[^/]+>""","""@controllers.property.PropertyController@.delete(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """menu""","""@controllers.menu.MenuController@.getAll()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """menu/$id<[^/]+>""","""@controllers.menu.MenuController@.get(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """menu""","""@controllers.menu.MenuController@.create()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """menu""","""@controllers.menu.MenuController@.update()"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """menu/$id<[^/]+>""","""@controllers.menu.MenuController@.delete(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """user""","""@controllers.user.UserController@.getAll()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """user/$id<[^/]+>""","""@controllers.user.UserController@.get(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """user""","""@controllers.user.UserController@.create()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """user""","""@controllers.user.UserController@.update()"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """user/$id<[^/]+>""","""@controllers.user.UserController@.delete(id:Long)"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """changepw""","""@controllers.user.UserController@.changePassword()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """login""","""@controllers.user.UserController@.login()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """logout""","""@controllers.user.UserController@.logout()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """userroles""","""@controllers.user.RoleController@.getAll()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """avatar""","""@controllers.user.UserController@.uploadAvatar()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """avatar/$id<[^/]+>""","""@controllers.user.UserController@.getAvatar(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """usersearch""","""@controllers.ar.ArSearchController@.getUserSearches()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """usersearch""","""@controllers.ar.ArSearchController@.create()"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """usersearch/$id<[^/]+>""","""@controllers.ar.ArSearchController@.delete(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """task""","""@controllers.task.TaskTemplateController@.getAll()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """task/$id<[^/]+>""","""@controllers.task.TaskTemplateController@.get(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """task""","""@controllers.task.TaskTemplateController@.create()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """task""","""@controllers.task.TaskTemplateController@.update()"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """task/$id<[^/]+>""","""@controllers.task.TaskTemplateController@.delete(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """taskproperty""","""@controllers.task.TaskPropertyController@.getAll()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """taskproperty/$id<[^/]+>""","""@controllers.task.TaskPropertyController@.get(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """taskproperty""","""@controllers.task.TaskPropertyController@.create()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """taskproperty""","""@controllers.task.TaskPropertyController@.update()"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """taskproperty/$id<[^/]+>""","""@controllers.task.TaskPropertyController@.delete(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """exectasktype""","""@controllers.task.ExecTaskTypeController@.getAll()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """exectasktype/empty""","""@controllers.task.ExecTaskTypeController@.getEmptyExecTaskType()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """exectasktype/$id<[^/]+>""","""@controllers.task.ExecTaskTypeController@.get(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """exectasktype""","""@controllers.task.ExecTaskTypeController@.create()"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """exectasktype""","""@controllers.task.ExecTaskTypeController@.update()"""),("""DELETE""", prefix + (if(prefix.endsWith("/")) "" else "/") + """exectasktype/$id<[^/]+>""","""@controllers.task.ExecTaskTypeController@.delete(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """status""","""@controllers.status.StatusController@.get()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """stats""","""@controllers.statistic.StatisticController@.get()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
   case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
   case l => s ++ l.asInstanceOf[List[(String,String,String)]]
 }}
@@ -669,7 +697,7 @@ case controllers_ar_ArVersionController_arSmellSearchCount12_route(params) => {
 }
         
 
-// @LINE:27
+// @LINE:26
 case controllers_smell_SmellController_getAll13_route(params) => {
    call { 
         controllers_smell_SmellController_getAll13_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.smell.SmellController]).getAll())
@@ -677,7 +705,7 @@ case controllers_smell_SmellController_getAll13_route(params) => {
 }
         
 
-// @LINE:28
+// @LINE:27
 case controllers_smell_SmellController_getCloudSmells14_route(params) => {
    call { 
         controllers_smell_SmellController_getCloudSmells14_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.smell.SmellController]).getCloudSmells())
@@ -685,7 +713,7 @@ case controllers_smell_SmellController_getCloudSmells14_route(params) => {
 }
         
 
-// @LINE:29
+// @LINE:28
 case controllers_smell_SmellController_get15_route(params) => {
    call(params.fromPath[Long]("id", None)) { (id) =>
         controllers_smell_SmellController_get15_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.smell.SmellController]).get(id))
@@ -693,7 +721,7 @@ case controllers_smell_SmellController_get15_route(params) => {
 }
         
 
-// @LINE:30
+// @LINE:29
 case controllers_smell_SmellController_create16_route(params) => {
    call { 
         controllers_smell_SmellController_create16_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.smell.SmellController]).create())
@@ -701,7 +729,7 @@ case controllers_smell_SmellController_create16_route(params) => {
 }
         
 
-// @LINE:31
+// @LINE:30
 case controllers_smell_SmellController_update17_route(params) => {
    call { 
         controllers_smell_SmellController_update17_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.smell.SmellController]).update())
@@ -709,7 +737,7 @@ case controllers_smell_SmellController_update17_route(params) => {
 }
         
 
-// @LINE:32
+// @LINE:31
 case controllers_smell_SmellController_delete18_route(params) => {
    call(params.fromPath[Long]("id", None)) { (id) =>
         controllers_smell_SmellController_delete18_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.smell.SmellController]).delete(id))
@@ -717,7 +745,7 @@ case controllers_smell_SmellController_delete18_route(params) => {
 }
         
 
-// @LINE:35
+// @LINE:34
 case controllers_smell_SmellGroupController_getAll19_route(params) => {
    call { 
         controllers_smell_SmellGroupController_getAll19_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.smell.SmellGroupController]).getAll())
@@ -725,7 +753,7 @@ case controllers_smell_SmellGroupController_getAll19_route(params) => {
 }
         
 
-// @LINE:36
+// @LINE:35
 case controllers_smell_SmellGroupController_get20_route(params) => {
    call(params.fromPath[Long]("id", None)) { (id) =>
         controllers_smell_SmellGroupController_get20_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.smell.SmellGroupController]).get(id))
@@ -733,7 +761,7 @@ case controllers_smell_SmellGroupController_get20_route(params) => {
 }
         
 
-// @LINE:37
+// @LINE:36
 case controllers_smell_SmellGroupController_create21_route(params) => {
    call { 
         controllers_smell_SmellGroupController_create21_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.smell.SmellGroupController]).create())
@@ -741,7 +769,7 @@ case controllers_smell_SmellGroupController_create21_route(params) => {
 }
         
 
-// @LINE:38
+// @LINE:37
 case controllers_smell_SmellGroupController_update22_route(params) => {
    call { 
         controllers_smell_SmellGroupController_update22_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.smell.SmellGroupController]).update())
@@ -749,7 +777,7 @@ case controllers_smell_SmellGroupController_update22_route(params) => {
 }
         
 
-// @LINE:39
+// @LINE:38
 case controllers_smell_SmellGroupController_delete23_route(params) => {
    call(params.fromPath[Long]("id", None)) { (id) =>
         controllers_smell_SmellGroupController_delete23_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.smell.SmellGroupController]).delete(id))
@@ -757,7 +785,7 @@ case controllers_smell_SmellGroupController_delete23_route(params) => {
 }
         
 
-// @LINE:42
+// @LINE:41
 case controllers_discussion_DiscussionController_getAll24_route(params) => {
    call { 
         controllers_discussion_DiscussionController_getAll24_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.discussion.DiscussionController]).getAll())
@@ -765,7 +793,7 @@ case controllers_discussion_DiscussionController_getAll24_route(params) => {
 }
         
 
-// @LINE:43
+// @LINE:42
 case controllers_discussion_DiscussionController_get25_route(params) => {
    call(params.fromPath[Long]("id", None)) { (id) =>
         controllers_discussion_DiscussionController_get25_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.discussion.DiscussionController]).get(id))
@@ -773,7 +801,7 @@ case controllers_discussion_DiscussionController_get25_route(params) => {
 }
         
 
-// @LINE:44
+// @LINE:43
 case controllers_discussion_DiscussionController_create26_route(params) => {
    call { 
         controllers_discussion_DiscussionController_create26_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.discussion.DiscussionController]).create())
@@ -781,7 +809,7 @@ case controllers_discussion_DiscussionController_create26_route(params) => {
 }
         
 
-// @LINE:45
+// @LINE:44
 case controllers_discussion_DiscussionController_update27_route(params) => {
    call { 
         controllers_discussion_DiscussionController_update27_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.discussion.DiscussionController]).update())
@@ -789,7 +817,7 @@ case controllers_discussion_DiscussionController_update27_route(params) => {
 }
         
 
-// @LINE:46
+// @LINE:45
 case controllers_discussion_DiscussionController_delete28_route(params) => {
    call(params.fromPath[Long]("id", None)) { (id) =>
         controllers_discussion_DiscussionController_delete28_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.discussion.DiscussionController]).delete(id))
@@ -797,7 +825,7 @@ case controllers_discussion_DiscussionController_delete28_route(params) => {
 }
         
 
-// @LINE:49
+// @LINE:48
 case controllers_discussion_CommentController_getAll29_route(params) => {
    call { 
         controllers_discussion_CommentController_getAll29_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.discussion.CommentController]).getAll())
@@ -805,7 +833,7 @@ case controllers_discussion_CommentController_getAll29_route(params) => {
 }
         
 
-// @LINE:50
+// @LINE:49
 case controllers_discussion_CommentController_get30_route(params) => {
    call(params.fromPath[Long]("id", None)) { (id) =>
         controllers_discussion_CommentController_get30_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.discussion.CommentController]).get(id))
@@ -813,7 +841,7 @@ case controllers_discussion_CommentController_get30_route(params) => {
 }
         
 
-// @LINE:51
+// @LINE:50
 case controllers_discussion_LikeController_like31_route(params) => {
    call(params.fromPath[Long]("id", None)) { (id) =>
         controllers_discussion_LikeController_like31_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.discussion.LikeController]).like(id))
@@ -821,7 +849,7 @@ case controllers_discussion_LikeController_like31_route(params) => {
 }
         
 
-// @LINE:52
+// @LINE:51
 case controllers_discussion_CommentController_create32_route(params) => {
    call { 
         controllers_discussion_CommentController_create32_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.discussion.CommentController]).create())
@@ -829,7 +857,7 @@ case controllers_discussion_CommentController_create32_route(params) => {
 }
         
 
-// @LINE:53
+// @LINE:52
 case controllers_discussion_CommentController_update33_route(params) => {
    call { 
         controllers_discussion_CommentController_update33_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.discussion.CommentController]).update())
@@ -837,7 +865,7 @@ case controllers_discussion_CommentController_update33_route(params) => {
 }
         
 
-// @LINE:54
+// @LINE:53
 case controllers_discussion_CommentController_delete34_route(params) => {
    call(params.fromPath[Long]("id", None)) { (id) =>
         controllers_discussion_CommentController_delete34_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.discussion.CommentController]).delete(id))
@@ -845,7 +873,7 @@ case controllers_discussion_CommentController_delete34_route(params) => {
 }
         
 
-// @LINE:57
+// @LINE:56
 case controllers_property_PropertyController_getAll35_route(params) => {
    call { 
         controllers_property_PropertyController_getAll35_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.property.PropertyController]).getAll())
@@ -853,7 +881,7 @@ case controllers_property_PropertyController_getAll35_route(params) => {
 }
         
 
-// @LINE:58
+// @LINE:57
 case controllers_property_PropertyController_getCategorie36_route(params) => {
    call(params.fromPath[String]("cat", None)) { (cat) =>
         controllers_property_PropertyController_getCategorie36_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.property.PropertyController]).getCategorie(cat))
@@ -861,7 +889,7 @@ case controllers_property_PropertyController_getCategorie36_route(params) => {
 }
         
 
-// @LINE:59
+// @LINE:58
 case controllers_property_PropertyController_get37_route(params) => {
    call(params.fromPath[Long]("id", None)) { (id) =>
         controllers_property_PropertyController_get37_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.property.PropertyController]).get(id))
@@ -869,7 +897,7 @@ case controllers_property_PropertyController_get37_route(params) => {
 }
         
 
-// @LINE:60
+// @LINE:59
 case controllers_property_PropertyController_create38_route(params) => {
    call { 
         controllers_property_PropertyController_create38_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.property.PropertyController]).create())
@@ -877,7 +905,7 @@ case controllers_property_PropertyController_create38_route(params) => {
 }
         
 
-// @LINE:61
+// @LINE:60
 case controllers_property_PropertyController_update39_route(params) => {
    call { 
         controllers_property_PropertyController_update39_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.property.PropertyController]).update())
@@ -885,7 +913,7 @@ case controllers_property_PropertyController_update39_route(params) => {
 }
         
 
-// @LINE:62
+// @LINE:61
 case controllers_property_PropertyController_delete40_route(params) => {
    call(params.fromPath[Long]("id", None)) { (id) =>
         controllers_property_PropertyController_delete40_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.property.PropertyController]).delete(id))
@@ -893,7 +921,7 @@ case controllers_property_PropertyController_delete40_route(params) => {
 }
         
 
-// @LINE:65
+// @LINE:64
 case controllers_menu_MenuController_getAll41_route(params) => {
    call { 
         controllers_menu_MenuController_getAll41_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.menu.MenuController]).getAll())
@@ -901,7 +929,7 @@ case controllers_menu_MenuController_getAll41_route(params) => {
 }
         
 
-// @LINE:66
+// @LINE:65
 case controllers_menu_MenuController_get42_route(params) => {
    call(params.fromPath[Long]("id", None)) { (id) =>
         controllers_menu_MenuController_get42_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.menu.MenuController]).get(id))
@@ -909,7 +937,7 @@ case controllers_menu_MenuController_get42_route(params) => {
 }
         
 
-// @LINE:67
+// @LINE:66
 case controllers_menu_MenuController_create43_route(params) => {
    call { 
         controllers_menu_MenuController_create43_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.menu.MenuController]).create())
@@ -917,7 +945,7 @@ case controllers_menu_MenuController_create43_route(params) => {
 }
         
 
-// @LINE:68
+// @LINE:67
 case controllers_menu_MenuController_update44_route(params) => {
    call { 
         controllers_menu_MenuController_update44_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.menu.MenuController]).update())
@@ -925,7 +953,7 @@ case controllers_menu_MenuController_update44_route(params) => {
 }
         
 
-// @LINE:69
+// @LINE:68
 case controllers_menu_MenuController_delete45_route(params) => {
    call(params.fromPath[Long]("id", None)) { (id) =>
         controllers_menu_MenuController_delete45_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.menu.MenuController]).delete(id))
@@ -933,7 +961,7 @@ case controllers_menu_MenuController_delete45_route(params) => {
 }
         
 
-// @LINE:72
+// @LINE:71
 case controllers_user_UserController_getAll46_route(params) => {
    call { 
         controllers_user_UserController_getAll46_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.user.UserController]).getAll())
@@ -941,7 +969,7 @@ case controllers_user_UserController_getAll46_route(params) => {
 }
         
 
-// @LINE:73
+// @LINE:72
 case controllers_user_UserController_get47_route(params) => {
    call(params.fromPath[Long]("id", None)) { (id) =>
         controllers_user_UserController_get47_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.user.UserController]).get(id))
@@ -949,7 +977,7 @@ case controllers_user_UserController_get47_route(params) => {
 }
         
 
-// @LINE:74
+// @LINE:73
 case controllers_user_UserController_create48_route(params) => {
    call { 
         controllers_user_UserController_create48_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.user.UserController]).create())
@@ -957,7 +985,7 @@ case controllers_user_UserController_create48_route(params) => {
 }
         
 
-// @LINE:75
+// @LINE:74
 case controllers_user_UserController_update49_route(params) => {
    call { 
         controllers_user_UserController_update49_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.user.UserController]).update())
@@ -965,7 +993,7 @@ case controllers_user_UserController_update49_route(params) => {
 }
         
 
-// @LINE:76
+// @LINE:75
 case controllers_user_UserController_delete50_route(params) => {
    call(params.fromPath[Long]("id", None)) { (id) =>
         controllers_user_UserController_delete50_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.user.UserController]).delete(id))
@@ -973,7 +1001,7 @@ case controllers_user_UserController_delete50_route(params) => {
 }
         
 
-// @LINE:77
+// @LINE:76
 case controllers_user_UserController_changePassword51_route(params) => {
    call { 
         controllers_user_UserController_changePassword51_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.user.UserController]).changePassword())
@@ -981,7 +1009,7 @@ case controllers_user_UserController_changePassword51_route(params) => {
 }
         
 
-// @LINE:78
+// @LINE:77
 case controllers_user_UserController_login52_route(params) => {
    call { 
         controllers_user_UserController_login52_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.user.UserController]).login())
@@ -989,7 +1017,7 @@ case controllers_user_UserController_login52_route(params) => {
 }
         
 
-// @LINE:79
+// @LINE:78
 case controllers_user_UserController_logout53_route(params) => {
    call { 
         controllers_user_UserController_logout53_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.user.UserController]).logout())
@@ -997,7 +1025,7 @@ case controllers_user_UserController_logout53_route(params) => {
 }
         
 
-// @LINE:80
+// @LINE:79
 case controllers_user_RoleController_getAll54_route(params) => {
    call { 
         controllers_user_RoleController_getAll54_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.user.RoleController]).getAll())
@@ -1005,7 +1033,7 @@ case controllers_user_RoleController_getAll54_route(params) => {
 }
         
 
-// @LINE:81
+// @LINE:80
 case controllers_user_UserController_uploadAvatar55_route(params) => {
    call { 
         controllers_user_UserController_uploadAvatar55_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.user.UserController]).uploadAvatar())
@@ -1013,154 +1041,186 @@ case controllers_user_UserController_uploadAvatar55_route(params) => {
 }
         
 
+// @LINE:81
+case controllers_user_UserController_getAvatar56_route(params) => {
+   call(params.fromPath[Long]("id", None)) { (id) =>
+        controllers_user_UserController_getAvatar56_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.user.UserController]).getAvatar(id))
+   }
+}
+        
+
 // @LINE:84
-case controllers_task_TaskTemplateController_getAll56_route(params) => {
+case controllers_ar_ArSearchController_getUserSearches57_route(params) => {
    call { 
-        controllers_task_TaskTemplateController_getAll56_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.TaskTemplateController]).getAll())
+        controllers_ar_ArSearchController_getUserSearches57_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.ar.ArSearchController]).getUserSearches())
    }
 }
         
 
 // @LINE:85
-case controllers_task_TaskTemplateController_get57_route(params) => {
-   call(params.fromPath[Long]("id", None)) { (id) =>
-        controllers_task_TaskTemplateController_get57_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.TaskTemplateController]).get(id))
+case controllers_ar_ArSearchController_create58_route(params) => {
+   call { 
+        controllers_ar_ArSearchController_create58_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.ar.ArSearchController]).create())
    }
 }
         
 
 // @LINE:86
-case controllers_task_TaskTemplateController_create58_route(params) => {
-   call { 
-        controllers_task_TaskTemplateController_create58_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.TaskTemplateController]).create())
-   }
-}
-        
-
-// @LINE:87
-case controllers_task_TaskTemplateController_update59_route(params) => {
-   call { 
-        controllers_task_TaskTemplateController_update59_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.TaskTemplateController]).update())
-   }
-}
-        
-
-// @LINE:88
-case controllers_task_TaskTemplateController_delete60_route(params) => {
+case controllers_ar_ArSearchController_delete59_route(params) => {
    call(params.fromPath[Long]("id", None)) { (id) =>
-        controllers_task_TaskTemplateController_delete60_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.TaskTemplateController]).delete(id))
+        controllers_ar_ArSearchController_delete59_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.ar.ArSearchController]).delete(id))
+   }
+}
+        
+
+// @LINE:89
+case controllers_task_TaskTemplateController_getAll60_route(params) => {
+   call { 
+        controllers_task_TaskTemplateController_getAll60_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.TaskTemplateController]).getAll())
+   }
+}
+        
+
+// @LINE:90
+case controllers_task_TaskTemplateController_get61_route(params) => {
+   call(params.fromPath[Long]("id", None)) { (id) =>
+        controllers_task_TaskTemplateController_get61_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.TaskTemplateController]).get(id))
    }
 }
         
 
 // @LINE:91
-case controllers_task_TaskPropertyController_getAll61_route(params) => {
+case controllers_task_TaskTemplateController_create62_route(params) => {
    call { 
-        controllers_task_TaskPropertyController_getAll61_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.TaskPropertyController]).getAll())
+        controllers_task_TaskTemplateController_create62_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.TaskTemplateController]).create())
    }
 }
         
 
 // @LINE:92
-case controllers_task_TaskPropertyController_get62_route(params) => {
-   call(params.fromPath[Long]("id", None)) { (id) =>
-        controllers_task_TaskPropertyController_get62_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.TaskPropertyController]).get(id))
+case controllers_task_TaskTemplateController_update63_route(params) => {
+   call { 
+        controllers_task_TaskTemplateController_update63_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.TaskTemplateController]).update())
    }
 }
         
 
 // @LINE:93
-case controllers_task_TaskPropertyController_create63_route(params) => {
-   call { 
-        controllers_task_TaskPropertyController_create63_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.TaskPropertyController]).create())
-   }
-}
-        
-
-// @LINE:94
-case controllers_task_TaskPropertyController_update64_route(params) => {
-   call { 
-        controllers_task_TaskPropertyController_update64_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.TaskPropertyController]).update())
-   }
-}
-        
-
-// @LINE:95
-case controllers_task_TaskPropertyController_delete65_route(params) => {
+case controllers_task_TaskTemplateController_delete64_route(params) => {
    call(params.fromPath[Long]("id", None)) { (id) =>
-        controllers_task_TaskPropertyController_delete65_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.TaskPropertyController]).delete(id))
+        controllers_task_TaskTemplateController_delete64_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.TaskTemplateController]).delete(id))
+   }
+}
+        
+
+// @LINE:96
+case controllers_task_TaskPropertyController_getAll65_route(params) => {
+   call { 
+        controllers_task_TaskPropertyController_getAll65_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.TaskPropertyController]).getAll())
+   }
+}
+        
+
+// @LINE:97
+case controllers_task_TaskPropertyController_get66_route(params) => {
+   call(params.fromPath[Long]("id", None)) { (id) =>
+        controllers_task_TaskPropertyController_get66_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.TaskPropertyController]).get(id))
    }
 }
         
 
 // @LINE:98
-case controllers_task_ExecTaskTypeController_getAll66_route(params) => {
+case controllers_task_TaskPropertyController_create67_route(params) => {
    call { 
-        controllers_task_ExecTaskTypeController_getAll66_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.ExecTaskTypeController]).getAll())
+        controllers_task_TaskPropertyController_create67_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.TaskPropertyController]).create())
    }
 }
         
 
 // @LINE:99
-case controllers_task_ExecTaskTypeController_getEmptyExecTaskType67_route(params) => {
+case controllers_task_TaskPropertyController_update68_route(params) => {
    call { 
-        controllers_task_ExecTaskTypeController_getEmptyExecTaskType67_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.ExecTaskTypeController]).getEmptyExecTaskType())
+        controllers_task_TaskPropertyController_update68_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.TaskPropertyController]).update())
    }
 }
         
 
 // @LINE:100
-case controllers_task_ExecTaskTypeController_get68_route(params) => {
+case controllers_task_TaskPropertyController_delete69_route(params) => {
    call(params.fromPath[Long]("id", None)) { (id) =>
-        controllers_task_ExecTaskTypeController_get68_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.ExecTaskTypeController]).get(id))
-   }
-}
-        
-
-// @LINE:101
-case controllers_task_ExecTaskTypeController_create69_route(params) => {
-   call { 
-        controllers_task_ExecTaskTypeController_create69_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.ExecTaskTypeController]).create())
-   }
-}
-        
-
-// @LINE:102
-case controllers_task_ExecTaskTypeController_update70_route(params) => {
-   call { 
-        controllers_task_ExecTaskTypeController_update70_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.ExecTaskTypeController]).update())
+        controllers_task_TaskPropertyController_delete69_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.TaskPropertyController]).delete(id))
    }
 }
         
 
 // @LINE:103
-case controllers_task_ExecTaskTypeController_delete71_route(params) => {
+case controllers_task_ExecTaskTypeController_getAll70_route(params) => {
+   call { 
+        controllers_task_ExecTaskTypeController_getAll70_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.ExecTaskTypeController]).getAll())
+   }
+}
+        
+
+// @LINE:104
+case controllers_task_ExecTaskTypeController_getEmptyExecTaskType71_route(params) => {
+   call { 
+        controllers_task_ExecTaskTypeController_getEmptyExecTaskType71_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.ExecTaskTypeController]).getEmptyExecTaskType())
+   }
+}
+        
+
+// @LINE:105
+case controllers_task_ExecTaskTypeController_get72_route(params) => {
    call(params.fromPath[Long]("id", None)) { (id) =>
-        controllers_task_ExecTaskTypeController_delete71_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.ExecTaskTypeController]).delete(id))
+        controllers_task_ExecTaskTypeController_get72_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.ExecTaskTypeController]).get(id))
    }
 }
         
 
 // @LINE:106
-case controllers_status_StatusController_get72_route(params) => {
+case controllers_task_ExecTaskTypeController_create73_route(params) => {
    call { 
-        controllers_status_StatusController_get72_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.status.StatusController]).get())
+        controllers_task_ExecTaskTypeController_create73_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.ExecTaskTypeController]).create())
    }
 }
         
 
-// @LINE:109
-case controllers_statistic_StatisticController_get73_route(params) => {
+// @LINE:107
+case controllers_task_ExecTaskTypeController_update74_route(params) => {
    call { 
-        controllers_statistic_StatisticController_get73_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.statistic.StatisticController]).get())
+        controllers_task_ExecTaskTypeController_update74_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.ExecTaskTypeController]).update())
    }
 }
         
 
-// @LINE:112
-case controllers_Assets_at74_route(params) => {
+// @LINE:108
+case controllers_task_ExecTaskTypeController_delete75_route(params) => {
+   call(params.fromPath[Long]("id", None)) { (id) =>
+        controllers_task_ExecTaskTypeController_delete75_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.task.ExecTaskTypeController]).delete(id))
+   }
+}
+        
+
+// @LINE:111
+case controllers_status_StatusController_get76_route(params) => {
+   call { 
+        controllers_status_StatusController_get76_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.status.StatusController]).get())
+   }
+}
+        
+
+// @LINE:114
+case controllers_statistic_StatisticController_get77_route(params) => {
+   call { 
+        controllers_statistic_StatisticController_get77_invoker.call(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.statistic.StatisticController]).get())
+   }
+}
+        
+
+// @LINE:117
+case controllers_Assets_at78_route(params) => {
    call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
-        controllers_Assets_at74_invoker.call(controllers.Assets.at(path, file))
+        controllers_Assets_at78_invoker.call(controllers.Assets.at(path, file))
    }
 }
         

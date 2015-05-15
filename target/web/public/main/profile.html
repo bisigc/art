@@ -79,17 +79,18 @@
             <div class="panel panel-default">
                 <div class="panel-heading"><h3 class="panel-title">Change avatar</h3></div>
                 <div class="panel-body">
-                    <form name="avatarForm" id="avatarForm" ng-submit="avatarForm.$valid && uploadAvatar()" novalidate>
-                        <img ng-src="{{_contextPath + currentUser.profile.avatar}}" class="avatar-big img-circle" />
+                    <form name="avatarForm" id="avatarForm" ng-submit="avatarimage.name != null && uploadAvatar()" novalidate>
+                        <img ng-src="{{_contextPath + 'avatar/' + currentUser.profile.id + '?reload=' + getTime() }}" class="avatar-big img-circle" />
                         <br/>
                         <div class="input-group">
                             <span class="input-group-btn">
                                 <button class="btn btn-primary btn-file" type="button">Browse <input id="avatar" name="avatar" type="file" file-model="avatarimage" required></button>
                             </span>
-                            <span class="form-control">{{avatarimage.name || "No file selected"}}</span>
-                        </div><br/>
+                            <span class="form-control" ng-class="{ 'text-warning': avatarimage.name != null }">{{avatarimage.name || "No file selected"}}</span>
+                        </div>
+                        <p><small>Image: .jpg | .png | .gif, max. 300x300 px, max. 100 kB</small></p>
                         <fieldset class="form-group">
-                            <button type="submit" class="btn btn-primary pull-right" ng-disabled="avatarForm.$invalid">Upload avatar</button>
+                            <button type="submit" class="btn btn-primary pull-right" ng-disabled="avatarimage.name == null">Upload avatar</button>
                         </fieldset>
                     </form>
                 </div>

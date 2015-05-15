@@ -1,5 +1,6 @@
 package controllers.ar;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -13,8 +14,7 @@ import play.db.jpa.Transactional;
 import play.libs.Json;
 import play.mvc.Result;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.google.inject.name.Named;
@@ -35,13 +35,19 @@ public class ArVersionController extends AbstractCRUDController<ArVersion, Long>
 			"select a from " + dao.getModel().getSimpleName() + " a where a.status IN (:status) and a.created = (select max(c.created) from " + dao.getModel().getSimpleName() + " c where a.arhead.id = c.arhead.id and c.status IN (:status) ) order by a.name";
 	
 
-	private String arSmellSearchEndingPart = "from " + dao.getModel().getSimpleName() + " a where a.status IN (:status) and a.smell_id IN (:smellidlist) and a.created = (select max(c.created) from " + dao.getModel().getSimpleName() + " c where a.arhead.id = c.arhead.id and  and c.smell_id IN (:smellidlist) c.status IN (:status) ) order by a.name";
+	private String arSmellSearchEndingPart = 
+			"from " + dao.getModel().getSimpleName() + " a join a.smells s "
+					+ "where a.status IN (:status) "
+					+ "and s.id IN (:smellidlist) "
+					+ "and a.created = "
+					+ "(select max(c.created) from " + dao.getModel().getSimpleName() + " c join c.smells t "
+							+ "where a.arhead.id = c.arhead.id and t.id IN (:smellidlist) and c.status IN (:status) ) order by a.name";
 
 	private String arSmellSearchString = 
 			"select a " + arSmellSearchEndingPart;
 	
 	private String arSmellSearchCountString = 
-			"select count(a) " + arSmellSearchEndingPart;
+			"select count(a.id) " + arSmellSearchEndingPart;
 
 	/**
 	 * Constructor receives a {@link GenericDAO}. DI framework hook is "@Named("ArVersionDAO")".
@@ -83,14 +89,24 @@ public class ArVersionController extends AbstractCRUDController<ArVersion, Long>
 		return ok(Json.toJson(data));
 	}
 
+	/**
+	 * Returns the Ars for an Ar search with given smell ids.
+	 * 
+	 * @return
+	 */
 	@Transactional(readOnly = true)
 	public Result arSmellSearch() {
-		List<Integer> smellidlist;
-	    String node = null;
+		List<Long> smellidlist = new ArrayList<Long>();
+	    JsonNode node = null;
 		List<ArVersion> data;
 		try {
-			node = request().body().asText();
-			smellidlist = new ObjectMapper().readValue(node, new TypeReference<List<Integer>>(){});
+			node = request().body().asJson();
+			//smellidlist = new ObjectMapper().readValue(node.asText(), new TypeReference<List<Integer>>(){});
+			JsonNode array = node.get("smellids");
+			//Iterator i = array.iterator();
+			for (JsonNode jsonNode : array) {
+				smellidlist.add(jsonNode.asLong());
+			}
 			TypedQuery<ArVersion> query = JPA.em().createQuery(arSmellSearchString, ArVersion.class);
 			
 			String rolename = session().get("role");
@@ -114,16 +130,25 @@ public class ArVersionController extends AbstractCRUDController<ArVersion, Long>
 		return ok(Json.toJson(data));
 	}
 	
+	/**
+	 * Returns the count for an Ar search with given smell ids.
+	 * 
+	 * @return
+	 */
 	@Transactional(readOnly = true)
 	public Result arSmellSearchCount() {
-		List<Integer> smellidlist;
-	    String node = null;
+		List<Long> smellidlist = new ArrayList<Long>();
+	    JsonNode node = null;
 		Integer data;
 		try {
-			node = request().body().asText();
-			Logger.error("Node: " + node);
-			smellidlist = new ObjectMapper().readValue(node, new TypeReference<List<Integer>>(){});
-			TypedQuery<Integer> query = JPA.em().createQuery(arSmellSearchCountString, Integer.class);
+			node = request().body().asJson();
+			//smellidlist = new ObjectMapper().readValue(node.asText(), new TypeReference<List<Integer>>(){});
+			JsonNode array = node.get("smellids");
+			//Iterator i = array.iterator();
+			for (JsonNode jsonNode : array) {
+				smellidlist.add(jsonNode.asLong());
+			}
+			TypedQuery<Long> query = JPA.em().createQuery(arSmellSearchCountString, Long.class);
 			
 			String rolename = session().get("role");
 			List<ItemStatus> status;
@@ -137,9 +162,9 @@ public class ArVersionController extends AbstractCRUDController<ArVersion, Long>
 			query.setParameter("status", status);
 			query.setParameter("smellidlist", smellidlist);
 			
-			data = query.getSingleResult();
+			data = query.getSingleResult().intValue();
 		} catch (Exception e) {
-			String msg = "Failed to search for " + dao.getModel().getSimpleName() + " with Smells";
+			String msg = "Failed to search count for " + dao.getModel().getSimpleName() + " with Smells";
 			Logger.error(msg, e);
 			return internalServerError(msg);
 		}

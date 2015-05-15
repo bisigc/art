@@ -44,6 +44,8 @@ app.factory("ReplyErrorHandler", ['currentUser', 'notifications', '$log', functi
             } else {
                 notifications.showError(error['data'] + " [" + error['status'] + "] to " + error['config']['method'] + " " + error['config']['url']);
             }
+        } else if(error['status'] == 400) {
+            notifications.showError(error['data']);
         } else if(error['status'] == 404) {
             notifications.showError("Object not found, " + "[" + error['status'] + "], " + error['config']['url']);
         } else if(error['status'] == 409) {
@@ -66,17 +68,14 @@ app.factory("ArService", ['$resource', function($resource) {
         id: $resource(_contextPath + 'ar/:id', {}, {
             get: { method: 'GET' },
             delete: { method: 'DELETE', params: {id: '@id'} }
-        }),
-        find: $resource(_contextPath + 'arsearch', {}, {
-            find: { method: 'POST' }
-        }),
-        count: $resource(_contextPath + 'arsearchcount', {}, {
-            get: { method: 'POST' }
         })
+        /*$resource(_contextPath + 'arsearchcount', {}, {
+            get: { method: 'POST' , transformResponse: [] }
+        })*/
     };
 }]);
 
-app.factory("ArVersionService", ['$resource', function($resource) {
+app.factory("ArVersionService", ['$resource', '$http', function($resource, $http) {
     return {
         noid: $resource(_contextPath + 'arversion', {}, {
             get: {method:'GET', isArray: true},
@@ -84,6 +83,26 @@ app.factory("ArVersionService", ['$resource', function($resource) {
             create: { method: 'POST' }
         }),
         id: $resource(_contextPath + 'arversion/:id', {}, {
+            get: { method: 'GET' },
+            delete: { method: 'DELETE', params: {id: '@id'} }
+        }),
+        search: $resource(_contextPath + 'arsearch', {}, {
+            get: { method: 'POST', isArray: true }
+        }),
+        count: function(smellids){
+            return $http.post(_contextPath + 'arsearchcount', smellids, { transformResponse: [] });
+        }
+    };
+}]);
+
+app.factory("UserSearchService", ['$resource', function($resource) {
+    return {
+        noid: $resource(_contextPath + 'usersearch', {}, {
+            get: {method:'GET', isArray: true},
+            update: { method: 'PUT' },
+            create: { method: 'POST' }
+        }),
+        id: $resource(_contextPath + 'usersearch/:id', {}, {
             get: { method: 'GET' },
             delete: { method: 'DELETE', params: {id: '@id'} }
         })
@@ -108,12 +127,12 @@ app.factory("FileUploader", ['$http', function($http) {
     }
 }]);
 
-app.factory("AvatarUploader", ['FileUploader', function(FileUploader) {
+app.factory("AvatarUploader", ['FileUploader', '$resource', function(FileUploader, $resource) {
     return {
         upload: function(file){
-            return FileUploader.upload(file, _contextPath + 'uploadavatar');
+            return FileUploader.upload(file, _contextPath + 'avatar');
         }
-    }
+    };
 }]);
 
 app.factory("SmellService", ['$resource', function($resource) {

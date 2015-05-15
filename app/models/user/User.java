@@ -9,14 +9,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
+import models.ar.ArSearch;
 import models.discussion.Comment;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 /**
  * Data model representing a {@link User}.
@@ -34,7 +37,9 @@ public class User {
 	@Column(unique=true)
 	private String email;
 	private String organisation;
-	private String avatar;
+	@JsonIgnore
+	@Lob
+	private byte [] avatar;
 	private String startpage;
 	private String homepage;
 	@ManyToOne
@@ -46,6 +51,9 @@ public class User {
 	@OneToMany(cascade=CascadeType.PERSIST, mappedBy="user")
 	@JsonIgnore
 	private List<Comment> comments;
+	@OneToMany(cascade=CascadeType.PERSIST, mappedBy="user")
+	@JsonManagedReference(value="UserArSearches")
+	private List<ArSearch> arsearches;
 	private Timestamp modified;
 	private Timestamp created;
 	
@@ -65,8 +73,8 @@ public class User {
 	public void setEmail(String email) { this.email = email; }
 	public String getOrganisation() { return organisation; }
 	public void setOrganisation(String organisation) { this.organisation = organisation; }
-	public String getAvatar() { return avatar; }
-	public void setAvatar(String avatar) { this.avatar = avatar; }
+	public byte [] getAvatar() { return avatar; }
+	public void setAvatar(byte [] avatar) { this.avatar = avatar; }
 	public String getStartpage() { return startpage; }
 	public void setStartpage(String startpage) { this.startpage = startpage; }
 	public Role getRole() { return role; }
@@ -83,4 +91,6 @@ public class User {
 	public void setComments(List<Comment> comments) { this.comments = comments; }
 	public String getPassword() { return password; }
 	public void setPassword(String password) { this.password = password; }
+	public List<ArSearch> getArsearches() { return arsearches; }
+	public void setArsearches(List<ArSearch> arsearches) { this.arsearches = arsearches; }	
 }
