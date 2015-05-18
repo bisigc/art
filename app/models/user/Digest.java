@@ -3,12 +3,10 @@ package models.user;
 import java.security.GeneralSecurityException;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
+import models.AbstractModel;
 import utils.crypto.Crypto;
 
 /**
@@ -17,11 +15,8 @@ import utils.crypto.Crypto;
  * @author cbi
  */
 @Entity
-public class Digest {
+public class Digest extends AbstractModel {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long id;
 	private String salt;
 	private String scrypt;
 	@OneToOne
@@ -53,8 +48,6 @@ public class Digest {
 	}
 
 	//Getters & Setters
-	public Long getId() { return id; }
-	public void setId(Long id) { this.id = id; }
 	public User getUser() { return user; }
 	public void setUser(User user) { this.user = user; }
 	public String getSalt() { return salt; }

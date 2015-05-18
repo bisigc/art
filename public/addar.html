@@ -36,6 +36,18 @@
                     <fieldset class="form-group">
                         <label for="quality_attr">Quality Attributes</label>
                         <textarea class="form-control" placeholder="Write a short review of the product..." title="quality_attr" id="quality_attr" ng-model="arCtrl.ar.quality_attr" required></textarea>
+                          <h3>Array of objects with single property binding</h3>
+                          <ui-select multiple ng-model="multipleDemo.selectedPeopleSimple" theme="select2" ng-disabled="disabled" style="width: 800px;">
+                            <ui-select-match placeholder="Select person...">{{$item.name}} &lt;{{$item.email}}&gt;</ui-select-match>
+                            <ui-select-choices repeat="person.email as person in people | propsFilter: {name: $select.search, age: $select.search}">
+                              <div ng-bind-html="person.name | highlight: $select.search"></div>
+                              <small>
+                                email: {{person.email}}
+                                age: <span ng-bind-html="''+person.age | highlight: $select.search"></span>
+                              </small>
+                            </ui-select-choices>
+                          </ui-select>
+                          <p>Selected: {{multipleDemo.selectedPeopleSimple}}</p>
                     </fieldset>
                     <fieldset class="form-group">
                         <label for="smell">Smells</label>

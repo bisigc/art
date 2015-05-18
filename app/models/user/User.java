@@ -6,15 +6,13 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
+import models.AbstractModel;
 import models.ar.ArSearch;
 import models.discussion.Comment;
 
@@ -27,11 +25,8 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
  * @author cbi
  */
 @Entity
-public class User {
+public class User extends AbstractModel {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long id;
 	private String firstname;
 	private String lastname;
 	@Column(unique=true)
@@ -63,8 +58,6 @@ public class User {
 	
 		
 	//Getters & Setters
-	public Long getId() { return id; }
-	public void setId(Long id) { this.id = id; }
 	public String getFirstname() { return firstname; }
 	public void setFirstname(String firstname) { this.firstname = firstname; }
 	public String getLastname() { return lastname; }

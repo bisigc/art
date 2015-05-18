@@ -189,11 +189,60 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             }
         }
     })
+        .state('singletask', {
+        url: "/task/:id",
+        title: "Task View",
+        data: { requireLogin: false },
+        views: {
+            '': {
+                templateUrl: _contextPath + "singletask.html"
+            }/*,
+            'discussionView@singlesmell': {
+                templateUrl: _contextPath + "discussion.html"
+            }*/
+        }
+    })
         .state('taskbrowser', {
         url: "/taskbrowser",
         templateUrl: _contextPath + "taskbrowser.html",
         title: "Task Browser",
         data: { requireLogin: false }
+    })
+        .state('taskbrowser.edit', {
+        url: "/edit/:id",
+        templateUrl: _contextPath + "taskbrowser.html",
+        title: "Task Edit",
+        data: { 
+            requireLogin: true,
+            allowedRoles: ["Admin", "Editor"]
+        },
+        onEnter: ['$stateParams', '$state', '$modal', function($stateParams, $state, $modal) {
+            var modalInstance = $modal.open(
+                {
+                    templateUrl: _contextPath + 'taskdialog.html',
+                    controller: 'TaskUpdateController',
+                    size: 'lg',
+                    resolve: {
+                        taskid: function () { 
+                            return $stateParams.id;
+                        }
+                    }
+                }
+            );
+
+            modalInstance.result.then(function () {
+                $state.go('^');
+            }, function () {
+                $state.go('^');
+            });
+            $stateParams.ok = function () {
+                $modalInstance.close($scope.selected.item);
+            };
+
+            $stateParams.cancel = function () {
+                modalInstance.dismiss('cancel');
+            };
+        }]
     })
         .state('admin', {
         url: "/admin",

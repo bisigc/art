@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.persistence.TypedQuery;
 
+import models.AbstractModel;
+
 /**
  * Interface for a {@link GenericDAO}.
  * 
@@ -13,7 +15,7 @@ import javax.persistence.TypedQuery;
  * @param <T>
  * @param <PK>
  */
-public interface GenericDAO<T, PK extends Serializable> {
+public interface GenericDAO<T extends AbstractModel, PK extends Serializable> {
 
 	/**
 	 * Returns the class of the data model used in the {@link GenericDAO}.

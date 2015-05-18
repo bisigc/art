@@ -2,7 +2,7 @@ package utils.exceptions;
 
 
 /**
- * Session can be thrown if the session has timed out.
+ * Exception can be thrown if the session has timed out.
  * 
  * @author cbi
  */

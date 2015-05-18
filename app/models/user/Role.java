@@ -4,11 +4,10 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+
+import models.AbstractModel;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -18,11 +17,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  * @author cbi
  */
 @Entity
-public class Role {
+public class Role extends AbstractModel {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long id;
 	private String name;
 	private String description;
 	@JsonIgnore
@@ -33,8 +29,6 @@ public class Role {
 	private List<Permission> permissions;
 
 	//Getters & Setters
-	public Long getId() { return id; }
-	public void setId(Long id) { this.id = id; }
 	public String getName() { return name; }
 	public void setName(String name) { this.name = name; }
 	public String getDescription() { return description; }

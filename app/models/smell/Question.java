@@ -1,11 +1,10 @@
 package models.smell;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import models.AbstractModel;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -15,11 +14,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  * @author cbi
  */
 @Entity
-public class Question {
+public class Question extends AbstractModel {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long id;
 	private String question;
 	@JsonIgnore
 	@ManyToOne
@@ -27,8 +23,6 @@ public class Question {
 	private Smell smell;
 
 	//Getters & Setters
-	public Long getId() { return id; }
-	public void setId(Long id) { this.id = id; }
 	public String getQuestion() { return question; }
 	public void setQuestion(String question) { this.question = question; }
 	public Smell getSmell() { return smell; }

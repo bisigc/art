@@ -32,7 +32,7 @@ import dao.GenericDAOImpl;
 
 /**
  * Injector Modul class, contains the dependency injecting rules for the ART application
- * used by the DI framework "Dice" from Google. 
+ * used by the DI framework "Guice" from Google. 
  * 
  * @author cbi
  */
@@ -59,6 +59,7 @@ public class MainInjector extends AbstractModule {
 		bind(new TypeLiteral<GenericDAO<TaskPropertyType, Long>>(){}).annotatedWith(Names.named("TaskPropertyDAO")).to(new TypeLiteral<EEPPITaskPropertyDAORestImpl<TaskPropertyType, Long>>(){});
 		bind(RestServiceConfig.class).annotatedWith(Names.named("EEPPITaskTemplateServConf")).to(EEPPITaskTemplateServConf.class);
 		bind(RestServiceConfig.class).annotatedWith(Names.named("EEPPITaskPropertyServConf")).to(EEPPITaskPropertyServConf.class);
+		
 		//bind(new TypeLiteral<RestServiceConfig>(){}).annotatedWith(Names.named("EEPPITaskTemplateServConf")).to(new TypeLiteral<EEPPITaskTemplateServConf>(){});
 		//bind(new TypeLiteral<RestServiceConfig>(){}).annotatedWith(Names.named("EEPPITaskPropertyServConf")).to(new TypeLiteral<EEPPITaskPropertyServConf>(){});
 		//bind(new TypeLiteral<RestServiceConfig>(){}).annotatedWith(Names.named("TaskPropertyDAO")).to(new TypeLiteral<EPPITaskPropertyServConf>(){});

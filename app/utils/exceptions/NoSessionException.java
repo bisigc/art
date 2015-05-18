@@ -1,7 +1,7 @@
 package utils.exceptions;
 
 /**
- * Session can be thrown in case of no session being available.
+ * Exception can be thrown in case of no session being available.
  * 
  * @author cbi
  */

@@ -351,4 +351,8 @@ body {
 .font-size-large {
     font-size: 18px;
 }
+    
+.taskprop-select {
+    width: 200px;
+}
 

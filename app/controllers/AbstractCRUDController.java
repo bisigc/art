@@ -5,12 +5,14 @@ import java.util.List;
 
 import javax.persistence.TypedQuery;
 
+import models.AbstractModel;
 import play.Logger;
 import play.db.jpa.Transactional;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
 import utils.actions.SessionAuth;
+import utils.exceptions.ItemNotFoundException;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.google.inject.Singleton;
@@ -30,7 +32,7 @@ import dao.GenericDAO;
  * @param <PK>
  */
 @Singleton
-public abstract class AbstractCRUDController<T, PK extends Serializable> extends Controller {
+public abstract class AbstractCRUDController<T extends AbstractModel, PK extends Serializable> extends Controller {
 	
 	/**
 	 * Gerneric DAO
@@ -91,6 +93,9 @@ public abstract class AbstractCRUDController<T, PK extends Serializable> extends
 		T t;
 		try {
 			t = dao.get(id);
+		} catch (ItemNotFoundException e) {
+			Logger.error(e.getMessage(), e);
+			return notFound(e.getMessage());
 		} catch (Exception e) {
 			String msg = "Failed to get " + dao.getModel().getSimpleName() + " with id " + id;
 			Logger.error(msg, e);
@@ -159,6 +164,9 @@ public abstract class AbstractCRUDController<T, PK extends Serializable> extends
 	public Result delete(PK id) {
 		try {
 			dao.delete(id);
+		} catch (ItemNotFoundException e) {
+			Logger.error(e.getMessage(), e);
+			return notFound(e.getMessage());
 		} catch (Exception e) {
 			String msg = "Failed to delete " + dao.getModel().getSimpleName() + " with id " + id;
 			Logger.error(msg, e);

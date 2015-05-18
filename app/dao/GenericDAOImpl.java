@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.TypedQuery;
 
+import models.AbstractModel;
 import play.db.jpa.JPA;
 
 import com.google.inject.Inject;
@@ -23,7 +24,7 @@ import com.google.inject.TypeLiteral;
  * @param <PK>
  */
 @Singleton
-public class GenericDAOImpl<T, PK extends Serializable> implements GenericDAO<T, PK> {
+public class GenericDAOImpl<T extends AbstractModel, PK extends Serializable> implements GenericDAO<T, PK> {
 	
 	private Class<T> model;
 	
@@ -44,14 +45,14 @@ public class GenericDAOImpl<T, PK extends Serializable> implements GenericDAO<T,
 	}
 	
 	@Override
-	public List<T> getAll() {
+	public List<T> getAll() throws Exception {
 		TypedQuery<T> query =  JPA.em().createQuery("select a from " + model.getName() + " a", model);
 		List<T> list = query.getResultList(); 
 		return list;
 	}
 
 	@Override
-	public List<T> find(TypedQuery<T> query) {
+	public List<T> find(TypedQuery<T> query) throws Exception {
 		return query.getResultList();
 	}
 
@@ -64,12 +65,12 @@ public class GenericDAOImpl<T, PK extends Serializable> implements GenericDAO<T,
 	}
 
 	@Override
-	public T get(PK id) {
+	public T get(PK id) throws Exception {
 		return JPA.em().find(model, id);
 	}
 
 	@Override
-	public T update(T t) {
+	public T update(T t) throws Exception {
 	    JPA.em().merge(t);
 	    JPA.em().flush();
 	    //JPA.em().refresh(t);
@@ -77,7 +78,7 @@ public class GenericDAOImpl<T, PK extends Serializable> implements GenericDAO<T,
 	}
 
 	@Override
-	public void delete(PK id) {
+	public void delete(PK id) throws Exception {
 		T t = JPA.em().find(model, id);
 		JPA.em().remove(t);
 	}

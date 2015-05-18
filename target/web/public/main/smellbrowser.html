@@ -129,7 +129,7 @@
             <th><a href ng-click="rdebtidx=!rdebtidx;order('tecdebtidx', rdebtidx)">TecDebtIdx <span ng-show="rdebtidx">&#x25B2;</span><span ng-show="!rdebtidx">&#x25BC;</span></a></th>
             <th></th>
         </tr>
-        <tr ng-show="smellCtrl.formvisible">
+        <tr ng-show="smellCtrl.formvisible" class="bg-warning">
             <td>{{smell.name}}&nbsp;</td>
             <td>{{smell.description}}</td>
             <td>{{smell.weight}}</td>
@@ -137,7 +137,7 @@
             <td class="dbt-idx-{{smell.tecdebtidx}}">{{smell.tecdebtidx}}</td>
             <td></td>
         </tr>
-        <tr ng-repeat="smellItem in smelllist | filter:search" ng-dblclick="$state.go('',{id: smellItem.id})">
+        <tr ng-repeat="smellItem in smelllist | filter:search" ng-dblclick="$state.go('singlesmell',{id: smellItem.id})">
             <td><a ui-sref="singlesmell({id: smellItem.id})">{{smellItem.name}}</a></td>
             <td ng-bind-html="smellItem.description | limitHtml: 30"></td>
             <td>{{smellItem.weight}}</td>

@@ -1,21 +1,16 @@
 package models.ar;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import models.AbstractModel;
 import models.user.User;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
-public class ArSearch {
+public class ArSearch extends AbstractModel {
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long id;
 	private String name;
 	private String search;
 	private String result;
@@ -24,8 +19,6 @@ public class ArSearch {
 	private User user;
 
 	// Getters and Setters
-	public Long getId() { return id; }
-	public void setId(Long id) { this.id = id; }
 	public String getName() { return name; }
 	public void setName(String name) { this.name = name; }
 	public String getSearch() { return search; }

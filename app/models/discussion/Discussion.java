@@ -7,12 +7,10 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import models.AbstractModel;
 import models.ar.ArVersion;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -24,11 +22,8 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
  * @author cbi
  */
 @Entity
-public class Discussion {
+public class Discussion extends AbstractModel {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long id;
 	@Enumerated(EnumType.STRING)
 	private DiscussionType type;
 	@JsonIgnore
@@ -51,8 +46,6 @@ public class Discussion {
 	}
 	
 	//Getters & Setters
-	public Long getId() { return id; }
-	public void setId(Long id) { this.id = id; }
 	public DiscussionType getType() { return type; }
 	public void setType(DiscussionType type) { this.type = type; }
 	public ArVersion getAr() { return ar; }

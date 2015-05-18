@@ -471,7 +471,7 @@ app.controller('SmellViewController', ['SmellService', 'ReplyErrorHandler', 'not
     $scope.getSmell($stateParams.id);
 }]);
 
-app.controller('SmellUpdateController', ['SmellService','SmellGroupService', 'StatusService', 'ReplyErrorHandler', 'notifications', '$modalInstance', '$scope', '$stateParams', 'smellid', '$log', function (SmellService, SmellGroupService, StatusService, ReplyErrorHandler, notifications, $modalInstance, $scope, $stateParams, smellid, $log) {
+app.controller('SmellUpdateController', ['SmellService','SmellGroupService', 'StatusService', 'ReplyErrorHandler', 'notifications', '$modalInstance', '$scope', '$stateParams', 'smellid', function (SmellService, SmellGroupService, StatusService, ReplyErrorHandler, notifications, $modalInstance, $scope, $stateParams, smellid) {
     $scope.status = [];
     $scope.loadStatus = function () {
         StatusService.get({},function(data, status, headers, config) {
@@ -519,16 +519,30 @@ app.controller('SmellUpdateController', ['SmellService','SmellGroupService', 'St
     };
 }]);
 
-app.controller('TaskController', ['TaskService', 'ExecTaskTypeService', 'TaskPropertyService', 'ReplyErrorHandler', 'notifications','$scope','$filter', function(TaskService, ExecTaskTypeService, TaskPropertyService, ReplyErrorHandler, notifications, $scope, $filter) {
+app.controller('TaskController', ['TaskService', 'ExecTaskTypeService', 'TaskPropertyService', 'ReplyErrorHandler', 'notifications','$scope','$filter', '$sce', function(TaskService, ExecTaskTypeService, TaskPropertyService, ReplyErrorHandler, notifications, $scope, $filter, $sce) {
     var orderBy = $filter('orderBy');
     $scope.tasklist = [];
-    this.formvisible = false;
-    $scope.exectasktypes = [];
+    this.formvisible = true;
+    $scope.exectasktypes = '';
     $scope.taskproperties = [];
+    
+    var execTypeHTML = '';
+    
+    var recursiveExecType = function(exectype, level) {
+        exectype.forEach(function(entry){
+            var element = "<option value='" + entry.id + "'>" + level + entry.name + "</option>";
+            execTypeHTML += element;
+            recursiveExecType(entry.subTasks, level + '&#8212;');
+        });
+    };
+                         
     $scope.loadExecTaskTypes = function () {
         ExecTaskTypeService.noid.get({},function(data, status, headers, config) {
-            $scope.exectasktypes = data;
-            //$scope.smellcallstatus = "OK";
+            execTypeHTML = "<select class='form-control'>";
+            var subtasks = data[0].subTasks;
+            recursiveExecType(subtasks, '');
+            execTypeHTML += "</select>";
+            $scope.exectasktypes = $sce.trustAsHtml(execTypeHTML);
         }, ReplyErrorHandler);  
     };
     $scope.loadExecTaskTypes();
@@ -572,27 +586,25 @@ app.controller('TaskController', ['TaskService', 'ExecTaskTypeService', 'TaskPro
     $scope.initTask = function () {
         $scope.task = {};
         $scope.task.properties = [];
-        $scope.propertyToAdd = '';
+        $scope.propertyToAdd = {};
     }
     $scope.initTask();
-    $scope.saveTask = function() {
-        TaskService.noid.create($scope.smell,function(data, status, headers, config) {
+    $scope.saveTask = function(form) {
+        TaskService.noid.create($scope.task,function(data, status, headers, config) {
             $scope.loadTasks();
             notifications.showSuccess("Task has been added.");
             $scope.initTask();
-            $scope.taskForm.$setPristine();
+            form.$setPristine();
         }, ReplyErrorHandler);  
     };
     
     $scope.addProperty = function () {
-        $scope.task.questions.push({
-            property: $scope.propertyToAdd
-        });
-        $scope.questionToAdd = '';
+        $scope.task.properties.push($scope.propertyToAdd);
+        $scope.propertyToAdd = {};
     };
     
     $scope.removeProperty = function (idx) {
-        $scope.task.property.splice(idx, 1);
+        $scope.task.properties.splice(idx, 1);
     };
 
     $scope.totalItems = 64;
@@ -609,6 +621,66 @@ app.controller('TaskController', ['TaskService', 'ExecTaskTypeService', 'TaskPro
     $scope.maxSize = 5;
     $scope.bigTotalItems = 175;
     $scope.bigCurrentPage = 1;
+}]);
+
+app.controller('TaskUpdateController', ['TaskService', 'ExecTaskTypeService', 'TaskPropertyService', 'ReplyErrorHandler', 'notifications', '$modalInstance', '$scope', '$stateParams', 'taskid', '$sce', function (TaskService, ExecTaskTypeService, TaskPropertyService, ReplyErrorHandler, notifications, $modalInstance, $scope, $stateParams, smellid, $sce) {
+    $scope.status = [];
+    $scope.exectasktypes = '';
+    $scope.taskproperties = [];
+    $scope.propertyToAdd = {};
+    
+    var execTypeHTML = '';
+    
+    var recursiveExecType = function(exectype, level) {
+        exectype.forEach(function(entry){
+            var element = "<option value='" + entry.id + "'>" + level + entry.name + "</option>";
+            execTypeHTML += element;
+            recursiveExecType(entry.subTasks, level + '&#8212;');
+        });
+    };
+                         
+    $scope.loadExecTaskTypes = function () {
+        ExecTaskTypeService.noid.get({},function(data, status, headers, config) {
+            execTypeHTML = "<select class='form-control'>";
+            var subtasks = data[0].subTasks;
+            recursiveExecType(subtasks, '');
+            execTypeHTML += "</select>";
+            $scope.exectasktypes = $sce.trustAsHtml(execTypeHTML);
+        }, ReplyErrorHandler);  
+    };
+    $scope.loadExecTaskTypes();
+    
+    $scope.loadTaskProperties = function () {
+        TaskPropertyService.noid.get({},function(data, status, headers, config) {
+            $scope.taskproperties = data;
+            //$scope.smellcallstatus = "OK";
+        }, ReplyErrorHandler);  
+    };
+    $scope.loadTaskProperties();
+
+    $scope.getTask = function (taskid) {
+        TaskService.id.get({id: taskid},function(data, status, headers, config) {
+            $scope.singleTask = data;
+        }, ReplyErrorHandler);  
+    };
+    $scope.getTask($stateParams.id);
+
+    $scope.updateTask = function() {
+        TaskService.noid.update($scope.singleTask,function(data, status, headers, config) {
+            $modalInstance.close();
+            notifications.showSuccess("Task has been updated.");
+            $scope.singleTask = {};
+        }, ReplyErrorHandler);  
+    };
+    
+    $scope.addProperty = function () {
+        $scope.singleTask.properties.push($scope.propertyToAdd);
+        $scope.propertyToAdd = {};
+    };
+    
+    $scope.removeProperty = function (idx) {
+        $scope.singleTask.properties.splice(idx, 1);
+    };
 }]);
 
 /*app.controller('DiscussionController', ['DiscussionService', 'ReplyErrorHandler', '$stateParams', 'notifications','$scope', function(DiscussionService, ReplyErrorHandler, $stateParams, notifications, $scope) {

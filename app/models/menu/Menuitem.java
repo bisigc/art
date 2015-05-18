@@ -5,25 +5,21 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import models.AbstractModel;
+
 /**
- * Data model representing a {@link MenuItem}.
- * MenuItems have a hierarchical structure. A {@link MenuItem} has one parent
+ * Data model representing a {@link Menuitem}.
+ * MenuItems have a hierarchical structure. A {@link Menuitem} has one parent
  * and can have multiple children.
  * 
  * @author cbi
  */
 @Entity
-public class Menuitem {
+public class Menuitem extends AbstractModel {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long			id;
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Menuitem		menuitem;
 	private String			name;
@@ -38,8 +34,6 @@ public class Menuitem {
 	private List<Menuitem>	subItems;
 
 	//Getters & Setters
-	public Long getId() { return id; }
-	public void setId(Long id) { this.id = id; }
 	public String getName() { return name; }
 	public void setName(String name) { this.name = name; }
 	public String getFullname() { return fullname; }

@@ -4,10 +4,9 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import models.AbstractModel;
 
 /**
  * Data model representing a {@link SmellGroup}.
@@ -15,19 +14,14 @@ import javax.persistence.OneToMany;
  * @author cbi
  */
 @Entity
-public class SmellGroup {
+public class SmellGroup extends AbstractModel {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long		id;
 	private String		name;
 	private String 		description;
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="group")
 	private List<Smell> smells;
 	
 	//Getters & Setters
-	public Long getId() { return id; }
-	public void setId(Long id) { this.id = id; }
 	public String getName() { return name; }
 	public void setName(String name) { this.name = name; }
 	public String getDescription() { return description; }

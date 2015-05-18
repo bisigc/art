@@ -1,9 +1,8 @@
 package models.property;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import models.AbstractModel;
 
 /**
  * Data model representing a {@link Property}.
@@ -11,11 +10,8 @@ import javax.persistence.Id;
  * @author cbi
  */
 @Entity
-public class Property {
+public class Property extends AbstractModel {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long	id;
 	private String	categorie;
 	private String	attribute;
 	private String	name;
@@ -23,8 +19,6 @@ public class Property {
 	private Integer	orderidx;
 
 	//Getters & Setters
-	public Long getId() { return id; }
-	public void setId(Long id) { this.id = id; }
 	public String getName() { return name; }
 	public void setName(String name) { this.name = name; }
 	public String getCategorie() { return categorie; }

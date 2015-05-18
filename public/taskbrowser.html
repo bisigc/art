@@ -1,34 +1,14 @@
-<script type="text/ng-template"  id="execTaskTypeNode.html">
-    <span ng-init="childsvisible = true; descvisible = false">
-        <i class="glyphicon glyphicon-leaf" ng-show="!hasChildren(task)"/>
-        <i class="glyphicon glyphicon-plus-sign" tooltip="Show children" ng-show="hasChildren(task) && !childsvisible" ng-click="childsvisible = !childsvisible"/>
-        <i class="glyphicon glyphicon-minus-sign" tooltip="Hide children" ng-show="hasChildren(task) && childsvisible" ng-click="childsvisible = !childsvisible"/>
-        &nbsp;<input ng-model="task.name"/>&nbsp;
-        <i class="glyphicon glyphicon-chevron-right" tooltip="Show description" ng-show="!descvisible" ng-click="descvisible = !descvisible"/>
-        <i class="glyphicon glyphicon-chevron-down" tooltip="Hide description" ng-show="descvisible" ng-click="descvisible = !descvisible"/>
-    </span>
-    <button type="button" class="btn btn-default btn-sm" ng-click="add(task)" tooltip="Add child">
-        <i class="glyphicon glyphicon-plus"/>
-    </button>&nbsp;
-    <button type="button" class="btn btn-default btn-sm" ng-click="delete(task)" ng-show="task.subTasks.length > 0" tooltip="Remove children">
-        <i class="glyphicon glyphicon-remove"/>
-    </button>
-    <div ng-show="descvisible"><textarea ng-model="task.description" class="form-control"/></div>
-    <ul ng-show="childsvisible">
-        <li ng-repeat="task in task.subTasks" ng-include="'execTaskTypeNode.html'" ng-class="{ parent_li: hasChildren(task)}"/>
-    </ul>
-</script>
-
 <div ng-controller="TaskController as taskCtrl">
 		<div class="page-header">
 		  <h1>Task Browser</h1>
 		</div>
-		<div class="well">
+		<div class="well" ng-if="isAllowed.check(['Admin','Editor'])">
         <p>
             <a class="btn btn-primary btn-sm" ng-class="{ active:taskCtrl.formvisible}" href role="button" ng-click="taskCtrl.showForm(!taskCtrl.formvisible)">Add Task &raquo;</a>
         </p>
         <div ng-show="taskCtrl.formvisible">
-            <form name="taskForm" ng-submit="taskForm.$valid && saveTask()" novalidate>
+            {{task}}
+            <form name="taskForm" ng-submit="taskForm.$valid && saveTask(taskForm)" novalidate>
     			<div class="row">
 	    			<div class="col-md-7">
 		                <fieldset class="form-group">
@@ -37,23 +17,19 @@
 		                </fieldset>
 	            	</div>
             		<div class="col-md-5">
-			            <fieldset class="form-group">
-			                <label for="group">Execution Task Type</label>
-			                <ui-select ng-model="task.group_id" theme="selectize" ng-disabled="disabled" required>
-			                    <ui-select-match placeholder="Select or search a group in the list...">{{$select.selected.name}}</ui-select-match>
-			                    <ui-select-choices repeat="tasktype in exectasktypes | filter: $select.search">
-			                        <span ng-bind-html="tasktype.name | highlight: $select.search"></span>
-			                    </ui-select-choices>
-			                </ui-select>
-			            </fieldset>
+                        <fieldset class="form-group">
+                            <label>Execution Task Type</label>
+                            <span ng-bind-html="exectasktypes"></span>
+                        </fieldset>
             		</div>
             	</div>
                 <fieldset class="form-group">
+                    {{propertyToAdd}}
                     <label for="property">Properties</label> 
                         <div class="input-group">
-                          <div class="input-group-btn">
-			                <ui-select ng-model="taskpropertyToAdd.id" theme="selectize" ng-disabled="disabled" required>
-			                    <ui-select-match placeholder="Select or search a group in the list...">{{$select.selected.name}}</ui-select-match>
+                          <div class="input-group-btn taskprop-select">
+			                <ui-select ng-model="propertyToAdd.property" theme="selectize" ng-disabled="disabled">
+			                    <ui-select-match placeholder="Property type...">{{$select.selected.name}}</ui-select-match>
 			                    <ui-select-choices repeat="taskproperty in taskproperties | filter: $select.search">
 			                        <span ng-bind-html="taskproperty.name | highlight: $select.search"></span>
 			                    </ui-select-choices>
@@ -61,15 +37,14 @@
                           </div><!-- /btn-group -->
                           <input type="text" class="form-control" ng-model="propertyToAdd.value" aria-label="..." placeholder="Value...">
                             <span class="input-group-btn">
-                            <a class="btn btn-primary" ng-click="propertyToAdd !== '' && addProperty()">
+                            <a class="btn btn-primary" ng-click="propertyToAdd.property != null && propertyToAdd.value != null && addProperty()" ng-disabled="propertyToAdd.property == null || propertyToAdd.value == null">
                                 <i class="glyphicon glyphicon-plus"></i>
                             </a>
                         </span>
                     </div><!-- /input-group -->
                     
                     <div class="input-group" ng-repeat="property in task.properties track by $index">
-                        <input class="form-control" type="text" value="{{taskproperties[property.id]}}" readonly required></input>
-                        <input class="form-control" type="text" ng-model="property.value" readonly required></input>
+                        <input class="form-control" type="text" value="{{property.property.name + ' : ' + property.value}}" readonly required></input>
                         <span class="input-group-btn">
                             <a class="btn btn-warning" ng-click="removeProperty($index)">
                                 <i class="glyphicon glyphicon-minus"></i>
@@ -101,14 +76,14 @@
             <th><a href ng-click="rtpye=!rtpye;order('type_id', rtpye)">Group <span ng-show="rtpye">&#x25B2;</span><span ng-show="!rtpye">&#x25BC;</span></a></th>
             <th></th>
         </tr>
-        <tr ng-show="taskCtrl.formvisible">
+        <tr ng-show="taskCtrl.formvisible" class="bg-warning">
             <td>{{task.name}}&nbsp;</td>
-            <td>{{types[task.type_id.id - 1].name}}</td>
+            <td>{{task.properties[0].name}}</td>
             <td></td>
         </tr>
-        <tr ng-repeat="taskItem in tasklist | filter:search" ng-dblclick="openTask(taskItem.id)">
-            <td>{{taskItem.name}}</td>
-            <td>{{groups[taskItem.type_id.id - 1].name}}</td>
+        <tr ng-repeat="taskItem in tasklist | filter:search" ng-dblclick="$state.go('singletask',{id: taskItem.id})">
+            <td><a ui-sref="singletask({id: taskItem.id})">{{taskItem.name}} - {{taskItem.id}}</a></td>
+            <td>{{taskItem.properties[0].name}}</td>
             <td><a ui-sref="taskbrowser.edit({id: taskItem.id})" ng-if="isAllowed.check(['Admin','Editor'])"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;<a href ng-click="deleteTask(taskItem.id)" ng-if="isAllowed.check(['Admin'])"><span class="glyphicon glyphicon-trash"></span></a></td>
         </tr>
     </table>

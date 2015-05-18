@@ -7,13 +7,12 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import models.AbstractModel;
+import models.ar.element.ModelElementLink;
 import models.discussion.Discussion;
 import models.smell.Smell;
 import models.status.ItemStatus;
@@ -25,17 +24,17 @@ import models.user.User;
  * @author cbi
  */
 @Entity
-public class ArVersion {
+public class ArVersion extends AbstractModel {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long id;
 	private String name;
 	private String description;
 	@ManyToOne
 	private Ar arhead;
 	@ManyToMany
 	private List<Smell> smells;
+	@ManyToMany
+	private List<ModelElementLink> properties;
+	
 	@OneToOne(cascade=CascadeType.PERSIST, mappedBy="ar")
 	private Discussion discussion;
 	@OneToOne(cascade=CascadeType.PERSIST, mappedBy="ar")
@@ -48,8 +47,6 @@ public class ArVersion {
 	private Timestamp created;
 
 	//Getters & Setters
-	public Long getId() { return id; }
-	public void setId(Long id) { this.id = id; }
 	public String getName() { return name; }
 	public void setName(String name) { this.name = name; }
 	public String getDescription() { return description; }
