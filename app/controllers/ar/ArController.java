@@ -1,7 +1,19 @@
 package controllers.ar;
 
-import models.ar.Ar;
+import java.sql.Timestamp;
 
+import models.ar.Ar;
+import models.discussion.Discussion;
+import models.discussion.Discussion.DiscussionType;
+import models.status.ItemStatus;
+import models.user.User;
+import play.Logger;
+import play.db.jpa.Transactional;
+import play.libs.Json;
+import play.mvc.Result;
+import utils.actions.SessionAuth;
+
+import com.fasterxml.jackson.databind.JsonNode;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.google.inject.name.Named;
@@ -27,5 +39,36 @@ public class ArController extends AbstractCRUDController<Ar, Long> {
 	@Inject
 	public ArController(@Named("ArDAO") GenericDAO<Ar, Long> dao) {
 		super(dao);
+	}
+	
+	@SessionAuth
+	@Transactional
+	@Override
+	public Result create() {
+	    Ar inserted;
+	    JsonNode node = null;
+		try {
+			node = request().body().asJson();
+			Ar ar = Json.fromJson(node, dao.getModel());
+		    Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		    ar.getVersions().get(0).setCreated(currentTime);
+		    ar.getVersions().get(0).setModified(currentTime);
+		    User creator = new User();
+		    creator.setId(Long.parseLong(session().get("user_id")));
+		    ar.getVersions().get(0).setUser(creator);
+		    Discussion discussion = new Discussion();
+		    discussion.setAr(ar.getVersions().get(0));
+		    discussion.setCreated(currentTime);
+		    discussion.setType(DiscussionType.DISCUSSION);
+		    ar.getVersions().get(0).setDiscussion(discussion);
+		    ar.getVersions().get(0).setStatus(ItemStatus.draft);
+		    ar.getVersions().get(0).setArhead(ar.getId());
+			inserted = dao.create(ar);
+		} catch (Exception e) {
+			String msg =" Failed to create " + dao.getModel().getSimpleName() ;
+			Logger.error(msg + " JSON: " + node, e);
+			return internalServerError(msg);
+		}
+	    return created(Json.toJson(inserted));
 	}
 }

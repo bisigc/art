@@ -50,7 +50,7 @@ public class RoleCheckerImpl implements RoleChecker {
 				Logger.debug("Role: " + role);
 
 				for (String function : roles.get(role).keySet()) {
-					Logger.debug("      Function: " + role);
+					Logger.debug("      Function: " + function);
 
 					for (String method : roles.get(role).get(function)) {
 						Logger.debug("                Method:" + method);

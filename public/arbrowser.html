@@ -1,4 +1,4 @@
-<div id="ARdiv" ng-controller="ARController as arCtrl">
+<div id="ARdiv">
 	<div class="page-header">
 	  <h1>Architectural Refactorings (ARs)</h1>
 	</div>
@@ -33,10 +33,10 @@
                 </tr>
                 <tr ng-repeat="ar in arlist | filter:search" ng-dblclick="$state.go('singlear',{id: ar.arhead})">
                     <td><a ui-sref="singlear({id: ar.arhead})">{{ar.name}}</a></td>
-                    <td>{{ar.description}}</td>
+                    <td>{{ar.description | limitHtml }}</td>
                     <td><span ng-repeat="smell in ar.smells">{{smell.name}}, </span></td>
                     <td>{{ar.status}}</td>
-                    <td><a ui-sref="aredit({id: ar.id})" ng-if="isAllowed.check(['Admin','Editor'])"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;<a href ng-click="deleteAr(ar.id)" ng-if="isAllowed.check(['Admin'])"><span class="glyphicon glyphicon-trash"></span></a></td>
+                    <td><a ui-sref="aredit({id: ar.id})" ng-if="isAllowed.check(['Admin','Editor'])"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;<a href ng-click="deleteAr(ar.arhead)" ng-if="isAllowed.check(['Admin'])"><span class="glyphicon glyphicon-trash"></span></a></td>
                 </tr>
             </table>
             <pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></pagination>

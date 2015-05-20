@@ -1,0 +1,205 @@
+<div>
+    <div class="page-header">
+      <h1>Add Architectural Refactoring</h1>
+    </div>
+    <div name="arFormContainer">
+        <p>
+            Completeness:
+            <!-- progressbar class="progress-striped active" value="dynamic" type="{{arCtrl.type}}">{{arCtrl.type}} <i ng-show="arCtrl.showWarning">!!! Watch out !!!</i></progressbar -->
+            <progress><bar ng-repeat="bar in arCtrl.progStacked track by $index" value="bar.value" type="{{bar.type}}"><span ng-hide="bar.value < 5">{{bar.value}}%</span></bar></progress>
+        </p>
+        <form name="arForm" ng-submit="arForm.$valid && saveAr()" novalidate>
+            <div class="row">
+                <div class="col-md-8">
+                    <fieldset class="form-group">
+                        <label for="name">Name</label>
+                        <input class="form-control" placeholder="Name of the AR ..." title="name" id="name" ng-model="arversion.name" required></input>
+                    </fieldset>
+                </div>
+                <div class="col-md-4">
+                    <fieldset class="form-group">
+                        <label for="group">Status</label>
+                        <ui-select ng-model="arversion.status" theme="selectize" ng-disabled="disabled" required>
+                            <ui-select-match placeholder="Select or search a status in the list...">{{$select.selected}}</ui-select-match>
+                            <ui-select-choices repeat="stat in status | filter: $select.search">
+                                <span ng-bind-html="stat | highlight: $select.search"></span>
+                            </ui-select-choices>
+                        </ui-select>
+                    </fieldset>
+                </div>
+            </div>
+            <fieldset class="form-group">
+                <label for="description">Description</label>
+                <text-angular name="ardescription" ng-model="arversion.description" required></text-angular>
+            </fieldset>
+            <div class="row">
+                <div class="col-md-6">
+                    <fieldset class="form-group">
+                        <label for="context_attr">Context (viewpoint, refinement level, enterprise architecture):</label>
+                        <ui-select multiple ng-model="modelelementsvalues.context" theme="select2" style="width: 90%;">
+                            <ui-select-match placeholder="Select elements...">{{$item.name}} &lt;{{$item.link}}&gt;</ui-select-match>
+                            <ui-select-choices repeat="element as element in modelelements.context | propsFilter: {name: $select.search, link: $select.search}">
+                                <div ng-bind-html="element.name | highlight: $select.search"></div>
+                                <small ng-if="element.link">
+                                    link: <span ng-bind-html="element.link | highlight: $select.search"></span>
+                                </small>
+                            </ui-select-choices>
+                        </ui-select>
+                        <a ui-sref="addar.addmodelelement({modelelementtype: 'ContextElementLink'})" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></a>
+                    </fieldset>
+                </div>
+                <div class="col-md-6">
+                    <fieldset class="form-group">
+                        <label for="quality_attr">Quality attributes and stories (forces):</label>
+                        <ui-select multiple ng-model="modelelementsvalues.qas" theme="select2" style="width: 90%;">
+                            <ui-select-match placeholder="Select elements...">{{$item.name}} &lt;{{$item.link}}&gt;</ui-select-match>
+                            <ui-select-choices repeat="element as element in modelelements.qas | propsFilter: {name: $select.search, link: $select.search}">
+                                <div ng-bind-html="element.name | highlight: $select.search"></div>
+                                <small ng-if="element.link">
+                                    link: <span ng-bind-html="element.link | highlight: $select.search"></span>
+                                </small>
+                            </ui-select-choices>
+                        </ui-select>
+                        <!--a ui-sref="addar.addmodelelement({modelelementtype: 'QASElementLink'})" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></a-->
+                        <a ng-click="openPropModal('QASElementLink')" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></a>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-6">
+                    <fieldset class="form-group">
+                        <label for="context_attr">Smells (refactoring drivers):</label>
+                        <ui-select multiple ng-model="arversion.smells" theme="select2" style="width: 90%;">
+                            <ui-select-match placeholder="Select smells...">{{$item.name}}</ui-select-match>
+                            <ui-select-choices repeat="element as element in smells | propsFilter: {name: $select.search}">
+                                <div ng-bind-html="element.name | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                        <a ui-sref="addar.addsmell" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></a>
+                    </fieldset>
+                </div>
+                <div class="col-md-3">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-6">
+                    <fieldset class="form-group">
+                        <label for="context_attr">Architectural decision(s) to be revisited:</label>
+                        <ui-select multiple ng-model="modelelementsvalues.decisions" theme="select2" style="width: 90%;">
+                            <ui-select-match placeholder="Select elements...">{{$item.name}} &lt;{{$item.link}}&gt;</ui-select-match>
+                            <ui-select-choices repeat="element as element in modelelements.decisions | propsFilter: {name: $select.search, link: $select.search}">
+                                <div ng-bind-html="element.name | highlight: $select.search"></div>
+                                <small ng-if="element.link">
+                                    link: <span ng-bind-html="element.link | highlight: $select.search"></span>
+                                </small>
+                            </ui-select-choices>
+                        </ui-select>
+                        <a ui-sref="addar.addmodelelement({modelelementtype: 'DecisionElementLink'})" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></a>
+                    </fieldset>
+                </div>
+                <div class="col-md-3">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-6">
+                    <fieldset class="form-group">
+                        <label for="context_attr">Refactoring (solution sketch/evolution outline):</label>
+                        <ui-select multiple ng-model="modelelementsvalues.design" theme="select2" style="width: 90%;">
+                            <ui-select-match placeholder="Select elements...">{{$item.name}} &lt;{{$item.link}}&gt;</ui-select-match>
+                            <ui-select-choices repeat="element as element in modelelements.design | propsFilter: {name: $select.search, link: $select.search}">
+                                <div ng-bind-html="element.name | highlight: $select.search"></div>
+                                <small ng-if="element.link">
+                                    link: <span ng-bind-html="element.link | highlight: $select.search"></span>
+                                </small>
+                            </ui-select-choices>
+                        </ui-select>
+                        <a ui-sref="addar.addmodelelement({modelelementtype: 'DesignElementLink'})" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></a>
+                    </fieldset>
+                </div>
+                <div class="col-md-3">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-6">
+                    <fieldset class="form-group">
+                        <label for="context_attr">Affected components and connectors (if modelled explicitly):</label>
+                        <ui-select multiple ng-model="modelelementsvalues.components" theme="select2" style="width: 90%;">
+                            <ui-select-match placeholder="Select elements...">{{$item.name}} &lt;{{$item.link}}&gt;</ui-select-match>
+                            <ui-select-choices repeat="element as element in modelelements.components | propsFilter: {name: $select.search, link: $select.search}">
+                                <div ng-bind-html="element.name | highlight: $select.search"></div>
+                                <small ng-if="element.link">
+                                    link: <span ng-bind-html="element.link | highlight: $select.search"></span>
+                                </small>
+                            </ui-select-choices>
+                        </ui-select>
+                        <a ui-sref="addar.addmodelelement({modelelementtype: 'ComponentElementLink'})" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></a>
+                    </fieldset>
+                </div>
+                <div class="col-md-3">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-6">
+                    <fieldset class="form-group">
+                        <label for="context_attr">Execution tasks:</label>
+                        <ui-select multiple ng-model="arversion.tasks" theme="select2" style="width: 90%;">
+                            <ui-select-match placeholder="Select tasks...">{{$item.name}}</ui-select-match>
+                            <ui-select-choices repeat="element as element in tasks | propsFilter: {name: $select.search}">
+                                <div ng-bind-html="element.name | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                        <a href class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></a>
+                    </fieldset>
+                </div>
+                <div class="col-md-3">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-6">
+                    <fieldset class="form-group">
+                        <label for="context_attr">References (links):</label>
+                        <ui-select multiple ng-model="modelelementsvalues.references" theme="select2" style="width: 90%;">
+                            <ui-select-match placeholder="Select references...">{{$item.name}}</ui-select-match>
+                            <ui-select-choices repeat="element as element in modelelements.references | propsFilter: {name: $select.search}">
+                                <div ng-bind-html="element.name | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                        <a ui-sref="addar.addmodelelement({modelelementtype: 'ReferenceElementLink'})" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></a>
+                    </fieldset>
+                </div>
+                <div class="col-md-3">
+                </div>
+            </div>
+            <fieldset class="form-group">
+                <label for="referenced_ars">Referenced ARs</label>
+                <textarea class="form-control" placeholder="Write a short review of the product..." title="referenced_ars" id="referenced_ars" ng-model="arCtrl.ar.referenced_ars"></textarea>
+            </fieldset>
+            <!-- fieldset class="form-group">
+    <input type="email" class="form-control" placeholder="jimmyDean&#64;example.org" title="Email" />
+    </fieldset -->
+            <fieldset class="form-group pull-right">
+                <button type="button" class="btn btn-warning" ng-click="resetForm(arForm)">Cancel</button>
+                <button type="submit" class="btn btn-primary" ng-disabled="arForm.$invalid">Save AR</button>
+            </fieldset>
+        </form>
+    </div>
+    <div>
+        {{ar}}
+        <hr />
+        {{arversion}}
+        <hr />
+        {{modelelementsvalues.context}}
+    </div>
+</div>

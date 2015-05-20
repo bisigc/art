@@ -1,16 +1,171 @@
-<div ng-controller="ArViewController as arViewCtrl">
+<div>
     <div>
         <div class="page-header">
             <h1>Architectural Refactoring View<br/>
-                <small>{{ar.name}}</small>
+                <small>{{currentar.name}}</small>
             </h1>
         </div>
         <ul class="nav nav-tabs nav-justified">
-            <li role="presentation" ng-class="{active:currentar.id == arversion.id}" ng-repeat="arversion in ar.versions track by $index"><a href ng-click="setCurrentAr($index)">Version<br/>{{arversion.created | date:'yyyy-MM-dd HH:mm:ss'}}</a></li>
+            <li role="presentation" ng-class="{active:currentar.id == arversion.id}" ng-repeat="arversion in ar.versions track by $index"><a href ng-click="setCurrentAr($index)"><span class="label label-info pull-right" ng-if="$index === ar.versions.length - 1">newest</span>Version<br/>{{arversion.created | date:'yyyy-MM-dd HH:mm:ss'}}</a></li>
         </ul>
     </div>
     <div class="tab-content">
-        <div class="tab-pane active" id="tab">{{currentar.name}} {{currentar.created}}</div>
+        <div class="row" ng-if="isAllowed.check(['Admin','Editor'])">
+            <div class="col-md-7"></div>
+            <div class="col-md-5">
+                <p class="pull-right">
+                    <a class="btn btn-warning" ng-if="isAllowed.check(['Admin'])" ng-click="deleteArVersion(currentar.id)">Delete this version</a>
+                    <a class="btn btn-primary" ui-sref="addar({id: currentar.id})">Create new version out of this</a>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Modified</h3>
+                        <span>{{currentar.modified | date:'yyyy-MM-dd HH:mm:ss'}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Created</h3>
+                        <span>{{currentar.created | date:'yyyy-MM-dd HH:mm:ss'}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Status</h3>
+                        <span>{{currentar.status}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Description</h3>
+                    </div>
+                    <div class="panel-body" ng-bind-html="currentar.description"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Context (viewpoint, refinement level, enterprise architecture):</h3>
+                    </div>
+                    <ul class="list-group" ng-repeat="prop in currentar.properties | arPropFilter:'ContextElementLink'">
+                        <li class="list-group-item">{{prop.name}}<br/><small><a ng-href="{{prop.link}}" target="_blank">{{prop.link}}</a></small></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Quality attributes and stories (forces):</h3>
+                    </div>
+                    <ul class="list-group" ng-repeat="prop in currentar.properties | arPropFilter:'QASElementLink'">
+                        <li class="list-group-item">{{prop.name}}<br/><small><a ng-href="{{prop.link}}" target="_blank">{{prop.link}}</a></small></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Smells</h3>
+                    </div>
+                    <ul class="list-group" ng-repeat="smell in currentar.smells">
+                        <li class="list-group-item"><a ui-sref="singlesmell({id: smell.id})">{{smell.name}}</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Architectural decision(s) to be revisited:</h3>
+                    </div>
+                    <ul class="list-group" ng-repeat="prop in currentar.properties | arPropFilter:'DecisionElementLink'">
+                        <li class="list-group-item">{{prop.name}}<br/><small><a ng-href="{{prop.link}}" target="_blank">{{prop.link}}</a></small></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Refactoring (solution sketch/evolution outline):</h3>
+                    </div>
+                    <ul class="list-group" ng-repeat="prop in currentar.properties | arPropFilter:'DesignElementLink'">
+                        <li class="list-group-item">{{prop.name}}<br/><small><a ng-href="{{prop.link}}" target="_blank">{{prop.link}}</a></small></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Affected components and connectors (if modelled explicitly):</h3>
+                    </div>
+                    <ul class="list-group" ng-repeat="prop in currentar.properties | arPropFilter:'ComponentElementLink'">
+                        <li class="list-group-item">{{prop.name}}<br/><small><a ng-href="{{prop.link}}" target="_blank">{{prop.link}}</a></small></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Tasks</h3>
+                    </div>
+                    <ul class="list-group" ng-repeat="task in currentar.tasks">
+                        <li class="list-group-item"><a ui-sref="singletask({id: task.id})">{{task.name}}</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">References (links):</h3>
+                    </div>
+                    <ul class="list-group" ng-repeat="prop in currentar.properties | arPropFilter:'ReferenceElementLink'">
+                        <li class="list-group-item">{{prop.name}}<br/><small><a ng-href="{{prop.link}}" target="_blank">{{prop.link}}</a></small></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-primary pull-right" ng-click="$state.go('aredit',{id: currentar.id})" ng-if="isAllowed.check(['Admin','Editor'])">Edit Smell</button>
+            </div>
+        </div>
         <div ui-view="discussionView"></div>
     </div>
 </div>

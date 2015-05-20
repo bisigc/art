@@ -1,24 +1,20 @@
 package models.ar.element;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.ManyToMany;
 
 import models.AbstractModel;
-import models.ar.ArVersion;
 
 @Entity
-public abstract class ModelElementLink extends AbstractModel {
+public class ModelElementLink extends AbstractModel {
 	
 	@Enumerated(EnumType.STRING)
 	private ModelElementLinkType type;
 	private String name;
 	private String link;
-	@ManyToMany
-	private List<ArVersion> ar;
+	/*@ManyToMany
+	private List<ArVersion> ar;*/
 	
 	public enum ModelElementLinkType {
 		QASElementLink, 
@@ -36,6 +32,6 @@ public abstract class ModelElementLink extends AbstractModel {
 	public void setName(String name) { this.name = name; }
 	public String getLink() { return link; }
 	public void setLink(String link) { this.link = link; }
-	public List<ArVersion> getAr() { return ar; }
-	public void setAr(List<ArVersion> ar) { this.ar = ar; }
+	/*public List<ArVersion> getAr() { return ar; }
+	public void setAr(List<ArVersion> ar) { this.ar = ar; }*/
 }

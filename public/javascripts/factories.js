@@ -34,6 +34,40 @@ app.factory("PasswordValidator", [function() {
     }
 }]);
 
+app.factory("PropModal", ['$modal', 'notifications', function($modal, notifications) {
+
+    return {
+        open: function(type, okfunction, dissmissedfunction) {
+            notifications.showInfo("bubu" + type);
+            var modaltype = type;
+            var modalInstance = $modal.open(
+                {
+                    templateUrl: _contextPath + 'modelelementdialog.html',
+                    controller: 'ModelElementAddController',
+                    size: 'lg',
+                    resolve: {
+                        modelelementtype: function () { 
+                            return modaltype;
+                        }
+                    }
+                }
+            );
+
+            modalInstance.result.then(okfunction, dissmissedfunction);
+            
+            /*$stateParams.ok = function () {
+                $modalInstance.close($scope.selected.item);
+            };
+
+            $stateParams.cancel = function () {
+                modalInstance.dismiss('cancel');
+            };*/
+
+        }
+        
+    }
+}]);
+
 app.factory("ReplyErrorHandler", ['currentUser', 'notifications', '$log', function(currentUser, notifications, $log) {
     return function(error) { //, msg) {
         //$log.debug("data: " + error['data'] + " Text: " + error['statusText'] + ", Status: " + error['status'] + ", config: " + error['config']['url']+ ", method: " + error['config']['method']);
@@ -92,6 +126,41 @@ app.factory("ArVersionService", ['$resource', '$http', function($resource, $http
         count: function(smellids){
             return $http.post(_contextPath + 'arsearchcount', smellids, { transformResponse: [] });
         }
+    };
+}]);
+
+app.factory("ModelElementService", ['$resource', function($resource) {
+    return {
+        type: $resource(_contextPath + 'modelelement/type', {}, {
+            get: {method:'GET', isArray: true}
+        }),
+        qas: $resource(_contextPath + 'modelelement/qas', {}, {
+            get: {method:'GET', isArray: true}
+        }),
+        components: $resource(_contextPath + 'modelelement/components', {}, {
+            get: {method:'GET', isArray: true}
+        }),
+        context: $resource(_contextPath + 'modelelement/context', {}, {
+            get: {method:'GET', isArray: true}
+        }),
+        decisions: $resource(_contextPath + 'modelelement/decisions', {}, {
+            get: {method:'GET', isArray: true}
+        }),
+        design: $resource(_contextPath + 'modelelement/design', {}, {
+            get: {method:'GET', isArray: true}
+        }),
+        references: $resource(_contextPath + 'modelelement/references', {}, {
+            get: {method:'GET', isArray: true}
+        }),
+        noid: $resource(_contextPath + 'modelelement', {}, {
+            get: {method:'GET', isArray: true},
+            update: { method: 'PUT' },
+            create: { method: 'POST' }
+        }),
+        id: $resource(_contextPath + 'modelelement/:id', {}, {
+            get: { method: 'GET' },
+            delete: { method: 'DELETE', params: {id: '@id'} }
+        })
     };
 }]);
 

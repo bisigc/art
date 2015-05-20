@@ -1,11 +1,3 @@
-comile
-compile
-eclipse
-git status
-compile
-run
-compile
-run
 compile
 run
 compile
@@ -495,6 +487,14 @@ run
 exit
 compile
 run
+compile
+run
+exit
+compile
+run
+compile
+run
+exit
 compile
 run
 exit

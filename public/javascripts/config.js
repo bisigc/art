@@ -86,45 +86,24 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
     })
         .state('smellbrowser', {
         url: "/smellbrowser",
-        controller: "SmellController as smellCtrl",
-        templateUrl: _contextPath + "smellbrowser.html",
+        //templateUrl: _contextPath + "smellbrowser.html",
         title: "Smell Browser",
-        data: { requireLogin: false }
-    })
-        .state('arbrowser', {
-        url: "/arbrowser",
-        templateUrl: _contextPath + "arbrowser.html",
-        title: "AR Browser",
-        data: { requireLogin: false }
-    })
-        .state('addar', {
-        url: "/addar",
-        templateUrl: _contextPath + "addar.html",
-        title: "Add AR",
-        data: { 
-            requireLogin: true,
-            allowedRoles: ["Admin", "Editor"]
-        }
-    })
-        .state('arsearch', {
-        url: "/arsearch/:smellids",
-        controller: "ARSearchController as arSearchCtrl",
-        templateUrl: _contextPath + "arsearch.html",
-        title: "AR Search",
-        /*params: {
-            smellids: null,
-        },*/
-        data: { 
-            requireLogin: false
-        }
-    })  
-        .state('usersearches', {
-        url: "/usersearches",
-        templateUrl: _contextPath + "usersearches.html",
-        title: "User Searches",
-        data: { 
-            requireLogin: true,
-            allowedRoles: ["Admin", "Applier", "Editor"]
+        data: { requireLogin: false },
+        views: {
+            '': {
+                controller: "SmellController as smellCtrl",
+                title: "Smell Browser",
+                templateUrl: _contextPath + "smellbrowser.html",
+            },
+            'addSmellView@smellbrowser': {
+                controller: "SmellAddController as smellAddCtrl",
+                title: "Create Smell",
+                templateUrl: _contextPath + "smelldialog.html",
+                data: { 
+                    requireLogin: true,
+                    allowedRoles: ["Admin", "Editor"]
+                }
+            }
         }
     })
         .state('smellbrowser.edit', {
@@ -151,6 +130,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 
             modalInstance.result.then(function () {
                 $state.go('^');
+                reload();
             }, function () {
                 $state.go('^');
             });
@@ -163,13 +143,213 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             };
         }]
     })
+        .state('arbrowser', {
+        url: "/arbrowser",
+        templateUrl: _contextPath + "arbrowser.html",
+        controller: "ARController as arCtrl",
+        title: "AR Browser",
+        data: { requireLogin: false }
+    })
+        .state('addar', {
+        url: "/addar",
+        templateUrl: _contextPath + "arform.html",
+        controller: "ARAddController as arAddCtrl",
+        title: "Add AR",
+        params: {id: null},
+        data: { 
+            requireLogin: true,
+            allowedRoles: ["Admin", "Editor"]
+        }
+    })
+        .state('aredit', {
+        url: "/aredit/:id",
+        templateUrl: _contextPath + "arform.html",
+        controller: 'AREditController as arEditCtrl',
+        title: "Edit AR",
+        data: { 
+            requireLogin: true,
+            allowedRoles: ["Admin", "Editor"]
+        }
+    })
+        .state('addar.addmodelelement', {
+        url: "/addmodelelement/:modelelementtype",
+        templateUrl: _contextPath + "arbrowser.html",
+        title: "Add ModelElement",
+        data: { 
+            requireLogin: true,
+            allowedRoles: ["Admin", "Editor"]
+        },
+        onEnter: ['$stateParams', '$state', '$modal', function($stateParams, $state, $modal) {
+            var modalInstance = $modal.open(
+                {
+                    templateUrl: _contextPath + 'modelelementdialog.html',
+                    controller: 'ModelElementAddController',
+                    size: 'lg',
+                    resolve: {
+                        modelelementtype: function () { 
+                            return $stateParams.modelelementtype;
+                        }
+                    }
+                }
+            );
+
+            modalInstance.result.then(function () {
+                $state.go('^');
+            }, function () {
+                $state.go('^');
+            });
+            $stateParams.ok = function () {
+                $modalInstance.close($scope.selected.item);
+            };
+
+            $stateParams.cancel = function () {
+                modalInstance.dismiss('cancel');
+            };
+        }]
+    })
+        .state('addar.addsmell', {
+        url: "/addsmell",
+        templateUrl: _contextPath + "arbrowser.html",
+        title: "Add Smell",
+        data: { 
+            requireLogin: true,
+            allowedRoles: ["Admin", "Editor"]
+        },
+        onEnter: ['$stateParams', '$state', '$modal', function($stateParams, $state, $modal) {
+            var modalInstance = $modal.open(
+                {
+                    templateUrl: _contextPath + 'smelldialog.html',
+                    controller: 'SmellAddController',
+                    size: 'lg',
+                }
+            );
+
+            modalInstance.result.then(function () {
+                $state.go('^');
+                reload();
+            }, function () {
+                $state.go('^');
+            });
+            $stateParams.ok = function () {
+                $modalInstance.close($scope.selected.item);
+            };
+
+            $stateParams.cancel = function () {
+                modalInstance.dismiss('cancel');
+            };
+        }]
+    })
+        .state('modelelement', {
+        url: "/modelelement",
+        templateUrl: _contextPath + "modelelement.html",
+        controller: 'ModelElementController',
+        title: "Model Elements",
+        data: { 
+            requireLogin: true,
+            allowedRoles: ["Admin", "Editor"]
+        }
+    })
+        .state('modelelement.edit', {
+        url: "/edit/:id",
+        templateUrl: _contextPath + "modelelement.html",
+        title: "Edit ModelElement",
+        data: { 
+            requireLogin: true,
+            allowedRoles: ["Admin", "Editor"]
+        },
+        onEnter: ['$stateParams', '$state', '$modal', function($stateParams, $state, $modal) {
+            var modalInstance = $modal.open(
+                {
+                    templateUrl: _contextPath + 'modelelementdialog.html',
+                    controller: 'ModelElementUpdateController',
+                    size: 'lg',
+                    resolve: {
+                        id: function () { 
+                            return $stateParams.id;
+                        }
+                    }
+                }
+            );
+
+            modalInstance.result.then(function () {
+                $state.go('^');
+            }, function () {
+                $state.go('^');
+            });
+            $stateParams.ok = function () {
+                $modalInstance.close($scope.selected.item);
+            };
+
+            $stateParams.cancel = function () {
+                modalInstance.dismiss('cancel');
+            };
+        }]
+    })
+        .state('modelelement.add', {
+        url: "/add/:modelelementtype",
+        templateUrl: _contextPath + "modelelement.html",
+        title: "Add ModelElement",
+        data: { 
+            requireLogin: true,
+            allowedRoles: ["Admin", "Editor"]
+        },
+        onEnter: ['$stateParams', '$state', '$modal', function($stateParams, $state, $modal) {
+            var modalInstance = $modal.open(
+                {
+                    templateUrl: _contextPath + 'modelelementdialog.html',
+                    controller: 'ModelElementAddController',
+                    size: 'lg',
+                    resolve: {
+                        modelelementtype: function () { 
+                            return $stateParams.modelelementtype;
+                        }
+                    }
+                }
+            );
+
+            modalInstance.result.then(function () {
+                $state.go('^');
+            }, function () {
+                $state.go('^');
+            });
+            $stateParams.ok = function () {
+                $modalInstance.close($scope.selected.item);
+            };
+
+            $stateParams.cancel = function () {
+                modalInstance.dismiss('cancel');
+            };
+        }]
+    })
+        .state('arsearch', {
+        url: "/arsearch/:smellids",
+        controller: "ARSearchController as arSearchCtrl",
+        templateUrl: _contextPath + "arsearch.html",
+        title: "AR Search",
+        /*params: {
+            smellids: null,
+        },*/
+        data: { 
+            requireLogin: false
+        }
+    })  
+        .state('usersearches', {
+        url: "/usersearches",
+        templateUrl: _contextPath + "usersearches.html",
+        title: "User Searches",
+        data: { 
+            requireLogin: true,
+            allowedRoles: ["Admin", "Applier", "Editor"]
+        }
+    })
         .state('singlesmell', {
         url: "/smell/:id",
         title: "Smell View",
         data: { requireLogin: false },
         views: {
             '': {
-                templateUrl: _contextPath + "singlesmell.html"
+                templateUrl: _contextPath + "singlesmell.html",
+                controller: "SmellViewController as smellCtrl"
             }/*,
             'discussionView@singlesmell': {
                 templateUrl: _contextPath + "discussion.html"
@@ -182,10 +362,12 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
         data: { requireLogin: false },
         views: {
             '': {
-                templateUrl: _contextPath + "singlear.html"
+                templateUrl: _contextPath + "singlear.html",
+                controller: 'ArViewController as arViewCtrl'
             },
             'discussionView@singlear': {
-                templateUrl: _contextPath + "discussion.html"
+                templateUrl: _contextPath + "discussion.html",
+                controller: 'DiscussionController as disCtrl'
             }
         }
     })

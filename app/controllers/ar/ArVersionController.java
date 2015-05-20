@@ -1,5 +1,6 @@
 package controllers.ar;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -7,12 +8,16 @@ import java.util.List;
 import javax.persistence.TypedQuery;
 
 import models.ar.ArVersion;
+import models.discussion.Discussion;
+import models.discussion.Discussion.DiscussionType;
 import models.status.ItemStatus;
+import models.user.User;
 import play.Logger;
 import play.db.jpa.JPA;
 import play.db.jpa.Transactional;
 import play.libs.Json;
 import play.mvc.Result;
+import utils.actions.SessionAuth;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.google.inject.Inject;
@@ -57,6 +62,36 @@ public class ArVersionController extends AbstractCRUDController<ArVersion, Long>
 	@Inject
 	public ArVersionController(@Named("ArVersionDAO") GenericDAO<ArVersion, Long> dao) {
 		super(dao);
+	}
+	
+	@SessionAuth
+	@Transactional
+	@Override
+	public Result create() {
+	    ArVersion inserted;
+	    JsonNode node = null;
+		try {
+			node = request().body().asJson();
+			ArVersion arversion = Json.fromJson(node, dao.getModel());
+		    Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		    arversion.setCreated(currentTime);
+		    arversion.setModified(currentTime);
+		    User creator = new User();
+		    creator.setId(Long.parseLong(session().get("user_id")));
+		    arversion.setUser(creator);
+		    Discussion discussion = new Discussion();
+		    discussion.setAr(arversion);
+		    discussion.setCreated(currentTime);
+		    discussion.setType(DiscussionType.DISCUSSION);
+		    arversion.setDiscussion(discussion);
+		    arversion.setStatus(ItemStatus.draft);
+			inserted = dao.create(arversion);
+		} catch (Exception e) {
+			String msg =" Failed to create " + dao.getModel().getSimpleName() ;
+			Logger.error(msg + " JSON: " + node, e);
+			return internalServerError(msg);
+		}
+	    return created(Json.toJson(inserted));
 	}
 	
 	/**

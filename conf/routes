@@ -22,6 +22,20 @@ DELETE  /arversion/:id            @controllers.ar.ArVersionController.delete(id:
 POST    /arsearch                 @controllers.ar.ArVersionController.arSmellSearch()
 POST    /arsearchcount            @controllers.ar.ArVersionController.arSmellSearchCount()
 
+#ModelElement service
+GET     /modelelement/type        @controllers.ar.element.ModelElementController.getModelElementLinkType()
+GET     /modelelement/qas         @controllers.ar.element.ModelElementController.getQASElements()
+GET     /modelelement/components  @controllers.ar.element.ModelElementController.getComponentElements()
+GET     /modelelement/context     @controllers.ar.element.ModelElementController.getContextElements()
+GET     /modelelement/decisions   @controllers.ar.element.ModelElementController.getDecisionElements()
+GET     /modelelement/design      @controllers.ar.element.ModelElementController.getDesignElements()
+GET     /modelelement/references  @controllers.ar.element.ModelElementController.getReferenceElements()
+GET     /modelelement             @controllers.ar.element.ModelElementController.getAll()
+GET     /modelelement/:id         @controllers.ar.element.ModelElementController.get(id: Long)
+POST    /modelelement             @controllers.ar.element.ModelElementController.create()
+PUT     /modelelement             @controllers.ar.element.ModelElementController.update()
+DELETE  /modelelement/:id         @controllers.ar.element.ModelElementController.delete(id: Long)
+
 #Smell service
 GET     /smell                    @controllers.smell.SmellController.getAll()
 GET     /smell/forcloud           @controllers.smell.SmellController.getCloudSmells()

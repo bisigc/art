@@ -57,7 +57,7 @@ public class GenericDAOImpl<T extends AbstractModel, PK extends Serializable> im
 	}
 
 	@Override
-	public T create(T t) {
+	public T create(T t) throws Exception {
 	    JPA.em().persist(t);
 	    JPA.em().flush();
 	    JPA.em().refresh(t);

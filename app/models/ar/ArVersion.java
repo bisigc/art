@@ -16,6 +16,7 @@ import models.ar.element.ModelElementLink;
 import models.discussion.Discussion;
 import models.smell.Smell;
 import models.status.ItemStatus;
+import models.task.TaskTemplate;
 import models.user.User;
 
 /**
@@ -33,9 +34,10 @@ public class ArVersion extends AbstractModel {
 	@ManyToMany
 	private List<Smell> smells;
 	@ManyToMany
+	private List<TaskTemplate> tasks;
+	@ManyToMany
 	private List<ModelElementLink> properties;
-	
-	@OneToOne(cascade=CascadeType.PERSIST, mappedBy="ar")
+	@OneToOne(cascade=CascadeType.ALL, orphanRemoval=true, mappedBy="ar")
 	private Discussion discussion;
 	@OneToOne(cascade=CascadeType.PERSIST, mappedBy="ar")
 	private Discussion commentary;
@@ -54,9 +56,17 @@ public class ArVersion extends AbstractModel {
 	public Long getArhead() {
 		return arhead.getId(); 
 	}
-	public void setArhead(Ar arhead) { this.arhead = arhead; }
+	public void setArhead(Long id) {
+		Ar ar = new Ar();
+		ar.setId(id);
+		this.arhead = ar;
+	}
 	public List<Smell> getSmells() { return smells; }
 	public void setSmells(List<Smell> smells) { this.smells = smells; }
+	public List<TaskTemplate> getTasks() { return tasks; }
+	public void setTasks(List<TaskTemplate> tasks) { this.tasks = tasks; }
+	public List<ModelElementLink> getProperties() { return properties; }
+	public void setProperties(List<ModelElementLink> properties) { this.properties = properties; }
 	public void setDescription(String description) { this.description = description; }
 	public User getUser() { return editor; }
 	public void setUser(User editor) { this.editor = editor; }

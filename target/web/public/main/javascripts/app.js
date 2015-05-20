@@ -108,14 +108,6 @@ app.controller('MenuController', ['MenuService', 'ReplyErrorHandler', 'notificat
     MenuService.get({},function(data, status, headers, config) {
         $scope.menuItems = data;
     }, ReplyErrorHandler); 
-    /*$scope.menuItem = 'home.html';
-    $scope.setMenu = function(selectedMenu) {
-        $scope.menuItem = selectedMenu + '.html';
-    };
-
-    $scope.isMenuSet = function(isSet) {
-        return isSet === $scope.menuItem;
-    };*/
 }]);
 
 app.controller('StatsController', ['StatisticService', 'ReplyErrorHandler', 'notifications', '$scope', function(StatisticService, ReplyErrorHandler, notifications, $scope){
@@ -125,8 +117,8 @@ app.controller('StatsController', ['StatisticService', 'ReplyErrorHandler', 'not
     }, ReplyErrorHandler); 
 }]);
 
-app.controller('ArViewController', ['ArService', 'ReplyErrorHandler', '$stateParams', 'notifications','$scope', function(ArService, ReplyErrorHandler, $stateParams, notifications, $scope) {
-    $scope.ar = [];
+app.controller('ArViewController', ['ArService', 'ArVersionService', 'ReplyErrorHandler', '$stateParams', 'notifications','$scope', function(ArService, ArVersionService, ReplyErrorHandler, $stateParams, notifications, $scope) {
+    $scope.ar = {};
     $scope.discussion_id;
     $scope.comments;
 
@@ -139,10 +131,20 @@ app.controller('ArViewController', ['ArService', 'ReplyErrorHandler', '$statePar
         $scope.comments = $scope.currentar.discussion.comments;
     }
 
-    ArService.id.get({id: $stateParams.id},function(data, status, headers, config) {
-        $scope.ar = data;
-        $scope.setCurrentAr($scope.ar.versions.length - 1);
-    }, ReplyErrorHandler);
+    $scope.loadAr = function() {
+        ArService.id.get({id: $stateParams.id},function(data, status, headers, config) {
+            $scope.ar = data;
+            $scope.setCurrentAr($scope.ar.versions.length - 1);
+        }, ReplyErrorHandler);
+    }
+    $scope.loadAr();
+    
+    $scope.deleteArVersion = function(id) {
+        ArVersionService.id.delete({id: id},function(data, status, headers, config) {
+            notifications.showSuccess("ArVersion " + id + " has been deleted.");
+            $scope.loadAr();
+        }, ReplyErrorHandler);
+    }
 
 }]);
 
@@ -182,7 +184,7 @@ app.controller('DiscussionController', ['DiscussionService', 'CommentService', '
     }, ReplyErrorHandler);*/
 }]);
 
-app.controller('ARController', ['ArVersionService', 'CloudSmells', 'ReplyErrorHandler', 'notifications','$scope','$filter', function(ArVersionService, CloudSmells, ReplyErrorHandler, notifications, $scope, $filter) {
+app.controller('ARController', ['ArService', 'ArVersionService', 'CloudSmells', 'ReplyErrorHandler', 'notifications','$scope','$filter', function(ArService, ArVersionService, CloudSmells, ReplyErrorHandler, notifications, $scope, $filter) {
     var orderBy = $filter('orderBy');
     $scope.arlist = []; //ars;
     this.formvisible = true;
@@ -234,6 +236,13 @@ app.controller('ARController', ['ArVersionService', 'CloudSmells', 'ReplyErrorHa
             this.arlist.push(this.ar);
             this.ar = {};
         };*/
+    
+    $scope.deleteAr = function(id) {
+        ArService.id.delete({id: id}, function(data, status, headers, config) {
+            notifications.showSuccess("Delete of AR with id " + id + " and his versions succsessful.");
+            $scope.loadArs();
+        }, ReplyErrorHandler);  
+    }
 
     $scope.totalItems = 64;
     $scope.currentPage = 4;
@@ -249,7 +258,104 @@ app.controller('ARController', ['ArVersionService', 'CloudSmells', 'ReplyErrorHa
     $scope.maxSize = 5;
     $scope.bigTotalItems = 175;
     $scope.bigCurrentPage = 1;
+}]);
 
+app.controller('AREditController', ['ArService', 'ArVersionService', 'SmellService', 'StatusService', 'ModelElementService', 'StatusService', 'ReplyErrorHandler', 'notifications', '$scope', '$stateParams', '$filter', 'PropModal', function(ArService, ArVersionService, SmellService, StatusService, ModelElementService, StatusService, ReplyErrorHandler, notifications, $scope, $stateParams, $filter, PropModal) {
+    $scope.ar = {'versions': []}; //ars;
+    //$scope.ar.versions = [];
+    $scope.arversion = {};
+    $scope.arversion.properties = [];
+    $scope.arversion.smells = [];
+    $scope.arversion.tasks = [];
+    $scope.smells = [];
+    $scope.tasks = [];
+    $scope.ar.versions.push($scope.arversion);
+    $scope.modelelements = [];
+    $scope.modelelementtypes = [];
+    $scope.status = [];
+    
+    $scope.modelelementsvalues = [];
+    
+    $scope.modelelementsvalues.qas = [];
+    $scope.modelelementsvalues.context = [];
+    $scope.modelelementsvalues.components = [];
+    $scope.modelelementsvalues.decisions = [];
+    $scope.modelelementsvalues.design = [];
+    $scope.modelelementsvalues.references = [];
+    
+    $scope.loadArVersion = function() {
+        ArVersionService.id.get({id: $stateParams.id}, function(data, status, headers, config) {
+            $scope.arversion = data;
+            $scope.modelelementsvalues.qas = $filter('arPropFilter')($scope.arversion.properties, 'QASElementLink');
+            $scope.modelelementsvalues.context = $filter('arPropFilter')($scope.arversion.properties, 'ContextElementLink');
+            $scope.modelelementsvalues.components = $filter('arPropFilter')($scope.arversion.properties, 'DecisionElementLink');
+            $scope.modelelementsvalues.decisions = $filter('arPropFilter')($scope.arversion.properties, 'DesignElementLink');
+            $scope.modelelementsvalues.design = $filter('arPropFilter')($scope.arversion.properties, 'ComponentElementLink');
+            $scope.modelelementsvalues.references = $filter('arPropFilter')($scope.arversion.properties, 'ReferenceElementLink');
+            $scope.arversion.properties = [];
+        }, ReplyErrorHandler);
+    }
+    $scope.loadArVersion();
+    
+    /*$scope.loadAr = function () {
+        ArVersionService.id.get({id: $stateParams.id},function(data, status, headers, config) {
+            $scope.ar = data;
+        }, ReplyErrorHandler);  
+    };
+    $scope.loadAr();*/
+    $scope.openPropModal = function(type) {
+        PropModal.open(type, function() {$scope.loadValues()}, function() {});
+    }
+    
+    $scope.loadValues = function () {
+        StatusService.get({},function(data, status, headers, config) {
+            $scope.status = data;
+        }, ReplyErrorHandler);        
+        SmellService.noid.get({},function(data, status, headers, config) {
+            $scope.smells = data;
+        }, ReplyErrorHandler);        
+        ModelElementService.type.get({},function(data, status, headers, config) {
+            $scope.modelelementtypes = data;
+        }, ReplyErrorHandler);  
+        ModelElementService.qas.get({},function(data, status, headers, config) {
+            $scope.modelelements.qas = data;
+        }, ReplyErrorHandler);  
+        ModelElementService.context.get({},function(data, status, headers, config) {
+            $scope.modelelements.context = data;
+        }, ReplyErrorHandler);  
+        ModelElementService.components.get({},function(data, status, headers, config) {
+            $scope.modelelements.components = data;
+        }, ReplyErrorHandler);  
+        ModelElementService.decisions.get({},function(data, status, headers, config) {
+            $scope.modelelements.decisions = data;
+        }, ReplyErrorHandler);  
+        ModelElementService.design.get({},function(data, status, headers, config) {
+            $scope.modelelements.design = data;
+        }, ReplyErrorHandler);  
+        ModelElementService.references.get({},function(data, status, headers, config) {
+            $scope.modelelements.references = data;
+        }, ReplyErrorHandler);  
+    };
+    $scope.loadValues();
+
+    $scope.mergeProperties = function() {
+        //angular.extend(ar.versions, arversion);
+        $scope.arversion.properties = [].concat(
+            $scope.modelelementsvalues.qas,
+            $scope.modelelementsvalues.context,
+            $scope.modelelementsvalues.components,
+            $scope.modelelementsvalues.decisions,
+            $scope.modelelementsvalues.design,
+            $scope.modelelementsvalues.references
+            );
+    }
+    
+    $scope.saveAr = function() {
+        $scope.mergeProperties();
+        ArVersionService.noid.update($scope.arversion, function(data, status, headers, config) {
+            notifications.showSuccess("ArVersion has been added successfully.");
+        }, ReplyErrorHandler);
+    }
 
     this.progMax = 200;
 
@@ -288,6 +394,218 @@ app.controller('ARController', ['ArVersionService', 'CloudSmells', 'ReplyErrorHa
     this.setProgValue();
 }]);
 
+app.controller('ARAddController', ['ArService', 'ArVersionService', 'SmellService', 'ModelElementService', 'StatusService', 'ReplyErrorHandler', 'notifications', '$scope', '$stateParams', '$filter', '$state', 'PropModal', function(ArService, ArVersionService, SmellService, ModelElementService, StatusService, ReplyErrorHandler, notifications, $scope, $stateParams, $filter, $state, PropModal) {
+    $scope.ar = {'versions': []}; //ars;
+    //$scope.ar.versions = [];
+    $scope.arversion = {};
+    $scope.arversion.properties = [];
+    $scope.arversion.smells = [];
+    $scope.arversion.tasks = [];
+    $scope.smells = [];
+    $scope.tasks = [];
+    $scope.ar.versions.push($scope.arversion);
+    $scope.modelelements = [];
+    $scope.modelelementtypes = [];
+    $scope.status = [];
+
+    $scope.modelelementsvalues = [];
+    
+    $scope.modelelementsvalues.qas = [];
+    $scope.modelelementsvalues.context = [];
+    $scope.modelelementsvalues.components = [];
+    $scope.modelelementsvalues.decisions = [];
+    $scope.modelelementsvalues.design = [];
+    $scope.modelelementsvalues.references = [];
+    
+    if($stateParams.id && $stateParams.id != '') {
+        ArVersionService.id.get({id: $stateParams.id}, function(data, status, headers, config) {
+            $scope.arversion = data;
+            $scope.ar.id = $scope.arversion.arhead;
+            $scope.arversion.discussion = {};
+            $scope.arversion.commentary = {};
+            $scope.modelelementsvalues.qas = $filter('arPropFilter')($scope.arversion.properties, 'QASElementLink');
+            $scope.modelelementsvalues.context = $filter('arPropFilter')($scope.arversion.properties, 'ContextElementLink');
+            $scope.modelelementsvalues.components = $filter('arPropFilter')($scope.arversion.properties, 'DecisionElementLink');
+            $scope.modelelementsvalues.decisions = $filter('arPropFilter')($scope.arversion.properties, 'DesignElementLink');
+            $scope.modelelementsvalues.design = $filter('arPropFilter')($scope.arversion.properties, 'ComponentElementLink');
+            $scope.modelelementsvalues.references = $filter('arPropFilter')($scope.arversion.properties, 'ReferenceElementLink');
+            $scope.arversion.properties = [];
+            $scope.arversion.id = null;
+        }, ReplyErrorHandler);
+    }
+    
+    /*$scope.loadAr = function () {
+        ArVersionService.id.get({id: $stateParams.id},function(data, status, headers, config) {
+            $scope.ar = data;
+        }, ReplyErrorHandler);  
+    };
+    $scope.loadAr();*/
+    
+    $scope.openPropModal = function(type) {
+        PropModal.open(type, function() {$scope.loadValues()}, function() {});
+    }
+    
+    $scope.loadValues = function () {
+        StatusService.get({},function(data, status, headers, config) {
+            $scope.status = data;
+        }, ReplyErrorHandler);        
+        SmellService.noid.get({},function(data, status, headers, config) {
+            $scope.smells = data;
+        }, ReplyErrorHandler);        
+        ModelElementService.type.get({},function(data, status, headers, config) {
+            $scope.modelelementtypes = data;
+        }, ReplyErrorHandler);  
+        ModelElementService.qas.get({},function(data, status, headers, config) {
+            $scope.modelelements.qas = data;
+        }, ReplyErrorHandler);  
+        ModelElementService.context.get({},function(data, status, headers, config) {
+            $scope.modelelements.context = data;
+        }, ReplyErrorHandler);  
+        ModelElementService.components.get({},function(data, status, headers, config) {
+            $scope.modelelements.components = data;
+        }, ReplyErrorHandler);  
+        ModelElementService.decisions.get({},function(data, status, headers, config) {
+            $scope.modelelements.decisions = data;
+        }, ReplyErrorHandler);  
+        ModelElementService.design.get({},function(data, status, headers, config) {
+            $scope.modelelements.design = data;
+        }, ReplyErrorHandler);  
+        ModelElementService.references.get({},function(data, status, headers, config) {
+            $scope.modelelements.references = data;
+        }, ReplyErrorHandler);  
+    };
+    $scope.loadValues();
+
+    $scope.mergeProperties = function() {
+        //angular.extend(ar.versions, arversion);
+        $scope.arversion.properties = [].concat(
+            $scope.modelelementsvalues.qas,
+            $scope.modelelementsvalues.context,
+            $scope.modelelementsvalues.components,
+            $scope.modelelementsvalues.decisions,
+            $scope.modelelementsvalues.design,
+            $scope.modelelementsvalues.references
+            );
+    }
+    
+    $scope.saveAr = function() {
+        $scope.mergeProperties();
+        if($stateParams.id && $stateParams.id != '') {
+            ArVersionService.noid.create($scope.arversion, function(data, status, headers, config) {
+                notifications.showSuccess("ArVersion has been added successfully.");
+                $state.go('singlear', {id: data.arhead});
+            }, ReplyErrorHandler);
+        } else {
+            ArService.noid.create($scope.ar, function(data, status, headers, config) {
+                notifications.showSuccess("Ar has been added successfully.");
+                $state.go('singlear', {id: data.id});
+            }, ReplyErrorHandler);
+        }
+    }
+
+    this.progMax = 200;
+
+    this.setProgValue = function() {
+
+        this.progStacked = [];
+        var types = ['success', 'info', 'warning', 'danger'];
+
+        for (var i = 0, n = Math.floor((Math.random() * 4) + 1); i < n; i++) {
+            var index = Math.floor((Math.random() * 4));
+            this.progStacked.push({
+                value: Math.floor((Math.random() * 30) + 1),
+                type: types[index]
+            });
+        }
+        /*       
+            var value = Math.floor((Math.random() * 100) + 1);
+            var type;
+
+            if (value < 25) {
+                type = 'success';
+            } else if (value < 50) {
+                type = 'info';
+            } else if (value < 75) {
+                type = 'warning';
+            } else {
+                type = 'danger';
+            }
+
+            this.showProgWarning = (type === 'danger' || type === 'warning');
+
+            this.progDynamic = value;
+            this.progType = type;
+            */
+    };
+    this.setProgValue();
+}]);
+
+app.controller('ModelElementController', ['ModelElementService', 'ReplyErrorHandler', 'notifications', '$scope', '$stateParams', function(ModelElementService, ReplyErrorHandler, notifications, $scope, $stateParams) {
+    $scope.modelelementlist = [];
+    $scope.modelelementtypes = [];
+    $scope.selectedtype = '';
+    
+    $scope.loadModelElementTypes = function() {
+        ModelElementService.type.get({}, function(data, status, headers, config) {
+            $scope.modelelementtypes = data;
+        }, ReplyErrorHandler);
+    }
+    $scope.loadModelElementTypes();
+    
+    $scope.loadModelElements = function(form) {
+        ModelElementService.noid.get({}, function(data, status, headers, config) {
+            $scope.modelelementlist = data;
+        }, ReplyErrorHandler);  
+    }
+    $scope.loadModelElements();
+    
+    $scope.deleteElement = function(elementid) {
+        ModelElementService.id.delete({id: elementid},function(data, status, headers, config) {
+            notifications.showSuccess("Model Element Link has been deleted.");
+            $scope.loadModelElements();
+        }, ReplyErrorHandler);     
+    }
+}]);
+
+app.controller('ModelElementAddController', ['ModelElementService', 'ReplyErrorHandler', 'notifications', '$modalInstance', '$scope', '$stateParams', 'modelelementtype', function(ModelElementService, ReplyErrorHandler, notifications, $modalInstance, $scope, $stateParams, modelelementtype) {
+    $scope.modelelement = {};
+    $scope.modelelement.type = modelelementtype;
+    
+    $scope.saveModelElement = function(form) {
+        ModelElementService.noid.create($scope.modelelement, function(data, status, headers, config) {
+            notifications.showSuccess("Model Element of type " + $scope.modelelement.type + " has been added.");
+            $scope.modelelement = {};
+            form.$setPristine();
+            $modalInstance.close();
+        }, ReplyErrorHandler);  
+    }
+    
+    $scope.dismiss = function(form) {
+        $modalInstance.dismiss('cancel');
+    }
+
+    
+}]);
+
+app.controller('ModelElementUpdateController', ['ModelElementService', 'ReplyErrorHandler', 'notifications', '$modalInstance', '$scope', '$stateParams', function(ModelElementService, ReplyErrorHandler, notifications, $modalInstance, $scope, $stateParams) {
+    $scope.modelelement = {};
+    $scope.loadModelElement = function() {
+        ModelElementService.id.get({id: $stateParams.id}, function(data, status, headers, config) {
+            $scope.modelelement = data;
+        }, ReplyErrorHandler);  
+    }
+    $scope.loadModelElement();
+    
+    $scope.saveModelElement = function(form) {
+        ModelElementService.noid.update($scope.modelelement, function(data, status, headers, config) {
+            notifications.showSuccess("Model Element of type " + $scope.modelelement.type + " has been updated.");
+            $scope.modelelement = {};
+            form.$setPristine();
+            $modalInstance.close();
+        }, ReplyErrorHandler);  
+    }
+    
+}]);
 
 app.controller('ARSearchController', ['ArVersionService', 'UserSearchService', 'ReplyErrorHandler', 'notifications','$scope', '$stateParams', '$filter', function(ArVersionService, UserSearchService, ReplyErrorHandler, notifications, $scope, $stateParams, $filter) {
     var orderBy = $filter('orderBy');
@@ -378,15 +696,70 @@ app.controller('SmellAssessController', ['ArVersionService', 'SmellGroupService'
     
 }]);
 
-app.controller('SmellController', ['SmellService', 'SmellGroupService', 'ReplyErrorHandler', 'notifications','$scope','$filter', function(SmellService, SmellGroupService, ReplyErrorHandler, notifications, $scope, $filter) {
-    var orderBy = $filter('orderBy');
-    $scope.smelllist = [];
-    this.formvisible = false;
+app.controller('SmellAddController', ['SmellService', 'SmellGroupService', 'StatusService', 'ReplyErrorHandler', 'notifications', '$scope', function(SmellService, SmellGroupService, StatusService, ReplyErrorHandler, notifications, $scope) {
+    $scope.smell;
+    $scope.questionToAdd;
+    $scope.status = [];
+    $scope.loadStatus = function () {
+        StatusService.get({},function(data, status, headers, config) {
+            $scope.status = data;
+        }, ReplyErrorHandler);  
+    };
+    $scope.loadStatus();
     $scope.groups = [];
     $scope.loadGroups = function () {
         SmellGroupService.get({},function(data, status, headers, config) {
             $scope.groups = data;
-            //$scope.smellcallstatus = "OK";
+        }, ReplyErrorHandler);  
+    };
+    $scope.loadGroups();
+    $scope.initSmell = function () {
+        $scope.smell = {};
+        $scope.smell.questions = [];
+        $scope.questionToAdd = '';
+    }
+    $scope.initSmell();
+    $scope.saveSmell = function(form) {
+        SmellService.noid.create($scope.smell,function(data, status, headers, config) {
+            if($scope.loadSmells) {
+                $scope.loadSmells();
+            }
+            $modalInstance.close();
+            notifications.showSuccess("Smell has been added.");
+            $scope.initSmell();
+            form.$setPristine();
+        }, ReplyErrorHandler);  
+    };
+    
+    $scope.addQuestion = function () {
+        $scope.smell.questions.push({
+            question: $scope.questionToAdd
+        });
+        $scope.questionToAdd = '';
+    };
+    
+    $scope.removeQuestion = function (idx) {
+        $scope.smell.questions.splice(idx, 1);
+    };
+
+}]);
+
+app.controller('SmellController', ['SmellService', 'SmellGroupService', 'ReplyErrorHandler', 'StatusService', 'notifications','$scope','$filter', function(SmellService, SmellGroupService, ReplyErrorHandler, StatusService, notifications, $scope, $filter) {
+    var orderBy = $filter('orderBy');
+    $scope.smelllist = [];
+    this.formvisible = false;
+    $scope.smell = {};
+    $scope.status = [];
+    $scope.loadStatus = function () {
+        StatusService.get({},function(data, status, headers, config) {
+            $scope.status = data;
+        }, ReplyErrorHandler);  
+    };
+    $scope.loadStatus();
+    $scope.groups = [];
+    $scope.loadGroups = function () {
+        SmellGroupService.get({},function(data, status, headers, config) {
+            $scope.groups = data;
         }, ReplyErrorHandler);  
     };
     $scope.loadGroups();
@@ -402,10 +775,13 @@ app.controller('SmellController', ['SmellService', 'SmellGroupService', 'ReplyEr
     $scope.loadSmells = function () {
         SmellService.noid.get({},function(data, status, headers, config) {
             $scope.smelllist = data;
-            //$scope.smellcallstatus = "OK";
         }, ReplyErrorHandler);  
     };
     $scope.loadSmells();
+    
+    $scope.reload = function() {
+        $scope.loadSmells();        
+    }
 
     $scope.deleteSmell = function (id) {
         SmellService.id.delete({id: id},function(data, status, headers, config) {
@@ -418,47 +794,6 @@ app.controller('SmellController', ['SmellService', 'SmellGroupService', 'ReplyEr
         $scope.smelllist = orderBy($scope.smelllist, predicate, reverse);
     };
     $scope.order('name', false);
-
-    $scope.initSmell = function () {
-        $scope.smell = {};
-        $scope.smell.questions = [];
-        $scope.questionToAdd = '';
-    }
-    $scope.initSmell();
-    $scope.saveSmell = function() {
-        SmellService.noid.create($scope.smell,function(data, status, headers, config) {
-            $scope.loadSmells();
-            notifications.showSuccess("Smell has been added.");
-            $scope.initSmell();
-            $scope.smellForm.$setPristine();
-        }, ReplyErrorHandler);  
-    };
-    
-    $scope.addQuestion = function () {
-        $scope.smell.questions.push({
-            question: $scope.questionToAdd
-        });
-        $scope.questionToAdd = '';
-    };
-    
-    $scope.removeQuestion = function (idx) {
-        $scope.smell.questions.splice(idx, 1);
-    };
-
-    $scope.totalItems = 64;
-    $scope.currentPage = 4;
-
-    $scope.setPage = function (pageNo) {
-        $scope.currentPage = pageNo;
-    };
-
-    $scope.pageChanged = function() {
-        $log.log('Page changed to: ' + $scope.currentPage);
-    };
-
-    $scope.maxSize = 5;
-    $scope.bigTotalItems = 175;
-    $scope.bigCurrentPage = 1;
 }]);
 
 app.controller('SmellViewController', ['SmellService', 'ReplyErrorHandler', 'notifications', '$stateParams', '$scope', function (SmellService, ReplyErrorHandler, notifications, $stateParams, $scope) {
@@ -479,7 +814,7 @@ app.controller('SmellUpdateController', ['SmellService','SmellGroupService', 'St
         }, ReplyErrorHandler);  
     };
     $scope.loadStatus();
-    $scope.singleSmell = [];
+    $scope.smell = [];
     $scope.groups = [];
     $scope.loadGroups = function () {
         SmellGroupService.get({},function(data, status, headers, config) {
@@ -489,33 +824,28 @@ app.controller('SmellUpdateController', ['SmellService','SmellGroupService', 'St
     $scope.loadGroups();
     $scope.getSmell = function (smellid) {
         SmellService.id.get({id: smellid},function(data, status, headers, config) {
-            $scope.singleSmell = data;
+            $scope.smell = data;
         }, ReplyErrorHandler);  
     };
     $scope.getSmell($stateParams.id);
 
-    $scope.updateSmell = function() {
-        SmellService.noid.update($scope.singleSmell,function(data, status, headers, config) {
+    $scope.saveSmell = function() {
+        SmellService.noid.update($scope.smell,function(data, status, headers, config) {
             $modalInstance.close();
             notifications.showSuccess("Smell has been updated.");
-            $scope.singleSmell = {};
-        }, ReplyErrorHandler);//, "Failed to update Smell"));
-                             
-                             /*function(error) {
-            
-            notifications.showError("Failed to update Smell.");
-        });*/  
+            $scope.smell = {};
+        }, ReplyErrorHandler);
     };
     
     $scope.addQuestion = function () {
-        $scope.singleSmell.questions.push({
+        $scope.smell.questions.push({
             question: $scope.questionToAdd
         });
         $scope.questionToAdd = '';
     };
     
     $scope.removeQuestion = function (idx) {
-        $scope.singleSmell.questions.splice(idx, 1);
+        $scope.smell.questions.splice(idx, 1);
     };
 }]);
 

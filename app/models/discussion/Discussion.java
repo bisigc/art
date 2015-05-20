@@ -29,7 +29,7 @@ public class Discussion extends AbstractModel {
 	@JsonIgnore
 	@ManyToOne
 	private ArVersion ar;	
-	@OneToMany(cascade=CascadeType.PERSIST, mappedBy="discussion")
+	@OneToMany(cascade=CascadeType.ALL, orphanRemoval=true, mappedBy="discussion")
 	@JsonManagedReference(value="DiscussionComment")
 	private List<Comment> comments;
 	private Timestamp created;

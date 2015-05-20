@@ -14,6 +14,55 @@ app.filter('breakFilter', function () {
     };
 });
 
+app.filter('arPropFilter', function () {
+    return function (props, type) {
+        var arrayToReturn = []; 
+        if (angular.isArray(props)) {
+            for (var i=0; i<props.length; i++){
+                if (props[i].type == type) {
+                    arrayToReturn.push(props[i]);
+                }
+            }
+        }
+        
+        return arrayToReturn;
+    };
+});
+
+/*
+ * propsFilter used for mulitple ui-select.
+ */
+app.filter('propsFilter', function() {
+  return function(items, props) {
+    var out = [];
+
+    if (angular.isArray(items)) {
+      items.forEach(function(item) {
+        var itemMatches = false;
+
+        var keys = Object.keys(props);
+        for (var i = 0; i < keys.length; i++) {
+          var prop = keys[i];
+          var text = props[prop].toLowerCase();
+          if (item[prop] && item[prop].toString().toLowerCase().indexOf(text) !== -1) {
+            itemMatches = true;
+            break;
+          }
+        }
+
+        if (itemMatches) {
+          out.push(item);
+        }
+      });
+    } else {
+      // Let the output be the input untouched
+      out = items;
+    }
+
+    return out;
+  };
+});
+
 app.directive('hilighter', ['$timeout', function($timeout) {
   return {
     restrict: 'A',
