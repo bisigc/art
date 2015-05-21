@@ -190,16 +190,15 @@
     <input type="email" class="form-control" placeholder="jimmyDean&#64;example.org" title="Email" />
     </fieldset -->
             <fieldset class="form-group pull-right">
-                <button type="button" class="btn btn-warning" ng-click="resetForm(arForm)">Cancel</button>
+                <a class="btn btn-warning" ng-click="$state.go('arbrowser')">Cancel</a>
+                <a class="btn btn-info" ng-show="isAllowed.check(['Admin','Editor'])" ng-click="showJsonDiv=!showJsonDiv"><span ng-show="showJsonDiv">Hide</span><span ng-hide="showJsonDiv">Show</span> JSON</a>
                 <button type="submit" class="btn btn-primary" ng-disabled="arForm.$invalid">Save AR</button>
             </fieldset>
         </form>
     </div>
-    <div>
-        {{ar}}
-        <hr />
-        {{arversion}}
-        <hr />
-        {{modelelementsvalues.context}}
+    <div class="row" ng-init="showJsonDiv=false" ng-if="showJsonDiv">
+        <div class="col-md-12">
+            <pre>{{arversion | json}}</pre>
+        </div>
     </div>
 </div>

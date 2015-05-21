@@ -46,10 +46,11 @@ public class ArVersionController extends AbstractCRUDController<ArVersion, Long>
 					+ "and s.id IN (:smellidlist) "
 					+ "and a.created = "
 					+ "(select max(c.created) from " + dao.getModel().getSimpleName() + " c join c.smells t "
-							+ "where a.arhead.id = c.arhead.id and t.id IN (:smellidlist) and c.status IN (:status) ) order by a.name";
+							+ "where a.arhead.id = c.arhead.id and t.id IN (:smellidlist) and c.status IN (:status) ) ";
+	private String order = "order by a.name";
 
 	private String arSmellSearchString = 
-			"select a " + arSmellSearchEndingPart;
+			"select a " + arSmellSearchEndingPart + order;
 	
 	private String arSmellSearchCountString = 
 			"select count(a.id) " + arSmellSearchEndingPart;

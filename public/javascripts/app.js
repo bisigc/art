@@ -117,24 +117,25 @@ app.controller('StatsController', ['StatisticService', 'ReplyErrorHandler', 'not
     }, ReplyErrorHandler); 
 }]);
 
-app.controller('ArViewController', ['ArService', 'ArVersionService', 'ReplyErrorHandler', '$stateParams', 'notifications','$scope', function(ArService, ArVersionService, ReplyErrorHandler, $stateParams, notifications, $scope) {
+app.controller('ArViewController', ['ArService', 'ArVersionService', 'ReplyErrorHandler', '$stateParams', 'notifications', '$scope', '$filter', function(ArService, ArVersionService, ReplyErrorHandler, $stateParams, notifications, $scope, $filter) {
+    var orderBy = $filter('orderBy');
     $scope.ar = {};
     $scope.discussion_id;
-    $scope.comments;
 
     $scope.currentar = [];
-    $scope.discussion_id;
-    $scope.comments;
+    $scope.discussion_id = null;
+    //$scope.comments;
     $scope.setCurrentAr = function(id) {
         $scope.currentar = $scope.ar.versions[id];
         $scope.discussion_id = $scope.currentar.discussion.id;
-        $scope.comments = $scope.currentar.discussion.comments;
+        //$scope.comments = $scope.currentar.discussion.comments;
     }
 
     $scope.loadAr = function() {
         ArService.id.get({id: $stateParams.id},function(data, status, headers, config) {
             $scope.ar = data;
-            $scope.setCurrentAr($scope.ar.versions.length - 1);
+            $scope.ar.versions = orderBy($scope.ar.versions, 'created', true);
+            $scope.setCurrentAr(0);
         }, ReplyErrorHandler);
     }
     $scope.loadAr();
@@ -156,6 +157,17 @@ app.controller('DiscussionController', ['DiscussionService', 'CommentService', '
     };
     $scope.init();
     
+    //$scope.discussion_id = $scope.$parent.dicussion_id;
+    $scope.discussion = {};
+    
+    $scope.$watch('discussion_id', function() {
+        if($scope.discussion_id != null) {
+            DiscussionService.id.get({id: $scope.discussion_id}, function(data, status, headers, config) {
+                $scope.discussion = data;
+            }, ReplyErrorHandler);
+        }
+    });
+    
     $scope.updateComment = function (discussion_id, comment) {
         CommentService.noid.update(comment, function(data, status, headers, config) {
             notifications.showSuccess("Comment has been updated.");
@@ -165,7 +177,7 @@ app.controller('DiscussionController', ['DiscussionService', 'CommentService', '
     $scope.addComment = function (discussion_id) {
         $scope.newcomment.discussion = { 'id': discussion_id };
         CommentService.noid.create($scope.newcomment, function(data, status, headers, config) {
-            $scope.$parent.comments.unshift(data);
+            $scope.discussion.comments.unshift(data);
             $scope.init();
             notifications.showSuccess("Comment has been added.");
         }, ReplyErrorHandler);
@@ -202,7 +214,7 @@ app.controller('ARController', ['ArService', 'ArVersionService', 'CloudSmells', 
     this.loadCloud = function () {
         CloudSmells.get().success(function(data,status,headers,config){
             $scope.words = eval(data);
-            $scope.cloudcallstatus = "OK";
+            $scope.cloudcallstatus = "";
         }).error(function(data,status,headers,config){
             $scope.cloudcallstatus = "NOK";
             notifications.showError("Failed to load SmellCloud")
@@ -244,20 +256,6 @@ app.controller('ARController', ['ArService', 'ArVersionService', 'CloudSmells', 
         }, ReplyErrorHandler);  
     }
 
-    $scope.totalItems = 64;
-    $scope.currentPage = 4;
-
-    $scope.setPage = function (pageNo) {
-        $scope.currentPage = pageNo;
-    };
-
-    $scope.pageChanged = function() {
-        $log.log('Page changed to: ' + $scope.currentPage);
-    };
-
-    $scope.maxSize = 5;
-    $scope.bigTotalItems = 175;
-    $scope.bigCurrentPage = 1;
 }]);
 
 app.controller('AREditController', ['ArService', 'ArVersionService', 'SmellService', 'StatusService', 'ModelElementService', 'StatusService', 'ReplyErrorHandler', 'notifications', '$scope', '$stateParams', '$filter', 'PropModal', function(ArService, ArVersionService, SmellService, StatusService, ModelElementService, StatusService, ReplyErrorHandler, notifications, $scope, $stateParams, $filter, PropModal) {
@@ -420,7 +418,7 @@ app.controller('ARAddController', ['ArService', 'ArVersionService', 'SmellServic
     if($stateParams.id && $stateParams.id != '') {
         ArVersionService.id.get({id: $stateParams.id}, function(data, status, headers, config) {
             $scope.arversion = data;
-            $scope.ar.id = $scope.arversion.arhead;
+            $scope.ar.id = $scope.arversion.arhead.id;
             $scope.arversion.discussion = {};
             $scope.arversion.commentary = {};
             $scope.modelelementsvalues.qas = $filter('arPropFilter')($scope.arversion.properties, 'QASElementLink');
@@ -493,7 +491,7 @@ app.controller('ARAddController', ['ArService', 'ArVersionService', 'SmellServic
         if($stateParams.id && $stateParams.id != '') {
             ArVersionService.noid.create($scope.arversion, function(data, status, headers, config) {
                 notifications.showSuccess("ArVersion has been added successfully.");
-                $state.go('singlear', {id: data.arhead});
+                $state.go('singlear', {id: data.arhead.id});
             }, ReplyErrorHandler);
         } else {
             ArService.noid.create($scope.ar, function(data, status, headers, config) {
@@ -655,6 +653,7 @@ app.controller('UserSearchController', ['UserSearchService', 'ReplyErrorHandler'
 app.controller('SmellAssessController', ['ArVersionService', 'SmellGroupService', 'ReplyErrorHandler', 'notifications', '$scope', '$state', function(ArVersionService, SmellGroupService, ReplyErrorHandler, notifications, $scope, $state) {
     $scope.counter;
     $scope.groups = [];
+    $scope.groupToggle = [];
     SmellGroupService.get({},function(data, status, headers, config) {
             $scope.groups = data;
             //$scope.smellcallstatus = "OK";
@@ -937,20 +936,6 @@ app.controller('TaskController', ['TaskService', 'ExecTaskTypeService', 'TaskPro
         $scope.task.properties.splice(idx, 1);
     };
 
-    $scope.totalItems = 64;
-    $scope.currentPage = 4;
-
-    $scope.setPage = function (pageNo) {
-        $scope.currentPage = pageNo;
-    };
-
-    $scope.pageChanged = function() {
-        $log.log('Page changed to: ' + $scope.currentPage);
-    };
-
-    $scope.maxSize = 5;
-    $scope.bigTotalItems = 175;
-    $scope.bigCurrentPage = 1;
 }]);
 
 app.controller('TaskUpdateController', ['TaskService', 'ExecTaskTypeService', 'TaskPropertyService', 'ReplyErrorHandler', 'notifications', '$modalInstance', '$scope', '$stateParams', 'taskid', '$sce', function (TaskService, ExecTaskTypeService, TaskPropertyService, ReplyErrorHandler, notifications, $modalInstance, $scope, $stateParams, smellid, $sce) {

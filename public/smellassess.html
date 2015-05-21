@@ -6,7 +6,6 @@
         <div class="col-md-4"></div>
         <div class="col-md-8">
             <h2>Questionnaire</h2>
-            {{ selectedSmells }}
         </div>
     </div>
     <div class="row">
@@ -18,22 +17,21 @@
                 <div class="panel-body">
                 </div>
             </div>
-            
             <div class="affix">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Found <span class="label label-default" hilighter="counter">{{counter}}</span> Architectural Refactorings</h3>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Found <span class="label label-default" hilighter="counter">{{counter}}</span> Architectural Refactorings</h3>
+                    </div>
                 </div>
             </div>
-                </div>
         </div>
         <div class="col-md-8">
             <form role="form">
-                <div class="panel panel-default" ng-repeat="group in groups">
+                <div class="panel panel-default" ng-repeat="group in groups track by $index" ng-init="groupToggle[$index] = false">
                     <div class="panel-heading">
-                        <h3 class="panel-title">{{group.name}}</h3>
+                        <b>{{group.name}}</b> <div class="pull-right"><a href ng-click="groupToggle[$index] = !groupToggle[$index]"><span class="glyphicon glyphicon-chevron-down" ng-hide="groupToggle[$index]"></span><span class="glyphicon glyphicon-chevron-up" ng-show="groupToggle[$index]"></span></a></div>
                     </div>
-                    <div class="panel-body">
+                    <div class="panel-body" ng-show="groupToggle[$index]">
                         <div ng-repeat="smell in group.smells">
                             <div ng-repeat="question in smell.questions" class="row row-same-height">
                                 <div class="col-md-1 col-md-height">

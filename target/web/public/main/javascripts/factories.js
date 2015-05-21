@@ -6,7 +6,7 @@ app.factory("isAllowed", ['currentUser', function(currentUser) {
         }
     }
 }]);
-    
+
 app.factory("isLoggedin", ['currentUser', function(currentUser) {
     return {
         check: function() {

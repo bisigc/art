@@ -31,15 +31,14 @@
                     <th><a href="" ng-click="reverseStatus=!reverseStatus;order('status', reverseStatus)">Status <span ng-show="reverseStatus">&#x25B2;</span><span ng-show="!reverseStatus">&#x25BC;</span></a></th>
                     <th></th>
                 </tr>
-                <tr ng-repeat="ar in arlist | filter:search" ng-dblclick="$state.go('singlear',{id: ar.arhead})">
-                    <td><a ui-sref="singlear({id: ar.arhead})">{{ar.name}}</a></td>
+                <tr ng-repeat="ar in arlist | filter:search" ng-dblclick="$state.go('singlear',{id: ar.arhead.id})">
+                    <td><a ui-sref="singlear({id: ar.arhead.id})">{{ar.name}}</a></td>
                     <td>{{ar.description | limitHtml }}</td>
-                    <td><span ng-repeat="smell in ar.smells">{{smell.name}}, </span></td>
+                    <td><span ng-repeat="smell in ar.smells track by $index"><a ui-sref="singlesmell({id: smell.id})">{{smell.name}}</a><span ng-if="ar.smells.length - 1 != $index">, </span></span></td>
                     <td>{{ar.status}}</td>
-                    <td><a ui-sref="aredit({id: ar.id})" ng-if="isAllowed.check(['Admin','Editor'])"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;<a href ng-click="deleteAr(ar.arhead)" ng-if="isAllowed.check(['Admin'])"><span class="glyphicon glyphicon-trash"></span></a></td>
+                    <td><a ui-sref="aredit({id: ar.id})" ng-if="isAllowed.check(['Admin','Editor'])"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;<a href ng-click="deleteAr(ar.arhead.id)" ng-if="isAllowed.check(['Admin'])"><span class="glyphicon glyphicon-trash"></span></a></td>
                 </tr>
             </table>
-            <pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></pagination>
         </div>
         <div class="col-md-4">
             <div class="panel panel-default">

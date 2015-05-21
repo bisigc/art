@@ -38,8 +38,8 @@ public class StatisticController extends Controller {
 		
 		addStat(list, "Architectural Refactorings", "select count(a) from Ar a");
 		addStat(list, "Versions of Architectural Refactorings", "select count(a) from ArVersion a");
-		addStat(list, "Smells", "select count(a) from Smell a");
-		//addStat(list, "Tasks", "select count(a) from Task a");
+		addStat(list, "Architectural Smells", "select count(a) from Smell a");
+		addStat(list, "Tasks", "select count(a) from TaskTemplate a");
 		addStat(list, "Registered users", "select count(a) from User a");
 		addStat(list, "User comments", "select count(a) from Comment a");
 		

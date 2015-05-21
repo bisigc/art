@@ -1,17 +1,21 @@
 package utils;
 
 import java.lang.reflect.Method;
+import java.util.concurrent.TimeUnit;
 
 import play.Application;
 import play.Configuration;
 import play.GlobalSettings;
 import play.Logger;
 import play.Play;
+import play.libs.Akka;
 import play.libs.F.Promise;
 import play.mvc.Action;
 import play.mvc.Http.Context;
 import play.mvc.Result;
+import scala.concurrent.duration.Duration;
 import utils.injectors.MainInjector;
+import utils.schedules.SmellWeightRunnable;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -72,6 +76,7 @@ public class Global extends GlobalSettings {
 
 	/**
 	 * Overwritten onStart method, loads default session timeout time.
+	 * And starts batch job for periodical Smell Weight recalculation.
 	 * 
 	 * @see play.GlobalSettings#onStart(play.Application)
 	 */
@@ -79,6 +84,16 @@ public class Global extends GlobalSettings {
 	public void onStart(Application arg0) {
 		conf = Play.application().configuration();
 		timeout = Long.parseLong(conf.getString("default.sessiontimeout")) * 60 * 1000;
+		Boolean smellWeightCalcEnabled =  conf.getBoolean("smellweightrecalc.enabled");
+		if(smellWeightCalcEnabled) {
+			Runnable run = INJECTOR.getInstance(SmellWeightRunnable.class);
+			Long interval = conf.getLong("smellweightrecalc.interval");
+			Akka.system().scheduler().schedule(
+					Duration.create(0, TimeUnit.MILLISECONDS),
+					Duration.create(interval, TimeUnit.MINUTES),
+					run,
+					Akka.system().dispatcher());
+		}
 		super.onStart(arg0);
 	}
 

@@ -39,8 +39,8 @@ public class ArVersion extends AbstractModel {
 	private List<ModelElementLink> properties;
 	@OneToOne(cascade=CascadeType.ALL, orphanRemoval=true, mappedBy="ar")
 	private Discussion discussion;
-	@OneToOne(cascade=CascadeType.PERSIST, mappedBy="ar")
-	private Discussion commentary;
+	//@OneToOne(cascade=CascadeType.PERSIST, mappedBy="ar")
+	//private Discussion commentary;
 	@ManyToOne
 	private User editor;
 	@Enumerated(EnumType.STRING)
@@ -53,14 +53,12 @@ public class ArVersion extends AbstractModel {
 	public void setName(String name) { this.name = name; }
 	public String getDescription() { return description; }
 	// Return only the ID of the head AR to prevent loop in JSON.
-	public Long getArhead() {
-		return arhead.getId(); 
-	}
-	public void setArhead(Long id) {
+	public Ar getArhead() {
 		Ar ar = new Ar();
-		ar.setId(id);
-		this.arhead = ar;
+		ar.setId(arhead.getId());
+		return ar;
 	}
+	public void setArhead(Ar arhead) { this.arhead = arhead; }
 	public List<Smell> getSmells() { return smells; }
 	public void setSmells(List<Smell> smells) { this.smells = smells; }
 	public List<TaskTemplate> getTasks() { return tasks; }
@@ -75,9 +73,13 @@ public class ArVersion extends AbstractModel {
 	public Timestamp getCreated() { return created; }
 	public void setCreated(Timestamp created) { this.created = created; }
 	public Discussion getDiscussion() { return discussion; }
+	/*	Discussion discussion = new Discussion();
+		discussion.setId(this.discussion.getId());
+		return discussion;
+	}*/
 	public void setDiscussion(Discussion discussion) { this.discussion = discussion; }
-	public Discussion getCommentary() { return commentary; }
-	public void setCommentary(Discussion commentary) { this.commentary = commentary; }
+	//public Discussion getCommentary() { return commentary; }
+	//public void setCommentary(Discussion commentary) { this.commentary = commentary; }
 	public User getEditor() { return editor; }
 	public void setEditor(User editor) { this.editor = editor; }
 	public ItemStatus getStatus() { return status; }

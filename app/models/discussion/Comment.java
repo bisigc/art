@@ -12,6 +12,7 @@ import models.AbstractModel;
 import models.user.User;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * Data model representing a {@link Comment}.
@@ -22,7 +23,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 public class Comment extends AbstractModel {
 
 	private String comment;
-	@OneToMany(mappedBy="comment", orphanRemoval=true)
+	@OneToMany(mappedBy="comment")
 	private List<Likeing> likes;
 	@ManyToOne
 	@JsonBackReference(value="DiscussionComment")
@@ -37,6 +38,7 @@ public class Comment extends AbstractModel {
 	public void setComment(String comment) { this.comment = comment; }
 	// Returns only the size of the likes list.
 	public Integer getLikes() { return likes.size(); }
+	@JsonIgnore
 	public void setLikes(List<Likeing> likes) { this.likes = likes; }
 	public Discussion getDiscussion() { return discussion; }
 	public void setDiscussion(Discussion discussion) { this.discussion = discussion; }

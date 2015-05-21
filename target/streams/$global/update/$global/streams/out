@@ -7,7 +7,7 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies for art-app#art-app_2.11;1.0-SNAPSHOT [compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.1 [compile->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.11.1 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@558bd809[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@73cf3bf6[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-lang#scala-library;2.11.1[0m
 [0m[[0mdebug[0m] [0m	local: revision in cache: org.scala-lang#scala-library;2.11.1[0m
 [0m[[0mdebug[0m] [0m	found org.scala-lang#scala-library;2.11.1 in sbt-chain[0m
@@ -791,7 +791,7 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.typesafe.play#play-java-jdbc_2.11;2.3.6 [compile->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies art-app#art-app_2.11;1.0-SNAPSHOT->com.typesafe.play#play-java-jpa_2.11;2.3.6 [compile->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving com.typesafe.play#play-java-jpa_2.11;2.3.6 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@11925163[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@3a95b4d5[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: com.typesafe.play#play-java-jpa_2.11;2.3.6[0m
 [0m[[0mdebug[0m] [0m	local: revision in cache: com.typesafe.play#play-java-jpa_2.11;2.3.6[0m
 [0m[[0mdebug[0m] [0m	found com.typesafe.play#play-java-jpa_2.11;2.3.6 in sbt-chain[0m
@@ -11335,7 +11335,7 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] log4j#log4j;1.2.15!log4j.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.aspectj#aspectjweaver;1.7.3!aspectjweaver.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.typesafe.trace#trace-sigar-libs;0.1.6!trace-sigar-libs.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 3699ms :: artifacts dl 85ms[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 3893ms :: artifacts dl 130ms[0m
 [0m[[0mdebug[0m] [0m	report for art-app#art-app_2.11;1.0-SNAPSHOT compile produced in /Users/cbi/Documents/git-repos/ART/target/resolution-cache/reports/art-app-art-app_2.11-compile.xml[0m
 [0m[[0mdebug[0m] [0m	report for art-app#art-app_2.11;1.0-SNAPSHOT runtime produced in /Users/cbi/Documents/git-repos/ART/target/resolution-cache/reports/art-app-art-app_2.11-runtime.xml[0m
 [0m[[0mdebug[0m] [0m	report for art-app#art-app_2.11;1.0-SNAPSHOT test produced in /Users/cbi/Documents/git-repos/ART/target/resolution-cache/reports/art-app-art-app_2.11-test.xml[0m
@@ -11353,5 +11353,5 @@
 [0m[[0mdebug[0m] [0m	report for art-app#art-app_2.11;1.0-SNAPSHOT echo-trace-test produced in /Users/cbi/Documents/git-repos/ART/target/resolution-cache/reports/art-app-art-app_2.11-echo-trace-test.xml[0m
 [0m[[0mdebug[0m] [0m	report for art-app#art-app_2.11;1.0-SNAPSHOT echo-weave produced in /Users/cbi/Documents/git-repos/ART/target/resolution-cache/reports/art-app-art-app_2.11-echo-weave.xml[0m
 [0m[[0mdebug[0m] [0m	report for art-app#art-app_2.11;1.0-SNAPSHOT echo-sigar produced in /Users/cbi/Documents/git-repos/ART/target/resolution-cache/reports/art-app-art-app_2.11-echo-sigar.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (3699ms resolve - 85ms download)[0m
+[0m[[0mdebug[0m] [0m	resolve done (3893ms resolve - 130ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m

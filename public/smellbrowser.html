@@ -17,7 +17,7 @@
                 <th>Description</th>
                 <th>Weight</th>
                 <th>Group</th>
-                <th>TecDebtIdx</th>
+                <th>TechDebtIdx</th>
                 <th></th>
             </tr>
             <tr>
@@ -33,7 +33,7 @@
                 <th><a href ng-click="rdesc=!rdesc;order('description', rdesc)">Description <span ng-show="rdesc">&#x25B2;</span><span ng-show="!rdesc">&#x25BC;</span></a></th>
                 <th><a href ng-click="rweight=!rweight;order('weight', rweight)">Cloud Weight <span ng-show="rweight">&#x25B2;</span><span ng-show="!rweight">&#x25BC;</span></a></th>
                 <th><a href ng-click="rgroup=!rgroup;order('group.name', rgroup)">Group <span ng-show="rgroup">&#x25B2;</span><span ng-show="!rgroup">&#x25BC;</span></a></th>
-                <th><a href ng-click="rdebtidx=!rdebtidx;order('tecdebtidx', rdebtidx)">TecDebtIdx <span ng-show="rdebtidx">&#x25B2;</span><span ng-show="!rdebtidx">&#x25BC;</span></a></th>
+                <th><a href ng-click="rdebtidx=!rdebtidx;order('tecdebtidx', rdebtidx)">TechDebtIdx <span ng-show="rdebtidx">&#x25B2;</span><span ng-show="!rdebtidx">&#x25BC;</span></a></th>
                 <th></th>
             </tr>
             <tr ng-if="smellCtrl.formvisible" class="bg-warning">
@@ -53,6 +53,5 @@
                 <td><a ui-sref="smellbrowser.edit({id: smellItem.id})" ng-if="isAllowed.check(['Admin','Editor'])"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;<a href ng-click="deleteSmell(smellItem.id)" ng-if="isAllowed.check(['Admin'])"><span class="glyphicon glyphicon-trash"></span></a></td>
             </tr>
         </table>
-        <pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></pagination>
     </div>
 </div>

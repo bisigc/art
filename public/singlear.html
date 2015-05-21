@@ -6,7 +6,7 @@
             </h1>
         </div>
         <ul class="nav nav-tabs nav-justified">
-            <li role="presentation" ng-class="{active:currentar.id == arversion.id}" ng-repeat="arversion in ar.versions track by $index"><a href ng-click="setCurrentAr($index)"><span class="label label-info pull-right" ng-if="$index === ar.versions.length - 1">newest</span>Version<br/>{{arversion.created | date:'yyyy-MM-dd HH:mm:ss'}}</a></li>
+            <li role="presentation" ng-class="{active:currentar.id == arversion.id}" ng-repeat="arversion in ar.versions track by $index"><a href ng-click="setCurrentAr($index)"><span class="label label-info pull-right" ng-if="$index === 0">newest</span>Version<br/>{{arversion.created | date:'yyyy-MM-dd HH:mm:ss'}}</a></li>
         </ul>
     </div>
     <div class="tab-content">
@@ -46,16 +46,6 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Description</h3>
-                    </div>
-                    <div class="panel-body" ng-bind-html="currentar.description"></div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
             <div class="col-md-6">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -78,21 +68,28 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Smells</h3>
+                        <h3 class="panel-title">Architectural smells</h3>
                     </div>
                     <ul class="list-group" ng-repeat="smell in currentar.smells">
-                        <li class="list-group-item"><a ui-sref="singlesmell({id: smell.id})">{{smell.name}}</a></li>
+                        <li class="list-group-item"><a ui-sref="singlesmell({id: smell.id})">{{smell.name}}</a><br/>{{smell.description}}</li>
                     </ul>
                 </div>
             </div>
-            <div class="col-md-3"></div>
         </div>
         <div class="row">
-            <div class="col-md-3"></div>
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Description</h3>
+                    </div>
+                    <div class="panel-body" ng-bind-html="currentar.description"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-md-6">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -103,10 +100,6 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md-3"></div>
-        </div>
-        <div class="row">
-            <div class="col-md-3"></div>
             <div class="col-md-6">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -117,10 +110,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md-3"></div>
         </div>
         <div class="row">
-            <div class="col-md-3"></div>
             <div class="col-md-6">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -131,25 +122,19 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md-3"></div>
-        </div>
-        <div class="row">
-            <div class="col-md-3"></div>
             <div class="col-md-6">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Tasks</h3>
+                        <h3 class="panel-title">Execution tasks</h3>
                     </div>
                     <ul class="list-group" ng-repeat="task in currentar.tasks">
                         <li class="list-group-item"><a ui-sref="singletask({id: task.id})">{{task.name}}</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="col-md-3"></div>
         </div>
         <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">References (links):</h3>
@@ -159,7 +144,6 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md-3"></div>
         </div>
         <div class="row">
             <div class="col-md-12">

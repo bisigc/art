@@ -82,6 +82,7 @@ public class User extends AbstractModel {
 	public void setHomepage(String homepage) { this.homepage = homepage; }
 	public List<Comment> getComments() { return comments; }
 	public void setComments(List<Comment> comments) { this.comments = comments; }
+	@JsonIgnore
 	public String getPassword() { return password; }
 	public void setPassword(String password) { this.password = password; }
 	public List<ArSearch> getArsearches() { return arsearches; }

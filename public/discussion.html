@@ -23,9 +23,9 @@
             <p ng-bind-html="newcomment.comment | breakFilter"></p>
         </div>
     </div>
-    <hr ng-if="$parent.comments.length > 0"/>
+    <hr ng-if="discussion.comments.length > 0"/>
     <div class="media-list">
-        <div class="media" ng-repeat-start="comment in $parent.comments | orderBy:'-created'">
+        <div class="media" ng-repeat-start="comment in discussion.comments | orderBy:'-created'">
             <div class="media-left media-top">
                 <a href="#">
                     <img class="media-object avatar img-circle" ng-src="{{_contextPath + 'avatar/' + comment.user.id}}" alt="Avatar {{comment.user.lastname}}">

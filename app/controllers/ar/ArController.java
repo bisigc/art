@@ -41,6 +41,27 @@ public class ArController extends AbstractCRUDController<Ar, Long> {
 		super(dao);
 	}
 	
+	/*@Override
+	@Transactional(readOnly=true)
+	public Result get(Long id) {
+		Ar ar;
+		try {
+			TypedQuery<Ar> query =  JPA.em().createQuery("select a from " + dao.getModel().getSimpleName() + " a join a.versions v where a.id = v.arhead.id order by v.created desc", dao.getModel());
+			ar = query.getSingleResult();
+			if(ar == null) {
+				throw new ItemNotFoundException("Ar not found.");
+			}
+		} catch (ItemNotFoundException e) {
+			Logger.error(e.getMessage(), e);
+			return notFound(e.getMessage());
+		} catch (Exception e) {
+			String msg = "Failed to get " + dao.getModel().getSimpleName() + " with id " + id;
+			Logger.error(msg, e);
+			return internalServerError(msg);
+		}
+		return ar == null ? notFound() : ok(Json.toJson(ar));
+	}*/
+	
 	@SessionAuth
 	@Transactional
 	@Override
@@ -62,7 +83,7 @@ public class ArController extends AbstractCRUDController<Ar, Long> {
 		    discussion.setType(DiscussionType.DISCUSSION);
 		    ar.getVersions().get(0).setDiscussion(discussion);
 		    ar.getVersions().get(0).setStatus(ItemStatus.draft);
-		    ar.getVersions().get(0).setArhead(ar.getId());
+		    ar.getVersions().get(0).setArhead(ar);
 			inserted = dao.create(ar);
 		} catch (Exception e) {
 			String msg =" Failed to create " + dao.getModel().getSimpleName() ;
