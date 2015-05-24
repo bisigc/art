@@ -20,6 +20,8 @@ import models.status.ItemStatus;
 import models.task.TaskTemplate;
 import models.user.User;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 /**
  * Data model representing an Architectural Refactoring.
  * 
@@ -39,7 +41,8 @@ public class ArVersion extends AbstractModel {
 	private List<TaskTemplate> tasks;
 	@ManyToMany
 	private List<ModelElementLink> properties;
-	@OneToOne(cascade=CascadeType.ALL, orphanRemoval=true, mappedBy="ar")
+	@OneToOne(cascade=CascadeType.ALL, mappedBy="ar")
+	@JsonManagedReference("ArVersionDiscussion")
 	private Discussion discussion;
 	//@OneToOne(cascade=CascadeType.PERSIST, mappedBy="ar")
 	//private Discussion commentary;

@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 import models.AbstractModel;
 import models.ar.ArVersion;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 /**
@@ -26,8 +26,8 @@ public class Discussion extends AbstractModel {
 
 	@Enumerated(EnumType.STRING)
 	private DiscussionType type;
-	@JsonIgnore
 	@ManyToOne
+	@JsonBackReference("ArVersionDiscussion")
 	private ArVersion ar;	
 	@OneToMany(cascade=CascadeType.ALL, orphanRemoval=true, mappedBy="discussion")
 	@JsonManagedReference(value="DiscussionComment")
