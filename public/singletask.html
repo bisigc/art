@@ -5,76 +5,19 @@
                 <small>{{task.name}}</small>
             </h1>
         </div>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Status</h3>
-                        <span>{{smell.status}}</span>
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Technical Debt Risk Index</h3>
-                    </div>
-                    <div class="panel-body">
-                        <table class="idxtable">
-                            <tr>
-                                <td id="problabel" class="problabel" rowspan="3">Probability</td>
-                                <td>h&nbsp;</td>
-                                <td ng-repeat="n in ['lh','mh','hh']">
-                                    <label class="btn btn-default dbt-idx-{{n}}">
-                                        <input type="radio" name="tecdebtidx" ng-model="smell.tecdebtidx" ng-value="n" disabled/>
-                                    </label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>m&nbsp;</td>
-                                <td ng-repeat="n in ['lm','mm','hm']">
-                                    <label class="btn btn-default dbt-idx-{{n}}">
-                                        <input type="radio" name="tecdebtidx" ng-model="smell.tecdebtidx" ng-value="n" disabled/>
-                                    </label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>l&nbsp;</td>
-                                <td ng-repeat="n in ['ll','ml','hl']">
-                                    <label class="btn btn-default dbt-idx-{{n}}">
-                                        <input type="radio" name="tecdebtidx" ng-model="smell.tecdebtidx" ng-value="n" disabled/>
-                                    </label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td ng-repeat="n in ['l','m','h']">{{n}}</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td class="implabel" colspan="3">Impact</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Description</h3>
+                <h3 class="panel-title">Properties</h3>
             </div>
-            <div class="panel-body" ng-bind-html="smell.description"></div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Questions</h3>
+            <div class="panel-body">
+                <div class="list-group" ng-repeat="prop in task.properties">
+                    <h4 class="list-group-item-heading">{{prop.property.name}}</h4>
+                    <p class="list-group-item-text">{{prop.value}}</p>
+                </div>
             </div>
-            <ul class="list-group">
-              <li class="list-group-item" ng-repeat="question in smell.questions">{{question.question}}</li>
-            </ul>
         </div>
         <div>
-            <button type="submit" class="btn btn-primary pull-right" ng-disabled="smellForm.$invalid" ng-click="$state.go('smellbrowser.edit',{id: smell.id})" ng-show="isAllowed.check(['Admin','Editor'])">Edit Smell</button>
+            <a class="btn btn-primary pull-right" ng-click="$state.go('root.taskbrowser.edit',{id: task.id})" ng-show="isAllowed.check(['Admin','Editor'])">Edit Task</a>
         </div>
     </div>
     <!-- div ui-view="discussionView"></div -->

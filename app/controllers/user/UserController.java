@@ -73,10 +73,6 @@ public class UserController extends AbstractCRUDController<User, Long> {
 			digest.generateDigest(t.getPassword());
 			created = dao.create(t);
 			created.setDigest(digest);
-			//created.setAvatar(Play.application().configuration().getString("defaultavatar"));
-			File avatar = Play.application().getFile("public/" + Play.application().configuration().getString("defaultavatar"));
-			byte [] imageBytes = FileUtils.readFileToByteArray(avatar);
-			created.setAvatar(imageBytes);
 		} catch (Exception e) {
 			String msg = "Failed to create, " + dao.getModel().getSimpleName();
 			String email = (null == created) ? "User is null" : created.getEmail();

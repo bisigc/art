@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -25,6 +26,7 @@ import models.status.ItemStatus;
 public class Smell extends AbstractModel {
 
 	private String name;
+	@Column(length=5000)
 	private String description;
 	private String keywords;
 	private Integer weight;

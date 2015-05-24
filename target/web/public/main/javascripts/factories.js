@@ -19,7 +19,7 @@ app.factory("PasswordValidator", [function() {
     return {
         check: function(pw, rpw) {
             return {
-                "valid": pw && /^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{8,20}$/.test(pw),
+                "valid": pw && /^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{8,20}$/.test(pw) && pw == rpw,
                 "constraints": 
                 [
                     {"name": "A-Z",          "valid": (pw && /[A-Z]/.test(pw)) ? true : false },
@@ -335,7 +335,8 @@ app.factory("TaskService", ['$resource', function($resource) {
         id: $resource(_contextPath + 'task/:id', {}, {
             get: { method: 'GET' },
             delete: { method: 'DELETE', params: {id: '@id'} }
-        })    };
+        })
+    };
 }]);
 
 app.factory("TaskPropertyService", ['$resource', function($resource) {

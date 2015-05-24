@@ -15,7 +15,7 @@
             <div class="col-md-5">
                 <p class="pull-right">
                     <a class="btn btn-warning" ng-if="isAllowed.check(['Admin'])" ng-click="deleteArVersion(currentar.id)">Delete this version</a>
-                    <a class="btn btn-primary" ui-sref="addar({id: currentar.id})">Create new version out of this</a>
+                    <a class="btn btn-primary" ui-sref="root.addar({id: currentar.id})">Create new version out of this</a>
                 </p>
             </div>
         </div>
@@ -74,7 +74,7 @@
                         <h3 class="panel-title">Architectural smells</h3>
                     </div>
                     <ul class="list-group" ng-repeat="smell in currentar.smells">
-                        <li class="list-group-item"><a ui-sref="singlesmell({id: smell.id})">{{smell.name}}</a><br/>{{smell.description}}</li>
+                        <li class="list-group-item"><a ui-sref="root.singlesmell({id: smell.id})">{{smell.name}}</a><br/>{{smell.description}}</li>
                     </ul>
                 </div>
             </div>
@@ -128,7 +128,7 @@
                         <h3 class="panel-title">Execution tasks</h3>
                     </div>
                     <ul class="list-group" ng-repeat="task in currentar.tasks">
-                        <li class="list-group-item"><a ui-sref="singletask({id: task.id})">{{task.name}}</a></li>
+                        <li class="list-group-item"><a ui-sref="root.singletask({id: task.id})">{{task.name}}</a></li>
                     </ul>
                 </div>
             </div>
@@ -147,7 +147,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <button type="submit" class="btn btn-primary pull-right" ng-click="$state.go('aredit',{id: currentar.id})" ng-if="isAllowed.check(['Admin','Editor'])">Edit Smell</button>
+                <button type="submit" class="btn btn-primary pull-right" ng-click="$state.go('root.aredit',{id: currentar.id})" ng-if="isAllowed.check(['Admin','Editor'])">Edit AR</button>
             </div>
         </div>
         <div ui-view="discussionView"></div>

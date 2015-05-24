@@ -45,7 +45,7 @@ public class RoleCheckerImpl implements RoleChecker {
 			}
 		});
 
-		if (Logger.isDebugEnabled()) {
+		/*if (Logger.isDebugEnabled()) {
 			for (String role : roles.keySet()) {
 				Logger.debug("Role: " + role);
 
@@ -58,7 +58,7 @@ public class RoleCheckerImpl implements RoleChecker {
 
 				}
 			}
-		}
+		}*/
 	}
 
 	/**

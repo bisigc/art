@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import models.AbstractModel;
 
 /**
@@ -15,10 +17,11 @@ import models.AbstractModel;
 @Entity
 public class TaskProperty extends AbstractModel {
 
-	@ManyToOne(cascade=CascadeType.PERSIST, fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER)
 	private TaskPropertyType	property;
 	private String				value;
 	@ManyToOne(cascade=CascadeType.PERSIST, fetch = FetchType.EAGER)
+	@JsonBackReference(value="TaskTemplateTaskProperty")
 	private TaskTemplate		tasktemplate;
 	
 

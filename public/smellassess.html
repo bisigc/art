@@ -1,4 +1,4 @@
-<div ng-controller="SmellAssessController as smellACtrl">
+<div>
     <div class="page-header">
         <h1>Smell Self-Assessment <small>Refactoring Qualification</small></h1>
     </div>
@@ -6,6 +6,11 @@
         <div class="col-md-4"></div>
         <div class="col-md-8">
             <h2>Questionnaire</h2>
+            <div class="pull-right">
+                <p>
+                    <a class="btn btn-primary btn-sm" ng-click="groupToggleAll()">Show/Hide all items</a>
+                </p>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -29,7 +34,11 @@
             <form role="form">
                 <div class="panel panel-default" ng-repeat="group in groups track by $index" ng-init="groupToggle[$index] = false">
                     <div class="panel-heading">
-                        <b>{{group.name}}</b> <div class="pull-right"><a href ng-click="groupToggle[$index] = !groupToggle[$index]"><span class="glyphicon glyphicon-chevron-down" ng-hide="groupToggle[$index]"></span><span class="glyphicon glyphicon-chevron-up" ng-show="groupToggle[$index]"></span></a></div>
+                        <b>{{group.name}}</b> 
+                        <div class="pull-right">
+                            <a ng-init="groupAllCheck[$index] = false" ng-click="toggleGroupSelect($index)" popover="Select/Deselect all group items" popover-trigger="mouseenter" popover-placement="top"><span class="glyphicon glyphicon-unchecked" ng-hide="groupAllCheck[$index]"/><span class="glyphicon glyphicon-check" ng-show="groupAllCheck[$index]"/></a>
+                            <a href ng-click="groupToggle[$index] = !groupToggle[$index]" popover="Show/hide all group items" popover-trigger="mouseenter" popover-placement="top"><span class="glyphicon glyphicon-chevron-down" ng-hide="groupToggle[$index]"></span><span class="glyphicon glyphicon-chevron-up" ng-show="groupToggle[$index]"></span></a>
+                        </div>
                     </div>
                     <div class="panel-body" ng-show="groupToggle[$index]">
                         <div ng-repeat="smell in group.smells">

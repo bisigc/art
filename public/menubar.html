@@ -1,0 +1,41 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" ui-sref="root.home"><img ng-src="{{_contextPath + 'images/art_logo_small.png'}}" class="menuimage" /></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li ng-repeat="menui in menuItems" ng-if="menui.pos === 'left'" ng-class="{dropdown:menui.type === 'dropdown', active:$state.is(menui.name)}">
+                    <a ng-if="menui.type === 'dropdown'" class="dropdown-toggle" data-toggle="dropdown" title="{{menui.tooltip}}" role="button" aria-expanded="false">{{menui.fullname}} <span class="caret"></span></a>
+                    <ul ng-if="menui.type === 'dropdown'" class="dropdown-menu" role="menu">
+                        <li ng-repeat="submenui in menui.subItems"><a ui-sref="{{submenui.name}}" title="{{submenui.tooltip}}" >{{submenui.fullname}}</a></li>
+                    </ul>
+                    <a ng-if="menui.type === 'include'" ui-sref="{{menui.name}}" title="{{menui.tooltip}}">{{menui.fullname}}</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-if="isLoggedin.check()" class="dropdown right-dropdown" ng-class="{active:$state.is('root.profile') || $state.is('root.usersearches')}">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img ng-if="isLoggedin.check()" ng-src="{{_contextPath + 'avatar/' + currentUser.profile.id}}" class="avatar-nav img-circle" /> {{currentUser.profile.firstname}} {{currentUser.profile.lastname}} <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a ui-sref="root.profile">Profile</a></li>
+                        <li><a ui-sref="root.usersearches">Saved Searches</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li ng-controller="LogoutController"><a href ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                    </ul>
+                </li>
+                <li ng-if="!isLoggedin.check()" class="dropdown right-dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-log-in"></span> Login <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li class="login-dropdown"><div ui-view="login"></div></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

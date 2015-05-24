@@ -1,10 +1,10 @@
-<div ng-controller="UserController as userCtrl">
-    <form class="loginform" ng-submit="login()" novalidate>
+<div>
+    <form name="loginform" class="loginform" ng-submit="login(loginform)" novalidate>
         <label for="inputEmail" class="sr-only">Email address</label>
-        <input ng-model="logindata.email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <input ng-model="logindata.email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
         <label for="inputPassword" class="sr-only">Password</label>
         <input ng-model="logindata.password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
         <p></p>
-        <a ui-sref="register">Register</a><button class="btn btn-lg btn-primary btn-sm btn-block" type="submit">Sign in</button>
+        <a ui-sref="root.register">Register</a><button class="btn btn-lg btn-primary btn-sm btn-block" type="submit">Sign in</button>
     </form>
 </div>

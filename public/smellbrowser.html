@@ -2,11 +2,9 @@
     <div class="page-header">
         <h1>Smell Browser</h1>
     </div>
-    <div class="well" ng-if="isAllowed.check(['Admin','Editor'])">
-        <p>
-            <button class="btn btn-primary btn-sm" ng-class="{ active:smellCtrl.formvisible}" ng-click="smellCtrl.showForm(!smellCtrl.formvisible)">Add Smell &raquo;</button>
-        </p>
-        <div ng-if="smellCtrl.formvisible">
+    <div class="well well-sm" ng-if="isAllowed.check(['Admin','Editor'])">
+        <button class="btn btn-primary btn-sm" ng-class="{ active:formvisible}" ng-click="showForm(!formvisible)">Add Smell &raquo;</button>
+        <div ng-if="formvisible">
             <div ui-view="addSmellView"></div>
         </div>
     </div>
@@ -36,21 +34,21 @@
                 <th><a href ng-click="rdebtidx=!rdebtidx;order('tecdebtidx', rdebtidx)">TechDebtIdx <span ng-show="rdebtidx">&#x25B2;</span><span ng-show="!rdebtidx">&#x25BC;</span></a></th>
                 <th></th>
             </tr>
-            <tr ng-if="smellCtrl.formvisible" class="bg-warning">
+            <tr ng-if="formvisible" class="bg-warning">
                 <td>{{smell.name}}&nbsp;</td>
-                <td>{{smell.description}}</td>
+                <td>{{smell.description | limitHtml: 30}}</td>
                 <td>{{smell.weight}}</td>
                 <td>{{smell.group.name}}</td>
                 <td class="dbt-idx-{{smell.tecdebtidx}}">{{smell.tecdebtidx}}</td>
                 <td></td>
             </tr>
-            <tr ng-repeat="smellItem in smelllist | filter:search" ng-dblclick="$state.go('singlesmell',{id: smellItem.id})">
-                <td><a ui-sref="singlesmell({id: smellItem.id})">{{smellItem.name}}</a></td>
+            <tr ng-repeat="smellItem in smelllist | filter:search" ng-dblclick="$state.go('root.singlesmell',{id: smellItem.id})">
+                <td><a ui-sref="root.singlesmell({id: smellItem.id})">{{smellItem.name}}</a></td>
                 <td ng-bind-html="smellItem.description | limitHtml: 30"></td>
                 <td>{{smellItem.weight}}</td>
                 <td>{{smellItem.group.name}}</td>
                 <td class="dbt-idx-{{smellItem.tecdebtidx}}">{{smellItem.tecdebtidx}}</td>
-                <td><a ui-sref="smellbrowser.edit({id: smellItem.id})" ng-if="isAllowed.check(['Admin','Editor'])"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;<a href ng-click="deleteSmell(smellItem.id)" ng-if="isAllowed.check(['Admin'])"><span class="glyphicon glyphicon-trash"></span></a></td>
+                <td><a ui-sref="root.smellbrowser.edit({id: smellItem.id})" ng-if="isAllowed.check(['Admin','Editor'])"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;<a href ng-click="deleteSmell(smellItem.id)" ng-if="isAllowed.check(['Admin'])"><span class="glyphicon glyphicon-trash"></span></a></td>
             </tr>
         </table>
     </div>

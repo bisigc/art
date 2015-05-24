@@ -31,7 +31,7 @@ public class SmellWeightRunnable implements Runnable {
 					+ "(select max(c.created) from ArVersion c join c.smells t "
 							+ "where t.id = :smellid "
 							+ "and a.arhead.id = c.arhead.id "
-							+ "and c.status = 'published' )";
+							+ "and c.status = 'published')";
 
 	/**
 	 * Constructor receives a {@link GenericDAO}. DI framework hook is

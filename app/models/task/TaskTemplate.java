@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import models.AbstractModel;
 
 /**
@@ -24,6 +26,7 @@ public class TaskTemplate extends AbstractModel {
 	@JoinColumn(name="parent_id")
 	private TaskTemplate			parent;
 	@OneToMany(cascade=CascadeType.ALL, orphanRemoval = true, mappedBy="tasktemplate")
+	@JsonManagedReference("TaskTemplateTaskProperty")
 	private List<TaskProperty>		properties;
 	
 	/**

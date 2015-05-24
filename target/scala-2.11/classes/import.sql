@@ -58,21 +58,18 @@ VALUES ("Question1",1),
 
 INSERT INTO Menuitem
         (id, name,            fullname,                tooltip,                               image,                        type,           url,   pos,     ordering, menuitem_id)
-VALUES  (1,  'root',          'Root',                  '',                                    '',                           'root',         '',    '',      0,        1),
-        (2,  'home',          'home',                  '',                                    'images/art_logo_small.png',  'home',         '',    'left',  5,        1),
-        (3,  'arbrowser',     'AR Browser',            'Architectural Refactoring Browser',   '',                           'include',      '',    'left',  10,       1),
-        (4,  'smellbrowser',  'Smell Browser',         '',                                    '',                           'include',      '',    'left',  15,       1),
-        (5,  'taskbrowser',   'Task Browser',          '',                                    '',                           'include',      '',    'left',  25,       1),
-        (6,  'smellassess',   'Smell Self-Assessment', 'Refactoring Qualification',           '',                           'include',      '',    'left',  30,       1),
-        (7,  'admin',         'Admin',                 '',                                    '',                           'dropdown',     '',    'left',  40,       1),
-        (8,  'users',         'Users',                 '',                                    '',                           'include',      '',    'left',  5,        7),
-        (9,  'exectypes',     'Execution Task Types',  'Edit Execution Task Types',           '',                           'include',      '',    'left',  10,       7),
-        (10, 'modelelement',  'Model Elements',        '',                                    '',                           'include',      '',    'left',  15,       7),
-        (11, 'other',         'Other',                 '',                                    '',                           'include',      '',    'left',  20,       7),
-        (12, 'about',         'About',                 '',                                    '',                           'include',      '',    'left',  45,       1),
-        (13, 'profile',       'Profile',               '',                                    '',                           'include',      '',    'right', 50,       1),
-        (15, 'login',         'Login',                 '',                                    '',                           'login-logout', '',    'right', 55,       1);
-
+VALUES  (1,  'root',               'Root',                  '',                                    '',                           'root',         '',    '',      0,        1),
+        (3,  'root.arbrowser',     'AR Browser',            'Architectural Refactoring Browser',   '',                           'include',      '',    'left',  10,       1),
+        (4,  'root.smellbrowser',  'Smell Browser',         '',                                    '',                           'include',      '',    'left',  15,       1),
+        (5,  'root.taskbrowser',   'Task Browser',          '',                                    '',                           'include',      '',    'left',  25,       1),
+        (6,  'root.smellassess',   'Smell Self-Assessment', 'Refactoring Qualification',           '',                           'include',      '',    'left',  30,       1),
+        (7,  'root.admin',         'Admin',                 '',                                    '',                           'dropdown',     '',    'left',  40,       1),
+        (8,  'root.users',         'Users',                 '',                                    '',                           'include',      '',    'left',  5,        7),
+        (9,  'root.exectypes',     'Execution Task Types',  'Edit Execution Task Types',           '',                           'include',      '',    'left',  10,       7),
+        (10, 'root.modelelement',  'AR Meta Data',          '',                                    '',                           'include',      '',    'left',  15,       7),
+        (12, 'root.about',         'About',                 '',                                    '',                           'include',      '',    'left',  45,       1),
+        (13, 'root.profile',       'Profile',               '',                                    '',                           'include',      '',    'right', 50,       1),
+        (14, 'root.login',         'Login',                 '',                                    '',                           'login-logout', '',    'right', 55,       1);
 
 INSERT INTO Role
        (id, name, description)
@@ -166,6 +163,43 @@ VALUES (1,  '','root', 1, 1),
        (14, '','Communication Task',0,2),
        (15, '','Documentation Task',0,14);
        
+INSERT INTO TaskTemplate
+       (id, name)
+VALUES (1, 'Create SAD'),
+       (2, 'Organise project status meeting'),
+       (3, 'Organise code review meeting'),
+       (4, 'Implement change'),
+       (5, 'Execute load test'),
+       (6, 'Execute integration test'),
+       (7, 'Deploy application'),
+       (8, 'Purchase 3rd party software license'),
+       (9, 'Emit current application performance'),
+       (10, 'Software Architecture Design sign-off'),
+       (11, 'Order Server Hardware');
+              
+INSERT INTO TaskPropertyType
+       (id, name)
+VALUES (7,"Assignee"),
+       (8,"Type"),
+       (9,"Description"),
+       (10,"Priority"),
+       (11,"Due Date"),
+       (12,"Estimated Duration");
+       
+INSERT INTO TaskProperty
+       (id, value, property_id, tasktemplate_id)
+VALUES (1,  'Design Task',           8, 1),  (2,  'high',   10, 1),  (3,  '20h', 12, 1),
+       (4,  'Communication Task',    8, 2),  (5,  'medium', 10, 2),  (6,  '10h', 12, 2),
+       (7,  'Development Task',      8, 3),  (8,  'medium', 10, 3),  (9,  '10h', 12, 3),
+       (10, 'Development Task',      8, 4),  (11, 'medium', 10, 4),  (12, '1h',  12, 4),
+       (13, 'Testing Task',          8, 5),  (14, 'low',    10, 5),  (15, '15h', 12, 5),
+       (16, 'Testing Task',          8, 6),  (17, 'medium', 10, 6),  (18, '17h', 12, 6),
+       (19, 'Integration Task',      8, 7),  (20, 'high',   10, 7),  (21, '8h',  12, 7),
+       (22, 'Commercial Task',       8, 8),  (23, 'high',   10, 8),  (24, '40h', 12, 8),
+       (25, 'Measurement Task',      8, 9),  (26, 'medium', 10, 9),  (27, '3h',  12, 9),
+       (28, 'Design Task',           8, 10), (29, 'medium', 10, 10), (30, '1h',  12, 10),
+       (31, 'Systemmanagement Task', 8, 11), (32, 'low',    10, 11), (33, '19h', 12, 11);
+       
 INSERT INTO Ar
        (id)
 VALUES (1), (2), (3), (4), (5);       
@@ -197,6 +231,17 @@ VALUES (1,1), (1,2), (1,7),
        (9,3), (9,7),
        (10,8),
        (11,10);
+       
+INSERT INTO ArVersion_TaskTemplate
+       (ArVersion_id, tasks_id)
+VALUES (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (1, 7), (1, 8), (1, 9), (1, 10), (1, 11),
+       (2, 1), (2, 2), (2, 4), (2, 5), (2, 7), (2, 8), (2, 10), (2, 11), 
+       (3, 1), (3, 2), (3, 4), (3, 8), (3, 10), (3, 11), 
+       (4, 1), (4, 2), (4, 4), (4, 8), (4, 10), (4, 11), 
+       (5, 1), (5, 4), (5, 8), (5, 10), (5, 11), 
+       (6, 1), (6, 2), (6, 4), (6, 8), (6, 10), (6, 11), 
+       (7, 1), (7, 2), (7, 8), (7, 10), (7, 11), 
+       (8, 1), (8, 2), (8, 4), (8, 8), (8, 11); 
        
 INSERT INTO ModelElementLink
        (id, type, link, name)
@@ -273,14 +318,5 @@ VALUES (1, "Comment 1", 1, 1, current_timestamp, current_timestamp),
        (8, "Comment 8", 8, 1, current_timestamp, current_timestamp),       
        (9, "Comment 9", 9, 1, current_timestamp, current_timestamp),       
        (10, "Comment 10", 10, 1, current_timestamp, current_timestamp),       
-       (11, "Comment 11", 11, 1, current_timestamp, current_timestamp);
-       
-INSERT INTO TaskPropertyType
-       (id, name)
-VALUES (7,"Assignee"),
-       (8,"Type"),
-       (9,"Description"),
-       (10,"Priority"),
-       (11,"Due Date"),
-       (12,"Estimated Duration");        
+       (11, "Comment 11", 11, 1, current_timestamp, current_timestamp);     
        

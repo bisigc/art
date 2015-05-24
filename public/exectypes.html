@@ -51,7 +51,7 @@
         <div class="col-md-8">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <div ng-controller="ExecTaskTypeController as etypeCtrl" class="tree">
+                    <div class="tree">
                         <ul>
                             <li ng-repeat="task in exectypes" ng-include="'execTaskTypeNode.html'" ng-class="{ parent_li: hasChildren(task)}" />
                         </ul>

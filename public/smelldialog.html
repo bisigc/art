@@ -92,18 +92,17 @@
                             <td class="implabel" colspan="3">Impact</td>
                         </tr>
                     </table>
-                    <!-- select class="form-control" ng-model="smellCtrl.smell.tecdebtidx" ng-options="group.id as group.name for group in smellCtrl.groups" title="tecdebtidx" id="tecdebtidx" required></select -->
                 </fieldset>
             </div>
         </div>
         <fieldset class="form-group">
-            <label for="description">Description</label>
-            <text-angular name="smelldescription" ng-model="smell.description" required></text-angular>
+            <label for="description">Description (max. length 5000)</label>
+            <text-angular name="smelldescription" ng-model="smell.description" ta-max-text="5000" required></text-angular>
         </fieldset>
         <fieldset class="form-group">
             <div class="pull-right">
                 <button type="submit" class="btn btn-primary" ng-disabled="smellForm.$invalid">Save Smell</button>
-                <button type="button" class="btn btn-warning" ng-click="$stateParams.cancel()">Cancel</button>
+                <a class="btn btn-warning" ng-click="cancel(smellForm);">Cancel</a>
             </div>
         </fieldset>
     </form>

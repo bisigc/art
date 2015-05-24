@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -28,6 +29,7 @@ import models.user.User;
 public class ArVersion extends AbstractModel {
 
 	private String name;
+	@Column(length=10000)
 	private String description;
 	@ManyToOne
 	private Ar arhead;

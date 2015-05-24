@@ -1,40 +1,52 @@
 <div id="ARdiv">
 	<div class="page-header">
-	  <h1>Architectural Refactorings Search Result</h1>
+	  <h1>Architectural Refactorings Assessment Result</h1>
 	</div>
     <div class="well" ng-if="isLoggedin.check()">
-        <form name="arsearch_form" class="form-inline" ng-submit="arsearch_form.$valid && saveSearch(arsearch_form)" novalidate>
-            <fieldset class="form-group">
-                <label for="name">Name</label>
-                <input class="form-control" title="name" id="name" placeholder="Give a search name" ng-model="arsearch.name" required></input>
-            </fieldset>
-            <fieldset class="form-group">
-                <button class="btn btn-primary btn-sm" type="submit" ng-disabled="arsearch_form.$invalid">Save Search</button>
-            </fieldset>
-        </form>
+        <div class="row">
+            <div class="col-md-12">
+                <form name="arsearch_form" class="" ng-submit="arsearch_form.$valid && saveSearch(arsearch_form)" novalidate>
+                    <div class="form-group row">
+                        <fieldset class="col-md-4">
+                            <input class="form-control" title="name" id="name" placeholder="Provide assessment name" ng-model="arsearch.name" required></input>
+                        </fieldset>
+                        <fieldset class="col-md-3">
+                            <button class="btn btn-primary btn-sm" type="submit" ng-disabled="arsearch_form.$invalid">Save assessment result</button>
+                        </fieldset>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
     <div>
         <table id="searchObjResults" class="table table-striped table-hover non-select">
             <tr>
                 <th>Name</th>
-                <th>Description</th>
                 <th>Smells</th>
+                <th>Description</th>
                 <th>Status</th>
                 <th></th>
             </tr>
             <tr>
+                <td><input ng-model="search.name" placeholder="Enter search criteria" /></td>
+                <td><input ng-model="search.smells.name" id="smellname" placeholder="Enter search criteria" /></td>
+                <td><input ng-model="search.description" placeholder="Enter search criteria" /></td>
+                <td><input ng-model="search.status" id="status" placeholder="Enter search criteria" /></td>
+                <td><button type="button" class="btn btn-warning btn-sm" ng-click="search = []" popover="Clear filter fields" popover-trigger="mouseenter" popover-placement="right">clear</button></td>
+            </tr>
+            <tr>
                 <th><a href="" ng-click="reverseName=!reverseName;order('name', reverseName)">Name <span ng-show="reverseName">&#x25B2;</span><span ng-show="!reverseName">&#x25BC;</span></a></th>
-                <th><a href="" ng-click="reverseDesc=!reverseDesc;order('description', reverseDesc)">Description <span ng-show="reverseDesc">&#x25B2;</span><span ng-show="!reverseDesc">&#x25BC;</span></a></th>
                 <th><a href="" ng-click="reverseSmells=!reverseSmells;order('smells.name', reverseSmells)">Smells <span ng-show="reverseSmells">&#x25B2;</span><span ng-show="!reverseSmells">&#x25BC;</span></a></th>
+                <th><a href="" ng-click="reverseDesc=!reverseDesc;order('description', reverseDesc)">Description <span ng-show="reverseDesc">&#x25B2;</span><span ng-show="!reverseDesc">&#x25BC;</span></a></th>
                 <th><a href="" ng-click="reverseStatus=!reverseStatus;order('status', reverseStatus)">Status <span ng-show="reverseStatus">&#x25B2;</span><span ng-show="!reverseStatus">&#x25BC;</span></a></th>
                 <th></th>
             </tr>
-            <tr ng-repeat="ar in arlist | filter:search" ng-dblclick="$state.go('singlear',{id: ar.arhead})">
-                <td><a ui-sref="singlear({id: ar.arhead})">{{ar.name}}</a></td>
+            <tr ng-repeat="ar in arlist | filter:search" ng-dblclick="$state.go('root.singlear',{id: ar.arhead})">
+                <td><a ui-sref="root.singlear({id: ar.arhead})">{{ar.name}}</a></td>
+                <td><span ng-repeat="smell in ar.smells track by $index"><a ui-sref="root.singlesmell({id: smell.id})">{{smell.name}}</a><span ng-if="ar.smells.length - 1 != $index">, </span></span></td>
                 <td>{{ar.description}}</td>
-                <td><span ng-repeat="smell in ar.smells">{{smell.name}}, </span></td>
                 <td>{{ar.status}}</td>
-                <td><a ui-sref="aredit({id: ar.id})" ng-if="isAllowed.check(['Admin','Editor'])"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;<a href ng-click="deleteAr(ar.id)" ng-if="isAllowed.check(['Admin'])"><span class="glyphicon glyphicon-trash"></span></a></td>
+                <td><a ui-sref="root.aredit({id: ar.id})" ng-if="isAllowed.check(['Admin','Editor'])"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;<a href ng-click="deleteAr(ar.id)" ng-if="isAllowed.check(['Admin'])"><span class="glyphicon glyphicon-trash"></span></a></td>
             </tr>
         </table>
     </div>

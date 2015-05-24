@@ -1,29 +1,56 @@
 body {
     padding-top: 20px;
-    padding-bottom: 50px;
+    height: 100%;
 }
 
-.navbar-collapse {
-    padding-left: 0;
+#wrapper {
+    min-height: 100%;
+	position: relative;
 }
 
-.navbar-nav li {
+#content {
+    padding-bottom: 160px; /* Height of the footer element */
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    color: #c7c7c7;
+    border-top: 1px solid #e7e7e7;
+    height: 60px;
+    width: 100%;
+    margin-top: 60px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     text-align: center;
-    vertical-align: middle;
+    background-color: #f5f5f5;
+    
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -khtml-border-radius: 5px;
 }
 
-.navbar-nav li a {
-    padding-top: 4px;
-    padding-bottom: 4px;
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    background-color: #eee;
+    color: #777;
 }
 
-.nav {
-    margin-left: 0;
+.navbar-brand {
+    padding: 5px;
+}
+
+.menuimage {
+    height: 40px;
+}
+
+.right-dropdown {
+    margin-right: -15px;
 }
 
 .login-dropdown {
     padding: 10px;
-    width: 220px;
+    width: 250px;
 }
 
 .popover {
@@ -47,9 +74,17 @@ body {
 }
 
 .avatar {
-    height: 40px;
+    height: 50px;
     background-color: darkgray;
     display: inline-block;
+}
+
+.avatar-nav {
+    height: 40px;
+    margin-top: -14px;
+    margin-bottom: -14px;
+    margin-right: 10px;
+    background-color: darkgray;
 }
 
 .img-circle {
@@ -60,10 +95,6 @@ body {
     transition: all 50ms linear;
 }
 
-.menuimage {
-    height: 43px;
-}
-
 .dropdown:hover .dropdown-menu {
     display: block;
 }
@@ -72,36 +103,8 @@ body {
     height: 2em;
 }
 
-.menuItem {
-    border-right: 1px solid lightgray;
-    width: 100px;
-    height: 50px;
-    display: inline-block;
-    vertical-align: middle;
-    text-align: center;
-}
-
-.menuItem a {
-    display: block;
-    height: 50px;
-    vertical-align: middle;
-}
-
-.menuItem ul li a {
-    height: 30px;
-    text-align: left;
-}
-
 .menuuser {
     width: 200px;
-}
-
-.well {
-    padding: 10px 10px 0 10px;
-}
-    
-.well p {
-    margin-bottom: 10px;
 }
 
 .non-select {
@@ -111,10 +114,6 @@ body {
     user-select: none;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
-}
-
-.menuItem:hover {
-    background-color: lightgray;
 }
 
 .label-default {
@@ -260,45 +259,7 @@ body {
 }
 .col-bottom {
   vertical-align: bottom;
-}
-    
-/* Round Circle */
-    
-.btn-circle {
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  padding: 5px;
-  vertical-align: middle;
-  font-size: 12px;
-  line-height: 1.428571429;
-  border-radius: 25px;
-}
-.btn-circle.btn-sm {
-  width: 22px;
-  height: 22px;
-  padding: 4px 0;
-  font-size: 8px;
-  line-height: 1.33;
-  border-radius: 11px;
-}
-.btn-circle.btn-lg {
-  width: 50px;
-  height: 50px;
-  padding: 10px 16px;
-  font-size: 18px;
-  line-height: 1.33;
-  border-radius: 25px;
-}
-.btn-circle.btn-xl {
-  width: 70px;
-  height: 70px;
-  padding: 10px 16px;
-  font-size: 24px;
-  line-height: 1.33;
-  border-radius: 35px;
-}
-    
+}   
     
 /* Bootstrap Tab Content */
 .tab-content {
@@ -309,13 +270,13 @@ body {
     
     -moz-border-radius-bottomright: 5px;
     -webkit-border-radius-bottom-right: 5px;
-    border-bottom-right-radius: 5px; /* future proofing */
-    -khtml-border-radius-bottomright: 5px; /* for old Konqueror browsers */
+    border-bottom-right-radius: 5px;
+    -khtml-border-radius-bottomright: 5px;
 
     -moz-border-radius-bottomleft: 5px;
     -webkit-border-radius-bottom-left: 5px;
-    border-bottom-left-radius: 5px; /* future proofing */
-    -khtml-border-radius-bottomleft: 5px; /* for old Konqueror browsers */
+    border-bottom-left-radius: 5px;
+    -khtml-border-radius-bottomleft: 5px;
 }
 
 .nav-tabs {
