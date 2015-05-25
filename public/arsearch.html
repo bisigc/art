@@ -2,18 +2,16 @@
 	<div class="page-header">
 	  <h1>Architectural Refactorings Assessment Result</h1>
 	</div>
-    <div class="well" ng-if="isLoggedin.check()">
+    <div class="well well-sm" ng-if="isLoggedin.check()">
         <div class="row">
             <div class="col-md-12">
-                <form name="arsearch_form" class="" ng-submit="arsearch_form.$valid && saveSearch(arsearch_form)" novalidate>
-                    <div class="form-group row">
-                        <fieldset class="col-md-4">
-                            <input class="form-control" title="name" id="name" placeholder="Provide assessment name" ng-model="arsearch.name" required></input>
-                        </fieldset>
-                        <fieldset class="col-md-3">
-                            <button class="btn btn-primary btn-sm" type="submit" ng-disabled="arsearch_form.$invalid">Save assessment result</button>
-                        </fieldset>
-                    </div>
+                <form name="arsearch_form" class="form-inline" ng-submit="arsearch_form.$valid && saveSearch(arsearch_form)" novalidate>
+                    <fieldset class="form-group">
+                        <input class="form-control" type="text" size="50" title="name" id="name" placeholder="Provide assessment name" ng-model="arsearch.name" required></input>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <button class="btn btn-primary btn-sm" type="submit" ng-disabled="arsearch_form.$invalid">Save assessment result</button>
+                    </fieldset>
                 </form>
             </div>
         </div>

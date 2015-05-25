@@ -621,7 +621,7 @@ app.controller('ModelElementUpdateController', ['ModelElementService', 'ReplyErr
     
 }]);
 
-app.controller('ARSearchController', ['ArVersionService', 'UserSearchService', 'ReplyErrorHandler', 'notifications','$scope', '$stateParams', '$filter', function(ArVersionService, UserSearchService, ReplyErrorHandler, notifications, $scope, $stateParams, $filter) {
+app.controller('ARSearchController', ['ArVersionService', 'UserSearchService', 'ReplyErrorHandler', 'notifications','$scope', '$stateParams', '$filter', '$state', function(ArVersionService, UserSearchService, ReplyErrorHandler, notifications, $scope, $stateParams, $filter, $state) {
     var orderBy = $filter('orderBy');
     $scope.arlist = []; //ars;
     $scope.arsearch = {};
@@ -644,6 +644,7 @@ app.controller('ARSearchController', ['ArVersionService', 'UserSearchService', '
             notifications.showSuccess("Search has been added to your profile.");
             $scope.arsearch = {};
             form.$setPristine();
+            $state.go('root.usersearches');
         }, ReplyErrorHandler);  
     }
 }]);
@@ -924,7 +925,7 @@ app.controller('SmellUpdateController', ['SmellService','SmellGroupService', 'St
 app.controller('TaskController', ['TaskService', 'ExecTaskTypeService', 'TaskPropertyService', 'ReplyErrorHandler', 'notifications','$scope','$filter', '$sce', function(TaskService, ExecTaskTypeService, TaskPropertyService, ReplyErrorHandler, notifications, $scope, $filter, $sce) {
     var orderBy = $filter('orderBy');
     $scope.tasklist = [];
-    $scope.formvisible = true;
+    $scope.formvisible = false;
 
     $scope.showForm = function(visible) {
         if(visible == true) {

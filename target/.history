@@ -1,6 +1,3 @@
--help
-help
-compile
 run
 exit
 compile
@@ -492,6 +489,9 @@ run
 exit
 compile
 run
+compile
+run
+exit
 compile
 run
 exit
