@@ -16,9 +16,6 @@ import models.task.TaskPropertyType;
 import models.task.TaskTemplate;
 import models.user.Role;
 import models.user.User;
-import utils.restconfig.EEPPITaskPropertyServConf;
-import utils.restconfig.EEPPITaskTemplateServConf;
-import utils.restconfig.RestServiceConfig;
 import utils.security.RoleChecker;
 import utils.security.RoleCheckerImpl;
 
@@ -26,8 +23,6 @@ import com.google.inject.AbstractModule;
 import com.google.inject.TypeLiteral;
 import com.google.inject.name.Names;
 
-import dao.EEPPITaskPropertyDAORestImpl;
-import dao.EEPPITaskTemplateDAORestImpl;
 import dao.GenericDAO;
 import dao.GenericDAOImpl;
 

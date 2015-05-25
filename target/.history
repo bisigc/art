@@ -1,11 +1,3 @@
-exit
-compile
-run
-pwd
-compile
-eclipse
-run
-compile
 -help
 help
 compile
@@ -495,6 +487,14 @@ compile
 run
 reload
 cmopile
+compile
+run
+exit
+compile
+run
+compile
+run
+exit
 compile
 run
 exit

@@ -12,25 +12,25 @@
                 </fieldset>
             </div>
             <div class="col-md-5">
-                <fieldset class="form-group">
-                    <label>Execution Task Type</label>
-                    <span ng-bind-html="exectasktypes"></span>
-                </fieldset>
             </div>
         </div>
         <fieldset class="form-group">
-            {{propertyToAdd}}
-            <label for="property">Properties</label> 
+            <label for="property">Properties</label>
             <div class="input-group">
                 <div class="input-group-btn taskprop-select">
-                    <ui-select ng-model="propertyToAdd.property" theme="selectize" ng-disabled="disabled">
+                    <ui-select ng-model="propertyToAdd.property" theme="selectize" on-select="propertyToAdd.value=''">
                         <ui-select-match placeholder="Property type...">{{$select.selected.name}}</ui-select-match>
                         <ui-select-choices repeat="taskproperty in taskproperties | filter: $select.search">
                             <span ng-bind-html="taskproperty.name | highlight: $select.search"></span>
                         </ui-select-choices>
                     </ui-select>
                 </div>
-                <input type="text" class="form-control" ng-model="propertyToAdd.value" aria-label="..." placeholder="Value..."/>
+                <span ng-if="propertyToAdd.property.name == 'Type'" compile ng-bind-html="exectasktypes"></span>
+                <select ng-if="propertyToAdd.property.name == 'Priority'" class="form-control" ng-model="propertyToAdd.value" ng-options="item for item in ['high','low','medium']"></select>
+                <input ng-if="propertyToAdd.property.name == 'Due Date'" type="date" class="form-control" ng-model="propertyToAdd.value" aria-label="..." placeholder="Value..."/>
+                <input ng-if="propertyToAdd.property.name == 'Assignee'" type="text" class="form-control" ng-model="propertyToAdd.value" aria-label="..." placeholder="Value..."/>
+                <text-angular ng-if="propertyToAdd.property.name == 'Description'" name="taskdescription" ng-model="propertyToAdd.value" ta-max-text="10000" required></text-angular>
+                <input ng-if="propertyToAdd.property.name == 'Estimated Duration'" type="text" class="form-control" ng-model="propertyToAdd.value" aria-label="..." placeholder="Value..."/>
                 <span class="input-group-btn">
                     <a class="btn btn-primary" ng-click="propertyToAdd.property != null && propertyToAdd.value != null && addProperty()" ng-disabled="propertyToAdd.property == null || propertyToAdd.value == null">
                         <i class="glyphicon glyphicon-plus"></i>
@@ -38,7 +38,7 @@
                 </span>
             </div>
             <div class="input-group" ng-repeat="property in task.properties track by $index">
-                <input class="form-control" type="text" value="{{property.property.name + ' : ' + property.value}}" readonly required></input>
+                <input class="form-control" type="text" value="{{property.property.name + ' : ' + property.value | limitHtml:50}}" readonly required></input>
                 <span class="input-group-btn">
                     <a class="btn btn-warning" ng-click="removeProperty($index)">
                         <i class="glyphicon glyphicon-minus"></i>

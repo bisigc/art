@@ -63,6 +63,17 @@ app.filter('propsFilter', function() {
   };
 });
 
+app.directive('compile',function($compile, $timeout){
+    return {
+        restrict:'A',
+        link: function(scope,elem,attrs){
+            $timeout(function(){
+                $compile(elem.contents())(scope);    
+            },100);
+        }
+    };
+});
+
 app.directive('hilighter', ['$timeout', function($timeout) {
   return {
     restrict: 'A',

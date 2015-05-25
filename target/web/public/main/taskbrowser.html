@@ -27,12 +27,12 @@
             </tr>
             <tr ng-show="formvisible" class="bg-warning">
                 <td>{{task.name}}&nbsp;</td>
-                <td>{{task.properties[0].value}}</td>
+                <td>{{ getType(task.properties) }}</td>
                 <td></td>
             </tr>
             <tr ng-repeat="taskItem in tasklist | filter:search" ng-dblclick="$state.go('root.singletask',{id: taskItem.id})">
-                <td><a ui-sref="root.singletask({id: taskItem.id})">{{taskItem.name}} - {{taskItem.id}}</a></td>
-                <td>{{taskItem.properties[0].value}}</td>
+                <td><a ui-sref="root.singletask({id: taskItem.id})">{{taskItem.name}}</a></td>
+                <td>{{ getType(taskItem.properties) }}</td>
                 <td><a ui-sref="root.taskbrowser.edit({id: taskItem.id})" ng-if="isAllowed.check(['Admin','Editor'])"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;<a href ng-click="deleteTask(taskItem.id)" ng-if="isAllowed.check(['Admin'])"><span class="glyphicon glyphicon-trash"></span></a></td>
             </tr>
         </table>

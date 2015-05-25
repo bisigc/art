@@ -205,8 +205,6 @@ public class UserController extends AbstractCRUDController<User, Long> {
 				if(cachedDefaultAavatar == null) {
 					InputStream is = Play.application().classloader().getResourceAsStream(Play.application().configuration().getString("defaultavatar"));
 					imageBytes = IOUtils.toByteArray(is);
-					//File avatar = Play.application().getFile("public/" + Play.application().configuration().getString("defaultavatar"));
-					//imageBytes = FileUtils.readFileToByteArray(avatar);
 				} else {
 					imageBytes = cachedDefaultAavatar;
 				}
