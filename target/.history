@@ -1,9 +1,4 @@
 run
-exit
-compile
-run
-compile
-run
 compile
 run
 compile
@@ -496,5 +491,10 @@ compile
 run
 exit
 compile
+run
+exit
+compile
+run
+exit
 run
 exit

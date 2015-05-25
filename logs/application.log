@@ -1,237 +1,60 @@
-2015-05-25 16:18:49,662 - [INFO] - from play in pool-5-thread-4 
+2015-05-25 20:57:46,047 - [INFO] - from play in pool-4-thread-3 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9085
 
-2015-05-25 16:18:54,620 - [INFO] - from play in play-internal-execution-context-1 
+2015-05-25 20:57:53,583 - [INFO] - from play in play-internal-execution-context-1 
 datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
 
-2015-05-25 16:18:55,192 - [INFO] - from play in play-internal-execution-context-1 
+2015-05-25 20:57:54,090 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:mysql://localhost/art
 
-2015-05-25 16:18:58,523 - [INFO] - from play in play-internal-execution-context-1 
+2015-05-25 20:57:58,786 - [INFO] - from play in play-internal-execution-context-1 
 Starting application default Akka system.
 
-2015-05-25 16:18:58,534 - [INFO] - from play in play-internal-execution-context-1 
+2015-05-25 20:57:58,797 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2015-05-25 16:18:59,151 - [INFO] - from application in application-akka.actor.default-dispatcher-2 
+2015-05-25 20:57:59,469 - [INFO] - from application in application-akka.actor.default-dispatcher-2 
 Scheduled job for recalculating the Smell weights has finished successfully.
 
-2015-05-25 16:23:58,686 - [INFO] - from application in application-akka.actor.default-dispatcher-3 
-Scheduled job for recalculating the Smell weights has finished successfully.
-
-2015-05-25 16:28:58,614 - [INFO] - from application in application-akka.actor.default-dispatcher-3 
-Scheduled job for recalculating the Smell weights has finished successfully.
-
-2015-05-25 16:28:59,204 - [DEBUG] - from application in play-akka.actor.default-dispatcher-70 
+2015-05-25 20:59:01,301 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
 httpMethod: POST
 
-2015-05-25 16:28:59,205 - [DEBUG] - from application in play-akka.actor.default-dispatcher-70 
+2015-05-25 20:59:01,301 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
 appContext: /
 
-2015-05-25 16:28:59,206 - [DEBUG] - from application in play-akka.actor.default-dispatcher-70 
-function:   usersearch
+2015-05-25 20:59:01,301 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
+function:   modelelement
 
-2015-05-25 16:28:59,206 - [DEBUG] - from application in play-akka.actor.default-dispatcher-70 
+2015-05-25 20:59:01,301 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
 userrole:   Admin
 
-2015-05-25 16:29:04,393 - [DEBUG] - from application in play-akka.actor.default-dispatcher-70 
-httpMethod: GET
-
-2015-05-25 16:29:04,393 - [DEBUG] - from application in play-akka.actor.default-dispatcher-70 
-appContext: /
-
-2015-05-25 16:29:04,394 - [DEBUG] - from application in play-akka.actor.default-dispatcher-70 
-function:   usersearch
-
-2015-05-25 16:29:04,394 - [DEBUG] - from application in play-akka.actor.default-dispatcher-70 
-userrole:   Admin
-
-2015-05-25 16:29:22,626 - [DEBUG] - from application in play-akka.actor.default-dispatcher-70 
-httpMethod: GET
-
-2015-05-25 16:29:22,626 - [DEBUG] - from application in play-akka.actor.default-dispatcher-70 
-appContext: /
-
-2015-05-25 16:29:22,627 - [DEBUG] - from application in play-akka.actor.default-dispatcher-70 
-function:   usersearch
-
-2015-05-25 16:29:22,627 - [DEBUG] - from application in play-akka.actor.default-dispatcher-70 
-userrole:   Admin
-
-2015-05-25 16:29:27,117 - [DEBUG] - from application in play-akka.actor.default-dispatcher-71 
-httpMethod: GET
-
-2015-05-25 16:29:27,118 - [DEBUG] - from application in play-akka.actor.default-dispatcher-71 
-appContext: /
-
-2015-05-25 16:29:27,118 - [DEBUG] - from application in play-akka.actor.default-dispatcher-71 
-function:   usersearch
-
-2015-05-25 16:29:27,119 - [DEBUG] - from application in play-akka.actor.default-dispatcher-71 
-userrole:   Admin
-
-2015-05-25 16:32:34,724 - [DEBUG] - from application in play-akka.actor.default-dispatcher-70 
-httpMethod: GET
-
-2015-05-25 16:32:34,725 - [DEBUG] - from application in play-akka.actor.default-dispatcher-70 
-appContext: /
-
-2015-05-25 16:32:34,725 - [DEBUG] - from application in play-akka.actor.default-dispatcher-70 
-function:   usersearch
-
-2015-05-25 16:32:34,725 - [DEBUG] - from application in play-akka.actor.default-dispatcher-70 
-userrole:   Admin
-
-2015-05-25 16:32:57,351 - [DEBUG] - from application in play-akka.actor.default-dispatcher-70 
+2015-05-25 20:59:21,000 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
 httpMethod: POST
 
-2015-05-25 16:32:57,351 - [DEBUG] - from application in play-akka.actor.default-dispatcher-70 
+2015-05-25 20:59:21,000 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
 appContext: /
 
-2015-05-25 16:32:57,351 - [DEBUG] - from application in play-akka.actor.default-dispatcher-70 
-function:   usersearch
+2015-05-25 20:59:21,000 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
+function:   modelelement
 
-2015-05-25 16:32:57,351 - [DEBUG] - from application in play-akka.actor.default-dispatcher-70 
+2015-05-25 20:59:21,001 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
 userrole:   Admin
 
-2015-05-25 16:33:24,156 - [DEBUG] - from application in play-akka.actor.default-dispatcher-75 
+2015-05-25 20:59:44,333 - [DEBUG] - from application in play-akka.actor.default-dispatcher-17 
 httpMethod: POST
 
-2015-05-25 16:33:24,157 - [DEBUG] - from application in play-akka.actor.default-dispatcher-75 
+2015-05-25 20:59:44,333 - [DEBUG] - from application in play-akka.actor.default-dispatcher-17 
 appContext: /
 
-2015-05-25 16:33:24,157 - [DEBUG] - from application in play-akka.actor.default-dispatcher-75 
-function:   usersearch
-
-2015-05-25 16:33:24,157 - [DEBUG] - from application in play-akka.actor.default-dispatcher-75 
-userrole:   Admin
-
-2015-05-25 16:33:24,261 - [DEBUG] - from application in play-akka.actor.default-dispatcher-75 
-httpMethod: GET
-
-2015-05-25 16:33:24,263 - [DEBUG] - from application in play-akka.actor.default-dispatcher-75 
-appContext: /
-
-2015-05-25 16:33:24,263 - [DEBUG] - from application in play-akka.actor.default-dispatcher-75 
-function:   usersearch
-
-2015-05-25 16:33:24,263 - [DEBUG] - from application in play-akka.actor.default-dispatcher-75 
-userrole:   Admin
-
-2015-05-25 16:33:27,549 - [DEBUG] - from application in play-akka.actor.default-dispatcher-75 
-httpMethod: DELETE
-
-2015-05-25 16:33:27,549 - [DEBUG] - from application in play-akka.actor.default-dispatcher-75 
-appContext: /
-
-2015-05-25 16:33:27,549 - [DEBUG] - from application in play-akka.actor.default-dispatcher-75 
-function:   usersearch
-
-2015-05-25 16:33:27,549 - [DEBUG] - from application in play-akka.actor.default-dispatcher-75 
-userrole:   Admin
-
-2015-05-25 16:33:27,563 - [DEBUG] - from application in play-akka.actor.default-dispatcher-75 
-httpMethod: GET
-
-2015-05-25 16:33:27,564 - [DEBUG] - from application in play-akka.actor.default-dispatcher-75 
-appContext: /
-
-2015-05-25 16:33:27,564 - [DEBUG] - from application in play-akka.actor.default-dispatcher-75 
-function:   usersearch
-
-2015-05-25 16:33:27,564 - [DEBUG] - from application in play-akka.actor.default-dispatcher-75 
-userrole:   Admin
-
-2015-05-25 16:33:40,167 - [DEBUG] - from application in play-akka.actor.default-dispatcher-83 
-httpMethod: GET
-
-2015-05-25 16:33:40,167 - [DEBUG] - from application in play-akka.actor.default-dispatcher-83 
-appContext: /
-
-2015-05-25 16:33:40,167 - [DEBUG] - from application in play-akka.actor.default-dispatcher-83 
-function:   usersearch
-
-2015-05-25 16:33:40,167 - [DEBUG] - from application in play-akka.actor.default-dispatcher-83 
-userrole:   Admin
-
-2015-05-25 16:33:58,588 - [INFO] - from application in application-akka.actor.default-dispatcher-3 
-Scheduled job for recalculating the Smell weights has finished successfully.
-
-2015-05-25 16:38:58,599 - [INFO] - from application in application-akka.actor.default-dispatcher-3 
-Scheduled job for recalculating the Smell weights has finished successfully.
-
-2015-05-25 16:39:20,404 - [DEBUG] - from application in play-akka.actor.default-dispatcher-99 
-httpMethod: PUT
-
-2015-05-25 16:39:20,405 - [DEBUG] - from application in play-akka.actor.default-dispatcher-99 
-appContext: /
-
-2015-05-25 16:39:20,406 - [DEBUG] - from application in play-akka.actor.default-dispatcher-99 
+2015-05-25 20:59:44,333 - [DEBUG] - from application in play-akka.actor.default-dispatcher-17 
 function:   smell
 
-2015-05-25 16:39:20,407 - [DEBUG] - from application in play-akka.actor.default-dispatcher-99 
+2015-05-25 20:59:44,333 - [DEBUG] - from application in play-akka.actor.default-dispatcher-17 
 userrole:   Admin
 
-2015-05-25 16:40:29,500 - [DEBUG] - from application in play-akka.actor.default-dispatcher-103 
-httpMethod: PUT
-
-2015-05-25 16:40:29,501 - [DEBUG] - from application in play-akka.actor.default-dispatcher-103 
-appContext: /
-
-2015-05-25 16:40:29,501 - [DEBUG] - from application in play-akka.actor.default-dispatcher-103 
-function:   changepw
-
-2015-05-25 16:40:29,501 - [DEBUG] - from application in play-akka.actor.default-dispatcher-103 
-userrole:   Admin
-
-2015-05-25 16:40:51,372 - [DEBUG] - from application in play-akka.actor.default-dispatcher-103 
-httpMethod: PUT
-
-2015-05-25 16:40:51,373 - [DEBUG] - from application in play-akka.actor.default-dispatcher-103 
-appContext: /
-
-2015-05-25 16:40:51,373 - [DEBUG] - from application in play-akka.actor.default-dispatcher-103 
-function:   changepw
-
-2015-05-25 16:40:51,373 - [DEBUG] - from application in play-akka.actor.default-dispatcher-103 
-userrole:   Admin
-
-2015-05-25 16:41:06,317 - [DEBUG] - from application in play-akka.actor.default-dispatcher-100 
-httpMethod: POST
-
-2015-05-25 16:41:06,318 - [DEBUG] - from application in play-akka.actor.default-dispatcher-100 
-appContext: /
-
-2015-05-25 16:41:06,318 - [DEBUG] - from application in play-akka.actor.default-dispatcher-100 
-function:   avatar
-
-2015-05-25 16:41:06,318 - [DEBUG] - from application in play-akka.actor.default-dispatcher-100 
-userrole:   Admin
-
-2015-05-25 16:41:06,323 - [DEBUG] - from application in play-akka.actor.default-dispatcher-100 
-Avatar mime: image/png
-
-2015-05-25 16:41:06,919 - [DEBUG] - from application in play-akka.actor.default-dispatcher-100 
-Avatar dimension: 300x300
-
-2015-05-25 16:41:06,926 - [DEBUG] - from application in play-akka.actor.default-dispatcher-100 
-Avatar size: 33505
-
-2015-05-25 16:42:00,120 - [DEBUG] - from application in play-akka.actor.default-dispatcher-106 
-httpMethod: GET
-
-2015-05-25 16:42:00,121 - [DEBUG] - from application in play-akka.actor.default-dispatcher-106 
-appContext: /
-
-2015-05-25 16:42:00,121 - [DEBUG] - from application in play-akka.actor.default-dispatcher-106 
-function:   usersearch
-
-2015-05-25 16:42:00,121 - [DEBUG] - from application in play-akka.actor.default-dispatcher-106 
-userrole:   Admin
-
-2015-05-25 16:43:24,934 - [INFO] - from play in pool-5-thread-4 
+2015-05-25 21:01:41,475 - [INFO] - from play in pool-4-thread-3 
 Shutdown application default Akka system.
 
-2015-05-25 16:43:24,989 - [INFO] - from application in application-akka.actor.default-dispatcher-5 
+2015-05-25 21:01:41,564 - [INFO] - from application in application-akka.actor.default-dispatcher-5 
 Scheduled job for recalculating the Smell weights has finished successfully.
 

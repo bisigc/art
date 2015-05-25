@@ -38,7 +38,6 @@ app.factory("PropModal", ['$modal', 'notifications', function($modal, notificati
 
     return {
         open: function(type, okfunction, dissmissedfunction) {
-            notifications.showInfo("bubu" + type);
             var modaltype = type;
             var modalInstance = $modal.open(
                 {

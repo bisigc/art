@@ -60,7 +60,6 @@
                                 </small>
                             </ui-select-choices>
                         </ui-select>
-                        <!--a ui-sref="addar.addmodelelement({modelelementtype: 'QASElementLink'})" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></a-->
                         <a ng-click="openPropModal('QASElementLink')" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></a>
                     </fieldset>
                 </div>
@@ -182,9 +181,6 @@
                 <div class="col-md-3">
                 </div>
             </div>
-            <!-- fieldset class="form-group">
-    <input type="email" class="form-control" placeholder="jimmyDean&#64;example.org" title="Email" />
-    </fieldset -->
             <fieldset class="form-group pull-right">
                 <a class="btn btn-warning" ng-click="$state.go('root.arbrowser')">Cancel</a>
                 <a class="btn btn-info" ng-show="isAllowed.check(['Admin','Editor'])" ng-click="showJsonDiv=!showJsonDiv"><span ng-show="showJsonDiv">Hide</span><span ng-hide="showJsonDiv">Show</span> JSON</a>

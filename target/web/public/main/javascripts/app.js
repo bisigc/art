@@ -309,12 +309,6 @@ app.controller('AREditController', ['ArService', 'ArVersionService', 'SmellServi
     }
     $scope.loadArVersion();
     
-    /*$scope.loadAr = function () {
-        ArVersionService.id.get({id: $stateParams.id},function(data, status, headers, config) {
-            $scope.ar = data;
-        }, ReplyErrorHandler);  
-    };
-    $scope.loadAr();*/
     $scope.openPropModal = function(type) {
         PropModal.open(type, function() {$scope.loadValues()}, function() {});
     }
@@ -325,36 +319,61 @@ app.controller('AREditController', ['ArService', 'ArVersionService', 'SmellServi
         }, ReplyErrorHandler);        
         SmellService.noid.get({},function(data, status, headers, config) {
             $scope.smells = data;
-        }, ReplyErrorHandler);      
+        }, ReplyErrorHandler); 
         TaskService.noid.get({},function(data, status, headers, config) {
             $scope.tasks = data;
         }, ReplyErrorHandler);   
         ModelElementService.type.get({},function(data, status, headers, config) {
             $scope.modelelementtypes = data;
-        }, ReplyErrorHandler);  
-        ModelElementService.qas.get({},function(data, status, headers, config) {
-            $scope.modelelements.qas = data;
-        }, ReplyErrorHandler);  
-        ModelElementService.context.get({},function(data, status, headers, config) {
-            $scope.modelelements.context = data;
-        }, ReplyErrorHandler);  
-        ModelElementService.components.get({},function(data, status, headers, config) {
-            $scope.modelelements.components = data;
-        }, ReplyErrorHandler);  
-        ModelElementService.decisions.get({},function(data, status, headers, config) {
-            $scope.modelelements.decisions = data;
-        }, ReplyErrorHandler);  
-        ModelElementService.design.get({},function(data, status, headers, config) {
-            $scope.modelelements.design = data;
-        }, ReplyErrorHandler);  
-        ModelElementService.references.get({},function(data, status, headers, config) {
-            $scope.modelelements.references = data;
+            $scope.loadAllProps();
         }, ReplyErrorHandler);  
     };
     $scope.loadValues();
+    
+    $scope.loadProps = function(type) {
+        switch(type) {
+            case 'QASElementLink':
+                ModelElementService.qas.get({},function(data, status, headers, config) {
+                    $scope.modelelements.qas = data;
+                }, ReplyErrorHandler);  
+                break;
+            case 'ContextElementLink':
+                ModelElementService.context.get({},function(data, status, headers, config) {
+                    $scope.modelelements.context = data;
+                }, ReplyErrorHandler); 
+                break;
+            case 'ComponentElementLink':
+                ModelElementService.components.get({},function(data, status, headers, config) {
+                    $scope.modelelements.components = data;
+                }, ReplyErrorHandler);  
+                break;
+            case 'DecisionElementLink':
+                ModelElementService.decisions.get({},function(data, status, headers, config) {
+                    $scope.modelelements.decisions = data;
+                }, ReplyErrorHandler);  
+                break;
+            case 'DesignElementLink':
+                ModelElementService.design.get({},function(data, status, headers, config) {
+                    $scope.modelelements.design = data;
+                }, ReplyErrorHandler); 
+                break;
+            case 'ReferenceElementLink':
+                ModelElementService.references.get({},function(data, status, headers, config) {
+                    $scope.modelelements.references = data;
+                }, ReplyErrorHandler);  
+                break;
+            default:
+                break;
+        }       
+    }
+    
+    $scope.loadAllProps = function() {
+        for(var i = 0;i < $scope.modelelementtypes.length;i++) {
+            $scope.loadProps($scope.modelelementtypes[i]);
+        }
+    }
 
     $scope.mergeProperties = function() {
-        //angular.extend(ar.versions, arversion);
         $scope.arversion.properties = [].concat(
             $scope.modelelementsvalues.qas,
             $scope.modelelementsvalues.context,
@@ -450,7 +469,7 @@ app.controller('ARAddController', ['ArService', 'ArVersionService', 'SmellServic
     }
     
     $scope.openPropModal = function(type) {
-        PropModal.open(type, function() {$scope.loadValues()}, function() {});
+        PropModal.open(type, function() {$scope.loadProps(type)}, function() {});
     }
     
     $scope.loadValues = function () {
@@ -465,27 +484,53 @@ app.controller('ARAddController', ['ArService', 'ArVersionService', 'SmellServic
         }, ReplyErrorHandler);   
         ModelElementService.type.get({},function(data, status, headers, config) {
             $scope.modelelementtypes = data;
-        }, ReplyErrorHandler);  
-        ModelElementService.qas.get({},function(data, status, headers, config) {
-            $scope.modelelements.qas = data;
-        }, ReplyErrorHandler);  
-        ModelElementService.context.get({},function(data, status, headers, config) {
-            $scope.modelelements.context = data;
-        }, ReplyErrorHandler);  
-        ModelElementService.components.get({},function(data, status, headers, config) {
-            $scope.modelelements.components = data;
-        }, ReplyErrorHandler);  
-        ModelElementService.decisions.get({},function(data, status, headers, config) {
-            $scope.modelelements.decisions = data;
-        }, ReplyErrorHandler);  
-        ModelElementService.design.get({},function(data, status, headers, config) {
-            $scope.modelelements.design = data;
-        }, ReplyErrorHandler);  
-        ModelElementService.references.get({},function(data, status, headers, config) {
-            $scope.modelelements.references = data;
+            $scope.loadAllProps();
         }, ReplyErrorHandler);  
     };
     $scope.loadValues();
+    
+    $scope.loadProps = function(type) {
+        switch(type) {
+            case 'QASElementLink':
+                ModelElementService.qas.get({},function(data, status, headers, config) {
+                    $scope.modelelements.qas = data;
+                }, ReplyErrorHandler);  
+                break;
+            case 'ContextElementLink':
+                ModelElementService.context.get({},function(data, status, headers, config) {
+                    $scope.modelelements.context = data;
+                }, ReplyErrorHandler); 
+                break;
+            case 'ComponentElementLink':
+                ModelElementService.components.get({},function(data, status, headers, config) {
+                    $scope.modelelements.components = data;
+                }, ReplyErrorHandler);  
+                break;
+            case 'DecisionElementLink':
+                ModelElementService.decisions.get({},function(data, status, headers, config) {
+                    $scope.modelelements.decisions = data;
+                }, ReplyErrorHandler);  
+                break;
+            case 'DesignElementLink':
+                ModelElementService.design.get({},function(data, status, headers, config) {
+                    $scope.modelelements.design = data;
+                }, ReplyErrorHandler); 
+                break;
+            case 'ReferenceElementLink':
+                ModelElementService.references.get({},function(data, status, headers, config) {
+                    $scope.modelelements.references = data;
+                }, ReplyErrorHandler);  
+                break;
+            default:
+                break;
+        }       
+    }
+    
+    $scope.loadAllProps = function() {
+        for(var i = 0;i < $scope.modelelementtypes.length;i++) {
+            $scope.loadProps($scope.modelelementtypes[i]);
+        }
+    }
 
     $scope.mergeProperties = function() {
         //angular.extend(ar.versions, arversion);
