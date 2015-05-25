@@ -2,6 +2,7 @@ package controllers.user;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.InputStream;
 import java.security.GeneralSecurityException;
 import java.util.List;
 
@@ -15,6 +16,7 @@ import models.user.NewPassword;
 import models.user.User;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 
 import play.Logger;
 import play.Play;
@@ -201,8 +203,10 @@ public class UserController extends AbstractCRUDController<User, Long> {
 			byte [] imageBytes = user.getAvatar();
 			if (imageBytes == null) {
 				if(cachedDefaultAavatar == null) {
-					File avatar = Play.application().getFile("public/" + Play.application().configuration().getString("defaultavatar"));
-					imageBytes = FileUtils.readFileToByteArray(avatar);
+					InputStream is = Play.application().classloader().getResourceAsStream(Play.application().configuration().getString("defaultavatar"));
+					imageBytes = IOUtils.toByteArray(is);
+					//File avatar = Play.application().getFile("public/" + Play.application().configuration().getString("defaultavatar"));
+					//imageBytes = FileUtils.readFileToByteArray(avatar);
 				} else {
 					imageBytes = cachedDefaultAavatar;
 				}

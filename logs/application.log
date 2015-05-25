@@ -1,102 +1,180 @@
-2015-05-24 15:24:05,431 - [INFO] - from play in pool-5-thread-1 
+2015-05-25 10:33:16,065 - [INFO] - from play in pool-16-thread-1 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9085
 
-2015-05-24 15:24:08,785 - [INFO] - from play in play-internal-execution-context-1 
+2015-05-25 10:33:22,343 - [INFO] - from play in play-internal-execution-context-1 
 datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
 
-2015-05-24 15:24:09,360 - [INFO] - from play in play-internal-execution-context-1 
+2015-05-25 10:33:22,598 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:mysql://localhost/art
 
-2015-05-24 15:24:12,847 - [INFO] - from play in play-internal-execution-context-1 
+2015-05-25 10:33:25,160 - [INFO] - from play in play-internal-execution-context-1 
 Starting application default Akka system.
 
-2015-05-24 15:24:12,856 - [INFO] - from play in play-internal-execution-context-1 
+2015-05-25 10:33:25,167 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2015-05-24 15:24:13,452 - [INFO] - from application in application-akka.actor.default-dispatcher-2 
+2015-05-25 10:33:25,588 - [INFO] - from application in application-akka.actor.default-dispatcher-3 
 Scheduled job for recalculating the Smell weights has finished successfully.
 
-2015-05-24 15:24:46,865 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
-httpMethod: PUT
+2015-05-25 10:33:27,257 - [ERROR] - from application in play-akka.actor.default-dispatcher-5 
+Failed to get avatar.
+java.lang.NullPointerException: null
+	at org.apache.commons.io.IOUtils.copyLarge(IOUtils.java:1792) ~[commons-io-2.4.jar:2.4]
+	at org.apache.commons.io.IOUtils.copyLarge(IOUtils.java:1769) ~[commons-io-2.4.jar:2.4]
+	at org.apache.commons.io.IOUtils.copy(IOUtils.java:1744) ~[commons-io-2.4.jar:2.4]
+	at org.apache.commons.io.IOUtils.toByteArray(IOUtils.java:462) ~[commons-io-2.4.jar:2.4]
+	at controllers.user.UserController.getAvatar(UserController.java:207) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$69$$anonfun$apply$385.apply(routes_routing.scala:1227) [classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$69$$anonfun$apply$385.apply(routes_routing.scala:1227) [classes/:na]
+	at play.core.Router$HandlerInvokerFactory$$anon$4.resultCall(Router.scala:264) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.invocation(Router.scala:255) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:55) [play_2.11-2.3.6.jar:2.3.6]
+	at utils.Global$1.call(Global.java:125) [classes/:na]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:23) [play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:21) [play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.JPA.withTransactionAsync(JPA.java:180) [play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.TransactionalAction.call(TransactionalAction.java:18) [play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.JavaAction$$anonfun$11.apply(JavaAction.scala:82) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.JavaAction$$anonfun$11.apply(JavaAction.scala:82) [play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:40) [play_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:46) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:32) [play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$.apply(Future.scala:31) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.Future$.apply(Future.scala:492) [scala-library-2.11.1.jar:na]
+	at play.core.j.JavaAction$class.apply(JavaAction.scala:82) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.apply(Router.scala:252) [play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:130) [play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:130) [play_2.11-2.3.6.jar:2.3.6]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) [play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:129) [play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:128) [play_2.11-2.3.6.jar:2.3.6]
+	at scala.Option.map(Option.scala:145) [scala-library-2.11.1.jar:na]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:128) [play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:121) [play_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:483) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:483) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:519) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:519) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:496) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:496) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:41) [akka-actor_2.11-2.3.4.jar:na]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:393) [akka-actor_2.11-2.3.4.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.11.1.jar:na]
 
-2015-05-24 15:24:46,866 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
-appContext: /
+2015-05-25 10:34:53,330 - [ERROR] - from application in play-akka.actor.default-dispatcher-9 
+Failed to get avatar.
+java.lang.NullPointerException: null
+	at org.apache.commons.io.IOUtils.copyLarge(IOUtils.java:1792) ~[commons-io-2.4.jar:2.4]
+	at org.apache.commons.io.IOUtils.copyLarge(IOUtils.java:1769) ~[commons-io-2.4.jar:2.4]
+	at org.apache.commons.io.IOUtils.copy(IOUtils.java:1744) ~[commons-io-2.4.jar:2.4]
+	at org.apache.commons.io.IOUtils.toByteArray(IOUtils.java:462) ~[commons-io-2.4.jar:2.4]
+	at controllers.user.UserController.getAvatar(UserController.java:207) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$69$$anonfun$apply$385.apply(routes_routing.scala:1227) [classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$69$$anonfun$apply$385.apply(routes_routing.scala:1227) [classes/:na]
+	at play.core.Router$HandlerInvokerFactory$$anon$4.resultCall(Router.scala:264) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.invocation(Router.scala:255) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:55) [play_2.11-2.3.6.jar:2.3.6]
+	at utils.Global$1.call(Global.java:125) [classes/:na]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:23) [play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:21) [play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.JPA.withTransactionAsync(JPA.java:180) [play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.TransactionalAction.call(TransactionalAction.java:18) [play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.JavaAction$$anonfun$11.apply(JavaAction.scala:82) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.JavaAction$$anonfun$11.apply(JavaAction.scala:82) [play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:40) [play_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:46) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:32) [play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$.apply(Future.scala:31) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.Future$.apply(Future.scala:492) [scala-library-2.11.1.jar:na]
+	at play.core.j.JavaAction$class.apply(JavaAction.scala:82) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.apply(Router.scala:252) [play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:130) [play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:130) [play_2.11-2.3.6.jar:2.3.6]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) [play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:129) [play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:128) [play_2.11-2.3.6.jar:2.3.6]
+	at scala.Option.map(Option.scala:145) [scala-library-2.11.1.jar:na]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:128) [play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:121) [play_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:483) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:483) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:519) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:519) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:496) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:496) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:41) [akka-actor_2.11-2.3.4.jar:na]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:393) [akka-actor_2.11-2.3.4.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.11.1.jar:na]
 
-2015-05-24 15:24:46,866 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
-function:   arversion
+2015-05-25 10:35:17,047 - [ERROR] - from application in play-akka.actor.default-dispatcher-13 
+Failed to get avatar.
+java.lang.NullPointerException: null
+	at org.apache.commons.io.IOUtils.copyLarge(IOUtils.java:1792) ~[commons-io-2.4.jar:2.4]
+	at org.apache.commons.io.IOUtils.copyLarge(IOUtils.java:1769) ~[commons-io-2.4.jar:2.4]
+	at org.apache.commons.io.IOUtils.copy(IOUtils.java:1744) ~[commons-io-2.4.jar:2.4]
+	at org.apache.commons.io.IOUtils.toByteArray(IOUtils.java:462) ~[commons-io-2.4.jar:2.4]
+	at controllers.user.UserController.getAvatar(UserController.java:207) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$69$$anonfun$apply$385.apply(routes_routing.scala:1227) [classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$69$$anonfun$apply$385.apply(routes_routing.scala:1227) [classes/:na]
+	at play.core.Router$HandlerInvokerFactory$$anon$4.resultCall(Router.scala:264) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.invocation(Router.scala:255) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:55) [play_2.11-2.3.6.jar:2.3.6]
+	at utils.Global$1.call(Global.java:125) [classes/:na]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:23) [play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.TransactionalAction$1.apply(TransactionalAction.java:21) [play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.JPA.withTransactionAsync(JPA.java:180) [play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.db.jpa.TransactionalAction.call(TransactionalAction.java:18) [play-java-jpa_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.JavaAction$$anonfun$11.apply(JavaAction.scala:82) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.JavaAction$$anonfun$11.apply(JavaAction.scala:82) [play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:40) [play_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:46) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:32) [play_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$.apply(Future.scala:31) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.Future$.apply(Future.scala:492) [scala-library-2.11.1.jar:na]
+	at play.core.j.JavaAction$class.apply(JavaAction.scala:82) [play_2.11-2.3.6.jar:2.3.6]
+	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.apply(Router.scala:252) [play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:130) [play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:130) [play_2.11-2.3.6.jar:2.3.6]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) [play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:129) [play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:128) [play_2.11-2.3.6.jar:2.3.6]
+	at scala.Option.map(Option.scala:145) [scala-library-2.11.1.jar:na]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:128) [play_2.11-2.3.6.jar:2.3.6]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:121) [play_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:483) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:483) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:519) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:519) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:496) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:496) [play-iteratees_2.11-2.3.6.jar:2.3.6]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:41) [akka-actor_2.11-2.3.4.jar:na]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:393) [akka-actor_2.11-2.3.4.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.11.1.jar:na]
 
-2015-05-24 15:24:46,866 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
-userrole:   Admin
-
-2015-05-24 15:26:12,606 - [INFO] - from play in play-internal-execution-context-1 
+2015-05-25 10:36:04,606 - [INFO] - from play in pool-16-thread-1 
 Shutdown application default Akka system.
 
-2015-05-24 15:26:12,671 - [INFO] - from application in application-akka.actor.default-dispatcher-6 
-Scheduled job for recalculating the Smell weights has finished successfully.
-
-2015-05-24 15:26:12,753 - [INFO] - from play in play-internal-execution-context-1 
-datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
-
-2015-05-24 15:26:12,785 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:mysql://localhost/art
-
-2015-05-24 15:26:13,928 - [INFO] - from play in play-internal-execution-context-1 
-Starting application default Akka system.
-
-2015-05-24 15:26:13,928 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-05-24 15:26:14,189 - [INFO] - from application in application-akka.actor.default-dispatcher-2 
-Scheduled job for recalculating the Smell weights has finished successfully.
-
-2015-05-24 15:26:29,245 - [DEBUG] - from application in play-akka.actor.default-dispatcher-17 
-httpMethod: PUT
-
-2015-05-24 15:26:29,245 - [DEBUG] - from application in play-akka.actor.default-dispatcher-17 
-appContext: /
-
-2015-05-24 15:26:29,245 - [DEBUG] - from application in play-akka.actor.default-dispatcher-17 
-function:   arversion
-
-2015-05-24 15:26:29,245 - [DEBUG] - from application in play-akka.actor.default-dispatcher-17 
-userrole:   Admin
-
-2015-05-24 15:29:07,529 - [INFO] - from play in play-internal-execution-context-1 
-Shutdown application default Akka system.
-
-2015-05-24 15:29:07,570 - [INFO] - from application in application-akka.actor.default-dispatcher-3 
-Scheduled job for recalculating the Smell weights has finished successfully.
-
-2015-05-24 15:29:07,649 - [INFO] - from play in play-internal-execution-context-1 
-datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
-
-2015-05-24 15:29:07,681 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:mysql://localhost/art
-
-2015-05-24 15:29:08,750 - [INFO] - from play in play-internal-execution-context-1 
-Starting application default Akka system.
-
-2015-05-24 15:29:08,751 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-05-24 15:29:08,986 - [INFO] - from application in application-akka.actor.default-dispatcher-2 
-Scheduled job for recalculating the Smell weights has finished successfully.
-
-2015-05-24 15:29:18,522 - [DEBUG] - from application in play-akka.actor.default-dispatcher-23 
-httpMethod: PUT
-
-2015-05-24 15:29:18,523 - [DEBUG] - from application in play-akka.actor.default-dispatcher-23 
-appContext: /
-
-2015-05-24 15:29:18,523 - [DEBUG] - from application in play-akka.actor.default-dispatcher-23 
-function:   arversion
-
-2015-05-24 15:29:18,523 - [DEBUG] - from application in play-akka.actor.default-dispatcher-23 
-userrole:   Admin
-
-2015-05-24 15:29:31,980 - [INFO] - from play in pool-5-thread-1 
-Shutdown application default Akka system.
-
-2015-05-24 15:29:32,015 - [INFO] - from application in application-akka.actor.default-dispatcher-3 
+2015-05-25 10:36:04,672 - [INFO] - from application in application-akka.actor.default-dispatcher-6 
 Scheduled job for recalculating the Smell weights has finished successfully.
 
