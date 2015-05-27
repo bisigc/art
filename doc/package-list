@@ -1,19 +1,24 @@
 
 controllers
 controllers.ar
+controllers.ar.element
 controllers.discussion
 controllers.menu
 controllers.property
 controllers.smell
+controllers.statistic
 controllers.status
 controllers.task
 controllers.user
 dao
+models
 models.ar
+models.ar.element
 models.discussion
 models.menu
 models.property
 models.smell
+models.statistic
 models.status
 models.task
 models.user
@@ -22,4 +27,6 @@ utils.actions
 utils.crypto
 utils.exceptions
 utils.injectors
+utils.restconfig
+utils.schedules
 utils.security
