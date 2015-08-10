@@ -11,10 +11,12 @@ import com.lambdaworks.crypto.SCryptUtil;
 /**
  * Class contains static methods to generate and validate salt and digest values for
  * a given password using the lambdaworks crypto library {@link com.lambdaworks.crypto.SCryp}.
+ * Since it contains only static methods, the class does not need to be instantiated and is
+ * therefore abstract.
  * 
  * @author cbi
  */
-public class Crypto {
+public abstract class Crypto {
 	
 	private static final int SCRYPT_N = 16384;
 	private static final int SCRYPT_R = 8;
