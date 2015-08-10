@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.persistence.TypedQuery;
 
 import models.AbstractModel;
@@ -12,7 +13,6 @@ import play.Logger;
 import play.libs.F.Function;
 import play.libs.F.Promise;
 import play.libs.Json;
-import play.libs.ws.WS;
 import play.libs.ws.WSAuthScheme;
 import play.libs.ws.WSClient;
 import play.libs.ws.WSResponse;
@@ -22,30 +22,32 @@ import utils.restconfig.RestServiceConfig;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.google.inject.Inject;
 import com.google.inject.TypeLiteral;
+
 
 /**
  * Concrete implementation of a {@link GenericDAO}. The model is still generic
  * and can be concretised with dependency injection. Is annotated with
- * {@link com.google.inject.Singleton}, which makes sure the DI framework
+ * {@link javax.inject.Singleton}, which makes sure the DI framework
  * creates only one instance of the class.
  * 
  * @author cbi
  *
- * @param <T>
- * @param <PK>
+ * @param <T> Generic Data Model Object
+ * @param <PK> Generic Primary Key of Data Model Object
  */
 public class GenericDAORestImpl<T extends AbstractModel, PK extends Serializable> implements
 		GenericDAO<T, PK> {
 
+	@Inject WSClient ws;
 	private Class<T> model;
 	private RestServiceConfig config;
 
 	/**
 	 * Construction receives a TypeLiteral of the data model to be used.
 	 * 
-	 * @param model
+	 * @param model Data Object Model Type
+	 * @param config RestService access Configuration
 	 */
 	@SuppressWarnings("unchecked")
 	@Inject
@@ -61,13 +63,12 @@ public class GenericDAORestImpl<T extends AbstractModel, PK extends Serializable
 
 	@Override
 	public List<T> getAll() throws Exception {
-		WSClient wsClient = WS.client();
 
-		Promise<JsonNode> jsonPromise = wsClient
+		Promise<JsonNode> jsonPromise = ws
 				.url(config.getUrl())
 				.setAuth(config.getUser(), config.getPassword(), WSAuthScheme.BASIC)
 				.setQueryParameter("basicAuth", "true")
-				.setTimeout(config.getTimeout()).get()
+				.setRequestTimeout(config.getTimeout()).get()
 				.map(new Function<WSResponse, JsonNode>() {
 					public JsonNode apply(WSResponse response) {
 						JsonNode json = response.asJson();
@@ -93,14 +94,13 @@ public class GenericDAORestImpl<T extends AbstractModel, PK extends Serializable
 	@Override
 	public T create(T t) throws Exception {
 		JsonNode node = Json.toJson(t);
-		WSClient wsClient = WS.client();
 		
-		Promise<JsonNode> jsonPromise = wsClient
+		Promise<JsonNode> jsonPromise = ws
 				.url(config.getUrl())
 				.setContentType("application/json")
 				.setAuth(config.getUser(), config.getPassword(), WSAuthScheme.BASIC)
 				.setQueryParameter("basicAuth", "true")
-				.setTimeout(config.getTimeout())
+				.setRequestTimeout(config.getTimeout())
 				.post(node).map(new Function<WSResponse, JsonNode>() {
 					public JsonNode apply(WSResponse response) {
 						JsonNode json = response.asJson();
@@ -113,13 +113,12 @@ public class GenericDAORestImpl<T extends AbstractModel, PK extends Serializable
 
 	@Override
 	public T get(PK id) throws Exception {
-		WSClient wsClient = WS.client();
 
-		Promise<JsonNode> jsonPromise = wsClient
+		Promise<JsonNode> jsonPromise = ws
 				.url(config.getUrl() + "/" + id.toString())
 				.setAuth(config.getUser(), config.getPassword(), WSAuthScheme.BASIC)
 				.setQueryParameter("basicAuth", "true")
-				.setTimeout(config.getTimeout())
+				.setRequestTimeout(config.getTimeout())
 				.get().map(new Function<WSResponse, JsonNode>() {
 					public JsonNode apply(WSResponse response) {
 						JsonNode json = response.asJson();
@@ -135,12 +134,12 @@ public class GenericDAORestImpl<T extends AbstractModel, PK extends Serializable
 		JsonNode node = Json.toJson(t);
 		String url = config.getUrl() + "/" + t.getId();
 		Logger.debug("Update url: " + url);
-		Promise<JsonNode> jsonPromise = WS
+		Promise<JsonNode> jsonPromise = ws
 				.url(url)
 				.setContentType("application/json")
 				.setAuth(config.getUser(), config.getPassword(), WSAuthScheme.BASIC)
 				.setQueryParameter("basicAuth", "true")
-				.setTimeout(config.getTimeout())
+				.setRequestTimeout(config.getTimeout())
 				.post(node).map(new Function<WSResponse, JsonNode>() {
 					public JsonNode apply(WSResponse response) {
 						Logger.error("Reply Status: " + response.getStatus());
@@ -156,9 +155,9 @@ public class GenericDAORestImpl<T extends AbstractModel, PK extends Serializable
 	public void delete(PK id) throws Exception {
 		String url = config.getUrl() + "/" + id.toString();
 		Logger.debug("Delete url: " + url);
-		Promise<Integer> jsonPromise = WS.url(url)
+		Promise<Integer> jsonPromise = ws.url(url)
 				.setAuth(config.getUser(), config.getPassword(),
-						WSAuthScheme.BASIC).setTimeout(config.getTimeout())
+						WSAuthScheme.BASIC).setRequestTimeout(config.getTimeout())
 				.setQueryParameter("basicAuth", "true")
 				.delete().map(new Function<WSResponse, Integer>() {
 					public Integer apply(WSResponse response) {

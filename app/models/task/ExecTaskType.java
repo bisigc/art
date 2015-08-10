@@ -35,7 +35,7 @@ public class ExecTaskType extends AbstractModel {
 	/**
 	 * Add a subtask to the list.
 	 * 
-	 * @param task
+	 * @param task Execution Task type to add to the childrens list
 	 */
 	public void addSubTasks(ExecTaskType task) {
 		task.setParent(this);

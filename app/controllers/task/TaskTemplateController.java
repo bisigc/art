@@ -1,11 +1,10 @@
 package controllers.task;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.inject.Singleton;
+
 import models.task.TaskTemplate;
-
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
-import com.google.inject.name.Named;
-
 import controllers.AbstractCRUDController;
 import dao.GenericDAO;
 
@@ -21,7 +20,7 @@ public class TaskTemplateController extends AbstractCRUDController<TaskTemplate,
 	/**
 	 * Constructor receives a {@link GenericDAO}. DI framework hook is "@Named("TaskTemplateDAO")".
 	 * 
-	 * @param dao
+	 * @param dao GenericDAO
 	 */
 	@Inject
 	public TaskTemplateController(@Named("TaskTemplateDAO") GenericDAO<TaskTemplate, Long> dao) {

@@ -71,7 +71,7 @@ public class Smell extends AbstractModel {
 	/**
 	 * getGroup Returns only the id and the name of the group as a Map and
 	 * not all the groups attributes.
-	 * @return
+	 * @return map containing id and name of the smell.
 	 */
 	public Map<String, Object> getGroup() {
 		Map<String, Object> group =  new HashMap<String, Object>();

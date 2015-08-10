@@ -2,6 +2,9 @@ package controllers.property;
 
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.inject.Singleton;
 import javax.persistence.TypedQuery;
 
 import models.property.Property;
@@ -10,10 +13,6 @@ import play.db.jpa.JPA;
 import play.db.jpa.Transactional;
 import play.libs.Json;
 import play.mvc.Result;
-
-import com.google.inject.Inject;
-import com.google.inject.name.Named;
-
 import controllers.AbstractCRUDController;
 import dao.GenericDAO;
 
@@ -23,12 +22,13 @@ import dao.GenericDAO;
  * 
  * @author cbi
  */
+@Singleton
 public class PropertyController extends AbstractCRUDController<Property, Long> {
 	
 	/**
 	 * Constructor receives a {@link GenericDAO}. DI framework hook is "@Named("PropertyDAO")".
 	 * 
-	 * @param dao
+	 * @param dao GenericDAO
 	 */
 	@Inject
 	public PropertyController(@Named("PropertyDAO") GenericDAO<Property, Long> dao) {
@@ -39,8 +39,8 @@ public class PropertyController extends AbstractCRUDController<Property, Long> {
 	 * Retrieves a list of {@link models.property.Property} Objects having the same
 	 * categorie attribute.
 	 * 
-	 * @param cat
-	 * @return
+	 * @param cat categorie String
+	 * @return HTTP result
 	 */
 	@Transactional(readOnly=true)
 	public Result getCategorie(String cat) {

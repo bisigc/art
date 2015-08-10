@@ -1,36 +1,114 @@
-2015-05-26 09:11:14,466 - [INFO] - from play in pool-5-thread-2 
-Listening for HTTP on /0:0:0:0:0:0:0:0:9085
-
-2015-05-26 09:11:21,426 - [INFO] - from play in play-internal-execution-context-1 
-datasource [jdbc:mysql://localhost/art] bound to JNDI as DefaultDS
-
-2015-05-26 09:11:22,180 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:mysql://localhost/art
-
-2015-05-26 09:11:25,590 - [INFO] - from play in play-internal-execution-context-1 
-Starting application default Akka system.
-
-2015-05-26 09:11:25,601 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-05-26 09:11:26,238 - [INFO] - from application in application-akka.actor.default-dispatcher-4 
-Scheduled job for recalculating the Smell weights has finished successfully.
-
-2015-05-26 09:16:25,655 - [INFO] - from application in application-akka.actor.default-dispatcher-3 
-Scheduled job for recalculating the Smell weights has finished successfully.
-
-2015-05-26 09:21:25,653 - [INFO] - from application in application-akka.actor.default-dispatcher-3 
-Scheduled job for recalculating the Smell weights has finished successfully.
-
-2015-05-26 09:26:25,655 - [INFO] - from application in application-akka.actor.default-dispatcher-3 
-Scheduled job for recalculating the Smell weights has finished successfully.
-
-2015-05-26 09:32:43,364 - [INFO] - from application in application-akka.actor.default-dispatcher-3 
-Scheduled job for recalculating the Smell weights has finished successfully.
-
-2015-05-26 09:36:28,232 - [INFO] - from play in pool-5-thread-2 
-Shutdown application default Akka system.
-
-2015-05-26 09:36:28,292 - [INFO] - from application in application-akka.actor.default-dispatcher-7 
-Scheduled job for recalculating the Smell weights has finished successfully.
-
+2015-08-10 17:33:08,588 [INFO] from play.api.libs.concurrent.ActorSystemProvider in pool-5-thread-3 - Starting application default Akka system: application
+2015-08-10 17:33:08,698 [INFO] from play.core.server.NettyServer in pool-5-thread-3 - Listening for HTTP on /0:0:0:0:0:0:0:0:9085
+2015-08-10 17:33:12,953 [INFO] from application in ForkJoinPool-1-worker-1 - Creating Pool for datasource 'default'
+2015-08-10 17:33:13,741 [INFO] from play.api.db.HikariCPConnectionPool in ForkJoinPool-1-worker-1 - datasource [default] bound to JNDI as DefaultDS
+2015-08-10 17:33:13,743 [INFO] from play.api.db.DefaultDBApi in ForkJoinPool-1-worker-1 - Database [default] connected at jdbc:mysql://localhost/art
+2015-08-10 17:33:14,042 [INFO] from play.api.libs.concurrent.ActorSystemProvider in ForkJoinPool-1-worker-1 - Starting application default Akka system: application
+2015-08-10 17:33:14,340 [INFO] from play.api.Play in ForkJoinPool-1-worker-1 - Application started (Dev)
+2015-08-10 17:33:14,426 [WARN] from org.hibernate.ejb.HibernatePersistence in application-akka.actor.default-dispatcher-3 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-08-10 17:33:14,428 [WARN] from org.hibernate.ejb.HibernatePersistence in application-akka.actor.default-dispatcher-3 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-08-10 17:33:14,428 [WARN] from org.hibernate.ejb.HibernatePersistence in application-akka.actor.default-dispatcher-3 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+2015-08-10 17:33:27,715 [INFO] from application in application-akka.actor.default-dispatcher-3 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 17:33:36,974 [DEBUG] from application in application-akka.actor.default-dispatcher-5 - httpMethod: POST
+2015-08-10 17:33:36,974 [DEBUG] from application in application-akka.actor.default-dispatcher-5 - appContext: /
+2015-08-10 17:33:36,974 [DEBUG] from application in application-akka.actor.default-dispatcher-5 - function:   smell
+2015-08-10 17:33:36,974 [DEBUG] from application in application-akka.actor.default-dispatcher-5 - userrole:   Admin
+2015-08-10 17:38:14,413 [INFO] from application in application-akka.actor.default-dispatcher-8 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 17:38:41,188 [DEBUG] from application in application-akka.actor.default-dispatcher-11 - httpMethod: DELETE
+2015-08-10 17:38:41,188 [DEBUG] from application in application-akka.actor.default-dispatcher-11 - appContext: /
+2015-08-10 17:38:41,188 [DEBUG] from application in application-akka.actor.default-dispatcher-11 - function:   smell
+2015-08-10 17:38:41,188 [DEBUG] from application in application-akka.actor.default-dispatcher-11 - userrole:   Admin
+2015-08-10 17:38:47,173 [DEBUG] from application in application-akka.actor.default-dispatcher-10 - httpMethod: POST
+2015-08-10 17:38:47,173 [DEBUG] from application in application-akka.actor.default-dispatcher-10 - appContext: /
+2015-08-10 17:38:47,173 [DEBUG] from application in application-akka.actor.default-dispatcher-10 - function:   smell
+2015-08-10 17:38:47,173 [DEBUG] from application in application-akka.actor.default-dispatcher-10 - userrole:   Admin
+2015-08-10 17:43:14,384 [INFO] from application in application-akka.actor.default-dispatcher-30 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 17:48:14,371 [INFO] from application in application-akka.actor.default-dispatcher-42 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 17:53:14,384 [INFO] from application in application-akka.actor.default-dispatcher-64 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 17:58:14,391 [INFO] from application in application-akka.actor.default-dispatcher-64 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 17:59:09,195 [DEBUG] from application in application-akka.actor.default-dispatcher-64 - httpMethod: PUT
+2015-08-10 17:59:09,195 [DEBUG] from application in application-akka.actor.default-dispatcher-64 - appContext: /
+2015-08-10 17:59:09,195 [DEBUG] from application in application-akka.actor.default-dispatcher-64 - function:   smell
+2015-08-10 17:59:09,195 [DEBUG] from application in application-akka.actor.default-dispatcher-64 - userrole:   Admin
+2015-08-10 17:59:14,050 [DEBUG] from application in application-akka.actor.default-dispatcher-67 - httpMethod: PUT
+2015-08-10 17:59:14,050 [DEBUG] from application in application-akka.actor.default-dispatcher-67 - appContext: /
+2015-08-10 17:59:14,050 [DEBUG] from application in application-akka.actor.default-dispatcher-67 - function:   smell
+2015-08-10 17:59:14,050 [DEBUG] from application in application-akka.actor.default-dispatcher-67 - userrole:   Admin
+2015-08-10 18:03:14,395 [INFO] from application in application-akka.actor.default-dispatcher-67 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 18:08:14,396 [INFO] from application in application-akka.actor.default-dispatcher-89 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 18:13:14,390 [INFO] from application in application-akka.actor.default-dispatcher-82 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 18:18:14,406 [INFO] from application in application-akka.actor.default-dispatcher-82 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 18:23:14,406 [INFO] from application in application-akka.actor.default-dispatcher-112 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 18:28:14,402 [INFO] from application in application-akka.actor.default-dispatcher-133 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 18:33:14,421 [INFO] from application in application-akka.actor.default-dispatcher-146 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 18:38:14,408 [INFO] from application in application-akka.actor.default-dispatcher-164 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 18:43:14,412 [INFO] from application in application-akka.actor.default-dispatcher-174 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 18:48:14,419 [INFO] from application in application-akka.actor.default-dispatcher-193 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 18:53:14,430 [INFO] from application in application-akka.actor.default-dispatcher-214 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 18:58:14,423 [INFO] from application in application-akka.actor.default-dispatcher-224 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 19:03:14,426 [INFO] from application in application-akka.actor.default-dispatcher-241 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 19:08:14,430 [INFO] from application in application-akka.actor.default-dispatcher-241 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 19:13:14,435 [INFO] from application in application-akka.actor.default-dispatcher-273 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 19:18:14,437 [INFO] from application in application-akka.actor.default-dispatcher-296 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 19:23:14,452 [INFO] from application in application-akka.actor.default-dispatcher-314 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 19:28:14,446 [INFO] from application in application-akka.actor.default-dispatcher-324 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 19:33:14,461 [INFO] from application in application-akka.actor.default-dispatcher-324 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 19:38:14,453 [INFO] from application in application-akka.actor.default-dispatcher-354 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 19:43:14,467 [INFO] from application in application-akka.actor.default-dispatcher-372 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 19:48:14,473 [INFO] from application in application-akka.actor.default-dispatcher-394 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 19:53:14,466 [INFO] from application in application-akka.actor.default-dispatcher-398 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 19:58:14,479 [INFO] from application in application-akka.actor.default-dispatcher-407 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 20:03:14,485 [INFO] from application in application-akka.actor.default-dispatcher-407 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 20:08:14,480 [INFO] from application in application-akka.actor.default-dispatcher-407 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 20:13:14,481 [INFO] from application in application-akka.actor.default-dispatcher-407 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 20:18:14,496 [INFO] from application in application-akka.actor.default-dispatcher-407 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 20:23:14,502 [INFO] from application in application-akka.actor.default-dispatcher-407 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 20:28:14,494 [INFO] from application in application-akka.actor.default-dispatcher-429 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 20:28:43,524 [DEBUG] from application in application-akka.actor.default-dispatcher-429 - httpMethod: POST
+2015-08-10 20:28:43,524 [DEBUG] from application in application-akka.actor.default-dispatcher-429 - appContext: /
+2015-08-10 20:28:43,524 [DEBUG] from application in application-akka.actor.default-dispatcher-423 - httpMethod: POST
+2015-08-10 20:28:43,524 [DEBUG] from application in application-akka.actor.default-dispatcher-429 - function:   smell
+2015-08-10 20:28:43,524 [DEBUG] from application in application-akka.actor.default-dispatcher-423 - appContext: /
+2015-08-10 20:28:43,524 [DEBUG] from application in application-akka.actor.default-dispatcher-429 - userrole:   Admin
+2015-08-10 20:28:43,524 [DEBUG] from application in application-akka.actor.default-dispatcher-423 - function:   smell
+2015-08-10 20:28:43,524 [DEBUG] from application in application-akka.actor.default-dispatcher-423 - userrole:   Admin
+2015-08-10 20:29:26,543 [DEBUG] from application in application-akka.actor.default-dispatcher-431 - httpMethod: PUT
+2015-08-10 20:29:26,543 [DEBUG] from application in application-akka.actor.default-dispatcher-431 - appContext: /
+2015-08-10 20:29:26,543 [DEBUG] from application in application-akka.actor.default-dispatcher-431 - function:   smell
+2015-08-10 20:29:26,543 [DEBUG] from application in application-akka.actor.default-dispatcher-431 - userrole:   Admin
+2015-08-10 20:29:35,282 [DEBUG] from application in application-akka.actor.default-dispatcher-431 - httpMethod: PUT
+2015-08-10 20:29:35,282 [DEBUG] from application in application-akka.actor.default-dispatcher-431 - appContext: /
+2015-08-10 20:29:35,282 [DEBUG] from application in application-akka.actor.default-dispatcher-431 - function:   smell
+2015-08-10 20:29:35,282 [DEBUG] from application in application-akka.actor.default-dispatcher-431 - userrole:   Admin
+2015-08-10 20:29:48,705 [DEBUG] from application in application-akka.actor.default-dispatcher-432 - httpMethod: PUT
+2015-08-10 20:29:48,705 [DEBUG] from application in application-akka.actor.default-dispatcher-432 - appContext: /
+2015-08-10 20:29:48,705 [DEBUG] from application in application-akka.actor.default-dispatcher-432 - function:   smell
+2015-08-10 20:29:48,705 [DEBUG] from application in application-akka.actor.default-dispatcher-432 - userrole:   Admin
+2015-08-10 20:31:37,437 [DEBUG] from application in application-akka.actor.default-dispatcher-441 - httpMethod: PUT
+2015-08-10 20:31:37,437 [DEBUG] from application in application-akka.actor.default-dispatcher-441 - appContext: /
+2015-08-10 20:31:37,437 [DEBUG] from application in application-akka.actor.default-dispatcher-441 - function:   smell
+2015-08-10 20:31:37,437 [DEBUG] from application in application-akka.actor.default-dispatcher-441 - userrole:   Admin
+2015-08-10 20:33:14,509 [INFO] from application in application-akka.actor.default-dispatcher-438 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 20:38:14,501 [INFO] from application in application-akka.actor.default-dispatcher-438 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-10 20:38:57,327 [DEBUG] from application in application-akka.actor.default-dispatcher-456 - httpMethod: PUT
+2015-08-10 20:38:57,327 [DEBUG] from application in application-akka.actor.default-dispatcher-456 - appContext: /
+2015-08-10 20:38:57,327 [DEBUG] from application in application-akka.actor.default-dispatcher-456 - function:   smell
+2015-08-10 20:38:57,327 [DEBUG] from application in application-akka.actor.default-dispatcher-456 - userrole:   Admin
+2015-08-10 20:39:14,045 [DEBUG] from application in application-akka.actor.default-dispatcher-461 - httpMethod: PUT
+2015-08-10 20:39:14,046 [DEBUG] from application in application-akka.actor.default-dispatcher-461 - appContext: /
+2015-08-10 20:39:14,046 [DEBUG] from application in application-akka.actor.default-dispatcher-461 - function:   smell
+2015-08-10 20:39:14,046 [DEBUG] from application in application-akka.actor.default-dispatcher-461 - userrole:   Admin
+2015-08-10 20:39:34,464 [DEBUG] from application in application-akka.actor.default-dispatcher-462 - httpMethod: PUT
+2015-08-10 20:39:34,464 [DEBUG] from application in application-akka.actor.default-dispatcher-462 - appContext: /
+2015-08-10 20:39:34,464 [DEBUG] from application in application-akka.actor.default-dispatcher-462 - function:   smell
+2015-08-10 20:39:34,464 [DEBUG] from application in application-akka.actor.default-dispatcher-462 - userrole:   Admin
+2015-08-10 20:39:45,319 [DEBUG] from application in application-akka.actor.default-dispatcher-464 - httpMethod: PUT
+2015-08-10 20:39:45,319 [DEBUG] from application in application-akka.actor.default-dispatcher-464 - appContext: /
+2015-08-10 20:39:45,319 [DEBUG] from application in application-akka.actor.default-dispatcher-464 - function:   smell
+2015-08-10 20:39:45,319 [DEBUG] from application in application-akka.actor.default-dispatcher-464 - userrole:   Admin
+2015-08-10 20:39:56,559 [DEBUG] from application in application-akka.actor.default-dispatcher-461 - httpMethod: PUT
+2015-08-10 20:39:56,559 [DEBUG] from application in application-akka.actor.default-dispatcher-461 - appContext: /
+2015-08-10 20:39:56,559 [DEBUG] from application in application-akka.actor.default-dispatcher-461 - function:   smell
+2015-08-10 20:39:56,559 [DEBUG] from application in application-akka.actor.default-dispatcher-461 - userrole:   Admin
+2015-08-10 20:40:34,765 [INFO] from play.api.libs.concurrent.ActorSystemProvider in pool-5-thread-3 - Shutdown application default Akka system: application
+2015-08-10 20:40:34,813 [INFO] from application in pool-5-thread-3 - Shutting down connection pool.

@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.inject.Singleton;
 import javax.persistence.TypedQuery;
 
 import models.ar.ArVersion;
@@ -20,9 +23,6 @@ import play.mvc.Result;
 import utils.actions.SessionAuth;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
-import com.google.inject.name.Named;
 
 import controllers.AbstractCRUDController;
 import dao.GenericDAO;
@@ -58,7 +58,7 @@ public class ArVersionController extends AbstractCRUDController<ArVersion, Long>
 	/**
 	 * Constructor receives a {@link GenericDAO}. DI framework hook is "@Named("ArVersionDAO")".
 	 * 
-	 * @param dao
+	 * @param dao GenericDAO
 	 */
 	@Inject
 	public ArVersionController(@Named("ArVersionDAO") GenericDAO<ArVersion, Long> dao) {
@@ -128,7 +128,7 @@ public class ArVersionController extends AbstractCRUDController<ArVersion, Long>
 	/**
 	 * Returns the Ars for an Ar search with given smell ids.
 	 * 
-	 * @return
+	 * @return HTTP result
 	 */
 	@Transactional(readOnly = true)
 	public Result arSmellSearch() {
@@ -169,7 +169,7 @@ public class ArVersionController extends AbstractCRUDController<ArVersion, Long>
 	/**
 	 * Returns the count for an Ar search with given smell ids.
 	 * 
-	 * @return
+	 * @return HTTP result
 	 */
 	@Transactional(readOnly = true)
 	public Result arSmellSearchCount() {

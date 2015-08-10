@@ -789,29 +789,30 @@ app.controller('SmellAssessController', ['ArVersionService', 'SmellGroupService'
     
 }]);
 
-app.controller('SmellAddController', ['SmellService', 'SmellGroupService', 'StatusService', 'ReplyErrorHandler', 'notifications', '$scope', function(SmellService, SmellGroupService, StatusService, ReplyErrorHandler, notifications, $scope) {
+app.controller('SmellAddController', ['SmellService', 'SmellGroupService', 'StatusService', 'ReplyErrorHandler', 'notifications', '$scope', 'sharedSmell', function(SmellService, SmellGroupService, StatusService, ReplyErrorHandler, notifications, $scope, sharedSmell) {
+    $scope.smell = sharedSmell.smell;
     $scope.questionToAdd;
     $scope.status = [];
     $scope.loadStatus = function () {
         StatusService.get({},function(data, status, headers, config) {
             $scope.status = data;
-        }, ReplyErrorHandler);  
+            $scope.smell.status = $scope.status[0];
+        }, ReplyErrorHandler);
     };
     $scope.loadStatus();
     $scope.groups = [];
     $scope.loadGroups = function () {
         SmellGroupService.get({},function(data, status, headers, config) {
             $scope.groups = data;
+            $scope.smell.group = $scope.groups[0];
         }, ReplyErrorHandler);  
     };
     $scope.loadGroups();
     $scope.initSmell = function () {
-        if($scope.$parent.smell) {
-            $scope.smell = $scope.$parent.smell;
-        } else {
-            $scope.smell = {};
-        }
+        notifications.showSuccess("Smell initialised.");
+        sharedSmell.clear();
         $scope.smell.questions = [];
+        $scope.smell.tecdebtidx = 'mm';
         $scope.questionToAdd = '';
     }
     $scope.initSmell();
@@ -822,14 +823,14 @@ app.controller('SmellAddController', ['SmellService', 'SmellGroupService', 'Stat
             }
             notifications.showSuccess("Smell has been added.");
             $scope.initSmell();
-            $scope.$parent.smell = {};
             form.$setPristine();
         }, ReplyErrorHandler);  
     };
     
     $scope.cancel = function(form) {
         $scope.initSmell();
-        $scope.$parent.smell = {};
+        $scope.smell.status = $scope.status[0];
+        $scope.smell.group = $scope.groups[0];
         form.$setPristine();
     }
     
@@ -846,11 +847,11 @@ app.controller('SmellAddController', ['SmellService', 'SmellGroupService', 'Stat
 
 }]);
 
-app.controller('SmellController', ['SmellService', 'SmellGroupService', 'ReplyErrorHandler', 'StatusService', 'notifications','$scope','$filter', function(SmellService, SmellGroupService, ReplyErrorHandler, StatusService, notifications, $scope, $filter) {
+app.controller('SmellController', ['SmellService', 'SmellGroupService', 'ReplyErrorHandler', 'StatusService', 'notifications','$scope','$filter', 'sharedSmell', function(SmellService, SmellGroupService, ReplyErrorHandler, StatusService, notifications, $scope, $filter, sharedSmell) {
     var orderBy = $filter('orderBy');
     $scope.smelllist = [];
     $scope.formvisible = false;
-    $scope.smell = {};
+    $scope.smell = sharedSmell.smell;
     $scope.status = [];
     $scope.loadStatus = function () {
         StatusService.get({},function(data, status, headers, config) {

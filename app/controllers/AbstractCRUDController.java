@@ -3,6 +3,7 @@ package controllers;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.inject.Singleton;
 import javax.persistence.TypedQuery;
 
 import models.AbstractModel;
@@ -15,7 +16,6 @@ import utils.actions.SessionAuth;
 import utils.exceptions.ItemNotFoundException;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.google.inject.Singleton;
 
 import dao.GenericDAO;
 
@@ -23,13 +23,13 @@ import dao.GenericDAO;
  * Abstract class represents a CRUD Controller with the most necessary methods.
  * Create, update, get (read), get all (read all) and a generic query method find.
  * The class contains a {@link GenericDAO} with the parameters T (Model Class) and PK (Private Key).
- * Class is annotated with {@link com.google.inject.Singleton} which advises the DI framework
+ * Class is annotated with {@link javax.inject.Singleton} which advises the DI framework
  * to instantiate the class only once. 
  * 
  * @author cbi
  *
- * @param <T>
- * @param <PK>
+ * @param <T> Generic Data Model Object
+ * @param <PK> Generic Primary Key of Data Model Object
  */
 @Singleton
 public abstract class AbstractCRUDController<T extends AbstractModel, PK extends Serializable> extends Controller {
@@ -41,7 +41,7 @@ public abstract class AbstractCRUDController<T extends AbstractModel, PK extends
 	
 	/**
 	 * Constructor receives a {@link GenericDAO} object. Which can be dependency injected.
-	 * @param dao
+	 * @param dao GenericDAO
 	 */
 	public AbstractCRUDController(GenericDAO<T, PK> dao) {
 		this.dao = dao;
@@ -50,8 +50,8 @@ public abstract class AbstractCRUDController<T extends AbstractModel, PK extends
 	/**
 	 * Find Method returns a list of model objects from the {@link GenericDAO}, depending on the given query.
 	 * 
-	 * @param query
-	 * @return
+	 * @param query typed query
+	 * @return HTTP result
 	 */
 	@Transactional(readOnly=true)
 	public Result find(TypedQuery<T> query) {
@@ -67,7 +67,7 @@ public abstract class AbstractCRUDController<T extends AbstractModel, PK extends
 	
 	/**
 	 * getAll returns a list of all model objects from the {@link GenericDAO}.
-	 * @return
+	 * @return HTTP result
 	 */
 	@Transactional(readOnly=true)
 	public Result getAll() {
@@ -85,8 +85,8 @@ public abstract class AbstractCRUDController<T extends AbstractModel, PK extends
 	/**
 	 * Returns the model object delivered by the {@link GenericDAO}, corresponding to the given primary key object. 
 	 * 
-	 * @param id
-	 * @return
+	 * @param id primary key
+	 * @return HTTP result
 	 */
 	@Transactional(readOnly=true)
 	public Result get(PK id) {
@@ -110,7 +110,7 @@ public abstract class AbstractCRUDController<T extends AbstractModel, PK extends
 	 * Method is annotated with {@link SessionAuth} action, which intercepts the request, to
 	 * verify the callers session and permissions.
 	 * 
-	 * @return
+	 * @return HTTP result
 	 */
 	@SessionAuth
 	@Transactional
@@ -133,7 +133,7 @@ public abstract class AbstractCRUDController<T extends AbstractModel, PK extends
 	 * Method is annotated with {@link SessionAuth} action, which intercepts the request, to
 	 * verify the callers session and permissions.
 	 * 
-	 * @return
+	 * @return HTTP result
 	 */
 	@SessionAuth
 	@Transactional
@@ -156,8 +156,8 @@ public abstract class AbstractCRUDController<T extends AbstractModel, PK extends
 	 * Method is annotated with {@link SessionAuth} action, which intercepts the request, to
 	 * verify the callers session and permissions.
 	 * 
-	 * @param id
-	 * @return
+	 * @param id primary key
+	 * @return HTTP result
 	 */
 	@SessionAuth
 	@Transactional

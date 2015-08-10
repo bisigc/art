@@ -4,7 +4,7 @@
 		module="art-app_2.11"
 		revision="1.0-SNAPSHOT"
 		status="integration"
-		publication="20150520224213"
+		publication="20150810165252"
 	>
 		<description>
 		art-app
@@ -24,10 +24,6 @@
 		<conf name="docs" visibility="private" description=""/>
 		<conf name="pom" visibility="public" description=""/>
 		<conf name="scala-tool" visibility="private" description=""/>
-		<conf name="echo-trace-compile" visibility="private" description="" extends="runtime-internal"/>
-		<conf name="echo-trace-test" visibility="private" description="" extends="echo-trace-compile,test-internal"/>
-		<conf name="echo-weave" visibility="private" description=""/>
-		<conf name="echo-sigar" visibility="private" description=""/>
 	</configurations>
 	<publications>
 		<artifact name="art-app_2.11" type="pom" ext="pom" conf="pom"/>
@@ -36,25 +32,22 @@
 		<artifact name="art-app_2.11" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 	</publications>
 	<dependencies>
-		<dependency org="org.scala-lang" name="scala-compiler" rev="2.11.1" conf="scala-tool->default,optional(default)"/>
-		<dependency org="org.scala-lang" name="scala-library" rev="2.11.1" conf="scala-tool->default,optional(default);compile->default(compile)"/>
-		<dependency org="com.typesafe.play" name="twirl-api_2.11" rev="1.0.2" conf="compile->default(compile)"/>
-		<dependency org="com.typesafe.play" name="play_2.11" rev="2.3.6" conf="compile->default(compile)"/>
-		<dependency org="com.typesafe.play" name="play-test_2.11" rev="2.3.6" conf="test->default(compile)"/>
-		<dependency org="com.typesafe.play" name="play-docs_2.11" rev="2.3.6" conf="docs->default(compile)"/>
-		<dependency org="com.typesafe.play" name="play-java_2.11" rev="2.3.6" conf="compile->default(compile)"/>
-		<dependency org="org.aspectj" name="aspectjweaver" rev="1.7.3" conf="echo-weave->default(compile)"/>
-		<dependency org="com.typesafe.trace" name="trace-sigar-libs" rev="0.1.6" conf="echo-sigar->default(compile)"/>
-		<dependency org="com.typesafe.play" name="play-java-jdbc_2.11" rev="2.3.6" conf="compile->default(compile)"/>
-		<dependency org="com.typesafe.play" name="play-java-jpa_2.11" rev="2.3.6" conf="compile->default(compile)">
+		<dependency org="org.scala-lang" name="scala-compiler" rev="2.11.6" conf="scala-tool->default,optional(default)"/>
+		<dependency org="org.scala-lang" name="scala-library" rev="2.11.6" conf="scala-tool->default,optional(default);compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="twirl-api_2.11" rev="1.1.1" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-server_2.11" rev="2.4.2" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-test_2.11" rev="2.4.2" conf="test->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-omnidoc_2.11" rev="2.4.2" conf="docs->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-java_2.11" rev="2.4.2" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-netty-server_2.11" rev="2.4.2" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-java-jdbc_2.11" rev="2.4.2" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-java-jpa_2.11" rev="2.4.2" conf="compile->default(compile)">
 			<exclude org="org.hibernate.javax.persistence" module="hibernate-jpa-2.0-api" name="*" type="*" ext="*" conf="" matcher="exact"/>
 		</dependency>
 		<dependency org="org.hibernate" name="hibernate-entitymanager" rev="4.3.8.Final" conf="compile->default(compile)"/>
 		<dependency org="mysql" name="mysql-connector-java" rev="5.1.34" conf="compile->default(compile)"/>
-		<dependency org="com.google.inject" name="guice" rev="4.0-beta" conf="compile->default(compile)"/>
 		<dependency org="commons-io" name="commons-io" rev="2.4" conf="compile->default(compile)"/>
-		<dependency org="com.typesafe.play" name="play-cache_2.11" rev="2.3.6" conf="compile->default(compile)"/>
-		<dependency org="com.typesafe.play" name="play-java-ws_2.11" rev="2.3.6" conf="compile->default(compile)"/>
-		<dependency org="com.typesafe.trace" name="trace-play-2.3.3_2.11" rev="0.1.6" conf="echo-trace-compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-cache_2.11" rev="2.4.2" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-java-ws_2.11" rev="2.4.2" conf="compile->default(compile)"/>
 	</dependencies>
 </ivy-module>

@@ -5,19 +5,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.inject.Singleton;
+
 import models.user.Permission;
 import models.user.Role;
 import play.Logger;
 import play.db.jpa.JPA;
-
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
-import com.google.inject.name.Named;
-
 import dao.GenericDAO;
 
 /**
- * Concrete implementation of a RoleChecker. Annotated as {@link com.google.inject.Singleton}.
+ * Concrete implementation of a RoleChecker. Annotated as {@link javax.inject.Singleton}.
  * Loads the existing permissions via a {@link GenericDAO} during instantiation and caches them.
  * 
  * @author cbi
@@ -32,7 +31,7 @@ public class RoleCheckerImpl implements RoleChecker {
 	/**
 	 * Constructor receives a {@link GenericDAO}. DI framework hook is "@Named("RoleDAO")".
 	 * 
-	 * @param dao
+	 * @param dao GenericDAO
 	 */
 	@Inject
 	public RoleCheckerImpl(@Named("RoleDAO") GenericDAO<Role, Long> dao) {

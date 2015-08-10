@@ -23,7 +23,8 @@ echo "Gattering app name and version from buildfile..."
 APPNAME=`grep "^name" $BUILDFILE | sed 's/name.*\"\"\"\(.*\)\"\"\"/\1/'` 
 # Grepping version:  version := "1.0-SNAPSHOT"
 VERSION=`grep "^version" $BUILDFILE | sed 's/version.*\"\(.*\)\"/\1/'` 
-SRVPORT=`grep "playDefaultPort" $BUILDFILE | sed 's/.*playDefaultPort := \([0-9]*\)/\1/'`
+#SRVPORT=`grep "playDefaultPort" $BUILDFILE | sed 's/.*playDefaultPort := \([0-9]*\)/\1/'`
+SRVPORT=`grep "http.port" $BUILDFILE | sed 's/.*http.port=\([0-9]*\)"/\1/'`
 
 DISTFILE=$APPNAME-$VERSION.zip
 INSTALLPATH=/opt/$APPNAME

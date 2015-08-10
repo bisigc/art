@@ -3,6 +3,7 @@ package controllers.statistic;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Singleton;
 import javax.persistence.TypedQuery;
 
 import models.statistic.StatisticValue;
@@ -13,12 +14,12 @@ import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
 
-import com.google.inject.Singleton;
+
 
 /**
  * Extends the general class {@link play.mvc.Controller}. Contains one method which
  * returns statistics values all values about the ART as a JsonNode.
- * Is annotated with {@link com.google.inject.Singleton}, which makes sure
+ * Is annotated with {@link javax.inject.Singleton}, which makes sure
  * the DI framework creates only one instance of the class.
  * 
  * @author cbi
@@ -29,7 +30,7 @@ public class StatisticController extends Controller {
 	/**
 	 * Returns statistical values about the ART as a JsonNode.
 	 * 
-	 * @return
+	 * @return HTTP result
 	 */
 	@Transactional(readOnly=true)
 	@Cached(key="ARTStats")

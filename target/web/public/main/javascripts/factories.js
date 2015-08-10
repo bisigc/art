@@ -15,6 +15,15 @@ app.factory("isLoggedin", ['currentUser', function(currentUser) {
     }
 }]);
 
+app.factory('sharedSmell', ['notifications', function (notifications) {
+    var smellObject = {smell: {}};
+    smellObject.clear = function () {
+        notifications.showInfo("clear smell");
+        angular.copy({}, this.smell);
+    }
+    return smellObject;
+}]);
+
 app.factory("PasswordValidator", [function() {
     return {
         check: function(pw, rpw) {

@@ -2,15 +2,13 @@ package utils.schedules;
 
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Named;
 import javax.persistence.TypedQuery;
 
 import models.smell.Smell;
 import play.Logger;
 import play.db.jpa.JPA;
-
-import com.google.inject.Inject;
-import com.google.inject.name.Named;
-
 import dao.GenericDAO;
 
 /**
@@ -37,7 +35,7 @@ public class SmellWeightRunnable implements Runnable {
 	 * Constructor receives a {@link GenericDAO}. DI framework hook is
 	 * "@Named("SmellDAO")".
 	 * 
-	 * @param dao
+	 * @param dao GenericDAO
 	 */
 	@Inject
 	public SmellWeightRunnable(@Named("SmellDAO") GenericDAO<Smell, Long> dao) {

@@ -11,7 +11,7 @@
                 </fieldset>
                 <fieldset class="form-group">
                     <label for="keywords">Keywords</label>
-                    <input class="form-control" placeholder="Keywords to search for a Smell..." title="keywords" id="keywords" ng-model="smell.keywords" required></input>
+                    <input class="form-control" placeholder="Keywords to search for a Smell..." title="keywords" id="keywords" ng-model="smell.keywords"></input>
                 </fieldset>
                 <fieldset class="form-group">
                     <label for="question">Questions</label>                    
@@ -24,7 +24,7 @@
                         </span>
                     </div>
                     <div class="input-group" ng-repeat="question in smell.questions track by $index">
-                        <input class="form-control" type="text" ng-model="question.question" readonly required></input>
+                        <input class="form-control" type="text" ng-model="question.question" readonly></input>
                         <span class="input-group-btn">
                             <a class="btn btn-warning" ng-click="removeQuestion($index)">
                                 <i class="glyphicon glyphicon-minus"></i>
@@ -97,7 +97,7 @@
         </div>
         <fieldset class="form-group">
             <label for="description">Description (max. length 5000)</label>
-            <text-angular name="smelldescription" ng-model="smell.description" ta-max-text="5000" required></text-angular>
+            <text-angular ng-model="smell.description" ta-max-text="5000"></text-angular>
         </fieldset>
         <fieldset class="form-group">
             <div class="pull-right">
