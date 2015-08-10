@@ -2,6 +2,9 @@ package controllers.ar.element;
 
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.inject.Singleton;
 import javax.persistence.TypedQuery;
 
 import models.ar.element.ModelElementLink;
@@ -11,11 +14,6 @@ import play.db.jpa.JPA;
 import play.db.jpa.Transactional;
 import play.libs.Json;
 import play.mvc.Result;
-
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
-import com.google.inject.name.Named;
-
 import controllers.AbstractCRUDController;
 import dao.GenericDAO;
 
@@ -34,7 +32,7 @@ public class ModelElementController extends AbstractCRUDController<ModelElementL
 	 * Constructor receives a {@link GenericDAO}. DI framework hook is
 	 * "@Named("ModelElementLinkDAO")".
 	 * 
-	 * @param dao
+	 * @param dao GenericDAO
 	 */
 	@Inject
 	public ModelElementController(@Named("ModelElementLinkDAO") GenericDAO<ModelElementLink, Long> dao) {
@@ -45,7 +43,7 @@ public class ModelElementController extends AbstractCRUDController<ModelElementL
 	/**
 	 * Returns all values of the Enum {@link models.ar.element.ModelElementLink.ModelElementLinkType} as a JsonNode.
 	 * 
-	 * @return
+	 * @return HTTP result
 	 */
 	public Result getModelElementLinkType() {
 		return ok(Json.toJson(ModelElementLinkType.values()));
@@ -53,7 +51,7 @@ public class ModelElementController extends AbstractCRUDController<ModelElementL
 	
 	
 	/**
-	 * Provides all {@link ModelElementLinkType.QASElementLink}.
+	 * Provides all {@link models.ar.element.ModelElementLink.ModelElementLinkType#QASElementLink}.
 	 * 
 	 * @return HTTP result
 	 */
@@ -63,7 +61,7 @@ public class ModelElementController extends AbstractCRUDController<ModelElementL
 	}
 	
 	/**
-	 * Provides all {@link ModelElementLinkType.ComponentElementLink}.
+	 * Provides all {@link models.ar.element.ModelElementLink.ModelElementLinkType#ComponentElementLink}.
 	 * 
 	 * @return HTTP result
 	 */
@@ -73,7 +71,7 @@ public class ModelElementController extends AbstractCRUDController<ModelElementL
 	}
 	
 	/**
-	 * Provides all {@link ModelElementLinkType.ContextElementLink}.
+	 * Provides all {@link models.ar.element.ModelElementLink.ModelElementLinkType#ContextElementLink}.
 	 * 
 	 * @return HTTP result
 	 */
@@ -83,7 +81,7 @@ public class ModelElementController extends AbstractCRUDController<ModelElementL
 	}
 
 	/**
-	 * Provides all {@link ModelElementLinkType.DecisionElementLink}.
+	 * Provides all {@link models.ar.element.ModelElementLink.ModelElementLinkType#DecisionElementLink}.
 	 * 
 	 * @return HTTP result
 	 */
@@ -93,7 +91,7 @@ public class ModelElementController extends AbstractCRUDController<ModelElementL
 	}
 
 	/**
-	 * Provides all {@link ModelElementLinkType.DesignElementLink}.
+	 * Provides all {@link models.ar.element.ModelElementLink.ModelElementLinkType#DesignElementLink}.
 	 * 
 	 * @return HTTP result
 	 */
@@ -103,7 +101,7 @@ public class ModelElementController extends AbstractCRUDController<ModelElementL
 	}
 		
 	/**
-	 * Provides all {@link ModelElementLinkType.ReferenceElementLink}.
+	 * Provides all {@link models.ar.element.ModelElementLink.ModelElementLinkType#ReferenceElementLink}.
 	 * 
 	 * @return HTTP result
 	 */
@@ -113,10 +111,10 @@ public class ModelElementController extends AbstractCRUDController<ModelElementL
 	}
 		
 	/**
-	 * Get all {@link ModelElementLink} for the provided {@link ModelElementLinkType}.
+	 * Get all {@link ModelElementLink} for the provided {@link models.ar.element.ModelElementLink.ModelElementLinkType}.
 	 * 
-	 * @param type
-	 * @return
+	 * @param type of the ModelElementLink
+	 * @return HTTP result
 	 */
 	@Transactional(readOnly=true)
 	public Result getModelElements(ModelElementLinkType type) {

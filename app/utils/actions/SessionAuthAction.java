@@ -1,5 +1,8 @@
 package utils.actions;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
 import play.Configuration;
 import play.Logger;
 import play.Play;
@@ -10,8 +13,6 @@ import play.mvc.Result;
 import play.mvc.Results;
 import utils.security.RoleChecker;
 
-import com.google.inject.Inject;
-import com.google.inject.name.Named;
 
 /**
  * HTTP Request Action. Verifying the request based on user session
@@ -28,7 +29,7 @@ public class SessionAuthAction extends Action.Simple {
 	/**
 	 * Constructor receives a {@link RoleChecker}. DI framework hook is "@Named("RoleChecker")".
 	 * 
-	 * @param dao
+	 * @param rolechecker Object implementing Rolechecker 
 	 */
 	@Inject
 	public SessionAuthAction(@Named("RoleChecker") RoleChecker rolechecker) {
@@ -55,7 +56,7 @@ public class SessionAuthAction extends Action.Simple {
 			} else {
 				// ctx.session().put("time", Long.toString(currenttime));
 				String httpMethod = ctx._requestHeader().method();
-				String appContext = CONF.getString("application.context");
+				String appContext = CONF.getString("play.http.context");
 				String function = ctx._requestHeader().path().split(appContext)[1].split("/")[0];
 				String userrole = ctx.session().get("role");
 				

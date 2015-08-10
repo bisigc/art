@@ -10,7 +10,7 @@ import com.lambdaworks.crypto.SCryptUtil;
 
 /**
  * Class contains static methods to generate and validate salt and digest values for
- * a given password using the lambdaworks crypto library {@link com.lambdaworks.crypto.SCryp}.
+ * a given password using the lambdaworks crypto library {@link com.lambdaworks.crypto.SCrypt}.
  * 
  * @author cbi
  */
@@ -26,8 +26,8 @@ public class Crypto {
 	 * Creates an scrypt hash (containing salt and scrypt and check values) based 
 	 * on the provided password.
 	 * 
-	 * @param password
-	 * @return
+	 * @param password password String to scrypt
+	 * @return encrypted password string
 	 */
 	public static String createScryptHash(String password) {
 		return SCryptUtil.scrypt(password, SCRYPT_N, SCRYPT_R, SCRYPT_P);
@@ -37,8 +37,8 @@ public class Crypto {
 	 * Generates a {@link Digest} object with salt and scrypt values based
 	 * on the provided password.
 	 * 
-	 * @param password
-	 * @return
+	 * @param password password string
+	 * @return Digest object
 	 */
 	public static Digest generateDigest(String password) {
 		Digest digest = new Digest();
@@ -52,10 +52,10 @@ public class Crypto {
 	/**
 	 * Computes the scrypt hash based on the provided password and salt values.
 	 * 
-	 * @param password
-	 * @param saltBase64
-	 * @return
-	 * @throws GeneralSecurityException
+	 * @param password password string
+	 * @param saltBase64 Base64 encoded Salt value string
+	 * @return Scrypt Hash
+	 * @throws GeneralSecurityException if decoding has failed
 	 */
 	public static String computeScryptHash(String password, String saltBase64) throws GeneralSecurityException {
 		byte [] hash = SCrypt.scrypt(password.getBytes(), Base64.decode(saltBase64.toCharArray()), SCRYPT_N, SCRYPT_R, SCRYPT_P, SCRYPT_LENGTH);
@@ -67,10 +67,10 @@ public class Crypto {
 	 * from the provided {@link Digest} object and compares it with the scrypt hash comming
 	 * from the same {@link Digest} object.
 	 * 
-	 * @param password
-	 * @param digest
-	 * @return
-	 * @throws GeneralSecurityException
+	 * @param password password string
+	 * @param digest Digest object
+	 * @return password valid or not
+	 * @throws GeneralSecurityException if decoding or encoding has failed
 	 */
 	public static boolean isPasswordValid(String password, Digest digest) throws GeneralSecurityException {
 		return computeScryptHash(password, digest.getSalt()).equals(digest.getScrypt());
@@ -80,8 +80,8 @@ public class Crypto {
 	 * Main method accepts password from commandline, generates salt and scrypt hashes out of
 	 * it and prints them to the sysout.
 	 * 
-	 * @param args
-	 * @throws Exception
+	 * @param args commandline inputs
+	 * @throws Exception all exceptions to the console
 	 */
 	public static void main(String [] args) throws Exception {
 		String password = args[0];

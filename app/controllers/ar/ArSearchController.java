@@ -2,6 +2,9 @@ package controllers.ar;
 
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.inject.Singleton;
 import javax.persistence.TypedQuery;
 
 import models.ar.ArSearch;
@@ -14,9 +17,6 @@ import play.mvc.Result;
 import utils.actions.SessionAuth;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
-import com.google.inject.name.Named;
 
 import controllers.AbstractCRUDController;
 import dao.GenericDAO;
@@ -36,7 +36,7 @@ public class ArSearchController extends AbstractCRUDController<ArSearch, Long> {
 	/**
 	 * Constructor receives a {@link GenericDAO}. DI framework hook is "@Named("ArSearchDAO")".
 	 * 
-	 * @param dao
+	 * @param dao GenericDAO
 	 */
 	@Inject
 	public ArSearchController(@Named("ArSearchDAO") GenericDAO<ArSearch, Long> dao) {

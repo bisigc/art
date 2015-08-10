@@ -13,9 +13,9 @@
             <tr>
                 <th>Name</th>
                 <th>Description</th>
-                <th>Weight</th>
+                <th>AR Appearances</th>
                 <th>Group</th>
-                <th>TechDebtIdx</th>
+                <th>Tech Debt Index</th>
                 <th></th>
             </tr>
             <tr>
@@ -29,9 +29,9 @@
             <tr>
                 <th><a href ng-click="rname=!rname;order('name', rname)">Name <span ng-show="rname">&#x25B2;</span><span ng-show="!rname">&#x25BC;</span></a></th>
                 <th><a href ng-click="rdesc=!rdesc;order('description', rdesc)">Description <span ng-show="rdesc">&#x25B2;</span><span ng-show="!rdesc">&#x25BC;</span></a></th>
-                <th><a href ng-click="rweight=!rweight;order('weight', rweight)">Cloud Weight <span ng-show="rweight">&#x25B2;</span><span ng-show="!rweight">&#x25BC;</span></a></th>
+                <th><a href ng-click="rweight=!rweight;order('weight', rweight)">AR Appearances <span ng-show="rweight">&#x25B2;</span><span ng-show="!rweight">&#x25BC;</span></a></th>
                 <th><a href ng-click="rgroup=!rgroup;order('group.name', rgroup)">Group <span ng-show="rgroup">&#x25B2;</span><span ng-show="!rgroup">&#x25BC;</span></a></th>
-                <th><a href ng-click="rdebtidx=!rdebtidx;order('tecdebtidx', rdebtidx)">TechDebtIdx <span ng-show="rdebtidx">&#x25B2;</span><span ng-show="!rdebtidx">&#x25BC;</span></a></th>
+                <th><a href ng-click="rdebtidx=!rdebtidx;order('tecdebtidx', rdebtidx)">Tech Debt Index <span ng-show="rdebtidx">&#x25B2;</span><span ng-show="!rdebtidx">&#x25BC;</span></a></th>
                 <th></th>
             </tr>
             <tr ng-if="formvisible" class="bg-warning">

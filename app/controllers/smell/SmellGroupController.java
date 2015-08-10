@@ -1,11 +1,10 @@
 package controllers.smell;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.inject.Singleton;
+
 import models.smell.SmellGroup;
-
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
-import com.google.inject.name.Named;
-
 import controllers.AbstractCRUDController;
 import dao.GenericDAO;
 
@@ -21,7 +20,7 @@ public class SmellGroupController extends AbstractCRUDController<SmellGroup, Lon
 	/**
 	 * Constructor receives a {@link GenericDAO}. DI framework hook is "@Named("SmellGroupDAO")".
 	 * 
-	 * @param dao
+	 * @param dao GenericDAO
 	 */
 	@Inject
 	public SmellGroupController(@Named("SmellGroupDAO") GenericDAO<SmellGroup, Long> dao) {

@@ -119,6 +119,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             },
             'addSmellView@root.smellbrowser': {
                 controller: "SmellAddController as smellAddCtrl",
+                parent: 'root.smellbrowser',
                 title: "Create Smell",
                 templateUrl: _contextPath + "smelldialog.html",
                 data: { 

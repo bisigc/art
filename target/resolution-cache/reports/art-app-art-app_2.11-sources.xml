@@ -6,8 +6,8 @@
 		module="art-app_2.11"
 		revision="1.0-SNAPSHOT"
 		conf="sources"
-		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool, echo-trace-compile, echo-trace-test, echo-weave, echo-sigar"
-		date="20150520224213"/>
+		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
+		date="20150810165252"/>
 	<dependencies>
 	</dependencies>
 </ivy-report>

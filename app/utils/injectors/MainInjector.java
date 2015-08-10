@@ -16,6 +16,7 @@ import models.task.TaskPropertyType;
 import models.task.TaskTemplate;
 import models.user.Role;
 import models.user.User;
+import utils.schedules.SmellWeightRunnable;
 import utils.security.RoleChecker;
 import utils.security.RoleCheckerImpl;
 
@@ -37,6 +38,7 @@ public class MainInjector extends AbstractModule {
 	@Override
 	protected void configure() {
 		//bind(GenericDAO.class).to(MenuitemDAO.class);
+		bind(Runnable.class).annotatedWith(Names.named("SmellWeightRunnable")).to(SmellWeightRunnable.class);
 		//bind(new TypeLiteral<GenericDAO<Menuitem, Long>>(){}).to(new TypeLiteral<GenericDAOImpl<Menuitem, Long>>(){});
 		bind(new TypeLiteral<GenericDAO<Ar, Long>>(){}).annotatedWith(Names.named("ArDAO")).to(new TypeLiteral<GenericDAOImpl<Ar, Long>>(){});
 		bind(new TypeLiteral<GenericDAO<ArVersion, Long>>(){}).annotatedWith(Names.named("ArVersionDAO")).to(new TypeLiteral<GenericDAOImpl<ArVersion, Long>>(){});

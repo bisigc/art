@@ -2,6 +2,8 @@ package utils.actions;
 
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Named;
 import javax.persistence.TypedQuery;
 
 import models.user.User;
@@ -12,8 +14,6 @@ import play.mvc.Http;
 import play.mvc.Result;
 import play.mvc.Results;
 
-import com.google.inject.Inject;
-import com.google.inject.name.Named;
 import com.lambdaworks.codec.Base64;
 
 import dao.GenericDAO;
@@ -35,7 +35,7 @@ public class BasicAuthAction extends Action.Simple {
 	/**
 	 * Constructor receives a {@link GenericDAO}. DI framework hook is "@Named("UserDAO")".
 	 * 
-	 * @param dao
+	 * @param dao GenericDAO
 	 */
 	@Inject
 	public BasicAuthAction(@Named("UserDAO") GenericDAO<User, Long> dao) {

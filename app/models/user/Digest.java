@@ -27,9 +27,9 @@ public class Digest extends AbstractModel {
 	 * Validates the given password with the current obects digests (salt and scrypt)
 	 * using {@link Crypto} class. 
 	 * 
-	 * @param password
-	 * @return
-	 * @throws GeneralSecurityException
+	 * @param password password String
+	 * @return true if password is valid
+	 * @throws GeneralSecurityException if crypto functions (enc/dec) have failed
 	 */
 	public boolean isPasswordValid(String password) throws GeneralSecurityException {
 		return Crypto.isPasswordValid(password, this);
@@ -39,7 +39,7 @@ public class Digest extends AbstractModel {
 	 * Generates salt and digest (scrypt) with a given password
 	 * using {@link Crypto} class.
 	 * 
-	 * @param password
+	 * @param password password String
 	 */
 	public void generateDigest(String password) {
 		Digest digest = Crypto.generateDigest(password);

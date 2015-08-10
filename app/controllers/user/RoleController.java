@@ -1,11 +1,10 @@
 package controllers.user;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.inject.Singleton;
+
 import models.user.Role;
-
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
-import com.google.inject.name.Named;
-
 import controllers.AbstractCRUDController;
 import dao.GenericDAO;
 
@@ -21,7 +20,7 @@ public class RoleController extends AbstractCRUDController<Role, Long> {
 	/**
 	 * Constructor receives a {@link GenericDAO}. DI framework hook is "@Named("RoleDAO")".
 	 * 
-	 * @param dao
+	 * @param dao GenericDAO
 	 */
 	@Inject
 	public RoleController(@Named("RoleDAO") GenericDAO<Role, Long> dao) {

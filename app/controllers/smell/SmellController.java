@@ -3,6 +3,10 @@ package controllers.smell;
 import java.sql.Timestamp;
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.inject.Singleton;
+
 import models.smell.Smell;
 import models.status.ItemStatus;
 import play.Logger;
@@ -12,9 +16,6 @@ import play.mvc.Result;
 import utils.actions.SessionAuth;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
-import com.google.inject.name.Named;
 
 import controllers.AbstractCRUDController;
 import dao.GenericDAO;
@@ -31,7 +32,7 @@ public class SmellController extends AbstractCRUDController<Smell, Long> {
 	/**
 	 * Constructor receives a {@link GenericDAO}. DI framework hook is "@Named("SmellDAO")".
 	 * 
-	 * @param dao
+	 * @param dao GenericDAO
 	 */
 	@Inject
 	public SmellController(@Named("SmellDAO") GenericDAO<Smell, Long> dao) {
@@ -43,7 +44,7 @@ public class SmellController extends AbstractCRUDController<Smell, Long> {
 	 * Javascript Object then contains a list of all {@link Smell} Objects in the format used as input 
 	 * for jcloud (Open Source Tag Cloud Library). 
 	 * 
-	 * @return
+	 * @return HTTP result
 	 */
 	@Transactional(readOnly=true)
 	public Result getCloudSmells() {

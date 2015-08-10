@@ -1,5 +1,5 @@
 package utils.crypto;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.junit.Assert.*;
 
 import java.security.GeneralSecurityException;
 
@@ -26,6 +26,6 @@ public class CryptoTest {
 		} catch (GeneralSecurityException e) {
 			e.printStackTrace();
 		}
-        assertThat(test).isTrue();
+        assertTrue(test);
     }
 }

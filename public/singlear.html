@@ -74,7 +74,7 @@
                         <h3 class="panel-title">Architectural smells</h3>
                     </div>
                     <ul class="list-group" ng-repeat="smell in currentar.smells">
-                        <li class="list-group-item"><a ui-sref="root.singlesmell({id: smell.id})">{{smell.name}}</a><br/>{{smell.description}}</li>
+                        <li class="list-group-item"><a ui-sref="root.singlesmell({id: smell.id})">{{smell.name}}</a><br/><div ng-bind-html="smell.description"></div></li>
                     </ul>
                 </div>
             </div>

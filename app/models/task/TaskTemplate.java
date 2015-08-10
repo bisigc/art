@@ -32,7 +32,7 @@ public class TaskTemplate extends AbstractModel {
 	/**
 	 * Add a property to the list.
 	 * 
-	 * @param property
+	 * @param property Taskproperty to add to the childrens list
 	 */
 	public void addTaskProperty(TaskProperty property) {
 		properties.add(property);

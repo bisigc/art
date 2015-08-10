@@ -3,25 +3,25 @@ package dao;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
 import javax.persistence.TypedQuery;
 
 import models.AbstractModel;
 import play.db.jpa.JPA;
 
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
 import com.google.inject.TypeLiteral;
 
 /**
  * Concrete implementation of a {@link GenericDAO}. The model is still
  * generic and can be concretised with dependency injection.
- * Is annotated with {@link com.google.inject.Singleton}, which makes sure
+ * Is annotated with {@link javax.inject.Singleton}, which makes sure
  * the DI framework creates only one instance of the class.
  * 
  * @author cbi
  *
- * @param <T>
- * @param <PK>
+ * @param <T> Generic Data Model Object
+ * @param <PK> Generic Primary Key of Data Model Object
  */
 @Singleton
 public class GenericDAOImpl<T extends AbstractModel, PK extends Serializable> implements GenericDAO<T, PK> {
@@ -31,7 +31,7 @@ public class GenericDAOImpl<T extends AbstractModel, PK extends Serializable> im
 	/**
 	 * Construction receives a TypeLiteral of the data model to be used.
 	 * 
-	 * @param model
+	 * @param model TypeLiteral
 	 */
 	@SuppressWarnings("unchecked")
 	@Inject

@@ -4,27 +4,30 @@ package views.html
 import play.twirl.api._
 import play.twirl.api.TemplateMagic._
 
-import play.api.templates.PlayMagic._
+
+     object list_Scope0 {
 import models._
 import controllers._
+import play.api.i18n._
+import views.html._
+import play.api.templates.PlayMagic._
 import java.lang._
 import java.util._
 import scala.collection.JavaConversions._
 import scala.collection.JavaConverters._
-import play.api.i18n._
 import play.core.j.PlayMagicForJava._
 import play.mvc._
 import play.data._
 import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
-import views.html._
 
-/**/
-object list extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template0[play.twirl.api.HtmlFormat.Appendable] {
+class list extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template0[play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
   def apply():play.twirl.api.HtmlFormat.Appendable = {
-      _display_ {
+    _display_ {
+      {
+
 
 Seq[Any](format.raw/*1.1*/("""<!DOCTYPE html>
 <html ng-app="artApp">
@@ -70,7 +73,9 @@ Seq[Any](format.raw/*1.1*/("""<!DOCTYPE html>
 	<script src=""""),_display_(/*42.16*/routes/*42.22*/.Assets.at("javascripts/artApp.js")),format.raw/*42.57*/(""""></script>
 	<script src=""""),_display_(/*43.16*/routes/*43.22*/.Assets.at("javascripts/artCtrls.js")),format.raw/*43.59*/(""""></script>
 </body>
-</html>"""))}
+</html>"""))
+      }
+    }
   }
 
   def render(): play.twirl.api.HtmlFormat.Appendable = apply()
@@ -80,13 +85,19 @@ Seq[Any](format.raw/*1.1*/("""<!DOCTYPE html>
   def ref: this.type = this
 
 }
+
+
+}
+
+/**/
+object list extends list_Scope0.list
               /*
                   -- GENERATED --
-                  DATE: Wed May 20 22:42:15 CEST 2015
+                  DATE: Sun Aug 09 22:47:31 CEST 2015
                   SOURCE: /Users/cbi/Documents/git-repos/ART/app/views/list.scala.html
-                  HASH: b43d6a2d3fc8a606ae218035839371538f02b146
-                  MATRIX: 797->0|936->113|950->119|1004->153|1083->206|1097->212|1149->244|1384->452|1399->458|1476->514|1629->639|1658->640|1687->641|1716->642|1749->647|1778->648|1807->649|1911->725|1940->726|1969->727|1998->728|2053->755|2082->756|2111->757|2257->875|2286->876|2315->877|2344->878|2377->883|2406->884|2435->885|2522->944|2551->945|2580->946|2609->947|2670->980|2699->981|2728->982|2871->1097|2900->1098|2929->1099|2958->1100|2991->1105|3020->1106|3049->1107|3299->1329|3328->1330|3394->1368|3423->1369|3453->1371|3482->1372|3511->1373|3543->1378|3634->1441|3663->1442|3692->1443|3757->1481|3772->1487|3828->1522|3882->1549|3897->1555|3955->1592
-                  LINES: 29->1|34->6|34->6|34->6|35->7|35->7|35->7|38->10|38->10|38->10|44->16|44->16|44->16|44->16|44->16|44->16|44->16|46->18|46->18|46->18|46->18|46->18|46->18|46->18|52->24|52->24|52->24|52->24|52->24|52->24|52->24|54->26|54->26|54->26|54->26|54->26|54->26|54->26|60->32|60->32|60->32|60->32|60->32|60->32|60->32|65->37|65->37|65->37|65->37|65->37|65->37|65->37|66->38|66->38|66->38|66->38|70->42|70->42|70->42|71->43|71->43|71->43
+                  HASH: a52096c42f72f03ff5850fb169121460a843a801
+                  MATRIX: 825->0|964->113|978->119|1032->153|1111->206|1125->212|1177->244|1412->452|1427->458|1504->514|1657->639|1686->640|1715->641|1744->642|1777->647|1806->648|1835->649|1939->725|1968->726|1997->727|2026->728|2081->755|2110->756|2139->757|2285->875|2314->876|2343->877|2372->878|2405->883|2434->884|2463->885|2550->944|2579->945|2608->946|2637->947|2698->980|2727->981|2756->982|2899->1097|2928->1098|2957->1099|2986->1100|3019->1105|3048->1106|3077->1107|3327->1329|3356->1330|3422->1368|3451->1369|3481->1371|3510->1372|3539->1373|3571->1378|3662->1441|3691->1442|3720->1443|3785->1481|3800->1487|3856->1522|3910->1549|3925->1555|3983->1592
+                  LINES: 32->1|37->6|37->6|37->6|38->7|38->7|38->7|41->10|41->10|41->10|47->16|47->16|47->16|47->16|47->16|47->16|47->16|49->18|49->18|49->18|49->18|49->18|49->18|49->18|55->24|55->24|55->24|55->24|55->24|55->24|55->24|57->26|57->26|57->26|57->26|57->26|57->26|57->26|63->32|63->32|63->32|63->32|63->32|63->32|63->32|68->37|68->37|68->37|68->37|68->37|68->37|68->37|69->38|69->38|69->38|69->38|73->42|73->42|73->42|74->43|74->43|74->43
                   -- GENERATED --
               */
           

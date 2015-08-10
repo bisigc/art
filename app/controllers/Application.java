@@ -2,6 +2,9 @@ package controllers;
 
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.inject.Singleton;
 import javax.persistence.TypedQuery;
 
 import models.user.User;
@@ -14,19 +17,17 @@ import play.mvc.Controller;
 import play.mvc.Result;
 import utils.exceptions.NoSessionException;
 import utils.exceptions.SessionTimeoutException;
-import views.html.index;
 
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
-import com.google.inject.name.Named;
 import com.lambdaworks.codec.Base64;
+
+import views.html.index;
 
 import dao.GenericDAO;
 
 /**
  * Extends the general class {@link play.mvc.Controller}. Contains the method which
  * returns the index page of the ART application.
- * Is annotated with {@link com.google.inject.Singleton}, which makes sure
+ * Is annotated with {@link javax.inject.Singleton}, which makes sure
  * the DI framework creates only one instance of the class.
  * 
  * @author cbi
@@ -42,7 +43,7 @@ public class Application extends Controller {
 	/**
 	 * Constructor receives a {@link GenericDAO}. DI framework hook is "@Named("UserDAO")".
 	 * 
-	 * @param dao
+	 * @param dao GenericDAO
 	 */
 	@Inject
 	public Application(@Named("UserDAO") GenericDAO<User, Long> dao) {
@@ -53,7 +54,7 @@ public class Application extends Controller {
 	 * Returns the index page of the ART application. Before the load its is checked
 	 * if there is an existing session. If so, there logged ins userprofile is returned with the request.
 	 * 
-	 * @return
+	 * @return HTTP result
 	 */
 	@Transactional(readOnly=true)
 	public Result index() {
@@ -67,7 +68,7 @@ public class Application extends Controller {
 	 * Checks if there is an active session and returns currents User profile
 	 * as a String (in JsonNode format).
 	 * 
-	 * @return
+	 * @return current user profile as String
 	 */
 	public String checkLogin() {
 		User user;

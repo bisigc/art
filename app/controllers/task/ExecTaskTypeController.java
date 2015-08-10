@@ -3,6 +3,9 @@ package controllers.task;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.inject.Singleton;
 import javax.persistence.TypedQuery;
 
 import models.task.ExecTaskType;
@@ -14,9 +17,6 @@ import play.mvc.Result;
 import utils.actions.SessionAuth;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
-import com.google.inject.name.Named;
 
 import controllers.AbstractCRUDController;
 import dao.GenericDAO;
@@ -33,7 +33,7 @@ public class ExecTaskTypeController extends AbstractCRUDController<ExecTaskType,
 	/**
 	 * Constructor receives a {@link GenericDAO}. DI framework hook is "@Named("ExecTaskTypeDAO")".
 	 * 
-	 * @param dao
+	 * @param dao GenericDAO
 	 */
 	@Inject
 	public ExecTaskTypeController(@Named("ExecTaskTypeDAO") GenericDAO<ExecTaskType, Long> dao) {
@@ -44,7 +44,7 @@ public class ExecTaskTypeController extends AbstractCRUDController<ExecTaskType,
 	 * Overwritten get All method with using custom query to prevent infinite loop selection
 	 * due to hierarchical data structure.
 	 * 
-	 * @return
+	 * @return HTTP result
 	 */
 	@Override
 	@Transactional(readOnly=true)
@@ -68,7 +68,7 @@ public class ExecTaskTypeController extends AbstractCRUDController<ExecTaskType,
 	/**
 	 * Delivers an empty JsonNode object with the structure of a {@link ExecTaskType} object.
 	 * 
-	 * @return
+	 * @return HTTP result
 	 */
 	public Result getEmptyExecTaskType() {
 		ExecTaskType task = new ExecTaskType();

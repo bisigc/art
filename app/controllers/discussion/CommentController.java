@@ -2,6 +2,10 @@ package controllers.discussion;
 
 import java.sql.Timestamp;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.inject.Singleton;
+
 import models.discussion.Comment;
 import models.user.User;
 import play.Logger;
@@ -11,9 +15,6 @@ import play.mvc.Result;
 import utils.actions.SessionAuth;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
-import com.google.inject.name.Named;
 
 import controllers.AbstractCRUDController;
 import dao.GenericDAO;
@@ -30,7 +31,7 @@ public class CommentController extends AbstractCRUDController<Comment, Long> {
 	/**
 	 * Constructor receives a {@link GenericDAO}. DI framework hook is "@Named("CommentDAO")".
 	 * 
-	 * @param dao
+	 * @param dao GenericDAO
 	 */
 	@Inject
 	public CommentController(@Named("CommentDAO") GenericDAO<Comment, Long> dao) {

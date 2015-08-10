@@ -2,6 +2,10 @@ package controllers.ar;
 
 import java.sql.Timestamp;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.inject.Singleton;
+
 import models.ar.Ar;
 import models.discussion.Discussion;
 import models.discussion.Discussion.DiscussionType;
@@ -14,9 +18,6 @@ import play.mvc.Result;
 import utils.actions.SessionAuth;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
-import com.google.inject.name.Named;
 
 import controllers.AbstractCRUDController;
 import dao.GenericDAO;
@@ -34,7 +35,7 @@ public class ArController extends AbstractCRUDController<Ar, Long> {
 	 * Constructor receives a {@link GenericDAO}. DI framework hook is
 	 * "@Named("ArDAO")".
 	 * 
-	 * @param dao
+	 * @param dao GenericDAO
 	 */
 	@Inject
 	public ArController(@Named("ArDAO") GenericDAO<Ar, Long> dao) {

@@ -1,11 +1,10 @@
 package controllers.discussion;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.inject.Singleton;
+
 import models.discussion.Discussion;
-
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
-import com.google.inject.name.Named;
-
 import controllers.AbstractCRUDController;
 import dao.GenericDAO;
 
@@ -21,7 +20,7 @@ public class DiscussionController extends AbstractCRUDController<Discussion, Lon
 	/**
 	 * Constructor receives a {@link GenericDAO}. DI framework hook is "@Named("DiscussionDAO")".
 	 * 
-	 * @param dao
+	 * @param dao GenericDAO
 	 */
 	@Inject
 	public DiscussionController(@Named("DiscussionDAO") GenericDAO<Discussion, Long> dao) {

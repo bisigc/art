@@ -7,6 +7,9 @@ import java.security.GeneralSecurityException;
 import java.util.List;
 
 import javax.imageio.ImageIO;
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.inject.Singleton;
 import javax.persistence.TypedQuery;
 import javax.security.auth.login.FailedLoginException;
 
@@ -30,9 +33,6 @@ import utils.actions.SessionAuth;
 import utils.crypto.Crypto;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
-import com.google.inject.name.Named;
 
 import controllers.AbstractCRUDController;
 import dao.GenericDAO;
@@ -52,7 +52,7 @@ public class UserController extends AbstractCRUDController<User, Long> {
 	 * Constructor receives a {@link GenericDAO}. DI framework hook is
 	 * "@Named("UserDAO")".
 	 * 
-	 * @param dao
+	 * @param dao GenericDAO
 	 */
 	@Inject
 	public UserController(@Named("UserDAO") GenericDAO<User, Long> dao) {
@@ -63,7 +63,7 @@ public class UserController extends AbstractCRUDController<User, Long> {
 	 * Creates a User object via the {@link GenericDAO}, given by the serialized Object of
 	 * the delivered JSON Node from the HTTP request.
 	 * 
-	 * @return
+	 * @return HTTP result
 	 */
 	@Transactional
 	public Result create() {
@@ -89,7 +89,7 @@ public class UserController extends AbstractCRUDController<User, Long> {
 	 * JsonNode. Validates username and password, creates user session and
 	 * returns the {@link User} object as a JsonNode.
 	 * 
-	 * @return
+	 * @return HTTP result
 	 */
 	@Transactional(readOnly = true)
 	public Result login() {
@@ -135,7 +135,7 @@ public class UserController extends AbstractCRUDController<User, Long> {
 	/**
 	 * Logout method. Clears the user session.
 	 * 
-	 * @return
+	 * @return HTTP result
 	 */
 	public Result logout() {
 		session().clear();
@@ -148,7 +148,7 @@ public class UserController extends AbstractCRUDController<User, Long> {
 	 * and if the new password is the same as its repetition, it is saved via
 	 * the {@link GenericDAO} object.
 	 * 
-	 * @return
+	 * @return HTTP result
 	 */
 	@SessionAuth
 	@Transactional
@@ -193,8 +193,8 @@ public class UserController extends AbstractCRUDController<User, Long> {
 	/**
 	 * Returns the avatar image as binary Data for a delivered user id.
 	 * 
-	 * @param id
-	 * @return
+	 * @param id user id
+	 * @return HTTP result
 	 */
 	@Transactional(readOnly=true)
 	public Result getAvatar(Long id) {
@@ -220,7 +220,7 @@ public class UserController extends AbstractCRUDController<User, Long> {
 	/**
 	 * Upload users Avatar image.
 	 * 
-	 * @return
+	 * @return HTTP result
 	 */
 	@SessionAuth
 	@Transactional
