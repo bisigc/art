@@ -19,32 +19,32 @@
                 <th></th>
             </tr>
             <tr>
-                <td><input ng-model="search.name" placeholder="Enter search criteria" /></td>
-                <td><input ng-model="search.description" placeholder="Enter search criteria" /></td>
-                <td><input ng-model="search.weight" placeholder="Enter search criteria" /></td>
-                <td><input ng-model="search.group.name" placeholder="Enter search criteria" /></td>
-                <td><input ng-model="search.tecdebtidx" placeholder="Enter search criteria" /></td>
+                <td><input class="form-control" ng-model="search.name" placeholder="Enter search criteria" /></td>
+                <td><input class="form-control" ng-model="search.description" placeholder="Enter search criteria" /></td>
+                <td><input class="form-control" ng-model="search.weight" placeholder="Enter search criteria" /></td>
+                <td><input class="form-control" ng-model="search.group.name" placeholder="Enter search criteria" /></td>
+                <td><input class="form-control" ng-model="search.tecdebtidx" placeholder="Enter search criteria" /></td>
                 <td><button type="button" class="btn btn-warning btn-sm" ng-click="search = []" popover="Clear filter fields" popover-trigger="mouseenter" popover-placement="right">clear</button></td>
             </tr>
             <tr>
-                <th><a href ng-click="rname=!rname;order('name', rname)">Name <span ng-show="rname">&#x25B2;</span><span ng-show="!rname">&#x25BC;</span></a></th>
-                <th><a href ng-click="rdesc=!rdesc;order('description', rdesc)">Description <span ng-show="rdesc">&#x25B2;</span><span ng-show="!rdesc">&#x25BC;</span></a></th>
-                <th><a href ng-click="rweight=!rweight;order('weight', rweight)">AR Appearances <span ng-show="rweight">&#x25B2;</span><span ng-show="!rweight">&#x25BC;</span></a></th>
-                <th><a href ng-click="rgroup=!rgroup;order('group.name', rgroup)">Group <span ng-show="rgroup">&#x25B2;</span><span ng-show="!rgroup">&#x25BC;</span></a></th>
-                <th><a href ng-click="rdebtidx=!rdebtidx;order('tecdebtidx', rdebtidx)">Tech Debt Index <span ng-show="rdebtidx">&#x25B2;</span><span ng-show="!rdebtidx">&#x25BC;</span></a></th>
+                <th><a ng-click="rname=!rname;order('name', rname)">Name <span ng-show="rname">&#x25B2;</span><span ng-show="!rname">&#x25BC;</span></a></th>
+                <th><a ng-click="rdesc=!rdesc;order('description', rdesc)">Description <span ng-show="rdesc">&#x25B2;</span><span ng-show="!rdesc">&#x25BC;</span></a></th>
+                <th><a ng-click="rweight=!rweight;order('weight', rweight)">AR Appearances <span ng-show="rweight">&#x25B2;</span><span ng-show="!rweight">&#x25BC;</span></a></th>
+                <th><a ng-click="rgroup=!rgroup;order('group.name', rgroup)">Group <span ng-show="rgroup">&#x25B2;</span><span ng-show="!rgroup">&#x25BC;</span></a></th>
+                <th><a ng-click="rdebtidx=!rdebtidx;order('tecdebtidx', rdebtidx)">Tech Debt Index <span ng-show="rdebtidx">&#x25B2;</span><span ng-show="!rdebtidx">&#x25BC;</span></a></th>
                 <th></th>
             </tr>
             <tr ng-if="formvisible" class="bg-warning">
-                <td>{{smell.name}}&nbsp;</td>
-                <td>{{smell.description | limitHtml: 30}}</td>
+                <td>{{smell.name | limit: 20}}&nbsp;</td>
+                <td>{{smell.description | limitHtml: 20}}</td>
                 <td>{{smell.weight}}</td>
                 <td>{{smell.group.name}}</td>
                 <td class="dbt-idx-{{smell.tecdebtidx}}">{{smell.tecdebtidx}}</td>
                 <td></td>
             </tr>
             <tr ng-repeat="smellItem in smelllist | filter:search" ng-dblclick="$state.go('root.singlesmell',{id: smellItem.id})">
-                <td><a ui-sref="root.singlesmell({id: smellItem.id})">{{smellItem.name}}</a></td>
-                <td ng-bind-html="smellItem.description | limitHtml: 30"></td>
+                <td><a ui-sref="root.singlesmell({id: smellItem.id})">{{smellItem.name | limit: 20}}</a></td>
+                <td ng-bind-html="smellItem.description | limitHtml: 20"></td>
                 <td>{{smellItem.weight}}</td>
                 <td>{{smellItem.group.name}}</td>
                 <td class="dbt-idx-{{smellItem.tecdebtidx}}">{{smellItem.tecdebtidx}}</td>

@@ -4,7 +4,18 @@ app.filter('limitHtml', function() {
         if(text) {
             var changedString = String(text).replace(/<[^>]+>/gm, '');
             var length = changedString.length;
-            return changedString.length > limit ? changedString.substr(0, limit - 1) + " ..." : changedString; 
+            return changedString.length > limit ? changedString.substr(0, limit - 1) + "..." : changedString; 
+        }
+        return "";
+    }
+});
+
+app.filter('limit', function() {
+    return function(text, limit) {
+
+        if(text) {
+            var length = text.length;
+            return text.length > limit ? text.substr(0, limit - 1) + "..." : text; 
         }
         return "";
     }

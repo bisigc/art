@@ -74,7 +74,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
                 controller: "LoginController as loginCtrl"
             },
             'footer': {
-                templateUrl: _contextPath + "footer.html"
+                templateUrl: _contextPath + "footer.html",
+                controller: "FooterController as footCtrl"
             }
         }
     })
@@ -187,22 +188,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             }
         }
     })
-        .state('root.aredit', {
-        url: "/aredit/:id",
-        title: "Edit AR",
-        data: { 
-            requireLogin: true,
-            allowedRoles: ["Admin", "Editor"]
-        },
-        views: {
-            'container@': {
-                controller: "AREditController as arEditCtrl",
-                title: "Edit AR",
-                templateUrl: _contextPath + "arform.html",
-            }
-        }
-    })
-        .state('root.addar.addsmell', {
+/*        .state('root.addar.addsmell', {
         url: "/addsmell",
         title: "Add Smell",
         data: { 
@@ -232,6 +218,21 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
                 modalInstance.dismiss('cancel');
             };
         }]
+    }) */
+        .state('root.aredit', {
+        url: "/aredit/:id",
+        title: "Edit AR",
+        data: { 
+            requireLogin: true,
+            allowedRoles: ["Admin", "Editor"]
+        },
+        views: {
+            'container@': {
+                controller: "AREditController as arEditCtrl",
+                title: "Edit AR",
+                templateUrl: _contextPath + "arform.html",
+            }
+        }
     })
         .state('root.modelelement', {
         url: "/modelelement",
@@ -279,7 +280,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             };
 
             $stateParams.cancel = function () {
-                modalInstance.dismiss('cancel');
+                $modalInstance.dismiss('cancel');
             };
         }]
     })
@@ -496,7 +497,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
         data: { requireLogin: false },
         views: {
             'container@': {
-                templateUrl: _contextPath + "about.html"
+                templateUrl: _contextPath + "about.html",
+                controller: "AboutController as aboutCtrl"
             },
             'license@root.about': {
                 templateUrl: _contextPath + "APACHE-LICENSE-2.0.txt"

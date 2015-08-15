@@ -18,7 +18,6 @@ app.factory("isLoggedin", ['currentUser', function(currentUser) {
 app.factory('sharedSmell', ['notifications', function (notifications) {
     var smellObject = {smell: {}};
     smellObject.clear = function () {
-        notifications.showInfo("clear smell");
         angular.copy({}, this.smell);
     }
     return smellObject;
@@ -73,6 +72,50 @@ app.factory("PropModal", ['$modal', 'notifications', function($modal, notificati
 
         }
         
+    }
+}]);
+
+app.factory("SmellModal", ['$modal', 'notifications', function($modal, notifications) {
+
+    return {
+        open: function(type, okfunction, dissmissedfunction) {
+            var modaltype = type;
+            var modalInstance = $modal.open(
+                {
+                    templateUrl: _contextPath + 'smelldialog.html',
+                    controller: 'SmellModalAddController',
+                    size: 'lg',
+                    resolve: {
+                        modelelementtype: function () { 
+                            return modaltype;
+                        }
+                    }
+                }
+            );
+            modalInstance.result.then(okfunction, dissmissedfunction);
+        }
+    }
+}]);
+
+app.factory("TaskModal", ['$modal', 'notifications', function($modal, notifications) {
+
+    return {
+        open: function(type, okfunction, dissmissedfunction) {
+            var modaltype = type;
+            var modalInstance = $modal.open(
+                {
+                    templateUrl: _contextPath + 'taskdialog.html',
+                    controller: 'TaskModalAddController',
+                    size: 'lg',
+                    resolve: {
+                        modelelementtype: function () { 
+                            return modaltype;
+                        }
+                    }
+                }
+            );
+            modalInstance.result.then(okfunction, dissmissedfunction);
+        }
     }
 }]);
 

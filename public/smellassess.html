@@ -8,7 +8,7 @@
             <h2>Questionnaire</h2>
             <div class="pull-right">
                 <p>
-                    <a class="btn btn-primary btn-sm" ng-click="groupToggleAll()">Show/Hide all items</a>
+                    <a class="btn btn-primary btn-sm" ng-click="groupToggleAll()"><span ng-show="groupAllshow">Hide</span><span ng-hide="groupAllshow">Show</span> all questions</a>
                 </p>
             </div>
         </div>
@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 <div class="pull-right">
-                    <button type="reset" class="btn btn-warning" ng-click="resetForm()" >Clear Questionnaire</button>&nbsp;
+                    <a type="reset" class="btn btn-warning" ng-click="resetForm()" >Clear Questionnaire</a>&nbsp;
                     <button type="submit" class="btn btn-primary" ng-click="executeSearch()">Show ARs</button>
                 </div>
             </form>

@@ -272,7 +272,7 @@ app.controller('ARController', ['ArService', 'ArVersionService', 'CloudSmells', 
 
 }]);
 
-app.controller('AREditController', ['ArService', 'ArVersionService', 'SmellService', 'TaskService', 'StatusService', 'ModelElementService', 'StatusService', 'ReplyErrorHandler', 'notifications', '$scope', '$stateParams', '$filter', 'PropModal', function(ArService, ArVersionService, SmellService, TaskService, StatusService, ModelElementService, StatusService, ReplyErrorHandler, notifications, $scope, $stateParams, $filter, PropModal) {
+app.controller('AREditController', ['ArService', 'ArVersionService', 'SmellService', 'TaskService', 'StatusService', 'ModelElementService', 'StatusService', 'ReplyErrorHandler', 'notifications', '$scope', '$stateParams', '$filter', 'PropModal', 'SmellModal', 'TaskModal', function(ArService, ArVersionService, SmellService, TaskService, StatusService, ModelElementService, StatusService, ReplyErrorHandler, notifications, $scope, $stateParams, $filter, PropModal, SmellModal, TaskModal) {
     $scope.ar = {'versions': []}; //ars;
     //$scope.ar.versions = [];
     $scope.arversion = {};
@@ -313,16 +313,32 @@ app.controller('AREditController', ['ArService', 'ArVersionService', 'SmellServi
         PropModal.open(type, function() {$scope.loadValues()}, function() {});
     }
     
+    $scope.openSmellModal = function(type) {
+        SmellModal.open(type, function() {$scope.loadSmells()}, function() {});
+    }
+    
+    $scope.openTaskModal = function(type) {
+        TaskModal.open(type, function() {$scope.loadTasks()}, function() {});
+    }
+    
+    $scope.loadSmells = function () {
+        SmellService.noid.get({},function(data, status, headers, config) {
+            $scope.smells = data;
+        }, ReplyErrorHandler);     
+    };
+
+    $scope.loadTasks = function () {
+		TaskService.noid.get({},function(data, status, headers, config) {
+		    $scope.tasks = data;
+		}, ReplyErrorHandler);   
+    };
+    
     $scope.loadValues = function () {
         StatusService.get({},function(data, status, headers, config) {
             $scope.status = data;
         }, ReplyErrorHandler);        
-        SmellService.noid.get({},function(data, status, headers, config) {
-            $scope.smells = data;
-        }, ReplyErrorHandler); 
-        TaskService.noid.get({},function(data, status, headers, config) {
-            $scope.tasks = data;
-        }, ReplyErrorHandler);   
+        $scope.loadSmells();
+        $scope.loadTasks();
         ModelElementService.type.get({},function(data, status, headers, config) {
             $scope.modelelementtypes = data;
             $scope.loadAllProps();
@@ -391,6 +407,7 @@ app.controller('AREditController', ['ArService', 'ArVersionService', 'SmellServi
         }, ReplyErrorHandler);
     }
 
+    /*       
     this.progMax = 200;
 
     this.setProgValue = function() {
@@ -405,7 +422,6 @@ app.controller('AREditController', ['ArService', 'ArVersionService', 'SmellServi
                 type: types[index]
             });
         }
-        /*       
             var value = Math.floor((Math.random() * 100) + 1);
             var type;
 
@@ -423,12 +439,12 @@ app.controller('AREditController', ['ArService', 'ArVersionService', 'SmellServi
 
             this.progDynamic = value;
             this.progType = type;
-            */
+            
     };
-    this.setProgValue();
+    this.setProgValue();*/
 }]);
 
-app.controller('ARAddController', ['ArService', 'ArVersionService', 'SmellService', 'TaskService', 'ModelElementService', 'StatusService', 'ReplyErrorHandler', 'notifications', '$scope', '$stateParams', '$filter', '$state', 'PropModal', function(ArService, ArVersionService, SmellService, TaskService, ModelElementService, StatusService, ReplyErrorHandler, notifications, $scope, $stateParams, $filter, $state, PropModal) {
+app.controller('ARAddController', ['ArService', 'ArVersionService', 'SmellService', 'TaskService', 'ModelElementService', 'StatusService', 'ReplyErrorHandler', 'notifications', '$scope', '$stateParams', '$filter', '$state', 'PropModal', 'TaskModal', 'SmellModal', function(ArService, ArVersionService, SmellService, TaskService, ModelElementService, StatusService, ReplyErrorHandler, notifications, $scope, $stateParams, $filter, $state, PropModal, TaskModal, SmellModal) {
     $scope.ar = {'versions': []}; //ars;
     //$scope.ar.versions = [];
     $scope.arversion = {};
@@ -456,7 +472,7 @@ app.controller('ARAddController', ['ArService', 'ArVersionService', 'SmellServic
             $scope.arversion = data;
             $scope.ar.id = $scope.arversion.arhead.id;
             $scope.arversion.discussion = {};
-            $scope.arversion.commentary = {};
+            //$scope.arversion.commentary = {};
             $scope.modelelementsvalues.qas = $filter('arPropFilter')($scope.arversion.properties, 'QASElementLink');
             $scope.modelelementsvalues.context = $filter('arPropFilter')($scope.arversion.properties, 'ContextElementLink');
             $scope.modelelementsvalues.components = $filter('arPropFilter')($scope.arversion.properties, 'DecisionElementLink');
@@ -471,17 +487,34 @@ app.controller('ARAddController', ['ArService', 'ArVersionService', 'SmellServic
     $scope.openPropModal = function(type) {
         PropModal.open(type, function() {$scope.loadProps(type)}, function() {});
     }
+
+    $scope.openSmellModal = function(type) {
+        SmellModal.open(type, function() {$scope.loadSmells()}, function() {});
+    }
     
+    $scope.openTaskModal = function(type) {
+        TaskModal.open(type, function() {$scope.loadTasks()}, function() {});
+    }
+    
+    $scope.loadSmells = function () {
+        SmellService.noid.get({},function(data, status, headers, config) {
+            $scope.smells = data;
+        }, ReplyErrorHandler);     
+    };
+
+    $scope.loadTasks = function () {
+		TaskService.noid.get({},function(data, status, headers, config) {
+		    $scope.tasks = data;
+		}, ReplyErrorHandler);   
+    };
+
     $scope.loadValues = function () {
         StatusService.get({},function(data, status, headers, config) {
             $scope.status = data;
+            $scope.arversion.status = $scope.status[0];
         }, ReplyErrorHandler);        
-        SmellService.noid.get({},function(data, status, headers, config) {
-            $scope.smells = data;
-        }, ReplyErrorHandler); 
-        TaskService.noid.get({},function(data, status, headers, config) {
-            $scope.tasks = data;
-        }, ReplyErrorHandler);   
+    	$scope.loadSmells();
+    	$scope.loadTasks();
         ModelElementService.type.get({},function(data, status, headers, config) {
             $scope.modelelementtypes = data;
             $scope.loadAllProps();
@@ -664,6 +697,9 @@ app.controller('ModelElementUpdateController', ['ModelElementService', 'ReplyErr
         }, ReplyErrorHandler);  
     }
     
+    $scope.dismiss = function(form) {
+        $modalInstance.dismiss('cancel');
+    }    
 }]);
 
 app.controller('ARSearchController', ['ArVersionService', 'UserSearchService', 'ReplyErrorHandler', 'notifications','$scope', '$stateParams', '$filter', '$state', function(ArVersionService, UserSearchService, ReplyErrorHandler, notifications, $scope, $stateParams, $filter, $state) {
@@ -736,26 +772,29 @@ app.controller('SmellAssessController', ['ArVersionService', 'SmellGroupService'
             var n=$scope.groups[index].smells[i];
             var idx = $scope.selectedSmells.smellids.indexOf(n.id);
 
-            // is currently selected
-            if (idx > -1) {
-                $scope.selectedSmells.smellids.splice(idx, 1);
-            }
-            // is newly selected
-            else {
-                $scope.selectedSmells.smellids.push(n.id);
+            if($scope.groupAllCheck[index]) {
+                if (idx == -1) {
+                    $scope.selectedSmells.smellids.push(n.id);                	
+                }
+            } else {
+                if (idx > -1) {
+                    $scope.selectedSmells.smellids.splice(idx, 1);
+                }            	
             }
         }
-        if($scope.selectedSmells.smellids.length != 0) {
-            $scope.getSmellCount();
-        }
+        $scope.getSmellCount();
     }
     
     $scope.getSmellCount = function () {
-        ArVersionService.count($scope.selectedSmells).success(function(data,status,headers,config){
-            $scope.counter = data;
-        }).error(function(data,status,headers,config){
-            notifications.showError("Failed to get Ar count.");
-        });
+    	if($scope.selectedSmells.smellids.length != 0) {
+	        ArVersionService.count($scope.selectedSmells).success(function(data,status,headers,config){
+	            $scope.counter = data;
+	        }).error(function(data,status,headers,config){
+	            notifications.showError("Failed to get Ar count.");
+	        });
+    	} else {
+            $scope.counter = 0;    		
+    	}
     };
 
     $scope.resetForm = function() {
@@ -782,9 +821,7 @@ app.controller('SmellAssessController', ['ArVersionService', 'SmellGroupService'
         else {
             $scope.selectedSmells.smellids.push(smell_id);
         }
-        if($scope.selectedSmells.smellids.length != 0) {
-            $scope.getSmellCount();
-        }
+        $scope.getSmellCount();
     };
     
 }]);
@@ -809,7 +846,6 @@ app.controller('SmellAddController', ['SmellService', 'SmellGroupService', 'Stat
     };
     $scope.loadGroups();
     $scope.initSmell = function () {
-        notifications.showSuccess("Smell initialised.");
         sharedSmell.clear();
         $scope.smell.questions = [];
         $scope.smell.tecdebtidx = 'mm';
@@ -845,6 +881,37 @@ app.controller('SmellAddController', ['SmellService', 'SmellGroupService', 'Stat
         $scope.smell.questions.splice(idx, 1);
     };
 
+}]);
+
+/**
+ * SmellModalAddController extends SmellAddController and overwrites the methods
+ * saveSmell and cancel.
+ */
+app.controller('SmellModalAddController', ['$controller', '$scope', '$modalInstance', 'SmellService', 'ReplyErrorHandler', 'notifications', function($controller, $scope, $modalInstance, SmellService, ReplyErrorHandler, notifications) {
+	$controller('SmellAddController', {$scope: $scope});
+    $scope.saveSmell = function(form) {
+        SmellService.noid.create($scope.smell,function(data, status, headers, config) {
+            if($scope.loadSmells) {
+                $scope.loadSmells();
+            }
+            notifications.showSuccess("Smell has been added.");
+            $scope.initSmell();
+            form.$setPristine();
+            if($modalInstance) {
+            	$modalInstance.close();
+            }
+        }, ReplyErrorHandler);  
+    };
+    
+    $scope.cancel = function(form) {
+        $scope.initSmell();
+        $scope.smell.status = $scope.status[0];
+        $scope.smell.group = $scope.groups[0];
+        form.$setPristine();
+        if($modalInstance) {
+        	$modalInstance.dismiss('cancel');
+        }
+    }
 }]);
 
 app.controller('SmellController', ['SmellService', 'SmellGroupService', 'ReplyErrorHandler', 'StatusService', 'notifications','$scope','$filter', 'sharedSmell', function(SmellService, SmellGroupService, ReplyErrorHandler, StatusService, notifications, $scope, $filter, sharedSmell) {
@@ -1079,6 +1146,28 @@ app.controller('TaskAddController', ['TaskService', 'ExecTaskTypeService', 'Task
         $scope.task.properties.splice(idx, 1);
     };
 }]);
+
+/**
+ * TaskModalAddController extends TaskAddController and overwrites the methods
+ * saveTask and cancel.
+ */
+app.controller('TaskModalAddController', ['$controller', '$scope', '$modalInstance', 'TaskService', 'ReplyErrorHandler', 'notifications', function($controller, $scope, $modalInstance, TaskService, ReplyErrorHandler, notifications) {
+	$controller('TaskAddController', {$scope: $scope});
+    $scope.saveTask = function(form) {
+        TaskService.noid.create($scope.task,function(data, status, headers, config) {
+            notifications.showSuccess("Task has been added.");
+            $scope.initTask();
+            form.$setPristine();
+            $modalInstance.close();
+        }, ReplyErrorHandler);  
+    };
+    $scope.cancel = function(form) {
+        $scope.initTask();
+        form.$setPristine();
+        $scope.propertyToAdd.property = $scope.taskproperties[0];
+    	$modalInstance.dismiss('cancel');
+    }
+}]);
     
 app.controller('TaskViewController', ['TaskService', 'ReplyErrorHandler', 'notifications','$scope', '$stateParams', function(TaskService, ReplyErrorHandler, notifications, $scope, $stateParams) {
     $scope.task = {};
@@ -1201,4 +1290,12 @@ app.controller("ExecTaskTypeController", ['ExecTaskTypeService', 'ReplyErrorHand
             notifications.showSuccess("Exec Task Types have been saved.");
         }, ReplyErrorHandler);  
     }
+}]);
+
+app.controller("FooterController", ['$scope', function($scope) {
+	$scope.date = new Date();
+}]);
+
+app.controller("AboutController", ['$scope', function($scope) {
+	$scope.date = new Date();
 }]);

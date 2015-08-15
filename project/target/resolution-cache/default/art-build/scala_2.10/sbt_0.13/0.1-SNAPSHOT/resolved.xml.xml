@@ -4,7 +4,7 @@
 		module="art-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20150810165230"
+		publication="20150815173945"
 		e:sbtVersion="0.13" e:scalaVersion="2.10"
 	>
 		<description>

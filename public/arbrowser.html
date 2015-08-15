@@ -8,34 +8,38 @@
     <div class="row">
         <div class="col-md-8">
             <table id="searchObjResults" class="table table-striped table-hover non-select">
-                <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Smells</th>
-                    <th>Status</th>
-                    <th></th>
-                </tr>
-                <tr>
-                    <td><input ng-model="search.name" placeholder="Enter search criteria" /></td>
-                    <td><input ng-model="search.description" placeholder="Enter search criteria" /></td>
-                    <td><input ng-model="search.smells.name" id="smellname" placeholder="Enter search criteria" /></td>
-                    <td><input ng-model="search.status" id="status" placeholder="Enter search criteria" /></td>
-                    <td><button type="button" class="btn btn-warning btn-sm" ng-click="search = []" popover="Clear filter fields" popover-trigger="mouseenter" popover-placement="right">clear</button></td>
-                </tr>
-                <tr>
-                    <th><a href="" ng-click="reverseName=!reverseName;order('name', reverseName)">Name <span ng-show="reverseName">&#x25B2;</span><span ng-show="!reverseName">&#x25BC;</span></a></th>
-                    <th><a href="" ng-click="reverseDesc=!reverseDesc;order('description', reverseDesc)">Description <span ng-show="reverseDesc">&#x25B2;</span><span ng-show="!reverseDesc">&#x25BC;</span></a></th>
-                    <th><a href="" ng-click="reverseSmells=!reverseSmells;order('smells.name', reverseSmells)">Smells <span ng-show="reverseSmells">&#x25B2;</span><span ng-show="!reverseSmells">&#x25BC;</span></a></th>
-                    <th><a href="" ng-click="reverseStatus=!reverseStatus;order('status', reverseStatus)">Status <span ng-show="reverseStatus">&#x25B2;</span><span ng-show="!reverseStatus">&#x25BC;</span></a></th>
-                    <th></th>
-                </tr>
-                <tr ng-repeat="ar in arlist | filter:search" ng-dblclick="$state.go('root.singlear',{id: ar.arhead.id})">
-                    <td><a ui-sref="root.singlear({id: ar.arhead.id})">{{ar.name}}</a></td>
-                    <td>{{ar.description | limitHtml }}</td>
-                    <td><span ng-repeat="smell in ar.smells track by $index"><a ui-sref="root.singlesmell({id: smell.id})">{{smell.name}}</a><span ng-if="ar.smells.length - 1 != $index">, </span></span></td>
-                    <td>{{ar.status}}</td>
-                    <td><a ui-sref="root.aredit({id: ar.id})" ng-if="isAllowed.check(['Admin','Editor'])"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;<a href ng-click="deleteAr(ar.arhead.id)" ng-if="isAllowed.check(['Admin'])"><span class="glyphicon glyphicon-trash"></span></a></td>
-                </tr>
+            	<thead>
+	                <tr>
+	                    <th>Name</th>
+	                    <th>Description</th>
+	                    <th>Smells</th>
+	                    <th>Status</th>
+	                    <th></th>
+	                </tr>
+                </thead>
+                <tbody>
+	                <tr>
+	                    <td><input class="form-control" ng-model="search.name" placeholder="Filter..." /></td>
+	                    <td><input class="form-control" ng-model="search.description" placeholder="Filter..." /></td>
+	                    <td><input class="form-control" ng-model="search.smells.name" id="smellname" placeholder="Filter..." /></td>
+	                    <td><input class="form-control" ng-model="search.status" id="status" placeholder="Filter..." /></td>
+	                    <td><button type="button" class="btn btn-warning btn-sm" ng-click="search = []" popover="Clear filter fields" popover-trigger="mouseenter" popover-placement="right">clear</button></td>
+	                </tr>
+	                <tr>
+	                    <th><a ng-click="reverseName=!reverseName;order('name', reverseName)">Name <span ng-show="reverseName">&#x25B2;</span><span ng-show="!reverseName">&#x25BC;</span></a></th>
+	                    <th><a ng-click="reverseDesc=!reverseDesc;order('description', reverseDesc)">Description <span ng-show="reverseDesc">&#x25B2;</span><span ng-show="!reverseDesc">&#x25BC;</span></a></th>
+	                    <th><a ng-click="reverseSmells=!reverseSmells;order('smells.name', reverseSmells)">Smells <span ng-show="reverseSmells">&#x25B2;</span><span ng-show="!reverseSmells">&#x25BC;</span></a></th>
+	                    <th><a ng-click="reverseStatus=!reverseStatus;order('status', reverseStatus)">Status <span ng-show="reverseStatus">&#x25B2;</span><span ng-show="!reverseStatus">&#x25BC;</span></a></th>
+	                    <th></th>
+	                </tr>
+	                <tr ng-repeat="ar in arlist | filter:search" ng-dblclick="$state.go('root.singlear',{id: ar.arhead.id})">
+	                    <td><a ui-sref="root.singlear({id: ar.arhead.id})">{{ar.name | limit: 20}}</a></td>
+	                    <td>{{ar.description | limitHtml: 20 }}</td>
+	                    <td><span ng-repeat="smell in ar.smells track by $index"><a ui-sref="root.singlesmell({id: smell.id})">{{smell.name}}</a><span ng-if="ar.smells.length - 1 != $index">, </span></span></td>
+	                    <td>{{ar.status}}</td>
+	                    <td><a ui-sref="root.aredit({id: ar.id})" ng-if="isAllowed.check(['Admin','Editor'])"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;<a href ng-click="deleteAr(ar.arhead.id)" ng-if="isAllowed.check(['Admin'])"><span class="glyphicon glyphicon-trash"></span></a></td>
+	                </tr>
+                </tbody>
             </table>
         </div>
         <div class="col-md-4">

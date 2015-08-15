@@ -16,13 +16,13 @@
                 <th></th>
             </tr>
             <tr>
-                <td><input ng-model="search.name" placeholder="Enter search criteria" /></td>
-                <td><input ng-model="search.properties.value" placeholder="Enter search criteria" /></td>
+                <td><input class="form-control" ng-model="search.name" placeholder="Enter search criteria" /></td>
+                <td><input class="form-control" ng-model="search.properties.value" placeholder="Enter search criteria" /></td>
                 <td><button type="button" class="btn btn-warning btn-sm" ng-click="search = []" popover="Clear filter fields" popover-trigger="mouseenter" popover-placement="right">clear</button></td>
             </tr>
             <tr>
-                <th><a href ng-click="rname=!rname;order('name', rname)">Name <span ng-show="rname">&#x25B2;</span><span ng-show="!rname">&#x25BC;</span></a></th>
-                <th><a href ng-click="rtpye=!rtpye;order('properties[0].value', rtpye)">Type <span ng-show="rtpye">&#x25B2;</span><span ng-show="!rtpye">&#x25BC;</span></a></th>
+                <th><a ng-click="rname=!rname;order('name', rname)">Name <span ng-show="rname">&#x25B2;</span><span ng-show="!rname">&#x25BC;</span></a></th>
+                <th><a ng-click="rtpye=!rtpye;order('properties[0].value', rtpye)">Type <span ng-show="rtpye">&#x25B2;</span><span ng-show="!rtpye">&#x25BC;</span></a></th>
                 <th></th>
             </tr>
             <tr ng-show="formvisible" class="bg-warning">
@@ -31,7 +31,7 @@
                 <td></td>
             </tr>
             <tr ng-repeat="taskItem in tasklist | filter:search" ng-dblclick="$state.go('root.singletask',{id: taskItem.id})">
-                <td><a ui-sref="root.singletask({id: taskItem.id})">{{taskItem.name}}</a></td>
+                <td><a ui-sref="root.singletask({id: taskItem.id})">{{taskItem.name | limit: 50}}</a></td>
                 <td>{{ getType(taskItem.properties) }}</td>
                 <td><a ui-sref="root.taskbrowser.edit({id: taskItem.id})" ng-if="isAllowed.check(['Admin','Editor'])"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;<a href ng-click="deleteTask(taskItem.id)" ng-if="isAllowed.check(['Admin'])"><span class="glyphicon glyphicon-trash"></span></a></td>
             </tr>
