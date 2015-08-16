@@ -1,10 +1,3 @@
-compile
-run
-compile
-run
-compile
-run
-exit
 compiel
 compile
 run
@@ -496,5 +489,12 @@ exit
 run
 run 9085
 exit
+run 9085
+exit
+run 0985
+run 9085
+exit
+run 9085
+compile
 run 9085
 exit

@@ -14,6 +14,7 @@ import play.mvc.Http.Context;
 import play.mvc.Result;
 import scala.concurrent.duration.Duration;
 import utils.schedules.SmellWeightRunnable;
+import akka.actor.Cancellable;
 
 /**
  * Global Settings for the ART application. Sets up the DI framework
@@ -27,8 +28,7 @@ public class Global extends GlobalSettings {
 
 	private Configuration conf;
 	private long timeout;
-	//@Inject @Named("SmellWeightRunnable") Runnable run;
-
+	private Cancellable smellWeightActor;
 
 	/**
 	 * Overwritten onStart method, loads default session timeout time.
@@ -44,7 +44,7 @@ public class Global extends GlobalSettings {
 		if(smellWeightCalcEnabled) {
 			Long interval = conf.getLong("smellweightrecalc.interval");
 			Runnable run = Play.application().injector().instanceOf(SmellWeightRunnable.class);
-			Akka.system().scheduler().schedule(
+			smellWeightActor = Akka.system().scheduler().schedule(
 					Duration.create(0, TimeUnit.MILLISECONDS),
 					Duration.create(interval, TimeUnit.MINUTES),
 					run,
@@ -52,6 +52,23 @@ public class Global extends GlobalSettings {
 		}
 		super.onStart(arg0);
 	}
+	
+	
+
+	/**
+	 * Overwritten inStop method. Cancels the SmellWeight Task and 
+	 * shuts down the Akka system before quitting the application.
+	 * 
+	 * @see play.GlobalSettings#onStop(play.Application)
+	 */
+	@Override
+	public void onStop(Application arg0) {
+		smellWeightActor.cancel();
+		Akka.system().shutdown();
+		super.onStop(arg0);
+	}
+
+
 
 	/**
 	 * Overwritten ethod onRequest resets the session time (in case of a logged

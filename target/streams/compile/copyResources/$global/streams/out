@@ -1,10 +1,8 @@
 [0m[[0mdebug[0m] [0mCopy resource mappings: [0m
 [0m[[0mdebug[0m] [0m	(/Users/cbi/Documents/git-repos/ART/conf/application.conf,/Users/cbi/Documents/git-repos/ART/target/scala-2.11/classes/application.conf)[0m
 [0m[[0mdebug[0m] [0m	(/Users/cbi/Documents/git-repos/ART/conf/avatar-tiny.jpg,/Users/cbi/Documents/git-repos/ART/target/scala-2.11/classes/avatar-tiny.jpg)[0m
-[0m[[0mdebug[0m] [0m	(/Users/cbi/Documents/git-repos/ART/conf/evolutions,/Users/cbi/Documents/git-repos/ART/target/scala-2.11/classes/evolutions)[0m
 [0m[[0mdebug[0m] [0m	(/Users/cbi/Documents/git-repos/ART/conf/import.sql,/Users/cbi/Documents/git-repos/ART/target/scala-2.11/classes/import.sql)[0m
 [0m[[0mdebug[0m] [0m	(/Users/cbi/Documents/git-repos/ART/conf/logback.xml,/Users/cbi/Documents/git-repos/ART/target/scala-2.11/classes/logback.xml)[0m
 [0m[[0mdebug[0m] [0m	(/Users/cbi/Documents/git-repos/ART/conf/META-INF,/Users/cbi/Documents/git-repos/ART/target/scala-2.11/classes/META-INF)[0m
 [0m[[0mdebug[0m] [0m	(/Users/cbi/Documents/git-repos/ART/conf/routes,/Users/cbi/Documents/git-repos/ART/target/scala-2.11/classes/routes)[0m
-[0m[[0mdebug[0m] [0m	(/Users/cbi/Documents/git-repos/ART/conf/evolutions/default,/Users/cbi/Documents/git-repos/ART/target/scala-2.11/classes/evolutions/default)[0m
 [0m[[0mdebug[0m] [0m	(/Users/cbi/Documents/git-repos/ART/conf/META-INF/persistence.xml,/Users/cbi/Documents/git-repos/ART/target/scala-2.11/classes/META-INF/persistence.xml)[0m
