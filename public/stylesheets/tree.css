@@ -1,7 +1,10 @@
+.tree ul {
+}
+
 .tree li {
     list-style-type:none;
     margin:0;
-    padding:10px 5px 0 5px;
+    padding:5px 5px 0 5px;
     position:relative
 }
 .tree li::before, .tree li::after {
@@ -31,10 +34,10 @@
     display:inline-block;
     padding:3px 8px;
     text-decoration:none;
-    width: 410px;
+    width: 330px;
 }
 .tree li span input {
-    width: 340px;
+    width: 260px;
 }
 .tree li.parent_li>span>i {
     cursor:pointer

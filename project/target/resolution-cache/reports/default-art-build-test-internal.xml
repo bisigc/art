@@ -9,15 +9,15 @@
 		extra-sbtVersion="0.13"
 		conf="test-internal"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-		date="20150815173945"/>
+		date="20150816141010"/>
 	<dependencies>
 		<module organisation="com.typesafe.sbt" name="sbt-mocha">
-			<revision name="1.1.0" status="release" pubdate="20150507145500" resolver="sbt-plugin-releases" artresolver="sbt-plugin-releases" homepage="https://github.com/sbt/sbt-mocha" extra-scalaVersion="2.10" extra-sbtVersion="0.13" downloaded="true" searched="true" default="false" conf="compile, default(compile)" position="110">
+			<revision name="1.1.0" status="release" pubdate="20150507145500" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/sbt/sbt-mocha" extra-scalaVersion="2.10" extra-sbtVersion="0.13" downloaded="false" searched="false" default="false" conf="compile, default(compile)" position="110">
 				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
-				<metadata-artifact status="successful" details="" size="2063" time="1964" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-mocha/ivy-1.1.0.xml" searched="true" original-local-location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-mocha/ivy-1.1.0.xml.original" origin-is-local="false" origin-location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-mocha/scala_2.10/sbt_0.13/1.1.0/ivys/ivy.xml"/>
+				<metadata-artifact status="no" details="" size="2063" time="0" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-mocha/ivy-1.1.0.xml" searched="false" origin-is-local="false" origin-location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-mocha/scala_2.10/sbt_0.13/1.1.0/ivys/ivy.xml"/>
 				<caller organisation="default" name="art-build" conf="test, compile, provided, test-internal, runtime, optional" rev="1.1.0" rev-constraint-default="1.1.0" rev-constraint-dynamic="1.1.0" callerrev="0.1-SNAPSHOT" extra-scalaVersion="2.10" extra-sbtVersion="0.13"/>
 				<artifacts>
-					<artifact name="sbt-mocha" type="jar" ext="jar" status="successful" details="" size="172187" time="2506" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-mocha/jars/sbt-mocha-1.1.0.jar">
+					<artifact name="sbt-mocha" type="jar" ext="jar" status="no" details="" size="172187" time="0" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-mocha/jars/sbt-mocha-1.1.0.jar">
 						<origin-location is-local="false" location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-mocha/scala_2.10/sbt_0.13/1.1.0/jars/sbt-mocha.jar"/>
 					</artifact>
 				</artifacts>
@@ -60,31 +60,31 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.sbt" name="sbt-digest">
-			<revision name="1.1.0" status="release" pubdate="20141029141102" resolver="sbt-plugin-releases" artresolver="sbt-plugin-releases" extra-scalaVersion="2.10" extra-sbtVersion="0.13" downloaded="true" searched="true" default="false" conf="compile, default(compile)" position="109">
-				<metadata-artifact status="successful" details="" size="1570" time="1816" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-digest/ivy-1.1.0.xml" searched="true" original-local-location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-digest/ivy-1.1.0.xml.original" origin-is-local="false" origin-location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-digest/scala_2.10/sbt_0.13/1.1.0/ivys/ivy.xml"/>
+			<revision name="1.1.0" status="release" pubdate="20141029141102" resolver="sbt-chain" artresolver="sbt-chain" extra-scalaVersion="2.10" extra-sbtVersion="0.13" downloaded="false" searched="false" default="false" conf="compile, default(compile)" position="109">
+				<metadata-artifact status="no" details="" size="1570" time="0" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-digest/ivy-1.1.0.xml" searched="false" origin-is-local="false" origin-location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-digest/scala_2.10/sbt_0.13/1.1.0/ivys/ivy.xml"/>
 				<caller organisation="default" name="art-build" conf="test, compile, provided, test-internal, runtime, optional" rev="1.1.0" rev-constraint-default="1.1.0" rev-constraint-dynamic="1.1.0" callerrev="0.1-SNAPSHOT" extra-scalaVersion="2.10" extra-sbtVersion="0.13"/>
 				<artifacts>
-					<artifact name="sbt-digest" type="jar" ext="jar" status="successful" details="" size="79532" time="2435" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-digest/jars/sbt-digest-1.1.0.jar">
+					<artifact name="sbt-digest" type="jar" ext="jar" status="no" details="" size="79532" time="0" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-digest/jars/sbt-digest-1.1.0.jar">
 						<origin-location is-local="false" location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-digest/scala_2.10/sbt_0.13/1.1.0/jars/sbt-digest.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
 		</module>
 		<module organisation="com.typesafe.sbt" name="sbt-rjs">
-			<revision name="1.0.7" status="release" pubdate="20141022105304" resolver="sbt-plugin-releases" artresolver="sbt-plugin-releases" extra-scalaVersion="2.10" extra-sbtVersion="0.13" downloaded="true" searched="true" default="false" conf="compile, default(compile)" position="107">
-				<metadata-artifact status="successful" details="" size="1652" time="2831" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-rjs/ivy-1.0.7.xml" searched="true" original-local-location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-rjs/ivy-1.0.7.xml.original" origin-is-local="false" origin-location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-rjs/scala_2.10/sbt_0.13/1.0.7/ivys/ivy.xml"/>
+			<revision name="1.0.7" status="release" pubdate="20141022105304" resolver="sbt-chain" artresolver="sbt-chain" extra-scalaVersion="2.10" extra-sbtVersion="0.13" downloaded="false" searched="false" default="false" conf="compile, default(compile)" position="107">
+				<metadata-artifact status="no" details="" size="1652" time="0" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-rjs/ivy-1.0.7.xml" searched="false" origin-is-local="false" origin-location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-rjs/scala_2.10/sbt_0.13/1.0.7/ivys/ivy.xml"/>
 				<caller organisation="default" name="art-build" conf="test, compile, provided, test-internal, runtime, optional" rev="1.0.7" rev-constraint-default="1.0.7" rev-constraint-dynamic="1.0.7" callerrev="0.1-SNAPSHOT" extra-scalaVersion="2.10" extra-sbtVersion="0.13"/>
 				<artifacts>
-					<artifact name="sbt-rjs" type="jar" ext="jar" status="successful" details="" size="72155" time="2505" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-rjs/jars/sbt-rjs-1.0.7.jar">
+					<artifact name="sbt-rjs" type="jar" ext="jar" status="no" details="" size="72155" time="0" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-rjs/jars/sbt-rjs-1.0.7.jar">
 						<origin-location is-local="false" location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-rjs/scala_2.10/sbt_0.13/1.0.7/jars/sbt-rjs.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
 		</module>
 		<module organisation="org.webjars" name="rjs">
-			<revision name="2.1.15" status="release" pubdate="20140917141811" resolver="activator-launcher-local" artresolver="activator-launcher-local" homepage="http://webjars.org" downloaded="false" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="108">
+			<revision name="2.1.15" status="release" pubdate="20140917141811" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://webjars.org" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="108">
 				<license name="The &quot;New&quot; BSD License or MIT License" url="https://github.com/jrburke/r.js/blob/master/LICENSE"/>
-				<metadata-artifact status="no" details="" size="3380" time="0" location="/Users/cbi/.ivy2/cache/org.webjars/rjs/ivy-2.1.15.xml" searched="true" original-local-location="/usr/local/activator-dist-1.3.5/repository/org.webjars/rjs/2.1.15/ivys/ivy.xml" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/org.webjars/rjs/2.1.15/ivys/ivy.xml"/>
+				<metadata-artifact status="no" details="" size="3369" time="0" location="/Users/cbi/.ivy2/cache/org.webjars/rjs/ivy-2.1.15.xml" searched="false" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/org.webjars/rjs/2.1.15/ivys/ivy.xml"/>
 				<caller organisation="com.typesafe.sbt" name="sbt-rjs" conf="compile" rev="2.1.15" rev-constraint-default="2.1.15" rev-constraint-dynamic="2.1.15" callerrev="1.0.7"/>
 				<artifacts>
 					<artifact name="rjs" type="jar" ext="jar" status="no" details="" size="221456" time="0" location="/usr/local/activator-dist-1.3.5/repository/org.webjars/rjs/2.1.15/jars/rjs.jar">
@@ -94,20 +94,20 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.sbt" name="sbt-jshint">
-			<revision name="1.0.3" status="release" pubdate="20150127110254" resolver="sbt-plugin-releases" artresolver="sbt-plugin-releases" extra-scalaVersion="2.10" extra-sbtVersion="0.13" downloaded="true" searched="true" default="false" conf="compile, default(compile)" position="102">
-				<metadata-artifact status="successful" details="" size="1782" time="1890" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-jshint/ivy-1.0.3.xml" searched="true" original-local-location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-jshint/ivy-1.0.3.xml.original" origin-is-local="false" origin-location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-jshint/scala_2.10/sbt_0.13/1.0.3/ivys/ivy.xml"/>
+			<revision name="1.0.3" status="release" pubdate="20150127110254" resolver="sbt-chain" artresolver="sbt-chain" extra-scalaVersion="2.10" extra-sbtVersion="0.13" downloaded="false" searched="false" default="false" conf="compile, default(compile)" position="102">
+				<metadata-artifact status="no" details="" size="1782" time="0" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-jshint/ivy-1.0.3.xml" searched="false" origin-is-local="false" origin-location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-jshint/scala_2.10/sbt_0.13/1.0.3/ivys/ivy.xml"/>
 				<caller organisation="default" name="art-build" conf="test, compile, provided, test-internal, runtime, optional" rev="1.0.3" rev-constraint-default="1.0.3" rev-constraint-dynamic="1.0.3" callerrev="0.1-SNAPSHOT" extra-scalaVersion="2.10" extra-sbtVersion="0.13"/>
 				<artifacts>
-					<artifact name="sbt-jshint" type="jar" ext="jar" status="successful" details="" size="18904" time="2392" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-jshint/jars/sbt-jshint-1.0.3.jar">
+					<artifact name="sbt-jshint" type="jar" ext="jar" status="no" details="" size="18904" time="0" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-jshint/jars/sbt-jshint-1.0.3.jar">
 						<origin-location is-local="false" location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-jshint/scala_2.10/sbt_0.13/1.0.3/jars/sbt-jshint.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
 		</module>
 		<module organisation="org.webjars" name="strip-json-comments">
-			<revision name="1.0.2-1" status="release" pubdate="20150104194729" resolver="activator-launcher-local" artresolver="activator-launcher-local" homepage="http://webjars.org" downloaded="false" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="106">
+			<revision name="1.0.2-1" status="release" pubdate="20150104194729" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://webjars.org" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="106">
 				<license name="MIT" url="https://github.com/sindresorhus/strip-json-comments/blob/master/license"/>
-				<metadata-artifact status="no" details="" size="3410" time="0" location="/Users/cbi/.ivy2/cache/org.webjars/strip-json-comments/ivy-1.0.2-1.xml" searched="true" original-local-location="/usr/local/activator-dist-1.3.5/repository/org.webjars/strip-json-comments/1.0.2-1/ivys/ivy.xml" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/org.webjars/strip-json-comments/1.0.2-1/ivys/ivy.xml"/>
+				<metadata-artifact status="no" details="" size="3399" time="0" location="/Users/cbi/.ivy2/cache/org.webjars/strip-json-comments/ivy-1.0.2-1.xml" searched="false" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/org.webjars/strip-json-comments/1.0.2-1/ivys/ivy.xml"/>
 				<caller organisation="com.typesafe.sbt" name="sbt-jshint" conf="compile" rev="1.0.2-1" rev-constraint-default="1.0.2-1" rev-constraint-dynamic="1.0.2-1" callerrev="1.0.3"/>
 				<artifacts>
 					<artifact name="strip-json-comments" type="jar" ext="jar" status="no" details="" size="4271" time="0" location="/usr/local/activator-dist-1.3.5/repository/org.webjars/strip-json-comments/1.0.2-1/jars/strip-json-comments.jar">
@@ -117,8 +117,8 @@
 			</revision>
 		</module>
 		<module organisation="org.webjars" name="jshint-node">
-			<revision name="2.4.3" status="release" pubdate="20140207004611" resolver="activator-launcher-local" artresolver="activator-launcher-local" homepage="http://webjars.org" downloaded="false" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="103">
-				<metadata-artifact status="no" details="" size="3583" time="0" location="/Users/cbi/.ivy2/cache/org.webjars/jshint-node/ivy-2.4.3.xml" searched="true" original-local-location="/usr/local/activator-dist-1.3.5/repository/org.webjars/jshint-node/2.4.3/ivys/ivy.xml" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/org.webjars/jshint-node/2.4.3/ivys/ivy.xml"/>
+			<revision name="2.4.3" status="release" pubdate="20140207004611" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://webjars.org" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="103">
+				<metadata-artifact status="no" details="" size="3573" time="0" location="/Users/cbi/.ivy2/cache/org.webjars/jshint-node/ivy-2.4.3.xml" searched="false" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/org.webjars/jshint-node/2.4.3/ivys/ivy.xml"/>
 				<caller organisation="com.typesafe.sbt" name="sbt-jshint" conf="compile" rev="2.4.3" rev-constraint-default="2.4.3" rev-constraint-dynamic="2.4.3" callerrev="1.0.3"/>
 				<artifacts>
 					<artifact name="jshint-node" type="jar" ext="jar" status="no" details="" size="168934" time="0" location="/usr/local/activator-dist-1.3.5/repository/org.webjars/jshint-node/2.4.3/jars/jshint-node.jar">
@@ -152,20 +152,20 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.sbt" name="sbt-less">
-			<revision name="1.0.6" status="release" pubdate="20150105160308" resolver="sbt-plugin-releases" artresolver="sbt-plugin-releases" extra-scalaVersion="2.10" extra-sbtVersion="0.13" downloaded="true" searched="true" default="false" conf="compile, default(compile)" position="97">
-				<metadata-artifact status="successful" details="" size="1951" time="1852" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-less/ivy-1.0.6.xml" searched="true" original-local-location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-less/ivy-1.0.6.xml.original" origin-is-local="false" origin-location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-less/scala_2.10/sbt_0.13/1.0.6/ivys/ivy.xml"/>
+			<revision name="1.0.6" status="release" pubdate="20150105160308" resolver="sbt-chain" artresolver="sbt-chain" extra-scalaVersion="2.10" extra-sbtVersion="0.13" downloaded="false" searched="false" default="false" conf="compile, default(compile)" position="97">
+				<metadata-artifact status="no" details="" size="1951" time="0" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-less/ivy-1.0.6.xml" searched="false" origin-is-local="false" origin-location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-less/scala_2.10/sbt_0.13/1.0.6/ivys/ivy.xml"/>
 				<caller organisation="default" name="art-build" conf="test, compile, provided, test-internal, runtime, optional" rev="1.0.6" rev-constraint-default="1.0.6" rev-constraint-dynamic="1.0.6" callerrev="0.1-SNAPSHOT" extra-scalaVersion="2.10" extra-sbtVersion="0.13"/>
 				<artifacts>
-					<artifact name="sbt-less" type="jar" ext="jar" status="successful" details="" size="38918" time="2392" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-less/jars/sbt-less-1.0.6.jar">
+					<artifact name="sbt-less" type="jar" ext="jar" status="no" details="" size="38918" time="0" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-less/jars/sbt-less-1.0.6.jar">
 						<origin-location is-local="false" location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-less/scala_2.10/sbt_0.13/1.0.6/jars/sbt-less.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
 		</module>
 		<module organisation="org.webjars" name="clean-css">
-			<revision name="2.2.7" status="release" pubdate="20150225085558" resolver="activator-launcher-local" artresolver="activator-launcher-local" homepage="http://webjars.org" downloaded="false" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="101">
+			<revision name="2.2.7" status="release" pubdate="20150225085558" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://webjars.org" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="101">
 				<license name="MIT" url="https://raw.githubusercontent.com/GoalSmashers/clean-css/master/LICENSE"/>
-				<metadata-artifact status="no" details="" size="3376" time="0" location="/Users/cbi/.ivy2/cache/org.webjars/clean-css/ivy-2.2.7.xml" searched="true" original-local-location="/usr/local/activator-dist-1.3.5/repository/org.webjars/clean-css/2.2.7/ivys/ivy.xml" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/org.webjars/clean-css/2.2.7/ivys/ivy.xml"/>
+				<metadata-artifact status="no" details="" size="3365" time="0" location="/Users/cbi/.ivy2/cache/org.webjars/clean-css/ivy-2.2.7.xml" searched="false" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/org.webjars/clean-css/2.2.7/ivys/ivy.xml"/>
 				<caller organisation="com.typesafe.sbt" name="sbt-less" conf="compile" rev="2.2.7" rev-constraint-default="2.2.7" rev-constraint-dynamic="2.2.7" callerrev="1.0.6"/>
 				<artifacts>
 					<artifact name="clean-css" type="jar" ext="jar" status="no" details="" size="45610" time="0" location="/usr/local/activator-dist-1.3.5/repository/org.webjars/clean-css/2.2.7/jars/clean-css.jar">
@@ -199,8 +199,8 @@
 			</revision>
 		</module>
 		<module organisation="org.webjars" name="less-node">
-			<revision name="1.7.5" status="release" pubdate="20150225085547" resolver="activator-launcher-local" artresolver="activator-launcher-local" homepage="" downloaded="false" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="98">
-				<metadata-artifact status="no" details="" size="3721" time="0" location="/Users/cbi/.ivy2/cache/org.webjars/less-node/ivy-1.7.5.xml" searched="true" original-local-location="/usr/local/activator-dist-1.3.5/repository/org.webjars/less-node/1.7.5/ivys/ivy.xml" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/org.webjars/less-node/1.7.5/ivys/ivy.xml"/>
+			<revision name="1.7.5" status="release" pubdate="20150225085547" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="98">
+				<metadata-artifact status="no" details="" size="3711" time="0" location="/Users/cbi/.ivy2/cache/org.webjars/less-node/ivy-1.7.5.xml" searched="false" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/org.webjars/less-node/1.7.5/ivys/ivy.xml"/>
 				<caller organisation="com.typesafe.sbt" name="sbt-less" conf="compile" rev="1.7.5" rev-constraint-default="1.7.5" rev-constraint-dynamic="1.7.5" callerrev="1.0.6"/>
 				<artifacts>
 					<artifact name="less-node" type="jar" ext="jar" status="no" details="" size="109556" time="0" location="/usr/local/activator-dist-1.3.5/repository/org.webjars/less-node/1.7.5/jars/less-node.jar">
@@ -281,7 +281,7 @@
 				<metadata-artifact status="no" details="" size="1438" time="0" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbteclipse/sbteclipse-plugin/ivy-2.3.0.xml" searched="false" origin-is-local="false" origin-location="http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbteclipse/sbteclipse-plugin/scala_2.10/sbt_0.13/2.3.0/ivys/ivy.xml"/>
 				<caller organisation="default" name="art-build" conf="test, compile, provided, test-internal, runtime, optional" rev="2.3.0" rev-constraint-default="2.3.0" rev-constraint-dynamic="2.3.0" callerrev="0.1-SNAPSHOT" extra-scalaVersion="2.10" extra-sbtVersion="0.13"/>
 				<artifacts>
-					<artifact name="sbteclipse-plugin" type="jar" ext="jar" status="successful" details="" size="8222" time="2323" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbteclipse/sbteclipse-plugin/jars/sbteclipse-plugin-2.3.0.jar">
+					<artifact name="sbteclipse-plugin" type="jar" ext="jar" status="no" details="" size="8222" time="0" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbteclipse/sbteclipse-plugin/jars/sbteclipse-plugin-2.3.0.jar">
 						<origin-location is-local="false" location="https://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbteclipse/sbteclipse-plugin/scala_2.10/sbt_0.13/2.3.0/jars/sbteclipse-plugin.jar"/>
 					</artifact>
 				</artifacts>
@@ -292,7 +292,7 @@
 				<metadata-artifact status="no" details="" size="1482" time="0" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbteclipse/sbteclipse-core/ivy-2.3.0.xml" searched="false" origin-is-local="false" origin-location="http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbteclipse/sbteclipse-core/scala_2.10/sbt_0.13/2.3.0/ivys/ivy.xml"/>
 				<caller organisation="com.typesafe.sbteclipse" name="sbteclipse-plugin" conf="compile" rev="2.3.0" rev-constraint-default="2.3.0" rev-constraint-dynamic="2.3.0" callerrev="2.3.0" extra-scalaVersion="2.10" extra-sbtVersion="0.13"/>
 				<artifacts>
-					<artifact name="sbteclipse-core" type="jar" ext="jar" status="successful" details="" size="262730" time="4853" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbteclipse/sbteclipse-core/jars/sbteclipse-core-2.3.0.jar">
+					<artifact name="sbteclipse-core" type="jar" ext="jar" status="no" details="" size="262730" time="0" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbteclipse/sbteclipse-core/jars/sbteclipse-core-2.3.0.jar">
 						<origin-location is-local="false" location="https://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbteclipse/sbteclipse-core/scala_2.10/sbt_0.13/2.3.0/jars/sbteclipse-core.jar"/>
 					</artifact>
 				</artifacts>
@@ -335,13 +335,13 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.play" name="sbt-plugin">
-			<revision name="2.4.2" status="release" pubdate="20150702223839" resolver="sbt-plugin-releases" artresolver="sbt-plugin-releases" homepage="https://playframework.com" extra-scalaVersion="2.10" extra-sbtVersion="0.13" downloaded="true" searched="true" default="false" conf="compile, default(compile)" position="3">
+			<revision name="2.4.2" status="release" pubdate="20150702223839" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://playframework.com" extra-scalaVersion="2.10" extra-sbtVersion="0.13" downloaded="false" searched="false" default="false" conf="compile, default(compile)" position="3">
 				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
-				<metadata-artifact status="successful" details="" size="3522" time="1968" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.play/sbt-plugin/ivy-2.4.2.xml" searched="true" original-local-location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.play/sbt-plugin/ivy-2.4.2.xml.original" origin-is-local="false" origin-location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.play/sbt-plugin/scala_2.10/sbt_0.13/2.4.2/ivys/ivy.xml"/>
+				<metadata-artifact status="no" details="" size="3522" time="0" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.play/sbt-plugin/ivy-2.4.2.xml" searched="false" origin-is-local="false" origin-location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.play/sbt-plugin/scala_2.10/sbt_0.13/2.4.2/ivys/ivy.xml"/>
 				<caller organisation="com.typesafe.sbt" name="sbt-echo-play" conf="compile" rev="2.3.3" rev-constraint-default="2.3.3" rev-constraint-dynamic="2.3.3" callerrev="0.1.5" extra-scalaVersion="2.10" extra-sbtVersion="0.13"/>
 				<caller organisation="default" name="art-build" conf="test, compile, provided, test-internal, runtime, optional" rev="2.4.2" rev-constraint-default="2.4.2" rev-constraint-dynamic="2.4.2" callerrev="0.1-SNAPSHOT" extra-scalaVersion="2.10" extra-sbtVersion="0.13"/>
 				<artifacts>
-					<artifact name="sbt-plugin" type="jar" ext="jar" status="successful" details="" size="378961" time="7051" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.play/sbt-plugin/jars/sbt-plugin-2.4.2.jar">
+					<artifact name="sbt-plugin" type="jar" ext="jar" status="no" details="" size="378961" time="0" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.play/sbt-plugin/jars/sbt-plugin-2.4.2.jar">
 						<origin-location is-local="false" location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.play/sbt-plugin/scala_2.10/sbt_0.13/2.4.2/jars/sbt-plugin.jar"/>
 					</artifact>
 				</artifacts>
@@ -354,15 +354,15 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.sbt" name="sbt-js-engine">
-			<revision name="1.1.3" status="release" pubdate="20150622140624" resolver="sbt-plugin-releases" artresolver="sbt-plugin-releases" homepage="https://github.com/sbt/sbt-js-engine" extra-scalaVersion="2.10" extra-sbtVersion="0.13" downloaded="true" searched="true" default="false" conf="compile, default(compile)" position="61">
+			<revision name="1.1.3" status="release" pubdate="20150622140624" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/sbt/sbt-js-engine" extra-scalaVersion="2.10" extra-sbtVersion="0.13" downloaded="false" searched="false" default="false" conf="compile, default(compile)" position="61">
 				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
-				<metadata-artifact status="successful" details="" size="2358" time="2014" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-js-engine/ivy-1.1.3.xml" searched="true" original-local-location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-js-engine/ivy-1.1.3.xml.original" origin-is-local="false" origin-location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-js-engine/scala_2.10/sbt_0.13/1.1.3/ivys/ivy.xml"/>
+				<metadata-artifact status="no" details="" size="2358" time="0" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-js-engine/ivy-1.1.3.xml" searched="false" origin-is-local="false" origin-location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-js-engine/scala_2.10/sbt_0.13/1.1.3/ivys/ivy.xml"/>
 				<caller organisation="com.typesafe.sbt" name="sbt-less" conf="compile" rev="1.0.1" rev-constraint-default="1.0.1" rev-constraint-dynamic="1.0.1" callerrev="1.0.6" extra-scalaVersion="2.10" extra-sbtVersion="0.13"/>
 				<caller organisation="com.typesafe.sbt" name="sbt-coffeescript" conf="compile" rev="1.0.0" rev-constraint-default="1.0.0" rev-constraint-dynamic="1.0.0" callerrev="1.0.0" extra-scalaVersion="2.10" extra-sbtVersion="0.13"/>
 				<caller organisation="com.typesafe.sbt" name="sbt-mocha" conf="compile" rev="1.1.1" rev-constraint-default="1.1.1" rev-constraint-dynamic="1.1.1" callerrev="1.1.0" extra-scalaVersion="2.10" extra-sbtVersion="0.13"/>
 				<caller organisation="com.typesafe.play" name="sbt-plugin" conf="compile" rev="1.1.3" rev-constraint-default="1.1.3" rev-constraint-dynamic="1.1.3" callerrev="2.4.2" extra-scalaVersion="2.10" extra-sbtVersion="0.13"/>
 				<artifacts>
-					<artifact name="sbt-js-engine" type="jar" ext="jar" status="successful" details="" size="144096" time="2381" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-js-engine/jars/sbt-js-engine-1.1.3.jar">
+					<artifact name="sbt-js-engine" type="jar" ext="jar" status="no" details="" size="144096" time="0" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-js-engine/jars/sbt-js-engine-1.1.3.jar">
 						<origin-location is-local="false" location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-js-engine/scala_2.10/sbt_0.13/1.1.3/jars/sbt-js-engine.jar"/>
 					</artifact>
 				</artifacts>
@@ -389,45 +389,45 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe" name="npm_2.10">
-			<revision name="1.1.1" status="release" pubdate="20150622041404" resolver="public" artresolver="public" homepage="https://github.com/typesafehub/npm" downloaded="true" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="87">
+			<revision name="1.1.1" status="release" pubdate="20150622041404" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/typesafehub/npm" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="87">
 				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
-				<metadata-artifact status="successful" details="" size="2551" time="90" location="/Users/cbi/.ivy2/cache/com.typesafe/npm_2.10/ivy-1.1.1.xml" searched="true" original-local-location="/Users/cbi/.ivy2/cache/com.typesafe/npm_2.10/ivy-1.1.1.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/npm_2.10/1.1.1/npm_2.10-1.1.1.pom"/>
+				<metadata-artifact status="no" details="" size="3304" time="0" location="/Users/cbi/.ivy2/cache/com.typesafe/npm_2.10/ivy-1.1.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/npm_2.10/1.1.1/npm_2.10-1.1.1.pom"/>
 				<caller organisation="com.typesafe.sbt" name="sbt-js-engine" conf="compile" rev="1.1.1" rev-constraint-default="1.1.1" rev-constraint-dynamic="1.1.1" callerrev="1.1.3"/>
 				<artifacts>
-					<artifact name="npm_2.10" type="jar" ext="jar" status="successful" details="" size="5563" time="83" location="/Users/cbi/.ivy2/cache/com.typesafe/npm_2.10/jars/npm_2.10-1.1.1.jar">
+					<artifact name="npm_2.10" type="jar" ext="jar" status="no" details="" size="5563" time="0" location="/Users/cbi/.ivy2/cache/com.typesafe/npm_2.10/jars/npm_2.10-1.1.1.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/npm_2.10/1.1.1/npm_2.10-1.1.1.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
 		</module>
 		<module organisation="org.webjars" name="npm">
-			<revision name="2.11.2" status="release" pubdate="20150618161707" resolver="public" artresolver="public" homepage="http://webjars.org" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="88">
+			<revision name="2.11.2" status="release" pubdate="20150618161707" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://webjars.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="88">
 				<license name="Assorted" url="https://github.com/npm/npm/blob/master/LICENCE"/>
-				<metadata-artifact status="successful" details="" size="4904" time="97" location="/Users/cbi/.ivy2/cache/org.webjars/npm/ivy-2.11.2.xml" searched="true" original-local-location="/Users/cbi/.ivy2/cache/org.webjars/npm/ivy-2.11.2.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/webjars/npm/2.11.2/npm-2.11.2.pom"/>
+				<metadata-artifact status="no" details="" size="3310" time="0" location="/Users/cbi/.ivy2/cache/org.webjars/npm/ivy-2.11.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/webjars/npm/2.11.2/npm-2.11.2.pom"/>
 				<caller organisation="com.typesafe" name="npm_2.10" conf="default, compile, runtime, master" rev="2.11.2" rev-constraint-default="2.11.2" rev-constraint-dynamic="2.11.2" callerrev="1.1.1"/>
 				<artifacts>
-					<artifact name="npm" type="jar" ext="jar" status="successful" details="" size="2997822" time="932" location="/Users/cbi/.ivy2/cache/org.webjars/npm/jars/npm-2.11.2.jar">
+					<artifact name="npm" type="jar" ext="jar" status="no" details="" size="2997822" time="0" location="/Users/cbi/.ivy2/cache/org.webjars/npm/jars/npm-2.11.2.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/webjars/npm/2.11.2/npm-2.11.2.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
 		</module>
 		<module organisation="com.typesafe" name="jse_2.10">
-			<revision name="1.1.2" status="release" pubdate="20150615045510" resolver="public" artresolver="public" homepage="https://github.com/typesafehub/js-engine" downloaded="true" searched="true" default="false" conf="default, compile, runtime(*), master(compile), runtime, default(compile), compile(*), master" position="62">
+			<revision name="1.1.2" status="release" pubdate="20150615045510" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/typesafehub/js-engine" downloaded="false" searched="false" default="false" conf="default, compile, runtime(*), master(compile), runtime, default(compile), compile(*), master" position="62">
 				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
-				<metadata-artifact status="successful" details="" size="3175" time="97" location="/Users/cbi/.ivy2/cache/com.typesafe/jse_2.10/ivy-1.1.2.xml" searched="true" original-local-location="/Users/cbi/.ivy2/cache/com.typesafe/jse_2.10/ivy-1.1.2.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/jse_2.10/1.1.2/jse_2.10-1.1.2.pom"/>
+				<metadata-artifact status="no" details="" size="3762" time="0" location="/Users/cbi/.ivy2/cache/com.typesafe/jse_2.10/ivy-1.1.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/jse_2.10/1.1.2/jse_2.10-1.1.2.pom"/>
 				<caller organisation="com.typesafe.sbt" name="sbt-js-engine" conf="compile" rev="1.1.2" rev-constraint-default="1.1.2" rev-constraint-dynamic="1.1.2" callerrev="1.1.3"/>
 				<caller organisation="com.typesafe" name="npm_2.10" conf="default, compile, runtime, master" rev="1.1.2" rev-constraint-default="1.1.2" rev-constraint-dynamic="1.1.2" callerrev="1.1.1"/>
 				<artifacts>
-					<artifact name="jse_2.10" type="jar" ext="jar" status="successful" details="" size="151992" time="157" location="/Users/cbi/.ivy2/cache/com.typesafe/jse_2.10/jars/jse_2.10-1.1.2.jar">
+					<artifact name="jse_2.10" type="jar" ext="jar" status="no" details="" size="151992" time="0" location="/Users/cbi/.ivy2/cache/com.typesafe/jse_2.10/jars/jse_2.10-1.1.2.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/jse_2.10/1.1.2/jse_2.10-1.1.2.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
 		</module>
 		<module organisation="org.slf4j" name="slf4j-simple">
-			<revision name="1.7.12" status="release" pubdate="20150601145744" resolver="activator-launcher-local" artresolver="activator-launcher-local" homepage="http://www.slf4j.org" downloaded="false" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="85">
-				<metadata-artifact status="no" details="" size="4871" time="0" location="/Users/cbi/.ivy2/cache/org.slf4j/slf4j-simple/ivy-1.7.12.xml" searched="true" original-local-location="/usr/local/activator-dist-1.3.5/repository/org.slf4j/slf4j-simple/1.7.12/ivys/ivy.xml" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/org.slf4j/slf4j-simple/1.7.12/ivys/ivy.xml"/>
+			<revision name="1.7.12" status="release" pubdate="20150601145744" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.slf4j.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="85">
+				<metadata-artifact status="no" details="" size="4861" time="0" location="/Users/cbi/.ivy2/cache/org.slf4j/slf4j-simple/ivy-1.7.12.xml" searched="false" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/org.slf4j/slf4j-simple/1.7.12/ivys/ivy.xml"/>
 				<caller organisation="com.typesafe" name="jse_2.10" conf="default, compile, runtime, master" rev="1.7.12" rev-constraint-default="1.7.12" rev-constraint-dynamic="1.7.12" callerrev="1.1.2"/>
 				<artifacts>
 					<artifact name="slf4j-simple" type="jar" ext="jar" status="no" details="" size="10712" time="0" location="/usr/local/activator-dist-1.3.5/repository/org.slf4j/slf4j-simple/1.7.12/jars/slf4j-simple.jar">
@@ -437,8 +437,8 @@
 			</revision>
 		</module>
 		<module organisation="org.slf4j" name="slf4j-api">
-			<revision name="1.7.12" status="release" pubdate="20150326165005" resolver="activator-launcher-local" artresolver="activator-launcher-local" homepage="http://www.slf4j.org" downloaded="false" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="86">
-				<metadata-artifact status="no" details="" size="5013" time="0" location="/Users/cbi/.ivy2/cache/org.slf4j/slf4j-api/ivy-1.7.12.xml" searched="true" original-local-location="/usr/local/activator-dist-1.3.5/repository/org.slf4j/slf4j-api/1.7.12/ivys/ivy.xml" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/org.slf4j/slf4j-api/1.7.12/ivys/ivy.xml"/>
+			<revision name="1.7.12" status="release" pubdate="20150326165005" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.slf4j.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="86">
+				<metadata-artifact status="no" details="" size="5003" time="0" location="/Users/cbi/.ivy2/cache/org.slf4j/slf4j-api/ivy-1.7.12.xml" searched="false" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/org.slf4j/slf4j-api/1.7.12/ivys/ivy.xml"/>
 				<caller organisation="org.slf4j" name="slf4j-simple" conf="compile, runtime" rev="1.7.12" rev-constraint-default="1.7.12" rev-constraint-dynamic="1.7.12" callerrev="1.7.12"/>
 				<caller organisation="io.apigee.trireme" name="trireme-core" conf="compile, runtime" rev="1.7.2" rev-constraint-default="1.7.2" rev-constraint-dynamic="1.7.2" callerrev="0.8.5"/>
 				<caller organisation="org.webjars" name="webjars-locator-core" conf="compile, runtime" rev="1.7.7" rev-constraint-default="1.7.7" rev-constraint-dynamic="1.7.7" callerrev="0.26"/>
@@ -464,9 +464,9 @@
 			</revision>
 		</module>
 		<module organisation="io.spray" name="spray-json_2.10">
-			<revision name="1.3.2" status="release" pubdate="20150601145741" resolver="activator-launcher-local" artresolver="activator-launcher-local" homepage="https://github.com/spray/spray-json" downloaded="false" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="84">
+			<revision name="1.3.2" status="release" pubdate="20150601145741" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/spray/spray-json" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="84">
 				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
-				<metadata-artifact status="no" details="" size="2957" time="0" location="/Users/cbi/.ivy2/cache/io.spray/spray-json_2.10/ivy-1.3.2.xml" searched="true" original-local-location="/usr/local/activator-dist-1.3.5/repository/io.spray/spray-json_2.10/1.3.2/ivys/ivy.xml" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/io.spray/spray-json_2.10/1.3.2/ivys/ivy.xml"/>
+				<metadata-artifact status="no" details="" size="2946" time="0" location="/Users/cbi/.ivy2/cache/io.spray/spray-json_2.10/ivy-1.3.2.xml" searched="false" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/io.spray/spray-json_2.10/1.3.2/ivys/ivy.xml"/>
 				<caller organisation="com.typesafe" name="jse_2.10" conf="default, compile, runtime, master" rev="1.3.2" rev-constraint-default="1.3.2" rev-constraint-dynamic="1.3.2" callerrev="1.1.2"/>
 				<artifacts>
 					<artifact name="spray-json_2.10" type="bundle" ext="jar" status="no" details="" size="289719" time="0" location="/usr/local/activator-dist-1.3.5/repository/io.spray/spray-json_2.10/1.3.2/bundles/spray-json_2.10.jar">
@@ -476,8 +476,8 @@
 			</revision>
 		</module>
 		<module organisation="io.apigee.trireme" name="trireme-node10src">
-			<revision name="0.8.5" status="release" pubdate="20150601145732" resolver="activator-launcher-local" artresolver="activator-launcher-local" homepage="" downloaded="false" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="83">
-				<metadata-artifact status="no" details="" size="6963" time="0" location="/Users/cbi/.ivy2/cache/io.apigee.trireme/trireme-node10src/ivy-0.8.5.xml" searched="true" original-local-location="/usr/local/activator-dist-1.3.5/repository/io.apigee.trireme/trireme-node10src/0.8.5/ivys/ivy.xml" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/io.apigee.trireme/trireme-node10src/0.8.5/ivys/ivy.xml"/>
+			<revision name="0.8.5" status="release" pubdate="20150601145732" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="83">
+				<metadata-artifact status="no" details="" size="6952" time="0" location="/Users/cbi/.ivy2/cache/io.apigee.trireme/trireme-node10src/ivy-0.8.5.xml" searched="false" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/io.apigee.trireme/trireme-node10src/0.8.5/ivys/ivy.xml"/>
 				<caller organisation="com.typesafe" name="jse_2.10" conf="default, compile, runtime, master" rev="0.8.5" rev-constraint-default="0.8.5" rev-constraint-dynamic="0.8.5" callerrev="1.1.2"/>
 				<artifacts>
 					<artifact name="trireme-node10src" type="jar" ext="jar" status="no" details="" size="716828" time="0" location="/usr/local/activator-dist-1.3.5/repository/io.apigee.trireme/trireme-node10src/0.8.5/jars/trireme-node10src.jar">
@@ -487,8 +487,8 @@
 			</revision>
 		</module>
 		<module organisation="io.apigee.trireme" name="trireme-core">
-			<revision name="0.8.5" status="release" pubdate="20150601145719" resolver="activator-launcher-local" artresolver="activator-launcher-local" homepage="" downloaded="false" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="81">
-				<metadata-artifact status="no" details="" size="6205" time="0" location="/Users/cbi/.ivy2/cache/io.apigee.trireme/trireme-core/ivy-0.8.5.xml" searched="true" original-local-location="/usr/local/activator-dist-1.3.5/repository/io.apigee.trireme/trireme-core/0.8.5/ivys/ivy.xml" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/io.apigee.trireme/trireme-core/0.8.5/ivys/ivy.xml"/>
+			<revision name="0.8.5" status="release" pubdate="20150601145719" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="81">
+				<metadata-artifact status="no" details="" size="6194" time="0" location="/Users/cbi/.ivy2/cache/io.apigee.trireme/trireme-core/ivy-0.8.5.xml" searched="false" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/io.apigee.trireme/trireme-core/0.8.5/ivys/ivy.xml"/>
 				<caller organisation="com.typesafe" name="jse_2.10" conf="default, compile, runtime, master" rev="0.8.5" rev-constraint-default="0.8.5" rev-constraint-dynamic="0.8.5" callerrev="1.1.2"/>
 				<caller organisation="io.apigee.trireme" name="trireme-node10src" conf="compile, runtime" rev="0.8.5" rev-constraint-default="0.8.5" rev-constraint-dynamic="0.8.5" callerrev="0.8.5"/>
 				<artifacts>
@@ -499,9 +499,9 @@
 			</revision>
 		</module>
 		<module organisation="io.apigee" name="rhino">
-			<revision name="1.7R5pre4" status="release" pubdate="20150601145728" resolver="activator-launcher-local" artresolver="activator-launcher-local" homepage="" downloaded="false" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="82">
+			<revision name="1.7R5pre4" status="release" pubdate="20150601145728" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="82">
 				<license name="Mozilla Public License 2.0" url="http://www.mozilla.org/MPL/2.0/"/>
-				<metadata-artifact status="no" details="" size="2718" time="0" location="/Users/cbi/.ivy2/cache/io.apigee/rhino/ivy-1.7R5pre4.xml" searched="true" original-local-location="/usr/local/activator-dist-1.3.5/repository/io.apigee/rhino/1.7R5pre4/ivys/ivy.xml" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/io.apigee/rhino/1.7R5pre4/ivys/ivy.xml"/>
+				<metadata-artifact status="no" details="" size="2707" time="0" location="/Users/cbi/.ivy2/cache/io.apigee/rhino/ivy-1.7R5pre4.xml" searched="false" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/io.apigee/rhino/1.7R5pre4/ivys/ivy.xml"/>
 				<caller organisation="io.apigee.trireme" name="trireme-node10src" conf="compile, runtime" rev="1.7R5pre4" rev-constraint-default="1.7R5pre4" rev-constraint-dynamic="1.7R5pre4" callerrev="0.8.5"/>
 				<caller organisation="io.apigee.trireme" name="trireme-core" conf="compile, runtime" rev="1.7R5pre4" rev-constraint-default="1.7R5pre4" rev-constraint-dynamic="1.7R5pre4" callerrev="0.8.5"/>
 				<artifacts>
@@ -512,24 +512,24 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.akka" name="akka-contrib_2.10">
-			<revision name="2.3.11" status="release" pubdate="20150508162516" resolver="public" artresolver="public" homepage="http://akka.io/" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="64">
+			<revision name="2.3.11" status="release" pubdate="20150508162516" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://akka.io/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="64">
 				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
-				<metadata-artifact status="successful" details="" size="3475" time="90" location="/Users/cbi/.ivy2/cache/com.typesafe.akka/akka-contrib_2.10/ivy-2.3.11.xml" searched="true" original-local-location="/Users/cbi/.ivy2/cache/com.typesafe.akka/akka-contrib_2.10/ivy-2.3.11.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-contrib_2.10/2.3.11/akka-contrib_2.10-2.3.11.pom"/>
+				<metadata-artifact status="no" details="" size="3900" time="0" location="/Users/cbi/.ivy2/cache/com.typesafe.akka/akka-contrib_2.10/ivy-2.3.11.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-contrib_2.10/2.3.11/akka-contrib_2.10-2.3.11.pom"/>
 				<caller organisation="com.typesafe" name="jse_2.10" conf="default, compile, runtime, master" rev="2.3.11" rev-constraint-default="2.3.11" rev-constraint-dynamic="2.3.11" callerrev="1.1.2"/>
 				<artifacts>
-					<artifact name="akka-contrib_2.10" type="jar" ext="jar" status="successful" details="" size="842753" time="302" location="/Users/cbi/.ivy2/cache/com.typesafe.akka/akka-contrib_2.10/jars/akka-contrib_2.10-2.3.11.jar">
+					<artifact name="akka-contrib_2.10" type="jar" ext="jar" status="no" details="" size="842753" time="0" location="/Users/cbi/.ivy2/cache/com.typesafe.akka/akka-contrib_2.10/jars/akka-contrib_2.10-2.3.11.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-contrib_2.10/2.3.11/akka-contrib_2.10-2.3.11.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
 		</module>
 		<module organisation="com.typesafe.akka" name="akka-persistence-experimental_2.10">
-			<revision name="2.3.11" status="release" pubdate="20150508162107" resolver="public" artresolver="public" homepage="http://akka.io/" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="70">
+			<revision name="2.3.11" status="release" pubdate="20150508162107" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://akka.io/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="70">
 				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
-				<metadata-artifact status="successful" details="" size="4007" time="92" location="/Users/cbi/.ivy2/cache/com.typesafe.akka/akka-persistence-experimental_2.10/ivy-2.3.11.xml" searched="true" original-local-location="/Users/cbi/.ivy2/cache/com.typesafe.akka/akka-persistence-experimental_2.10/ivy-2.3.11.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-persistence-experimental_2.10/2.3.11/akka-persistence-experimental_2.10-2.3.11.pom"/>
+				<metadata-artifact status="no" details="" size="4230" time="0" location="/Users/cbi/.ivy2/cache/com.typesafe.akka/akka-persistence-experimental_2.10/ivy-2.3.11.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-persistence-experimental_2.10/2.3.11/akka-persistence-experimental_2.10-2.3.11.pom"/>
 				<caller organisation="com.typesafe.akka" name="akka-contrib_2.10" conf="compile, runtime" rev="2.3.11" rev-constraint-default="2.3.11" rev-constraint-dynamic="2.3.11" callerrev="2.3.11"/>
 				<artifacts>
-					<artifact name="akka-persistence-experimental_2.10" type="jar" ext="jar" status="successful" details="" size="835627" time="304" location="/Users/cbi/.ivy2/cache/com.typesafe.akka/akka-persistence-experimental_2.10/jars/akka-persistence-experimental_2.10-2.3.11.jar">
+					<artifact name="akka-persistence-experimental_2.10" type="jar" ext="jar" status="no" details="" size="835627" time="0" location="/Users/cbi/.ivy2/cache/com.typesafe.akka/akka-persistence-experimental_2.10/jars/akka-persistence-experimental_2.10-2.3.11.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-persistence-experimental_2.10/2.3.11/akka-persistence-experimental_2.10-2.3.11.jar"/>
 					</artifact>
 				</artifacts>
@@ -662,25 +662,25 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.akka" name="akka-cluster_2.10">
-			<revision name="2.3.11" status="release" pubdate="20150508162319" resolver="public" artresolver="public" homepage="http://akka.io/" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="69">
+			<revision name="2.3.11" status="release" pubdate="20150508162319" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://akka.io/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="69">
 				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
-				<metadata-artifact status="successful" details="" size="2786" time="84" location="/Users/cbi/.ivy2/cache/com.typesafe.akka/akka-cluster_2.10/ivy-2.3.11.xml" searched="true" original-local-location="/Users/cbi/.ivy2/cache/com.typesafe.akka/akka-cluster_2.10/ivy-2.3.11.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-cluster_2.10/2.3.11/akka-cluster_2.10-2.3.11.pom"/>
+				<metadata-artifact status="no" details="" size="3184" time="0" location="/Users/cbi/.ivy2/cache/com.typesafe.akka/akka-cluster_2.10/ivy-2.3.11.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-cluster_2.10/2.3.11/akka-cluster_2.10-2.3.11.pom"/>
 				<caller organisation="com.typesafe.akka" name="akka-contrib_2.10" conf="compile, runtime" rev="2.3.11" rev-constraint-default="2.3.11" rev-constraint-dynamic="2.3.11" callerrev="2.3.11"/>
 				<artifacts>
-					<artifact name="akka-cluster_2.10" type="jar" ext="jar" status="successful" details="" size="1075594" time="372" location="/Users/cbi/.ivy2/cache/com.typesafe.akka/akka-cluster_2.10/jars/akka-cluster_2.10-2.3.11.jar">
+					<artifact name="akka-cluster_2.10" type="jar" ext="jar" status="no" details="" size="1075594" time="0" location="/Users/cbi/.ivy2/cache/com.typesafe.akka/akka-cluster_2.10/jars/akka-cluster_2.10-2.3.11.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-cluster_2.10/2.3.11/akka-cluster_2.10-2.3.11.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
 		</module>
 		<module organisation="com.typesafe.akka" name="akka-remote_2.10">
-			<revision name="2.3.11" status="release" pubdate="20150508161734" resolver="public" artresolver="public" homepage="http://akka.io/" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="65">
+			<revision name="2.3.11" status="release" pubdate="20150508161734" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://akka.io/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="65">
 				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
-				<metadata-artifact status="successful" details="" size="3681" time="108" location="/Users/cbi/.ivy2/cache/com.typesafe.akka/akka-remote_2.10/ivy-2.3.11.xml" searched="true" original-local-location="/Users/cbi/.ivy2/cache/com.typesafe.akka/akka-remote_2.10/ivy-2.3.11.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-remote_2.10/2.3.11/akka-remote_2.10-2.3.11.pom"/>
+				<metadata-artifact status="no" details="" size="3826" time="0" location="/Users/cbi/.ivy2/cache/com.typesafe.akka/akka-remote_2.10/ivy-2.3.11.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-remote_2.10/2.3.11/akka-remote_2.10-2.3.11.pom"/>
 				<caller organisation="com.typesafe.akka" name="akka-contrib_2.10" conf="compile, runtime" rev="2.3.11" rev-constraint-default="2.3.11" rev-constraint-dynamic="2.3.11" callerrev="2.3.11"/>
 				<caller organisation="com.typesafe.akka" name="akka-cluster_2.10" conf="compile, runtime" rev="2.3.11" rev-constraint-default="2.3.11" rev-constraint-dynamic="2.3.11" callerrev="2.3.11"/>
 				<artifacts>
-					<artifact name="akka-remote_2.10" type="jar" ext="jar" status="successful" details="" size="1352129" time="443" location="/Users/cbi/.ivy2/cache/com.typesafe.akka/akka-remote_2.10/jars/akka-remote_2.10-2.3.11.jar">
+					<artifact name="akka-remote_2.10" type="jar" ext="jar" status="no" details="" size="1352129" time="0" location="/Users/cbi/.ivy2/cache/com.typesafe.akka/akka-remote_2.10/jars/akka-remote_2.10-2.3.11.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-remote_2.10/2.3.11/akka-remote_2.10-2.3.11.jar"/>
 					</artifact>
 				</artifacts>
@@ -724,23 +724,23 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.akka" name="akka-actor_2.10">
-			<revision name="2.3.11" status="release" pubdate="20150508161150" resolver="public" artresolver="public" homepage="http://akka.io/" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master, default, default(compile)" position="63">
+			<revision name="2.3.11" status="release" pubdate="20150508161150" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://akka.io/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master, default, default(compile)" position="63">
 				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
-				<metadata-artifact status="successful" details="" size="1925" time="88" location="/Users/cbi/.ivy2/cache/com.typesafe.akka/akka-actor_2.10/ivy-2.3.11.xml" searched="true" original-local-location="/Users/cbi/.ivy2/cache/com.typesafe.akka/akka-actor_2.10/ivy-2.3.11.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-actor_2.10/2.3.11/akka-actor_2.10-2.3.11.pom"/>
+				<metadata-artifact status="no" details="" size="2667" time="0" location="/Users/cbi/.ivy2/cache/com.typesafe.akka/akka-actor_2.10/ivy-2.3.11.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-actor_2.10/2.3.11/akka-actor_2.10-2.3.11.pom"/>
 				<caller organisation="com.typesafe" name="jse_2.10" conf="default, compile, runtime, master" rev="2.3.11" rev-constraint-default="2.3.11" rev-constraint-dynamic="2.3.11" callerrev="1.1.2"/>
 				<caller organisation="com.typesafe.sbt" name="sbt-web" conf="compile" rev="2.3.9" rev-constraint-default="2.3.9" rev-constraint-dynamic="2.3.9" callerrev="1.2.2"/>
 				<caller organisation="com.typesafe.akka" name="akka-remote_2.10" conf="compile, runtime" rev="2.3.11" rev-constraint-default="2.3.11" rev-constraint-dynamic="2.3.11" callerrev="2.3.11"/>
 				<caller organisation="com.typesafe" name="npm_2.10" conf="default, compile, runtime, master" rev="2.3.11" rev-constraint-default="2.3.11" rev-constraint-dynamic="2.3.11" callerrev="1.1.1"/>
 				<caller organisation="com.typesafe.akka" name="akka-persistence-experimental_2.10" conf="compile, runtime" rev="2.3.11" rev-constraint-default="2.3.11" rev-constraint-dynamic="2.3.11" callerrev="2.3.11"/>
 				<artifacts>
-					<artifact name="akka-actor_2.10" type="jar" ext="jar" status="successful" details="" size="2658152" time="858" location="/Users/cbi/.ivy2/cache/com.typesafe.akka/akka-actor_2.10/jars/akka-actor_2.10-2.3.11.jar">
+					<artifact name="akka-actor_2.10" type="jar" ext="jar" status="no" details="" size="2658152" time="0" location="/Users/cbi/.ivy2/cache/com.typesafe.akka/akka-actor_2.10/jars/akka-actor_2.10-2.3.11.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-actor_2.10/2.3.11/akka-actor_2.10-2.3.11.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
-			<revision name="2.3.9" status="release" pubdate="20150601145619" resolver="activator-launcher-local" artresolver="activator-launcher-local" evicted="latest-revision" evicted-reason="" homepage="http://akka.io/" downloaded="false" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="-1">
+			<revision name="2.3.9" status="release" pubdate="20150601145619" resolver="sbt-chain" artresolver="sbt-chain" evicted="latest-revision" evicted-reason="" homepage="http://akka.io/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="-1">
 				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
-				<metadata-artifact status="no" details="" size="2666" time="0" location="/Users/cbi/.ivy2/cache/com.typesafe.akka/akka-actor_2.10/ivy-2.3.9.xml" searched="true" original-local-location="/usr/local/activator-dist-1.3.5/repository/com.typesafe.akka/akka-actor_2.10/2.3.9/ivys/ivy.xml" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/com.typesafe.akka/akka-actor_2.10/2.3.9/ivys/ivy.xml"/>
+				<metadata-artifact status="no" details="" size="2655" time="0" location="/Users/cbi/.ivy2/cache/com.typesafe.akka/akka-actor_2.10/ivy-2.3.9.xml" searched="false" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/com.typesafe.akka/akka-actor_2.10/2.3.9/ivys/ivy.xml"/>
 				<evicted-by rev="2.3.11"/>
 				<caller organisation="com.typesafe.sbt" name="sbt-web" conf="compile" rev="2.3.9" rev-constraint-default="2.3.9" rev-constraint-dynamic="2.3.9" callerrev="1.2.2"/>
 				<artifacts>
@@ -748,14 +748,14 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.sbt" name="sbt-web">
-			<revision name="1.2.2" status="release" pubdate="20150629135042" resolver="sbt-plugin-releases" artresolver="sbt-plugin-releases" homepage="https://github.com/sbt/sbt-web" extra-scalaVersion="2.10" extra-sbtVersion="0.13" downloaded="true" searched="true" default="false" conf="compile, default(compile)" position="54">
+			<revision name="1.2.2" status="release" pubdate="20150629135042" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/sbt/sbt-web" extra-scalaVersion="2.10" extra-sbtVersion="0.13" downloaded="false" searched="false" default="false" conf="compile, default(compile)" position="54">
 				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
-				<metadata-artifact status="successful" details="" size="2199" time="1918" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-web/ivy-1.2.2.xml" searched="true" original-local-location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-web/ivy-1.2.2.xml.original" origin-is-local="false" origin-location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-web/scala_2.10/sbt_0.13/1.2.2/ivys/ivy.xml"/>
+				<metadata-artifact status="no" details="" size="2199" time="0" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-web/ivy-1.2.2.xml" searched="false" origin-is-local="false" origin-location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-web/scala_2.10/sbt_0.13/1.2.2/ivys/ivy.xml"/>
 				<caller organisation="com.typesafe.sbt" name="sbt-js-engine" conf="compile" rev="1.2.1" rev-constraint-default="1.2.1" rev-constraint-dynamic="1.2.1" callerrev="1.1.3" extra-scalaVersion="2.10" extra-sbtVersion="0.13"/>
 				<caller organisation="com.typesafe.sbt" name="sbt-digest" conf="compile" rev="1.1.1" rev-constraint-default="1.1.1" rev-constraint-dynamic="1.1.1" callerrev="1.1.0" extra-scalaVersion="2.10" extra-sbtVersion="0.13"/>
 				<caller organisation="com.typesafe.play" name="sbt-plugin" conf="compile" rev="1.2.2" rev-constraint-default="1.2.2" rev-constraint-dynamic="1.2.2" callerrev="2.4.2" extra-scalaVersion="2.10" extra-sbtVersion="0.13"/>
 				<artifacts>
-					<artifact name="sbt-web" type="jar" ext="jar" status="successful" details="" size="283702" time="2593" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-web/jars/sbt-web-1.2.2.jar">
+					<artifact name="sbt-web" type="jar" ext="jar" status="no" details="" size="283702" time="0" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-web/jars/sbt-web-1.2.2.jar">
 						<origin-location is-local="false" location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-web/scala_2.10/sbt_0.13/1.2.2/jars/sbt-web.jar"/>
 					</artifact>
 				</artifacts>
@@ -774,13 +774,13 @@
 			</revision>
 		</module>
 		<module organisation="org.webjars" name="webjars-locator">
-			<revision name="0.26" status="release" pubdate="20150623162035" resolver="public" artresolver="public" homepage="http://webjars.org" downloaded="true" searched="true" default="false" conf="default, compile, runtime, default(compile), master, runtime(*), master(compile), compile(*)" position="55">
+			<revision name="0.26" status="release" pubdate="20150623162035" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://webjars.org" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master, runtime(*), master(compile), compile(*)" position="55">
 				<license name="MIT" url="https://github.com/webjars/webjars-locator/blob/master/LICENSE.md"/>
-				<metadata-artifact status="successful" details="" size="5133" time="94" location="/Users/cbi/.ivy2/cache/org.webjars/webjars-locator/ivy-0.26.xml" searched="true" original-local-location="/Users/cbi/.ivy2/cache/org.webjars/webjars-locator/ivy-0.26.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/webjars/webjars-locator/0.26/webjars-locator-0.26.pom"/>
+				<metadata-artifact status="no" details="" size="4477" time="0" location="/Users/cbi/.ivy2/cache/org.webjars/webjars-locator/ivy-0.26.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/webjars/webjars-locator/0.26/webjars-locator-0.26.pom"/>
 				<caller organisation="com.typesafe.sbt" name="sbt-web" conf="compile" rev="0.26" rev-constraint-default="0.26" rev-constraint-dynamic="0.26" callerrev="1.2.2"/>
 				<caller organisation="com.typesafe" name="npm_2.10" conf="default, compile, runtime, master" rev="0.25" rev-constraint-default="0.25" rev-constraint-dynamic="0.25" callerrev="1.1.1"/>
 				<artifacts>
-					<artifact name="webjars-locator" type="jar" ext="jar" status="successful" details="" size="13001" time="82" location="/Users/cbi/.ivy2/cache/org.webjars/webjars-locator/jars/webjars-locator-0.26.jar">
+					<artifact name="webjars-locator" type="jar" ext="jar" status="no" details="" size="13001" time="0" location="/Users/cbi/.ivy2/cache/org.webjars/webjars-locator/jars/webjars-locator-0.26.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/webjars/webjars-locator/0.26/webjars-locator-0.26.jar"/>
 					</artifact>
 				</artifacts>
@@ -826,25 +826,25 @@
 			</revision>
 		</module>
 		<module organisation="org.webjars" name="webjars-locator-core">
-			<revision name="0.26" status="release" pubdate="20150623044952" resolver="public" artresolver="public" homepage="http://webjars.org" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="56">
+			<revision name="0.26" status="release" pubdate="20150623044952" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://webjars.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="56">
 				<license name="MIT" url="https://github.com/webjars/webjars-locator-core/blob/master/LICENSE.md"/>
-				<metadata-artifact status="successful" details="" size="6610" time="100" location="/Users/cbi/.ivy2/cache/org.webjars/webjars-locator-core/ivy-0.26.xml" searched="true" original-local-location="/Users/cbi/.ivy2/cache/org.webjars/webjars-locator-core/ivy-0.26.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/webjars/webjars-locator-core/0.26/webjars-locator-core-0.26.pom"/>
+				<metadata-artifact status="no" details="" size="5363" time="0" location="/Users/cbi/.ivy2/cache/org.webjars/webjars-locator-core/ivy-0.26.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/webjars/webjars-locator-core/0.26/webjars-locator-core-0.26.pom"/>
 				<caller organisation="org.webjars" name="webjars-locator" conf="default, compile, runtime, master" rev="0.26" rev-constraint-default="0.26" rev-constraint-dynamic="0.26" callerrev="0.26"/>
 				<artifacts>
-					<artifact name="webjars-locator-core" type="jar" ext="jar" status="successful" details="" size="28559" time="103" location="/Users/cbi/.ivy2/cache/org.webjars/webjars-locator-core/jars/webjars-locator-core-0.26.jar">
+					<artifact name="webjars-locator-core" type="jar" ext="jar" status="no" details="" size="28559" time="0" location="/Users/cbi/.ivy2/cache/org.webjars/webjars-locator-core/jars/webjars-locator-core-0.26.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/webjars/webjars-locator-core/0.26/webjars-locator-core-0.26.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
 		</module>
 		<module organisation="org.apache.commons" name="commons-compress">
-			<revision name="1.9" status="release" pubdate="20141006070237" resolver="public" artresolver="public" homepage="http://commons.apache.org/proper/commons-compress/" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master, master(*), default, default(compile)" position="57">
-				<metadata-artifact status="successful" details="" size="11433" time="89" location="/Users/cbi/.ivy2/cache/org.apache.commons/commons-compress/ivy-1.9.xml" searched="true" original-local-location="/Users/cbi/.ivy2/cache/org.apache.commons/commons-compress/ivy-1.9.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/commons/commons-compress/1.9/commons-compress-1.9.pom"/>
+			<revision name="1.9" status="release" pubdate="20141006070237" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://commons.apache.org/proper/commons-compress/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master, master(*), default, default(compile)" position="57">
+				<metadata-artifact status="no" details="" size="10333" time="0" location="/Users/cbi/.ivy2/cache/org.apache.commons/commons-compress/ivy-1.9.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/commons/commons-compress/1.9/commons-compress-1.9.pom"/>
 				<caller organisation="com.typesafe.sbt" name="sbt-native-packager" conf="compile" rev="1.4.1" rev-constraint-default="1.4.1" rev-constraint-dynamic="1.4.1" callerrev="1.0.1"/>
 				<caller organisation="org.vafer" name="jdeb" conf="default, compile, runtime, master" rev="1.7" rev-constraint-default="1.7" rev-constraint-dynamic="1.7" callerrev="1.3"/>
 				<caller organisation="org.webjars" name="webjars-locator-core" conf="compile, runtime" rev="1.9" rev-constraint-default="1.9" rev-constraint-dynamic="1.9" callerrev="0.26"/>
 				<artifacts>
-					<artifact name="commons-compress" type="jar" ext="jar" status="successful" details="" size="378217" time="266" location="/Users/cbi/.ivy2/cache/org.apache.commons/commons-compress/jars/commons-compress-1.9.jar">
+					<artifact name="commons-compress" type="jar" ext="jar" status="no" details="" size="378217" time="0" location="/Users/cbi/.ivy2/cache/org.apache.commons/commons-compress/jars/commons-compress-1.9.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/commons/commons-compress/1.9/commons-compress-1.9.jar"/>
 					</artifact>
 				</artifacts>
@@ -866,11 +866,11 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.sbt" name="sbt-native-packager">
-			<revision name="1.0.1" status="release" pubdate="20150429191840" resolver="sbt-plugin-releases" artresolver="sbt-plugin-releases" extra-scalaVersion="2.10" extra-sbtVersion="0.13" downloaded="true" searched="true" default="false" conf="compile, default(compile)" position="22">
-				<metadata-artifact status="successful" details="" size="2105" time="1868" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-native-packager/ivy-1.0.1.xml" searched="true" original-local-location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-native-packager/ivy-1.0.1.xml.original" origin-is-local="false" origin-location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-native-packager/scala_2.10/sbt_0.13/1.0.1/ivys/ivy.xml"/>
+			<revision name="1.0.1" status="release" pubdate="20150429191840" resolver="sbt-chain" artresolver="sbt-chain" extra-scalaVersion="2.10" extra-sbtVersion="0.13" downloaded="false" searched="false" default="false" conf="compile, default(compile)" position="22">
+				<metadata-artifact status="no" details="" size="2105" time="0" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-native-packager/ivy-1.0.1.xml" searched="false" origin-is-local="false" origin-location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-native-packager/scala_2.10/sbt_0.13/1.0.1/ivys/ivy.xml"/>
 				<caller organisation="com.typesafe.play" name="sbt-plugin" conf="compile" rev="1.0.1" rev-constraint-default="1.0.1" rev-constraint-dynamic="1.0.1" callerrev="2.4.2" extra-scalaVersion="2.10" extra-sbtVersion="0.13"/>
 				<artifacts>
-					<artifact name="sbt-native-packager" type="jar" ext="jar" status="successful" details="" size="1047101" time="3538" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-native-packager/jars/sbt-native-packager-1.0.1.jar">
+					<artifact name="sbt-native-packager" type="jar" ext="jar" status="no" details="" size="1047101" time="0" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-native-packager/jars/sbt-native-packager-1.0.1.jar">
 						<origin-location is-local="false" location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-native-packager/scala_2.10/sbt_0.13/1.0.1/jars/sbt-native-packager.jar"/>
 					</artifact>
 				</artifacts>
@@ -1254,21 +1254,21 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.sbt" name="sbt-twirl">
-			<revision name="1.1.1" status="release" pubdate="20150514150137" resolver="sbt-plugin-releases" artresolver="sbt-plugin-releases" homepage="https://github.com/playframework/twirl" extra-scalaVersion="2.10" extra-sbtVersion="0.13" downloaded="true" searched="true" default="false" conf="compile, default(compile)" position="17">
+			<revision name="1.1.1" status="release" pubdate="20150514150137" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/playframework/twirl" extra-scalaVersion="2.10" extra-sbtVersion="0.13" downloaded="false" searched="false" default="false" conf="compile, default(compile)" position="17">
 				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
-				<metadata-artifact status="successful" details="" size="2331" time="1861" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-twirl/ivy-1.1.1.xml" searched="true" original-local-location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-twirl/ivy-1.1.1.xml.original" origin-is-local="false" origin-location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-twirl/scala_2.10/sbt_0.13/1.1.1/ivys/ivy.xml"/>
+				<metadata-artifact status="no" details="" size="2331" time="0" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-twirl/ivy-1.1.1.xml" searched="false" origin-is-local="false" origin-location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-twirl/scala_2.10/sbt_0.13/1.1.1/ivys/ivy.xml"/>
 				<caller organisation="com.typesafe.play" name="sbt-plugin" conf="compile" rev="1.1.1" rev-constraint-default="1.1.1" rev-constraint-dynamic="1.1.1" callerrev="2.4.2" extra-scalaVersion="2.10" extra-sbtVersion="0.13"/>
 				<artifacts>
-					<artifact name="sbt-twirl" type="jar" ext="jar" status="successful" details="" size="80636" time="2396" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-twirl/jars/sbt-twirl-1.1.1.jar">
+					<artifact name="sbt-twirl" type="jar" ext="jar" status="no" details="" size="80636" time="0" location="/Users/cbi/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-twirl/jars/sbt-twirl-1.1.1.jar">
 						<origin-location is-local="false" location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-twirl/scala_2.10/sbt_0.13/1.1.1/jars/sbt-twirl.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
 		</module>
 		<module organisation="com.typesafe.play" name="twirl-compiler_2.10">
-			<revision name="1.1.1" status="release" pubdate="20150514010129" resolver="activator-launcher-local" artresolver="activator-launcher-local" homepage="https://github.com/playframework/twirl" downloaded="false" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="18">
+			<revision name="1.1.1" status="release" pubdate="20150514010129" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/playframework/twirl" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="18">
 				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
-				<metadata-artifact status="no" details="" size="3003" time="0" location="/Users/cbi/.ivy2/cache/com.typesafe.play/twirl-compiler_2.10/ivy-1.1.1.xml" searched="true" original-local-location="/usr/local/activator-dist-1.3.5/repository/com.typesafe.play/twirl-compiler_2.10/1.1.1/ivys/ivy.xml" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/com.typesafe.play/twirl-compiler_2.10/1.1.1/ivys/ivy.xml"/>
+				<metadata-artifact status="no" details="" size="2992" time="0" location="/Users/cbi/.ivy2/cache/com.typesafe.play/twirl-compiler_2.10/ivy-1.1.1.xml" searched="false" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/com.typesafe.play/twirl-compiler_2.10/1.1.1/ivys/ivy.xml"/>
 				<caller organisation="com.typesafe.sbt" name="sbt-twirl" conf="compile" rev="1.1.1" rev-constraint-default="1.1.1" rev-constraint-dynamic="1.1.1" callerrev="1.1.1"/>
 				<artifacts>
 					<artifact name="twirl-compiler_2.10" type="jar" ext="jar" status="no" details="" size="112093" time="0" location="/usr/local/activator-dist-1.3.5/repository/com.typesafe.play/twirl-compiler_2.10/1.1.1/jars/twirl-compiler_2.10.jar">
@@ -1278,9 +1278,9 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.play" name="twirl-parser_2.10">
-			<revision name="1.1.1" status="release" pubdate="20150514010119" resolver="activator-launcher-local" artresolver="activator-launcher-local" homepage="https://github.com/playframework/twirl" downloaded="false" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="21">
+			<revision name="1.1.1" status="release" pubdate="20150514010119" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/playframework/twirl" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="21">
 				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
-				<metadata-artifact status="no" details="" size="3036" time="0" location="/Users/cbi/.ivy2/cache/com.typesafe.play/twirl-parser_2.10/ivy-1.1.1.xml" searched="true" original-local-location="/usr/local/activator-dist-1.3.5/repository/com.typesafe.play/twirl-parser_2.10/1.1.1/ivys/ivy.xml" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/com.typesafe.play/twirl-parser_2.10/1.1.1/ivys/ivy.xml"/>
+				<metadata-artifact status="no" details="" size="3025" time="0" location="/Users/cbi/.ivy2/cache/com.typesafe.play/twirl-parser_2.10/ivy-1.1.1.xml" searched="false" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/com.typesafe.play/twirl-parser_2.10/1.1.1/ivys/ivy.xml"/>
 				<caller organisation="com.typesafe.play" name="twirl-compiler_2.10" conf="default, compile, runtime, master" rev="1.1.1" rev-constraint-default="1.1.1" rev-constraint-dynamic="1.1.1" callerrev="1.1.1"/>
 				<artifacts>
 					<artifact name="twirl-parser_2.10" type="jar" ext="jar" status="no" details="" size="298829" time="0" location="/usr/local/activator-dist-1.3.5/repository/com.typesafe.play/twirl-parser_2.10/1.1.1/jars/twirl-parser_2.10.jar">
@@ -1290,20 +1290,20 @@
 			</revision>
 		</module>
 		<module organisation="net.contentobjects.jnotify" name="jnotify">
-			<revision name="0.94-play-1" status="release" pubdate="20150415123211" resolver="sbt-plugin-releases" artresolver="sbt-plugin-releases" homepage="https://github.com/playframework/jnotify" downloaded="true" searched="true" default="false" conf="compile, default(compile)" position="16">
+			<revision name="0.94-play-1" status="release" pubdate="20150415123211" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/playframework/jnotify" downloaded="false" searched="false" default="false" conf="compile, default(compile)" position="16">
 				<license name="LGPL-2.1" url="https://www.gnu.org/licenses/lgpl-2.1.html"/>
-				<metadata-artifact status="successful" details="" size="1225" time="1857" location="/Users/cbi/.ivy2/cache/net.contentobjects.jnotify/jnotify/ivy-0.94-play-1.xml" searched="true" original-local-location="/Users/cbi/.ivy2/cache/net.contentobjects.jnotify/jnotify/ivy-0.94-play-1.xml.original" origin-is-local="false" origin-location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/net.contentobjects.jnotify/jnotify/0.94-play-1/ivys/ivy.xml"/>
+				<metadata-artifact status="no" details="" size="1225" time="0" location="/Users/cbi/.ivy2/cache/net.contentobjects.jnotify/jnotify/ivy-0.94-play-1.xml" searched="false" origin-is-local="false" origin-location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/net.contentobjects.jnotify/jnotify/0.94-play-1/ivys/ivy.xml"/>
 				<caller organisation="com.typesafe.play" name="sbt-plugin" conf="compile" rev="0.94-play-1" rev-constraint-default="0.94-play-1" rev-constraint-dynamic="0.94-play-1" callerrev="2.4.2"/>
 				<artifacts>
-					<artifact name="jnotify" type="jar" ext="jar" status="successful" details="" size="660779" time="2803" location="/Users/cbi/.ivy2/cache/net.contentobjects.jnotify/jnotify/jars/jnotify-0.94-play-1.jar">
+					<artifact name="jnotify" type="jar" ext="jar" status="no" details="" size="660779" time="0" location="/Users/cbi/.ivy2/cache/net.contentobjects.jnotify/jnotify/jars/jnotify-0.94-play-1.jar">
 						<origin-location is-local="false" location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/net.contentobjects.jnotify/jnotify/0.94-play-1/jars/jnotify.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
 		</module>
 		<module organisation="com.h2database" name="h2">
-			<revision name="1.4.187" status="release" pubdate="20150601145600" resolver="activator-launcher-local" artresolver="activator-launcher-local" homepage="" downloaded="false" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="15">
-				<metadata-artifact status="no" details="" size="2181" time="0" location="/Users/cbi/.ivy2/cache/com.h2database/h2/ivy-1.4.187.xml" searched="true" original-local-location="/usr/local/activator-dist-1.3.5/repository/com.h2database/h2/1.4.187/ivys/ivy.xml" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/com.h2database/h2/1.4.187/ivys/ivy.xml"/>
+			<revision name="1.4.187" status="release" pubdate="20150601145600" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="15">
+				<metadata-artifact status="no" details="" size="2170" time="0" location="/Users/cbi/.ivy2/cache/com.h2database/h2/ivy-1.4.187.xml" searched="false" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/com.h2database/h2/1.4.187/ivys/ivy.xml"/>
 				<caller organisation="com.typesafe.play" name="sbt-plugin" conf="compile" rev="1.4.187" rev-constraint-default="1.4.187" rev-constraint-dynamic="1.4.187" callerrev="2.4.2"/>
 				<artifacts>
 					<artifact name="h2" type="jar" ext="jar" status="no" details="" size="1695977" time="0" location="/usr/local/activator-dist-1.3.5/repository/com.h2database/h2/1.4.187/jars/h2.jar">
@@ -1313,8 +1313,8 @@
 			</revision>
 		</module>
 		<module organisation="com.google.guava" name="guava">
-			<revision name="18.0" status="release" pubdate="20140825144834" resolver="activator-launcher-local" artresolver="activator-launcher-local" homepage="" downloaded="false" searched="true" default="false" conf="default, compile, runtime, default(compile), master, master(*), runtime(*), compile(*)" position="14">
-				<metadata-artifact status="no" details="" size="5765" time="0" location="/Users/cbi/.ivy2/cache/com.google.guava/guava/ivy-18.0.xml" searched="true" original-local-location="/usr/local/activator-dist-1.3.5/repository/com.google.guava/guava/18.0/ivys/ivy.xml" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/com.google.guava/guava/18.0/ivys/ivy.xml"/>
+			<revision name="18.0" status="release" pubdate="20140825144834" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master, master(*), runtime(*), compile(*)" position="14">
+				<metadata-artifact status="no" details="" size="5755" time="0" location="/Users/cbi/.ivy2/cache/com.google.guava/guava/ivy-18.0.xml" searched="false" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/com.google.guava/guava/18.0/ivys/ivy.xml"/>
 				<caller organisation="org.eclipse.sisu" name="org.eclipse.sisu.plexus" conf="compile, runtime" rev="14.0.1" rev-constraint-default="14.0.1" rev-constraint-dynamic="10.0.1" callerrev="0.0.0.M5"/>
 				<caller organisation="com.typesafe.play" name="sbt-plugin" conf="compile" rev="18.0" rev-constraint-default="18.0" rev-constraint-dynamic="18.0" callerrev="2.4.2"/>
 				<caller organisation="org.iq80.leveldb" name="leveldb" conf="compile, runtime" rev="12.0" rev-constraint-default="12.0" rev-constraint-dynamic="12.0" callerrev="0.5"/>
@@ -1341,9 +1341,9 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe" name="config">
-			<revision name="1.3.0" status="release" pubdate="20150508114611" resolver="activator-launcher-local" artresolver="activator-launcher-local" homepage="https://github.com/typesafehub/config" downloaded="false" searched="true" default="false" conf="default, compile, runtime, default(compile), master, runtime(*), master(compile), compile(*)" position="13">
+			<revision name="1.3.0" status="release" pubdate="20150508114611" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/typesafehub/config" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master, runtime(*), master(compile), compile(*)" position="13">
 				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
-				<metadata-artifact status="no" details="" size="2749" time="0" location="/Users/cbi/.ivy2/cache/com.typesafe/config/ivy-1.3.0.xml" searched="true" original-local-location="/usr/local/activator-dist-1.3.5/repository/com.typesafe/config/1.3.0/ivys/ivy.xml" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/com.typesafe/config/1.3.0/ivys/ivy.xml"/>
+				<metadata-artifact status="no" details="" size="2738" time="0" location="/Users/cbi/.ivy2/cache/com.typesafe/config/ivy-1.3.0.xml" searched="false" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/com.typesafe/config/1.3.0/ivys/ivy.xml"/>
 				<caller organisation="com.typesafe.akka" name="akka-actor_2.10" conf="default, compile, runtime, master" rev="1.2.1" rev-constraint-default="1.2.1" rev-constraint-dynamic="1.2.1" callerrev="2.3.9"/>
 				<caller organisation="com.typesafe.akka" name="akka-actor_2.10" conf="compile, runtime" rev="1.2.1" rev-constraint-default="1.2.1" rev-constraint-dynamic="1.2.1" callerrev="2.3.11"/>
 				<caller organisation="com.typesafe.play" name="sbt-plugin" conf="compile" rev="1.3.0" rev-constraint-default="1.3.0" rev-constraint-dynamic="1.3.0" callerrev="2.4.2"/>
@@ -1362,35 +1362,35 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.play" name="sbt-run-support_2.10">
-			<revision name="2.4.2" status="release" pubdate="20150703073542" resolver="public" artresolver="public" homepage="https://playframework.com" downloaded="true" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="9">
+			<revision name="2.4.2" status="release" pubdate="20150703073542" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://playframework.com" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="9">
 				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
-				<metadata-artifact status="successful" details="" size="2511" time="94" location="/Users/cbi/.ivy2/cache/com.typesafe.play/sbt-run-support_2.10/ivy-2.4.2.xml" searched="true" original-local-location="/Users/cbi/.ivy2/cache/com.typesafe.play/sbt-run-support_2.10/ivy-2.4.2.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/sbt-run-support_2.10/2.4.2/sbt-run-support_2.10-2.4.2.pom"/>
+				<metadata-artifact status="no" details="" size="3188" time="0" location="/Users/cbi/.ivy2/cache/com.typesafe.play/sbt-run-support_2.10/ivy-2.4.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/sbt-run-support_2.10/2.4.2/sbt-run-support_2.10-2.4.2.pom"/>
 				<caller organisation="com.typesafe.play" name="sbt-plugin" conf="compile" rev="2.4.2" rev-constraint-default="2.4.2" rev-constraint-dynamic="2.4.2" callerrev="2.4.2"/>
 				<artifacts>
-					<artifact name="sbt-run-support_2.10" type="jar" ext="jar" status="successful" details="" size="151058" time="148" location="/Users/cbi/.ivy2/cache/com.typesafe.play/sbt-run-support_2.10/jars/sbt-run-support_2.10-2.4.2.jar">
+					<artifact name="sbt-run-support_2.10" type="jar" ext="jar" status="no" details="" size="151058" time="0" location="/Users/cbi/.ivy2/cache/com.typesafe.play/sbt-run-support_2.10/jars/sbt-run-support_2.10-2.4.2.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/play/sbt-run-support_2.10/2.4.2/sbt-run-support_2.10-2.4.2.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
 		</module>
 		<module organisation="com.typesafe.play" name="build-link">
-			<revision name="2.4.2" status="release" pubdate="20150703073536" resolver="public" artresolver="public" homepage="https://playframework.com" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="10">
+			<revision name="2.4.2" status="release" pubdate="20150703073536" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://playframework.com" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="10">
 				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
-				<metadata-artifact status="successful" details="" size="1673" time="85" location="/Users/cbi/.ivy2/cache/com.typesafe.play/build-link/ivy-2.4.2.xml" searched="true" original-local-location="/Users/cbi/.ivy2/cache/com.typesafe.play/build-link/ivy-2.4.2.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/build-link/2.4.2/build-link-2.4.2.pom"/>
+				<metadata-artifact status="no" details="" size="2666" time="0" location="/Users/cbi/.ivy2/cache/com.typesafe.play/build-link/ivy-2.4.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/build-link/2.4.2/build-link-2.4.2.pom"/>
 				<caller organisation="com.typesafe.play" name="sbt-run-support_2.10" conf="default, compile, runtime, master" rev="2.4.2" rev-constraint-default="2.4.2" rev-constraint-dynamic="2.4.2" callerrev="2.4.2"/>
 				<artifacts>
-					<artifact name="build-link" type="jar" ext="jar" status="successful" details="" size="3365" time="141" location="/Users/cbi/.ivy2/cache/com.typesafe.play/build-link/jars/build-link-2.4.2.jar">
+					<artifact name="build-link" type="jar" ext="jar" status="no" details="" size="3365" time="0" location="/Users/cbi/.ivy2/cache/com.typesafe.play/build-link/jars/build-link-2.4.2.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/play/build-link/2.4.2/build-link-2.4.2.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
 		</module>
 		<module organisation="org.javassist" name="javassist">
-			<revision name="3.19.0-GA" status="release" pubdate="20150518154556" resolver="activator-launcher-local" artresolver="activator-launcher-local" homepage="http://www.javassist.org/" downloaded="false" searched="true" default="false" conf="default, compile, runtime(*), master(compile), runtime, default(compile), compile(*), master" position="12">
+			<revision name="3.19.0-GA" status="release" pubdate="20150518154556" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.javassist.org/" downloaded="false" searched="false" default="false" conf="default, compile, runtime(*), master(compile), runtime, default(compile), compile(*), master" position="12">
 				<license name="MPL 1.1" url="http://www.mozilla.org/MPL/MPL-1.1.html"/>
 				<license name="LGPL 2.1" url="http://www.gnu.org/licenses/lgpl-2.1.html"/>
 				<license name="Apache License 2.0" url="http://www.apache.org/licenses/"/>
-				<metadata-artifact status="no" details="" size="3073" time="0" location="/Users/cbi/.ivy2/cache/org.javassist/javassist/ivy-3.19.0-GA.xml" searched="true" original-local-location="/usr/local/activator-dist-1.3.5/repository/org.javassist/javassist/3.19.0-GA/ivys/ivy.xml" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/org.javassist/javassist/3.19.0-GA/ivys/ivy.xml"/>
+				<metadata-artifact status="no" details="" size="3060" time="0" location="/Users/cbi/.ivy2/cache/org.javassist/javassist/ivy-3.19.0-GA.xml" searched="false" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/org.javassist/javassist/3.19.0-GA/ivys/ivy.xml"/>
 				<caller organisation="com.typesafe.play" name="build-link" conf="compile, runtime" rev="3.19.0-GA" rev-constraint-default="3.19.0-GA" rev-constraint-dynamic="3.19.0-GA" callerrev="2.4.2"/>
 				<caller organisation="com.typesafe.play" name="sbt-plugin" conf="compile" rev="3.19.0-GA" rev-constraint-default="3.19.0-GA" rev-constraint-dynamic="3.19.0-GA" callerrev="2.4.2"/>
 				<artifacts>
@@ -1401,33 +1401,33 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.play" name="play-exceptions">
-			<revision name="2.4.2" status="release" pubdate="20150703073532" resolver="public" artresolver="public" homepage="https://playframework.com" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="11">
+			<revision name="2.4.2" status="release" pubdate="20150703073532" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://playframework.com" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="11">
 				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
-				<metadata-artifact status="successful" details="" size="1291" time="83" location="/Users/cbi/.ivy2/cache/com.typesafe.play/play-exceptions/ivy-2.4.2.xml" searched="true" original-local-location="/Users/cbi/.ivy2/cache/com.typesafe.play/play-exceptions/ivy-2.4.2.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/play-exceptions/2.4.2/play-exceptions-2.4.2.pom"/>
+				<metadata-artifact status="no" details="" size="2352" time="0" location="/Users/cbi/.ivy2/cache/com.typesafe.play/play-exceptions/ivy-2.4.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/play-exceptions/2.4.2/play-exceptions-2.4.2.pom"/>
 				<caller organisation="com.typesafe.play" name="build-link" conf="compile, runtime" rev="2.4.2" rev-constraint-default="2.4.2" rev-constraint-dynamic="2.4.2" callerrev="2.4.2"/>
 				<artifacts>
-					<artifact name="play-exceptions" type="jar" ext="jar" status="successful" details="" size="4597" time="87" location="/Users/cbi/.ivy2/cache/com.typesafe.play/play-exceptions/jars/play-exceptions-2.4.2.jar">
+					<artifact name="play-exceptions" type="jar" ext="jar" status="no" details="" size="4597" time="0" location="/Users/cbi/.ivy2/cache/com.typesafe.play/play-exceptions/jars/play-exceptions-2.4.2.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/play/play-exceptions/2.4.2/play-exceptions-2.4.2.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
 		</module>
 		<module organisation="com.typesafe.play" name="routes-compiler_2.10">
-			<revision name="2.4.2" status="release" pubdate="20150703073550" resolver="public" artresolver="public" homepage="https://playframework.com" downloaded="true" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="4">
+			<revision name="2.4.2" status="release" pubdate="20150703073550" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://playframework.com" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="4">
 				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
-				<metadata-artifact status="successful" details="" size="2696" time="84" location="/Users/cbi/.ivy2/cache/com.typesafe.play/routes-compiler_2.10/ivy-2.4.2.xml" searched="true" original-local-location="/Users/cbi/.ivy2/cache/com.typesafe.play/routes-compiler_2.10/ivy-2.4.2.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/routes-compiler_2.10/2.4.2/routes-compiler_2.10-2.4.2.pom"/>
+				<metadata-artifact status="no" details="" size="3319" time="0" location="/Users/cbi/.ivy2/cache/com.typesafe.play/routes-compiler_2.10/ivy-2.4.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/routes-compiler_2.10/2.4.2/routes-compiler_2.10-2.4.2.pom"/>
 				<caller organisation="com.typesafe.play" name="sbt-plugin" conf="compile" rev="2.4.2" rev-constraint-default="2.4.2" rev-constraint-dynamic="2.4.2" callerrev="2.4.2"/>
 				<artifacts>
-					<artifact name="routes-compiler_2.10" type="jar" ext="jar" status="successful" details="" size="599712" time="847" location="/Users/cbi/.ivy2/cache/com.typesafe.play/routes-compiler_2.10/jars/routes-compiler_2.10-2.4.2.jar">
+					<artifact name="routes-compiler_2.10" type="jar" ext="jar" status="no" details="" size="599712" time="0" location="/Users/cbi/.ivy2/cache/com.typesafe.play/routes-compiler_2.10/jars/routes-compiler_2.10-2.4.2.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/play/routes-compiler_2.10/2.4.2/routes-compiler_2.10-2.4.2.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
 		</module>
 		<module organisation="com.typesafe.play" name="twirl-api_2.10">
-			<revision name="1.1.1" status="release" pubdate="20150514010104" resolver="activator-launcher-local" artresolver="activator-launcher-local" homepage="https://github.com/playframework/twirl" downloaded="false" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="6">
+			<revision name="1.1.1" status="release" pubdate="20150514010104" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/playframework/twirl" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="6">
 				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
-				<metadata-artifact status="no" details="" size="3175" time="0" location="/Users/cbi/.ivy2/cache/com.typesafe.play/twirl-api_2.10/ivy-1.1.1.xml" searched="true" original-local-location="/usr/local/activator-dist-1.3.5/repository/com.typesafe.play/twirl-api_2.10/1.1.1/ivys/ivy.xml" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/com.typesafe.play/twirl-api_2.10/1.1.1/ivys/ivy.xml"/>
+				<metadata-artifact status="no" details="" size="3164" time="0" location="/Users/cbi/.ivy2/cache/com.typesafe.play/twirl-api_2.10/ivy-1.1.1.xml" searched="false" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/com.typesafe.play/twirl-api_2.10/1.1.1/ivys/ivy.xml"/>
 				<caller organisation="com.typesafe.play" name="twirl-compiler_2.10" conf="default, compile, runtime, master" rev="1.1.1" rev-constraint-default="1.1.1" rev-constraint-dynamic="1.1.1" callerrev="1.1.1"/>
 				<caller organisation="com.typesafe.play" name="routes-compiler_2.10" conf="default, compile, runtime, master" rev="1.1.1" rev-constraint-default="1.1.1" rev-constraint-dynamic="1.1.1" callerrev="2.4.2"/>
 				<artifacts>
@@ -1438,8 +1438,8 @@
 			</revision>
 		</module>
 		<module organisation="org.apache.commons" name="commons-lang3">
-			<revision name="3.4" status="release" pubdate="20150403083112" resolver="activator-launcher-local" artresolver="activator-launcher-local" homepage="http://commons.apache.org/proper/commons-lang/" downloaded="false" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="7">
-				<metadata-artifact status="no" details="" size="11908" time="0" location="/Users/cbi/.ivy2/cache/org.apache.commons/commons-lang3/ivy-3.4.xml" searched="true" original-local-location="/usr/local/activator-dist-1.3.5/repository/org.apache.commons/commons-lang3/3.4/ivys/ivy.xml" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/org.apache.commons/commons-lang3/3.4/ivys/ivy.xml"/>
+			<revision name="3.4" status="release" pubdate="20150403083112" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://commons.apache.org/proper/commons-lang/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="7">
+				<metadata-artifact status="no" details="" size="11898" time="0" location="/Users/cbi/.ivy2/cache/org.apache.commons/commons-lang3/ivy-3.4.xml" searched="false" origin-is-local="true" origin-location="/usr/local/activator-dist-1.3.5/repository/org.apache.commons/commons-lang3/3.4/ivys/ivy.xml"/>
 				<caller organisation="com.typesafe.play" name="twirl-api_2.10" conf="compile, runtime" rev="3.4" rev-constraint-default="3.4" rev-constraint-dynamic="3.4" callerrev="1.1.1"/>
 				<caller organisation="org.webjars" name="webjars-locator" conf="default, compile, runtime, master" rev="3.4" rev-constraint-default="3.4" rev-constraint-dynamic="3.4" callerrev="0.26"/>
 				<caller organisation="org.webjars" name="webjars-locator-core" conf="compile, runtime" rev="3.1" rev-constraint-default="3.1" rev-constraint-dynamic="3.1" callerrev="0.26"/>

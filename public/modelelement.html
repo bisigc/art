@@ -7,8 +7,10 @@
     <div class="well well-sm" ng-if="isAllowed.check(['Admin','Editor'])">
         <form class="form-inline">
             <div class="form-group">
-                <select class="form-control" ng-model="selectedtype" ng-options="element for element in modelelementtypes"></select>
-                <a class="btn btn-primary btn-sm" ui-sref="root.modelelement.add({modelelementtype: selectedtype})" ng-disabled="selectedtype == undefined || selectedtype == ''">Add Model Element : {{selectedtype}}</a>
+                <label for="modelelementlink">Add new ModelElementLink:</label>
+                <select class="form-control" id="modelelementlink" ng-model="selectedtype" ng-options="element for element in modelelementtypes" ng-change="$state.go('root.modelelement.add',{modelelementtype: selectedtype})">
+                	<option value="">Select Type...</option>
+                </select>
             </div>
         </form>
     </div>

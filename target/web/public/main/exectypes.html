@@ -3,9 +3,13 @@
         <i class="glyphicon glyphicon-leaf" ng-show="!hasChildren(task)"/>
         <i class="glyphicon glyphicon-plus-sign" tooltip="Show children" ng-show="hasChildren(task) && !childsvisible" ng-click="childsvisible = !childsvisible"/>
         <i class="glyphicon glyphicon-minus-sign" tooltip="Hide children" ng-show="hasChildren(task) && childsvisible" ng-click="childsvisible = !childsvisible"/>
-        &nbsp;<input ng-model="task.name"/>&nbsp;
+        &nbsp;<input ng-model="task.name" size="40"/>&nbsp;
         <i class="glyphicon glyphicon-chevron-right" tooltip="Show description" ng-show="!descvisible" ng-click="descvisible = !descvisible"/>
         <i class="glyphicon glyphicon-chevron-down" tooltip="Hide description" ng-show="descvisible" ng-click="descvisible = !descvisible"/>
+    	<div ng-show="descvisible">
+			<label for="description">Description</label>
+			<textarea id="description" ng-model="task.description" class="form-control"/>
+		</div>
     </span>
     <button type="button" class="btn btn-default btn-sm" ng-click="add(task)" tooltip="Add child">
         <i class="glyphicon glyphicon-plus"/>
@@ -13,7 +17,6 @@
     <button type="button" class="btn btn-default btn-sm" ng-click="delete(task)" ng-show="task.subTasks.length > 0" tooltip="Remove children">
         <i class="glyphicon glyphicon-remove"/>
     </button>
-    <div ng-show="descvisible"><textarea ng-model="task.description" class="form-control"/></div>
     <ul ng-show="childsvisible">
         <li ng-repeat="task in task.subTasks" ng-include="'execTaskTypeNode.html'" ng-class="{ parent_li: hasChildren(task)}"/>
     </ul>
@@ -30,6 +33,7 @@
                     <h3 class="panel-title">Instructions</h3>
                 </div>
                 <div class="panel-body">
+                	Execution Task Types are ordered hierarchical. Add or remove new Types by editing the Type Tree. Only after a click on "Save Changes" newly added/removed leafs will be created/deleted. Referential integrity has to be ensured. Therefore, deleting still referenced Types is not possible. 
                 </div>
 
                 <div class="panel-heading">
@@ -50,10 +54,13 @@
         </div>
         <div class="col-md-8">
             <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Type Tree</h3>
+                </div>
                 <div class="panel-body">
                     <div class="tree">
                         <ul>
-                            <li ng-repeat="task in exectypes" ng-include="'execTaskTypeNode.html'" ng-class="{ parent_li: hasChildren(task)}" />
+                        	<li ng-repeat="task in exectypes" ng-include="'execTaskTypeNode.html'" ng-class="{ parent_li: hasChildren(task)}" />
                         </ul>
                         <button type="button" class="btn btn-primary pull-right" ng-click="save()">Save Changes</button>
                     </div>
