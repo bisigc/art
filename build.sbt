@@ -20,3 +20,6 @@ libraryDependencies ++= Seq(
 )
 
 routesGenerator := InjectedRoutesGenerator
+
+PlayKeys.externalizeResources := false
+
