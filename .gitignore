@@ -1,8 +1,20 @@
+# General
+.cache
+.DS_Store
+
+# Play framework
 logs
 project/project
 project/target
 target
 tmp
 dist
-.cache
-.DS_Store
+.sbtserver
+project/.sbtserver
+
+# Eclipse
+.settings
+.classpath
+.metadata
+.project
+
