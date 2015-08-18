@@ -2,6 +2,7 @@ name := """art-app"""
 
 version := "1.0-SNAPSHOT"
 
+// Only used to be picked up from the jenkins build script to emit the webserver port.
 javaOptions in run += "-Dhttp.port=9085"
 
 lazy val root = (project in file(".")).enablePlugins(PlayJava)
@@ -19,7 +20,11 @@ libraryDependencies ++= Seq(
   javaWs
 )
 
+// Activate dependency injected controllers and not static controllers.
+// This is a new function since play framework 2.4
 routesGenerator := InjectedRoutesGenerator
 
+// Required since play framework 2.4 to prevent classpath errors in
+// production distribution of the application.
 PlayKeys.externalizeResources := false
 

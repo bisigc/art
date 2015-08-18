@@ -15,7 +15,7 @@
 <div clas="row">
     <div class="col-md-8" ui-view="statsView"></div>
     <div class="col-md-4">
-        <div class="panel panel-default" ng-hide="isLoggedin.check()">
+        <div class="panel panel-default" ng-if="!isLoggedin.check()">
             <div class="panel-heading">
                 <h3 class="panel-title">Login</h3>
             </div>

@@ -1,4 +1,3 @@
-compiel
 compile
 run
 compile
@@ -498,3 +497,4 @@ run 9085
 compile
 run 9085
 exit
+run 9085

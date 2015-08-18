@@ -1035,9 +1035,10 @@ app.controller('SmellUpdateController', ['SmellService','SmellGroupService', 'St
     };
 }]);
 
-app.controller('TaskController', ['TaskService', 'ExecTaskTypeService', 'TaskPropertyService', 'ReplyErrorHandler', 'notifications','$scope','$filter', '$sce', function(TaskService, ExecTaskTypeService, TaskPropertyService, ReplyErrorHandler, notifications, $scope, $filter, $sce) {
+app.controller('TaskController', ['TaskService', 'ExecTaskTypeService', 'TaskPropertyService', 'ReplyErrorHandler', 'notifications','$scope','$filter', '$sce', 'sharedTask', function(TaskService, ExecTaskTypeService, TaskPropertyService, ReplyErrorHandler, notifications, $scope, $filter, $sce, sharedTask) {
     var orderBy = $filter('orderBy');
     $scope.tasklist = [];
+    $scope.task = sharedTask.task;
     $scope.formvisible = false;
 
     $scope.showForm = function(visible) {
@@ -1080,10 +1081,10 @@ app.controller('TaskController', ['TaskService', 'ExecTaskTypeService', 'TaskPro
     $scope.order('name', false);
 }]);
 
-app.controller('TaskAddController', ['TaskService', 'ExecTaskTypeService', 'TaskPropertyService', 'ReplyErrorHandler', 'notifications','$scope','$filter', '$sce', function(TaskService, ExecTaskTypeService, TaskPropertyService, ReplyErrorHandler, notifications, $scope, $filter, $sce) {
+app.controller('TaskAddController', ['TaskService', 'ExecTaskTypeService', 'TaskPropertyService', 'ReplyErrorHandler', 'notifications','$scope','$filter', '$sce', 'sharedTask', function(TaskService, ExecTaskTypeService, TaskPropertyService, ReplyErrorHandler, notifications, $scope, $filter, $sce, sharedTask) {
     $scope.exectasktypes = '';
     $scope.taskproperties = [];
-    $scope.task = {};
+    $scope.task = sharedTask.task;
     $scope.propertyToAdd = {};
     
     var execTypeHTML = '';
@@ -1116,9 +1117,9 @@ app.controller('TaskAddController', ['TaskService', 'ExecTaskTypeService', 'Task
     $scope.loadTaskProperties();
     
     $scope.initTask = function () {
-        $scope.task = {};
+        sharedTask.clear();
         $scope.task.properties = [];
-        $scope.propertyToAdd = {};
+        $scope.propertyToAdd = {property: {} };
     }
     $scope.initTask();
     
@@ -1139,7 +1140,7 @@ app.controller('TaskAddController', ['TaskService', 'ExecTaskTypeService', 'Task
     
     $scope.addProperty = function () {
         $scope.task.properties.push($scope.propertyToAdd);
-        $scope.propertyToAdd = {};
+        $scope.propertyToAdd = { property: {} };
     };
     
     $scope.removeProperty = function (idx) {

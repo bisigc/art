@@ -26,17 +26,17 @@
                 <th></th>
             </tr>
             <tr>
-                <td><input ng-model="search.name" placeholder="Enter search criteria" /></td>
-                <td><input ng-model="search.smells.name" id="smellname" placeholder="Enter search criteria" /></td>
-                <td><input ng-model="search.description" placeholder="Enter search criteria" /></td>
-                <td><input ng-model="search.status" id="status" placeholder="Enter search criteria" /></td>
-                <td><button type="button" class="btn btn-warning btn-sm" ng-click="search = []" popover="Clear filter fields" popover-trigger="mouseenter" popover-placement="right">clear</button></td>
+                <td><input class="form-control" ng-model="search.name" placeholder="Filter..." /></td>
+                <td><input class="form-control" ng-model="search.smells.name" id="smellname" placeholder="Filter..." /></td>
+                <td><input class="form-control" ng-model="search.description" placeholder="Filter..." /></td>
+                <td><input class="form-control" ng-model="search.status" id="status" placeholder="Filter..." /></td>
+                <td><button type="button" class="btn btn-warning btn-sm" ng-click="search = []" popover="Clear filter fields" popover-trigger="mouseenter" popover-placement="top">clear</button></td>
             </tr>
             <tr>
-                <th><a href="" ng-click="reverseName=!reverseName;order('name', reverseName)">Name <span ng-show="reverseName">&#x25B2;</span><span ng-show="!reverseName">&#x25BC;</span></a></th>
-                <th><a href="" ng-click="reverseSmells=!reverseSmells;order('smells.name', reverseSmells)">Smells <span ng-show="reverseSmells">&#x25B2;</span><span ng-show="!reverseSmells">&#x25BC;</span></a></th>
-                <th><a href="" ng-click="reverseDesc=!reverseDesc;order('description', reverseDesc)">Description <span ng-show="reverseDesc">&#x25B2;</span><span ng-show="!reverseDesc">&#x25BC;</span></a></th>
-                <th><a href="" ng-click="reverseStatus=!reverseStatus;order('status', reverseStatus)">Status <span ng-show="reverseStatus">&#x25B2;</span><span ng-show="!reverseStatus">&#x25BC;</span></a></th>
+                <th><a ng-click="reverseName=!reverseName;order('name', reverseName)">Name <span ng-show="reverseName">&#x25B2;</span><span ng-show="!reverseName">&#x25BC;</span></a></th>
+                <th><a ng-click="reverseSmells=!reverseSmells;order('smells.name', reverseSmells)">Smells <span ng-show="reverseSmells">&#x25B2;</span><span ng-show="!reverseSmells">&#x25BC;</span></a></th>
+                <th><a ng-click="reverseDesc=!reverseDesc;order('description', reverseDesc)">Description <span ng-show="reverseDesc">&#x25B2;</span><span ng-show="!reverseDesc">&#x25BC;</span></a></th>
+                <th><a ng-click="reverseStatus=!reverseStatus;order('status', reverseStatus)">Status <span ng-show="reverseStatus">&#x25B2;</span><span ng-show="!reverseStatus">&#x25BC;</span></a></th>
                 <th></th>
             </tr>
             <tr ng-repeat="ar in arlist | filter:search" ng-dblclick="$state.go('root.singlear',{id: ar.arhead})">

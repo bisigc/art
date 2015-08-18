@@ -52,8 +52,6 @@ public class Global extends GlobalSettings {
 		}
 		super.onStart(arg0);
 	}
-	
-	
 
 	/**
 	 * Overwritten inStop method. Cancels the SmellWeight Task and 
@@ -67,8 +65,6 @@ public class Global extends GlobalSettings {
 		Akka.system().shutdown();
 		super.onStop(arg0);
 	}
-
-
 
 	/**
 	 * Overwritten ethod onRequest resets the session time (in case of a logged

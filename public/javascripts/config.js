@@ -153,7 +153,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             );
 
             modalInstance.result.then(function () {
-                $state.go('^');
+                $state.go('^', {}, {reload: true});
                 //reload();
             }, function () {
                 $state.go('^');
@@ -427,7 +427,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             );
 
             modalInstance.result.then(function () {
-                $state.go('^');
+                $state.go('^', {}, {reload: true});
             }, function () {
                 $state.go('^');
             });

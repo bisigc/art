@@ -38,7 +38,7 @@
                     <fieldset class="form-group">
                         <label for="context_attr">Context (viewpoint, refinement level, enterprise architecture):</label>
                         <ui-select multiple ng-model="modelelementsvalues.context" theme="select2" style="width: 90%;">
-                            <ui-select-match placeholder="Select elements...">{{$item.name}} &lt;{{$item.link}}&gt;</ui-select-match>
+                            <ui-select-match placeholder="Select elements..."><a href="{{$item.link}}" target="_blank" ng-show="$item.link">{{$item.name}}</a><span ng-hide="$item.link">{{$item.name}}</span></ui-select-match>
                             <ui-select-choices repeat="element as element in modelelements.context | propsFilter: {name: $select.search, link: $select.search}">
                                 <div ng-bind-html="element.name | highlight: $select.search"></div>
                                 <small ng-if="element.link">
@@ -53,7 +53,7 @@
                     <fieldset class="form-group">
                         <label for="quality_attr">Quality attributes and stories (forces):</label>
                         <ui-select multiple ng-model="modelelementsvalues.qas" theme="select2" style="width: 90%;">
-                            <ui-select-match placeholder="Select elements...">{{$item.name}} &lt;{{$item.link}}&gt;</ui-select-match>
+                            <ui-select-match placeholder="Select elements..."><a href="{{$item.link}}" target="_blank" ng-show="$item.link">{{$item.name}}</a><span ng-hide="$item.link">{{$item.name}}</span></ui-select-match>
                             <ui-select-choices repeat="element as element in modelelements.qas | propsFilter: {name: $select.search, link: $select.search}">
                                 <div ng-bind-html="element.name | highlight: $select.search"></div>
                                 <small ng-if="element.link">
@@ -90,7 +90,7 @@
                     <fieldset class="form-group">
                         <label for="context_attr">Architectural decision(s) to be revisited:</label>
                         <ui-select multiple ng-model="modelelementsvalues.decisions" theme="select2" style="width: 90%;">
-                            <ui-select-match placeholder="Select elements...">{{$item.name}} &lt;{{$item.link}}&gt;</ui-select-match>
+                            <ui-select-match placeholder="Select elements..."><a href="{{$item.link}}" target="_blank" ng-show="$item.link">{{$item.name}}</a><span ng-hide="$item.link">{{$item.name}}</span></ui-select-match>
                             <ui-select-choices repeat="element as element in modelelements.decisions | propsFilter: {name: $select.search, link: $select.search}">
                                 <div ng-bind-html="element.name | highlight: $select.search"></div>
                                 <small ng-if="element.link">
@@ -111,7 +111,7 @@
                     <fieldset class="form-group">
                         <label for="context_attr">Refactoring (solution sketch/evolution outline):</label>
                         <ui-select multiple ng-model="modelelementsvalues.design" theme="select2" style="width: 90%;">
-                            <ui-select-match placeholder="Select elements...">{{$item.name}} &lt;{{$item.link}}&gt;</ui-select-match>
+                            <ui-select-match placeholder="Select elements..."><a href="{{$item.link}}" target="_blank" ng-show="$item.link">{{$item.name}}</a><span ng-hide="$item.link">{{$item.name}}</span></ui-select-match>
                             <ui-select-choices repeat="element as element in modelelements.design | propsFilter: {name: $select.search, link: $select.search}">
                                 <div ng-bind-html="element.name | highlight: $select.search"></div>
                                 <small ng-if="element.link">
@@ -132,7 +132,7 @@
                     <fieldset class="form-group">
                         <label for="context_attr">Affected components and connectors (if modelled explicitly):</label>
                         <ui-select multiple ng-model="modelelementsvalues.components" theme="select2" style="width: 90%;">
-                            <ui-select-match placeholder="Select elements...">{{$item.name}} &lt;{{$item.link}}&gt;</ui-select-match>
+                            <ui-select-match placeholder="Select elements..."><a href="{{$item.link}}" target="_blank" ng-show="$item.link">{{$item.name}}</a><span ng-hide="$item.link">{{$item.name}}</span></ui-select-match>
                             <ui-select-choices repeat="element as element in modelelements.components | propsFilter: {name: $select.search, link: $select.search}">
                                 <div ng-bind-html="element.name | highlight: $select.search"></div>
                                 <small ng-if="element.link">
@@ -171,7 +171,7 @@
                     <fieldset class="form-group">
                         <label for="context_attr">References (links):</label>
                         <ui-select multiple ng-model="modelelementsvalues.references" theme="select2" style="width: 90%;">
-                            <ui-select-match placeholder="Select references...">{{$item.name}}</ui-select-match>
+                            <ui-select-match placeholder="Select references..."><a href="{{$item.link}}" target="_blank" ng-show="$item.link">{{$item.name}}</a><span ng-hide="$item.link">{{$item.name}}</span></ui-select-match>
                             <ui-select-choices repeat="element as element in modelelements.references | propsFilter: {name: $select.search}">
                                 <div ng-bind-html="element.name | highlight: $select.search"></div>
                             </ui-select-choices>

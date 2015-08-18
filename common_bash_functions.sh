@@ -5,12 +5,12 @@
 #==                  by cbisig                ==
 #===============================================
 # Contains the following functions:
-# - log             ; Write to sysout
-# - log_e           ; Write to syout with
-# - log_w           ;
-# - log_i           ;
-# - log_d           ;
-# - shutdown_pid    ;
+# - log             ; Write a log message to sysout
+# - log_e           ; Write an error message to sysout
+# - log_w           ; Write a warning message to sysout
+# - log_i           ; Write an info message to sysout
+# - log_d           ; Write a debug message to sysout
+# - shutdown_pid    ; Shutdown a process of a given PID
 
 LEVEL_I="INFO   "
 LEVEL_W="WARNING"

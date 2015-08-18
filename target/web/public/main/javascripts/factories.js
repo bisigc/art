@@ -15,12 +15,20 @@ app.factory("isLoggedin", ['currentUser', function(currentUser) {
     }
 }]);
 
-app.factory('sharedSmell', ['notifications', function (notifications) {
+app.factory('sharedSmell', [function () {
     var smellObject = {smell: {}};
     smellObject.clear = function () {
         angular.copy({}, this.smell);
     }
     return smellObject;
+}]);
+
+app.factory('sharedTask', [function () {
+    var taskObject = {task: {}};
+    taskObject.clear = function () {
+        angular.copy({}, this.task);
+    }
+    return taskObject;
 }]);
 
 app.factory("PasswordValidator", [function() {
