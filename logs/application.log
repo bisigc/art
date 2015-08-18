@@ -433,3 +433,6 @@
 2015-08-18 12:28:00,300 [INFO] from application in application-akka.actor.default-dispatcher-162 - Scheduled job for recalculating the Smell weights has finished successfully.
 2015-08-18 12:33:00,305 [INFO] from application in application-akka.actor.default-dispatcher-162 - Scheduled job for recalculating the Smell weights has finished successfully.
 2015-08-18 12:38:00,310 [INFO] from application in application-akka.actor.default-dispatcher-162 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-18 12:43:00,314 [INFO] from application in application-akka.actor.default-dispatcher-162 - Scheduled job for recalculating the Smell weights has finished successfully.
+2015-08-18 12:47:43,868 [INFO] from play.api.libs.concurrent.ActorSystemProvider in pool-4-thread-6 - Shutdown application default Akka system: application
+2015-08-18 12:47:43,869 [INFO] from application in pool-4-thread-6 - Shutting down connection pool.
