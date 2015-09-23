@@ -1,6 +1,6 @@
 name := """art-app"""
 
-version := "1.0-SNAPSHOT"
+version := "1.0-FINAL"
 
 // Only used to be picked up from the jenkins build script to emit the webserver port.
 javaOptions in run += "-Dhttp.port=9085"
@@ -19,6 +19,9 @@ libraryDependencies ++= Seq(
   cache,
   javaWs
 )
+
+// Generates one big JAR file with all libraries. Prevents having a too long classpath string (which is an issue on windows)
+enablePlugins(ClasspathJarPlugin)
 
 // Activate dependency injected controllers and not static controllers.
 // This is a new function since play framework 2.4
