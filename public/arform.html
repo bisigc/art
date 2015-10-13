@@ -1,6 +1,9 @@
 <div>
     <div class="page-header">
-      <h1>Add Architectural Refactoring</h1>
+        <h1>{{arversion.name}}<br/>
+            <small>Architectural Refactoring Form</small>
+            <a class="btn btn-sm btn-primary pull-right" ng-if="isAllowed.check(['Admin'])" ng-click="$state.go('root.singlear',{id: arversion.arhead.id})">View AR</a>
+        </h1>
     </div>
     <div name="arFormContainer">
     	<!-- The completness progressbar will be implemented in a future version of the ART.
@@ -20,7 +23,7 @@
                 <div class="col-md-4">
                     <fieldset class="form-group">
                         <label for="group">Status</label>
-                        <ui-select ng-model="arversion.status" theme="selectize" ng-disabled="disabled" required>
+                        <ui-select ng-model="arversion.status" theme="bootstrap" ng-disabled="disabled" required>
                             <ui-select-match placeholder="Select or search a status in the list...">{{$select.selected}}</ui-select-match>
                             <ui-select-choices repeat="stat in status | filter: $select.search">
                                 <span ng-bind-html="stat | highlight: $select.search"></span>
@@ -29,157 +32,146 @@
                     </fieldset>
                 </div>
             </div>
-            <fieldset class="form-group">
-                <label for="description">Description (max. length 10'000)</label>
-                <text-angular name="ardescription" ng-model="arversion.description" ta-max-text="10000"></text-angular>
-            </fieldset>
             <div class="row">
                 <div class="col-md-6">
-                    <fieldset class="form-group">
+                    <div class="form-group">
                         <label for="context_attr">Context (viewpoint, refinement level, enterprise architecture):</label>
-                        <ui-select multiple ng-model="modelelementsvalues.context" theme="select2" style="width: 90%;">
-                            <ui-select-match placeholder="Select elements..."><a href="{{$item.link}}" target="_blank" ng-show="$item.link">{{$item.name}}</a><span ng-hide="$item.link">{{$item.name}}</span></ui-select-match>
-                            <ui-select-choices repeat="element as element in modelelements.context | propsFilter: {name: $select.search, link: $select.search}">
-                                <div ng-bind-html="element.name | highlight: $select.search"></div>
-                                <small ng-if="element.link">
-                                    link: <span ng-bind-html="element.link | highlight: $select.search"></span>
-                                </small>
-                            </ui-select-choices>
-                        </ui-select>
-                        <a ng-click="openPropModal('ContextElementLink')" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></a>
-                    </fieldset>
+                        <div class="input-group">
+                            <ui-select multiple ng-model="modelelementsvalues.context" theme="bootstrap">
+                                <ui-select-match placeholder="Select elements..."><a href="{{$item.link}}" target="_blank" ng-show="$item.link">{{$item.name}}</a><span ng-hide="$item.link">{{$item.name}}</span></ui-select-match>
+                                <ui-select-choices repeat="element as element in modelelements.context | propsFilter: {name: $select.search, link: $select.search}">
+                                    <div ng-bind-html="element.name | highlight: $select.search"></div>
+                                    <small ng-if="element.link">
+                                        link: <span ng-bind-html="element.link | highlight: $select.search"></span>
+                                    </small>
+                                </ui-select-choices>
+                            </ui-select>
+                            <div class="input-group-btn">
+                                <a ng-click="openPropModal('ContextElementLink')" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-6">
-                    <fieldset class="form-group">
+                    <div class="form-group">
                         <label for="quality_attr">Quality attributes and stories (forces):</label>
-                        <ui-select multiple ng-model="modelelementsvalues.qas" theme="select2" style="width: 90%;">
-                            <ui-select-match placeholder="Select elements..."><a href="{{$item.link}}" target="_blank" ng-show="$item.link">{{$item.name}}</a><span ng-hide="$item.link">{{$item.name}}</span></ui-select-match>
-                            <ui-select-choices repeat="element as element in modelelements.qas | propsFilter: {name: $select.search, link: $select.search}">
-                                <div ng-bind-html="element.name | highlight: $select.search"></div>
-                                <small ng-if="element.link">
-                                    link: <span ng-bind-html="element.link | highlight: $select.search"></span>
-                                </small>
-                            </ui-select-choices>
-                        </ui-select>
-                        <a ng-click="openPropModal('QASElementLink')" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></a>
-                    </fieldset>
+                        <div class="input-group">
+                            <ui-select multiple ng-model="modelelementsvalues.qas" theme="bootstrap">
+                                <ui-select-match placeholder="Select elements..."><a href="{{$item.link}}" target="_blank" ng-show="$item.link">{{$item.name}}</a><span ng-hide="$item.link">{{$item.name}}</span></ui-select-match>
+                                <ui-select-choices repeat="element as element in modelelements.qas | propsFilter: {name: $select.search, link: $select.search}">
+                                    <div ng-bind-html="element.name | highlight: $select.search"></div>
+                                    <small ng-if="element.link">
+                                        link: <span ng-bind-html="element.link | highlight: $select.search"></span>
+                                    </small>
+                                </ui-select-choices>
+                            </ui-select>
+                            <div class="input-group-btn">
+                                <a ng-click="openPropModal('QASElementLink')" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-3">
-                </div>
-                <div class="col-md-6">
-                    <fieldset class="form-group">
+                <div class="col-md-12">
+                    <div class="form-group">
                         <label for="context_attr">Smells (refactoring drivers):</label>
-                        <ui-select multiple ng-model="arversion.smells" theme="select2" style="width: 90%;">
-                            <ui-select-match placeholder="Select smells...">{{$item.name}}</ui-select-match>
-                            <ui-select-choices repeat="element as element in smells | propsFilter: {name: $select.search}">
-                                <div ng-bind-html="element.name | highlight: $select.search"></div>
-                            </ui-select-choices>
-                        </ui-select>
-                        <a ng-click="openSmellModal()" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></a>
-                    </fieldset>
-                </div>
-                <div class="col-md-3">
+                        <div class="input-group">
+                            <ui-select multiple ng-model="arversion.smells" theme="bootstrap">
+                                <ui-select-match placeholder="Select smells...">{{$item.name}}</ui-select-match>
+                                <ui-select-choices repeat="element as element in smells | propsFilter: {name: $select.search}">
+                                    <div ng-bind-html="element.name | highlight: $select.search"></div>
+                                </ui-select-choices>
+                            </ui-select>
+                            <div class="input-group-btn">
+                                <a ng-click="openSmellModal()" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="description">Description (max. length 10'000)</label>
+                        <text-angular name="ardescription" ng-model="arversion.description" ta-max-text="10000"></text-angular>
+                    </div>
                 </div>
+            </div>
+            <div class="row">
                 <div class="col-md-6">
-                    <fieldset class="form-group">
+                    <div class="form-group">
                         <label for="context_attr">Architectural decision(s) to be revisited:</label>
-                        <ui-select multiple ng-model="modelelementsvalues.decisions" theme="select2" style="width: 90%;">
-                            <ui-select-match placeholder="Select elements..."><a href="{{$item.link}}" target="_blank" ng-show="$item.link">{{$item.name}}</a><span ng-hide="$item.link">{{$item.name}}</span></ui-select-match>
-                            <ui-select-choices repeat="element as element in modelelements.decisions | propsFilter: {name: $select.search, link: $select.search}">
-                                <div ng-bind-html="element.name | highlight: $select.search"></div>
-                                <small ng-if="element.link">
-                                    link: <span ng-bind-html="element.link | highlight: $select.search"></span>
-                                </small>
-                            </ui-select-choices>
-                        </ui-select>
-                        <a ng-click="openPropModal('DecisionElementLink')" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></a>
-                    </fieldset>
-                </div>
-                <div class="col-md-3">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3">
+                        <div class="input-group">
+                            <ui-select multiple ng-model="modelelementsvalues.decisions" theme="bootstrap">
+                                <ui-select-match placeholder="Select elements..."><a href="{{$item.link}}" target="_blank" ng-show="$item.link">{{$item.name}}</a><span ng-hide="$item.link">{{$item.name}}</span></ui-select-match>
+                                <ui-select-choices repeat="element as element in modelelements.decisions | propsFilter: {name: $select.search, link: $select.search}">
+                                    <div ng-bind-html="element.name | highlight: $select.search"></div>
+                                    <small ng-if="element.link">
+                                        link: <span ng-bind-html="element.link | highlight: $select.search"></span>
+                                    </small>
+                                </ui-select-choices>
+                            </ui-select>
+                            <div class="input-group-btn">
+                                <a ng-click="openPropModal('DecisionElementLink')" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-6">
-                    <fieldset class="form-group">
-                        <label for="context_attr">Refactoring (solution sketch/evolution outline):</label>
-                        <ui-select multiple ng-model="modelelementsvalues.design" theme="select2" style="width: 90%;">
-                            <ui-select-match placeholder="Select elements..."><a href="{{$item.link}}" target="_blank" ng-show="$item.link">{{$item.name}}</a><span ng-hide="$item.link">{{$item.name}}</span></ui-select-match>
-                            <ui-select-choices repeat="element as element in modelelements.design | propsFilter: {name: $select.search, link: $select.search}">
-                                <div ng-bind-html="element.name | highlight: $select.search"></div>
-                                <small ng-if="element.link">
-                                    link: <span ng-bind-html="element.link | highlight: $select.search"></span>
-                                </small>
-                            </ui-select-choices>
-                        </ui-select>
-                        <a ng-click="openPropModal('DesignElementLink')" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></a>
-                    </fieldset>
-                </div>
-                <div class="col-md-3">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                </div>
-                <div class="col-md-6">
-                    <fieldset class="form-group">
+                    <div class="form-group">
                         <label for="context_attr">Affected components and connectors (if modelled explicitly):</label>
-                        <ui-select multiple ng-model="modelelementsvalues.components" theme="select2" style="width: 90%;">
-                            <ui-select-match placeholder="Select elements..."><a href="{{$item.link}}" target="_blank" ng-show="$item.link">{{$item.name}}</a><span ng-hide="$item.link">{{$item.name}}</span></ui-select-match>
-                            <ui-select-choices repeat="element as element in modelelements.components | propsFilter: {name: $select.search, link: $select.search}">
-                                <div ng-bind-html="element.name | highlight: $select.search"></div>
-                                <small ng-if="element.link">
-                                    link: <span ng-bind-html="element.link | highlight: $select.search"></span>
-                                </small>
-                            </ui-select-choices>
-                        </ui-select>
-                        <a ng-click="openPropModal('ComponentElementLink')" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></a>
-                    </fieldset>
-                </div>
-                <div class="col-md-3">
+                        <div class="input-group">
+                            <ui-select multiple ng-model="modelelementsvalues.components" theme="bootstrap">
+                                <ui-select-match placeholder="Select elements..."><a href="{{$item.link}}" target="_blank" ng-show="$item.link">{{$item.name}}</a><span ng-hide="$item.link">{{$item.name}}</span></ui-select-match>
+                                <ui-select-choices repeat="element as element in modelelements.components | propsFilter: {name: $select.search, link: $select.search}">
+                                    <div ng-bind-html="element.name | highlight: $select.search"></div>
+                                    <small ng-if="element.link">
+                                        link: <span ng-bind-html="element.link | highlight: $select.search"></span>
+                                    </small>
+                                </ui-select-choices>
+                            </ui-select>
+                            <div class="input-group-btn">
+                                <a ng-click="openPropModal('ComponentElementLink')" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-3">
-                </div>
-                <div class="col-md-6">
-                    <fieldset class="form-group">
+                <div class="col-md-12">
+                    <div class="form-group">
                         <label for="context_attr">Execution tasks:</label>
-                        <ui-select multiple ng-model="arversion.tasks" theme="select2" style="width: 90%;">
-                            <ui-select-match placeholder="Select tasks...">{{$item.name}}</ui-select-match>
-                            <ui-select-choices repeat="element as element in tasks | propsFilter: {name: $select.search}">
-                                <div ng-bind-html="element.name | highlight: $select.search"></div>
-                            </ui-select-choices>
-                        </ui-select>
-                        <a ng-click="openTaskModal()" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></a>
-                    </fieldset>
-                </div>
-                <div class="col-md-3">
+                        <div class="input-group">
+                            <ui-select multiple ng-model="arversion.tasks" theme="bootstrap">
+                                <ui-select-match placeholder="Select tasks...">{{$item.name}}</ui-select-match>
+                                <ui-select-choices repeat="element as element in tasks | propsFilter: {name: $select.search}">
+                                    <div ng-bind-html="element.name | highlight: $select.search"></div>
+                                </ui-select-choices>
+                            </ui-select>
+                            <div class="input-group-btn">
+                                <a ng-click="openTaskModal()" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-3">
-                </div>
-                <div class="col-md-6">
-                    <fieldset class="form-group">
+                <div class="col-md-12">
+                    <div class="form-group">
                         <label for="context_attr">References (links):</label>
-                        <ui-select multiple ng-model="modelelementsvalues.references" theme="select2" style="width: 90%;">
-                            <ui-select-match placeholder="Select references..."><a href="{{$item.link}}" target="_blank" ng-show="$item.link">{{$item.name}}</a><span ng-hide="$item.link">{{$item.name}}</span></ui-select-match>
-                            <ui-select-choices repeat="element as element in modelelements.references | propsFilter: {name: $select.search}">
-                                <div ng-bind-html="element.name | highlight: $select.search"></div>
-                            </ui-select-choices>
-                        </ui-select>
-                        <a ng-click="openPropModal('ReferenceElementLink')" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></a>
-                    </fieldset>
-                </div>
-                <div class="col-md-3">
+                        <div class="input-group">
+                            <ui-select multiple ng-model="modelelementsvalues.references" theme="bootstrap">
+                                <ui-select-match placeholder="Select references..."><a href="{{$item.link}}" target="_blank" ng-show="$item.link">{{$item.name}}</a><span ng-hide="$item.link">{{$item.name}}</span></ui-select-match>
+                                <ui-select-choices repeat="element as element in modelelements.references | propsFilter: {name: $select.search}">
+                                    <div ng-bind-html="element.name | highlight: $select.search"></div>
+                                </ui-select-choices>
+                            </ui-select>
+                            <div class="input-group-btn">
+                                <a ng-click="openPropModal('ReferenceElementLink')" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <fieldset class="form-group pull-right">

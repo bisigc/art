@@ -57,18 +57,19 @@ VALUES ("Question1",1),
        ("Question26",4);
 
 INSERT INTO Menuitem
-        (id, name,            fullname,                tooltip,                               image,                        type,           url,   pos,     ordering, menuitem_id)
-VALUES  (1,  'root',               'Root',                  '',                                    '',                           'root',         '',    '',      0,        1),
-        (3,  'root.arbrowser',     'AR Browser',            'Architectural Refactoring Browser',   '',                           'include',      '',    'left',  10,       1),
-        (4,  'root.smellbrowser',  'Smell Browser',         '',                                    '',                           'include',      '',    'left',  15,       1),
-        (5,  'root.taskbrowser',   'Task Browser',          '',                                    '',                           'include',      '',    'left',  25,       1),
-        (6,  'root.smellassess',   'Smell Self-Assessment', 'Refactoring Qualification',           '',                           'include',      '',    'left',  30,       1),
-        (7,  'root.admin',         'Admin',                 '',                                    '',                           'dropdown',     '',    'left',  40,       1),
-        (9,  'root.exectypes',     'Execution Task Types',  'Edit Execution Task Types',           '',                           'include',      '',    'left',  10,       7),
-        (10, 'root.modelelement',  'AR Meta Data',          '',                                    '',                           'include',      '',    'left',  15,       7),
-        (12, 'root.about',         'About',                 '',                                    '',                           'include',      '',    'left',  45,       1),
-        (13, 'root.profile',       'Profile',               '',                                    '',                           'include',      '',    'right', 50,       1),
-        (14, 'root.login',         'Login',                 '',                                    '',                           'login-logout', '',    'right', 55,       1);
+        (id, name,                 fullname,                tooltip,                               roles,          image,                        type,           url,   pos,     ordering, menuitem_id)
+VALUES  (1,  'root',               'Root',                  '',                                    '',             '',                           'root',         '',    '',      0,        1),
+        (3,  'root.arbrowser',     'AR Browser',            'Architectural Refactoring Browser',   '',             '',                           'include',      '',    'left',  10,       1),
+        (4,  'root.smellbrowser',  'Smell Browser',         '',                                    '',             '',                           'include',      '',    'left',  15,       1),
+        (5,  'root.taskbrowser',   'Task Browser',          '',                                    '',             '',                           'include',      '',    'left',  25,       1),
+        (6,  'root.smellassess',   'Smell Self-Assessment', 'Refactoring Qualification',           '',             '',                           'include',      '',    'left',  30,       1),
+        (7,  'root.admin',         'Admin',                 '',                                    'Admin,Editor', '',                           'dropdown',     '',    'left',  40,       1),
+        (9,  'root.exectypes',     'Execution Task Types',  'Edit Execution Task Types',           'Admin,Editor', '',                           'include',      '',    'left',  10,       7),
+        (10, 'root.modelelement',  'AR Meta Data',          '',                                    'Admin,Editor', '',                           'include',      '',    'left',  15,       7),
+        (11, 'root.smellgroup',    'Smell Groups',          '',                                    'Admin,Editor', '',                           'include',      '',    'left',  20,       7),
+        (12, 'root.about',         'About',                 '',                                    '',             '',                           'include',      '',    'left',  45,       1),
+        (13, 'root.profile',       'Profile',               '',                                    '',             '',                           'include',      '',    'right', 50,       1),
+        (14, 'root.login',         'Login',                 '',                                    '',             '',                           'login-logout', '',    'right', 55,       1);
 
 INSERT INTO Role
        (id, name, description)
@@ -196,8 +197,8 @@ VALUES (1,  'Design Task',           8, 1),  (2,  'high',   10, 1),  (3,  '20h',
        (19, 'Integration Task',      8, 7),  (20, 'high',   10, 7),  (21, '8h',  12, 7),
        (22, 'Commercial Task',       8, 8),  (23, 'high',   10, 8),  (24, '40h', 12, 8),
        (25, 'Measurement Task',      8, 9),  (26, 'medium', 10, 9),  (27, '3h',  12, 9),
-       (28, 'Design Task',           8, 10), (29, 'medium', 10, 10), (30, '1h',  12, 10),
-       (31, 'Systemmanagement Task', 8, 11), (32, 'low',    10, 11), (33, '19h', 12, 11);
+       (28, 'Design Task',           8, 10), (29, 'medium', 10, 10), (30, '1h',  12, 10), (31, 'The project leader or the software architect calls a meeting with all project stakeholders and responsibles. The meeting is used to give the last feedback to the Software architecture Document which has been spread beforehand. After that the architecture has to be signed off by all stakeholders. Make sure all major issues were discussed and resolved before the meeting, so no delay in the sign off can occur.', 9, 10),
+       (32, 'Systemmanagement Task', 8, 11), (33, 'low',    10, 11), (34, '19h', 12, 11);
 
 INSERT INTO Ar
        (id)
@@ -269,27 +270,20 @@ VALUES (1,  'ContextElementLink',   NULL,   'Context View'),
        (23, 'DecisionElementLink',  NULL,   'Choice of thirdparty vendor'),
        (24, 'DecisionElementLink',  NULL,   'Approach to threading (concurrency management)'),
        (25, 'DecisionElementLink',  NULL,   'Approach to resource protection'),
-       (26, 'DesignElementLink',    NULL,   'Switch processor (server) architecture to x86'),
-       (27, 'DesignElementLink',    NULL,   'Redesign application(s) threading behaviour'),
-       (28, 'DesignElementLink',    NULL,   'Reduce used middleware components'),
-       (29, 'DesignElementLink',    NULL,   'Create standalone application'),
-       (30, 'DesignElementLink',    NULL,   'Provide service'),
-       (31, 'DesignElementLink',    NULL,   'Implement threadpooling'),
-       (32, 'DesignElementLink',    NULL,   'Re-evaluate existing libraries with respect to threadsafe property'),
-       (33, 'ComponentElementLink', NULL,   'Hardware (server)'),
-       (34, 'ComponentElementLink', NULL,   'Application software (Business software)'),
-       (35, 'ComponentElementLink', NULL,   'Operating system'),
-       (36, 'ComponentElementLink', NULL,   'Middleware'),
-       (37, 'ComponentElementLink', NULL,   'Interfaces'),
-       (38, 'ComponentElementLink', NULL,   'Scheduler'),
-       (39, 'ComponentElementLink', NULL,   'Other applications'),
-       (40, 'ComponentElementLink', NULL,   'Quality assurance of service'),
-       (41, 'ComponentElementLink', NULL,   'Unit of work'),
-       (42, 'ReferenceElementLink', NULL,   'Software Systems Architecture [Rozanski & Woods]'),
-       (43, 'ReferenceElementLink', NULL,   'Applying UML and Patterns [Larman]'),
-       (44, 'ReferenceElementLink', NULL,   'UML Distilled [Fowler]'),
-       (45, 'ReferenceElementLink', NULL,   'Refactoring To Patterns [Kerievsky]'),
-       (46, 'ReferenceElementLink', NULL,   'Just Enough Software Architecture [Fairbanks]');
+       (26, 'ComponentElementLink', NULL,   'Hardware (server)'),
+       (27, 'ComponentElementLink', NULL,   'Application software (Business software)'),
+       (28, 'ComponentElementLink', NULL,   'Operating system'),
+       (29, 'ComponentElementLink', NULL,   'Middleware'),
+       (30, 'ComponentElementLink', NULL,   'Interfaces'),
+       (31, 'ComponentElementLink', NULL,   'Scheduler'),
+       (32, 'ComponentElementLink', NULL,   'Other applications'),
+       (33, 'ComponentElementLink', NULL,   'Quality assurance of service'),
+       (34, 'ComponentElementLink', NULL,   'Unit of work'),
+       (35, 'ReferenceElementLink', NULL,   'Software Systems Architecture [Rozanski & Woods]'),
+       (36, 'ReferenceElementLink', NULL,   'Applying UML and Patterns [Larman]'),
+       (37, 'ReferenceElementLink', NULL,   'UML Distilled [Fowler]'),
+       (38, 'ReferenceElementLink', NULL,   'Refactoring To Patterns [Kerievsky]'),
+       (39, 'ReferenceElementLink', NULL,   'Just Enough Software Architecture [Fairbanks]');
 
 INSERT INTO Discussion
        (id, type, ar_id, created)

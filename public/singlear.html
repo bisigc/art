@@ -1,22 +1,30 @@
 <div>
     <div>
         <div class="page-header">
-            <h1>Architectural Refactoring View<br/>
-                <small>{{currentar.name}}</small>
+            <h1>{{currentar.name}}<br/>
+                <small>Architectural Refactoring View</small>
+                <a class="btn btn-sm btn-danger pull-right" ng-if="isAllowed.check(['Admin'])" ng-click="deleteAr(ar.id)">Delete whole AR</a>
             </h1>
         </div>
         <ul class="nav nav-tabs nav-justified">
-            <li role="presentation" ng-class="{active:currentar.id == arversion.id}" ng-repeat="arversion in ar.versions track by $index"><a href ng-click="setCurrentAr($index)"><span class="label label-info pull-right" ng-if="$index === 0">newest</span>Version<br/>{{arversion.created | date:'yyyy-MM-dd HH:mm:ss'}}</a></li>
+            <li role="presentation" ng-class="{active:currentar.id == arversion.id}" ng-repeat="arversion in ar.versions track by $index">
+                <a href ng-click="setCurrentAr($index)"><span class="label label-info pull-right" ng-if="$index === 0">newest</span>Version<br/>{{arversion.created | date:'yyyy-MM-dd HH:mm:ss'}}</a>
+            </li>
         </ul>
     </div>
     <div class="tab-content">
-        <div class="row" ng-if="isAllowed.check(['Admin','Editor'])">
-            <div class="col-md-7"></div>
-            <div class="col-md-5">
-                <p class="pull-right">
-                    <a class="btn btn-warning" ng-if="isAllowed.check(['Admin'])" ng-click="deleteArVersion(currentar.id)">Delete this version</a>
-                    <a class="btn btn-primary" ui-sref="root.addar({id: currentar.id})">Create new version out of this</a>
-                </p>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a class="btn btn-sm btn-primary" ng-href="{{ _contextPath + 'arversion/pdf/' + currentar.id}}" uib-tooltip="Download AR as PDF"><span class="glyphicon glyphicon-file"></span></a>
+                        <p class="pull-right" ng-if="isAllowed.check(['Admin','Editor'])">
+                            <a class="btn btn-sm btn-primary" ng-click="$state.go('root.aredit',{id: currentar.id})">Edit AR</a>
+                            <a class="btn btn-sm btn-primary" ui-sref="root.addar({id: currentar.id})">Create new version out of this</a>
+                            <a class="btn btn-sm btn-warning" ng-if="isAllowed.check(['Admin'])" ng-click="deleteArVersion(currentar.id)" ng-show="ar.versions.length > 1">Delete this version</a>
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">
@@ -103,18 +111,6 @@
             <div class="col-md-6">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Refactoring (solution sketch/evolution outline):</h3>
-                    </div>
-                    <ul class="list-group" ng-repeat="prop in currentar.properties | arPropFilter:'DesignElementLink'">
-                        <li class="list-group-item">{{prop.name}}<br/><small><a ng-href="{{prop.link}}" target="_blank">{{prop.link}}</a></small></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
                         <h3 class="panel-title">Affected components and connectors (if modelled explicitly):</h3>
                     </div>
                     <ul class="list-group" ng-repeat="prop in currentar.properties | arPropFilter:'ComponentElementLink'">
@@ -122,7 +118,9 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md-6">
+        </div>
+        <div class="row">
+            <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">Execution tasks</h3>
@@ -147,7 +145,16 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <button type="submit" class="btn btn-primary pull-right" ng-click="$state.go('root.aredit',{id: currentar.id})" ng-if="isAllowed.check(['Admin','Editor'])">Edit AR</button>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a class="btn btn-sm btn-primary" ng-href="{{ _contextPath + 'arversion/pdf/' + currentar.id}}" uib-tooltip="Download AR as PDF"><span class="glyphicon glyphicon-file"></span></a>
+                        <p class="pull-right" ng-if="isAllowed.check(['Admin','Editor'])">
+                            <a class="btn btn-sm btn-primary" ng-click="$state.go('root.aredit',{id: currentar.id})">Edit AR</a>
+                            <a class="btn btn-sm btn-primary" ui-sref="root.addar({id: currentar.id})">Create new version out of this</a>
+                            <a class="btn btn-sm btn-warning" ng-if="isAllowed.check(['Admin'])" ng-click="deleteArVersion(currentar.id)" ng-show="ar.versions.length > 1">Delete this version</a>
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
         <div ui-view="discussionView"></div>

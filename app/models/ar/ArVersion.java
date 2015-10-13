@@ -11,6 +11,9 @@ import javax.persistence.Enumerated;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import models.AbstractModel;
 import models.ar.element.ModelElementLink;
@@ -20,13 +23,12 @@ import models.status.ItemStatus;
 import models.task.TaskTemplate;
 import models.user.User;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 /**
  * Data model representing an Architectural Refactoring.
  * 
  * @author cbi
  */
+@XmlRootElement
 @Entity
 public class ArVersion extends AbstractModel {
 

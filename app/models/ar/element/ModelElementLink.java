@@ -20,7 +20,6 @@ public class ModelElementLink extends AbstractModel {
 		QASElementLink, 
 		ContextElementLink,
 		DecisionElementLink, 
-		DesignElementLink,
 		ComponentElementLink,
 		ReferenceElementLink
 	}

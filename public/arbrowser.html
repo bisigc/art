@@ -23,7 +23,7 @@
 	                    <td><input class="form-control" ng-model="search.description" placeholder="Filter..." /></td>
 	                    <td><input class="form-control" ng-model="search.smells.name" id="smellname" placeholder="Filter..." /></td>
 	                    <td><input class="form-control" ng-model="search.status" id="status" placeholder="Filter..." /></td>
-	                    <td><button type="button" class="btn btn-warning btn-sm" ng-click="search = []" popover="Clear filter fields" popover-trigger="mouseenter" popover-placement="right">clear</button></td>
+	                    <td><button type="button" class="btn btn-warning btn-sm" ng-click="search = []" uib-popover="Clear filter fields" popover-trigger="mouseenter" popover-placement="right">clear</button></td>
 	                </tr>
 	                <tr>
 	                    <th><a ng-click="reverseName=!reverseName;order('name', reverseName)">Name <span ng-show="reverseName">&#x25B2;</span><span ng-show="!reverseName">&#x25BC;</span></a></th>
@@ -33,8 +33,13 @@
 	                    <th></th>
 	                </tr>
 	                <tr ng-repeat="ar in arlist | filter:search" ng-dblclick="$state.go('root.singlear',{id: ar.arhead.id})">
-	                    <td><a ui-sref="root.singlear({id: ar.arhead.id})">{{ar.name | limit: 20}}</a></td>
-	                    <td>{{ar.description | limitHtml: 20 }}</td>
+	                    <td><a ui-sref="root.singlear({id: ar.arhead.id})" uib-tooltip="{{ar.name}}">{{ar.name | limit: 20}}</a></td>
+	                    <td>
+                            <script id="popoverdesc.html" type="text/ng-template">
+                                <div ng-bind-html="ar.description | toSafeHtml"></div>
+                            </script>
+                            <span uib-popover-template="'popoverdesc.html'" popover-title="Full description" popover-trigger="mouseenter" popover-placement="bottom">{{ar.description | limitHtml: 20 }}</span>
+                        </td>
 	                    <td><span ng-repeat="smell in ar.smells track by $index"><a ui-sref="root.singlesmell({id: smell.id})">{{smell.name}}</a><span ng-if="ar.smells.length - 1 != $index">, </span></span></td>
 	                    <td>{{ar.status}}</td>
 	                    <td><a ui-sref="root.aredit({id: ar.id})" ng-if="isAllowed.check(['Admin','Editor'])"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;<a href ng-click="deleteAr(ar.arhead.id)" ng-if="isAllowed.check(['Admin'])"><span class="glyphicon glyphicon-trash"></span></a></td>
@@ -44,7 +49,7 @@
         </div>
         <div class="col-md-4">
             <div class="panel panel-default">
-                <div class="panel-heading">Smell Cloud <span ng-bind-html="cloudcallstatus"></span><span class="pull-right"><i class="glyphicon glyphicon-info-sign" popover="Click on a Smell-Tag in the Cloud to filter the ARs" popover-trigger="mouseenter" popover-placement="top" popover-append-to-body></i></span></div>
+                <div class="panel-heading">Smell Cloud <span ng-bind-html="cloudcallstatus"></span><span class="pull-right"><i class="glyphicon glyphicon-info-sign" uib-popover="Click on a Smell-Tag in the Cloud to filter the ARs" popover-trigger="mouseenter" popover-placement="top" popover-append-to-body></i></span></div>
                 <div class="panel-body">
                     <jqcloud words="words" width="320" height="320" steps="6"></jqcloud>
                 </div>

@@ -25,6 +25,7 @@ public class Menuitem extends AbstractModel {
 	private String			name;
 	private String 			fullname;
 	private String			tooltip;
+	private String			roles;
 	private String			image;
 	private String 			type;
 	private String			url;
@@ -40,6 +41,8 @@ public class Menuitem extends AbstractModel {
 	public void setFullname(String fullname) { this.fullname = fullname; }
 	public String getTooltip() { return tooltip; }
 	public void setTooltip(String tooltip) { this.tooltip = tooltip; }
+	public String getRoles() { return roles; }
+	public void setRoles(String roles) { this.roles = roles; }
 	public String getImage() { return image; }
 	public void setImage(String image) { this.image = image; }
 	public String getType() { return type; }

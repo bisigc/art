@@ -7,12 +7,12 @@ var setSmell = function(smell){
 };
 
 app.controller('LoginController', ['UserService', 'ReplyErrorHandler', 'notifications', '$scope', '$state', 'currentUser', function(UserService, ReplyErrorHandler, notifications, $scope, $state, currentUser){
-    $scope.logindata = {"email":"cbisig@hsr.ch","password":"test"};
+    $scope.logindata = {"email":"cbisig@hsr.ch","password":"test","keeploggedin":1};
     $scope.login = function(form) {
         UserService.login.login($scope.logindata,function(data, status, headers, config) {
             currentUser.profile = data;
             notifications.showSuccess("Logged in");
-            $scope.logindata = {"email":"","password":""};
+            $scope.logindata = {"email":"","password":"","keeploggedin":1};
             form.$setPristine();
             //$scope.loginform.$setPristine();
             if(currentUser.profile.startpage == "stay") {
@@ -131,7 +131,7 @@ app.controller('StatsController', ['StatisticService', 'ReplyErrorHandler', 'not
     }, ReplyErrorHandler); 
 }]);
 
-app.controller('ArViewController', ['ArService', 'ArVersionService', 'ReplyErrorHandler', '$stateParams', 'notifications', '$scope', '$filter', function(ArService, ArVersionService, ReplyErrorHandler, $stateParams, notifications, $scope, $filter) {
+app.controller('ArViewController', ['ArService', 'ReplyErrorHandler', '$stateParams', '$state', 'notifications', '$scope', '$filter', 'ConfirmModal', function(ArService, ReplyErrorHandler, $stateParams, $state, notifications, $scope, $filter, ConfirmModal) {
     var orderBy = $filter('orderBy');
     $scope.ar = {};
     $scope.discussion_id;
@@ -154,11 +154,35 @@ app.controller('ArViewController', ['ArService', 'ArVersionService', 'ReplyError
     }
     $scope.loadAr();
     
+    $scope.deleteAr = function(id) {
+        ConfirmModal.showModal({}, {headerText: 'Confirm', bodyText: 'Are you sure you want to delete the whole AR?'}).then(function (result) {
+            ArService.id.delete({id: id},function(data, status, headers, config) {
+                notifications.showSuccess("Ar " + id + " has been deleted.");
+                $state.go('root.arbrowser');
+            }, ReplyErrorHandler);
+        }, function() {notifications.showInfo("Deleted canceled.")});
+    }
+    
     $scope.deleteArVersion = function(id) {
-        ArVersionService.id.delete({id: id},function(data, status, headers, config) {
-            notifications.showSuccess("ArVersion " + id + " has been deleted.");
-            $scope.loadAr();
-        }, ReplyErrorHandler);
+        ConfirmModal.showModal({}, {headerText: 'Confirm', bodyText: 'Are you sure you want to delete this ArVersion?'}).then(function (result) {
+            for(var i = 0, max = $scope.ar.versions.length; i < max; i++) {
+                var a = $scope.ar.versions[i];
+
+                if(a.id === id) {
+                    $scope.ar.versions.splice(i, 1);
+                    break;
+                }
+            }
+
+            ArService.noid.update($scope.ar,function(data, status, headers, config) {
+                notifications.showSuccess("ArVersion " + id + " has been removed.");
+                $scope.loadAr();
+            }, ReplyErrorHandler);
+            /*ArVersionService.id.delete({id: id},function(data, status, headers, config) {
+                notifications.showSuccess("ArVersion " + id + " has been deleted.");
+                $scope.loadAr();
+            }, ReplyErrorHandler);*/
+        }, function() {notifications.showInfo("Deleted canceled.")});
     }
 
 }]);
@@ -210,7 +234,7 @@ app.controller('DiscussionController', ['DiscussionService', 'CommentService', '
     }, ReplyErrorHandler);*/
 }]);
 
-app.controller('ARController', ['ArService', 'ArVersionService', 'CloudSmells', 'ReplyErrorHandler', 'notifications','$scope','$filter', function(ArService, ArVersionService, CloudSmells, ReplyErrorHandler, notifications, $scope, $filter) {
+app.controller('ARController', ['ArService', 'ArVersionService', 'CloudSmells', 'ReplyErrorHandler', 'notifications','$scope','$filter', 'ConfirmModal', function(ArService, ArVersionService, CloudSmells, ReplyErrorHandler, notifications, $scope, $filter, ConfirmModal) {
     var orderBy = $filter('orderBy');
     $scope.arlist = []; //ars;
     this.formvisible = true;
@@ -262,14 +286,19 @@ app.controller('ARController', ['ArService', 'ArVersionService', 'CloudSmells', 
             this.arlist.push(this.ar);
             this.ar = {};
         };*/
-    
     $scope.deleteAr = function(id) {
-        ArService.id.delete({id: id}, function(data, status, headers, config) {
-            notifications.showSuccess("Delete of AR with id " + id + " and his versions succsessful.");
-            $scope.loadArs();
-        }, ReplyErrorHandler);  
-    }
-
+        ConfirmModal.showModal({}, {headerText: 'Confirm', bodyText: 'Are you sure you want to delete the whole AR?'}).then(function (result) {
+            ArService.id.delete({id: id}, function(data, status, headers, config) {
+                notifications.showSuccess("Delete of AR with id " + id + " and his versions succsessful.");
+                $scope.loadArs();
+            }, ReplyErrorHandler);  
+        }, function() {notifications.showInfo("Deleted canceled.")});
+    };
+    
+    $scope.getPDF = function(id) {
+        ArVersionService.id.pdf({id: id}, function(data, status, headers, config) {
+        }, ReplyErrorHandler);
+    };
 }]);
 
 app.controller('AREditController', ['ArService', 'ArVersionService', 'SmellService', 'TaskService', 'StatusService', 'ModelElementService', 'StatusService', 'ReplyErrorHandler', 'notifications', '$scope', '$stateParams', '$filter', 'PropModal', 'SmellModal', 'TaskModal', function(ArService, ArVersionService, SmellService, TaskService, StatusService, ModelElementService, StatusService, ReplyErrorHandler, notifications, $scope, $stateParams, $filter, PropModal, SmellModal, TaskModal) {
@@ -292,7 +321,6 @@ app.controller('AREditController', ['ArService', 'ArVersionService', 'SmellServi
     $scope.modelelementsvalues.context = [];
     $scope.modelelementsvalues.components = [];
     $scope.modelelementsvalues.decisions = [];
-    $scope.modelelementsvalues.design = [];
     $scope.modelelementsvalues.references = [];
     
     $scope.loadArVersion = function() {
@@ -300,9 +328,8 @@ app.controller('AREditController', ['ArService', 'ArVersionService', 'SmellServi
             $scope.arversion = data;
             $scope.modelelementsvalues.qas = $filter('arPropFilter')($scope.arversion.properties, 'QASElementLink');
             $scope.modelelementsvalues.context = $filter('arPropFilter')($scope.arversion.properties, 'ContextElementLink');
-            $scope.modelelementsvalues.components = $filter('arPropFilter')($scope.arversion.properties, 'DecisionElementLink');
-            $scope.modelelementsvalues.decisions = $filter('arPropFilter')($scope.arversion.properties, 'DesignElementLink');
-            $scope.modelelementsvalues.design = $filter('arPropFilter')($scope.arversion.properties, 'ComponentElementLink');
+            $scope.modelelementsvalues.components = $filter('arPropFilter')($scope.arversion.properties, 'ComponentElementLink');
+            $scope.modelelementsvalues.decisions = $filter('arPropFilter')($scope.arversion.properties, 'DecisionElementLink');
             $scope.modelelementsvalues.references = $filter('arPropFilter')($scope.arversion.properties, 'ReferenceElementLink');
             $scope.arversion.properties = [];
         }, ReplyErrorHandler);
@@ -368,11 +395,6 @@ app.controller('AREditController', ['ArService', 'ArVersionService', 'SmellServi
                     $scope.modelelements.decisions = data;
                 }, ReplyErrorHandler);  
                 break;
-            case 'DesignElementLink':
-                ModelElementService.design.get({},function(data, status, headers, config) {
-                    $scope.modelelements.design = data;
-                }, ReplyErrorHandler); 
-                break;
             case 'ReferenceElementLink':
                 ModelElementService.references.get({},function(data, status, headers, config) {
                     $scope.modelelements.references = data;
@@ -395,7 +417,6 @@ app.controller('AREditController', ['ArService', 'ArVersionService', 'SmellServi
             $scope.modelelementsvalues.context,
             $scope.modelelementsvalues.components,
             $scope.modelelementsvalues.decisions,
-            $scope.modelelementsvalues.design,
             $scope.modelelementsvalues.references
             );
     }
@@ -403,7 +424,7 @@ app.controller('AREditController', ['ArService', 'ArVersionService', 'SmellServi
     $scope.saveAr = function() {
         $scope.mergeProperties();
         ArVersionService.noid.update($scope.arversion, function(data, status, headers, config) {
-            notifications.showSuccess("ArVersion has been added successfully.");
+            notifications.showSuccess("ArVersion has been updated successfully.");
         }, ReplyErrorHandler);
     }
 
@@ -464,7 +485,6 @@ app.controller('ARAddController', ['ArService', 'ArVersionService', 'SmellServic
     $scope.modelelementsvalues.context = [];
     $scope.modelelementsvalues.components = [];
     $scope.modelelementsvalues.decisions = [];
-    $scope.modelelementsvalues.design = [];
     $scope.modelelementsvalues.references = [];
     
     if($stateParams.id && $stateParams.id != '') {
@@ -475,9 +495,8 @@ app.controller('ARAddController', ['ArService', 'ArVersionService', 'SmellServic
             //$scope.arversion.commentary = {};
             $scope.modelelementsvalues.qas = $filter('arPropFilter')($scope.arversion.properties, 'QASElementLink');
             $scope.modelelementsvalues.context = $filter('arPropFilter')($scope.arversion.properties, 'ContextElementLink');
-            $scope.modelelementsvalues.components = $filter('arPropFilter')($scope.arversion.properties, 'DecisionElementLink');
-            $scope.modelelementsvalues.decisions = $filter('arPropFilter')($scope.arversion.properties, 'DesignElementLink');
-            $scope.modelelementsvalues.design = $filter('arPropFilter')($scope.arversion.properties, 'ComponentElementLink');
+            $scope.modelelementsvalues.components = $filter('arPropFilter')($scope.arversion.properties, 'ComponentElementLink');
+            $scope.modelelementsvalues.decisions = $filter('arPropFilter')($scope.arversion.properties, 'DecisionElementLink');
             $scope.modelelementsvalues.references = $filter('arPropFilter')($scope.arversion.properties, 'ReferenceElementLink');
             $scope.arversion.properties = [];
             $scope.arversion.id = null;
@@ -544,11 +563,6 @@ app.controller('ARAddController', ['ArService', 'ArVersionService', 'SmellServic
                     $scope.modelelements.decisions = data;
                 }, ReplyErrorHandler);  
                 break;
-            case 'DesignElementLink':
-                ModelElementService.design.get({},function(data, status, headers, config) {
-                    $scope.modelelements.design = data;
-                }, ReplyErrorHandler); 
-                break;
             case 'ReferenceElementLink':
                 ModelElementService.references.get({},function(data, status, headers, config) {
                     $scope.modelelements.references = data;
@@ -572,7 +586,6 @@ app.controller('ARAddController', ['ArService', 'ArVersionService', 'SmellServic
             $scope.modelelementsvalues.context,
             $scope.modelelementsvalues.components,
             $scope.modelelementsvalues.decisions,
-            $scope.modelelementsvalues.design,
             $scope.modelelementsvalues.references
             );
     }
@@ -629,7 +642,7 @@ app.controller('ARAddController', ['ArService', 'ArVersionService', 'SmellServic
     this.setProgValue();
 }]);
 
-app.controller('ModelElementController', ['ModelElementService', 'ReplyErrorHandler', 'notifications', '$scope', '$stateParams', '$filter', function(ModelElementService, ReplyErrorHandler, notifications, $scope, $stateParams, $filter) {
+app.controller('ModelElementController', ['ModelElementService', 'ReplyErrorHandler', 'ConfirmModal', 'notifications', '$scope', '$stateParams', '$filter', function(ModelElementService, ReplyErrorHandler, ConfirmModal, notifications, $scope, $stateParams, $filter) {
     var orderBy = $filter('orderBy');
     $scope.modelelementlist = [];
     $scope.modelelementtypes = [];
@@ -650,11 +663,14 @@ app.controller('ModelElementController', ['ModelElementService', 'ReplyErrorHand
     $scope.loadModelElements();
     
     $scope.deleteElement = function(elementid) {
-        ModelElementService.id.delete({id: elementid},function(data, status, headers, config) {
-            notifications.showSuccess("Model Element Link has been deleted.");
-            $scope.loadModelElements();
-        }, ReplyErrorHandler);     
+        ConfirmModal.showModal({}, {headerText: 'Confirm', bodyText: 'Are you sure you want to delete this element?'}).then(function (result) {
+            ModelElementService.id.delete({id: elementid},function(data, status, headers, config) {
+                notifications.showSuccess("Model Element Link has been deleted.");
+                $scope.loadModelElements();
+            }, ReplyErrorHandler);  
+        }, function() {notifications.showInfo("Deleted canceled.")});
     }
+    
     $scope.order = function(predicate, reverse) {
         $scope.modelelementlist = orderBy($scope.modelelementlist, predicate, reverse);
     };
@@ -702,6 +718,72 @@ app.controller('ModelElementUpdateController', ['ModelElementService', 'ReplyErr
     }    
 }]);
 
+app.controller('SmellGroupController', ['SmellGroupService', 'ReplyErrorHandler', 'ConfirmModal', 'notifications', '$scope', '$stateParams', '$filter', function(SmellGroupService, ReplyErrorHandler, ConfirmModal, notifications, $scope, $stateParams, $filter) {
+    var orderBy = $filter('orderBy');
+    $scope.smellgrouplist = [];
+    
+    $scope.loadSmellGroups = function() {
+        SmellGroupService.noid.get({}, function(data, status, headers, config) {
+            $scope.smellgrouplist = data;
+        }, ReplyErrorHandler);  
+    }
+    $scope.loadSmellGroups();
+    
+    $scope.deleteSmellGroup = function(id) {
+        ConfirmModal.showModal({}, {headerText: 'Confirm', bodyText: 'Are you sure you want to delete this Smell Group?'}).then(function (result) {
+            SmellGroupService.id.delete({id: id},function(data, status, headers, config) {
+                notifications.showSuccess("Smell Group has been deleted.");
+                $scope.loadSmellGroups();
+            }, ReplyErrorHandler);  
+        }, function() {notifications.showInfo("Deleted canceled.")});
+    }
+    
+    $scope.order = function(predicate, reverse) {
+        $scope.smellgrouplist = orderBy($scope.smellgrouplist, predicate, reverse);
+    };
+    $scope.order('name', false);
+}]);
+
+app.controller('SmellGroupAddController', ['SmellGroupService', 'ReplyErrorHandler', 'notifications', '$modalInstance', '$scope', '$stateParams', 'modelelementtype', function(SmellGroupService, ReplyErrorHandler, notifications, $modalInstance, $scope, $stateParams, modelelementtype) {
+    $scope.smellgroup = {};
+    
+    $scope.saveSmellGroup = function(form) {
+        SmellGroupService.noid.create($scope.smellgroup, function(data, status, headers, config) {
+            notifications.showSuccess("Smell Group has been added.");
+            $scope.smellgroup = {};
+            form.$setPristine();
+            $modalInstance.close();
+        }, ReplyErrorHandler);  
+    }
+    
+    $scope.dismiss = function(form) {
+        $modalInstance.dismiss('cancel');
+    }
+}]);
+
+app.controller('SmellGroupUpdateController', ['SmellGroupService', 'ReplyErrorHandler', 'notifications', '$modalInstance', '$scope', '$stateParams', function(SmellGroupService, ReplyErrorHandler, notifications, $modalInstance, $scope, $stateParams) {
+    $scope.smellgroup = {};
+    $scope.loadSmellGroup = function() {
+        SmellGroupService.id.get({id: $stateParams.id}, function(data, status, headers, config) {
+            $scope.smellgroup = data;
+        }, ReplyErrorHandler);  
+    }
+    $scope.loadSmellGroup();
+    
+    $scope.saveSmellGroup = function(form) {
+        SmellGroupService.noid.update($scope.smellgroup, function(data, status, headers, config) {
+            notifications.showSuccess("Smell Group has been updated.");
+            $scope.smellgroup = {};
+            form.$setPristine();
+            $modalInstance.close();
+        }, ReplyErrorHandler);  
+    }
+    
+    $scope.dismiss = function(form) {
+        $modalInstance.dismiss('cancel');
+    }    
+}]);
+
 app.controller('ARSearchController', ['ArVersionService', 'UserSearchService', 'ReplyErrorHandler', 'notifications','$scope', '$stateParams', '$filter', '$state', function(ArVersionService, UserSearchService, ReplyErrorHandler, notifications, $scope, $stateParams, $filter, $state) {
     var orderBy = $filter('orderBy');
     $scope.arlist = []; //ars;
@@ -730,7 +812,7 @@ app.controller('ARSearchController', ['ArVersionService', 'UserSearchService', '
     }
 }]);
 
-app.controller('UserSearchController', ['UserSearchService', 'ReplyErrorHandler', 'notifications','$scope', function(UserSearchService, ReplyErrorHandler, notifications, $scope, $stateParams) {
+app.controller('UserSearchController', ['UserSearchService', 'ReplyErrorHandler', 'ConfirmModal', 'notifications','$scope', function(UserSearchService, ReplyErrorHandler, ConfirmModal, notifications, $scope, $stateParams) {
     $scope.searchlist = []; //ars;
     
     $scope.loadSearches = function () {
@@ -741,10 +823,12 @@ app.controller('UserSearchController', ['UserSearchService', 'ReplyErrorHandler'
     $scope.loadSearches();
     
     $scope.deleteSearch = function(searchid) {
-        UserSearchService.id.delete({id: searchid},function(data, status, headers, config) {
-            notifications.showSuccess("User search has been deleted.");
-            $scope.loadSearches();
-        }, ReplyErrorHandler);     
+        ConfirmModal.showModal({}, {headerText: 'Confirm', bodyText: 'Are you sure you want to delete this search?'}).then(function (result) {
+            UserSearchService.id.delete({id: searchid},function(data, status, headers, config) {
+                notifications.showSuccess("User search has been deleted.");
+                $scope.loadSearches();
+            }, ReplyErrorHandler);
+        }, function() {notifications.showInfo("Deleted canceled.")});
     }
 }]);
 
@@ -753,7 +837,7 @@ app.controller('SmellAssessController', ['ArVersionService', 'SmellGroupService'
     $scope.groups = [];
     $scope.groupToggle = [];
     $scope.groupAllCheck = [];
-    SmellGroupService.get({},function(data, status, headers, config) {
+    SmellGroupService.noid.get({},function(data, status, headers, config) {
             $scope.groups = data;
         }, ReplyErrorHandler);  
     $scope.selectedSmells = {"smellids": [] };
@@ -839,7 +923,7 @@ app.controller('SmellAddController', ['SmellService', 'SmellGroupService', 'Stat
     $scope.loadStatus();
     $scope.groups = [];
     $scope.loadGroups = function () {
-        SmellGroupService.get({},function(data, status, headers, config) {
+        SmellGroupService.noid.get({},function(data, status, headers, config) {
             $scope.groups = data;
             $scope.smell.group = $scope.groups[0];
         }, ReplyErrorHandler);  
@@ -914,7 +998,7 @@ app.controller('SmellModalAddController', ['$controller', '$scope', '$modalInsta
     }
 }]);
 
-app.controller('SmellController', ['SmellService', 'SmellGroupService', 'ReplyErrorHandler', 'StatusService', 'notifications','$scope','$filter', 'sharedSmell', function(SmellService, SmellGroupService, ReplyErrorHandler, StatusService, notifications, $scope, $filter, sharedSmell) {
+app.controller('SmellController', ['SmellService', 'SmellGroupService', 'ReplyErrorHandler', 'StatusService', 'ConfirmModal', 'notifications','$scope','$filter', 'sharedSmell', function(SmellService, SmellGroupService, ReplyErrorHandler, StatusService, ConfirmModal, notifications, $scope, $filter, sharedSmell) {
     var orderBy = $filter('orderBy');
     $scope.smelllist = [];
     $scope.formvisible = false;
@@ -928,7 +1012,7 @@ app.controller('SmellController', ['SmellService', 'SmellGroupService', 'ReplyEr
     $scope.loadStatus();
     $scope.groups = [];
     $scope.loadGroups = function () {
-        SmellGroupService.get({},function(data, status, headers, config) {
+        SmellGroupService.noid.get({},function(data, status, headers, config) {
             $scope.groups = data;
         }, ReplyErrorHandler);  
     };
@@ -952,13 +1036,15 @@ app.controller('SmellController', ['SmellService', 'SmellGroupService', 'ReplyEr
     $scope.reload = function() {
         $scope.loadSmells();        
     }
-
+    
     $scope.deleteSmell = function (id) {
-        SmellService.id.delete({id: id},function(data, status, headers, config) {
-            $scope.loadSmells();
-            notifications.showSuccess("Smell has been deleted.");
-        }, ReplyErrorHandler);
-    };
+        ConfirmModal.showModal({}, {headerText: 'Confirm', bodyText: 'Are you sure you want to delete this Smell?'}).then(function (result) {
+            SmellService.id.delete({id: id},function(data, status, headers, config) {
+                $scope.loadSmells();
+                notifications.showSuccess("Smell has been deleted.");
+            }, ReplyErrorHandler);
+        }, function() {notifications.showInfo("Deleted canceled.")});
+    }
 
     $scope.order = function(predicate, reverse) {
         $scope.smelllist = orderBy($scope.smelllist, predicate, reverse);
@@ -993,7 +1079,7 @@ app.controller('SmellUpdateController', ['SmellService','SmellGroupService', 'St
     $scope.initSmell();
     $scope.groups = [];
     $scope.loadGroups = function () {
-        SmellGroupService.get({},function(data, status, headers, config) {
+        SmellGroupService.noid.get({},function(data, status, headers, config) {
             $scope.groups = data;
         }, ReplyErrorHandler);  
     };
@@ -1035,7 +1121,7 @@ app.controller('SmellUpdateController', ['SmellService','SmellGroupService', 'St
     };
 }]);
 
-app.controller('TaskController', ['TaskService', 'ExecTaskTypeService', 'TaskPropertyService', 'ReplyErrorHandler', 'notifications','$scope','$filter', '$sce', 'sharedTask', function(TaskService, ExecTaskTypeService, TaskPropertyService, ReplyErrorHandler, notifications, $scope, $filter, $sce, sharedTask) {
+app.controller('TaskController', ['TaskService', 'ExecTaskTypeService', 'TaskPropertyService', 'ReplyErrorHandler', 'ConfirmModal', 'notifications','$scope','$filter', '$sce', 'sharedTask', function(TaskService, ExecTaskTypeService, TaskPropertyService, ReplyErrorHandler, ConfirmModal, notifications, $scope, $filter, $sce, sharedTask) {
     var orderBy = $filter('orderBy');
     $scope.tasklist = [];
     $scope.task = sharedTask.task;
@@ -1069,11 +1155,13 @@ app.controller('TaskController', ['TaskService', 'ExecTaskTypeService', 'TaskPro
     $scope.loadTasks();
 
     $scope.deleteTask = function (id) {
-        TaskService.id.delete({id: id},function(data, status, headers, config) {
-            $scope.loadTasks();
-            notifications.showSuccess("Task has been deleted.");
-        }, ReplyErrorHandler);
-    };
+        ConfirmModal.showModal({}, {headerText: 'Confirm', bodyText: 'Are you sure you want to delete this Task?'}).then(function (result) {
+            TaskService.id.delete({id: id},function(data, status, headers, config) {
+                $scope.loadTasks();
+                notifications.showSuccess("Task has been deleted.");
+            }, ReplyErrorHandler);
+        }, function() {notifications.showInfo("Deleted canceled.")});
+    }
 
     $scope.order = function(predicate, reverse) {
         $scope.tasklist = orderBy($scope.tasklist, predicate, reverse);

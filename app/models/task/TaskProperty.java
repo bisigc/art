@@ -1,6 +1,7 @@
 package models.task;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
@@ -19,6 +20,7 @@ public class TaskProperty extends AbstractModel {
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	private TaskPropertyType	property;
+	@Column(length=10000)
 	private String				value;
 	@ManyToOne(cascade=CascadeType.PERSIST, fetch = FetchType.EAGER)
 	@JsonBackReference(value="TaskTemplateTaskProperty")

@@ -9,7 +9,7 @@
         </div>
     </div>
     <div>
-        <table id="searchObjResults" class="table table-striped table-hover non-select" popover-popup-delay="1000" popover="Double-Click rows to open Smell in detailed view" popover-trigger="mouseenter" popover-placement="right">
+        <table id="searchObjResults" class="table table-striped table-hover non-select" popover-popup-delay="1000" uib-popover="Double-Click rows to open Smell in detailed view" popover-trigger="mouseenter" popover-placement="right">
             <tr>
                 <th>Name</th>
                 <th>Description</th>
@@ -24,7 +24,7 @@
                 <td><input class="form-control" ng-model="search.weight" placeholder="Filter..." /></td>
                 <td><input class="form-control" ng-model="search.group.name" placeholder="Filter..." /></td>
                 <td><input class="form-control" ng-model="search.tecdebtidx" placeholder="Filter..." /></td>
-                <td><button type="button" class="btn btn-warning btn-sm" ng-click="search = []" popover="Clear filter fields" popover-trigger="mouseenter" popover-placement="top">clear</button></td>
+                <td><button type="button" class="btn btn-warning btn-sm" ng-click="search = []" uib-popover="Clear filter fields" popover-trigger="mouseenter" popover-placement="top">clear</button></td>
             </tr>
             <tr>
                 <th><a ng-click="rname=!rname;order('name', rname)">Name <span ng-show="rname">&#x25B2;</span><span ng-show="!rname">&#x25BC;</span></a></th>

@@ -50,12 +50,12 @@ app.factory("PasswordValidator", [function() {
     }
 }]);
 
-app.factory("PropModal", ['$modal', 'notifications', function($modal, notifications) {
+app.factory("PropModal", ['$uibModal', 'notifications', function($uibModal, notifications) {
 
     return {
         open: function(type, okfunction, dissmissedfunction) {
             var modaltype = type;
-            var modalInstance = $modal.open(
+            var modalInstance = $uibModal.open(
                 {
                     templateUrl: _contextPath + 'modelelementdialog.html',
                     controller: 'ModelElementAddController',
@@ -83,12 +83,12 @@ app.factory("PropModal", ['$modal', 'notifications', function($modal, notificati
     }
 }]);
 
-app.factory("SmellModal", ['$modal', 'notifications', function($modal, notifications) {
+app.factory("SmellModal", ['$uibModal', 'notifications', function($uibModal, notifications) {
 
     return {
         open: function(type, okfunction, dissmissedfunction) {
             var modaltype = type;
-            var modalInstance = $modal.open(
+            var modalInstance = $uibModal.open(
                 {
                     templateUrl: _contextPath + 'smelldialog.html',
                     controller: 'SmellModalAddController',
@@ -105,12 +105,12 @@ app.factory("SmellModal", ['$modal', 'notifications', function($modal, notificat
     }
 }]);
 
-app.factory("TaskModal", ['$modal', 'notifications', function($modal, notifications) {
+app.factory("TaskModal", ['$uibModal', 'notifications', function($uibModal, notifications) {
 
     return {
         open: function(type, okfunction, dissmissedfunction) {
             var modaltype = type;
-            var modalInstance = $modal.open(
+            var modalInstance = $uibModal.open(
                 {
                     templateUrl: _contextPath + 'taskdialog.html',
                     controller: 'TaskModalAddController',
@@ -125,6 +125,56 @@ app.factory("TaskModal", ['$modal', 'notifications', function($modal, notificati
             modalInstance.result.then(okfunction, dissmissedfunction);
         }
     }
+}]);
+
+app.service('ConfirmModal', ['$uibModal',function ($uibModal) {
+
+    var modalDefaults = {
+        backdrop: true,
+        keyboard: true,
+        modalFade: true,
+        templateUrl:  _contextPath + "confirmdialog.html",
+    };
+
+    var modalOptions = {
+        closeButtonText: 'Cancel',
+        actionButtonText: 'Yes',
+        headerText: 'Proceed?',
+        bodyText: 'Perform this action?'
+    };
+
+    this.showModal = function (customModalDefaults, customModalOptions) {
+        if (!customModalDefaults) customModalDefaults = {};
+        customModalDefaults.backdrop = 'static';
+        return this.show(customModalDefaults, customModalOptions);
+    };
+
+    this.show = function (customModalDefaults, customModalOptions) {
+        //Create temp objects to work with since we're in a singleton service
+        var tempModalDefaults = {};
+        var tempModalOptions = {};
+
+        //Map angular-ui modal custom defaults to modal defaults defined in service
+        angular.extend(tempModalDefaults, modalDefaults, customModalDefaults);
+
+        //Map modal.html $scope custom properties to defaults defined in service
+        angular.extend(tempModalOptions, modalOptions, customModalOptions);
+
+        if (!tempModalDefaults.controller) {
+            tempModalDefaults.controller = function ($scope, $modalInstance) {
+                $scope.modalOptions = tempModalOptions;
+                $scope.modalOptions.ok = function (result) {
+                    $modalInstance.close(result);
+                };
+                $scope.modalOptions.close = function (result) {
+                    $modalInstance.dismiss('cancel');
+                };
+            }
+        }
+
+        return $uibModal.open(tempModalDefaults).result;
+    };
+
 }]);
 
 app.factory("ReplyErrorHandler", ['currentUser', 'notifications', '$log', function(currentUser, notifications, $log) {
@@ -143,6 +193,8 @@ app.factory("ReplyErrorHandler", ['currentUser', 'notifications', '$log', functi
             notifications.showError("Object not found, " + "[" + error['status'] + "], " + error['config']['url']);
         } else if(error['status'] == 409) {
             notifications.showInfo(error['data']);
+        } else if(error['status'] == 422) {
+            notifications.showError(error['data']);
         } else if(error['status'] == 500) {
             notifications.showError(error['data'] + ", Technical error [" + error['status'] + "], failed to " + error['config']['method'] + " " + error['config']['url']);
         } else {
@@ -205,9 +257,6 @@ app.factory("ModelElementService", ['$resource', function($resource) {
         decisions: $resource(_contextPath + 'modelelement/decisions', {}, {
             get: {method:'GET', isArray: true}
         }),
-        design: $resource(_contextPath + 'modelelement/design', {}, {
-            get: {method:'GET', isArray: true}
-        }),
         references: $resource(_contextPath + 'modelelement/references', {}, {
             get: {method:'GET', isArray: true}
         }),
@@ -217,6 +266,20 @@ app.factory("ModelElementService", ['$resource', function($resource) {
             create: { method: 'POST' }
         }),
         id: $resource(_contextPath + 'modelelement/:id', {}, {
+            get: { method: 'GET' },
+            delete: { method: 'DELETE', params: {id: '@id'} }
+        })
+    };
+}]);
+
+app.factory("SmellGroupService", ['$resource', function($resource) {
+    return {
+        noid: $resource(_contextPath + 'smellgroup', {}, {
+            get: {method:'GET', isArray: true},
+            update: { method: 'PUT' },
+            create: { method: 'POST' }
+        }),
+        id: $resource(_contextPath + 'smellgroup/:id', {}, {
             get: { method: 'GET' },
             delete: { method: 'DELETE', params: {id: '@id'} }
         })
@@ -275,12 +338,6 @@ app.factory("SmellService", ['$resource', function($resource) {
             delete: { method: 'DELETE', params: {id: '@id'} }
         })
     };
-}]);
-
-app.factory("SmellGroupService", ['$resource', function($resource) {
-    return $resource(_contextPath + 'smellgroup', {}, {
-        get: {method:'GET', isArray: true}
-    });
 }]);
 
 app.factory('PropertyService', ['$resource', function ($resource) {

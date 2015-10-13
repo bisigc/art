@@ -7,10 +7,10 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 import javax.persistence.TypedQuery;
 
+import com.google.inject.TypeLiteral;
+
 import models.AbstractModel;
 import play.db.jpa.JPA;
-
-import com.google.inject.TypeLiteral;
 
 /**
  * Concrete implementation of a {@link GenericDAO}. The model is still
@@ -81,5 +81,6 @@ public class GenericDAOImpl<T extends AbstractModel, PK extends Serializable> im
 	public void delete(PK id) throws Exception {
 		T t = JPA.em().find(model, id);
 		JPA.em().remove(t);
+		JPA.em().flush();
 	}
 }

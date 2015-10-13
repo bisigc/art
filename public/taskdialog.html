@@ -18,7 +18,7 @@
             <label for="property">Properties</label>
             <div class="input-group">
                 <div class="input-group-btn taskprop-select">
-                    <ui-select ng-model="propertyToAdd.property" theme="selectize" on-select="propertyToAdd.value=''">
+                    <ui-select ng-model="propertyToAdd.property" theme="bootstrap" on-select="propertyToAdd.value=''">
                         <ui-select-match placeholder="Property type...">{{$select.selected.name}}</ui-select-match>
                         <ui-select-choices repeat="taskproperty in taskproperties | filter: $select.search">
                             <span ng-bind-html="taskproperty.name | highlight: $select.search"></span>

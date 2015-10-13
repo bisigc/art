@@ -4,8 +4,12 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.inject.Singleton;
+import javax.persistence.PersistenceException;
 import javax.persistence.TypedQuery;
 
+import com.fasterxml.jackson.databind.JsonNode;
+
+import dao.GenericDAO;
 import models.AbstractModel;
 import play.Logger;
 import play.db.jpa.Transactional;
@@ -14,10 +18,6 @@ import play.mvc.Controller;
 import play.mvc.Result;
 import utils.actions.SessionAuth;
 import utils.exceptions.ItemNotFoundException;
-
-import com.fasterxml.jackson.databind.JsonNode;
-
-import dao.GenericDAO;
 
 /**
  * Abstract class represents a CRUD Controller with the most necessary methods.
@@ -167,7 +167,11 @@ public abstract class AbstractCRUDController<T extends AbstractModel, PK extends
 		} catch (ItemNotFoundException e) {
 			Logger.error(e.getMessage(), e);
 			return notFound(e.getMessage());
-		} catch (Exception e) {
+		} catch (PersistenceException e) {
+			String msg = "Delete of " + dao.getModel().getSimpleName() + "/" + id + " failed, due to a persistence issue.";
+			Logger.error(msg, e);
+			return status(422, msg);
+		} catch (Throwable e) {
 			String msg = "Failed to delete " + dao.getModel().getSimpleName() + " with id " + id;
 			Logger.error(msg, e);
 			return internalServerError(msg);

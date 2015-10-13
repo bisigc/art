@@ -30,7 +30,7 @@
                 <td><input class="form-control" ng-model="search.smells.name" id="smellname" placeholder="Filter..." /></td>
                 <td><input class="form-control" ng-model="search.description" placeholder="Filter..." /></td>
                 <td><input class="form-control" ng-model="search.status" id="status" placeholder="Filter..." /></td>
-                <td><button type="button" class="btn btn-warning btn-sm" ng-click="search = []" popover="Clear filter fields" popover-trigger="mouseenter" popover-placement="top">clear</button></td>
+                <td><button type="button" class="btn btn-warning btn-sm" ng-click="search = []" uib-popover="Clear filter fields" popover-trigger="mouseenter" popover-placement="top">clear</button></td>
             </tr>
             <tr>
                 <th><a ng-click="reverseName=!reverseName;order('name', reverseName)">Name <span ng-show="reverseName">&#x25B2;</span><span ng-show="!reverseName">&#x25BC;</span></a></th>
@@ -40,9 +40,9 @@
                 <th></th>
             </tr>
             <tr ng-repeat="ar in arlist | filter:search" ng-dblclick="$state.go('root.singlear',{id: ar.arhead})">
-                <td><a ui-sref="root.singlear({id: ar.arhead})">{{ar.name}}</a></td>
+                <td><a ui-sref="root.singlear({id: ar.arhead.id})">{{ar.name}}</a></td>
                 <td><span ng-repeat="smell in ar.smells track by $index"><a ui-sref="root.singlesmell({id: smell.id})">{{smell.name}}</a><span ng-if="ar.smells.length - 1 != $index">, </span></span></td>
-                <td>{{ar.description}}</td>
+                <td>{{ar.description | limitHtml: 20 }}</td>
                 <td>{{ar.status}}</td>
                 <td><a ui-sref="root.aredit({id: ar.id})" ng-if="isAllowed.check(['Admin','Editor'])"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;<a href ng-click="deleteAr(ar.id)" ng-if="isAllowed.check(['Admin'])"><span class="glyphicon glyphicon-trash"></span></a></td>
             </tr>

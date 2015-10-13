@@ -44,11 +44,21 @@ app.config(['$provide', function($provide) {
 }]);
 
 app.config(['$provide', function($provide){
-    $provide.decorator('taOptions', ['$delegate', function(taOptions){
+    $provide.decorator('taOptions', ['taRegisterTool', '$delegate', function(taRegisterTool, taOptions){
+        taRegisterTool('hr', {
+            buttontext: '&lt;hr&gt;',
+            tooltiptext: 'Insert horizontal line',
+            action: function() {
+            this.$editor().wrapSelection('inserthtml', '<hr>');
+            }
+        });
+        // add the button to the default toolbar definition
+        taOptions.toolbar[1].push('colourRed');
         taOptions.toolbar = [
-            ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'pre'],
+            ['h1', 'h2', 'h3', 'h4', 'p', 'pre', 'hr'],
             ['bold', 'italics', 'underline', 'ul', 'ol', 'redo', 'undo', 'clear'],
-            ['html', 'insertLink'], ['charcount']
+            ['justifyLeft', 'justifyCenter', 'justifyRight', 'indent', 'outdent'],
+            ['html', 'insertLink', 'insertImage', 'insertVideo'], ['charcount']
         ];
         return taOptions;
     }]);
@@ -138,8 +148,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             requireLogin: true,
             allowedRoles: ["Admin", "Editor"]
         },
-        onEnter: ['$stateParams', '$state', '$modal', function($stateParams, $state, $modal) {
-            var modalInstance = $modal.open(
+        onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+            var modalInstance = $uibModal.open(
                 {
                     templateUrl: _contextPath + 'smelldialog.html',
                     controller: 'SmellUpdateController',
@@ -195,8 +205,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             requireLogin: true,
             allowedRoles: ["Admin", "Editor"]
         },
-        onEnter: ['$stateParams', '$state', '$modal', function($stateParams, $state, $modal) {
-            var modalInstance = $modal.open(
+        onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+            var modalInstance = $uibModal.open(
                 {
                     templateUrl: _contextPath + 'smelldialog.html',
                     controller: 'SmellAddController',
@@ -256,8 +266,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             requireLogin: true,
             allowedRoles: ["Admin", "Editor"]
         },
-        onEnter: ['$stateParams', '$state', '$modal', function($stateParams, $state, $modal) {
-            var modalInstance = $modal.open(
+        onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+            var modalInstance = $uibModal.open(
                 {
                     templateUrl: _contextPath + 'modelelementdialog.html',
                     controller: 'ModelElementUpdateController',
@@ -291,11 +301,96 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             requireLogin: true,
             allowedRoles: ["Admin", "Editor"]
         },
-        onEnter: ['$stateParams', '$state', '$modal', function($stateParams, $state, $modal) {
-            var modalInstance = $modal.open(
+        onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+            var modalInstance = $uibModal.open(
                 {
                     templateUrl: _contextPath + 'modelelementdialog.html',
                     controller: 'ModelElementAddController',
+                    size: 'lg',
+                    resolve: {
+                        modelelementtype: function () { 
+                            return $stateParams.modelelementtype;
+                        }
+                    }
+                }
+            );
+
+            modalInstance.result.then(function () {
+                $state.go('^', {}, {reload: true});
+            }, function () {
+                $state.go('^');
+            });
+            $stateParams.ok = function () {
+                $modalInstance.close($scope.selected.item);
+            };
+
+            $stateParams.cancel = function () {
+                modalInstance.dismiss('cancel');
+            };
+        }]
+    })
+        .state('root.smellgroup', {
+        url: "/smellgroup",
+        title: "Smell Groups",
+        data: { 
+            requireLogin: true,
+            allowedRoles: ["Admin", "Editor"]
+        },
+        views: {
+            'container@': {
+                templateUrl: _contextPath + "smellgroup.html",
+                title: "Smell Groups",
+                controller: "SmellGroupController"
+            }
+        }
+    })
+        .state('root.smellgroup.edit', {
+        url: "/edit/:id",
+        title: "Edit Smell Group",
+        data: { 
+            requireLogin: true,
+            allowedRoles: ["Admin", "Editor"]
+        },
+        onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+            var modalInstance = $uibModal.open(
+                {
+                    templateUrl: _contextPath + 'smellgroupdialog.html',
+                    controller: 'SmellGroupUpdateController',
+                    size: 'lg',
+                    resolve: {
+                        id: function () { 
+                            return $stateParams.id;
+                        }
+                    }
+                }
+            );
+
+            modalInstance.result.then(function () {
+                $state.go('^', {}, {reload: true});
+            }, function () {
+                $state.go('^');
+            });
+            $stateParams.ok = function () {
+                $modalInstance.close($scope.selected.item);
+            };
+
+            $stateParams.cancel = function () {
+                $modalInstance.dismiss('cancel');
+            };
+        }]
+    })
+        .state('root.smellgroup.add', {
+        url: "/add/:smellgroup",
+        title: "Add Smell Group",
+        data: { 
+            requireLogin: true,
+            allowedRoles: ["Admin", "Editor"]
+        },
+        onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+            var modalInstance = $uibModal.open(
+                {
+                    templateUrl: _contextPath + 'smellgroupdialog.html',
+                    controller: 'SmellGroupAddController',
                     size: 'lg',
                     resolve: {
                         modelelementtype: function () { 
@@ -412,8 +507,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             requireLogin: true,
             allowedRoles: ["Admin", "Editor"]
         },
-        onEnter: ['$stateParams', '$state', '$modal', function($stateParams, $state, $modal) {
-            var modalInstance = $modal.open(
+        onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+            var modalInstance = $uibModal.open(
                 {
                     templateUrl: _contextPath + 'taskdialog.html',
                     controller: 'TaskUpdateController',

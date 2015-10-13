@@ -46,10 +46,11 @@ public class SessionAuthAction extends Action.Simple {
 		} else {
 			
 			long time = Long.parseLong(ctx.session().get("time"));
+			int keeploggedin = Integer.parseInt(ctx.session().get("keeploggedin"));
 			long currenttime = System.currentTimeMillis();
 			long sessiontime = currenttime - time;
 			
-			if(sessiontime > timeout) {
+			if(sessiontime > timeout && keeploggedin != 1) {
 				ctx.session().clear();
 				Result unauthorized = Results.unauthorized("Session timeout");
 				return F.Promise.pure(unauthorized);

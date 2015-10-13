@@ -134,7 +134,7 @@ body > .ui-select-bootstrap.open {
 
 .ui-select-multiple.ui-select-bootstrap {
   height: auto;
-  padding: 3px 3px 0 3px;
+  padding: 3px 3px 3px 3px;
 }
 
 .ui-select-multiple.ui-select-bootstrap input.ui-select-search {

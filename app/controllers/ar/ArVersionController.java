@@ -1,5 +1,8 @@
 package controllers.ar;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,22 +13,28 @@ import javax.inject.Named;
 import javax.inject.Singleton;
 import javax.persistence.TypedQuery;
 
+import org.apache.commons.io.IOUtils;
+import org.json.JSONObject;
+import org.json.XML;
+
+import com.fasterxml.jackson.databind.JsonNode;
+
+import controllers.AbstractCRUDController;
+import dao.GenericDAO;
 import models.ar.ArVersion;
 import models.discussion.Discussion;
 import models.discussion.Discussion.DiscussionType;
 import models.status.ItemStatus;
 import models.user.User;
 import play.Logger;
+import play.Play;
 import play.db.jpa.JPA;
 import play.db.jpa.Transactional;
 import play.libs.Json;
 import play.mvc.Result;
 import utils.actions.SessionAuth;
-
-import com.fasterxml.jackson.databind.JsonNode;
-
-import controllers.AbstractCRUDController;
-import dao.GenericDAO;
+import utils.exceptions.ItemNotFoundException;
+import utils.xslfo.XslfoFromatter;
 
 /**
  * Concrete implementation of an {@link AbstractCRUDController} to retrieve and manipulate
@@ -51,7 +60,7 @@ public class ArVersionController extends AbstractCRUDController<ArVersion, Long>
 
 	private String arSmellSearchString = 
 			"select a " + arSmellSearchEndingPart + order;
-	
+
 	private String arSmellSearchCountString = 
 			"select count(a.id) " + arSmellSearchEndingPart;
 
@@ -206,5 +215,49 @@ public class ArVersionController extends AbstractCRUDController<ArVersion, Long>
 		}
 		return ok(String.valueOf(data));
 	}
+
 	
+	/**
+	 * Returns an ArVersion as a formatted PDF. First the methods loads the ArVersion
+	 * Object from the DataSource and converts it to JSON and than it is converted
+	 * to XML with the org.json library. Might be a little bit overhead but it seems to be
+	 * the easier way than to annotate the Model Beans both with JSON and XML Object values.
+	 * The xml than is formatted with Apache FOP (Helper Class {@link XslfoFromatter}.
+	 * 
+	 * @param id Primary key of the AR which has to be formatted to a PDF
+	 * @return HTTP result
+	 */
+	@Transactional(readOnly=true)
+	public Result getPDF(Long id) {
+		ArVersion ar;
+		byte [] pdfbytes;
+		try {
+			ar = dao.get(id);
+			Logger.debug("ArVersion Description: " + ar.getDescription());
+			String jsonString = Json.toJson(ar).toString();
+			JSONObject jsonobject = new JSONObject(jsonString);
+			
+			String requestUrl =  "http://" + request().host() + "/#/ar/" + ar.getArhead().getId();
+			Logger.debug("Request URL: " + requestUrl);
+
+			StringBuffer xmlString = new StringBuffer(XML.toString(jsonobject, "arversion"));
+			int firstbracket = xmlString.indexOf(">") + 1;
+			xmlString.insert(firstbracket, "<arurl>" + requestUrl + "</arurl>");
+			
+			Logger.debug("XML-String to format: " + xmlString);
+			InputStream stream = new ByteArrayInputStream(xmlString.toString().getBytes(StandardCharsets.UTF_8));
+
+			pdfbytes = XslfoFromatter.format(stream, "ArVersion.xsl");
+		} catch (ItemNotFoundException e) {
+			Logger.error(e.getMessage(), e);
+			return notFound(e.getMessage());
+		} catch (Exception e) {
+			String msg = "Failed to create PDF for " + dao.getModel().getSimpleName() + " with id " + id;
+			Logger.error(msg, e);
+			return internalServerError(msg);
+		}
+		String filename = "arversion_" + id + ".pdf";
+		response().setHeader("Content-Disposition", "attachment; filename=" + filename);
+		return pdfbytes == null ? notFound() : ok(pdfbytes).as("application/pdf");
+	}
 }

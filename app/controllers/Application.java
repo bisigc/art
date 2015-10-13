@@ -78,10 +78,11 @@ public class Application extends Controller {
 				throw new NoSessionException("No session");
 			} else {
 				long time = Long.parseLong(session().get("time"));
+				int keeploggedin = Integer.parseInt(session().get("keeploggedin"));
 				long currenttime = System.currentTimeMillis();
 				long sessiontime = currenttime - time;
 			
-				if(sessiontime > timeout) {
+				if(sessiontime > timeout && keeploggedin != 1) {
 					session().clear();
 					throw new SessionTimeoutException("Session timeout");
 				} /*else {

@@ -21,6 +21,16 @@ app.filter('limit', function() {
     }
 });
 
+app.filter('toSafeHtml', ['$sce', function($sce) {
+    return function(text) {
+        if(text) {
+            return $sce.trustAsHtml(text);
+        } else {
+            return "";
+        }
+    }
+}]);
+
 app.filter('breakFilter', function () {
     return function (text) {
         if (typeof text !== 'undefined' && text != null && text !== '') return text.replace(/\n/g, '<br />');

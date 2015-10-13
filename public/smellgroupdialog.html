@@ -1,0 +1,21 @@
+<div class="modal-header">
+    <h1>Smell Group Dialog</h1>
+</div>
+<div class="modal-body">
+    <form name="smellGroupForm" ng-submit="smellGroupForm.$valid && saveSmellGroup(smellGroupForm)" novalidate>
+        <fieldset class="form-group">
+            <label for="name">Name</label>
+            <input class="form-control" placeholder="Name for Smell Group..." title="name" id="name" ng-model="smellgroup.name" required></input>
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="keywords">Link</label>
+            <textarea class="form-control" placeholder="Description..." title="link" id="link" ng-model="smellgroup.description"></textarea>
+        </fieldset>
+        <fieldset class="form-group">
+            <div class="pull-right">
+                <button type="submit" class="btn btn-primary" ng-disabled="smellGroupForm.$invalid">Save Smell Group</button>
+                <button type="button" class="btn btn-warning" ng-click="dismiss()">Cancel</button>
+            </div>
+        </fieldset>
+    </form>
+</div>

@@ -117,6 +117,7 @@ public class UserController extends AbstractCRUDController<User, Long> {
 					session("email", user.getEmail());
 					session("role", user.getRole().getName());
 					session("time", Long.toString(System.currentTimeMillis()));
+					session("keeploggedin", Integer.toString(login.getKeeploggedin()));
 				} else {
 					throw new FailedLoginException();
 				}

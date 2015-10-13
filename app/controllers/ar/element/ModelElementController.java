@@ -89,16 +89,6 @@ public class ModelElementController extends AbstractCRUDController<ModelElementL
 	public Result getDecisionElements() {
 		return getModelElements(ModelElementLinkType.DecisionElementLink);
 	}
-
-	/**
-	 * Provides all {@link models.ar.element.ModelElementLink.ModelElementLinkType#DesignElementLink}.
-	 * 
-	 * @return HTTP result
-	 */
-	@Transactional(readOnly=true)
-	public Result getDesignElements() {
-		return getModelElements(ModelElementLinkType.DesignElementLink);
-	}
 		
 	/**
 	 * Provides all {@link models.ar.element.ModelElementLink.ModelElementLinkType#ReferenceElementLink}.

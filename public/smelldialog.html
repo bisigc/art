@@ -36,7 +36,7 @@
             <div class="col-md-5">
                 <fieldset class="form-group">
                     <label for="group">Status</label>
-                    <ui-select ng-model="smell.status" theme="selectize" ng-disabled="disabled" required>
+                    <ui-select ng-model="smell.status" theme="bootstrap" ng-disabled="disabled" required>
                         <ui-select-match placeholder="Select or search a status in the list...">{{$select.selected}}</ui-select-match>
                         <ui-select-choices repeat="stat in status | filter: $select.search">
                             <span ng-bind-html="stat | highlight: $select.search"></span>
@@ -45,7 +45,7 @@
                 </fieldset>
                 <fieldset class="form-group">
                     <label for="group">Group</label>
-                    <ui-select ng-model="smell.group" theme="selectize" ng-disabled="disabled" required>
+                    <ui-select ng-model="smell.group" theme="bootstrap" ng-disabled="disabled" required>
                         <ui-select-match placeholder="Select or search a group in the list...">{{$select.selected.name}}</ui-select-match>
                         <ui-select-choices repeat="group in groups | filter: $select.search">
                             <span ng-bind-html="group.name | highlight: $select.search"></span>

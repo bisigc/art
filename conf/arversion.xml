@@ -1,0 +1,453 @@
+<arversion>
+	<editor>
+		<firstname>Christian</firstname>
+		<password>null</password>
+		<startpage>stay</startpage>
+		<role>
+			<name>Admin</name>
+			<description>ART Administrator</description>
+			<id>1</id>
+		</role>
+		<created>1444664638000</created>
+		<organisation>HSR</organisation>
+		<modified>1444664638000</modified>
+		<id>1</id>
+		<email>cbisig@hsr.ch</email>
+		<lastname>Bisig</lastname>
+		<homepage>http://www.hsr.ch</homepage>
+	</editor>
+	<smells>
+		<keywords>keyword5,keyword6,keyword7</keywords>
+		<created>1444664638000</created>
+		<tecdebtidx>lm</tecdebtidx>
+		<name>Smell11</name>
+		<questions>
+			<question>Question14</question>
+			<id>14</id>
+		</questions>
+		<description>This is Smell11</description>
+		<weight>1</weight>
+		<modified>1444664638000</modified>
+		<id>11</id>
+		<group>
+			<name>Dependency</name>
+			<id>3</id>
+		</group>
+		<status>published</status>
+	</smells>
+	<smells>
+		<keywords>keyword5,keyword6,keyword7</keywords>
+		<created>1444664638000</created>
+		<tecdebtidx>lm</tecdebtidx>
+		<name>Smell14</name>
+		<questions>
+			<question>Question9</question>
+			<id>9</id>
+		</questions>
+		<description>This is Smell14</description>
+		<weight>1</weight>
+		<modified>1444664638000</modified>
+		<id>14</id>
+		<group>
+			<name>Performance</name>
+			<id>1</id>
+		</group>
+		<status>published</status>
+	</smells>
+	<smells>
+		<keywords>keyword5,keyword6,keyword7</keywords>
+		<created>1444664638000</created>
+		<tecdebtidx>lm</tecdebtidx>
+		<name>Smell4</name>
+		<questions>
+			<question>Question13</question>
+			<id>13</id>
+		</questions>
+		<questions>
+			<question>Question26</question>
+			<id>26</id>
+		</questions>
+		<description>This is Smell4</description>
+		<weight>1</weight>
+		<modified>1444664638000</modified>
+		<id>4</id>
+		<group>
+			<name>Complexity</name>
+			<id>2</id>
+		</group>
+		<status>published</status>
+	</smells>
+	<created>1430996402000</created>
+	<description>
+		<p>Architectural Refactoring 1</p>
+		<p>
+			<br />
+		</p>
+		<ul>
+			<li>aasdfsadf</li>
+			<li>asdfsadf</li>
+			<li>asdfsdaf</li>
+		</ul>
+		<p>
+			<br />
+		</p>
+		<ol>
+			<li>asdfsadf</li>
+			<li>asdf</li>
+			<li>asdf</li>
+			<li>asdf</li>
+		</ol>
+		<p>
+			<br />
+		</p>
+		<p>
+			<img
+				src="http://img3.wikia.nocookie.net/__cb20140818084540/spongebob/de/images/2/2d/SPONGEBOB!!!!.jpg" />
+			<br />
+		</p>
+	</description>
+	<discussion>
+		<comments>
+			<created>1444664638000</created>
+			<modified>1444664638000</modified>
+			<comment>Comment 3</comment>
+			<likeCount>0</likeCount>
+			<id>3</id>
+			<user>
+				<firstname>Christian</firstname>
+				<password>null</password>
+				<startpage>stay</startpage>
+				<role>
+					<name>Admin</name>
+					<description>ART Administrator</description>
+					<id>1</id>
+				</role>
+				<created>1444664638000</created>
+				<organisation>HSR</organisation>
+				<modified>1444664638000</modified>
+				<id>1</id>
+				<email>cbisig@hsr.ch</email>
+				<lastname>Bisig</lastname>
+				<homepage>http://www.hsr.ch</homepage>
+			</user>
+		</comments>
+		<created>1444664638000</created>
+		<id>3</id>
+		<type>DISCUSSION</type>
+	</discussion>
+	<arhead>
+		<versions>null</versions>
+		<id>1</id>
+	</arhead>
+	<name>AR 1</name>
+	<modified>1444664638000</modified>
+	<id>3</id>
+	<user>
+		<firstname>Christian</firstname>
+		<password>null</password>
+		<startpage>stay</startpage>
+		<role>
+			<name>Admin</name>
+			<description>ART Administrator</description>
+			<id>1</id>
+		</role>
+		<created>1444664638000</created>
+		<organisation>HSR</organisation>
+		<modified>1444664638000</modified>
+		<id>1</id>
+		<email>cbisig@hsr.ch</email>
+		<lastname>Bisig</lastname>
+		<homepage>http://www.hsr.ch</homepage>
+	</user>
+	<tasks>
+		<parent>null</parent>
+		<name>Create SAD</name>
+		<id>1</id>
+		<properties>
+			<property>
+				<name>Type</name>
+				<id>8</id>
+			</property>
+			<id>1</id>
+			<value>Design Task</value>
+		</properties>
+		<properties>
+			<property>
+				<name>Priority</name>
+				<id>10</id>
+			</property>
+			<id>2</id>
+			<value>high</value>
+		</properties>
+		<properties>
+			<property>
+				<name>Estimated Duration</name>
+				<id>12</id>
+			</property>
+			<id>3</id>
+			<value>20h</value>
+		</properties>
+	</tasks>
+	<tasks>
+		<parent>null</parent>
+		<name>Organise project status meeting</name>
+		<id>2</id>
+		<properties>
+			<property>
+				<name>Type</name>
+				<id>8</id>
+			</property>
+			<id>4</id>
+			<value>Communication Task</value>
+		</properties>
+		<properties>
+			<property>
+				<name>Priority</name>
+				<id>10</id>
+			</property>
+			<id>5</id>
+			<value>medium</value>
+		</properties>
+		<properties>
+			<property>
+				<name>Estimated Duration</name>
+				<id>12</id>
+			</property>
+			<id>6</id>
+			<value>10h</value>
+		</properties>
+	</tasks>
+	<tasks>
+		<parent>null</parent>
+		<name>Implement change</name>
+		<id>4</id>
+		<properties>
+			<property>
+				<name>Type</name>
+				<id>8</id>
+			</property>
+			<id>10</id>
+			<value>Development Task</value>
+		</properties>
+		<properties>
+			<property>
+				<name>Priority</name>
+				<id>10</id>
+			</property>
+			<id>11</id>
+			<value>medium</value>
+		</properties>
+		<properties>
+			<property>
+				<name>Estimated Duration</name>
+				<id>12</id>
+			</property>
+			<id>12</id>
+			<value>1h</value>
+		</properties>
+	</tasks>
+	<tasks>
+		<parent>null</parent>
+		<name>Purchase 3rd party software license</name>
+		<id>8</id>
+		<properties>
+			<property>
+				<name>Type</name>
+				<id>8</id>
+			</property>
+			<id>22</id>
+			<value>Commercial Task</value>
+		</properties>
+		<properties>
+			<property>
+				<name>Priority</name>
+				<id>10</id>
+			</property>
+			<id>23</id>
+			<value>high</value>
+		</properties>
+		<properties>
+			<property>
+				<name>Estimated Duration</name>
+				<id>12</id>
+			</property>
+			<id>24</id>
+			<value>40h</value>
+		</properties>
+	</tasks>
+	<tasks>
+		<parent>null</parent>
+		<name>Software Architecture Design sign-off</name>
+		<id>10</id>
+		<properties>
+			<property>
+				<name>Type</name>
+				<id>8</id>
+			</property>
+			<id>28</id>
+			<value>Design Task</value>
+		</properties>
+		<properties>
+			<property>
+				<name>Priority</name>
+				<id>10</id>
+			</property>
+			<id>29</id>
+			<value>medium</value>
+		</properties>
+		<properties>
+			<property>
+				<name>Estimated Duration</name>
+				<id>12</id>
+			</property>
+			<id>30</id>
+			<value>1h</value>
+		</properties>
+		<properties>
+			<property>
+				<name>Description</name>
+				<id>9</id>
+			</property>
+			<id>31</id>
+			<value>The project leader or the software architect calls a meeting
+				with all project stakeholders and responsibles. The meeting is used
+				to give the last feedback to the Software architecture Document
+				which has been spread beforehand. After that the architecture has to
+				be signed off by all stakeholders. Make sure all major issues were
+				discussed and resolved before the meeting, so no delay in the sign
+				off can occur.</value>
+		</properties>
+	</tasks>
+	<tasks>
+		<parent>null</parent>
+		<name>Order Server Hardware</name>
+		<id>11</id>
+		<properties>
+			<property>
+				<name>Type</name>
+				<id>8</id>
+			</property>
+			<id>32</id>
+			<value>Systemmanagement Task</value>
+		</properties>
+		<properties>
+			<property>
+				<name>Priority</name>
+				<id>10</id>
+			</property>
+			<id>33</id>
+			<value>low</value>
+		</properties>
+		<properties>
+			<property>
+				<name>Estimated Duration</name>
+				<id>12</id>
+			</property>
+			<id>34</id>
+			<value>19h</value>
+		</properties>
+	</tasks>
+	<properties>
+		<name>Costs</name>
+		<link>null</link>
+		<id>13</id>
+		<type>QASElementLink</type>
+	</properties>
+	<properties>
+		<name>Performance</name>
+		<link>http://en.wikipedia.org/wiki/Computer_performance</link>
+		<id>11</id>
+		<type>QASElementLink</type>
+	</properties>
+	<properties>
+		<name>Scalability</name>
+		<link>null</link>
+		<id>12</id>
+		<type>QASElementLink</type>
+	</properties>
+	<properties>
+		<name>Data integrety</name>
+		<link>null</link>
+		<id>17</id>
+		<type>QASElementLink</type>
+	</properties>
+	<properties>
+		<name>Context View</name>
+		<link>null</link>
+		<id>1</id>
+		<type>ContextElementLink</type>
+	</properties>
+	<properties>
+		<name>Logical View</name>
+		<link>null</link>
+		<id>5</id>
+		<type>ContextElementLink</type>
+	</properties>
+	<properties>
+		<name>Development View</name>
+		<link>null</link>
+		<id>7</id>
+		<type>ContextElementLink</type>
+	</properties>
+	<properties>
+		<name>Hardware (server)</name>
+		<link>null</link>
+		<id>26</id>
+		<type>ComponentElementLink</type>
+	</properties>
+	<properties>
+		<name>Middleware</name>
+		<link>null</link>
+		<id>29</id>
+		<type>ComponentElementLink</type>
+	</properties>
+	<properties>
+		<name>Approach to threading (concurrency management)</name>
+		<link>null</link>
+		<id>24</id>
+		<type>DecisionElementLink</type>
+	</properties>
+	<properties>
+		<name>Choice of thirdparty vendor</name>
+		<link>null</link>
+		<id>22</id>
+		<type>DecisionElementLink</type>
+	</properties>
+	<properties>
+		<name>Choice of thirdparty vendor</name>
+		<link>null</link>
+		<id>23</id>
+		<type>DecisionElementLink</type>
+	</properties>
+	<properties>
+		<name>High parallelisation</name>
+		<link>null</link>
+		<id>18</id>
+		<type>DecisionElementLink</type>
+	</properties>
+	<properties>
+		<name>Choice of hardware plattform</name>
+		<link>null</link>
+		<id>19</id>
+		<type>DecisionElementLink</type>
+	</properties>
+	<properties>
+		<name>Just Enough Software Architecture [Fairbanks]</name>
+		<link>null</link>
+		<id>39</id>
+		<type>ReferenceElementLink</type>
+	</properties>
+	<properties>
+		<name>Software Systems Architecture [Rozanski &amp; Woods]</name>
+		<link>null</link>
+		<id>35</id>
+		<type>ReferenceElementLink</type>
+	</properties>
+	<properties>
+		<name>UML Distilled [Fowler]</name>
+		<link>null</link>
+		<id>37</id>
+		<type>ReferenceElementLink</type>
+	</properties>
+	<status>published</status>
+</arversion>
