@@ -13,7 +13,6 @@ import javax.inject.Named;
 import javax.inject.Singleton;
 import javax.persistence.TypedQuery;
 
-import org.apache.commons.io.IOUtils;
 import org.json.JSONObject;
 import org.json.XML;
 
@@ -27,7 +26,6 @@ import models.discussion.Discussion.DiscussionType;
 import models.status.ItemStatus;
 import models.user.User;
 import play.Logger;
-import play.Play;
 import play.db.jpa.JPA;
 import play.db.jpa.Transactional;
 import play.libs.Json;
@@ -59,10 +57,10 @@ public class ArVersionController extends AbstractCRUDController<ArVersion, Long>
 	private String order = "order by a.name";
 
 	private String arSmellSearchString = 
-			"select a " + arSmellSearchEndingPart + order;
+			"select DISTINCT a " + arSmellSearchEndingPart + order;
 
 	private String arSmellSearchCountString = 
-			"select count(a.id) " + arSmellSearchEndingPart;
+			"select count(DISTINCT a.id) " + arSmellSearchEndingPart;
 
 	/**
 	 * Constructor receives a {@link GenericDAO}. DI framework hook is "@Named("ArVersionDAO")".
@@ -215,7 +213,6 @@ public class ArVersionController extends AbstractCRUDController<ArVersion, Long>
 		}
 		return ok(String.valueOf(data));
 	}
-
 	
 	/**
 	 * Returns an ArVersion as a formatted PDF. First the methods loads the ArVersion
@@ -233,16 +230,15 @@ public class ArVersionController extends AbstractCRUDController<ArVersion, Long>
 		byte [] pdfbytes;
 		try {
 			ar = dao.get(id);
-			Logger.debug("ArVersion Description: " + ar.getDescription());
 			String jsonString = Json.toJson(ar).toString();
 			JSONObject jsonobject = new JSONObject(jsonString);
 			
-			String requestUrl =  "http://" + request().host() + "/#/ar/" + ar.getArhead().getId();
-			Logger.debug("Request URL: " + requestUrl);
+			String requestUri =  "http://" + request().host() + "/#/ar/" + ar.getArhead().getId();
+			Logger.debug("Request URL: " + requestUri);
 
 			StringBuffer xmlString = new StringBuffer(XML.toString(jsonobject, "arversion"));
 			int firstbracket = xmlString.indexOf(">") + 1;
-			xmlString.insert(firstbracket, "<arurl>" + requestUrl + "</arurl>");
+			xmlString.insert(firstbracket, "<uri>" + requestUri + "</uri>");
 			
 			Logger.debug("XML-String to format: " + xmlString);
 			InputStream stream = new ByteArrayInputStream(xmlString.toString().getBytes(StandardCharsets.UTF_8));

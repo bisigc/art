@@ -20,14 +20,27 @@ app.run(['$rootScope','$state','$stateParams','notifications','currentUser', 'is
     $rootScope.$on('$stateChangeSuccess', function (evt, toState, toParams, fromState, fromParams) {
         window.document.title = "Architectural Refactoring Tool > " + toState.title;
     });
+    
+    $rootScope.$on('$stateChangeError', function(event) {
+        $state.go('root.404');
+    });
 }]);
 
+/**
+ * notification bar custom configuration.
+ **/
 app.config(['notificationsConfigProvider', function (notificationsConfigProvider) {
     notificationsConfigProvider.setAutoHide(true);
     notificationsConfigProvider.setHideDelay(7000);
     notificationsConfigProvider.setAcceptHTML(true);
 }]);
 
+/**
+ * Mechanism for Browser wide user profile (session) handling.
+ * Here it is checked if the javascript variable activeProfile provided by
+ * backend via the index page contains the userprofile info of a logged in user.
+ * The userinfo would be provided as a Base64 encoded JSON String.
+ **/
 app.config(['$provide', function($provide) {
     var profile;
     if(window.activeProfile == '') {
@@ -43,19 +56,79 @@ app.config(['$provide', function($provide) {
     $provide.value('currentUser', {"profile": profile});
 }]);
 
+/**
+ * textAngular custom configuration
+ **/
 app.config(['$provide', function($provide){
-    $provide.decorator('taOptions', ['taRegisterTool', '$delegate', function(taRegisterTool, taOptions){
+    $provide.decorator('taOptions', ['taSelection', 'taRegisterTool', '$delegate', '$window', function(taSelection, taRegisterTool, taOptions, $window){
+        // Own button for the textAngular toolbar which inserts a horizontal line in the textbox.
         taRegisterTool('hr', {
             buttontext: '&lt;hr&gt;',
             tooltiptext: 'Insert horizontal line',
             action: function() {
-            this.$editor().wrapSelection('inserthtml', '<hr>');
+                return this.$editor().wrapSelection('inserthtml', '<hr>', true);
+            },
+            activeState: function(commonElement){
+                if(commonElement) return commonElement[0].tagName === 'hr';
+                return false;
             }
         });
+        taRegisterTool('insertAbbreviation', {
+            buttontext: '&lt;abbr&gt;',
+            tooltiptext: 'Insert an abbreviation',
+            action: function() {
+                var _selection = taSelection.getSelection();
+                if(_selection.collapsed){
+                    $window.alert('Select abbreviation first.');
+                }else if(rangy.getSelection().getRangeAt(0).canSurroundContents()){
+                    var title;
+                    title = $window.prompt('Full wording:', '');
+                    var tagBegin = '<abbr title="' + title + '">';
+                    var tagEnd = '</abbr>&nbsp;';
+                    var node = angular.element(tagBegin + tagEnd)[0];
+                    rangy.getSelection().getRangeAt(0).surroundContents(node);
+                }
+                
+                /*if(rangy.getSelection().getRangeAt(0).length > 0){
+                    var title;
+                    title = $window.prompt('Full wording:', '');
+                    var tagBegin = '<abbr title="' + title + '">';
+                    var tagEnd = '</abbr>';
+                    var node = angular.element(tagBegin + tagEnd)[0];
+                    rangy.getSelection().getRangeAt(0).surroundContents(node);
+                } else {
+                    $window.alert('Select text first.');
+                }*/
+                
+                /*var savedSelection = rangy.saveSelection();
+                var abbr;
+                var title;
+                abbr = $window.prompt('Abbreviation:', '');
+                title = $window.prompt('Full wording:', '');
+                if(abbr && title && abbr !== '' && title !== ''){
+                    var abbrhtml = '<abbr title="' + title + '">' + abbr + '</abbr>';
+                    rangy.restoreSelection(savedSelection);
+                    return this.$editor().wrapSelection('inserthtml', abbrhtml, true);
+                }*/
+            }
+            /*action: function(){
+                var abbr;
+                var title;
+                abbr = $window.prompt('Abbreviation:', '');
+                title = $window.prompt('Full wording:', '');
+                if(abbr && title && abbr !== '' && title !== ''){
+                    var abbrhtml = '<abbr title="' + title + '">' + abbr + '</abbr>';
+                    return this.$editor().wrapSelection('inserthtml', abbrhtml, true);
+                }
+            }*/
+        });
+        // Allowing to use the original angularjs sanitizer instead of the one from TextAngular.
+        taOptions.forceTextAngularSanitize = false;
+        // Set the target for all inserted links to _blank
+        taOptions.defaultTagAttributes.a.target = "_blank";
         // add the button to the default toolbar definition
-        taOptions.toolbar[1].push('colourRed');
         taOptions.toolbar = [
-            ['h1', 'h2', 'h3', 'h4', 'p', 'pre', 'hr'],
+            ['h1', 'h2', 'h3', 'h4', 'p', 'pre', 'hr', 'insertAbbreviation'],
             ['bold', 'italics', 'underline', 'ul', 'ol', 'redo', 'undo', 'clear'],
             ['justifyLeft', 'justifyCenter', 'justifyRight', 'indent', 'outdent'],
             ['html', 'insertLink', 'insertImage', 'insertVideo'], ['charcount']
@@ -64,6 +137,9 @@ app.config(['$provide', function($provide){
     }]);
 }]);
 
+/**
+ * ui-router page state configuration
+ **/
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     // For any unmatched url, redirect to ""
     $urlRouterProvider.when('', '/');
@@ -86,6 +162,16 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             'footer': {
                 templateUrl: _contextPath + "footer.html",
                 controller: "FooterController as footCtrl"
+            }
+        }
+    })  
+        .state('root.404', {
+        url: "/404",
+        title: "Page not found",
+        data: { requireLogin: false },
+        views: {
+            'container@': {
+                templateUrl: _contextPath + "404.html",
             }
         }
     })

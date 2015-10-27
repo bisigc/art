@@ -133,7 +133,7 @@
 ** Absatzelemente
 ****************************************
  -->
- 	<xsl:template match="arversion">
+ 	<xsl:template match="smell">
  		<xsl:apply-templates select="name"/>
  		<fo:table space-after="8pt" space-before="8pt">
  		    <fo:table-header>

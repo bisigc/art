@@ -12,9 +12,9 @@
                     <div class="panel-heading">
                         <a class="btn btn-sm btn-primary" ng-href="{{ _contextPath + 'task/pdf/' + task.id}}" uib-tooltip="Download Smell as PDF"><span class="glyphicon glyphicon-file"></span></a>
                         <p class="pull-right" ng-if="isAllowed.check(['Admin','Editor'])">
-                            <a class="btn btn-sm btn-primary" ng-click="$state.go('root.taskbrowser.edit',{id: task.id})">Edit Task</a>
-                            <a class="btn btn-sm btn-primary" ng-click="cloneTask(task.id})">Clone Task</a>
-                            <a class="btn btn-sm btn-danger" ng-if="isAllowed.check(['Admin'])" ng-click="deleteTask(task.id)">Delete this Task</a>
+                            <a class="btn btn-sm btn-primary" ng-click="$state.go('root.taskbrowser.edit',{id: task.id})" uib-tooltip="Edit Task"><span class="glyphicon glyphicon-pencil"></span></a>
+                            <!-- a class="btn btn-sm btn-primary" ng-click="cloneTask(task.id})">Clone Task</a -->
+                            <a class="btn btn-sm btn-danger" ng-if="isAllowed.check(['Admin'])" ng-click="deleteTask(task.id)" uib-tooltip="Delete this Task"><span class="glyphicon glyphicon-trash"></span></a>
                         </p>
                     </div>
                 </div>
@@ -45,9 +45,9 @@
                     <div class="panel-heading">
                         <a class="btn btn-sm btn-primary" ng-href="{{ _contextPath + 'task/pdf/' + task.id}}" uib-tooltip="Download Smell as PDF"><span class="glyphicon glyphicon-file"></span></a>
                         <p class="pull-right" ng-if="isAllowed.check(['Admin','Editor'])">
-                            <a class="btn btn-sm btn-primary" ng-click="$state.go('root.taskbrowser.edit',{id: task.id})">Edit Task</a>
-                            <a class="btn btn-sm btn-primary" ng-click="cloneTask(task.id})">Clone Task</a>
-                            <a class="btn btn-sm btn-danger" ng-if="isAllowed.check(['Admin'])" ng-click="deleteTask(task.id)">Delete this Task</a>
+                            <a class="btn btn-sm btn-primary" ng-click="$state.go('root.taskbrowser.edit',{id: task.id})" uib-tooltip="Edit Task"><span class="glyphicon glyphicon-pencil"></span></a>
+                            <!-- a class="btn btn-sm btn-primary" ng-click="cloneTask(task.id})">Clone Task</a -->
+                            <a class="btn btn-sm btn-danger" ng-if="isAllowed.check(['Admin'])" ng-click="deleteTask(task.id)" uib-tooltip="Delete this Task"><span class="glyphicon glyphicon-trash"></span></a>
                         </p>
                     </div>
                 </div>

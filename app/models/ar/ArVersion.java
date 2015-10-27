@@ -11,6 +11,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.OrderColumn;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -38,10 +39,13 @@ public class ArVersion extends AbstractModel {
 	@ManyToOne
 	private Ar arhead;
 	@ManyToMany
+	@OrderColumn(name="smellorder")
 	private List<Smell> smells;
 	@ManyToMany
+	@OrderColumn(name="taskorder")
 	private List<TaskTemplate> tasks;
 	@ManyToMany
+	@OrderColumn(name="propertyorder")
 	private List<ModelElementLink> properties;
 	@OneToOne(cascade=CascadeType.ALL, mappedBy="ar")
 	@JsonManagedReference("ArVersionDiscussion")

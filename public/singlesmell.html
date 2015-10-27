@@ -11,9 +11,9 @@
                     <div class="panel-heading">
                         <a class="btn btn-sm btn-primary" ng-href="{{ _contextPath + 'smell/pdf/' + smell.id}}" uib-tooltip="Download Smell as PDF"><span class="glyphicon glyphicon-file"></span></a>
                         <p class="pull-right" ng-if="isAllowed.check(['Admin','Editor'])">
-                            <a class="btn btn-sm btn-primary" ng-click="$state.go('root.smellbrowser.edit',{id: smell.id})">Edit Smell</a>
-                            <a class="btn btn-sm btn-primary" ng-click="cloneSmell(smell.id)">Clone Smell</a>
-                            <a class="btn btn-sm btn-danger" ng-if="isAllowed.check(['Admin'])" ng-click="deleteSmell(smell.id)">Delete this Smell</a>
+                            <a class="btn btn-sm btn-primary" ng-click="$state.go('root.smellbrowser.edit',{id: smell.id})" uib-tooltip="Edit Smell"><span class="glyphicon glyphicon-pencil"></span></a>
+                            <!-- a class="btn btn-sm btn-primary" ng-click="cloneSmell(smell.id)">Clone Smell</a -->
+                            <a class="btn btn-sm btn-danger" ng-if="isAllowed.check(['Admin'])" ng-click="deleteSmell(smell.id)" uib-tooltip="Delete this Smell"><span class="glyphicon glyphicon-trash"></span></a>
                         </p>
                     </div>
                 </div>
@@ -40,8 +40,8 @@
                     </div>
                     <div class="col-md-4">
                         <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Cloud weight</h3>
+                            <div class="panel-heading" uib-tooltip="Amount of linkages to ARs with status 'published'">
+                                <h3 class="panel-title">AR Appearances</h3>
                                 <span>{{smell.weight}}</span>
                             </div>
                         </div>
@@ -113,19 +113,39 @@
                 </div>
             </div>
         </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Description</h3>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Description</h3>
+                    </div>
+                    <div class="panel-body" ng-bind-html="smell.description"></div>
+                </div>
             </div>
-            <div class="panel-body" ng-bind-html="smell.description"></div>
         </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Questions</h3>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Questions</h3>
+                    </div>
+                    <ul class="list-group">
+                      <li class="list-group-item" ng-repeat="question in smell.questions">{{question.question}}</li>
+                    </ul>
+                </div>
             </div>
-            <ul class="list-group">
-              <li class="list-group-item" ng-repeat="question in smell.questions">{{question.question}}</li>
-            </ul>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Referenced ARs</h3>
+                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="ar in arlist"><a ui-sref="root.singlear({id: ar.arhead.id})">{{ar.name | limit: 70}}</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -134,9 +154,9 @@
                 <div class="panel-heading">
                     <a class="btn btn-sm btn-primary" ng-href="{{ _contextPath + 'smell/pdf/' + smell.id}}" uib-tooltip="Download Smell as PDF"><span class="glyphicon glyphicon-file"></span></a>
                     <p class="pull-right" ng-if="isAllowed.check(['Admin','Editor'])">
-                        <a class="btn btn-sm btn-primary" ng-click="$state.go('root.smellbrowser.edit',{id: smell.id})">Edit Smell</a>
-                        <a class="btn btn-sm btn-primary" ng-click="cloneSmell(smell.id)">Clone Smell</a>
-                        <a class="btn btn-sm btn-danger" ng-if="isAllowed.check(['Admin'])" ng-click="deleteSmell(smell.id)">Delete this Smell</a>
+                        <a class="btn btn-sm btn-primary" ng-click="$state.go('root.smellbrowser.edit',{id: smell.id})" uib-tooltip="Edit Smell"><span class="glyphicon glyphicon-pencil"></span></a>
+                        <!-- a class="btn btn-sm btn-primary" ng-click="cloneSmell(smell.id)">Clone Smell</a -->
+                        <a class="btn btn-sm btn-danger" ng-if="isAllowed.check(['Admin'])" ng-click="deleteSmell(smell.id)" uib-tooltip="Delete this Smell"><span class="glyphicon glyphicon-trash"></span></a>
                     </p>
                 </div>
             </div>

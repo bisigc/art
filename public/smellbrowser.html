@@ -9,7 +9,7 @@
         </div>
     </div>
     <div>
-        <table id="searchObjResults" class="table table-striped table-hover non-select" popover-popup-delay="1000" uib-popover="Double-Click rows to open Smell in detailed view" popover-trigger="mouseenter" popover-placement="right">
+        <table id="searchObjResults" class="table table-striped table-hover non-select" uib-tooltip="Double-Click rows to open Smell in detailed view">
             <tr>
                 <th>Name</th>
                 <th>Description</th>
@@ -24,7 +24,7 @@
                 <td><input class="form-control" ng-model="search.weight" placeholder="Filter..." /></td>
                 <td><input class="form-control" ng-model="search.group.name" placeholder="Filter..." /></td>
                 <td><input class="form-control" ng-model="search.tecdebtidx" placeholder="Filter..." /></td>
-                <td><button type="button" class="btn btn-warning btn-sm" ng-click="search = []" uib-popover="Clear filter fields" popover-trigger="mouseenter" popover-placement="top">clear</button></td>
+                <td><button type="button" class="btn btn-warning btn-sm" ng-click="search = []" uib-tooltip="Clear filter fields">clear</button></td>
             </tr>
             <tr>
                 <th><a ng-click="rname=!rname;order('name', rname)">Name <span ng-show="rname">&#x25B2;</span><span ng-show="!rname">&#x25BC;</span></a></th>
@@ -35,7 +35,7 @@
                 <th></th>
             </tr>
             <tr ng-if="formvisible" class="bg-warning">
-                <td>{{smell.name | limit: 20}}&nbsp;</td>
+                <td>{{smell.name | limit: 30}}&nbsp;</td>
                 <td>{{smell.description | limitHtml: 20}}</td>
                 <td>{{smell.weight}}</td>
                 <td>{{smell.group.name}}</td>
@@ -43,12 +43,17 @@
                 <td></td>
             </tr>
             <tr ng-repeat="smellItem in smelllist | filter:search" ng-dblclick="$state.go('root.singlesmell',{id: smellItem.id})">
-                <td><a ui-sref="root.singlesmell({id: smellItem.id})">{{smellItem.name | limit: 20}}</a></td>
-                <td ng-bind-html="smellItem.description | limitHtml: 20"></td>
+                <td><a ui-sref="root.singlesmell({id: smellItem.id})" uib-tooltip="{{smellItem.name}}">{{smellItem.name | limit: 30}}</a></td>
+                <td>
+                    <script id="popoverdesc.html" type="text/ng-template">
+                        <div ng-bind-html="smellItem.description | toSafeHtml"></div>
+                    </script>
+                    <span uib-popover-template="'popoverdesc.html'" popover-title="Full description" popover-trigger="mouseenter" popover-placement="right" popover-append-to-body>{{smellItem.description | limitHtml: 50 }}</span>
+                </td>
                 <td>{{smellItem.weight}}</td>
                 <td>{{smellItem.group.name}}</td>
                 <td class="dbt-idx-{{smellItem.tecdebtidx}}">{{smellItem.tecdebtidx}}</td>
-                <td><a ui-sref="root.smellbrowser.edit({id: smellItem.id})" ng-if="isAllowed.check(['Admin','Editor'])"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;<a href ng-click="deleteSmell(smellItem.id)" ng-if="isAllowed.check(['Admin'])"><span class="glyphicon glyphicon-trash"></span></a></td>
+                <td><a ui-sref="root.smellbrowser.edit({id: smellItem.id})" ng-if="isAllowed.check(['Admin','Editor'])" uib-tooltip="Edit Smell"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;<a href ng-click="deleteSmell(smellItem.id)" ng-if="isAllowed.check(['Admin'])" uib-tooltip="Delete Smell"><span class="glyphicon glyphicon-trash"></span></a></td>
             </tr>
         </table>
     </div>

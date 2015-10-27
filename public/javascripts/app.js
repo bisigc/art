@@ -1,4 +1,4 @@
-var app = angular.module('art', ['ui.router','ui.bootstrap','angular-jqcloud','ngResource','ngSanitize','ui.select','ngNotificationsBar','textAngular']);
+var app = angular.module('art', ['ui.router','ui.bootstrap','angular-jqcloud','ngResource','ngSanitize','ui.select','ngNotificationsBar','textAngular','ui.sortable']);
 
 var setSmell = function(smell){ 
     var input = $('#smellname');
@@ -160,7 +160,7 @@ app.controller('ArViewController', ['ArService', 'ReplyErrorHandler', '$statePar
                 notifications.showSuccess("Ar " + id + " has been deleted.");
                 $state.go('root.arbrowser');
             }, ReplyErrorHandler);
-        }, function() {notifications.showInfo("Deleted canceled.")});
+        }, function() {notifications.showInfo("Delete canceled.")});
     }
     
     $scope.deleteArVersion = function(id) {
@@ -182,7 +182,7 @@ app.controller('ArViewController', ['ArService', 'ReplyErrorHandler', '$statePar
                 notifications.showSuccess("ArVersion " + id + " has been deleted.");
                 $scope.loadAr();
             }, ReplyErrorHandler);*/
-        }, function() {notifications.showInfo("Deleted canceled.")});
+        }, function() {notifications.showInfo("Delete canceled.")});
     }
 
 }]);
@@ -292,7 +292,7 @@ app.controller('ARController', ['ArService', 'ArVersionService', 'CloudSmells', 
                 notifications.showSuccess("Delete of AR with id " + id + " and his versions succsessful.");
                 $scope.loadArs();
             }, ReplyErrorHandler);  
-        }, function() {notifications.showInfo("Deleted canceled.")});
+        }, function() {notifications.showInfo("Delete canceled.")});
     };
     
     $scope.getPDF = function(id) {
@@ -668,7 +668,7 @@ app.controller('ModelElementController', ['ModelElementService', 'ReplyErrorHand
                 notifications.showSuccess("Model Element Link has been deleted.");
                 $scope.loadModelElements();
             }, ReplyErrorHandler);  
-        }, function() {notifications.showInfo("Deleted canceled.")});
+        }, function() {notifications.showInfo("Delete canceled.")});
     }
     
     $scope.order = function(predicate, reverse) {
@@ -735,7 +735,7 @@ app.controller('SmellGroupController', ['SmellGroupService', 'ReplyErrorHandler'
                 notifications.showSuccess("Smell Group has been deleted.");
                 $scope.loadSmellGroups();
             }, ReplyErrorHandler);  
-        }, function() {notifications.showInfo("Deleted canceled.")});
+        }, function() {notifications.showInfo("Delete canceled.")});
     }
     
     $scope.order = function(predicate, reverse) {
@@ -784,7 +784,7 @@ app.controller('SmellGroupUpdateController', ['SmellGroupService', 'ReplyErrorHa
     }    
 }]);
 
-app.controller('ARSearchController', ['ArVersionService', 'UserSearchService', 'ReplyErrorHandler', 'notifications','$scope', '$stateParams', '$filter', '$state', function(ArVersionService, UserSearchService, ReplyErrorHandler, notifications, $scope, $stateParams, $filter, $state) {
+app.controller('ARSearchController', ['ArService', 'ArVersionService', 'UserSearchService', 'ReplyErrorHandler', 'ConfirmModal', 'notifications','$scope', '$stateParams', '$filter', '$state', function(ArService, ArVersionService, UserSearchService, ReplyErrorHandler, ConfirmModal, notifications, $scope, $stateParams, $filter, $state) {
     var orderBy = $filter('orderBy');
     $scope.arlist = []; //ars;
     $scope.arsearch = {};
@@ -810,6 +810,15 @@ app.controller('ARSearchController', ['ArVersionService', 'UserSearchService', '
             $state.go('root.usersearches');
         }, ReplyErrorHandler);  
     }
+    
+    $scope.deleteAr = function(id) {
+        ConfirmModal.showModal({}, {headerText: 'Confirm', bodyText: 'Are you sure you want to delete the whole AR?'}).then(function (result) {
+            ArService.id.delete({id: id}, function(data, status, headers, config) {
+                notifications.showSuccess("Delete of AR with id " + id + " and his versions succsessful.");
+                $scope.loadArs();
+            }, ReplyErrorHandler);  
+        }, function() {notifications.showInfo("Delete canceled.")});
+    };
 }]);
 
 app.controller('UserSearchController', ['UserSearchService', 'ReplyErrorHandler', 'ConfirmModal', 'notifications','$scope', function(UserSearchService, ReplyErrorHandler, ConfirmModal, notifications, $scope, $stateParams) {
@@ -828,7 +837,7 @@ app.controller('UserSearchController', ['UserSearchService', 'ReplyErrorHandler'
                 notifications.showSuccess("User search has been deleted.");
                 $scope.loadSearches();
             }, ReplyErrorHandler);
-        }, function() {notifications.showInfo("Deleted canceled.")});
+        }, function() {notifications.showInfo("Delete canceled.")});
     }
 }]);
 
@@ -837,6 +846,7 @@ app.controller('SmellAssessController', ['ArVersionService', 'SmellGroupService'
     $scope.groups = [];
     $scope.groupToggle = [];
     $scope.groupAllCheck = [];
+    $scope.arlist = [];
     SmellGroupService.noid.get({},function(data, status, headers, config) {
             $scope.groups = data;
         }, ReplyErrorHandler);  
@@ -869,6 +879,12 @@ app.controller('SmellAssessController', ['ArVersionService', 'SmellGroupService'
         $scope.getSmellCount();
     }
     
+    $scope.loadArs = function () {
+        ArVersionService.search.get($scope.selectedSmells,function(data, status, headers, config) {
+            $scope.arlist = data;
+        }, ReplyErrorHandler);  
+    };
+    
     $scope.getSmellCount = function () {
     	if($scope.selectedSmells.smellids.length != 0) {
 	        ArVersionService.count($scope.selectedSmells).success(function(data,status,headers,config){
@@ -876,15 +892,16 @@ app.controller('SmellAssessController', ['ArVersionService', 'SmellGroupService'
 	        }).error(function(data,status,headers,config){
 	            notifications.showError("Failed to get Ar count.");
 	        });
+            $scope.loadArs();
     	} else {
-            $scope.counter = 0;    		
+            $scope.counter = 0;
+            $scope.arlist = [];
     	}
     };
 
     $scope.resetForm = function() {
         $scope.selectedSmells = {"smellids": [] };
         $scope.groupAllCheck = [];
-
         $scope.counter = 0;
     };
     
@@ -1043,7 +1060,7 @@ app.controller('SmellController', ['SmellService', 'SmellGroupService', 'ReplyEr
                 $scope.loadSmells();
                 notifications.showSuccess("Smell has been deleted.");
             }, ReplyErrorHandler);
-        }, function() {notifications.showInfo("Deleted canceled.")});
+        }, function() {notifications.showInfo("Delete canceled.")});
     }
 
     $scope.order = function(predicate, reverse) {
@@ -1052,14 +1069,33 @@ app.controller('SmellController', ['SmellService', 'SmellGroupService', 'ReplyEr
     $scope.order('name', false);
 }]);
 
-app.controller('SmellViewController', ['SmellService', 'ReplyErrorHandler', 'notifications', '$stateParams', '$scope', function (SmellService, ReplyErrorHandler, notifications, $stateParams, $scope) {
+app.controller('SmellViewController', ['SmellService', 'ArVersionService', 'ConfirmModal', 'ReplyErrorHandler', 'notifications', '$stateParams', '$state', '$scope', function (SmellService, ArVersionService, ConfirmModal, ReplyErrorHandler, notifications, $stateParams, $state, $scope) {
     $scope.smell = {};
+    $scope.smellids = {"smellids": [] };
+
     $scope.getSmell = function (smellid) {
         SmellService.id.get({id: smellid},function(data, status, headers, config) {
             $scope.smell = data;
         }, ReplyErrorHandler);
     };
     $scope.getSmell($stateParams.id);
+    
+    $scope.deleteSmell = function (id) {
+        ConfirmModal.showModal({}, {headerText: 'Confirm', bodyText: 'Are you sure you want to delete this Smell?'}).then(function (result) {
+            SmellService.id.delete({id: id},function(data, status, headers, config) {
+                $state.go('root.smellbrowser');
+                notifications.showSuccess("Smell has been deleted.");
+            }, ReplyErrorHandler);
+        }, function() {notifications.showInfo("Delete canceled.")});
+    }
+
+    $scope.loadArs = function () {
+        $scope.smellids.smellids.push($stateParams.id);
+        ArVersionService.search.get($scope.smellids,function(data, status, headers, config) {
+            $scope.arlist = data;
+        }, ReplyErrorHandler);  
+    };
+    $scope.loadArs();
 }]);
 
 app.controller('SmellUpdateController', ['SmellService','SmellGroupService', 'StatusService', 'ReplyErrorHandler', 'notifications', '$modalInstance', '$scope', '$stateParams', 'smellid', function (SmellService, SmellGroupService, StatusService, ReplyErrorHandler, notifications, $modalInstance, $scope, $stateParams, smellid) {
@@ -1160,7 +1196,7 @@ app.controller('TaskController', ['TaskService', 'ExecTaskTypeService', 'TaskPro
                 $scope.loadTasks();
                 notifications.showSuccess("Task has been deleted.");
             }, ReplyErrorHandler);
-        }, function() {notifications.showInfo("Deleted canceled.")});
+        }, function() {notifications.showInfo("Delete canceled.")});
     }
 
     $scope.order = function(predicate, reverse) {
@@ -1258,7 +1294,7 @@ app.controller('TaskModalAddController', ['$controller', '$scope', '$modalInstan
     }
 }]);
     
-app.controller('TaskViewController', ['TaskService', 'ReplyErrorHandler', 'notifications','$scope', '$stateParams', function(TaskService, ReplyErrorHandler, notifications, $scope, $stateParams) {
+app.controller('TaskViewController', ['TaskService', 'ReplyErrorHandler', 'ConfirmModal', 'notifications', '$scope', '$stateParams', '$state', function(TaskService, ReplyErrorHandler, ConfirmModal, notifications, $scope, $stateParams, $state) {
     $scope.task = {};
     
     $scope.loadTask =function() {
@@ -1267,7 +1303,15 @@ app.controller('TaskViewController', ['TaskService', 'ReplyErrorHandler', 'notif
         }, ReplyErrorHandler);  
     }
     $scope.loadTask();
-
+    
+    $scope.deleteTask = function (id) {
+        ConfirmModal.showModal({}, {headerText: 'Confirm', bodyText: 'Are you sure you want to delete this Task?'}).then(function (result) {
+            TaskService.id.delete({id: id},function(data, status, headers, config) {
+                $state.go('root.taskbrowser');
+                notifications.showSuccess("Task has been deleted.");
+            }, ReplyErrorHandler);
+        }, function() {notifications.showInfo("Delete canceled.")});
+    }
 }]);
 
 app.controller('TaskUpdateController', ['TaskService', 'ExecTaskTypeService', 'TaskPropertyService', 'ReplyErrorHandler', 'notifications', '$modalInstance', '$scope', '$stateParams', 'taskid', '$sce', function (TaskService, ExecTaskTypeService, TaskPropertyService, ReplyErrorHandler, notifications, $modalInstance, $scope, $stateParams, smellid, $sce) {

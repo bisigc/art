@@ -1,5 +1,8 @@
 package controllers.smell;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -7,6 +10,13 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
 
+import org.json.JSONObject;
+import org.json.XML;
+
+import com.fasterxml.jackson.databind.JsonNode;
+
+import controllers.AbstractCRUDController;
+import dao.GenericDAO;
 import models.smell.Smell;
 import models.status.ItemStatus;
 import play.Logger;
@@ -14,11 +24,8 @@ import play.db.jpa.Transactional;
 import play.libs.Json;
 import play.mvc.Result;
 import utils.actions.SessionAuth;
-
-import com.fasterxml.jackson.databind.JsonNode;
-
-import controllers.AbstractCRUDController;
-import dao.GenericDAO;
+import utils.exceptions.ItemNotFoundException;
+import utils.xslfo.XslfoFromatter;
 
 /**
  * Concrete implementation of an {@link AbstractCRUDController} to retrieve and manipulate
@@ -131,5 +138,48 @@ public class SmellController extends AbstractCRUDController<Smell, Long> {
 			return internalServerError(msg);
 		}
 		return ok(Json.toJson(updated));
+	}
+	
+	/**
+	 * Returns a Smell as a formatted PDF. First the methods loads the Smell
+	 * Object from the DataSource and converts it to JSON and than it is converted
+	 * to XML with the org.json library. Might be a little bit overhead but it seems to be
+	 * the easier way than to annotate the Model Beans both with JSON and XML Object values.
+	 * The xml than is formatted with Apache FOP (Helper Class {@link XslfoFromatter}.
+	 * 
+	 * @param id Primary key of the Smell which has to be formatted to a PDF
+	 * @return HTTP result
+	 */
+	@Transactional(readOnly=true)
+	public Result getPDF(Long id) {
+		Smell smell;
+		byte [] pdfbytes;
+		try {
+			smell = dao.get(id);
+			String jsonString = Json.toJson(smell).toString();
+			JSONObject jsonobject = new JSONObject(jsonString);
+			
+			String requestUri =  "http://" + request().host() + "/#/smell/" + smell.getId();
+			Logger.debug("Request URL: " + requestUri);
+
+			StringBuffer xmlString = new StringBuffer(XML.toString(jsonobject, "smell"));
+			int firstbracket = xmlString.indexOf(">") + 1;
+			xmlString.insert(firstbracket, "<uri>" + requestUri + "</uri>");
+			
+			Logger.debug("XML-String to format: " + xmlString);
+			InputStream stream = new ByteArrayInputStream(xmlString.toString().getBytes(StandardCharsets.UTF_8));
+
+			pdfbytes = XslfoFromatter.format(stream, "Smell.xsl");
+		} catch (ItemNotFoundException e) {
+			Logger.error(e.getMessage(), e);
+			return notFound(e.getMessage());
+		} catch (Exception e) {
+			String msg = "Failed to create PDF for " + dao.getModel().getSimpleName() + " with id " + id;
+			Logger.error(msg, e);
+			return internalServerError(msg);
+		}
+		String filename = "smell_" + id + ".pdf";
+		response().setHeader("Content-Disposition", "attachment; filename=" + filename);
+		return pdfbytes == null ? notFound() : ok(pdfbytes).as("application/pdf");
 	}
 }

@@ -16,7 +16,7 @@
                 <fieldset class="form-group">
                     <label for="question">Questions</label>                    
                     <div class="input-group">
-                        <input class="form-control" type="text" id="question" ng-model="questionToAdd" placeholder="Question..."></input>
+                        <input class="form-control" type="text" id="question" ng-model="questionToAdd" placeholder="Question..." uib-popover="Click on the Plus-Button to add the Question to the smell" popover-trigger="focus" popover-placement="top"></input>
                         <span class="input-group-btn">
                             <a class="btn btn-primary" ng-click="questionToAdd !== '' && addQuestion()">
                                 <i class="glyphicon glyphicon-plus"></i>

@@ -44,6 +44,7 @@ GET     /smell/:id                @controllers.smell.SmellController.get(id: Lon
 POST    /smell                    @controllers.smell.SmellController.create()
 PUT     /smell                    @controllers.smell.SmellController.update()
 DELETE  /smell/:id                @controllers.smell.SmellController.delete(id: Long)
+GET     /smell/pdf/:id 		      @controllers.smell.SmellController.getPDF(id: Long)
 
 #SmellGroup service
 GET     /smellgroup               @controllers.smell.SmellGroupController.getAll()
@@ -106,6 +107,7 @@ GET     /task/:id                 @controllers.task.TaskTemplateController.get(i
 POST    /task                     @controllers.task.TaskTemplateController.create()
 PUT     /task                     @controllers.task.TaskTemplateController.update()
 DELETE  /task/:id                 @controllers.task.TaskTemplateController.delete(id: Long)
+GET     /task/pdf/:id 		      @controllers.task.TaskTemplateController.getPDF(id: Long)
 
 #TaskProperty service
 GET     /taskproperty             @controllers.task.TaskPropertyController.getAll()

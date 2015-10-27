@@ -23,23 +23,24 @@
                     The Smell Self-Assessment is a useful tool to find solutions to deficiencies concering your own software systems. Tick all questions which you can answer with yes to find matching Architectural Refactorings. If logged in, it is possible to save the excuted search in your user profile.
                 </div>
             </div>
-            <div class="affix">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Found <span class="label label-default" hilighter="counter">{{counter}}</span> Architectural Refactorings</h3>
-                    </div>
+            <div class="panel panel-default affix">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Found <span class="label label-default" hilighter="counter">{{counter}}</span> Architectural Refactorings:</h3>
                 </div>
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="ar in arlist"><a ui-sref="root.singlear({id: ar.arhead.id})">{{ar.name | limit: 30}}</a></li>
+                </ul>
             </div>
         </div>
         <div class="col-md-8">
             <form role="form">
                 <div class="panel panel-default" ng-repeat="group in groups track by $index" ng-init="groupToggle[$index] = false">
-                    <div class="panel-heading">
-                        <b>{{group.name}}</b> 
-                        <div class="pull-right">
-                            <a ng-init="groupAllCheck[$index] = false" ng-click="toggleGroupSelect($index)" popover="Select/Deselect all group items" popover-trigger="mouseenter" popover-placement="top"><span class="glyphicon glyphicon-unchecked" ng-hide="groupAllCheck[$index]"/><span class="glyphicon glyphicon-check" ng-show="groupAllCheck[$index]"/></a>
-                            <a href ng-click="groupToggle[$index] = !groupToggle[$index]" popover="Show/hide all group items" popover-trigger="mouseenter" popover-placement="top"><span class="glyphicon glyphicon-chevron-down" ng-hide="groupToggle[$index]"></span><span class="glyphicon glyphicon-chevron-up" ng-show="groupToggle[$index]"></span></a>
-                        </div>
+                    <div class="panel-heading clearfix">
+                        <span class="h3 panel-title">{{group.name}}</span> 
+                        <span class="pull-right">
+                            <a class="btn btn-sm btn-default" ng-init="groupAllCheck[$index] = false" ng-click="toggleGroupSelect($index)" uib-tooltip="Select/Deselect all group items"><span class="glyphicon glyphicon-unchecked" ng-hide="groupAllCheck[$index]"/><span class="glyphicon glyphicon-check" ng-show="groupAllCheck[$index]"/></a>
+                            <a class="btn btn-sm btn-default" ng-click="groupToggle[$index] = !groupToggle[$index]" uib-tooltip="Show/hide all group items"><span class="glyphicon glyphicon-chevron-down" ng-hide="groupToggle[$index]"></span><span class="glyphicon glyphicon-chevron-up" ng-show="groupToggle[$index]"></span></a>
+                        </span>
                     </div>
                     <div class="panel-body" ng-show="groupToggle[$index]">
                         <div ng-repeat="smell in group.smells">
@@ -65,7 +66,7 @@
                 </div>
                 <div class="pull-right">
                     <a type="reset" class="btn btn-warning" ng-click="resetForm()" >Clear Questionnaire</a>&nbsp;
-                    <button type="submit" class="btn btn-primary" ng-click="executeSearch()">Show ARs</button>
+                    <button type="submit" class="btn btn-primary" ng-click="executeSearch()" ng-disabled="selectedSmells.smellids.length === 0">Show ARs</button>
                 </div>
             </form>
         </div>

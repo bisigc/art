@@ -18,7 +18,7 @@
             <tr>
                 <td><input class="form-control" ng-model="search.name" placeholder="Filter..." /></td>
                 <td><input class="form-control" ng-model="search.properties.value" placeholder="Filter..." /></td>
-                <td><button type="button" class="btn btn-warning btn-sm" ng-click="search = []" uib-popover="Clear filter fields" popover-trigger="mouseenter" popover-placement="top">clear</button></td>
+                <td><button type="button" class="btn btn-warning btn-sm" ng-click="search = []" uib-tooltip="Clear filter fields">clear</button></td>
             </tr>
             <tr>
                 <th><a ng-click="rname=!rname;order('name', rname)">Name <span ng-show="rname">&#x25B2;</span><span ng-show="!rname">&#x25BC;</span></a></th>
@@ -33,7 +33,7 @@
             <tr ng-repeat="taskItem in tasklist | filter:search" ng-dblclick="$state.go('root.singletask',{id: taskItem.id})">
                 <td><a ui-sref="root.singletask({id: taskItem.id})">{{taskItem.name | limit: 50}}</a></td>
                 <td>{{ getType(taskItem.properties) }}</td>
-                <td><a ui-sref="root.taskbrowser.edit({id: taskItem.id})" ng-if="isAllowed.check(['Admin','Editor'])"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;<a href ng-click="deleteTask(taskItem.id)" ng-if="isAllowed.check(['Admin'])"><span class="glyphicon glyphicon-trash"></span></a></td>
+                <td><a ui-sref="root.taskbrowser.edit({id: taskItem.id})" ng-if="isAllowed.check(['Admin','Editor'])" uib-tooltip="Edit Task"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;<a href ng-click="deleteTask(taskItem.id)" ng-if="isAllowed.check(['Admin'])" uib-tooltip="Delete Task"><span class="glyphicon glyphicon-trash"></span></a></td>
             </tr>
         </table>
     </div>

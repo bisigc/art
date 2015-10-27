@@ -25,11 +25,11 @@
             <td><input class="form-control" ng-model="search.name" placeholder="Filter..." /></td>
             <td><input class="form-control" ng-model="search.link" placeholder="Filter..." /></td>
             <td><input class="form-control" ng-model="search.type" placeholder="Filter..." /></td>
-            <td><button type="button" class="btn btn-warning btn-sm" ng-click="search = []" popover="Clear filter fields" popover-trigger="mouseenter" popover-placement="top">clear</button></td>
+            <td><button type="button" class="btn btn-warning btn-sm" ng-click="search = []" uib-tooltip="Clear filter fields">clear</button></td>
         </tr>
         <tr>
             <th><a ng-click="rname=!rname;order('name', rname)">Name <span ng-show="rname">&#x25B2;</span><span ng-show="!rname">&#x25BC;</span></a></th>
-            <th><a ng-click="rlink=!rlink;order('link', rlink)">Link <span ng-show="rlink">&#x25B2;</span><span ng-show="!rlink">&#x25BC;</span></a></th>
+            <th><a ng-click="rlink=!rlink;order('link', rlink)">Reference (<abbr title="Unified Resource Identifier">URI</abbr>) <span ng-show="rlink">&#x25B2;</span><span ng-show="!rlink">&#x25BC;</span></a></th>
             <th><a ng-click="rtype=!rtype;order('type', rtype)">Type <span ng-show="rtype">&#x25B2;</span><span ng-show="!rtype">&#x25BC;</span></a></th>
             <th></th>
         </tr>
