@@ -338,16 +338,50 @@ app.controller('AREditController', ['ArService', 'ArVersionService', 'SmellServi
     }
     $scope.loadArVersion();
     
-    $scope.openPropModal = function(type) {
-        PropModal.open(type, function() {$scope.loadValues()}, function() {});
+    $scope.addcreatedProp = function(typeAndnewProp) {
+        $scope.loadProps(typeAndnewProp.type);
+        switch(typeAndnewProp.type) {
+            case 'QASElementLink':
+                $scope.modelelementsvalues.qas.push(typeAndnewProp.newProp);
+                break;
+            case 'ContextElementLink':
+                $scope.modelelementsvalues.context.push(typeAndnewProp.newProp);
+                break;
+            case 'ComponentElementLink':
+                $scope.modelelementsvalues.components.push(typeAndnewProp.newProp);
+                break;
+            case 'DecisionElementLink':
+                $scope.modelelementsvalues.decisions.push(typeAndnewProp.newProp);
+                break;
+            case 'ReferenceElementLink':
+                $scope.modelelementsvalues.references.push(typeAndnewProp.newProp);
+                break;
+            default:
+                break;
+        }
     }
     
+    $scope.openPropModal = function(type) {
+        PropModal.open(type, $scope.addcreatedProp, function() {});
+        //PropModal.open(type, function() {$scope.loadValues()}, function() {});
+    }
+    
+    $scope.addcreatedSmell = function(newSmell) {
+        $scope.loadSmells();
+        $scope.arversion.smells.push(newSmell);
+    }
+
     $scope.openSmellModal = function(type) {
-        SmellModal.open(type, function() {$scope.loadSmells()}, function() {});
+        SmellModal.open(type, $scope.addcreatedSmell, function() {});
+    }
+    
+    $scope.addcreatedTask = function(newTask) {
+        $scope.loadTasks();
+        $scope.arversion.tasks.push(newTask);
     }
     
     $scope.openTaskModal = function(type) {
-        TaskModal.open(type, function() {$scope.loadTasks()}, function() {});
+        TaskModal.open(type, $scope.addcreatedTask, function() {});
     }
     
     $scope.loadSmells = function () {
@@ -505,23 +539,23 @@ app.controller('ARAddController', ['ArService', 'ArVersionService', 'SmellServic
         }, ReplyErrorHandler);
     }
     
-    $scope.addcreatedProp = function(type, newProp) {
-        $scope.loadProps(type);
-        switch(type) {
+    $scope.addcreatedProp = function(typeAndnewProp) {
+        $scope.loadProps(typeAndnewProp.type);
+        switch(typeAndnewProp.type) {
             case 'QASElementLink':
-                $scope.modelelementsvalues.qas.push(newProp);
+                $scope.modelelementsvalues.qas.push(typeAndnewProp.newProp);
                 break;
             case 'ContextElementLink':
-                $scope.modelelementsvalues.context.push(newProp);
+                $scope.modelelementsvalues.context.push(typeAndnewProp.newProp);
                 break;
             case 'ComponentElementLink':
-                $scope.modelelementsvalues.components.push(newProp);
+                $scope.modelelementsvalues.components.push(typeAndnewProp.newProp);
                 break;
             case 'DecisionElementLink':
-                $scope.modelelementsvalues.decisions.push(newProp);
+                $scope.modelelementsvalues.decisions.push(typeAndnewProp.newProp);
                 break;
             case 'ReferenceElementLink':
-                $scope.modelelementsvalues.references.push(newProp);
+                $scope.modelelementsvalues.references.push(typeAndnewProp.newProp);
                 break;
             default:
                 break;
@@ -721,7 +755,11 @@ app.controller('ModelElementAddController', ['ModelElementService', 'ReplyErrorH
             notifications.showSuccess("Model Element of type " + $scope.modelelement.type + " has been added.");
             $scope.modelelement = {};
             form.$setPristine();
-            $modalInstance.close(modelelementtype, data);
+            // close method accepts only one parameter, therefore the two necessary values are packed into an array.
+            var propArray = [];
+            propArray.type = modelelementtype;
+            propArray.newProp = data;
+            $modalInstance.close(propArray);
         }, ReplyErrorHandler);  
     }
     

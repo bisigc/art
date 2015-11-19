@@ -69,7 +69,7 @@ app.factory("PropModal", ['$uibModal', 'notifications', function($uibModal, noti
                 }
             );
 
-            modalInstance.result.then(function(type, result) {okfunction(type, result)}, dissmissedfunction);
+            modalInstance.result.then(function(result) {okfunction(result)}, dissmissedfunction);
             
             /*$stateParams.ok = function () {
                 $modalInstance.close($scope.selected.item);
