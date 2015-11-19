@@ -7,7 +7,7 @@ var setSmell = function(smell){
 };
 
 app.controller('LoginController', ['UserService', 'ReplyErrorHandler', 'notifications', '$scope', '$state', 'currentUser', function(UserService, ReplyErrorHandler, notifications, $scope, $state, currentUser){
-    $scope.logindata = {"email":"cbisig@hsr.ch","password":"test","keeploggedin":1};
+    $scope.logindata = {"email":"","password":"","keeploggedin":1};
     $scope.login = function(form) {
         UserService.login.login($scope.logindata,function(data, status, headers, config) {
             currentUser.profile = data;
