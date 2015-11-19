@@ -95,6 +95,7 @@ GET     /logout  	              @controllers.user.UserController.logout()
 GET     /userroles	              @controllers.user.RoleController.getAll()
 POST    /avatar                   @controllers.user.UserController.uploadAvatar()
 GET     /avatar/:id	              @controllers.user.UserController.getAvatar(id: Long)
+GET     /userval/:mail	          @controllers.user.UserController.getUsernameValidation(mail: String)
 
 #User Searches
 GET     /usersearch               @controllers.ar.ArSearchController.getUserSearches()

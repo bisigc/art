@@ -10,6 +10,7 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Transient;
 
 import models.AbstractModel;
@@ -41,6 +42,7 @@ public class User extends AbstractModel {
 	private Role role;
 	@JsonIgnore
 	@OneToOne(cascade=CascadeType.PERSIST, mappedBy="user")
+	@PrimaryKeyJoinColumn
 	private Digest digest;
 	//@OneToMany(cascade=CascadeType.ALL, mappedBy="user", orphanRemoval=true)
 	@OneToMany(cascade=CascadeType.PERSIST, mappedBy="user")

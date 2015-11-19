@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.InputStream;
 import java.security.GeneralSecurityException;
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.imageio.ImageIO;
@@ -75,6 +76,9 @@ public class UserController extends AbstractCRUDController<User, Long> {
 			digest.generateDigest(t.getPassword());
 			created = dao.create(t);
 			created.setDigest(digest);
+		    Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		    created.setCreated(currentTime);
+		    created.setModified(currentTime);
 		} catch (Exception e) {
 			String msg = "Failed to create, " + dao.getModel().getSimpleName();
 			String email = (null == created) ? "User is null" : created.getEmail();
@@ -218,6 +222,36 @@ public class UserController extends AbstractCRUDController<User, Long> {
 		}
 	}
 
+	/**
+	 * Returns the ok if the email address is not yet used by a User. Returns nok if
+	 * the email address is already used.
+	 * 
+	 * @param mail email address which is to be used as login name.
+	 * @return HTTP result
+	 */
+	@Transactional(readOnly=true)
+	public Result getUsernameValidation(String mail) {
+		try {
+			
+			TypedQuery<User> query = JPA.em().createQuery(
+					"select a from User a where a.email = :email", User.class);
+			query.setParameter("email", mail);			
+			List<User> data = dao.find(query);
+			
+			if(data.size() > 0) {
+				Logger.debug("E-Mailaddress duplicate: " + mail);
+				return status(409, "E-Mailaddress already in use.");
+			} else {
+				Logger.debug("E-Mailaddress ok: " + mail);
+				return ok();
+			}
+		} catch (Exception e) {
+			String msg = "Failed to get validate email.";
+			Logger.error(msg, e);
+			return internalServerError(msg);
+		}
+	}
+	
 	/**
 	 * Upload users Avatar image.
 	 * 

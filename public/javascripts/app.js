@@ -97,11 +97,13 @@ app.controller('UserProfileController', ['UserService', 'RolesService', 'AvatarU
 
 app.controller('UserCreateController', ['UserService', 'RolesService', 'ReplyErrorHandler', 'PasswordValidator', 'notifications', '$scope', '$state', function(UserService, RolesService, ReplyErrorHandler, PasswordValidator, notifications, $scope, $state){
     $scope.startpages = ['home','arbrowser','smellbrowser','taskbrowser', 'stay'];
-    $scope.user;
+    $scope.user = [];
+    $scope.user.startpage = "stay";
     $scope.roles = [];
     $scope.pwcheck = [];
     RolesService.get({},function(data, status, headers, config) {
         $scope.roles = data;
+        $scope.user.role = $scope.roles[2];
     }, ReplyErrorHandler);
     
     $scope.createUser = function() {
@@ -503,16 +505,31 @@ app.controller('ARAddController', ['ArService', 'ArVersionService', 'SmellServic
         }, ReplyErrorHandler);
     }
     
-    $scope.openPropModal = function(type) {
-        PropModal.open(type, function() {$scope.loadProps(type)}, function() {});
-    }
-
-    $scope.openSmellModal = function(type) {
-        SmellModal.open(type, function() {$scope.loadSmells()}, function() {});
+    $scope.addcreatedProp = function(type, newProp) {
+        $scope.loadProps(type);
+        switch(type) {
+            case 'QASElementLink':
+                $scope.modelelementsvalues.qas.push(newProp);
+                break;
+            case 'ContextElementLink':
+                $scope.modelelementsvalues.context.push(newProp);
+                break;
+            case 'ComponentElementLink':
+                $scope.modelelementsvalues.components.push(newProp);
+                break;
+            case 'DecisionElementLink':
+                $scope.modelelementsvalues.decisions.push(newProp);
+                break;
+            case 'ReferenceElementLink':
+                $scope.modelelementsvalues.references.push(newProp);
+                break;
+            default:
+                break;
+        }
     }
     
-    $scope.openTaskModal = function(type) {
-        TaskModal.open(type, function() {$scope.loadTasks()}, function() {});
+    $scope.openPropModal = function(type) {
+        PropModal.open(type, $scope.addcreatedProp, function() {});
     }
     
     $scope.loadSmells = function () {
@@ -520,12 +537,30 @@ app.controller('ARAddController', ['ArService', 'ArVersionService', 'SmellServic
             $scope.smells = data;
         }, ReplyErrorHandler);     
     };
+    
+    $scope.addcreatedSmell = function(newSmell) {
+        $scope.loadSmells();
+        $scope.arversion.smells.push(newSmell);
+    }
 
+    $scope.openSmellModal = function(type) {
+        SmellModal.open(type, $scope.addcreatedSmell, function() {});
+    }
+    
     $scope.loadTasks = function () {
 		TaskService.noid.get({},function(data, status, headers, config) {
 		    $scope.tasks = data;
 		}, ReplyErrorHandler);   
     };
+    
+    $scope.addcreatedTask = function(newTask) {
+        $scope.loadTasks();
+        $scope.arversion.tasks.push(newTask);
+    }
+    
+    $scope.openTaskModal = function(type) {
+        TaskModal.open(type, $scope.addcreatedTask, function() {});
+    }
 
     $scope.loadValues = function () {
         StatusService.get({},function(data, status, headers, config) {
@@ -686,7 +721,7 @@ app.controller('ModelElementAddController', ['ModelElementService', 'ReplyErrorH
             notifications.showSuccess("Model Element of type " + $scope.modelelement.type + " has been added.");
             $scope.modelelement = {};
             form.$setPristine();
-            $modalInstance.close();
+            $modalInstance.close(modelelementtype, data);
         }, ReplyErrorHandler);  
     }
     
@@ -999,7 +1034,7 @@ app.controller('SmellModalAddController', ['$controller', '$scope', '$modalInsta
             $scope.initSmell();
             form.$setPristine();
             if($modalInstance) {
-            	$modalInstance.close();
+            	$modalInstance.close(data);
             }
         }, ReplyErrorHandler);  
     };
@@ -1283,7 +1318,7 @@ app.controller('TaskModalAddController', ['$controller', '$scope', '$modalInstan
             notifications.showSuccess("Task has been added.");
             $scope.initTask();
             form.$setPristine();
-            $modalInstance.close();
+            $modalInstance.close(data);
         }, ReplyErrorHandler);  
     };
     $scope.cancel = function(form) {

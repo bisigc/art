@@ -33,17 +33,18 @@ app.factory('sharedTask', [function () {
 
 app.factory("PasswordValidator", [function() {
     return {
-        check: function(pw, rpw) {
+        check: function(pw) {
             return {
-                "valid": pw && /^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{8,20}$/.test(pw) && pw == rpw,
+                "valid": pw && /^(?=.*[A-Za-z])(?=.*[0-9]).{8,20}$/.test(pw),
                 "constraints": 
                 [
+                    {"name": "A-Za-z",       "valid": (pw && /[A-Za-z]/.test(pw)) ? true : false },
+                    {"name": "0-9",          "valid": (pw && /[0-9]/.test(pw)) ? true : false },
+                    {"name": "Length(8-20)", "valid": (pw && /.{8,20}/.test(pw)) ? true : false }
+                    /*{"name": "equals",       "valid": (pw && pw == rpw) ? true : false }
                     {"name": "A-Z",          "valid": (pw && /[A-Z]/.test(pw)) ? true : false },
                     {"name": "a-z",          "valid": (pw && /[a-z]/.test(pw)) ? true : false },
-                    {"name": "!@#$&*",       "valid": (pw && /[!@#$&*]/.test(pw)) ? true : false },
-                    {"name": "0-9",          "valid": (pw && /[0-9]/.test(pw)) ? true : false },
-                    {"name": "Length(8-20)", "valid": (pw && /.{8,20}/.test(pw)) ? true : false },
-                    {"name": "equals",       "valid": (pw && pw == rpw) ? true : false }
+                    {"name": "!@#$&*",       "valid": (pw && /[!@#$&*]/.test(pw)) ? true : false },*/
                 ]
             }
         }
@@ -68,7 +69,7 @@ app.factory("PropModal", ['$uibModal', 'notifications', function($uibModal, noti
                 }
             );
 
-            modalInstance.result.then(okfunction, dissmissedfunction);
+            modalInstance.result.then(function(type, result) {okfunction(type, result)}, dissmissedfunction);
             
             /*$stateParams.ok = function () {
                 $modalInstance.close($scope.selected.item);
@@ -100,7 +101,7 @@ app.factory("SmellModal", ['$uibModal', 'notifications', function($uibModal, not
                     }
                 }
             );
-            modalInstance.result.then(okfunction, dissmissedfunction);
+            modalInstance.result.then(function(result) {okfunction(result)}, dissmissedfunction);
         }
     }
 }]);
@@ -122,7 +123,7 @@ app.factory("TaskModal", ['$uibModal', 'notifications', function($uibModal, noti
                     }
                 }
             );
-            modalInstance.result.then(okfunction, dissmissedfunction);
+            modalInstance.result.then(function(result) {okfunction(result)}, dissmissedfunction);
         }
     }
 }]);
