@@ -67,7 +67,7 @@
             <div class="col-md-6">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Quality attributes and stories (forces):</h3>
+                        <h3 class="panel-title">Quality attributes (forces):</h3>
                     </div>
                     <ul class="list-group" ng-repeat="prop in currentar.properties | arPropFilter:'QASElementLink'">
                         <li class="list-group-item">{{prop.name}}<br/><small><a ng-href="{{prop.link}}" target="_blank">{{prop.link}}</a></small></li>
@@ -93,7 +93,7 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">Description</h3>
                     </div>
-                    <div class="panel-body" ng-bind-html="currentar.description"></div>
+                    <div class="panel-body" ta-bind ng-model="currentar.description"></div>
                 </div>
             </div>
         </div>

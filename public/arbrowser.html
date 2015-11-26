@@ -38,9 +38,23 @@
                             <script id="popoverdesc.html" type="text/ng-template">
                                 <div ng-bind-html="ar.description | toSafeHtml"></div>
                             </script>
-                            <span uib-popover-template="'popoverdesc.html'" popover-title="Full description" popover-trigger="mouseenter" popover-placement="right" popover-append-to-body>{{ar.description | limitHtml: 35 }}</span>
+                            <span uib-popover-template="'popoverdesc.html'" popover-title="AR description" popover-trigger="mouseenter" popover-placement="right" popover-append-to-body>{{ar.description | limitHtml: 35 }}</span>
                         </td>
-	                    <td><span ng-repeat="smell in ar.smells track by $index"><a ui-sref="root.singlesmell({id: smell.id})">{{smell.name | limit: 20}}</a><span ng-if="ar.smells.length - 1 != $index">, </span><br/></span></td>
+	                    <td>
+                            <script id="popoversmelldesc.html" type="text/ng-template">
+                                <div ng-bind-html="smell.description | toSafeHtml" ng-if="smell.description != ''"></div>
+                            </script>
+                            <span ng-repeat="smell in ar.smells track by $index">
+                                <span ng-if="smell.description" uib-popover-template="'popoversmelldesc.html'" popover-title="Smell description" popover-trigger="mouseenter" popover-placement="right" popover-append-to-body>
+                                    <a ui-sref="root.singlesmell({id: smell.id})">{{smell.name | limit: 20}}</a>
+                                    <span ng-if="ar.smells.length - 1 != $index">, </span><br/>
+                                </span>
+                                <span ng-if="!smell.description" uib-popover="No description" popover-trigger="mouseenter" popover-placement="right" popover-append-to-body>
+                                    <a ui-sref="root.singlesmell({id: smell.id})">{{smell.name | limit: 20}}</a>
+                                    <span ng-if="ar.smells.length - 1 != $index">, </span><br/>
+                                </span>
+                            </span>
+                        </td>
 	                    <td>{{ar.status}}</td>
 	                    <td><a ui-sref="root.aredit({id: ar.id})" ng-if="isAllowed.check(['Admin','Editor'])" uib-tooltip="Edit AR"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;<a href ng-click="deleteAr(ar.arhead.id)" ng-if="isAllowed.check(['Admin'])" uib-tooltip="Delete AR"><span class="glyphicon glyphicon-trash"></span></a></td>
 	                </tr>

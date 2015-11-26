@@ -122,8 +122,8 @@ app.config(['$provide', function($provide){
                 }
             }*/
         });
-        // Allowing to use the original angularjs sanitizer instead of the one from TextAngular.
-        taOptions.forceTextAngularSanitize = false;
+        // Allowing to use the original angularjs sanitizer instead of the one from TextAngular (if set to false).
+        taOptions.forceTextAngularSanitize = true;
         // Set the target for all inserted links to _blank
         taOptions.defaultTagAttributes.a.target = "_blank";
         // add the button to the default toolbar definition
