@@ -28,7 +28,7 @@
                     <h3 class="panel-title">Found <span class="label label-default" hilighter="counter">{{counter}}</span> Architectural Refactorings:</h3>
                 </div>
                 <ul class="list-group">
-                    <li class="list-group-item" ng-repeat="ar in arlist"><a ui-sref="root.singlear({id: ar.arhead.id})">{{ar.name | limit: 30}}</a></li>
+                    <li class="list-group-item" ng-repeat="ar in arlist"><a ui-sref="root.singlear({id: ar.arhead.id})" uib-tooltip="{{ar.name}}">{{ar.name | limit: 45}}</a></li>
                 </ul>
             </div>
         </div>
@@ -38,12 +38,12 @@
                     <div class="panel-heading clearfix">
                         <span class="h3 panel-title">{{group.name}}</span> 
                         <span class="pull-right">
-                            <a class="btn btn-sm btn-default" ng-init="groupAllCheck[$index] = false" ng-click="toggleGroupSelect($index)" uib-tooltip="Select/Deselect all group items"><span class="glyphicon glyphicon-unchecked" ng-hide="groupAllCheck[$index]"/><span class="glyphicon glyphicon-check" ng-show="groupAllCheck[$index]"/></a>
-                            <a class="btn btn-sm btn-default" ng-click="groupToggle[$index] = !groupToggle[$index]" uib-tooltip="Show/hide all group items"><span class="glyphicon glyphicon-chevron-down" ng-hide="groupToggle[$index]"></span><span class="glyphicon glyphicon-chevron-up" ng-show="groupToggle[$index]"></span></a>
+                            <a class="btn btn-sm btn-default" ng-init="groupAllCheck[$index] = false" ng-click="toggleGroupSelect($index)"><span class="glyphicon glyphicon-unchecked" ng-hide="groupAllCheck[$index]" uib-tooltip="Select all group items"/><span class="glyphicon glyphicon-check" ng-show="groupAllCheck[$index]" uib-tooltip="Deselect all group items"/></a>
+                            <a class="btn btn-sm btn-default" ng-click="groupToggle[$index] = !groupToggle[$index]"><span class="glyphicon glyphicon-chevron-down" ng-hide="groupToggle[$index]" uib-tooltip="Show all group items"/><span class="glyphicon glyphicon-chevron-up" ng-show="groupToggle[$index]" uib-tooltip="Hide all group items"/></a>
                         </span>
                     </div>
                     <div class="panel-body" ng-show="groupToggle[$index]">
-                        <div ng-repeat="smell in group.smells">
+                        <div ng-repeat="smell in group.smells" ng-if="isAllowed.check(['Admin','Editor']) || smell.status == 'published'">
                             <div ng-repeat="question in smell.questions" class="row row-same-height">
                                 <div class="col-md-1 col-md-height">
                                     <div class="checkbox checkbox-success">

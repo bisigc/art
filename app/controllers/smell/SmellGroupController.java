@@ -1,15 +1,21 @@
 package controllers.smell;
 
+import java.util.Arrays;
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
+import javax.persistence.TypedQuery;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
 import controllers.AbstractCRUDController;
 import dao.GenericDAO;
 import models.smell.SmellGroup;
+import models.status.ItemStatus;
 import play.Logger;
+import play.db.jpa.JPA;
 import play.db.jpa.Transactional;
 import play.libs.Json;
 import play.mvc.Result;
@@ -24,6 +30,9 @@ import utils.actions.SessionAuth;
 @Singleton
 public class SmellGroupController extends AbstractCRUDController<SmellGroup, Long> {
 
+	private String getAllSmellAssessGroupsQueryString = 
+			"select distinct b.group from Smell b where b.status IN (:status) and b.questions.size > 0 order by b.group.name";
+	
 	/**
 	 * Constructor receives a {@link GenericDAO}. DI framework hook is "@Named("SmellGroupDAO")".
 	 * 
@@ -32,6 +41,35 @@ public class SmellGroupController extends AbstractCRUDController<SmellGroup, Lon
 	@Inject
 	public SmellGroupController(@Named("SmellGroupDAO") GenericDAO<SmellGroup, Long> dao) {
 		super(dao);
+	}
+	
+	/**
+	 * Provides all SmellGroups for the SmellAssessment.
+	 * 
+	 * @return HTTP result
+	 */
+	@Transactional(readOnly=true)
+	public Result getAllSmellAssessGroups() {
+		List<SmellGroup> data;
+		try {
+			String rolename = session().get("role");
+			TypedQuery<SmellGroup> query = JPA.em().createQuery(getAllSmellAssessGroupsQueryString, SmellGroup.class);
+			List<ItemStatus> status;
+
+			if("Admin".equals(rolename) || "Editor".equals(rolename)) {
+				status = Arrays.asList(ItemStatus.values());
+			} else {
+				status = Arrays.asList(ItemStatus.published);
+			}
+
+			query.setParameter("status", status);
+			data = dao.find(query);
+		} catch (Exception e) {
+			String msg = "Failed to get all " + dao.getModel().getSimpleName();
+			Logger.error(msg, e);
+			return internalServerError(msg);
+		}
+		return ok(Json.toJson(data));
 	}
 	
 	/**

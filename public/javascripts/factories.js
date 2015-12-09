@@ -284,6 +284,9 @@ app.factory("SmellGroupService", ['$resource', function($resource) {
         id: $resource(_contextPath + 'smellgroup/:id', {}, {
             get: { method: 'GET' },
             delete: { method: 'DELETE', params: {id: '@id'} }
+        }),
+        assess: $resource(_contextPath + 'smellassessgroup', {}, {
+            get: {method:'GET', isArray: true}
         })
     };
 }]);

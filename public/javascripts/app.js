@@ -920,7 +920,7 @@ app.controller('SmellAssessController', ['ArVersionService', 'SmellGroupService'
     $scope.groupToggle = [];
     $scope.groupAllCheck = [];
     $scope.arlist = [];
-    SmellGroupService.noid.get({},function(data, status, headers, config) {
+    SmellGroupService.assess.get({},function(data, status, headers, config) {
             $scope.groups = data;
         }, ReplyErrorHandler);  
     $scope.selectedSmells = {"smellids": [] };

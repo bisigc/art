@@ -4,11 +4,13 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.sql.Timestamp;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
+import javax.persistence.TypedQuery;
 
 import org.json.JSONObject;
 import org.json.XML;
@@ -20,6 +22,7 @@ import dao.GenericDAO;
 import models.smell.Smell;
 import models.status.ItemStatus;
 import play.Logger;
+import play.db.jpa.JPA;
 import play.db.jpa.Transactional;
 import play.libs.Json;
 import play.mvc.Result;
@@ -36,6 +39,10 @@ import utils.xslfo.XslfoFromatter;
 @Singleton
 public class SmellController extends AbstractCRUDController<Smell, Long> {
 	
+	private String getAllQueryString = 
+			"select a from " + dao.getModel().getSimpleName() + " a where a.status IN (:status) order by a.name";
+
+	
 	/**
 	 * Constructor receives a {@link GenericDAO}. DI framework hook is "@Named("SmellDAO")".
 	 * 
@@ -46,6 +53,37 @@ public class SmellController extends AbstractCRUDController<Smell, Long> {
 		super(dao);
 	}
 
+	
+	/**
+	 * Provides all active Smells.
+	 * 
+	 * @return HTTP result
+	 */
+	@Override
+	@Transactional(readOnly=true)
+	public Result getAll() {
+		List<Smell> data;
+		try {
+			String rolename = session().get("role");
+			TypedQuery<Smell> query = JPA.em().createQuery(getAllQueryString, Smell.class);
+			List<ItemStatus> status;
+
+			if("Admin".equals(rolename) || "Editor".equals(rolename)) {
+				status = Arrays.asList(ItemStatus.values());
+			} else {
+				status = Arrays.asList(ItemStatus.published);
+			}
+
+			query.setParameter("status", status);
+			data = dao.find(query);
+		} catch (Exception e) {
+			String msg = "Failed to get all " + dao.getModel().getSimpleName();
+			Logger.error(msg, e);
+			return internalServerError(msg);
+		}
+		return ok(Json.toJson(data));
+	}
+	
 	/**
 	 * Returns a string which can be interpreted as a Javascript Object (user function eval()). The
 	 * Javascript Object then contains a list of all {@link Smell} Objects in the format used as input 
@@ -57,7 +95,18 @@ public class SmellController extends AbstractCRUDController<Smell, Long> {
 	public Result getCloudSmells() {
 		List<Smell> data;
 		try {
-			data = dao.getAll();
+			String rolename = session().get("role");
+			TypedQuery<Smell> query = JPA.em().createQuery(getAllQueryString, Smell.class);
+			List<ItemStatus> status;
+
+			if("Admin".equals(rolename) || "Editor".equals(rolename)) {
+				status = Arrays.asList(ItemStatus.values());
+			} else {
+				status = Arrays.asList(ItemStatus.published);
+			}
+
+			query.setParameter("status", status);
+			data = dao.find(query);
 		} catch (Exception e) {
 			String msg = "Failed to get all " + dao.getModel().getSimpleName() + " for cloud.";
 			Logger.error(msg, e);

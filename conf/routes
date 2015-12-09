@@ -48,6 +48,7 @@ GET     /smell/pdf/:id 		      @controllers.smell.SmellController.getPDF(id: Lon
 
 #SmellGroup service
 GET     /smellgroup               @controllers.smell.SmellGroupController.getAll()
+GET     /smellassessgroup         @controllers.smell.SmellGroupController.getAllSmellAssessGroups()
 GET     /smellgroup/:id           @controllers.smell.SmellGroupController.get(id: Long)
 POST    /smellgroup               @controllers.smell.SmellGroupController.create()
 PUT     /smellgroup               @controllers.smell.SmellGroupController.update()

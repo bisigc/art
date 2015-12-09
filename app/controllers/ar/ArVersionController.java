@@ -46,7 +46,6 @@ public class ArVersionController extends AbstractCRUDController<ArVersion, Long>
 	private String getAllQueryString = 
 			"select a from " + dao.getModel().getSimpleName() + " a where a.status IN (:status) and a.created = (select max(c.created) from " + dao.getModel().getSimpleName() + " c where a.arhead.id = c.arhead.id and c.status IN (:status) ) order by a.name";
 	
-
 	private String arSmellSearchEndingPart = 
 			"from " + dao.getModel().getSimpleName() + " a join a.smells s "
 					+ "where a.status IN (:status) "
@@ -125,7 +124,7 @@ public class ArVersionController extends AbstractCRUDController<ArVersion, Long>
 			query.setParameter("status", status);
 			data = dao.find(query);
 		} catch (Exception e) {
-			String msg = "Failed to get All active " + dao.getModel().getSimpleName();
+			String msg = "Failed to get all " + dao.getModel().getSimpleName();
 			Logger.error(msg, e);
 			return internalServerError(msg);
 		}
