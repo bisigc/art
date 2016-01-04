@@ -131,7 +131,7 @@ app.config(['$provide', function($provide){
             ['h1', 'h2', 'h3', 'h4', 'p', 'pre', 'hr', 'insertAbbreviation'],
             ['bold', 'italics', 'underline', 'ul', 'ol', 'redo', 'undo', 'clear'],
             ['justifyLeft', 'justifyCenter', 'justifyRight', 'indent', 'outdent'],
-            ['html', 'insertLink', 'insertImage', 'insertVideo'], ['charcount']
+            ['html', 'insertLink', 'insertImage', 'insertVideo'], ['wordcount', 'charcount']
         ];
         return taOptions;
     }]);
@@ -683,6 +683,16 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             },
             'license@root.about': {
                 templateUrl: _contextPath + "APACHE-LICENSE-2.0.txt"
+            }
+        }
+    })
+        .state('root.help', {
+        url: "/help",
+        title: "Help",
+        data: { requireLogin: false },
+        views: {
+            'container@': {
+                templateUrl: _contextPath + "help.html"
             }
         }
     })
