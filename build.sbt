@@ -14,6 +14,7 @@ libraryDependencies ++= Seq(
   javaJpa,
   javaJpa.exclude("org.hibernate.javax.persistence", "hibernate-jpa-2.0-api"),
   "org.hibernate" % "hibernate-entitymanager" % "4.3.8.Final",
+  "com.heroku.sdk" % "heroku-jdbc" % "0.1.1",
   "mysql" % "mysql-connector-java" % "5.1.34",
   "commons-io" % "commons-io" % "2.4",
   cache,
