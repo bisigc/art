@@ -1,4 +1,4 @@
-var app = angular.module('art', ['ui.router','ui.bootstrap','angular-jqcloud','ngResource','ngSanitize','ui.select','ngNotificationsBar','textAngular','ui.sortable']);
+var app = angular.module('art', ['ui.router','ui.bootstrap','angular-jqcloud','ngResource','ngCookies','ngSanitize','ui.select','ngNotificationsBar','textAngular','ui.sortable']);
 
 var setSmell = function(smell){ 
     var input = $('#smellname');
@@ -118,9 +118,9 @@ app.controller('UserCreateController', ['UserService', 'RolesService', 'ReplyErr
     };
 }]);
 
-app.controller('MenuController', ['MenuService', 'ReplyErrorHandler', 'notifications', '$scope', function(MenuService, ReplyErrorHandler, notifications, $scope){
+app.controller('MenuController', ['MenuService', 'ReplyErrorHandler', 'LastViewed', 'notifications', '$scope', function(MenuService, ReplyErrorHandler, LastViewed, notifications, $scope){
     $scope.menuItems = [];
-    $scope.licenseFile = 'APACHE-LICENSE-2.0.txt';
+    $scope.lastViewedItems = LastViewed.list;
     MenuService.get({},function(data, status, headers, config) {
         $scope.menuItems = data;
     }, ReplyErrorHandler); 
@@ -133,7 +133,7 @@ app.controller('StatsController', ['StatisticService', 'ReplyErrorHandler', 'not
     }, ReplyErrorHandler); 
 }]);
 
-app.controller('ArViewController', ['ArService', 'ReplyErrorHandler', '$stateParams', '$state', 'notifications', '$scope', '$filter', 'ConfirmModal', function(ArService, ReplyErrorHandler, $stateParams, $state, notifications, $scope, $filter, ConfirmModal) {
+app.controller('ArViewController', ['ArService', 'ReplyErrorHandler', '$stateParams', '$state', 'notifications', '$scope', '$filter', 'ConfirmModal','LastViewed', function(ArService, ReplyErrorHandler, $stateParams, $state, notifications, $scope, $filter, ConfirmModal, LastViewed) {
     var orderBy = $filter('orderBy');
     $scope.ar = {};
     $scope.discussion_id;
@@ -152,6 +152,8 @@ app.controller('ArViewController', ['ArService', 'ReplyErrorHandler', '$statePar
             $scope.ar = data;
             $scope.ar.versions = orderBy($scope.ar.versions, 'created', true);
             $scope.setCurrentAr(0);
+            var item = {'name': $scope.ar.versions[0].name, 'type': 'AR', 'id': $scope.ar.id};
+            LastViewed.add(item);
         }, ReplyErrorHandler);
     }
     $scope.loadAr();
@@ -1142,13 +1144,15 @@ app.controller('SmellController', ['SmellService', 'SmellGroupService', 'ReplyEr
     $scope.order('name', false);
 }]);
 
-app.controller('SmellViewController', ['SmellService', 'ArVersionService', 'ConfirmModal', 'ReplyErrorHandler', 'notifications', '$stateParams', '$state', '$scope', function (SmellService, ArVersionService, ConfirmModal, ReplyErrorHandler, notifications, $stateParams, $state, $scope) {
+app.controller('SmellViewController', ['SmellService', 'ArVersionService', 'ConfirmModal', 'ReplyErrorHandler', 'notifications', '$stateParams', '$state', '$scope','LastViewed', function (SmellService, ArVersionService, ConfirmModal, ReplyErrorHandler, notifications, $stateParams, $state, $scope, LastViewed) {
     $scope.smell = {};
     $scope.smellids = {"smellids": [] };
 
     $scope.getSmell = function (smellid) {
         SmellService.id.get({id: smellid},function(data, status, headers, config) {
             $scope.smell = data;
+            var item = {'name': $scope.smell.name, 'type': 'Smell', 'id': $scope.smell.id};
+            LastViewed.add(item);
         }, ReplyErrorHandler);
     };
     $scope.getSmell($stateParams.id);
@@ -1367,12 +1371,14 @@ app.controller('TaskModalAddController', ['$controller', '$scope', '$modalInstan
     }
 }]);
     
-app.controller('TaskViewController', ['TaskService', 'ReplyErrorHandler', 'ConfirmModal', 'notifications', '$scope', '$stateParams', '$state', function(TaskService, ReplyErrorHandler, ConfirmModal, notifications, $scope, $stateParams, $state) {
+app.controller('TaskViewController', ['TaskService', 'ReplyErrorHandler', 'ConfirmModal', 'notifications', '$scope', '$stateParams', '$state', 'LastViewed', function(TaskService, ReplyErrorHandler, ConfirmModal, notifications, $scope, $stateParams, $state, LastViewed) {
     $scope.task = {};
     
     $scope.loadTask =function() {
         TaskService.id.get({id: $stateParams.id}, function(data, status, headers, config) {
             $scope.task = data;
+            var item = {'name': $scope.task.name, 'type': 'Task', 'id': $scope.task.id};
+            LastViewed.add(item);
         }, ReplyErrorHandler);  
     }
     $scope.loadTask();

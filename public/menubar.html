@@ -20,17 +20,28 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                <li ng-if="lastViewedItems.length > 1" class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-tasks"></span>&nbsp;<span class="glyphicon glyphicon-chevron-down"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li class="dropdown-header">Last viewed Items</li>
+                        <li ng-repeat="item in lastViewedItems track by $index">
+                            <a ng-if="item['type'] == 'AR'" ui-sref="root.singlear({id: item['id']})">{{item.type + " : " + item.name | limit: 40}}</a>
+                            <a ng-if="item['type'] == 'Smell'" ui-sref="root.singlesmell({id: item['id']})">{{item.type + " : " + item.name | limit: 40}}</a>
+                            <a ng-if="item['type'] == 'Task'" ui-sref="root.singletask({id: item['id']})">{{item.type + " : " + item.name | limit: 40}}</a>
+                        </li>
+                    </ul>
+                </li>
                 <li ng-if="isLoggedin.check()" class="dropdown right-dropdown" ng-class="{active:$state.is('root.profile') || $state.is('root.usersearches')}">
                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img ng-if="isLoggedin.check()" ng-src="{{_contextPath + 'avatar/' + currentUser.profile.id}}" class="avatar-nav img-circle" /> {{currentUser.profile.firstname}} {{currentUser.profile.lastname}} <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a ui-sref="root.profile">Profile</a></li>
-                        <li><a ui-sref="root.usersearches">Saved Searches</a></li>
+                        <li><a ui-sref="root.profile"><span class="glyphicon glyphicon-user"></span>&nbsp; Profile</a></li>
+                        <li><a ui-sref="root.usersearches"><span class="glyphicon glyphicon-search"></span>&nbsp; Saved Searches</a></li>
                         <li role="presentation" class="divider"></li>
-                        <li ng-controller="LogoutController"><a href ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                        <li ng-controller="LogoutController"><a href ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span>&nbsp; Logout</a></li>
                     </ul>
                 </li>
                 <li ng-if="!isLoggedin.check()" class="dropdown right-dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-log-in"></span> Login <span class="caret"></span></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-log-in"></span>&nbsp; Login <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li class="login-dropdown"><div ui-view="login"></div></li>
                     </ul>
