@@ -340,6 +340,18 @@ app.controller('AREditController', ['ArService', 'ArVersionService', 'SmellServi
     $scope.modelelementsvalues.decisions = [];
     $scope.modelelementsvalues.references = [];
     
+    // Get Task Exeuction Type
+    $scope.getType = function(propArray) {
+        if(propArray) {
+            for(var i = 0; i < propArray.length; i++) {
+                if(propArray[i].property.name == 'Type') {
+                    return propArray[i].value;
+                }
+            }
+        }
+        return "";
+    }
+    
     $scope.loadArVersion = function() {
         ArVersionService.id.get({id: $stateParams.id}, function(data, status, headers, config) {
             $scope.arversion = data;

@@ -223,7 +223,7 @@
                             </div>
                         </div>
                         <ul class="list-group draglist" ui-sortable ng-model="arversion.tasks" ng-show="arversion.tasks.length > 1" uib-tooltip="Drag &amp; drop to change order">
-                            <li class="list-group-item" ng-repeat="element in arversion.tasks">{{element.name}}<div class="draghandle pull-right"><span class="glyphicon glyphicon-menu-hamburger"></span></div></li>
+                            <li class="list-group-item" ng-repeat="element in arversion.tasks">{{element.name}}<span>&nbsp;::&nbsp;{{ getType(element.properties) }}</span><div class="draghandle pull-right"><span class="glyphicon glyphicon-menu-hamburger"></span></div></li>
                         </ul>
                     </div>
                 </div>
