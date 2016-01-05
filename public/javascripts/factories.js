@@ -32,7 +32,7 @@ app.factory('sharedTask', [function () {
 }]);
 
 app.factory("LastViewed", ['$filter', '$cookieStore', function($filter, $cookieStore) {
-    var maxitems = 6;
+    var maxitems = 5;
     var lastviewedList = {list: []};
     var cookielist = $cookieStore.get('art_lastviewed_items', this.list);
     if(cookielist) {

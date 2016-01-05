@@ -82,7 +82,12 @@
                         <h3 class="panel-title">Architectural smells</h3>
                     </div>
                     <ul class="list-group" ng-repeat="smell in currentar.smells">
-                        <li class="list-group-item"><a ui-sref="root.singlesmell({id: smell.id})">{{smell.name}}</a><br/><div ng-bind-html="smell.description"></div></li>
+                        <li class="list-group-item" ng-init="descvisible = false">
+                            <i class="glyphicon glyphicon-chevron-right" uib-tooltip="Show description" ng-show="smell.description && !descvisible" ng-click="descvisible = !descvisible"/>
+                            <i class="glyphicon glyphicon-chevron-down" uib-tooltip="Hide description" ng-show="smell.description && descvisible" ng-click="descvisible = !descvisible"/>
+                            &nbsp;<a ui-sref="root.singlesmell({id: smell.id})">{{smell.name}}</a><br/>
+                            <div ng-bind-html="smell.description" ng-if="descvisible"></div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -126,7 +131,7 @@
                         <h3 class="panel-title">Execution tasks</h3>
                     </div>
                     <ul class="list-group" ng-repeat="task in currentar.tasks">
-                        <li class="list-group-item"><a ui-sref="root.singletask({id: task.id})">{{task.name}}</a></li>
+                        <li class="list-group-item"><a ui-sref="root.singletask({id: task.id})">{{task.name}}</a><span>&nbsp;::&nbsp;{{ getType(task.properties) }}</span></li>
                     </ul>
                 </div>
             </div>

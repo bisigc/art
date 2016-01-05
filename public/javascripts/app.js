@@ -146,6 +146,19 @@ app.controller('ArViewController', ['ArService', 'ReplyErrorHandler', '$statePar
         $scope.discussion_id = $scope.currentar.discussion.id;
         //$scope.comments = $scope.currentar.discussion.comments;
     }
+    
+    
+    // Get Task Exeuction Type
+    $scope.getType = function(propArray) {
+        if(propArray) {
+            for(var i = 0; i < propArray.length; i++) {
+                if(propArray[i].property.name == 'Type') {
+                    return propArray[i].value;
+                }
+            }
+        }
+        return "";
+    }
 
     $scope.loadAr = function() {
         ArService.id.get({id: $stateParams.id},function(data, status, headers, config) {
@@ -1147,7 +1160,7 @@ app.controller('SmellController', ['SmellService', 'SmellGroupService', 'ReplyEr
 app.controller('SmellViewController', ['SmellService', 'ArVersionService', 'ConfirmModal', 'ReplyErrorHandler', 'notifications', '$stateParams', '$state', '$scope','LastViewed', function (SmellService, ArVersionService, ConfirmModal, ReplyErrorHandler, notifications, $stateParams, $state, $scope, LastViewed) {
     $scope.smell = {};
     $scope.smellids = {"smellids": [] };
-
+    
     $scope.getSmell = function (smellid) {
         SmellService.id.get({id: smellid},function(data, status, headers, config) {
             $scope.smell = data;
