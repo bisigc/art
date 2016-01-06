@@ -91,6 +91,8 @@ app.factory("PropModal", ['$uibModal', 'notifications', function($uibModal, noti
                     templateUrl: _contextPath + 'modelelementdialog.html',
                     controller: 'ModelElementAddController',
                     size: 'lg',
+                    // Prevents the modal from closing when clicking outside of the box
+                    backdrop: 'static',
                     resolve: {
                         modelelementtype: function () { 
                             return modaltype;
@@ -124,6 +126,8 @@ app.factory("SmellModal", ['$uibModal', 'notifications', function($uibModal, not
                     templateUrl: _contextPath + 'smelldialog.html',
                     controller: 'SmellModalAddController',
                     size: 'lg',
+                    // Prevents the modal from closing when clicking outside of the box
+                    backdrop: 'static',
                     resolve: {
                         modelelementtype: function () { 
                             return modaltype;
@@ -145,6 +149,8 @@ app.factory("TaskModal", ['$uibModal', 'notifications', function($uibModal, noti
                 {
                     templateUrl: _contextPath + 'taskdialog.html',
                     controller: 'TaskModalAddController',
+                    // Prevents the modal from closing when clicking outside of the box
+                    backdrop: 'static',
                     size: 'lg',
                     resolve: {
                         modelelementtype: function () { 
