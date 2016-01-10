@@ -79,10 +79,10 @@ public class XML {
         for (int i = 0, length = string.length(); i < length; i++) {
             char c = string.charAt(i);
             switch (c) {
-            case '&':
+            /*case '&':
                 sb.append("&amp;");
                 break;
-            /*case '<':
+            case '<':
                 sb.append("&lt;");
                 break;
             case '>':

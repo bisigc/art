@@ -1,212 +1,587 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Schema\docbook.xsd">
-	<title>Word 2003 und XML</title>
-	<section id="Einleitung">
-		<title>Einleitung</title>
-		<para >Word 2003 - für viele Benutzer ist dies sicher nur ein normales Update
-wie viele Updates vorher auch schon. Für andere ist diese Version jedoch
-Ausdruck eines Paradigmen-Wechsels bei Microsoft. Warum? Waren bislang
-die Office-Produkte Inbegriff von proprietärer Technik, macht Microsoft
-nun die interne Datenstruktur mit einer gut dokumentierten und
-auf Standards basierenden <link linkend="Elemente">XML-Struktur</link> jedermann zugänglich. Dadurch
-öffnen sich die Office-Dokumente der elektronischen Weiterverarbeitung
-und reduzieren die Abhängigkeit vom Orginialprogramm.
-Genauso einfach ist es möglich, bestehenden XML-Inhalt mit Hilfe eines
-Stylesheets in eine Word-Datei zu überführen, in der der Inhalt anschließend
-angesehen, editiert und gespeichert werden kann. Mehr noch: Erstmalig
-erlaubt es Word, das Dateien eine durch das Programm überprüfbare
-Struktur erhalten. Dies werden vor allem Verlage und Unternehmen
-schätzen, deren technische Dokumentation, Buchprojekte oder Vertragstexte
-bislang von unterschiedlichen Editoren in relativer gestalterischer
-Freiheit in Word erstellt wurden.</para>
-		<para>Dieses Buch führt in die Unterstützung von XML in Office ein. Es
-zeigt auf, wie die neue Technologie zu nutzen ist und welche Szenarien
-sich daraus ergeben. Es führt ein in das Schema zu WordML, auf dem die
-XML-Dateien, die aus Word erzeugt werden, basieren und zeigt Möglichkeiten
-des effizienten Umgangs mit diesen Dateien auf. Ebenso werden
-neue Technologien, die auf der XML-Unterstützung basieren oder eng mit
-ihr zusammen arbeiten, dargestellt, wie z.B. die SmartDocument Solution
-oder die Visual Studio Tools for Office. Ziel dieses Buches ist es, dem
-ernsthaften Anwender und dem Programmierer eine Quelle an die Hand
-zu geben, um erfolgreich XML in Word für sich nutzen zu können. Eine
-Referenz über WordML schließt das Buch ab.</para>
-		<section>
-			<title>An wen richtet sich dieses Buch?</title>
-			<para>Dieses Buch wurde für Entscheider, Entwickler und ernsthafte Anwender
-geschrieben, die sich mit den neuen Möglichkeiten von XML in Word
-vertraut machen wollen. Entscheidern erläutert dieses Buch die Prinzipien,
-aber auch die Grenzen dieser Technologie und unterstützt so die strategische Planung für die Integration dieser Technik in eigene Projekte.</para>
-			<para>
-Programmierer profitieren von der kommentierten Referenz zu WordML
-ebenso wie die kritische Besprechung der neuen Programmierparadigmen
-wie den SmartDocument Solutions. Dies macht das Buch zu einem ständigen
-Begleiter bei der Entwicklung eigener Anwendungen, die XML
-integrieren. Dem ernsthaften Anwender eröffnet sich durch die einfache
-Erstellung von Word-Dokumenten mit Untesrtützung von XML, aber
-auch die Erweiterung der Makro-Programmierung um die SmartDocuments
-einen Weg, bestehende Lösungen zu erweitern und durch die
-Integration offener Standards effizienter zu machen.</para>
-			<para>
-Für den normalen Anwender ist die XML-Unterstützung im Regelfall
-weniger wichtig, da sie auf einer Ebene unterhalb des normalen Umgangs
-mit Word angesiedelt ist. Die Unterstützung von XML ist möglicherweise
-auch für Anwender und Entwickler, die bereits in der Vergangenheit ausschließlich
-mit Office Produkten gearbeitet haben, ein Randthema, obwohl
-auch hier z.B. durch die Integration von XML-basierten WebServices
-oder die Möglichkeit, eigenen XML-Inhalt ohne die Formatierungsangaben
-aus Word exportieren zu können, neue Anwendungsfelder
-eröffnet werden können.</para>
-		</section>
-		<section>
-			<title>Aufbau des Buches</title>
-			<para>	Das Buch beginnt mit einer Einführung in die neuen Fähigkeiten von XML
-in Word und .....</para>
-			<para>
-Ein eigenes Kapitel ist den Themen SmartDocuments und Visual Studio
-Tools for Office (VSTO) gewidmet. SmartDocuments sind eine neue
-Vision, die erst mit den Möglichkeiten von XML in Word möglich wurden.
-SmartDocuments versprechen eine Kontext-bezogene Palette von
-Hilfsmitteln und Steuerelementen, mit deren Hilfe bislang nicht mögliche
-Benutzerführungskonzepte in Word umgesetzt werden können. Anhand
-eines Beispielprojekts wird die Arbeitsweise erläutert und Möglichkeiten
-und Grenzen der Technologie aufgezeigt. Die Zukunft der Anwendungsentwicklung
-mit Office stellen die Visual Studio Tools for Office (VSTO)
-dar, die das seit Einführung von Word bekannte, auf VBA basierende
-Programmiermodell durch managed Code des .NET-Frameworks ersetzt
-und bislang nicht gekannte Professionalität in der Programmierung von
-Word ermöglicht.</para>
-		</section>
-	</section>
-	<section>
-		<title>Erstellen und Bearbeiten von
-XML-Dokumenten mit Word 2003</title>
-		<para>
-In diesem Kapitel soll gezeigt werden, wie mit XML-Dokumenten in
-Word 2003 gearbeitet werden kann. Auf WordML-Dokumente wird im
-folgenden nicht eingegangen, da Word sie nicht als XML-Dokumente
-sondern als native Word-Dokumente behandelt.</para>
-		<para>
-WordML ist das neue Speicherformat von Word 2003 und kann als
-Alternative zu dem doc-Format betrachtet werden. Der Aufbau und die
-Funktionsweise werden im folgenden Kapitel näher beleuchtet.</para>
-		<section>
-			<title>Das Arbeiten mit Schemas</title>
-			<para>Schemas legen das Vokabular von Elementen und Attributen fest, das für
-ein XML-Dokument benutzt werden darf. Das Schema regelt das Vorkommen
-und die Verwendungsweise der entsprechenden Auszeichnungselemente
-und -attribute. Neben der Festlegung welche Elemente bzw.
-Attribute überhaupt verwendet werden dürfen, lassen sich zahlreiche weitere
-Regeln über die Verwendungsweise aufstellen. So lassen sich beispielsweise
-Angaben treffen, wie oft und in welcher Reihenfolge Elemente
-auftreten dürfen.</para>
-			<para>
-Word 2003 benutzt Schemas in zweifacher Weise. Einerseits überprüft
-Word die Gültigkeit des gesamten XML-Dokumentes in Bezug auf
-das ihm zugrundeliegende Schema und andererseits wird während der
-Bearbeitung bereits die Struktur des Dokuments abgebildet und damit
-auch die Möglichkeiten zu dessen Bearbeitung festgelegt.
-Schemas müssen in der vom W3Consortium entwickelten Definitionssprache
-für XML-Schemas verfasst sein (XSD). Man kann Schemas
-selbst erstellen, jedoch bietet Word keinen speziellen Editor zur Verfügung
-mit dessen Hilfe, dies einfach zu bewerkstelligen wäre. Will man ein Schema
-selbst entwickeln bleibt einem letzendlich nur der Griff zu einem
-speziellen Tool, oder man verwendet einen Texteditor. Ein empfehlenswertes
-Tool wäre bespielsweise der <emphasis role="underline">XML-Spy von der Firma Altova</emphasis>, der
-auch für die Bearbeitung von XML-Dokumenten und für die Entwicklung
-von XSLT-Stylesheets verwendet werden kann.<footnote>
-					<para>Eine kostenlose aber eingeschränkte Version (Home Edition) finden Sie unter
-<ulink url="http://www.altova.com">www.altova.com</ulink>.	</para>
-				</footnote>
-			</para>
-			<para>Der Aufbau dieser Struktur ist denkbar einfach. Es gibt ein Wurzelelement
-<emphasis role="bold">&lt;EUROPA&gt;</emphasis>, das beliebig viele <emphasis role="bold">&lt;LAND&gt;</emphasis>-Elemente enthalten darf. Jedes Land
-muss in dieser Reihenfolge genau jeweils ein Element &lt;NAME&gt;, &lt;EINWOHNERZAHL&gt;,
-<emphasis role="bold">&lt;HAUPTSTADT&gt;</emphasis>, <emphasis role="bold">&lt;KFZ-KENNZEICHEN&gt;</emphasis> und <emphasis role="bold">&lt;TEL-VORWAHL&gt;</emphasis> enthalten.
-Das Element <emphasis role="bold">&lt;EINWOHNERZAHL&gt;</emphasis> hat zudem ein Attribut <emphasis role="italic">EINHEIT</emphasis>, das ebenfalls
-verbindlich ist.</para>
-			<section>
-				<title>Verwendung der Schemabibliothek</title>
-				<para>Die Schemabibliothek dient zur Verwaltung und Bearbeitung von Schemas.
-Hier lassen sich Schemas hinzufügen, ändern, löschen und Aliasnamen
-verwalten. Anders als andere XML-Editoren kann Word 2003 nicht
-die Pfadangaben zu hinterlegten Schemas aus den XML-Instanzen verwerten.</para>
-				<para>
-Alle Schemas, die verwendet werden sollen, müssen in der Schemabibliothek
-bekannt gegeben werden. Word erkennt dann beim öffnen
-eines XML-Dokumentes anhand des Namensraumes und des Wurzelelementes
-automatisch das dazugehörige Schema.</para>
-				<para>
-Um das Europa-Schema Word 2003 bekannt zu geben, gehen Sie bitte
-wie folgt vor:</para>
-				<para>
-					<orderedlist>
-						<listitem>
-							<para>Wählen Sie im Menu Extras den Befehl Vorlagen und Add-Ins</para>
-						</listitem>
-						<listitem>
-							<para>Klicken Sie auf die Registerkarte XML-Schema.</para>
-							<para>
-								<mediaobject>
-									<imageobject>
-										<imagedata fileref="Abb_3_Kap_4.jpg" width="70mm"/>
-									</imageobject>
-								</mediaobject>
-							</para>
-						</listitem>
-						<listitem>
-							<para>Klicken Sie auf Schema hinzufügen</para>
-						</listitem>
-						<listitem>
-							<para>Aus dem Kontextmenü, das sich nun öffnet, den Unterpunkt Attribute
-auswählen.<itemizedlist>
-									<listitem>
-										<para>Es öffnet sich ein Dialogfeld für das entsprechende Element. Im oberen
-Teil werden unter Verfügbare Attribute: die Attribute aufgelistet,
-die für das entsprechende Element schemakonform sind.
-Darunter befindet sich der Hinweis Typ: der bestimmt welchen Typs
-das Attribut sein muß. Z.b string erfordert die Eingabe einer Zeichenkette.
-In der Eingabezeile für Wert: muß ein dem Typ entsprechender
-zulässiger Wert eingegeben werden.</para>
-									</listitem>
-									<listitem>
-										<para>Im oberen Teil rechts nun auf Hinzufügen klicken, um den eingegebenen
-Wert dem Attribut zuzuordnen.</para>
-									</listitem>
-								</itemizedlist>
-							</para>
-						</listitem>
-					</orderedlist>
-				</para>
-			</section>
-		</section>
-	</section>
-	<section id="Elemente">
-		<title>XSLT-Elemente und
-XSLT-Funktionen</title>
-		<table ><colgroup>
-			<col width="50%"></col><col width="50%"></col>
-		</colgroup><thead>
-			<tr>
-					<td><para>Funktion</para></td>
-					<td><para>Beschreibung</para></td>
-				</tr>
-		</thead><tfoot>
-			<tr>
-					<td colspan="2"><para><superscript>*</superscript> näheres ein unter <ulink url="http:://www.data2type.de">www.data2type.de</ulink></para></td>
-				</tr>
-		</tfoot>
-			<tbody>
-				
-				<tr>
-					<td rowspan="2"><para>unparsed-entity-uri()</para></td>
-					<td><para>Die Funktion unparsed-entity-uri gibt die URI von ungeparsten
-Entitäten (z. B. Grafiken) mit dem übergebenen Namen zurück.<superscript>*</superscript></para></td>
-				</tr>
-				<tr>
-					<td><para><emphasis role="bold">Syntax:</emphasis> object unparsed-entity-uri (string)</para></td>
-				</tr>
-				
-			</tbody>
-		</table>
-	</section>
-</article>
+<arversion>
+	<uri>http://localhost:9085/#/ar/18</uri>
+	<editor>
+		<firstname>Christian</firstname>
+		<password>null</password>
+		<startpage>stay</startpage>
+		<role>
+			<name>Admin</name>
+			<description>ART Administrator</description>
+			<id>1</id>
+		</role>
+		<arsearches>
+			<result>null</result>
+			<search>{"smellids":[18,19,24,27]}</search>
+			<name>My Search</name>
+			<id>1</id>
+		</arsearches>
+		<created>1432626312000</created>
+		<organisation>HSR</organisation>
+		<modified>1432626312000</modified>
+		<id>1</id>
+		<email>cbisig@hsr.ch</email>
+		<lastname>Bisig</lastname>
+		<homepage>http://www.hsr.ch</homepage>
+	</editor>
+	<smells>
+		<keywords>tight coupling, strong dependency</keywords>
+		<created>1447229096000</created>
+		<tecdebtidx>mm</tecdebtidx>
+		<name>Unnecessary tight coupling</name>
+		<questions>
+			<question>Does a change in a component imply a change in one or many
+				other compnent(s)?</question>
+			<id>74</id>
+		</questions>
+		<questions>
+			<question>Does a problem in a component have effect in one or many
+				other component(s)?</question>
+			<id>75</id>
+		</questions>
+		<questions>
+			<question>Do you have difficulties to replace an interface component?
+			</question>
+			<id>76</id>
+		</questions>
+		<questions>
+			<question>Is one component in your system strongly dependent from an
+				other?</question>
+			<id>77</id>
+		</questions>
+		<description>
+			<p>Is it the case that a component has a strong dependency to one or
+				many other component(s), which causes problems, changes or
+				extinctions to have an unnecessary effect on an other component. 
+			</p>
+			<p>
+				Or if two or more components are strongly dependent on each other an
+				it is difficult to replace one or more of the components.
+				<br />
+			</p>
+		</description>
+		<weight>2</weight>
+		<modified>1451978744000</modified>
+		<id>35</id>
+		<group>
+			<name>Dependency</name>
+			<id>3</id>
+		</group>
+		<status>published</status>
+	</smells>
+	<smells>
+		<keywords>architecture principles, missing patterns</keywords>
+		<created>1447230620000</created>
+		<tecdebtidx>mm</tecdebtidx>
+		<name>Violation of architectural principles</name>
+		<questions>
+			<question>Is your implementation missing patterns that promote
+				architectural principles such as seperation of concerns or loose
+				coupling?</question>
+			<id>54</id>
+		</questions>
+		<description>
+			<h4>Loose coupling has the following autonomy dimensions:</h4>
+			<p>
+				<b>Platform autonomy</b>
+			</p>
+			<p>The communication of two parties should be independent from their
+				platform or programming language.</p>
+			<p>
+				<b>Reference autonomy</b>
+			</p>
+			<p>The communication address of each party should be on the network.
+				Neither of the components needs to know the exact location of the
+				other components nor two how many other parties it is communicating
+				to. This is all handled by the message broker.</p>
+			<p>
+				<b>Time autonomy</b>
+			</p>
+			<p>Sending and receiving messages should be possible even though one
+				of the communication partners is offline. The&amp;#160;</p>
+			<p>
+				<b>Format</b>
+			</p>
+		</description>
+		<weight>1</weight>
+		<modified>1447243070000</modified>
+		<id>36</id>
+		<group>
+			<name>Standards</name>
+			<id>5</id>
+		</group>
+		<status>draft</status>
+	</smells>
+	<smells>
+		<keywords>interfaces, communication channels</keywords>
+		<created>1447230741000</created>
+		<tecdebtidx>mm</tecdebtidx>
+		<name>Many communication channels</name>
+		<questions>
+			<question>Does your application have many different communication
+				interfaces?</question>
+			<id>53</id>
+		</questions>
+		<description>
+			<p>Is it the case that your application has many different interfaces
+				to communicate with many other components.</p>
+		</description>
+		<weight>1</weight>
+		<modified>1451978938000</modified>
+		<id>37</id>
+		<group>
+			<name>Complexity</name>
+			<id>2</id>
+		</group>
+		<status>published</status>
+	</smells>
+	<smells>
+		<keywords>soap,rest,complexity,interface</keywords>
+		<created>1444798726000</created>
+		<tecdebtidx>hm</tecdebtidx>
+		<name>Complex interface</name>
+		<questions>
+			<question>Have interface partners problems programming against your
+				interface?</question>
+			<id>38</id>
+		</questions>
+		<questions>
+			<question>Is it difficult to implement changes for an interface?
+			</question>
+			<id>39</id>
+		</questions>
+		<description>
+			<p>Is it the case that a component has a complex interface to another
+				component which makes changes difficult and makes it difficult for
+				other components to program against it.</p>
+		</description>
+		<weight>2</weight>
+		<modified>1451979096000</modified>
+		<id>27</id>
+		<group>
+			<name>Complexity</name>
+			<id>2</id>
+		</group>
+		<status>published</status>
+	</smells>
+	<smells>
+		<keywords>interfaces, complexity</keywords>
+		<created>1447236153000</created>
+		<tecdebtidx>mm</tecdebtidx>
+		<name>Many different interfaces</name>
+		<questions>
+			<question>Is your application communicating with a lot of other
+				components using many different interfaces?</question>
+			<id>78</id>
+		</questions>
+		<questions>
+			<question>Do you have a problem with maintaining many different
+				interfaces?</question>
+			<id>79</id>
+		</questions>
+		<description>
+			<p>It is the case that your application is communicating with a lot
+				of other components using many different interfaces and maintaining
+				them is complex.</p>
+		</description>
+		<weight>1</weight>
+		<modified>1451994981000</modified>
+		<id>38</id>
+		<group>
+			<name>Complexity</name>
+			<id>2</id>
+		</group>
+		<status>published</status>
+	</smells>
+	<created>1447228573000</created>
+	<description>
+		<h3>Initial position</h3>
+		<p>A software system which has many different communication interfaces
+			to a lot of other components (on different hardware), contains a lot
+			of complexity. Individual (non-standard) interfaces leads to
+			unnecessary tight coupling (instead of loose coupling). It is
+			difficult to change the interface or to replace one of the
+			communication parties.</p>
+		<p>Most probably there exists in-house developed middleware (-parts)
+			or frameworks. This will make it hard for new employees to understand
+			the software quickly and make changes. </p>
+		<p>The solution of this AR is to put a standard message broker in
+			place (Websphere MQ, Apache ActiveMQ, ...) and replace the
+			non-standard communication interfaces. </p>
+		<p>Direct dependencies should be broken and there should be a clear
+			separation of concerns.</p>
+		<p></p>
+		<hr />
+		<h3>Revised design</h3>
+		<p>After the implementation of the message broker, it should be easier
+			to replace a communication party. Change the interface of two
+			communication parties. The message routing is configurable. The
+			message transformation (e.g. encoding) is configurable.</p>
+		<p>With most standard products it is possible to choose the type of
+			the communication (asynchronous, synchronous, as a service, message
+			queue, ...).</p>
+		<p>It is easier to deploy messages to many different components.</p>
+		<p>
+			<img src="http://www.inspirel.com/yami4/book/images/broker-messaging.png" />
+			<br />
+		</p>
+		<p>The figure shows a centralized messaging service over which
+			different components communicate. The communication does not have to
+			be one-way.</p>
+		<p>
+			<br />
+		</p>
+		<p></p>
+		<hr />
+		<h3>Pitfalls to avoid</h3>
+		<ul>
+			<li>
+				Introduction of custom made middleware or (
+				<abbr title="Do It Yourself">DIY</abbr>
+				) integration frameworks
+				<br />
+				Avoid to implement your own message broker. There are commercial and
+				open source third party products which provide you the necessary
+				functions.
+			</li>
+			<li>
+				Message broker does not provide enough resilience
+				<br />
+				Putting a centralized component in place, also 
+			</li>
+			<li>Centralized integration component (broker) is overloaded with
+				rich business logic</li>
+		</ul>
+		<p>
+			<br />
+		</p>
+	</description>
+	<discussion>
+		<created>1447228573000</created>
+		<id>26</id>
+		<type>DISCUSSION</type>
+	</discussion>
+	<arhead>
+		<versions>null</versions>
+		<id>18</id>
+	</arhead>
+	<name>Consolidate / centralise message routing and transformation
+	</name>
+	<modified>1447228573000</modified>
+	<id>26</id>
+	<user>
+		<firstname>Christian</firstname>
+		<password>null</password>
+		<startpage>stay</startpage>
+		<role>
+			<name>Admin</name>
+			<description>ART Administrator</description>
+			<id>1</id>
+		</role>
+		<arsearches>
+			<result>null</result>
+			<search>{"smellids":[18,19,24,27]}</search>
+			<name>My Search</name>
+			<id>1</id>
+		</arsearches>
+		<created>1432626312000</created>
+		<organisation>HSR</organisation>
+		<modified>1432626312000</modified>
+		<id>1</id>
+		<email>cbisig@hsr.ch</email>
+		<lastname>Bisig</lastname>
+		<homepage>http://www.hsr.ch</homepage>
+	</user>
+	<tasks>
+		<parent>null</parent>
+		<name>Evaluate performance impact by due to communication via broker
+		</name>
+		<id>63</id>
+		<properties>
+			<property>
+				<name>Assignee</name>
+				<id>7</id>
+			</property>
+			<id>147</id>
+			<value>Softwarearchitect</value>
+		</properties>
+		<properties>
+			<property>
+				<name>Type</name>
+				<id>8</id>
+			</property>
+			<id>148</id>
+			<value>Analysis Task</value>
+		</properties>
+		<properties>
+			<property>
+				<name>Description</name>
+				<id>9</id>
+			</property>
+			<id>149</id>
+			<value>
+				<p>Introducing a message broker at the place of a former direct
+					communication channel may have an impact on the performance of an
+					application which has to be considered.</p>
+			</value>
+		</properties>
+	</tasks>
+	<tasks>
+		<parent>null</parent>
+		<name>Choose standardized serialization format for message transport
+		</name>
+		<id>62</id>
+		<properties>
+			<property>
+				<name>Assignee</name>
+				<id>7</id>
+			</property>
+			<id>143</id>
+			<value>Softwarearchitect</value>
+		</properties>
+		<properties>
+			<property>
+				<name>Type</name>
+				<id>8</id>
+			</property>
+			<id>144</id>
+			<value>Architectural Decision Task</value>
+		</properties>
+		<properties>
+			<property>
+				<name>Description</name>
+				<id>9</id>
+			</property>
+			<id>145</id>
+			<value>
+				<p>E.g. when using a message bus for the communication between
+					different components a standardized serialization format for
+					message has to be choosen. For example XML, JSON.</p>
+			</value>
+		</properties>
+	</tasks>
+	<tasks>
+		<parent>null</parent>
+		<name>Integrate message broker</name>
+		<id>33</id>
+		<properties>
+			<property>
+				<name>Assignee</name>
+				<id>7</id>
+			</property>
+			<id>62</id>
+			<value>Software integrator</value>
+		</properties>
+		<properties>
+			<property>
+				<name>Type</name>
+				<id>8</id>
+			</property>
+			<id>63</id>
+			<value>Integration Task</value>
+		</properties>
+		<properties>
+			<property>
+				<name>Description</name>
+				<id>9</id>
+			</property>
+			<id>146</id>
+			<value>
+				<p>Integration of third party message oriented middleware.</p>
+			</value>
+		</properties>
+	</tasks>
+	<tasks>
+		<parent>null</parent>
+		<name>Update interface specifications</name>
+		<id>24</id>
+		<properties>
+			<property>
+				<name>Assignee</name>
+				<id>7</id>
+			</property>
+			<id>50</id>
+			<value>Softwarearchitect / Designer</value>
+		</properties>
+		<properties>
+			<property>
+				<name>Type</name>
+				<id>8</id>
+			</property>
+			<id>51</id>
+			<value>Design Task</value>
+		</properties>
+		<properties>
+			<property>
+				<name>Description</name>
+				<id>9</id>
+			</property>
+			<id>52</id>
+			<value>
+				<p>Update the description of the interface which will be used by
+					interface application as guidance how to program against the
+					interface.</p>
+			</value>
+		</properties>
+	</tasks>
+	<tasks>
+		<parent>null</parent>
+		<name>Update software architecture document (SAD)</name>
+		<id>31</id>
+		<properties>
+			<property>
+				<name>Assignee</name>
+				<id>7</id>
+			</property>
+			<id>59</id>
+			<value>Software architect</value>
+		</properties>
+		<properties>
+			<property>
+				<name>Description</name>
+				<id>9</id>
+			</property>
+			<id>64</id>
+			<value>
+				<p>
+					The software architecture document (SAD) is theoretically an
+					artifact described in the software engineering process
+					<abbr title="Rational Unified Process">RUP</abbr>
+					from IBM. This task is not a specific RUP task. Every software
+					engineering process should have some document describing the
+					architecture in place or to-be in place.
+				</p>
+				<p>Description of the SAD in RUP:</p>
+				<p>
+					&amp;#34;The Software Architecture Document provides a
+					comprehensive architectural overview of the system, using a number
+					of different architectural views to depict different aspects of the
+					system.&amp;#34;
+					<br />
+				</p>
+			</value>
+		</properties>
+		<properties>
+			<property>
+				<name>Type</name>
+				<id>8</id>
+			</property>
+			<id>142</id>
+			<value>Documentation Task</value>
+		</properties>
+	</tasks>
+	<tasks>
+		<parent>null</parent>
+		<name>Replace individual communication implementation with interface
+			implementation to the new message broker</name>
+		<id>34</id>
+		<properties>
+			<property>
+				<name>Assignee</name>
+				<id>7</id>
+			</property>
+			<id>65</id>
+			<value>Developer</value>
+		</properties>
+		<properties>
+			<property>
+				<name>Type</name>
+				<id>8</id>
+			</property>
+			<id>66</id>
+			<value>Development Task</value>
+		</properties>
+	</tasks>
+	<properties>
+		<name>Robustness</name>
+		<link>https://en.wikipedia.org/wiki/Robustness_(computer_science)
+		</link>
+		<id>68</id>
+		<type>QASElementLink</type>
+	</properties>
+	<properties>
+		<name>Flexibility</name>
+		<link>https://en.wikipedia.org/wiki/Flexibility_(engineering)</link>
+		<id>47</id>
+		<type>QASElementLink</type>
+	</properties>
+	<properties>
+		<name>Standardization</name>
+		<link>https://en.wikipedia.org/wiki/Standardization</link>
+		<id>85</id>
+		<type>QASElementLink</type>
+	</properties>
+	<properties>
+		<name>Conceptual Level</name>
+		<link>null</link>
+		<id>64</id>
+		<type>ContextElementLink</type>
+	</properties>
+	<properties>
+		<name>Logical View</name>
+		<link>null</link>
+		<id>5</id>
+		<type>ContextElementLink</type>
+	</properties>
+	<properties>
+		<name>Application software (Business software)</name>
+		<link>null</link>
+		<id>34</id>
+		<type>ComponentElementLink</type>
+	</properties>
+	<properties>
+		<name>Middleware</name>
+		<link>null</link>
+		<id>36</id>
+		<type>ComponentElementLink</type>
+	</properties>
+	<properties>
+		<name>Choice of service interface</name>
+		<link>null</link>
+		<id>71</id>
+		<type>DecisionElementLink</type>
+	</properties>
+	<properties>
+		<name>Choice of message exchange pattern</name>
+		<link>null</link>
+		<id>87</id>
+		<type>DecisionElementLink</type>
+	</properties>
+	<properties>
+		<name>Choice of transport protocol</name>
+		<link>null</link>
+		<id>88</id>
+		<type>DecisionElementLink</type>
+	</properties>
+	<properties>
+		<name>Synchronous vs. asynchronous communication</name>
+		<link>null</link>
+		<id>89</id>
+		<type>DecisionElementLink</type>
+	</properties>
+	<properties>
+		<name>Cloud Computing Patterns [Fehling, Leymann, Retter, Schupeck,
+			Arbitter]</name>
+		<link>null</link>
+		<id>65</id>
+		<type>ReferenceElementLink</type>
+	</properties>
+	<properties>
+		<name>Exploring the Enterprise Service Bus [IBM, Greg Flurry]</name>
+		<link>http://www.ibm.com/developerworks/library/ar-esbpat1/</link>
+		<id>90</id>
+		<type>ReferenceElementLink</type>
+	</properties>
+	<properties>
+		<name>Message Oriented Middleware [Wikipedia]</name>
+		<link>https://de.wikipedia.org/wiki/Message_Oriented_Middleware</link>
+		<id>106</id>
+		<type>ReferenceElementLink</type>
+	</properties>
+	<properties>
+		<name>Enterprise Service Bus [Wikipedia]</name>
+		<link>https://de.wikipedia.org/wiki/Enterprise_Service_Bus</link>
+		<id>107</id>
+		<type>ReferenceElementLink</type>
+	</properties>
+	<status>published</status>
+</arversion>
