@@ -7,14 +7,14 @@ import javax.inject.Named;
 import javax.inject.Singleton;
 import javax.persistence.TypedQuery;
 
+import controllers.AbstractCRUDController;
+import dao.GenericDAO;
 import models.property.Property;
 import play.Logger;
 import play.db.jpa.JPA;
 import play.db.jpa.Transactional;
 import play.libs.Json;
 import play.mvc.Result;
-import controllers.AbstractCRUDController;
-import dao.GenericDAO;
 
 /**
  * Concrete implementation of an {@link AbstractCRUDController} to retrieve and manipulate
@@ -43,11 +43,16 @@ public class PropertyController extends AbstractCRUDController<Property, Long> {
 	 * @return HTTP result
 	 */
 	@Transactional(readOnly=true)
-	public Result getCategorie(String cat) {
+	//@Cached(key="PopertyCats")
+	public Result getCategorie(String cat, String lang) {
 		List<Property> data;
+		if(lang == null || lang.equals("")) {
+			lang = "en";
+		}
 		try {
-			TypedQuery<Property> query = JPA.em().createQuery("select a from Property a where a.categorie = :cat", Property.class);
+			TypedQuery<Property> query = JPA.em().createQuery("select a from Property a where a.categorie = :cat and a.language = :lang", Property.class);
 			query.setParameter("cat", cat);
+			query.setParameter("lang", lang);
 			data = dao.find(query);
 		} catch (Exception e) {
 			String msg = "Failed to get categorie of " + dao.getModel().getSimpleName();

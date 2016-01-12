@@ -71,7 +71,7 @@ DELETE  /comment/:id              @controllers.discussion.CommentController.dele
 
 #Property service
 GET     /property                 @controllers.property.PropertyController.getAll()
-GET     /property/categorie/:cat  @controllers.property.PropertyController.getCategorie(cat: String)
+GET     /property/categorie/:cat/:lang  @controllers.property.PropertyController.getCategorie(cat: String, lang: String)
 GET     /property/:id             @controllers.property.PropertyController.get(id: Long)
 POST    /property                 @controllers.property.PropertyController.create()
 PUT     /property                 @controllers.property.PropertyController.update()
