@@ -20,7 +20,8 @@ import utils.exceptions.SessionTimeoutException;
 
 import com.lambdaworks.codec.Base64;
 
-import views.html.index;
+import com.tuplejump.playYeoman.Yeoman;
+import html.index;
 
 import dao.GenericDAO;
 
@@ -60,6 +61,7 @@ public class Application extends Controller {
 	public Result index() {
 		String activeProfile = new String(Base64.encode(checkLogin().getBytes()));
 		return ok(index.render(activeProfile));
+		//return ok();
 //		return ok(list.render());
 	}
 	

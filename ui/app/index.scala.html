@@ -1,0 +1,151 @@
+@(activeProfile: String)
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Architectural Refactoring Tool</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(./) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/jqcloud2/dist/jqcloud.css" />
+    <link rel="stylesheet" href="bower_components/textAngular/dist/textAngular.css" />
+    <link rel="stylesheet" href="bower_components/ui-select/dist/select.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css({.tmp,app}) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/awesome-bootstrap-checkbox.css">
+    <link rel="stylesheet" href="styles/ngNotificationsBar.min.css">
+    <link rel="stylesheet" href="styles/tree.css">
+    <!-- endbuild -->
+    <script type="text/javascript">
+        var _contextPath = "@routes.Assets.at("")";
+        var activeProfile = "@activeProfile";
+    </script>
+  </head>
+  <body ng-app="uiApp">
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div id="wrapper" class="container">
+        <div ui-view="menu"></div>
+        <div id="content" ui-view="container"></div>
+        <div id="footer" ui-view="footer"></div>
+    </div>
+
+    <notifications-bar class="notifications"></notifications-bar>
+
+    <!-- build:js(./) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/jqcloud2/dist/jqcloud.js"></script>
+    <script src="bower_components/angular-jqcloud/angular-jqcloud.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+    <script src="bower_components/rangy/rangy-core.js"></script>
+    <script src="bower_components/rangy/rangy-classapplier.js"></script>
+    <script src="bower_components/rangy/rangy-highlighter.js"></script>
+    <script src="bower_components/rangy/rangy-selectionsaverestore.js"></script>
+    <script src="bower_components/rangy/rangy-serializer.js"></script>
+    <script src="bower_components/rangy/rangy-textrange.js"></script>
+    <script src="bower_components/textAngular/dist/textAngular.js"></script>
+    <script src="bower_components/textAngular/dist/textAngular-sanitize.js"></script>
+    <script src="bower_components/textAngular/dist/textAngularSetup.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-drag-and-drop-lists/angular-drag-and-drop-lists.js"></script>
+    <script src="bower_components/ui-select/dist/select.js"></script>
+    <script src="bower_components/angular-ui-sortable/sortable.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/ngNotificationsBar.min.js"></script>
+        <script src="scripts/controllers/login.js"></script>
+        <script src="scripts/controllers/logout.js"></script>
+        <script src="scripts/controllers/userview.js"></script>
+        <script src="scripts/controllers/userprofile.js"></script>
+        <script src="scripts/controllers/usercreate.js"></script>
+        <script src="scripts/controllers/menu.js"></script>
+        <script src="scripts/controllers/stats.js"></script>
+        <script src="scripts/controllers/arview.js"></script>
+        <script src="scripts/controllers/discussion.js"></script>
+        <script src="scripts/controllers/ar.js"></script>
+        <script src="scripts/controllers/aredit.js"></script>
+        <script src="scripts/controllers/aradd.js"></script>
+        <script src="scripts/controllers/modelelement.js"></script>
+        <script src="scripts/controllers/modelelementadd.js"></script>
+        <script src="scripts/controllers/modelelementupdate.js"></script>
+        <script src="scripts/controllers/smellgroup.js"></script>
+        <script src="scripts/controllers/smellgroupadd.js"></script>
+        <script src="scripts/controllers/smellgroupupdate.js"></script>
+        <script src="scripts/controllers/arsearch.js"></script>
+        <script src="scripts/controllers/usersearch.js"></script>
+        <script src="scripts/controllers/smellassess.js"></script>
+        <script src="scripts/controllers/smelladd.js"></script>
+        <script src="scripts/controllers/smellmodaladd.js"></script>
+        <script src="scripts/controllers/smell.js"></script>
+        <script src="scripts/controllers/smellview.js"></script>
+        <script src="scripts/controllers/smellupdate.js"></script>
+        <script src="scripts/controllers/task.js"></script>
+        <script src="scripts/controllers/taskadd.js"></script>
+        <script src="scripts/controllers/taskmodaladd.js"></script>
+        <script src="scripts/controllers/taskview.js"></script>
+        <script src="scripts/controllers/taskupdate.js"></script>
+        <script src="scripts/controllers/exectasktype.js"></script>
+        <script src="scripts/controllers/footer.js"></script>
+        <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/services/isallowed.js"></script>
+        <script src="scripts/services/isloggedin.js"></script>
+        <script src="scripts/services/sharedsmell.js"></script>
+        <script src="scripts/services/sharedtask.js"></script>
+        <script src="scripts/services/lastviewed.js"></script>
+        <script src="scripts/services/passwordvalidator.js"></script>
+        <script src="scripts/services/propmodal.js"></script>
+        <script src="scripts/services/smellmodal.js"></script>
+        <script src="scripts/services/taskmodal.js"></script>
+        <script src="scripts/services/confirmmodal.js"></script>
+        <script src="scripts/services/replyerrorhandler.js"></script>
+        <script src="scripts/services/arservice.js"></script>
+        <script src="scripts/services/arversionservice.js"></script>
+        <script src="scripts/services/modelelementservice.js"></script>
+        <script src="scripts/services/smellgroupservice.js"></script>
+        <script src="scripts/services/usersearchservice.js"></script>
+        <script src="scripts/services/cloudsmells.js"></script>
+        <script src="scripts/services/fileuploader.js"></script>
+        <script src="scripts/services/avataruploader.js"></script>
+        <script src="scripts/services/smellservice.js"></script>
+        <script src="scripts/services/propertyservice.js"></script>
+        <script src="scripts/services/menuservice.js"></script>
+        <script src="scripts/services/discussionservice.js"></script>
+        <script src="scripts/services/commentservice.js"></script>
+        <script src="scripts/services/userservice.js"></script>
+        <script src="scripts/services/rolesservice.js"></script>
+        <script src="scripts/services/statusservice.js"></script>
+        <script src="scripts/services/statisticservice.js"></script>
+        <script src="scripts/services/exectasktypeservice.js"></script>
+        <script src="scripts/services/taskservice.js"></script>
+        <script src="scripts/services/taskpropertyservice.js"></script>
+        <script src="scripts/filters/limithtml.js"></script>
+        <script src="scripts/filters/limit.js"></script>
+        <script src="scripts/filters/tosafehtml.js"></script>
+        <script src="scripts/filters/breakfilter.js"></script>
+        <script src="scripts/filters/arpropfilter.js"></script>
+        <script src="scripts/filters/propsfilter.js"></script>
+        <script src="scripts/directives/compile.js"></script>
+        <script src="scripts/directives/hilighter.js"></script>
+        <script src="scripts/directives/commentarea.js"></script>
+        <script src="scripts/directives/filemodel.js"></script>
+        <!-- endbuild -->
+</body>
+</html>

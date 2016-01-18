@@ -106,20 +106,10 @@
 				</fo:page-sequence-master>
 			</fo:layout-master-set>
 			<fo:page-sequence master-reference="Inhalt-Seiten">
-				<fo:static-content flow-name="Inhalt-danach-rechts">
-					<fo:block text-align="outside">Page 
-               			<fo:page-number/>
-					</fo:block>
-				</fo:static-content>
 				<fo:static-content flow-name="Inhalt-davor-rechts">
 	            	<xsl:call-template name="myheader"></xsl:call-template>
 					<fo:block text-align="outside">
 						<fo:retrieve-marker retrieve-class-name="ebene2" retrieve-boundary="page-sequence" retrieve-position="first-starting-within-page"/>
-					</fo:block>
-				</fo:static-content>
-				<fo:static-content flow-name="Inhalt-danach-links">
-					<fo:block text-align="outside">Page 
-               <fo:page-number/>
 					</fo:block>
 				</fo:static-content>
 				<fo:static-content flow-name="Inhalt-davor-links">
@@ -137,6 +127,7 @@
 					<fo:block>
 						<xsl:apply-templates/>
 					</fo:block>
+					<fo:block id="theEnd">  </fo:block>
 				</fo:flow>
 			</fo:page-sequence>
 		</fo:root>
@@ -147,22 +138,25 @@
 ****************************************
  -->
  	<xsl:template name="myheader">
-	 		<fo:table space-after="8pt" space-before="8pt">
+	 	<fo:table space-after="8pt" space-before="8pt" width="180mm">
  			<fo:table-body>
 				<fo:table-row>
-					<fo:table-cell border-style="none" padding="1pt 2pt 2pt 2pt" border-width="0">
+					<fo:table-cell border-style="none" padding="1pt 2pt 2pt 2pt" border-width="0" width="70mm">
 						<fo:block xsl:use-attribute-sets="Default">
 							Architectural Refactoring
 						</fo:block>
-					</fo:table-cell>
-					<fo:table-cell border-style="none" padding="1pt 2pt 2pt 2pt" border-width="0">
 						<fo:block xsl:use-attribute-sets="Default">
 							<xsl:apply-templates select="arversion/uri"></xsl:apply-templates>
 						</fo:block>
 					</fo:table-cell>
-					<fo:table-cell border-style="none" padding="1pt 2pt 2pt 2pt" border-width="0">
+					<fo:table-cell border-style="none" padding="1pt 2pt 2pt 2pt" border-width="0" width="80mm">
 						<fo:block xsl:use-attribute-sets="Default">
 							<xsl:value-of select="format-dateTime(current-dateTime(), '[M01]/[D01]/[Y0001] at [H01]:[m01]:[s01]')"/>
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell border-style="none" padding="1pt 2pt 2pt 2pt" border-width="0" width="30mm">
+						<fo:block xsl:use-attribute-sets="Default">
+							Page <fo:page-number/><xsl:text> of </xsl:text><fo:page-number-citation ref-id="theEnd"/>
 						</fo:block>
 					</fo:table-cell>
 				</fo:table-row>
@@ -177,16 +171,16 @@
  -->
  	<xsl:template match="arversion">
  		<xsl:apply-templates select="name"/>
- 		<fo:table space-after="16pt" space-before="8pt">
+ 		<fo:table space-after="16pt" space-before="8pt" width="180mm">
  		    <fo:table-header>
                 <fo:table-row space-after="10px">
-                    <fo:table-cell padding="1pt 2pt 2pt 2pt">
+                    <fo:table-cell padding="1pt 2pt 2pt 2pt" width="70mm">
                         <fo:block font-size="10pt" font-weight="bold">Created</fo:block>
                     </fo:table-cell>
-                    <fo:table-cell padding="1pt 2pt 2pt 2pt">
+                    <fo:table-cell padding="1pt 2pt 2pt 2pt" width="70mm">
                         <fo:block font-size="10pt" font-weight="bold">Modified</fo:block>
                     </fo:table-cell>
-                    <fo:table-cell padding="1pt 2pt 2pt 2pt">
+                    <fo:table-cell padding="1pt 2pt 2pt 2pt" width="40mm">
                         <fo:block font-size="10pt" font-weight="bold">Status</fo:block>
                     </fo:table-cell>
                 </fo:table-row>
@@ -215,7 +209,7 @@
  		    <fo:table-header>
                 <fo:table-row space-after="10px">
                     <fo:table-cell padding="1pt 2pt 2pt 2pt">
-                        <fo:block font-size="12pt" font-weight="bold">Context (viewpoint, refinement level, enterprise architecture)</fo:block>
+                        <fo:block font-size="12pt" font-weight="bold">Context (viewpoint, refinement level)</fo:block>
                     </fo:table-cell>
                     <fo:table-cell padding="1pt 2pt 2pt 2pt">
                         <fo:block font-size="12pt" font-weight="bold">Quality attributes and stories (forces)</fo:block>

@@ -2,9 +2,6 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Home page
-GET     /                         @controllers.Application.index()
-
 #AR service
 GET     /ar                       @controllers.ar.ArController.getAll()
 GET     /ar/:id                   @controllers.ar.ArController.get(id: Long)
@@ -132,5 +129,14 @@ GET     /status                   @controllers.status.StatusController.get()
 #Statistic service
 GET     /stats                    @controllers.statistic.StatisticController.get()
 
+# Home page
+#GET     /                         com.tuplejump.playYeoman.Yeoman.redirectRoot(base="/ui/")
+
+GET     /                         @controllers.Application.index()
+#GET	    /ui                       @com.tuplejump.playYeoman.Yeoman.index
+#GET	    /ui                       @controllers.Application.index()
+#->      /ui/                      yeoman.Routes
+
+
 # Map static resources from the /public folder to the /assets URL path
-GET     /*file                     controllers.Assets.at(path="/public", file)
+GET     /*file                    controllers.Assets.at(path="/public", file)
