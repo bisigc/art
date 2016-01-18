@@ -28,7 +28,11 @@
     "jit-grunt": "^0.9.1",
     "time-grunt": "^1.0.0",
     "jshint-stylish": "^1.0.0",
-    "vinyl-fs": "~2.2.1"
+    "vinyl-fs": "~2.2.1",
+    "karma-ng-scenario": "^0.1.0",
+    "grunt-karma": "^0.8.3",
+    "karma": "^0.12.16",
+    "karma-ng-html2js-preprocessor": "^0.1.0"
   },
   "engines": {
     "node": ">=0.10.0"
