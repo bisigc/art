@@ -158,7 +158,7 @@
 					</fo:table-cell>
 				</fo:table-row>
 				<fo:table-row>
-					<fo:table-cell border-style="none" padding="1pt 2pt 2pt 2pt" border-width="0" number-columns-spanned="3">
+					<fo:table-cell border-style="none" padding="1pt 2pt 2pt 2pt" border-width="0" width="180mm" number-columns-spanned="3">
 						<fo:block xsl:use-attribute-sets="Default">
 							<xsl:apply-templates select="arversion/uri"></xsl:apply-templates>
 						</fo:block>
