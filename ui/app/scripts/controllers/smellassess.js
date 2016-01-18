@@ -9,15 +9,15 @@
  */
 angular.module('uiApp')
   .controller('SmellassessCtrl', ['ArVersionService', 'SmellGroupService', 'ReplyErrorHandler', 'notifications', '$scope', '$state', function(ArVersionService, SmellGroupService, ReplyErrorHandler, notifications, $scope, $state) {
-    $scope.counter;
+    $scope.counter = null;
     $scope.groups = [];
     $scope.groupToggle = [];
     $scope.groupAllCheck = [];
     $scope.arlist = [];
-    SmellGroupService.assess.get({},function(data, status, headers, config) {
+    SmellGroupService.assess.get({},function(data) { //, status, headers, config
             $scope.groups = data;
         }, ReplyErrorHandler);  
-    $scope.selectedSmells = {"smellids": [] };
+    $scope.selectedSmells = {'smellids': [] };
     
     $scope.groupAllshow = false;
     $scope.groupToggleAll = function() {
@@ -25,7 +25,7 @@ angular.module('uiApp')
         for(var i = 0;i < $scope.groupToggle.length;i++) {
             $scope.groupToggle[i] = $scope.groupAllshow;
         }
-    }
+    };
     
     $scope.toggleGroupSelect = function(index) {
         $scope.groupAllCheck[index] = !$scope.groupAllCheck[index];
@@ -34,7 +34,7 @@ angular.module('uiApp')
             var idx = $scope.selectedSmells.smellids.indexOf(n.id);
 
             if($scope.groupAllCheck[index]) {
-                if (idx == -1) {
+                if (idx === -1) {
                     $scope.selectedSmells.smellids.push(n.id);                	
                 }
             } else {
@@ -44,19 +44,19 @@ angular.module('uiApp')
             }
         }
         $scope.getSmellCount();
-    }
+    };
     
     $scope.loadArs = function () {
-        ArVersionService.search.get($scope.selectedSmells,function(data, status, headers, config) {
+        ArVersionService.search.get($scope.selectedSmells,function(data) { //, status, headers, config
             $scope.arlist = data;
         }, ReplyErrorHandler);  
     };
     
     $scope.getSmellCount = function () {
-    	if($scope.selectedSmells.smellids.length != 0) {
-	        ArVersionService.count($scope.selectedSmells).success(function(data,status,headers,config){
+    	if($scope.selectedSmells.smellids.length !== 0) {
+	        ArVersionService.count($scope.selectedSmells).success(function(data){ //, status, headers, config
 	            $scope.counter = data;
-	        }).error(function(data,status,headers,config){
+	        }).error(function(){ //data, status, headers, config
 	            notifications.showError('Failed to get Ar count.');
 	        });
             $scope.loadArs();
@@ -67,7 +67,7 @@ angular.module('uiApp')
     };
 
     $scope.resetForm = function() {
-        $scope.selectedSmells = {"smellids": [] };
+        $scope.selectedSmells = {'smellids': [] };
         $scope.groupAllCheck = [];
         $scope.counter = 0;
     };
@@ -75,11 +75,11 @@ angular.module('uiApp')
     $scope.resetForm();
     
     $scope.executeSearch = function() {
-        $state.go('root.arsearch', {smellids: JSON.stringify($scope.selectedSmells)})
-    }
+        $state.go('root.arsearch', {smellids: JSON.stringify($scope.selectedSmells)});
+    };
     
-    $scope.toggleSelection = function toggleSelection(smell_id) {
-        var idx = $scope.selectedSmells.smellids.indexOf(smell_id);
+    $scope.toggleSelection = function toggleSelection(smellid) {
+        var idx = $scope.selectedSmells.smellids.indexOf(smellid);
 
         // is currently selected
         if (idx > -1) {
@@ -87,9 +87,8 @@ angular.module('uiApp')
         }
         // is newly selected
         else {
-            $scope.selectedSmells.smellids.push(smell_id);
+            $scope.selectedSmells.smellids.push(smellid);
         }
         $scope.getSmellCount();
     };
-    
 }]);

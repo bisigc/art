@@ -19,12 +19,12 @@ angular.module('uiApp')
     lastviewedList.add = function (item) {
         //Remove entry if the item already exists to add afterwards at the top.
         var idx = -1;
-        for(var i = 0; i < this.list.length && idx == -1; i++) {
-            if(this.list[i].type == item.type && this.list[i].id == item.id) {
+        for(var i = 0; i < this.list.length && idx === -1; i++) {
+            if(this.list[i].type === item.type && this.list[i].id === item.id) {
                 idx = i;
             }
         }
-        if(idx != -1) {
+        if(idx !== -1) {
             this.list.splice(idx, 1);
         }
         //Add at the beginning.
@@ -34,6 +34,6 @@ angular.module('uiApp')
             this.list.splice(this.list.length - 1);
         }
         $cookieStore.put('art_lastviewed_items', this.list);
-    }
+    };
     return lastviewedList;
 }]);

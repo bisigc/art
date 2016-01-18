@@ -10,10 +10,10 @@
 angular.module('uiApp')
   .controller('SmelladdCtrl', ['SmellService', 'SmellGroupService', 'StatusService', 'ReplyErrorHandler', 'notifications', '$scope', 'sharedSmell', function(SmellService, SmellGroupService, StatusService, ReplyErrorHandler, notifications, $scope, sharedSmell) {
     $scope.smell = sharedSmell.smell;
-    $scope.questionToAdd;
+    $scope.questionToAdd = null;
     $scope.status = [];
     $scope.loadStatus = function () {
-        StatusService.get({},function(data, status, headers, config) {
+        StatusService.get({},function(data) { //, status, headers, config
             $scope.status = data;
             $scope.smell.status = $scope.status[0];
         }, ReplyErrorHandler);
@@ -21,7 +21,7 @@ angular.module('uiApp')
     $scope.loadStatus();
     $scope.groups = [];
     $scope.loadGroups = function () {
-        SmellGroupService.noid.get({},function(data, status, headers, config) {
+        SmellGroupService.noid.get({},function(data) { //, status, headers, config
             $scope.groups = data;
             $scope.smell.group = $scope.groups[0];
         }, ReplyErrorHandler);  
@@ -32,10 +32,10 @@ angular.module('uiApp')
         $scope.smell.questions = [];
         $scope.smell.tecdebtidx = 'mm';
         $scope.questionToAdd = '';
-    }
+    };
     $scope.initSmell();
     $scope.saveSmell = function(form) {
-        SmellService.noid.create($scope.smell,function(data, status, headers, config) {
+        SmellService.noid.create($scope.smell,function() { //data, status, headers, config
             if($scope.loadSmells) {
                 $scope.loadSmells();
             }
@@ -50,7 +50,7 @@ angular.module('uiApp')
         $scope.smell.status = $scope.status[0];
         $scope.smell.group = $scope.groups[0];
         form.$setPristine();
-    }
+    };
     
     $scope.addQuestion = function () {
         $scope.smell.questions.push({

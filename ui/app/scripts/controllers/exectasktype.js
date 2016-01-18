@@ -12,13 +12,13 @@ angular.module('uiApp')
     $scope.exectypes = [];
     this.emptyexectype = [];
     $scope.loadExecTaskTypes = function() {
-        ExecTaskTypeService.noid.get({},function(data, status, headers, config) {
+        ExecTaskTypeService.noid.get({},function(data) { //, status, headers, config
             $scope.exectypes = data;
         }, ReplyErrorHandler);
     };
     $scope.loadExecTaskTypes();
 
-    ExecTaskTypeService.empty.get({},function(data, status, headers, config) {
+    ExecTaskTypeService.empty.get({},function(data) { //, status, headers, config
         $scope.emptyexectype = data;
     }, ReplyErrorHandler); 
 
@@ -28,19 +28,19 @@ angular.module('uiApp')
 
     $scope.hasChildren = function(task) {
         return task.subTasks.length > 0;
-    }
+    };
 
 
     $scope.add = function(task) {
-        var post = task.subTasks.length + 1;
-        var newName = task.name + '-' + post;
+        //var post = task.subTasks.length + 1;
+        //var newName = task.name + '-' + post;
         task.subTasks.push(angular.copy(this.emptyexectype));
     };
 
     $scope.save = function() {
-        ExecTaskTypeService.noid.update($scope.exectypes, function(data, status, headers, config) {
+        ExecTaskTypeService.noid.update($scope.exectypes, function(data) { //, status, headers, config
             $scope.emptyexectype = data;
             notifications.showSuccess('Exec Task Types have been saved.');
         }, ReplyErrorHandler);  
-    }
+    };
 }]);

@@ -12,5 +12,9 @@
   "unused": true,
   "globals": {
     "angular": false
+  },
+  "predef": {
+    "rangy": false,
+    "_contextPath": false
   }
 }

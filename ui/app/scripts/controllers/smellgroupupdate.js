@@ -11,22 +11,22 @@ angular.module('uiApp')
   .controller('SmellgroupupdateCtrl', ['SmellGroupService', 'ReplyErrorHandler', 'notifications', '$uibModalInstance', '$scope', '$stateParams', function(SmellGroupService, ReplyErrorHandler, notifications, $uibModalInstance, $scope, $stateParams) {
     $scope.smellgroup = {};
     $scope.loadSmellGroup = function() {
-        SmellGroupService.id.get({id: $stateParams.id}, function(data, status, headers, config) {
+        SmellGroupService.id.get({id: $stateParams.id}, function(data) { //, status, headers, config
             $scope.smellgroup = data;
         }, ReplyErrorHandler);  
-    }
+    };
     $scope.loadSmellGroup();
     
     $scope.saveSmellGroup = function(form) {
-        SmellGroupService.noid.update($scope.smellgroup, function(data, status, headers, config) {
+        SmellGroupService.noid.update($scope.smellgroup, function() { //data, status, headers, config
             notifications.showSuccess('Smell Group has been updated.');
             $scope.smellgroup = {};
             form.$setPristine();
             $uibModalInstance.close();
         }, ReplyErrorHandler);  
-    }
+    };
     
-    $scope.dismiss = function(form) {
+    $scope.dismiss = function() {//from
         $uibModalInstance.dismiss('cancel');
-    }    
+    };
 }]);

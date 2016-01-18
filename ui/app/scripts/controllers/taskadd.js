@@ -25,7 +25,7 @@ angular.module('uiApp')
     };
     
     $scope.loadExecTaskTypes = function () {
-        ExecTaskTypeService.noid.get({},function(data, status, headers, config) {
+        ExecTaskTypeService.noid.get({},function(data) { //, status, headers, config
             execTypeHTML = '<select class="form-control" ng-model="propertyToAdd.value">';
             var subtasks = data[0].subTasks;
             recursiveExecType(subtasks, '');
@@ -36,7 +36,7 @@ angular.module('uiApp')
     $scope.loadExecTaskTypes();
     
     $scope.loadTaskProperties = function () {
-        TaskPropertyService.noid.get({},function(data, status, headers, config) {
+        TaskPropertyService.noid.get({},function(data) { //, status, headers, config
             $scope.taskproperties = data;
             $scope.propertyToAdd.property = $scope.taskproperties[0];
         }, ReplyErrorHandler);  
@@ -47,17 +47,17 @@ angular.module('uiApp')
         sharedTask.clear();
         $scope.task.properties = [];
         $scope.propertyToAdd = {property: {} };
-    }
+    };
     $scope.initTask();
     
     $scope.cancel = function(form) {
         $scope.initTask();
         form.$setPristine();
         $scope.propertyToAdd.property = $scope.taskproperties[0];
-    }
+    };
 
     $scope.saveTask = function(form) {
-        TaskService.noid.create($scope.task,function(data, status, headers, config) {
+        TaskService.noid.create($scope.task,function() { //data, status, headers, config
             $scope.loadTasks();
             notifications.showSuccess('Task has been added.');
             $scope.initTask();

@@ -8,7 +8,7 @@
  * Factory in the uiApp.
  */
 angular.module('uiApp')
-  .factory('PropModal', ['$uibModal', 'notifications', function($uibModal, notifications) {
+  .factory('PropModal', ['$uibModal', function($uibModal) {
 
     return {
         open: function(type, okfunction, dissmissedfunction) {
@@ -28,7 +28,7 @@ angular.module('uiApp')
                 }
             );
 
-            modalInstance.result.then(function(result) {okfunction(result)}, dissmissedfunction);
+            modalInstance.result.then(function(result) {okfunction(result);}, dissmissedfunction);
             
             /*$stateParams.ok = function () {
                 $modalInstance.close($scope.selected.item);
@@ -40,5 +40,5 @@ angular.module('uiApp')
 
         }
         
-    }
+    };
 }]);

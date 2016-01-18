@@ -14,12 +14,11 @@ angular.module('uiApp')
         var arrayToReturn = []; 
         if (angular.isArray(props)) {
             for (var i=0; i<props.length; i++){
-                if (props[i].type == type) {
+                if (props[i].type === type) {
                     arrayToReturn.push(props[i]);
                 }
             }
         }
-        
         return arrayToReturn;
     };
 });

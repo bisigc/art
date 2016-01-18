@@ -8,19 +8,19 @@
  * Controller of the uiApp
  */
 angular.module('uiApp')
-  .controller('SmellgroupaddCtrl', ['SmellGroupService', 'ReplyErrorHandler', 'notifications', '$uibModalInstance', '$scope', '$stateParams', 'modelelementtype', function(SmellGroupService, ReplyErrorHandler, notifications, $uibModalInstance, $scope, $stateParams, modelelementtype) {
+  .controller('SmellgroupaddCtrl', ['SmellGroupService', 'ReplyErrorHandler', 'notifications', '$uibModalInstance', '$scope', function(SmellGroupService, ReplyErrorHandler, notifications, $uibModalInstance, $scope) {
     $scope.smellgroup = {};
     
     $scope.saveSmellGroup = function(form) {
-        SmellGroupService.noid.create($scope.smellgroup, function(data, status, headers, config) {
+        SmellGroupService.noid.create($scope.smellgroup, function() { //data, status, headers, config
             notifications.showSuccess('Smell Group has been added.');
             $scope.smellgroup = {};
             form.$setPristine();
             $uibModalInstance.close();
         }, ReplyErrorHandler);  
-    }
+    };
     
-    $scope.dismiss = function(form) {
+    $scope.dismiss = function() {//form
         $uibModalInstance.dismiss('cancel');
-    }
+    };
 }]);

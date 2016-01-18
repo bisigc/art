@@ -12,6 +12,6 @@ angular.module('uiApp')
     var smellObject = {smell: {}};
     smellObject.clear = function () {
         angular.copy({}, this.smell);
-    }
+    };
     return smellObject;
 }]);

@@ -13,5 +13,5 @@ angular.module('uiApp')
         get: function() {
             return $http({method: 'GET', url: _contextPath + 'smell/forcloud', transformResponse: [] });
         }
-    }
+    };
 }]);

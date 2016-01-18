@@ -14,9 +14,8 @@ angular.module('uiApp')
 
         if(text) {
             var changedString = String(text).replace(/<[^>]+>/gm, '');
-            var length = changedString.length;
             return changedString.length > limit ? changedString.substr(0, limit - 1) + '...' : changedString; 
         }
         return '';
-    }
+    };
 });

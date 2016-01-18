@@ -32,5 +32,5 @@ angular.module('uiApp')
         } else {
             notifications.showError(error.data + ', Unknown error [' + error.status + '], failed to ' + error.config.method + ' ' + error.config.url);
         }
-    }
+    };
 }]);

@@ -11,7 +11,7 @@ angular.module('uiApp')
   .controller('SmellmodaladdCtrl', ['$controller', '$scope', '$uibModalInstance', 'SmellService', 'ReplyErrorHandler', 'notifications', function($controller, $scope, $uibModalInstance, SmellService, ReplyErrorHandler, notifications) {
 	$controller('SmelladdCtrl', {$scope: $scope});
     $scope.saveSmell = function(form) {
-        SmellService.noid.create($scope.smell,function(data, status, headers, config) {
+        SmellService.noid.create($scope.smell,function(data) { //, status, headers, config
             if($scope.loadSmells) {
                 $scope.loadSmells();
             }
@@ -32,5 +32,5 @@ angular.module('uiApp')
         if($uibModalInstance) {
         	$uibModalInstance.dismiss('cancel');
         }
-    }
+    };
 }]);

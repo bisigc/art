@@ -1,5 +1,5 @@
 {
-  "name": "play-silhouette-angular-seed",
+  "name": "Architectural Refactoring Tool",
   "version": "0.0.0",
   "dependencies": {
     "grunt-cli": "~0.1.13",

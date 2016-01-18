@@ -30,8 +30,8 @@ angular.module('uiApp')
     $scope.modelelementsvalues.decisions = [];
     $scope.modelelementsvalues.references = [];
     
-    if($stateParams.id && $stateParams.id != '') {
-        ArVersionService.id.get({id: $stateParams.id}, function(data, status, headers, config) {
+    if($stateParams.id && $stateParams.id !== '') {
+        ArVersionService.id.get({id: $stateParams.id}, function(data) { //, status, headers, config
             $scope.arversion = data;
             $scope.ar.id = $scope.arversion.arhead.id;
             $scope.arversion.discussion = {};
@@ -67,14 +67,14 @@ angular.module('uiApp')
             default:
                 break;
         }
-    }
+    };
     
     $scope.openPropModal = function(type) {
         PropModal.open(type, $scope.addcreatedProp, function() {});
-    }
+    };
     
     $scope.loadSmells = function () {
-        SmellService.noid.get({},function(data, status, headers, config) {
+        SmellService.noid.get({},function(data) { //, status, headers, config
             $scope.smells = data;
         }, ReplyErrorHandler);     
     };
@@ -82,14 +82,14 @@ angular.module('uiApp')
     $scope.addcreatedSmell = function(newSmell) {
         $scope.loadSmells();
         $scope.arversion.smells.push(newSmell);
-    }
+    };
 
     $scope.openSmellModal = function(type) {
         SmellModal.open(type, $scope.addcreatedSmell, function() {});
-    }
+    };
     
     $scope.loadTasks = function () {
-		TaskService.noid.get({},function(data, status, headers, config) {
+		TaskService.noid.get({},function(data) { //, status, headers, config
 		    $scope.tasks = data;
 		}, ReplyErrorHandler);   
     };
@@ -97,20 +97,20 @@ angular.module('uiApp')
     $scope.addcreatedTask = function(newTask) {
         $scope.loadTasks();
         $scope.arversion.tasks.push(newTask);
-    }
+    };
     
     $scope.openTaskModal = function(type) {
         TaskModal.open(type, $scope.addcreatedTask, function() {});
-    }
+    };
 
     $scope.loadValues = function () {
-        StatusService.get({},function(data, status, headers, config) {
+        StatusService.get({},function(data) { //, status, headers, config
             $scope.status = data;
             $scope.arversion.status = $scope.status[0];
         }, ReplyErrorHandler);        
     	$scope.loadSmells();
     	$scope.loadTasks();
-        ModelElementService.type.get({},function(data, status, headers, config) {
+        ModelElementService.type.get({},function(data) { //, status, headers, config
             $scope.modelelementtypes = data;
             $scope.loadAllProps();
         }, ReplyErrorHandler);  
@@ -120,40 +120,40 @@ angular.module('uiApp')
     $scope.loadProps = function(type) {
         switch(type) {
             case 'QASElementLink':
-                ModelElementService.qas.get({},function(data, status, headers, config) {
+                ModelElementService.qas.get({},function(data) { //, status, headers, config
                     $scope.modelelements.qas = data;
                 }, ReplyErrorHandler);  
                 break;
             case 'ContextElementLink':
-                ModelElementService.context.get({},function(data, status, headers, config) {
+                ModelElementService.context.get({},function(data) { //, status, headers, config
                     $scope.modelelements.context = data;
                 }, ReplyErrorHandler); 
                 break;
             case 'ComponentElementLink':
-                ModelElementService.components.get({},function(data, status, headers, config) {
+                ModelElementService.components.get({},function(data) { //, status, headers, config
                     $scope.modelelements.components = data;
                 }, ReplyErrorHandler);  
                 break;
             case 'DecisionElementLink':
-                ModelElementService.decisions.get({},function(data, status, headers, config) {
+                ModelElementService.decisions.get({},function(data) { //, status, headers, config
                     $scope.modelelements.decisions = data;
                 }, ReplyErrorHandler);  
                 break;
             case 'ReferenceElementLink':
-                ModelElementService.references.get({},function(data, status, headers, config) {
+                ModelElementService.references.get({},function(data) { //, status, headers, config
                     $scope.modelelements.references = data;
                 }, ReplyErrorHandler);  
                 break;
             default:
                 break;
         }       
-    }
+    };
     
     $scope.loadAllProps = function() {
         for(var i = 0;i < $scope.modelelementtypes.length;i++) {
             $scope.loadProps($scope.modelelementtypes[i]);
         }
-    }
+    };
 
     $scope.mergeProperties = function() {
         //angular.extend(ar.versions, arversion);
@@ -164,22 +164,22 @@ angular.module('uiApp')
             $scope.modelelementsvalues.decisions,
             $scope.modelelementsvalues.references
             );
-    }
+    };
     
     $scope.saveAr = function() {
         $scope.mergeProperties();
-        if($stateParams.id && $stateParams.id != '') {
-            ArVersionService.noid.create($scope.arversion, function(data, status, headers, config) {
+        if($stateParams.id && $stateParams.id !== '') {
+            ArVersionService.noid.create($scope.arversion, function(data) { //, status, headers, config
                 notifications.showSuccess('ArVersion has been added successfully.');
                 $state.go('root.singlear', {id: data.arhead.id});
             }, ReplyErrorHandler);
         } else {
-            ArService.noid.create($scope.ar, function(data, status, headers, config) {
+            ArService.noid.create($scope.ar, function(data) { //, status, headers, config
                 notifications.showSuccess('Ar has been added successfully.');
                 $state.go('root.singlear', {id: data.id});
             }, ReplyErrorHandler);
         }
-    }
+    };
 
     this.progMax = 200;
 

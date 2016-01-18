@@ -17,25 +17,26 @@ angular.module('uiApp')
     $scope.cloudcallstatus = '&nbsp;<i class="glyphicon glyphicon-refresh glyphicon-refresh-animate"/> Loading...';
     
     $scope.loadArs = function () {
-        ArVersionService.noid.get({},function(data, status, headers, config) {
+        ArVersionService.noid.get({},function(data) { //, status, headers, config
             $scope.arlist = data;
         }, ReplyErrorHandler);  
     };
     $scope.loadArs();
 
     this.loadCloud = function () {
-        CloudSmells.get().success(function(data,status,headers,config){
-            $scope.words = eval(data);
+        CloudSmells.get().success(function(data){ //,status,headers,config
+            var MYEVAL = eval;
+            $scope.words = MYEVAL(data);
             $scope.cloudcallstatus = '';
-        }).error(function(data,status,headers,config){
+        }).error(function(){ //data,status,headers,config
             $scope.cloudcallstatus = 'NOK';
             notifications.showError('Failed to load SmellCloud');
         });
-    }
+    };
     this.loadCloud();
 
     this.showForm = function(visible) {
-        if(visible == true) {
+        if(visible === true) {
             this.formvisible = true;
         } else {
             this.formvisible = false;
@@ -61,16 +62,16 @@ angular.module('uiApp')
             this.ar = {};
         };*/
     $scope.deleteAr = function(id) {
-        ConfirmModal.showModal({}, {headerText: 'Confirm', bodyText: 'Are you sure you want to delete the whole AR?'}).then(function (result) {
-            ArService.id.delete({id: id}, function(data, status, headers, config) {
+        ConfirmModal.showModal({}, {headerText: 'Confirm', bodyText: 'Are you sure you want to delete the whole AR?'}).then(function () { //result
+            ArService.id.delete({id: id}, function() { //data, status, headers, config
                 notifications.showSuccess('Delete of AR with id ' + id + ' and his versions succsessful.');
                 $scope.loadArs();
             }, ReplyErrorHandler);  
-        }, function() {notifications.showInfo('Delete canceled.')});
+        }, function() {notifications.showInfo('Delete canceled.');});
     };
     
     $scope.getPDF = function(id) {
-        ArVersionService.id.pdf({id: id}, function(data, status, headers, config) {
+        ArVersionService.id.pdf({id: id}, function() { //data, status, headers, config
         }, ReplyErrorHandler);
     };
 }]);

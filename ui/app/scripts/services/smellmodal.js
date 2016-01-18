@@ -8,7 +8,7 @@
  * Factory in the uiApp.
  */
 angular.module('uiApp')
-  .factory('SmellModal', ['$uibModal', 'notifications', function($uibModal, notifications) {
+  .factory('SmellModal', ['$uibModal', function($uibModal) {
 
     return {
         open: function(type, okfunction, dissmissedfunction) {
@@ -27,7 +27,7 @@ angular.module('uiApp')
                     }
                 }
             );
-            modalInstance.result.then(function(result) {okfunction(result)}, dissmissedfunction);
+            modalInstance.result.then(function(result) {okfunction(result);}, dissmissedfunction);
         }
-    }
+    };
 }]);

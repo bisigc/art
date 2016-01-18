@@ -13,7 +13,7 @@ angular.module('uiApp')
     $scope.modelelement.type = modelelementtype;
     
     $scope.saveModelElement = function(form) {
-        ModelElementService.noid.create($scope.modelelement, function(data, status, headers, config) {
+        ModelElementService.noid.create($scope.modelelement, function(data) { //, status, headers, config
             notifications.showSuccess('Model Element of type ' + $scope.modelelement.type + ' has been added.');
             $scope.modelelement = {};
             form.$setPristine();
@@ -23,9 +23,9 @@ angular.module('uiApp')
             propArray.newProp = data;
             $uibModalInstance.close(propArray);
         }, ReplyErrorHandler);  
-    }
+    };
     
-    $scope.dismiss = function(form) {
+    $scope.dismiss = function() {//form
         $uibModalInstance.dismiss('cancel');
-    }
+    };
 }]);

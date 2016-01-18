@@ -14,13 +14,13 @@ angular.module('uiApp')
     $scope.user.startpage = 'stay';
     $scope.roles = [];
     $scope.pwcheck = [];
-    RolesService.get({},function(data, status, headers, config) {
+    RolesService.get({},function(data) { //, status, headers, config
         $scope.roles = data;
         $scope.user.role = $scope.roles[2];
     }, ReplyErrorHandler);
     
     $scope.createUser = function() {
-        UserService.noid.create($scope.user,function(data, status, headers, config) {
+        UserService.noid.create($scope.user,function() { //data, status, headers, config
             notifications.showSuccess('User has been created.');
             $state.go('root.home');
         }, ReplyErrorHandler);

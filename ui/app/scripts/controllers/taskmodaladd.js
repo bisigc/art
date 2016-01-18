@@ -11,7 +11,7 @@ angular.module('uiApp')
   .controller('TaskmodaladdCtrl', ['$controller', '$scope', '$uibModalInstance', 'TaskService', 'ReplyErrorHandler', 'notifications', function($controller, $scope, $uibModalInstance, TaskService, ReplyErrorHandler, notifications) {
 	$controller('TaskaddCtrl', {$scope: $scope});
     $scope.saveTask = function(form) {
-        TaskService.noid.create($scope.task,function(data, status, headers, config) {
+        TaskService.noid.create($scope.task,function(data) { //, status, headers, config
             notifications.showSuccess('Task has been added.');
             $scope.initTask();
             form.$setPristine();
@@ -23,5 +23,5 @@ angular.module('uiApp')
         form.$setPristine();
         $scope.propertyToAdd.property = $scope.taskproperties[0];
     	$uibModalInstance.dismiss('cancel');
-    }
+    };
 }]);

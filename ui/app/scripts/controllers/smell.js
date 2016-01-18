@@ -15,21 +15,21 @@ angular.module('uiApp')
     $scope.smell = sharedSmell.smell;
     $scope.status = [];
     $scope.loadStatus = function () {
-        StatusService.get({},function(data, status, headers, config) {
+        StatusService.get({},function(data) { //, status, headers, config
             $scope.status = data;
         }, ReplyErrorHandler);  
     };
     $scope.loadStatus();
     $scope.groups = [];
     $scope.loadGroups = function () {
-        SmellGroupService.noid.get({},function(data, status, headers, config) {
+        SmellGroupService.noid.get({},function(data) { //, status, headers, config
             $scope.groups = data;
         }, ReplyErrorHandler);  
     };
     $scope.loadGroups();
 
     $scope.showForm = function(visible) {
-        if(visible == true) {
+        if(visible === true) {
             $scope.formvisible = true;
         } else {
             $scope.formvisible = false;
@@ -37,7 +37,7 @@ angular.module('uiApp')
     };
 
     $scope.loadSmells = function () {
-        SmellService.noid.get({},function(data, status, headers, config) {
+        SmellService.noid.get({},function(data) { //, status, headers, config
             $scope.smelllist = data;
         }, ReplyErrorHandler);  
     };
@@ -45,16 +45,16 @@ angular.module('uiApp')
     
     $scope.reload = function() {
         $scope.loadSmells();        
-    }
+    };
     
     $scope.deleteSmell = function (id) {
-        ConfirmModal.showModal({}, {headerText: 'Confirm', bodyText: 'Are you sure you want to delete this Smell?'}).then(function (result) {
-            SmellService.id.delete({id: id},function(data, status, headers, config) {
+        ConfirmModal.showModal({}, {headerText: 'Confirm', bodyText: 'Are you sure you want to delete this Smell?'}).then(function () {//result
+            SmellService.id.delete({id: id},function() { //data, status, headers, config
                 $scope.loadSmells();
                 notifications.showSuccess('Smell has been deleted.');
             }, ReplyErrorHandler);
-        }, function() {notifications.showInfo('Delete canceled.')});
-    }
+        }, function() {notifications.showInfo('Delete canceled.');});
+    };
 
     $scope.order = function(predicate, reverse) {
         $scope.smelllist = orderBy($scope.smelllist, predicate, reverse);

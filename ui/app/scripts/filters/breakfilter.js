@@ -11,6 +11,8 @@
 angular.module('uiApp')
   .filter('breakFilter', function () {
     return function (text) {
-        if (typeof text !== 'undefined' && text != null && text !== '') return text.replace(/\n/g, '<br />');
+        if (typeof text !== 'undefined' && text !== null && text !== '') {
+            return text.replace(/\n/g, '<br />');
+        }
     };
 });

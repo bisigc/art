@@ -15,7 +15,7 @@ angular.module('uiApp')
     $scope.formvisible = false;
 
     $scope.showForm = function(visible) {
-        if(visible == true) {
+        if(visible === true) {
             $scope.formvisible = true;
         } else {
             $scope.formvisible = false;
@@ -25,16 +25,16 @@ angular.module('uiApp')
     $scope.getType = function(propArray) {
         if(propArray) {
             for(var i = 0; i < propArray.length; i++) {
-                if(propArray[i].property.name == 'Type') {
+                if(propArray[i].property.name === 'Type') {
                     return propArray[i].value;
                 }
             }
         }
-        return "";
-    }
+        return '';
+    };
 
     $scope.loadTasks = function () {
-        TaskService.noid.get({},function(data, status, headers, config) {
+        TaskService.noid.get({},function(data) { //, status, headers, config
             $scope.tasklist = data;
             //$scope.smellcallstatus = "OK";
         }, ReplyErrorHandler);  
@@ -42,13 +42,13 @@ angular.module('uiApp')
     $scope.loadTasks();
 
     $scope.deleteTask = function (id) {
-        ConfirmModal.showModal({}, {headerText: 'Confirm', bodyText: 'Are you sure you want to delete this Task?'}).then(function (result) {
-            TaskService.id.delete({id: id},function(data, status, headers, config) {
+        ConfirmModal.showModal({}, {headerText: 'Confirm', bodyText: 'Are you sure you want to delete this Task?'}).then(function () {//result
+            TaskService.id.delete({id: id},function() { //data, status, headers, config
                 $scope.loadTasks();
                 notifications.showSuccess('Task has been deleted.');
             }, ReplyErrorHandler);
-        }, function() {notifications.showInfo('Delete canceled.')});
-    }
+        }, function() {notifications.showInfo('Delete canceled.');});
+    };
 
     $scope.order = function(predicate, reverse) {
         $scope.tasklist = orderBy($scope.tasklist, predicate, reverse);

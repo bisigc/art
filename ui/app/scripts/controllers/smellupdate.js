@@ -8,37 +8,37 @@
  * Controller of the uiApp
  */
 angular.module('uiApp')
-  .controller('SmellupdateCtrl', ['SmellService','SmellGroupService', 'StatusService', 'ReplyErrorHandler', 'notifications', '$uibModalInstance', '$scope', '$stateParams', 'smellid', function (SmellService, SmellGroupService, StatusService, ReplyErrorHandler, notifications, $uibModalInstance, $scope, $stateParams, smellid) {
+  .controller('SmellupdateCtrl', ['SmellService','SmellGroupService', 'StatusService', 'ReplyErrorHandler', 'notifications', '$uibModalInstance', '$scope', '$stateParams', function (SmellService, SmellGroupService, StatusService, ReplyErrorHandler, notifications, $uibModalInstance, $scope, $stateParams) {
     $scope.status = [];
     $scope.loadStatus = function () {
-        StatusService.get({},function(data, status, headers, config) {
+        StatusService.get({},function(data) { //, status, headers, config
             $scope.status = data;
         }, ReplyErrorHandler);  
     };
     $scope.loadStatus();
-    $scope.smell;
+    $scope.smell = null;
     $scope.initSmell = function () {
         $scope.smell = {};
         $scope.smell.questions = [];
         $scope.questionToAdd = '';
-    }
+    };
     $scope.initSmell();
     $scope.groups = [];
     $scope.loadGroups = function () {
-        SmellGroupService.noid.get({},function(data, status, headers, config) {
+        SmellGroupService.noid.get({},function(data) { //, status, headers, config
             $scope.groups = data;
         }, ReplyErrorHandler);  
     };
     $scope.loadGroups();
     $scope.getSmell = function (smellid) {
-        SmellService.id.get({id: smellid},function(data, status, headers, config) {
+        SmellService.id.get({id: smellid},function(data) { //, status, headers, config
             $scope.smell = data;
         }, ReplyErrorHandler);  
     };
     $scope.getSmell($stateParams.id);
 
     $scope.saveSmell = function() {
-        SmellService.noid.update($scope.smell,function(data, status, headers, config) {
+        SmellService.noid.update($scope.smell,function() { //data, status, headers, config
             $uibModalInstance.close();
             notifications.showSuccess('Smell has been updated.');
             $scope.smell = {};
@@ -47,13 +47,13 @@ angular.module('uiApp')
     
     $scope.reload = function() {
         $scope.loadSmells();        
-    }
+    };
        
     $scope.cancel = function(form) {
         $scope.initSmell();
         form.$setPristine();
         $uibModalInstance.dismiss('cancel');
-    }
+    };
     
     $scope.addQuestion = function () {
         $scope.smell.questions.push({

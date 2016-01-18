@@ -28,24 +28,24 @@ angular.module('uiApp').run(['$rootScope','$state','$stateParams','notifications
     $rootScope.currentUser = currentUser;
     $rootScope.isAllowed = isAllowed;
     $rootScope.isLoggedin = isLoggedin;
-    $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
+    $rootScope.$on('$stateChangeStart', function (event, toState) { // toParams
         var requireLogin = toState.data.requireLogin;
         var allowedRoles = toState.data.allowedRoles;
 
-        if (requireLogin && currentUser.profile == null) {
+        if (requireLogin && currentUser.profile === null) {
             event.preventDefault();
             notifications.showWarning('Login required.');
-        } else if(requireLogin && currentUser.profile != null && allowedRoles.indexOf(currentUser.profile.role.name) == -1) {
+        } else if(requireLogin && currentUser.profile !== null && allowedRoles.indexOf(currentUser.profile.role.name) === -1) {
             event.preventDefault();
             notifications.showWarning('Not enough permissions.');
         }
     });
     
-    $rootScope.$on('$stateChangeSuccess', function (evt, toState, toParams, fromState, fromParams) {
+    $rootScope.$on('$stateChangeSuccess', function (evt, toState) { //  toParams, fromState, fromParams
         window.document.title = 'Architectural Refactoring Tool > ' + toState.title;
     });
     
-    $rootScope.$on('$stateChangeError', function(event) {
+    $rootScope.$on('$stateChangeError', function() { //event
         $state.go('root.404');
     });
 }]);
@@ -67,11 +67,11 @@ angular.module('uiApp').config(['notificationsConfigProvider', function (notific
  **/
 angular.module('uiApp').config(['$provide', function($provide) {
     var profile;
-    if(window.activeProfile == '') {
+    if(window.activeProfile === '') {
         profile = null;
     } else {
         var decoded = atob(window.activeProfile);
-        if(decoded == 'Session timeout') {
+        if(decoded === 'Session timeout') {
             profile = null;
         } else {
             profile = angular.fromJson(decoded);
@@ -93,7 +93,9 @@ angular.module('uiApp').config(['$provide', function($provide){
                 return this.$editor().wrapSelection('inserthtml', '<hr>', true);
             },
             activeState: function(commonElement){
-                if(commonElement) return commonElement[0].tagName === 'hr';
+                if(commonElement) {
+                    return commonElement[0].tagName === 'hr';
+                }
                 return false;
             }
         });
@@ -101,8 +103,8 @@ angular.module('uiApp').config(['$provide', function($provide){
             buttontext: '&lt;abbr&gt;',
             tooltiptext: 'Insert an abbreviation',
             action: function() {
-                var _selection = taSelection.getSelection();
-                if(_selection.collapsed){
+                var myselection = taSelection.getSelection();
+                if(myselection.collapsed){
                     $window.alert('Select abbreviation first.');
                 }else if(rangy.getSelection().getRangeAt(0).canSurroundContents()){
                     var title;
@@ -376,7 +378,7 @@ angular.module('uiApp').config(['$stateProvider', '$urlRouterProvider', function
             requireLogin: true,
             allowedRoles: ['Admin', 'Editor']
         },
-        onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+        onEnter: ['$stateParams', '$state', '$uibModal', '$scope', function($stateParams, $state, $uibModal, $scope) {
             var modalInstance = $uibModal.open(
                 {
                     templateUrl: _contextPath + 'modelelementdialog.html',
@@ -411,7 +413,7 @@ angular.module('uiApp').config(['$stateProvider', '$urlRouterProvider', function
             requireLogin: true,
             allowedRoles: ['Admin', 'Editor']
         },
-        onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+        onEnter: ['$stateParams', '$state', '$uibModal', '$scope', function($stateParams, $state, $uibModal, $scope) {
             var modalInstance = $uibModal.open(
                 {
                     templateUrl: _contextPath + 'modelelementdialog.html',
@@ -461,7 +463,7 @@ angular.module('uiApp').config(['$stateProvider', '$urlRouterProvider', function
             requireLogin: true,
             allowedRoles: ['Admin', 'Editor']
         },
-        onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+        onEnter: ['$stateParams', '$state', '$uibModal', '$scope', function($stateParams, $state, $uibModal, $scope) {
             var modalInstance = $uibModal.open(
                 {
                     templateUrl: _contextPath + 'smellgroupdialog.html',
@@ -496,7 +498,7 @@ angular.module('uiApp').config(['$stateProvider', '$urlRouterProvider', function
             requireLogin: true,
             allowedRoles: ['Admin', 'Editor']
         },
-        onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+        onEnter: ['$stateParams', '$state', '$uibModal', '$scope', function($stateParams, $state, $uibModal, $scope) {
             var modalInstance = $uibModal.open(
                 {
                     templateUrl: _contextPath + 'smellgroupdialog.html',
@@ -618,7 +620,7 @@ angular.module('uiApp').config(['$stateProvider', '$urlRouterProvider', function
             requireLogin: true,
             allowedRoles: ['Admin', 'Editor']
         },
-        onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+        onEnter: ['$stateParams', '$state', '$uibModal', '$scope', function($stateParams, $state, $uibModal, $scope) {
             var modalInstance = $uibModal.open(
                 {
                     templateUrl: _contextPath + 'taskdialog.html',

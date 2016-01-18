@@ -12,6 +12,6 @@ angular.module('uiApp')
     var taskObject = {task: {}};
     taskObject.clear = function () {
         angular.copy({}, this.task);
-    }
+    };
     return taskObject;
 }]);

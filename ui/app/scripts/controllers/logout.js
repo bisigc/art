@@ -10,7 +10,7 @@
 angular.module('uiApp')
   .controller('LogoutCtrl', ['UserService', 'ReplyErrorHandler', 'notifications', '$scope', '$state', 'currentUser', function(UserService, ReplyErrorHandler, notifications, $scope, $state, currentUser){
     $scope.logout = function() {
-        UserService.logout.logout({},function(data, status, headers, config) {
+        UserService.logout.logout({},function() { //data, status, headers, config
             notifications.showSuccess('Logged out');
             $scope.logindata = {'email':'','password':''};
             currentUser.profile = null;

@@ -13,20 +13,20 @@ angular.module('uiApp')
     $scope.smellgrouplist = [];
     
     $scope.loadSmellGroups = function() {
-        SmellGroupService.noid.get({}, function(data, status, headers, config) {
+        SmellGroupService.noid.get({}, function(data) { //, status, headers, config
             $scope.smellgrouplist = data;
         }, ReplyErrorHandler);  
-    }
+    };
     $scope.loadSmellGroups();
     
     $scope.deleteSmellGroup = function(id) {
-        ConfirmModal.showModal({}, {headerText: 'Confirm', bodyText: 'Are you sure you want to delete this Smell Group?'}).then(function (result) {
-            SmellGroupService.id.delete({id: id},function(data, status, headers, config) {
+        ConfirmModal.showModal({}, {headerText: 'Confirm', bodyText: 'Are you sure you want to delete this Smell Group?'}).then(function () {//result
+            SmellGroupService.id.delete({id: id},function() { //data, status, headers, config
                 notifications.showSuccess('Smell Group has been deleted.');
                 $scope.loadSmellGroups();
             }, ReplyErrorHandler);  
-        }, function() {notifications.showInfo('Delete canceled.')});
-    }
+        }, function() {notifications.showInfo('Delete canceled.');});
+    };
     
     $scope.order = function(predicate, reverse) {
         $scope.smellgrouplist = orderBy($scope.smellgrouplist, predicate, reverse);

@@ -13,9 +13,8 @@ angular.module('uiApp')
     return function(text, limit) {
 
         if(text) {
-            var length = text.length;
-            return text.length > limit ? text.substr(0, limit - 1) + '...' : text; 
+            return text.length > limit ? text.substr(0, limit - 1) + '...' : text;
         }
         return '';
-    }
+    };
 });

@@ -25,7 +25,9 @@ angular.module('uiApp')
       
       return {
           showModal: function (customModalDefaults, customModalOptions) {
-              if (!customModalDefaults) customModalDefaults = {};
+              if (!customModalDefaults) {
+                  customModalDefaults = {};
+              }
               customModalDefaults.backdrop = 'static';
               return this.show(customModalDefaults, customModalOptions);
           },
@@ -46,10 +48,10 @@ angular.module('uiApp')
                       $scope.modalOptions.ok = function (result) {
                           $modalInstance.close(result);
                       };
-                      $scope.modalOptions.close = function (result) {
+                      $scope.modalOptions.close = function () {//result
                           $modalInstance.dismiss('cancel');
                       };
-                  }
+                  };
               }
               return $uibModal.open(tempModalDefaults).result;
           }

@@ -26,7 +26,7 @@ angular.module('uiApp')
     };
 
     $scope.loadExecTaskTypes = function () {
-        ExecTaskTypeService.noid.get({},function(data, status, headers, config) {
+        ExecTaskTypeService.noid.get({},function(data) { //, status, headers, config
             execTypeHTML = '<select class="form-control" ng-model="propertyToAdd.value">';
             var subtasks = data[0].subTasks;
             recursiveExecType(subtasks, '');
@@ -37,7 +37,7 @@ angular.module('uiApp')
     $scope.loadExecTaskTypes();
     
     $scope.loadTaskProperties = function () {
-        TaskPropertyService.noid.get({},function(data, status, headers, config) {
+        TaskPropertyService.noid.get({},function(data) { //, status, headers, config
             $scope.taskproperties = data;
             $scope.propertyToAdd.property = $scope.taskproperties[0];
         }, ReplyErrorHandler);  
@@ -45,7 +45,7 @@ angular.module('uiApp')
     $scope.loadTaskProperties();
 
     $scope.getTask = function (taskid) {
-        TaskService.id.get({id: taskid},function(data, status, headers, config) {
+        TaskService.id.get({id: taskid},function(data) { //, status, headers, config
             $scope.task = data;
         }, ReplyErrorHandler);  
     };
@@ -55,17 +55,17 @@ angular.module('uiApp')
         $scope.task = {};
         $scope.task.properties = [];
         $scope.propertyToAdd = {};
-    }
+    };
     
     $scope.cancel = function(form) {
         $scope.initTask();
         form.$setPristine();
         $scope.propertyToAdd.property = $scope.taskproperties[0];
         $uibModalInstance.dismiss('cancel');
-    }
+    };
 
     $scope.saveTask = function() {
-        TaskService.noid.update($scope.task,function(data, status, headers, config) {
+        TaskService.noid.update($scope.task,function() { //data, status, headers, config
             $uibModalInstance.close();
             notifications.showSuccess('Task has been updated.');
             $scope.task = {};

@@ -43,7 +43,7 @@ angular.module('uiApp')
     };
     
     $scope.loadArVersion = function() {
-        ArVersionService.id.get({id: $stateParams.id}, function(data, status, headers, config) {
+        ArVersionService.id.get({id: $stateParams.id}, function(data) { //, status, headers, config
             $scope.arversion = data;
             $scope.modelelementsvalues.qas = $filter('arPropFilter')($scope.arversion.properties, 'QASElementLink');
             $scope.modelelementsvalues.context = $filter('arPropFilter')($scope.arversion.properties, 'ContextElementLink');
@@ -102,24 +102,24 @@ angular.module('uiApp')
     };
     
     $scope.loadSmells = function () {
-        SmellService.noid.get({},function(data, status, headers, config) {
+        SmellService.noid.get({},function(data) { //, status, headers, config
             $scope.smells = data;
         }, ReplyErrorHandler);     
     };
 
     $scope.loadTasks = function () {
-		TaskService.noid.get({},function(data, status, headers, config) {
+		TaskService.noid.get({},function(data) { //, status, headers, config
 		    $scope.tasks = data;
 		}, ReplyErrorHandler);   
     };
     
     $scope.loadValues = function () {
-        StatusService.get({},function(data, status, headers, config) {
+        StatusService.get({},function(data) { //, status, headers, config
             $scope.status = data;
         }, ReplyErrorHandler);        
         $scope.loadSmells();
         $scope.loadTasks();
-        ModelElementService.type.get({},function(data, status, headers, config) {
+        ModelElementService.type.get({},function(data) { //, status, headers, config
             $scope.modelelementtypes = data;
             $scope.loadAllProps();
         }, ReplyErrorHandler);  
@@ -129,27 +129,27 @@ angular.module('uiApp')
     $scope.loadProps = function(type) {
         switch(type) {
             case 'QASElementLink':
-                ModelElementService.qas.get({},function(data, status, headers, config) {
+                ModelElementService.qas.get({},function(data) { //, status, headers, config
                     $scope.modelelements.qas = data;
                 }, ReplyErrorHandler);  
                 break;
             case 'ContextElementLink':
-                ModelElementService.context.get({},function(data, status, headers, config) {
+                ModelElementService.context.get({},function(data) { //, status, headers, config
                     $scope.modelelements.context = data;
                 }, ReplyErrorHandler); 
                 break;
             case 'ComponentElementLink':
-                ModelElementService.components.get({},function(data, status, headers, config) {
+                ModelElementService.components.get({},function(data) { //, status, headers, config
                     $scope.modelelements.components = data;
                 }, ReplyErrorHandler);  
                 break;
             case 'DecisionElementLink':
-                ModelElementService.decisions.get({},function(data, status, headers, config) {
+                ModelElementService.decisions.get({},function(data) { //, status, headers, config
                     $scope.modelelements.decisions = data;
                 }, ReplyErrorHandler);  
                 break;
             case 'ReferenceElementLink':
-                ModelElementService.references.get({},function(data, status, headers, config) {
+                ModelElementService.references.get({},function(data) { //, status, headers, config
                     $scope.modelelements.references = data;
                 }, ReplyErrorHandler);  
                 break;
@@ -176,7 +176,7 @@ angular.module('uiApp')
     
     $scope.saveAr = function() {
         $scope.mergeProperties();
-        ArVersionService.noid.update($scope.arversion, function(data, status, headers, config) {
+        ArVersionService.noid.update($scope.arversion, function() { //data, status, headers, config
             notifications.showSuccess('ArVersion has been updated successfully.');
         }, ReplyErrorHandler);
     };

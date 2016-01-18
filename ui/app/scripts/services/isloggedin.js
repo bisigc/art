@@ -11,7 +11,7 @@ angular.module('uiApp')
   .factory('isLoggedin', ['currentUser', function(currentUser) {
     return {
         check: function() {
-            return !(currentUser.profile == null);
+            return currentUser.profile !== null;
         }
-    }
+    };
 }]);
