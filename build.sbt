@@ -28,6 +28,9 @@ enablePlugins(ClasspathJarPlugin)
 
 Yeoman.yeomanSettings ++ Yeoman.withTemplates
 
+// Disable Grunt execution for Heroku deployment
+Yeoman.forceGrunt := false
+
 // Activate dependency injected controllers and not static controllers.
 // This is a new function since play framework 2.4
 routesGenerator := InjectedRoutesGenerator
