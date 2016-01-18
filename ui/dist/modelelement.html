@@ -1,0 +1,43 @@
+<div>
+    <div class="page-header">
+        <h1>AR Meta Data</h1>
+    </div>
+<div>
+<div>
+    <div class="well well-sm" ng-if="isAllowed.check(['Admin','Editor'])">
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="modelelementlink">Add new ModelElementLink:</label>
+                <select class="form-control" id="modelelementlink" ng-model="selectedtype" ng-options="element for element in modelelementtypes" ng-change="$state.go('root.modelelement.add',{modelelementtype: selectedtype})">
+                	<option value="">Select Type...</option>
+                </select>
+            </div>
+        </form>
+    </div>
+    <table id="searchObjResults" class="table table-striped table-hover">
+        <tr>
+            <th>Name</th>
+            <th>Link</th>
+            <th>Type</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td><input class="form-control" ng-model="search.name" placeholder="Filter..." /></td>
+            <td><input class="form-control" ng-model="search.link" placeholder="Filter..." /></td>
+            <td><input class="form-control" ng-model="search.type" placeholder="Filter..." /></td>
+            <td><button type="button" class="btn btn-warning btn-sm" ng-click="search = []" uib-tooltip="Clear filter fields">clear</button></td>
+        </tr>
+        <tr>
+            <th><a ng-click="rname=!rname;order('name', rname)">Name <span ng-show="rname">&#x25B2;</span><span ng-show="!rname">&#x25BC;</span></a></th>
+            <th><a ng-click="rlink=!rlink;order('link', rlink)">Reference (<abbr title="Unified Resource Identifier">URI</abbr>) <span ng-show="rlink">&#x25B2;</span><span ng-show="!rlink">&#x25BC;</span></a></th>
+            <th><a ng-click="rtype=!rtype;order('type', rtype)">Type <span ng-show="rtype">&#x25B2;</span><span ng-show="!rtype">&#x25BC;</span></a></th>
+            <th></th>
+        </tr>
+        <tr ng-repeat="element in modelelementlist | filter:search">
+            <td>{{element.name}}</td>
+            <td>{{element.link}}</td>
+            <td>{{element.type}}</td>
+            <td><a ui-sref="root.modelelement.edit({id: element.id})" ng-if="isAllowed.check(['Admin','Editor'])"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;<a href ng-click="deleteElement(element.id)" ng-if="isAllowed.check(['Admin'])"><span class="glyphicon glyphicon-trash"></span></a></td>
+        </tr>
+    </table>
+</div>

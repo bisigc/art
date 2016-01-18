@@ -1,0 +1,129 @@
+<div>
+    <div class="page-header">
+        <h1>Register</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h3 class="panel-title">User Details <small> required fields <span class="glyphicon glyphicon-asterisk"></span></small></h3></div>
+                <div class="panel-body">
+                    <form name="userForm" ng-submit="userForm.$valid && createUser()">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group has-feedback" ng-class="(userForm.firstname.$error.required) ? 'has-error' : 'has-success'">
+                                    <label class="control-label" for="firstname">Firstname</label>
+                                    <input class="form-control" name="firstname" title="firstname" id="firstname" ng-model="user.firstname" aria-describedby="firstnameStatus" required></input>
+                                    <span class="glyphicon form-control-feedback" ng-class="(userForm.firstname.$error.required) ? 'glyphicon-asterisk' : 'glyphicon-ok'" aria-hidden="true"></span>
+                                    <span id="firstnameStatus" class="sr-only">{{(userForm.firstname.$error.required) ? '(error)' : '(ok)'}}</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group has-feedback" ng-class="(userForm.lastname.$error.required) ? 'has-error' : 'has-success'">
+                                    <label class="control-label" for="lastname">Lastname</label>
+                                    <input class="form-control" name="lastname" title="lastname" id="lastname" ng-model="user.lastname" aria-describedby="lastnameStatus" required></input>
+                                    <span class="glyphicon form-control-feedback" ng-class="(userForm.lastname.$error.required) ? 'glyphicon-asterisk' : 'glyphicon-ok'" aria-hidden="true"></span>
+                                    <span id="lastnameStatus" class="sr-only">{{(userForm.lastname.$error.required) ? '(error)' : '(ok)'}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="company">Organisation</label>
+                                    <input class="form-control" title="organisation" id="organisation" ng-model="user.organisation"></input>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group has-feedback" ng-class="(userForm.email.$error.required || userForm.email.$error.email) ? 'has-error' : 'has-success'">
+                                    <label class="control-label" for="email">E-Mail</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">@</span>
+                                        <input class="form-control" type="email" name="email" title="email" id="email" ng-model="user.email" aria-describedby="emailStatus" required></input>
+                                    </div>
+                                    <span class="glyphicon form-control-feedback" ng-class="(userForm.email.$error.required || userForm.email.$error.email) ? 'glyphicon-asterisk' : 'glyphicon-ok'" aria-hidden="true"></span>
+                                    <span id="emailStatus" class="sr-only">{{(userForm.email.$error.required || userForm.email.$error.email) ? '(error)' : '(ok)'}}</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group has-feedback">
+                                    <label for="homepage">Homepage</label>
+                                    <input class="form-control" title="homepage" id="homepage" ng-model="user.homepage"></input>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group has-feedback" ng-class="(userForm.startpage.$error.required) ? 'has-error' : 'has-success'">
+                                    <label class="control-label" for="startpage">Startpage</label>
+                                    <ui-select name="startpage" id="startpage" ng-model="user.startpage" theme="bootstrap" ng-disabled="disabled" required>
+                                        <ui-select-match>{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="page in startpages | filter: $select.search">
+                                            <span ng-bind-html="page | highlight: $select.search"></span>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group has-feedback" ng-class="(userForm.role.$error.required) ? 'has-error' : 'has-success'">
+                                    <label for="role">Role</label>
+                                    <ui-select name="role" id="role" ng-model="user.role" theme="bootstrap" ng-disabled="disabled" required>
+                                        <ui-select-match>{{$select.selected.name}}</ui-select-match>
+                                        <ui-select-choices repeat="role in roles | filter: $select.search">
+                                            <span ng-bind-html="role.name | highlight: $select.search"></span>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" ng-init="revalidate(user.password, repeatpassword)">
+                            <div class="col-sm-6">
+                                <div class="form-group has-feedback" ng-class="(!pwcheck.valid) ? 'has-error' : 'has-success'">
+                                    <label class="control-label" for="lastname">Password</label>
+                                    <input class="form-control" type="password" name="password" title="password" id="password" ng-model="user.password" ng-valid="pwcheck.valid" ng-change="revalidate(user.password, repeatpassword)" aria-describedby="passwordStatus" required></input>
+                                    <span class="glyphicon form-control-feedback" ng-class="(!pwcheck.valid) ? 'glyphicon-asterisk' : 'glyphicon-ok'" aria-hidden="true"></span>
+                                    <span id="passwordStatus" class="sr-only">{{(!pwcheck.valid) ? '(error)' : '(ok)'}}</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-group has-feedback" ng-class="(!repeatpassword || user.password != repeatpassword) ? 'has-error' : 'has-success'">
+                                        <label class="control-label" for="repeatpassword">Repeat password</label>
+                                        <input class="form-control" type="password" name="repeatpassword" title="repeatpassword" id="repeatpassword" ng-model="repeatpassword" ng-valid="!repeatpassword && user.password == repeatpassword" aria-describedby="repeatpasswordStatus" required></input>
+                                        <span class="glyphicon form-control-feedback" ng-class="(!repeatpassword || user.password != repeatpassword) ? 'glyphicon-asterisk' : 'glyphicon-ok'" aria-hidden="true"></span>
+                                        <span id="repeatpasswordStatus" class="sr-only">{{(!repeatpassword || user.password != repeatpassword) ? '(error)' : '(ok)'}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Password constraints</label>
+                                    <ul class="list-inline">
+                                        <li ng-repeat="constraint in pwcheck.constraints track by $index">
+                                            <span>{{constraint.name + ' : ' }}</span>
+                                            <span class="glyphicon glyphicon-remove-sign text-danger font-size-large" ng-hide="constraint.valid"></span>
+                                            <span class="glyphicon glyphicon-ok-sign text-success font-size-large" ng-show="constraint.valid"></span>
+                                            <span ng-if="pwcheck.constraints.length - 1 != $index">, </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary pull-right" ng-disabled="!pwcheck.valid || userForm.$invalid">Create User</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>

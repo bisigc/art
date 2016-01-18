@@ -1,5 +1,5 @@
 /node_modules
-/dist
+# /dist --> allow dist for Heroku
 /.tmp
 /.sass-cache
 /bower_components

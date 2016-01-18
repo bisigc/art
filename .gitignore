@@ -7,7 +7,7 @@ logs
 project/project
 project/target
 target
-dist
+# dist --> allow dist for Heroku
 tmp
 .sbtserver
 project/.sbtserver

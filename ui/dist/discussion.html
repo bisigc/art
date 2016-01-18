@@ -1,0 +1,44 @@
+<div>
+    <hr/>
+    <div ng-if="isAllowed.check(['Admin','Editor','Applier'])">
+        <div class="input-group">
+            <label for="comment">New comment <small>max. 500 characters </small><span class="label" ng-class="{'label-danger':newcomment.comment.length>=500, 'label-info':newcomment.comment.length<500}">{{newcomment.comment.length}}</span>:</label>
+            <textarea class="form-control" rows="4" cols="80" id="comment" maxlength="500" ng-model="newcomment.comment" placeholder="Comment..."></textarea>
+        </div><br/>
+        <button class="btn btn-primary btn-sm" ng-click="addComment($parent.discussion_id)" ng-disabled="newcomment.comment.length <= 0">Add Comment</button>
+        <button class="btn btn-warning btn-sm" ng-click="init()">Clear</button>
+    </div>
+    <div ng-if="!(isAllowed.check(['Admin','Editor','Applier']))">
+        <div class="alert alert-info" role="alert">Login to add a comment.</div>
+    </div>
+    <hr ng-if="newcomment.comment.length > 0"/>
+    <div class="media bg-warning" ng-if="newcomment.comment.length > 0">
+        <div class="media-left media-top">
+            <a href>
+                <img class="media-object avatar img-circle" ng-src="{{_contextPath + 'avatar/' + currentUser.profile.id}}" alt="Avatar {{currentUser.profile.lastname}}"/>
+            </a>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">{{currentUser.profile.firstname}} {{currentUser.profile.lastname}} <small><i>Posted on {{comment.created | date:'yyyy-MM-dd HH:mm:ss' }}</i></small></h4>
+            <p ng-bind-html="newcomment.comment | breakFilter"></p>
+        </div>
+    </div>
+    <hr ng-if="discussion.comments.length > 0"/>
+    <div class="media-list">
+        <div class="media" ng-repeat-start="comment in discussion.comments | orderBy:'-created'">
+            <div class="media-left media-top">
+                <a ui-sref="root.userview({id: comment.user.id})">
+                    <img class="media-object avatar img-circle" ng-src="{{_contextPath + 'avatar/' + comment.user.id}}" alt="Avatar {{comment.user.lastname}}">
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">
+                    <a ui-sref="root.userview({id: comment.user.id})">{{comment.user.firstname}} {{comment.user.lastname}}</a> <small><i>Posted on {{comment.created | date:'yyyy-MM-dd HH:mm:ss' }}</i>, <b>Likes <span class="label label-info">{{comment.likeCount}}</span> <a href ng-click="like(comment)" ng-if="isAllowed.check(['Admin','Applier','Editor'])"><span class="glyphicon glyphicon-thumbs-up"></span></a></b></small>
+                </h4>
+                <div class="pull-right"></div>
+                <p ng-bind-html="comment.comment | breakFilter"></p>
+            </div>
+        </div>
+        <hr ng-repeat-end/>
+    </div>
+</div>
