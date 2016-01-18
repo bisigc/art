@@ -1,0 +1,166 @@
+<div>
+    <div>
+        <div class="page-header">
+            <h1>{{smell.name}}<br/>
+                <small>Smell View</small>
+            </h1>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a class="btn btn-sm btn-primary" ng-href="{{ _contextPath + 'smell/pdf/' + smell.id}}" uib-tooltip="Download Smell as PDF"><span class="glyphicon glyphicon-file"></span></a>
+                        <p class="pull-right" ng-if="isAllowed.check(['Admin','Editor'])">
+                            <a class="btn btn-sm btn-primary" ng-click="$state.go('root.smellbrowser.edit',{id: smell.id})" uib-tooltip="Edit Smell"><span class="glyphicon glyphicon-pencil"></span></a>
+                            <!-- a class="btn btn-sm btn-primary" ng-click="cloneSmell(smell.id)">Clone Smell</a -->
+                            <a class="btn btn-sm btn-danger" ng-if="isAllowed.check(['Admin'])" ng-click="deleteSmell(smell.id)" uib-tooltip="Delete this Smell"><span class="glyphicon glyphicon-trash"></span></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Modified</h3>
+                                <span>{{smell.modified | date:'yyyy-MM-dd HH:mm:ss'}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Created</h3>
+                                <span>{{smell.created | date:'yyyy-MM-dd HH:mm:ss'}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" uib-tooltip="Amount of linkages to ARs with status 'published'">
+                                <h3 class="panel-title">AR Appearances</h3>
+                                <span>{{smell.weight}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Keywords</h3>
+                    </div>
+                    <div class="panel-body">{{smell.keywords}}</div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Group</h3>
+                    </div>
+                    <div class="panel-body">{{smell.group.name}}</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Status</h3>
+                        <span>{{smell.status}}</span>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Technical Debt Risk Index</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="idxtable">
+                            <tr>
+                                <td id="problabel" class="problabel" rowspan="3">Probability</td>
+                                <td>h&nbsp;</td>
+                                <td ng-repeat="n in ['lh','mh','hh']">
+                                    <label class="btn btn-default dbt-idx-{{n}}">
+                                        <input type="radio" name="tecdebtidx" ng-model="smell.tecdebtidx" ng-value="n" disabled/>
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>m&nbsp;</td>
+                                <td ng-repeat="n in ['lm','mm','hm']">
+                                    <label class="btn btn-default dbt-idx-{{n}}">
+                                        <input type="radio" name="tecdebtidx" ng-model="smell.tecdebtidx" ng-value="n" disabled/>
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>l&nbsp;</td>
+                                <td ng-repeat="n in ['ll','ml','hl']">
+                                    <label class="btn btn-default dbt-idx-{{n}}">
+                                        <input type="radio" name="tecdebtidx" ng-model="smell.tecdebtidx" ng-value="n" disabled/>
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td ng-repeat="n in ['l','m','h']">{{n}}</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td class="implabel" colspan="3">Impact</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Description</h3>
+                    </div>
+                    <div class="panel-body" ta-bind ng-model="smell.description"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Questions</h3>
+                    </div>
+                    <ul class="list-group">
+                      <li class="list-group-item" ng-repeat="question in smell.questions">{{question.question}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Referenced ARs</h3>
+                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="ar in arlist"><a ui-sref="root.singlear({id: ar.arhead.id})">{{ar.name | limit: 70}}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <a class="btn btn-sm btn-primary" ng-href="{{ _contextPath + 'smell/pdf/' + smell.id}}" uib-tooltip="Download Smell as PDF"><span class="glyphicon glyphicon-file"></span></a>
+                    <p class="pull-right" ng-if="isAllowed.check(['Admin','Editor'])">
+                        <a class="btn btn-sm btn-primary" ng-click="$state.go('root.smellbrowser.edit',{id: smell.id})" uib-tooltip="Edit Smell"><span class="glyphicon glyphicon-pencil"></span></a>
+                        <!-- a class="btn btn-sm btn-primary" ng-click="cloneSmell(smell.id)">Clone Smell</a -->
+                        <a class="btn btn-sm btn-danger" ng-if="isAllowed.check(['Admin'])" ng-click="deleteSmell(smell.id)" uib-tooltip="Delete this Smell"><span class="glyphicon glyphicon-trash"></span></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- div ui-view="discussionView"></div -->
+</div>

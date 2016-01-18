@@ -1,0 +1,17 @@
+<div class="panel panel-default">
+    <div class="panel-heading"><h3 class="panel-title">{{user.firstname}} {{user.lastname}}</h3></div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-2 text-center">
+                <img ng-src="{{_contextPath + 'avatar/' + $stateParams.id}}" class="avatar-big img-circle" />
+            </div>
+            <div class="col-md-6">
+                <div class="row"><div class="col-md-3"><b>Registered since</b></div><div class="col-md-4">{{user.created | date:'yyyy/MM/dd'}}</div></div>
+                <div class="row"><div class="col-md-3"><b>Organisation</b></div><div class="col-md-4">{{user.organisation}}</div></div>
+                <div class="row"><div class="col-md-3"><b>E-Mail</b></div><div class="col-md-4"><a ng-href="mailto:{{user.email}}"><span class="glyphicon glyphicon-envelope"></span></a></div></div>
+                <div class="row"><div class="col-md-3"><b>Homepage</b></div><div class="col-md-4"><a ng-href="{{user.homepage}}">{{user.homepage}}</a></div></div>
+                <div class="row"><div class="col-md-3"><b>Role</b></div><div class="col-md-4">{{user.role.name}}</div></div>
+            </div>
+        </div>
+    </div>
+</div>

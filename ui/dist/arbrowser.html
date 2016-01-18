@@ -1,0 +1,77 @@
+<div id="ARdiv">
+	<div class="page-header">
+	  <h1>Architectural Refactorings (ARs)</h1>
+	</div>
+    <div class="well well-sm" ng-if="isAllowed.check(['Admin','Editor'])">
+        <button class="btn btn-primary btn-sm" ng-click="$state.go('root.addar')">Add AR</button>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <table id="searchObjResults" class="table table-striped table-hover non-select">
+            	<thead>
+	                <tr>
+	                    <th>Name</th>
+	                    <th>Smells</th>
+	                    <th>Editor</th>
+	                    <th>Created</th>
+	                    <th>Status</th>
+	                    <th></th>
+	                </tr>
+                </thead>
+                <tbody>
+	                <tr>
+	                    <td><input class="form-control" ng-model="search.name" id="name" placeholder="Filter..." /></td>
+	                    <td><input class="form-control" ng-model="search.smells.name" id="smellname" placeholder="Filter..." /></td>
+	                    <td class="col-md-2"><input class="form-control" ng-model="search.editor.firstname" id="editor" placeholder="Filter..." /></td>
+	                    <td class="col-md-2"><input class="form-control" ng-model="search.created" id="created" placeholder="Filter..." /></td>
+	                    <td class="col-md-1"><input class="form-control" ng-model="search.status" id="status" placeholder="Filter..." /></td>
+	                    <td><button type="button" class="btn btn-warning btn-sm" ng-click="search = []" uib-tooltip="Clear filter fields">clear</button></td>
+	                </tr>
+	                <tr>
+	                    <th><a ng-click="reverseName=!reverseName;order('name', reverseName)">Name <span ng-show="reverseName">&#x25B2;</span><span ng-show="!reverseName">&#x25BC;</span></a></th>
+	                    <th><a ng-click="reverseSmells=!reverseSmells;order('smells', reverseSmells)" uib-tooltip="Sorts by the amount of referenced smells">Smells <span ng-show="reverseSmells">&#x25B2;</span><span ng-show="!reverseSmells">&#x25BC;</span></a></th>
+	                    <th><a ng-click="reverseEditor=!reverseEditor;order('editor.firstname', reverseEditor)">Editor <span ng-show="reverseEditor">&#x25B2;</span><span ng-show="!reverseEditor">&#x25BC;</span></a></th>
+	                    <th><a ng-click="reverseCreated=!reverseCreated;order('created', reverseCreated)">Created <span ng-show="reverseCreated">&#x25B2;</span><span ng-show="!reverseCreated">&#x25BC;</span></a></th>
+	                    <th><a ng-click="reverseStatus=!reverseStatus;order('status', reverseStatus)">Status <span ng-show="reverseStatus">&#x25B2;</span><span ng-show="!reverseStatus">&#x25BC;</span></a></th>
+	                    <th></th>
+	                </tr>
+	                <tr ng-repeat="ar in arlist | filter:search" ng-dblclick="$state.go('root.singlear',{id: ar.arhead.id})">
+	                    <td>
+                            <script id="popoverdesc.html" type="text/ng-template">
+                                <div ng-bind-html="ar.description | toSafeHtml"></div>
+                            </script>
+                            <a ui-sref="root.singlear({id: ar.arhead.id})" uib-tooltip="{{ar.name}}" uib-popover-template="'popoverdesc.html'" popover-title="{{ar.name}}" popover-trigger="mouseenter" popover-placement="right" popover-append-to-body>{{ar.name | limit: 30}}</a>
+                        </td>
+	                    <td>
+                            <script id="popoversmelldesc.html" type="text/ng-template">
+                                <div ng-bind-html="smell.description | toSafeHtml" ng-if="smell.description != ''"></div>
+                            </script>
+                            <span ng-repeat="smell in ar.smells track by $index">
+                                <span ng-if="smell.description" uib-popover-template="'popoversmelldesc.html'" popover-title="{{smell.name}}" popover-trigger="mouseenter" popover-placement="bottom" popover-append-to-body>
+                                    <a ui-sref="root.singlesmell({id: smell.id})">{{smell.name | limit: 30}}</a>
+                                    <span ng-if="ar.smells.length - 1 != $index">, </span><br/>
+                                </span>
+                                <span ng-if="!smell.description" uib-popover="No description" popover-title="{{smell.name}}" popover-trigger="mouseenter" popover-placement="bottom" popover-append-to-body>
+                                    <a ui-sref="root.singlesmell({id: smell.id})">{{smell.name | limit: 30}}</a>
+                                    <span ng-if="ar.smells.length - 1 != $index">, </span><br/>
+                                </span>
+                            </span>
+                        </td>
+	                    <td><a ui-sref="root.userview({id: ar.editor.id})">{{ar.editor.firstname}} {{ar.editor.lastname}}</a></td>
+	                    <td>{{ar.created | date:'yyyy-MM-dd HH:mm:ss' }}</td>
+	                    <td>{{ar.status}}</td>
+	                    <td><a ui-sref="root.aredit({id: ar.id})" ng-if="isAllowed.check(['Admin','Editor'])" uib-tooltip="Edit AR"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;<a href ng-click="deleteAr(ar.arhead.id)" ng-if="isAllowed.check(['Admin'])" uib-tooltip="Delete AR"><span class="glyphicon glyphicon-trash"></span></a></td>
+	                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">Smell Cloud <span ng-bind-html="cloudcallstatus"></span><span class="glyphicon glyphicon-info-sign pull-right" uib-popover="Click on a Smell-Tag in the Cloud to filter the ARs (The weights for the values are recalculated in a 5 minute interval)" popover-trigger="click" popover-placement="left"></span></div>
+                <div class="panel-body">
+                    <jqcloud words="words" id="smellcloud" auto-resize="true" delay="50" steps="7" font-size="{from:0.09, to:0.04}"></jqcloud>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

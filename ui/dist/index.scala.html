@@ -1,0 +1,35 @@
+@(activeProfile: String)
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Architectural Refactoring Tool</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href="styles/vendor.67a72149.css">
+    <link rel="stylesheet" href="styles/main.21cc73d0.css">
+    <script type="text/javascript">
+        var _contextPath = "@routes.Assets.at("")";
+        var activeProfile = "@activeProfile";
+    </script>
+  </head>
+  <body ng-app="uiApp">
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div id="wrapper" class="container">
+        <div ui-view="menu"></div>
+        <div id="content" ui-view="container"></div>
+        <div id="footer" ui-view="footer"></div>
+    </div>
+
+    <notifications-bar class="notifications"></notifications-bar>
+
+    <script src="scripts/vendor.f44e9adb.js"></script>
+
+        <script src="scripts/scripts.60c371e3.js"></script>
+</body>
+</html>
