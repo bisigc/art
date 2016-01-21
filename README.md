@@ -7,7 +7,6 @@ Architectural Refactoring Tool
 
 ## Download
 * [Version 1.1](https://github.com/bisigc/art/archive/master.zip)
-* Other Versions
 
 ## Usage
 ```$ git clone https://github.com/bisigc/art.git```
