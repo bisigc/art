@@ -11,6 +11,9 @@
             <progress><bar ng-repeat="bar in arCtrl.progStacked track by $index" value="bar.value" type="{{bar.type}}"><span ng-hide="bar.value < 5">{{bar.value}}%</span></bar></progress>
         </p>
         -->
+        <script id="metadesc.html" type="text/ng-template">
+            <div ng-bind-html="metadesc | toSafeHtml"></div>
+        </script>
         <form name="arForm" ng-submit="arForm.$valid && saveAr()" novalidate>
             <div class="row">
                 <div class="col-md-12">
@@ -35,17 +38,21 @@
                 <div class="col-md-8">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Name<span class="glyphicon glyphicon-info-sign pull-right" uib-popover="Maximum 50-60 characters which describe the Architectural Refactoring consise. Start with a strong and meaningful verb like improve, convert, distribute, etc." popover-trigger="click" popover-placement="left"></span></h3>
+                            <h3 class="panel-title">Name<span class="glyphicon glyphicon-info-sign pull-right" ng-if="true" ng-click="metadesc = getPropertyDesc('arname')" uib-popover-template="'metadesc.html'" popover-trigger="click" popover-placement="left"></span></h3>
                         </div>
                         <div class="panel-body">
-                            <input class="form-control" placeholder="Name of the AR ..." title="name" id="name" ng-model="arversion.name" required autofocus></input>
+                            <div class="form-group has-feedback zero-bottom-margin" ng-class="(arForm.name.$error.required) ? 'has-error' : 'has-success'">
+                                <input class="form-control" placeholder="Name of the AR ..." name="name" title="name" id="name" ng-model="arversion.name" required autofocus></input>
+                                <span class="glyphicon form-control-feedback" ng-class="(arForm.name.$error.required) ? 'glyphicon-asterisk' : 'glyphicon-ok'" aria-hidden="true"></span>
+                                <span id="attributeStatus" class="sr-only">{{(arForm.name.$error.required) ? '(error)' : '(ok)'}}</span>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Status</h3>
+                            <h3 class="panel-title">Status<span class="glyphicon glyphicon-info-sign pull-right" ng-if="true" ng-click="metadesc = getPropertyDesc('arstatus')" uib-popover-template="'metadesc.html'" popover-trigger="click" popover-placement="left"></span></h3>
                         </div>
                         <div class="panel-body">
                             <ui-select ng-model="arversion.status" theme="bootstrap" ng-disabled="disabled" required>
@@ -62,7 +69,7 @@
                 <div class="col-md-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Context (viewpoint, refinement level)</h3>
+                            <h3 class="panel-title">Context (viewpoint, refinement level) <span class="glyphicon glyphicon-info-sign pull-right" ng-if="true" ng-click="metadesc = getPropertyDesc('arcontext')" uib-popover-template="'metadesc.html'" popover-trigger="click" popover-placement="left"></h3>
                         </div>
                         <div class="panel-body">
                             <div class="input-group">
@@ -88,7 +95,7 @@
                 <div class="col-md-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Quality attributes (forces)</h3>
+                            <h3 class="panel-title">Quality attributes (forces) <span class="glyphicon glyphicon-info-sign pull-right" ng-click="metadesc = getPropertyDesc('arqas')" uib-popover-template="'metadesc.html'" popover-trigger="click" popover-placement="left"></h3>
                         </div>
                         <div class="panel-body">
                             <div class="input-group">
@@ -116,7 +123,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Smells (refactoring drivers)</h3>
+                            <h3 class="panel-title">Smells (refactoring drivers) <span class="glyphicon glyphicon-info-sign pull-right" ng-click="metadesc = getPropertyDesc('arsmells')" uib-popover-template="'metadesc.html'" popover-trigger="click" popover-placement="left"></h3>
                         </div>
                         <div class="panel-body">
                             <div class="input-group">
@@ -141,7 +148,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Description (max. length 10'000)</h3>
+                            <h3 class="panel-title">Description (max. length 10'000) <span class="glyphicon glyphicon-info-sign pull-right" ng-click="metadesc = getPropertyDesc('ardescription')" uib-popover-template="'metadesc.html'" popover-trigger="click" popover-placement="left"></h3>
                         </div>
                         <div class="panel-body">
                             <text-angular name="ardescription" ng-model="arversion.description" ta-max-text="10000"></text-angular>
@@ -153,7 +160,7 @@
                 <div class="col-md-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Architectural decision(s) to be revisited</h3>
+                            <h3 class="panel-title">Architectural decision(s) to be revisited <span class="glyphicon glyphicon-info-sign pull-right" ng-click="metadesc = getPropertyDesc('ardecisions')" uib-popover-template="'metadesc.html'" popover-trigger="click" popover-placement="left"></h3>
                         </div>
                         <div class="panel-body">
                             <div class="input-group">
@@ -179,7 +186,7 @@
                 <div class="col-md-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Affected components and connectors (if modelled explicitly)</h3>
+                            <h3 class="panel-title">Affected components and connectors (if modelled explicitly) <span class="glyphicon glyphicon-info-sign pull-right" ng-click="metadesc = getPropertyDesc('arcomponents')" uib-popover-template="'metadesc.html'" popover-trigger="click" popover-placement="left"></h3>
                         </div>
                         <div class="panel-body">
                             <div class="input-group">
@@ -207,7 +214,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Execution tasks</h3>
+                            <h3 class="panel-title">Execution tasks <span class="glyphicon glyphicon-info-sign pull-right" ng-click="metadesc = getPropertyDesc('artasks')" uib-popover-template="'metadesc.html'" popover-trigger="click" popover-placement="left"></h3>
                         </div>
                         <div class="panel-body">
                             <div class="input-group">
@@ -232,7 +239,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">References (links)</h3>
+                            <h3 class="panel-title">References (links) <span class="glyphicon glyphicon-info-sign pull-right" ng-click="metadesc = getPropertyDesc('arreferences')" uib-popover-template="'metadesc.html'" popover-trigger="click" popover-placement="left"></h3>
                         </div>
                         <div class="panel-body">
                             <div class="input-group">

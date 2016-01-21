@@ -1,0 +1,88 @@
+<div>
+    <div>
+        <div class="page-header">
+            <h1>{{property.attribute}}<br/>
+                <small>Property View</small>
+            </h1>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <p class="pull-right" ng-if="isAllowed.check(['Admin','Editor'])">
+                            <a class="btn btn-sm btn-primary" ng-click="$state.go('root.properties.edit',{id: property.id})" uib-tooltip="Edit Property"><span class="glyphicon glyphicon-pencil"></span></a>
+                            <a class="btn btn-sm btn-danger" ng-if="isAllowed.check(['Admin'])" ng-click="deleteProperty(property.id)" uib-tooltip="Delete this Property"><span class="glyphicon glyphicon-trash"></span></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Categorie</h3>
+                                <span>{{property.categorie}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Language</h3>
+                                <span>{{property.language}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Name</h3>
+                                <span>{{property.name}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Order Index</h3>
+                                <span>{{property.orderidx}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Description</h3>
+                    </div>
+                    <div class="panel-body" ta-bind ng-model="property.description"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <p class="pull-right" ng-if="isAllowed.check(['Admin','Editor'])">
+                        <a class="btn btn-sm btn-primary" ng-click="$state.go('root.properties.edit',{id: property.id})" uib-tooltip="Edit Property"><span class="glyphicon glyphicon-pencil"></span></a>
+                        <a class="btn btn-sm btn-danger" ng-if="isAllowed.check(['Admin'])" ng-click="deleteProperty(property.id)" uib-tooltip="Delete this Property"><span class="glyphicon glyphicon-trash"></span></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- div ui-view="discussionView"></div -->
+</div>

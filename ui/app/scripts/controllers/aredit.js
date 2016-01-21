@@ -8,7 +8,7 @@
  * Controller of the uiApp
  */
 angular.module('uiApp')
-  .controller('AreditCtrl', ['ArService', 'ArVersionService', 'SmellService', 'TaskService', 'StatusService', 'ModelElementService', 'ReplyErrorHandler', 'notifications', '$scope', '$stateParams', '$filter', 'PropModal', 'SmellModal', 'TaskModal', function(ArService, ArVersionService, SmellService, TaskService, StatusService, ModelElementService, ReplyErrorHandler, notifications, $scope, $stateParams, $filter, PropModal, SmellModal, TaskModal) {
+  .controller('AreditCtrl', ['ArService', 'ArVersionService', 'SmellService', 'TaskService', 'StatusService', 'PropertyService', 'ModelElementService', 'ReplyErrorHandler', 'notifications', '$scope', '$stateParams', '$filter', 'PropModal', 'SmellModal', 'TaskModal', function(ArService, ArVersionService, SmellService, TaskService, StatusService, PropertyService, ModelElementService, ReplyErrorHandler, notifications, $scope, $stateParams, $filter, PropModal, SmellModal, TaskModal) {
     $scope.ar = {'versions': []}; //ars;
     //$scope.ar.versions = [];
     $scope.arversion = {};
@@ -21,6 +21,7 @@ angular.module('uiApp')
     $scope.modelelements = [];
     $scope.modelelementtypes = [];
     $scope.status = [];
+    $scope.properties = [];
     
     $scope.modelelementsvalues = [];
     
@@ -111,6 +112,24 @@ angular.module('uiApp')
 		TaskService.noid.get({},function(data) { //, status, headers, config
 		    $scope.tasks = data;
 		}, ReplyErrorHandler);   
+    };
+      
+    $scope.loadProperties = function () {
+        PropertyService.categorie.get({cat: 'arform', lang: 'en'},function(data) { //, status, headers, config
+            $scope.properties = data;
+        }, ReplyErrorHandler);     
+    };
+    $scope.loadProperties();
+      
+    $scope.getPropertyDesc = function (attribute) {
+        if($scope.properties) {
+            for(var i = 0; i < $scope.properties.length; i++) {
+                if($scope.properties[i].attribute === attribute) {
+                    return $scope.properties[i].description;
+                }
+            }
+        }
+        return '';
     };
     
     $scope.loadValues = function () {

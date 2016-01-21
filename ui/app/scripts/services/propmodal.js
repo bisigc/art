@@ -31,7 +31,7 @@ angular.module('uiApp')
             modalInstance.result.then(function(result) {okfunction(result);}, dissmissedfunction);
             
             /*$stateParams.ok = function () {
-                $modalInstance.close($scope.selected.item);
+                modalInstance.close($scope.selected.item);
             };
 
             $stateParams.cancel = function () {

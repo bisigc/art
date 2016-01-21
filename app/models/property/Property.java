@@ -1,5 +1,6 @@
 package models.property;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 import models.AbstractModel;
@@ -16,6 +17,7 @@ public class Property extends AbstractModel {
 	private String	attribute;
 	private String	language;
 	private String	name;
+	@Column(length=5000)
 	private String	description;
 	private Integer	orderidx;
 

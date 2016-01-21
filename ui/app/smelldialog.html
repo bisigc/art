@@ -5,9 +5,11 @@
     <form name="smellForm" ng-submit="smellForm.$valid && saveSmell(smellForm)" novalidate>
         <div class="row">
             <div class="col-md-7">
-                <fieldset class="form-group">
-                    <label for="name">Name</label>
-                    <input class="form-control" placeholder="Smell name..." title="name" id="name" ng-model="smell.name" required autofocus></input>
+                <fieldset class="form-group has-feedback" ng-class="(smellForm.name.$error.required) ? 'has-error' : 'has-success'">
+                    <label class="control-label" for="name">Name</label>
+                    <input class="form-control" placeholder="Smell name..." name="name" title="name" id="name" ng-model="smell.name" required autofocus></input>
+                    <span class="glyphicon form-control-feedback" ng-class="(smellForm.name.$error.required) ? 'glyphicon-asterisk' : 'glyphicon-ok'" aria-hidden="true"></span>
+                    <span id="nameStatus" class="sr-only">{{(smellForm.name.$error.required) ? '(error)' : '(ok)'}}</span>
                 </fieldset>
                 <fieldset class="form-group">
                     <label for="keywords">Keywords</label>

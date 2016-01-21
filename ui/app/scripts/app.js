@@ -265,6 +265,7 @@ angular.module('uiApp').config(['$stateProvider', '$urlRouterProvider', function
                 {
                     templateUrl: _contextPath + 'smelldialog.html',
                     controller: 'SmellupdateCtrl',
+                    backdrop: 'static',
                     size: 'lg',
                     resolve: {
                         smellid: function () { 
@@ -383,6 +384,7 @@ angular.module('uiApp').config(['$stateProvider', '$urlRouterProvider', function
                 {
                     templateUrl: _contextPath + 'modelelementdialog.html',
                     controller: 'ModelelementupdateCtrl',
+                    backdrop: 'static',
                     size: 'lg',
                     resolve: {
                         id: function () { 
@@ -417,6 +419,7 @@ angular.module('uiApp').config(['$stateProvider', '$urlRouterProvider', function
             var modalInstance = $uibModal.open(
                 {
                     templateUrl: _contextPath + 'modelelementdialog.html',
+                    backdrop: 'static',
                     controller: 'ModelelementaddCtrl',
                     size: 'lg',
                     resolve: {
@@ -468,6 +471,7 @@ angular.module('uiApp').config(['$stateProvider', '$urlRouterProvider', function
                 {
                     templateUrl: _contextPath + 'smellgroupdialog.html',
                     controller: 'SmellgroupupdateCtrl',
+                    backdrop: 'static',
                     size: 'lg',
                     resolve: {
                         id: function () { 
@@ -503,6 +507,7 @@ angular.module('uiApp').config(['$stateProvider', '$urlRouterProvider', function
                 {
                     templateUrl: _contextPath + 'smellgroupdialog.html',
                     controller: 'SmellgroupaddCtrl',
+                    backdrop: 'static',
                     size: 'lg',
                     resolve: {
                         modelelementtype: function () { 
@@ -598,6 +603,17 @@ angular.module('uiApp').config(['$stateProvider', '$urlRouterProvider', function
             }*/
         }
     })
+        .state('root.singleproperty', {
+        url: '/property/:id',
+        title: 'Property View',
+        data: { requireLogin: false },
+        views: {
+            'container@': {
+                templateUrl: _contextPath + 'singleproperty.html',
+                controller: 'PropertyviewCtrl'
+            }
+        }
+    })
         .state('root.taskbrowser', {
         url: '/taskbrowser',
         title: 'Task Browser',
@@ -625,6 +641,7 @@ angular.module('uiApp').config(['$stateProvider', '$urlRouterProvider', function
                 {
                     templateUrl: _contextPath + 'taskdialog.html',
                     controller: 'TaskupdateCtrl',
+                    backdrop: 'static',
                     size: 'lg',
                     resolve: {
                         taskid: function () { 
@@ -671,6 +688,17 @@ angular.module('uiApp').config(['$stateProvider', '$urlRouterProvider', function
         views: {
             'container@': {
                 templateUrl: _contextPath + 'users.html',
+                controller: 'UsersCtrl'
+            },
+            'addUserView@root.users': {
+                controller: 'Usercreatetrl',
+                parent: 'root.users',
+                title: 'Create User',
+                templateUrl: _contextPath + 'register.html',
+                data: { 
+                    requireLogin: true,
+                    allowedRoles: ['Admin']
+                }
             }
         }
     })
@@ -684,6 +712,60 @@ angular.module('uiApp').config(['$stateProvider', '$urlRouterProvider', function
                 controller: 'UserviewCtrl'
             }
         }
+    })
+        .state('root.properties', {
+        url: '/properties',
+        title: 'Properties',
+        data: { 
+            requireLogin: true,
+            allowedRoles: ['Admin','Editor']
+        },
+        views: {
+            'container@': {
+                templateUrl: _contextPath + 'properties.html',
+                controller: 'PropertiesCtrl'
+            },
+            'addPropertyView@root.properties': {
+                controller: 'PropertyaddCtrl',
+                parent: 'root.properties',
+                title: 'Create Property',
+                templateUrl: _contextPath + 'propertydialog.html',
+                data: { 
+                    requireLogin: true,
+                    allowedRoles: ['Admin', 'Editor']
+                }
+            }
+        }
+    })
+        .state('root.properties.edit', {
+        url: '/edit/:id',
+        title: 'Property Edit',
+        data: { 
+            requireLogin: true,
+            allowedRoles: ['Admin', 'Editor']
+        },
+        onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+            var modalInstance = $uibModal.open(
+                {
+                    templateUrl: _contextPath + 'propertydialog.html',
+                    controller: 'PropertyupdateCtrl',
+                    backdrop: 'static',
+                    size: 'lg',
+                    resolve: {
+                        smellid: function () { 
+                            return $stateParams.id;
+                        }
+                    }
+                }
+            );
+
+            modalInstance.result.then(function () {
+                $state.go('^', {}, {reload: true});
+                //reload();
+            }, function () {
+                $state.go('^');
+            });
+        }]
     })
        .state('root.exectypes', {
         url: '/exectypes',

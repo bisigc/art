@@ -52,6 +52,10 @@ body {
     margin-right: -15px;
 }
 
+.zero-bottom-margin {
+    margin-bottom: 0;
+}
+
 .login-dropdown {
     padding: 10px;
     width: 250px;

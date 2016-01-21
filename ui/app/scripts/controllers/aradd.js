@@ -8,7 +8,7 @@
  * Controller of the uiApp
  */
 angular.module('uiApp')
-  .controller('AraddCtrl', ['ArService', 'ArVersionService', 'SmellService', 'TaskService', 'ModelElementService', 'StatusService', 'ReplyErrorHandler', 'notifications', '$scope', '$stateParams', '$filter', '$state', 'PropModal', 'TaskModal', 'SmellModal', function(ArService, ArVersionService, SmellService, TaskService, ModelElementService, StatusService, ReplyErrorHandler, notifications, $scope, $stateParams, $filter, $state, PropModal, TaskModal, SmellModal) {
+  .controller('AraddCtrl', ['ArService', 'ArVersionService', 'SmellService', 'TaskService', 'ModelElementService', 'StatusService', 'PropertyService', 'ReplyErrorHandler', 'notifications', '$scope', '$stateParams', '$filter', '$state', 'PropModal', 'TaskModal', 'SmellModal', function(ArService, ArVersionService, SmellService, TaskService, ModelElementService, StatusService, PropertyService, ReplyErrorHandler, notifications, $scope, $stateParams, $filter, $state, PropModal, TaskModal, SmellModal) {
     $scope.ar = {'versions': []}; //ars;
     //$scope.ar.versions = [];
     $scope.arversion = {};
@@ -21,6 +21,7 @@ angular.module('uiApp')
     $scope.modelelements = [];
     $scope.modelelementtypes = [];
     $scope.status = [];
+    $scope.properties = [];
 
     $scope.modelelementsvalues = [];
     
@@ -77,6 +78,24 @@ angular.module('uiApp')
         SmellService.noid.get({},function(data) { //, status, headers, config
             $scope.smells = data;
         }, ReplyErrorHandler);     
+    };
+      
+    $scope.loadProperties = function () {
+        PropertyService.categorie.get({cat: 'arform', lang: 'en'},function(data) { //, status, headers, config
+            $scope.properties = data;
+        }, ReplyErrorHandler);     
+    };
+    $scope.loadProperties();
+      
+    $scope.getPropertyDesc = function (attribute) {
+        if($scope.properties) {
+            for(var i = 0; i < $scope.properties.length; i++) {
+                if($scope.properties[i].attribute === attribute) {
+                    return $scope.properties[i].description;
+                }
+            }
+        }
+        return '';
     };
     
     $scope.addcreatedSmell = function(newSmell) {
