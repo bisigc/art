@@ -3,7 +3,7 @@ Architectural Refactoring Tool
 **Software Name** is a webapplication which serves as a knowledge repository for Architectural Refactorings (ARs). ARs are instructions to convey an architectural pattern used in an existing software system into an another to improve one ore more quality attributes of the system. A so called Smell (a symptom for an occuring problem in the system), is the entry point to the tool, to find an appropriate AR.
 
 #### Screenshot
-![Screenshot software](https://github.com/bisigc/art/blob/master/ui/app/images/ART_Logo.png "Screenshot Architectural Refactoring Tool")
+<img src="https://github.com/bisigc/art/blob/master/ui/app/images/ART_Logo.png" alt="Screenshot Architectural Refactoring Tool" width="300px" height="300px">
 
 ## Download
 * [Version 1.1](https://github.com/bisigc/art/archive/master.zip)
