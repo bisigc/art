@@ -11,10 +11,10 @@
   "undef": true,
   "unused": true,
   "globals": {
-    "angular": false
-  },
-  "predef": {
+    "angular": false,
+    "$": false,
     "rangy": false,
-    "_contextPath": false
+    "_contextPath": false,
+    "setSmell": false
   }
 }

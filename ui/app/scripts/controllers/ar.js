@@ -49,11 +49,12 @@ angular.module('uiApp')
     
     $scope.order('name', false);
 
-    $scope.setSmellFilter = function(smell) {
+    // Not used global function setSmell is used
+    /*$scope.setSmellFilter = function(smell) {
         //alert('Hell0');
         $scope.search.smells.name = smell;
         $scope.order();
-    };
+    };*/
 
     this.ar = {};
     /*this.addAr = function() {

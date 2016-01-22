@@ -313,6 +313,10 @@ body {
     width: 100px;
 }
     
+.ui-select-multiple.ui-select-bootstrap input.ui-select-search {
+    height: 26px
+}
+    
 .btn-file {
     position: relative;
     overflow: hidden;
