@@ -216,7 +216,7 @@
                         <fo:block font-size="12pt" font-weight="bold">Context (viewpoint, refinement level)</fo:block>
                     </fo:table-cell>
                     <fo:table-cell padding="1pt 2pt 2pt 2pt">
-                        <fo:block font-size="12pt" font-weight="bold">Quality attributes and stories (forces)</fo:block>
+                        <fo:block font-size="12pt" font-weight="bold">Quality attributes (forces)</fo:block>
                     </fo:table-cell>
                 </fo:table-row>
             </fo:table-header>
