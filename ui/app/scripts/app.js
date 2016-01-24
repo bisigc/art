@@ -636,7 +636,7 @@ angular.module('uiApp').config(['$stateProvider', '$urlRouterProvider', function
             requireLogin: true,
             allowedRoles: ['Admin', 'Editor']
         },
-        onEnter: ['$stateParams', '$state', '$uibModal', '$scope', function($stateParams, $state, $uibModal, $scope) {
+        onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
             var modalInstance = $uibModal.open(
                 {
                     templateUrl: _contextPath + 'taskdialog.html',
@@ -656,13 +656,6 @@ angular.module('uiApp').config(['$stateProvider', '$urlRouterProvider', function
             }, function () {
                 $state.go('^');
             });
-            $stateParams.ok = function () {
-                modalInstance.close($scope.selected.item);
-            };
-
-            $stateParams.cancel = function () {
-                modalInstance.dismiss('cancel');
-            };
         }]
     })
         .state('root.admin', {

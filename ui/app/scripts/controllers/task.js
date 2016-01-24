@@ -8,7 +8,7 @@
  * Controller of the uiApp
  */
 angular.module('uiApp')
-  .controller('TaskCtrl', ['TaskService', 'ExecTaskTypeService', 'TaskPropertyService', 'ReplyErrorHandler', 'ConfirmModal', 'notifications','$scope','$filter', '$sce', 'sharedTask', function(TaskService, ExecTaskTypeService, TaskPropertyService, ReplyErrorHandler, ConfirmModal, notifications, $scope, $filter, $sce, sharedTask) {
+  .controller('TaskCtrl', ['TaskService', 'ExecTaskTypeService', 'TaskPropertyService', 'ReplyErrorHandler', 'ConfirmModal', 'notifications', '$scope', '$filter', '$sce', 'sharedTask', function(TaskService, ExecTaskTypeService, TaskPropertyService, ReplyErrorHandler, ConfirmModal, notifications, $scope, $filter, $sce, sharedTask) {
     var orderBy = $filter('orderBy');
     $scope.tasklist = [];
     $scope.task = sharedTask.task;

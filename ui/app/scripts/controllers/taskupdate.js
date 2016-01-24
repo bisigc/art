@@ -8,7 +8,7 @@
  * Controller of the uiApp
  */
 angular.module('uiApp')
-  .controller('TaskupdateCtrl', ['TaskService', 'ExecTaskTypeService', 'TaskPropertyService', 'ReplyErrorHandler', 'notifications', '$uibModalInstance', '$scope', '$stateParams', 'taskid', '$sce', function (TaskService, ExecTaskTypeService, TaskPropertyService, ReplyErrorHandler, notifications, $uibModalInstance, $scope, $stateParams, smellid, $sce) {
+  .controller('TaskupdateCtrl', ['TaskService', 'ExecTaskTypeService', 'TaskPropertyService', 'ReplyErrorHandler', 'notifications', '$uibModalInstance', '$scope', '$stateParams', '$sce', function (TaskService, ExecTaskTypeService, TaskPropertyService, ReplyErrorHandler, notifications, $uibModalInstance, $scope, $stateParams, $sce) {
     $scope.status = [];
     $scope.exectasktypes = '';
     $scope.taskproperties = [];
