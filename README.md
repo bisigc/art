@@ -9,21 +9,21 @@ Architectural Refactoring Tool
 * [Version 1.1](https://github.com/bisigc/art/archive/master.zip)
 
 ## Usage
-1. Clone the git repository
+1. Clone the git repository  
 ```$ git clone https://github.com/bisigc/art.git```
 
 2. Install Node.js --> [Node.js](https://nodejs.org)
 
-3. Install package dependencies (Installs grunt-cli, bower and yeoman, see package.json)
+3. Install package dependencies (Installs grunt-cli, bower and yeoman, see package.json)  
 ```$ npm install```
 
-4. Start the activator
+4. Start the activator  
 ```$ ./activator```
 
-5. Run frontend build
+5. Run frontend build  
 ```[art-app] $ grunt```
 
-6. Start the server (requires a running MySQL Data, see config in project/application.conf)
+6. Start the server (requires a running MySQL Data, see config in project/application.conf)  
 ```[art-app] $ run```
 
 7. Open your browser --> http://localhost:9000

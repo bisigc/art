@@ -10,7 +10,7 @@
 angular.module('uiApp')
   .controller('UsercreateCtrl', ['UserService', 'RolesService', 'ReplyErrorHandler', 'PasswordValidator', 'notifications', '$scope', '$state', function(UserService, RolesService, ReplyErrorHandler, PasswordValidator, notifications, $scope, $state){
     $scope.startpages = ['home','arbrowser','smellbrowser','taskbrowser', 'stay'];
-    $scope.user = [];
+    $scope.user = {};
     $scope.user.startpage = 'stay';
     $scope.roles = [];
     $scope.pwcheck = [];
