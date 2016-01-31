@@ -379,7 +379,7 @@ angular.module('uiApp').config(['$stateProvider', '$urlRouterProvider', function
             requireLogin: true,
             allowedRoles: ['Admin', 'Editor']
         },
-        onEnter: ['$stateParams', '$state', '$uibModal', '$scope', function($stateParams, $state, $uibModal, $scope) {
+        onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
             var modalInstance = $uibModal.open(
                 {
                     templateUrl: _contextPath + 'modelelementdialog.html',
@@ -399,13 +399,13 @@ angular.module('uiApp').config(['$stateProvider', '$urlRouterProvider', function
             }, function () {
                 $state.go('^');
             });
-            $stateParams.ok = function () {
+           /* $stateParams.ok = function () {
                 modalInstance.close($scope.selected.item);
             };
 
             $stateParams.cancel = function () {
                 modalInstance.dismiss('cancel');
-            };
+            };*/
         }]
     })
         .state('root.modelelement.add', {
@@ -415,7 +415,7 @@ angular.module('uiApp').config(['$stateProvider', '$urlRouterProvider', function
             requireLogin: true,
             allowedRoles: ['Admin', 'Editor']
         },
-        onEnter: ['$stateParams', '$state', '$uibModal', '$scope', function($stateParams, $state, $uibModal, $scope) {
+        onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
             var modalInstance = $uibModal.open(
                 {
                     templateUrl: _contextPath + 'modelelementdialog.html',
@@ -435,13 +435,13 @@ angular.module('uiApp').config(['$stateProvider', '$urlRouterProvider', function
             }, function () {
                 $state.go('^');
             });
-            $stateParams.ok = function () {
+            /*$stateParams.ok = function () {
                 modalInstance.close($scope.selected.item);
             };
 
             $stateParams.cancel = function () {
                 modalInstance.dismiss('cancel');
-            };
+            };*/
         }]
     })
         .state('root.smellgroup', {
@@ -466,7 +466,7 @@ angular.module('uiApp').config(['$stateProvider', '$urlRouterProvider', function
             requireLogin: true,
             allowedRoles: ['Admin', 'Editor']
         },
-        onEnter: ['$stateParams', '$state', '$uibModal', '$scope', function($stateParams, $state, $uibModal, $scope) {
+        onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
             var modalInstance = $uibModal.open(
                 {
                     templateUrl: _contextPath + 'smellgroupdialog.html',
@@ -486,13 +486,13 @@ angular.module('uiApp').config(['$stateProvider', '$urlRouterProvider', function
             }, function () {
                 $state.go('^');
             });
-            $stateParams.ok = function () {
+            /*$stateParams.ok = function () {
                 modalInstance.close($scope.selected.item);
             };
 
             $stateParams.cancel = function () {
                 modalInstance.dismiss('cancel');
-            };
+            };*/
         }]
     })
         .state('root.smellgroup.add', {
@@ -502,7 +502,7 @@ angular.module('uiApp').config(['$stateProvider', '$urlRouterProvider', function
             requireLogin: true,
             allowedRoles: ['Admin', 'Editor']
         },
-        onEnter: ['$stateParams', '$state', '$uibModal', '$scope', function($stateParams, $state, $uibModal, $scope) {
+        onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
             var modalInstance = $uibModal.open(
                 {
                     templateUrl: _contextPath + 'smellgroupdialog.html',
@@ -522,13 +522,13 @@ angular.module('uiApp').config(['$stateProvider', '$urlRouterProvider', function
             }, function () {
                 $state.go('^');
             });
-            $stateParams.ok = function () {
+            /*$stateParams.ok = function () {
                 modalInstance.close($scope.selected.item);
             };
 
             $stateParams.cancel = function () {
                 modalInstance.dismiss('cancel');
-            };
+            };*/
         }]
     })
         .state('root.arsearch', {

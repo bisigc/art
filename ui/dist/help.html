@@ -7,6 +7,125 @@
     Download PDF User Guide: <a ng-href="{{_contextPath + 'ART_User_Guide_v1.pdf'}}" target="_blank"><img ng-src="{{_contextPath + 'images/pdf-icon-64x64.png'}}" alt="ART User Guide"/></a>
 </p>
 <h2>What is Architectural Refactoring?</h2>
-<p></p>
-<h2>Examples</h2>
-<p></p>
+<p>An Architectural Refactoring is a guideline to implement a quality improving measure in a software system. 
+    Based on symptoms (Smells), someone will try to find the cause of the deterioration in the system and a suitable improvement.
+    An Architectural Refactoring is not an entirely self explaining guidance for the realisation, but it contains a summary
+    of the change and a list of the most relevant execution tasks as well as several references. The following table describes the 
+    structure of an Architectural Refactoring.
+</p>
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Name</h3>
+                </div>
+                <div class="panel-body">
+                    Short concise description of the Architectural Refactoring.
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Status</h3>
+                </div>
+                <div class="panel-body">
+                    Allowed are the following status: draft, in Review, accepted, published, deprecated, (unspecified)
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Context (viewpoint, refinement level)</h3>
+                </div>
+                <div class="panel-body">
+                    Contains a list of addressed viewpoints (e.g. functional view from 4+1 View Model of Philippe Kruchten) or refinement Levels, e.g. software level.
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Quality attributes (forces)</h3>
+                </div>
+                <div class="panel-body">
+                    A list of affected quality attributes.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Smells (refactoring drivers)</h3>
+                </div>
+                <div class="panel-body">
+                    A Smell is a symptom in a software system which points to a drawback. The Smell always references a the affected quality attributes.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Description</h3>
+                </div>
+                <div class="panel-body">
+                    The description contains a summary of the problem (initial position), the procedure how the design should be optimised (revised design) and a list of pitfalls to avoid, which are points to pay attention to.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Architectural decision(s) to be revisited</h3>
+                </div>
+                <div class="panel-body">
+                    A list of former design decisions which have to be reviewed based on the specific Architectural Refactoring. E.g. the choice of a middleware component.
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Affected components and connectors (if modelled explicitly)</h3>
+                </div>
+                <div class="panel-body">
+                    A list of components which are affected by the realisation of the Architectural Refactoring. E.g. the business software.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Execution tasks</h3>
+                </div>
+                <div class="panel-body">
+                    The execution tasks are the interface to the projectoriented realisation of the Architectural Refactoring. There are several types of execution tasks. E.g "Design Task", "Development Task" or "Testing Task".
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">References (links)</h3>
+                </div>
+                <div class="panel-body">
+                    The references are an important part of the Architectural Refactorings. Since an Architectural Refactoring does not contain an exhaustive description of the refactoring it is necessary to have guidance to additional knowledge.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

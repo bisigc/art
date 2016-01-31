@@ -20,7 +20,7 @@
         </tr>
         <tr>
             <th><a ng-click="rname=!rname;order('name', rname)">Name <span ng-show="rname">&#x25B2;</span><span ng-show="!rname">&#x25BC;</span></a></th>
-            <th><a ng-click="rlink=!rlink;order('desc', rdesc)">Description <span ng-show="rdesc">&#x25B2;</span><span ng-show="!rdesc">&#x25BC;</span></a></th>
+            <th><a ng-click="rdesc=!rdesc;order('description', rdesc)">Description <span ng-show="rdesc">&#x25B2;</span><span ng-show="!rdesc">&#x25BC;</span></a></th>
             <th></th>
         </tr>
         <tr ng-repeat="smellgroup in smellgrouplist | filter:search">

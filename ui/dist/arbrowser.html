@@ -22,7 +22,7 @@
 	                <tr>
 	                    <td><input class="form-control" ng-model="search.name" id="name" placeholder="Filter..." /></td>
 	                    <td><input class="form-control" ng-model="search.smells.name" id="smellname" placeholder="Filter..." /></td>
-	                    <td class="col-md-2"><input class="form-control" ng-model="search.editor.firstname" id="editor" placeholder="Filter..." /></td>
+	                    <td class="col-md-2"><input class="form-control" ng-model="search.editor" id="editor" placeholder="Filter..." /></td>
 	                    <td class="col-md-2"><input class="form-control" ng-model="search.created" id="created" placeholder="Filter..." /></td>
 	                    <td class="col-md-1"><input class="form-control" ng-model="search.status" id="status" placeholder="Filter..." /></td>
 	                    <td><button type="button" class="btn btn-warning btn-sm" ng-click="search = []" uib-tooltip="Clear filter fields">clear</button></td>
@@ -30,7 +30,7 @@
 	                <tr>
 	                    <th><a ng-click="reverseName=!reverseName;order('name', reverseName)">Name <span ng-show="reverseName">&#x25B2;</span><span ng-show="!reverseName">&#x25BC;</span></a></th>
 	                    <th><a ng-click="reverseSmells=!reverseSmells;order('smells', reverseSmells)" uib-tooltip="Sorts by the amount of referenced smells">Smells <span ng-show="reverseSmells">&#x25B2;</span><span ng-show="!reverseSmells">&#x25BC;</span></a></th>
-	                    <th><a ng-click="reverseEditor=!reverseEditor;order('editor.firstname', reverseEditor)">Editor <span ng-show="reverseEditor">&#x25B2;</span><span ng-show="!reverseEditor">&#x25BC;</span></a></th>
+	                    <th><a ng-click="reverseEditor=!reverseEditor;order('editor', reverseEditor)">Editor <span ng-show="reverseEditor">&#x25B2;</span><span ng-show="!reverseEditor">&#x25BC;</span></a></th>
 	                    <th><a ng-click="reverseCreated=!reverseCreated;order('created', reverseCreated)">Created <span ng-show="reverseCreated">&#x25B2;</span><span ng-show="!reverseCreated">&#x25BC;</span></a></th>
 	                    <th><a ng-click="reverseStatus=!reverseStatus;order('status', reverseStatus)">Status <span ng-show="reverseStatus">&#x25B2;</span><span ng-show="!reverseStatus">&#x25BC;</span></a></th>
 	                    <th></th>

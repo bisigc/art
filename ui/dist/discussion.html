@@ -5,7 +5,7 @@
             <label for="comment">New comment <small>max. 500 characters </small><span class="label" ng-class="{'label-danger':newcomment.comment.length>=500, 'label-info':newcomment.comment.length<500}">{{newcomment.comment.length}}</span>:</label>
             <textarea class="form-control" rows="4" cols="80" id="comment" maxlength="500" ng-model="newcomment.comment" placeholder="Comment..."></textarea>
         </div><br/>
-        <button class="btn btn-primary btn-sm" ng-click="addComment($parent.discussion_id)" ng-disabled="newcomment.comment.length <= 0">Add Comment</button>
+        <button class="btn btn-primary btn-sm" ng-click="addComment(discussionid)" ng-disabled="newcomment.comment.length <= 0">Add Comment</button>
         <button class="btn btn-warning btn-sm" ng-click="init()">Clear</button>
     </div>
     <div ng-if="!(isAllowed.check(['Admin','Editor','Applier']))">

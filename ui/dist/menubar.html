@@ -23,7 +23,7 @@
                 <li ng-if="lastViewedItems.length > 0" class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-tasks"></span>&nbsp;<span class="glyphicon glyphicon-chevron-down"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li class="dropdown-header">Last viewed Items (AR, Smell, Task)</li>
+                        <li class="dropdown-header">Recently viewed items (AR, Smell, Task)</li>
                         <li ng-repeat="item in lastViewedItems track by $index">
                             <a ng-if="item['type'] == 'AR'" ui-sref="root.singlear({id: item['id']})">{{item.type + " : " + item.name | limit: 40}}</a>
                             <a ng-if="item['type'] == 'Smell'" ui-sref="root.singlesmell({id: item['id']})">{{item.type + " : " + item.name | limit: 40}}</a>
