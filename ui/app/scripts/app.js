@@ -186,6 +186,9 @@ angular.module('uiApp').config(['$stateProvider', '$urlRouterProvider', function
                 templateUrl: _contextPath + 'login.html',
                 controller: 'LoginCtrl'
             },
+            'container@': {
+                templateUrl: _contextPath + 'home.html',
+            },
             'footer': {
                 templateUrl: _contextPath + 'footer.html',
                 controller: 'FooterCtrl'
