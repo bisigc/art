@@ -176,6 +176,7 @@ angular.module('uiApp').config(['$stateProvider', '$urlRouterProvider', function
         .state('root', {
         url: '',
         abtract: true,
+        data: { requireLogin: false },
         views: {
             'menu': {
                 templateUrl: _contextPath + 'menubar.html',
