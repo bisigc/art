@@ -177,6 +177,7 @@ angular.module('uiApp').config(['$stateProvider', '$urlRouterProvider', function
         url: '',
         abtract: true,
         data: { requireLogin: false },
+        template: '<div ui-view="container"></div>',
         views: {
             'menu': {
                 templateUrl: _contextPath + 'menubar.html',
@@ -185,9 +186,6 @@ angular.module('uiApp').config(['$stateProvider', '$urlRouterProvider', function
             'login@root':{
                 templateUrl: _contextPath + 'login.html',
                 controller: 'LoginCtrl'
-            },
-            'container@': {
-                templateUrl: _contextPath + 'home.html',
             },
             'footer': {
                 templateUrl: _contextPath + 'footer.html',
