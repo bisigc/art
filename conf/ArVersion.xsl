@@ -24,7 +24,7 @@
  -->
 	<xsl:attribute-set name="Ueberschrift-Titel1">
 		<xsl:attribute name="font-family">Helvetica</xsl:attribute>
-		<xsl:attribute name="font-size">20pt</xsl:attribute>
+		<xsl:attribute name="font-size">18pt</xsl:attribute>
 		<xsl:attribute name="font-weight">bold</xsl:attribute>
 		<xsl:attribute name="text-align">left</xsl:attribute>
 		<xsl:attribute name="space-before">20pt</xsl:attribute>
@@ -34,7 +34,7 @@
 	</xsl:attribute-set>
 	<xsl:attribute-set name="Ueberschrift-Titel2">
 		<xsl:attribute name="font-family">Helvetica</xsl:attribute>
-		<xsl:attribute name="font-size">16pt</xsl:attribute>
+		<xsl:attribute name="font-size">14pt</xsl:attribute>
 		<xsl:attribute name="font-weight">bold</xsl:attribute>
 		<xsl:attribute name="text-align">left</xsl:attribute>
 		<xsl:attribute name="space-before">20pt</xsl:attribute>
@@ -75,7 +75,15 @@
 	</xsl:attribute-set>
 	<xsl:attribute-set name="Default">
 		<xsl:attribute name="font-family">Helvetica</xsl:attribute>
-		<xsl:attribute name="font-size">10pt</xsl:attribute>
+		<xsl:attribute name="font-size">9pt</xsl:attribute>
+		<xsl:attribute name="line-height">1.2</xsl:attribute>
+		<xsl:attribute name="xml:lang">en</xsl:attribute>
+		<xsl:attribute name="hyphenate">true</xsl:attribute>
+	</xsl:attribute-set>
+	<xsl:attribute-set name="DefaultBold">
+		<xsl:attribute name="font-family">Helvetica</xsl:attribute>
+		<xsl:attribute name="font-size">9pt</xsl:attribute>
+		<xsl:attribute name="font-weight">bold</xsl:attribute>
 		<xsl:attribute name="line-height">1.2</xsl:attribute>
 		<xsl:attribute name="xml:lang">en</xsl:attribute>
 		<xsl:attribute name="hyphenate">true</xsl:attribute>
@@ -179,13 +187,13 @@
  		    <fo:table-header>
                 <fo:table-row space-after="10px">
                     <fo:table-cell padding="1pt 2pt 2pt 2pt" width="70mm">
-                        <fo:block font-size="10pt" font-weight="bold">Created</fo:block>
+                        <fo:block font-size="9pt" font-weight="bold">Created</fo:block>
                     </fo:table-cell>
                     <fo:table-cell padding="1pt 2pt 2pt 2pt" width="70mm">
-                        <fo:block font-size="10pt" font-weight="bold">Modified</fo:block>
+                        <fo:block font-size="9pt" font-weight="bold">Modified</fo:block>
                     </fo:table-cell>
                     <fo:table-cell padding="1pt 2pt 2pt 2pt" width="40mm">
-                        <fo:block font-size="10pt" font-weight="bold">Status</fo:block>
+                        <fo:block font-size="9pt" font-weight="bold">Status</fo:block>
                     </fo:table-cell>
                 </fo:table-row>
             </fo:table-header>
@@ -213,10 +221,10 @@
  		    <fo:table-header>
                 <fo:table-row space-after="10px">
                     <fo:table-cell padding="1pt 2pt 2pt 2pt">
-                        <fo:block font-size="12pt" font-weight="bold">Context (viewpoint, refinement level)</fo:block>
+                        <fo:block font-size="10pt" font-weight="bold">Context (viewpoint, refinement level)</fo:block>
                     </fo:table-cell>
                     <fo:table-cell padding="1pt 2pt 2pt 2pt">
-                        <fo:block font-size="12pt" font-weight="bold">Quality attributes (forces)</fo:block>
+                        <fo:block font-size="10pt" font-weight="bold">Quality attributes (forces)</fo:block>
                     </fo:table-cell>
                 </fo:table-row>
             </fo:table-header>
@@ -238,18 +246,33 @@
 		<fo:block xsl:use-attribute-sets="Ueberschrift-Titel3">
 			Smells
 		</fo:block>
-		<fo:list-block provisional-distance-between-starts="0.5cm" provisional-label-separation="0.5cm">
-			<xsl:apply-templates select="smells"/>
-		</fo:list-block>
+		<fo:table space-after="8pt" space-before="8pt">
+		    <fo:table-header>
+   	            <fo:table-row border-after-style="solid" border-after-color="#A6A6A6" border-width="1pt" space-after="10px">
+                    <fo:table-cell padding="1pt 2pt 2pt 2pt" width="135mm">
+                   	    <fo:block font-size="9pt" font-weight="bold">Name / Description / Questions</fo:block>
+               	    </fo:table-cell>
+           	        <fo:table-cell padding="1pt 2pt 2pt 2pt" width="35mm">
+       	                <fo:block font-size="9pt" font-weight="bold">Group</fo:block>
+   	                </fo:table-cell>
+                    <fo:table-cell padding="1pt 2pt 2pt 2pt" width="10mm">
+                       	<fo:block font-size="9pt" font-weight="bold">TDI</fo:block>
+                   	</fo:table-cell>
+               	</fo:table-row>
+           	</fo:table-header>
+			<fo:table-body>
+				<xsl:apply-templates select="smells"/>
+			</fo:table-body>
+		</fo:table>
 		<xsl:apply-templates select="description"/>
 		<fo:table space-after="8pt" space-before="8pt">
  		    <fo:table-header>
                 <fo:table-row space-after="10px">
                     <fo:table-cell>
-                        <fo:block font-size="12pt" font-weight="bold">Architectural decision(s) to be revisited</fo:block>
+                        <fo:block font-size="10pt" font-weight="bold">Architectural decision(s) to be revisited</fo:block>
                     </fo:table-cell>
                     <fo:table-cell>
-                        <fo:block font-size="12pt" font-weight="bold">Affected components and connectors (if modelled explicitly)</fo:block>
+                        <fo:block font-size="10pt" font-weight="bold">Affected components and connectors (if modelled explicitly)</fo:block>
                     </fo:table-cell>
                 </fo:table-row>
             </fo:table-header>
@@ -287,7 +310,56 @@
 		</fo:block>
 		<xsl:apply-templates/>
 	</xsl:template>
+	<xsl:template match="smells/description">
+		<xsl:apply-templates/>
+	</xsl:template>
 	<xsl:template match="smells">
+		<fo:table-row>
+			<fo:table-cell border-style="none" padding="1pt 2pt 2pt 2pt" border-width="0">
+				<fo:block xsl:use-attribute-sets="DefaultBold">
+					<xsl:apply-templates select="name"></xsl:apply-templates>
+				</fo:block>
+			</fo:table-cell>
+			<fo:table-cell border-style="none" padding="1pt 2pt 2pt 2pt" border-width="0">
+				<fo:block xsl:use-attribute-sets="Default">
+					<xsl:apply-templates select="group/name"></xsl:apply-templates>
+				</fo:block>
+			</fo:table-cell>
+			<fo:table-cell border-style="none" padding="1pt 2pt 2pt 2pt" border-width="0">
+				<xsl:choose>
+					<xsl:when test="tecdebtidx='hh'">
+						<xsl:attribute name="background-color">#FF8D70</xsl:attribute>
+					</xsl:when>
+					<xsl:when test="tecdebtidx='hm' or tecdebtidx='mh'">
+						<xsl:attribute name="background-color">#FFAF9B</xsl:attribute>
+					</xsl:when>
+					<xsl:when test="tecdebtidx='mm' or tecdebtidx='hl' or tecdebtidx='lh'">
+						<xsl:attribute name="background-color">#FFD685</xsl:attribute>
+					</xsl:when>
+					<xsl:when test="tecdebtidx='ml' or tecdebtidx='lm'">
+						<xsl:attribute name="background-color">#94D494</xsl:attribute>
+					</xsl:when>
+					<xsl:when test="tecdebtidx='ll'">
+						<xsl:attribute name="background-color">#5CBD5C</xsl:attribute>
+					</xsl:when>
+				</xsl:choose>
+				<fo:block xsl:use-attribute-sets="Default">
+					<xsl:apply-templates select="tecdebtidx"></xsl:apply-templates>
+				</fo:block>
+			</fo:table-cell>
+		</fo:table-row>
+		<fo:table-row>
+			<fo:table-cell padding="1pt 2pt 2pt 2pt" number-columns-spanned="3">
+				<xsl:apply-templates select="description"/>
+			</fo:table-cell>
+		</fo:table-row>
+		<fo:table-row border-after-style="solid" border-after-color="#A6A6A6" border-width="1pt">
+			<fo:table-cell padding="1pt 2pt 2pt 2pt" number-columns-spanned="3">
+				<xsl:apply-templates select="questions"/>
+			</fo:table-cell>
+		</fo:table-row>
+	</xsl:template>
+	<xsl:template match="smells_old">
 		<fo:list-item>
 			<fo:list-item-label end-indent="label-end()">
 		      <fo:block>&#x2022;</fo:block>
@@ -295,6 +367,23 @@
 		    <fo:list-item-body start-indent="body-start()">
 		      <fo:block>
 				<xsl:apply-templates select="name"/>
+		      </fo:block>
+		    </fo:list-item-body>
+		</fo:list-item>	
+	</xsl:template>
+	<xsl:template match="questions">
+		<fo:list-block provisional-distance-between-starts="0.5cm" provisional-label-separation="0.5cm">
+			<xsl:apply-templates select="question"/>
+		</fo:list-block>
+	</xsl:template>
+	<xsl:template match="question">
+		<fo:list-item>
+			<fo:list-item-label end-indent="label-end()">
+		      <fo:block>&#x2022;</fo:block>
+		    </fo:list-item-label>
+		    <fo:list-item-body start-indent="body-start()">
+		      <fo:block>
+				<xsl:apply-templates/>
 		      </fo:block>
 		    </fo:list-item-body>
 		</fo:list-item>	
@@ -310,6 +399,12 @@
 		      </fo:block>
 		    </fo:list-item-body>
 		</fo:list-item>	
+	</xsl:template>
+	<xsl:template match="tecdebtidx">
+		<xsl:apply-templates/>
+	</xsl:template>
+	<xsl:template match="group/name">
+		<xsl:apply-templates/>
 	</xsl:template>
 	<xsl:template match="value">
 		<xsl:apply-templates/>

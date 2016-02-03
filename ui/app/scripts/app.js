@@ -190,6 +190,17 @@ angular.module('uiApp').config(['$stateProvider', '$urlRouterProvider', function
             'footer': {
                 templateUrl: _contextPath + 'footer.html',
                 controller: 'FooterCtrl'
+            },
+            'container@': {
+                templateUrl: _contextPath + 'home.html',
+            },
+            'statsView@root': {
+                templateUrl: _contextPath + 'stats.html',
+                controller: 'StatsCtrl'
+            },
+            'loginView@root': {
+                templateUrl: _contextPath + 'login.html',
+                controller: 'LoginCtrl'
             }
         }
     })  

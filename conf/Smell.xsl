@@ -8,10 +8,10 @@
  -->
 	<xsl:param name="Seitenbreite">210mm</xsl:param>
 	<xsl:param name="Seitenhoehe">297mm</xsl:param>
-	<xsl:param name="Rand-Inhalt-rechts">10mm 7mm 18mm 18mm</xsl:param>
-	<xsl:param name="Satzspiegel-Inhalt-rechts">20mm 15mm 15mm 0mm</xsl:param>
-	<xsl:param name="Rand-Inhalt-links">10mm 7mm 18mm 18mm</xsl:param>
-	<xsl:param name="Satzspiegel-Inhalt-links">20mm 15mm 15mm 0mm</xsl:param>
+	<xsl:param name="Rand-Inhalt-rechts">10mm 15mm 18mm 18mm</xsl:param>
+	<xsl:param name="Satzspiegel-Inhalt-rechts">15mm 0mm 15mm 0mm</xsl:param>
+	<xsl:param name="Rand-Inhalt-links">10mm 15mm 18mm 18mm</xsl:param>
+	<xsl:param name="Satzspiegel-Inhalt-links">15mm 0mm 15mm 0mm</xsl:param>
 
 	<!-- xsl:param name="Satzspiegel-Inhalt-rechts">20mm 30mm 15mm 0mm</xsl:param>
 	<xsl:param name="Rand-Inhalt-links">10mm 18mm 18mm 7mm</xsl:param>
@@ -24,7 +24,7 @@
  -->
 	<xsl:attribute-set name="Ueberschrift-Titel1">
 		<xsl:attribute name="font-family">Helvetica</xsl:attribute>
-		<xsl:attribute name="font-size">24pt</xsl:attribute>
+		<xsl:attribute name="font-size">20pt</xsl:attribute>
 		<xsl:attribute name="font-weight">bold</xsl:attribute>
 		<xsl:attribute name="text-align">left</xsl:attribute>
 		<xsl:attribute name="space-before">20pt</xsl:attribute>
@@ -34,7 +34,7 @@
 	</xsl:attribute-set>
 	<xsl:attribute-set name="Ueberschrift-Titel2">
 		<xsl:attribute name="font-family">Helvetica</xsl:attribute>
-		<xsl:attribute name="font-size">18pt</xsl:attribute>
+		<xsl:attribute name="font-size">16pt</xsl:attribute>
 		<xsl:attribute name="font-weight">bold</xsl:attribute>
 		<xsl:attribute name="text-align">left</xsl:attribute>
 		<xsl:attribute name="space-before">20pt</xsl:attribute>
@@ -44,7 +44,7 @@
 	</xsl:attribute-set>
 	<xsl:attribute-set name="Ueberschrift-Titel3">
 		<xsl:attribute name="font-family">Helvetica</xsl:attribute>
-		<xsl:attribute name="font-size">14pt</xsl:attribute>
+		<xsl:attribute name="font-size">12pt</xsl:attribute>
 		<xsl:attribute name="font-weight">bold</xsl:attribute>
 		<xsl:attribute name="text-align">left</xsl:attribute>
 		<xsl:attribute name="space-before">12pt</xsl:attribute>
@@ -54,8 +54,19 @@
 	</xsl:attribute-set>
 	<xsl:attribute-set name="Ueberschrift-Titel4">
 		<xsl:attribute name="font-family">Helvetica</xsl:attribute>
-		<xsl:attribute name="font-size">12pt</xsl:attribute>
+		<xsl:attribute name="font-size">10pt</xsl:attribute>
 		<xsl:attribute name="font-weight">bold</xsl:attribute>
+		<xsl:attribute name="text-align">left</xsl:attribute>
+		<xsl:attribute name="space-before">6pt</xsl:attribute>
+		<xsl:attribute name="space-after">3pt</xsl:attribute>
+		<xsl:attribute name="keep-with-next.within-page">always</xsl:attribute>
+		<xsl:attribute name="hyphenate">false</xsl:attribute>
+	</xsl:attribute-set>
+	<xsl:attribute-set name="Ueberschrift-Titel5">
+		<xsl:attribute name="font-family">Helvetica</xsl:attribute>
+		<xsl:attribute name="font-size">10pt</xsl:attribute>
+		<xsl:attribute name="font-style">italic</xsl:attribute>
+		<xsl:attribute name="font-weight">normal</xsl:attribute>
 		<xsl:attribute name="text-align">left</xsl:attribute>
 		<xsl:attribute name="space-before">6pt</xsl:attribute>
 		<xsl:attribute name="space-after">3pt</xsl:attribute>
@@ -80,12 +91,12 @@
 				<fo:simple-page-master margin="{$Rand-Inhalt-rechts}" master-name="Inhalt-Seiten-rechts" page-height="{$Seitenhoehe}" page-width="{$Seitenbreite}">
 					<fo:region-body margin="{$Satzspiegel-Inhalt-rechts}"/>
 					<fo:region-before region-name="Inhalt-davor-rechts" extent="10mm" display-align="after" border-after-width="1pt"/>
-					<fo:region-after region-name="Inhalt-danach-rechts" extent="10mm" display-align="before" border-before-width="1pt"/>
+					<fo:region-after region-name="Inhalt-danach-rechts" extent="0mm" display-align="before" border-before-width="1pt"/>
 				</fo:simple-page-master>
 				<fo:simple-page-master margin="{$Rand-Inhalt-links}" master-name="Inhalt-Seiten-links" page-height="{$Seitenhoehe}" page-width="{$Seitenbreite}">
 					<fo:region-body margin="{$Satzspiegel-Inhalt-links}"/>
 					<fo:region-before region-name="Inhalt-davor-links" extent="10mm" display-align="after" border-after-width="1pt"/>
-					<fo:region-after region-name="Inhalt-danach-links" extent="10mm" display-align="before" border-before-width="1pt"/>
+					<fo:region-after region-name="Inhalt-danach-links" extent="0mm" display-align="before" border-before-width="1pt"/>
 				</fo:simple-page-master>
 				<fo:page-sequence-master master-name="Inhalt-Seiten">
 					<fo:repeatable-page-master-alternatives>
@@ -95,22 +106,14 @@
 				</fo:page-sequence-master>
 			</fo:layout-master-set>
 			<fo:page-sequence master-reference="Inhalt-Seiten">
-				<fo:static-content flow-name="Inhalt-danach-rechts">
-					<fo:block text-align="outside">Page 
-               			<fo:page-number/>
-					</fo:block>
-				</fo:static-content>
 				<fo:static-content flow-name="Inhalt-davor-rechts">
+	            	<xsl:call-template name="myheader"></xsl:call-template>
 					<fo:block text-align="outside">
 						<fo:retrieve-marker retrieve-class-name="ebene2" retrieve-boundary="page-sequence" retrieve-position="first-starting-within-page"/>
 					</fo:block>
 				</fo:static-content>
-				<fo:static-content flow-name="Inhalt-danach-links">
-					<fo:block text-align="outside">Page 
-               <fo:page-number/>
-					</fo:block>
-				</fo:static-content>
 				<fo:static-content flow-name="Inhalt-davor-links">
+	            	<xsl:call-template name="myheader"></xsl:call-template>
 					<fo:block text-align="outside">
 						<fo:retrieve-marker retrieve-class-name="ebene2" retrieve-boundary="page-sequence" retrieve-position="first-starting-within-page"/>
 					</fo:block>
@@ -124,10 +127,47 @@
 					<fo:block>
 						<xsl:apply-templates/>
 					</fo:block>
+					<fo:block id="theEnd">  </fo:block>
 				</fo:flow>
 			</fo:page-sequence>
 		</fo:root>
 	</xsl:template>
+<!-- 
+****************************************
+** Header
+****************************************
+ -->
+ 	<xsl:template name="myheader">
+	 	<fo:table space-after="8pt" space-before="8pt" width="180mm">
+ 			<fo:table-body>
+				<fo:table-row>
+					<fo:table-cell border-style="none" padding="1pt 2pt 2pt 2pt" border-width="0" width="70mm">
+						<fo:block xsl:use-attribute-sets="Default">
+							Smell
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell border-style="none" padding="1pt 2pt 2pt 2pt" border-width="0" width="80mm">
+						<fo:block xsl:use-attribute-sets="Default">
+							<xsl:value-of select="format-dateTime(current-dateTime(), '[M01]/[D01]/[Y0001] at [H01]:[m01]:[s01]')"/>
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell border-style="none" padding="1pt 2pt 2pt 2pt" border-width="0" width="30mm">
+						<fo:block xsl:use-attribute-sets="Default">
+							Page <fo:page-number/><xsl:text> of </xsl:text><fo:page-number-citation ref-id="theEnd"/>
+						</fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+				<fo:table-row>
+					<fo:table-cell border-style="none" padding="1pt 2pt 2pt 2pt" border-width="0" width="180mm" number-columns-spanned="3">
+						<fo:block xsl:use-attribute-sets="Default">
+							<xsl:apply-templates select="smell/uri"></xsl:apply-templates>
+						</fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+			</fo:table-body>
+		</fo:table>
+	</xsl:template>
+	
 	<!-- 
 ****************************************
 ** Absatzelemente
@@ -135,17 +175,20 @@
  -->
  	<xsl:template match="smell">
  		<xsl:apply-templates select="name"/>
- 		<fo:table space-after="8pt" space-before="8pt">
+ 		<fo:table space-after="16pt" space-before="8pt" width="180mm">
  		    <fo:table-header>
-                <fo:table-row space-after="10px" background-color="#eee">
-                    <fo:table-cell>
-                        <fo:block font-weight="bold">Created</fo:block>
+                <fo:table-row space-after="10px">
+                    <fo:table-cell padding="1pt 2pt 2pt 2pt" width="50mm">
+                        <fo:block font-size="10pt" font-weight="bold">Created</fo:block>
                     </fo:table-cell>
-                    <fo:table-cell>
-                        <fo:block font-weight="bold">Modified</fo:block>
+                    <fo:table-cell padding="1pt 2pt 2pt 2pt" width="50mm">
+                        <fo:block font-size="10pt" font-weight="bold">Modified</fo:block>
                     </fo:table-cell>
-                    <fo:table-cell>
-                        <fo:block font-weight="bold">Status</fo:block>
+                    <fo:table-cell padding="1pt 2pt 2pt 2pt" width="50mm">
+                        <fo:block font-size="10pt" font-weight="bold">AR Appearances</fo:block>
+                    </fo:table-cell>
+                    <fo:table-cell padding="1pt 2pt 2pt 2pt" width="30mm">
+                        <fo:block font-size="10pt" font-weight="bold">Status</fo:block>
                     </fo:table-cell>
                 </fo:table-row>
             </fo:table-header>
@@ -163,6 +206,11 @@
 					</fo:table-cell>
 					<fo:table-cell border-style="none" padding="1pt 2pt 2pt 2pt" border-width="0">
 						<fo:block xsl:use-attribute-sets="Default">
+							<xsl:apply-templates select="weight"></xsl:apply-templates>
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell border-style="none" padding="1pt 2pt 2pt 2pt" border-width="0">
+						<fo:block xsl:use-attribute-sets="Default">
 							<xsl:apply-templates select="status"></xsl:apply-templates>
 						</fo:block>
 					</fo:table-cell>
@@ -171,12 +219,15 @@
 		</fo:table>
 		<fo:table space-after="8pt" space-before="8pt">
  		    <fo:table-header>
-                <fo:table-row space-after="10px" background-color="#eee">
-                    <fo:table-cell>
-                        <fo:block font-weight="bold">Context (viewpoint, refinement level, enterprise architecture):</fo:block>
+                <fo:table-row space-after="10px" width="180mm">
+                    <fo:table-cell padding="1pt 2pt 2pt 2pt" width="100mm">
+                        <fo:block font-size="12pt" font-weight="bold">Keywords</fo:block>
                     </fo:table-cell>
-                    <fo:table-cell>
-                        <fo:block font-weight="bold">Quality attributes and stories (forces):</fo:block>
+                    <fo:table-cell padding="1pt 2pt 2pt 2pt" width="50mm">
+                        <fo:block font-size="12pt" font-weight="bold">Group</fo:block>
+                    </fo:table-cell>
+                    <fo:table-cell padding="1pt 2pt 2pt 2pt" width="30mm">
+                        <fo:block font-size="12pt" font-weight="bold">TDI</fo:block>
                     </fo:table-cell>
                 </fo:table-row>
             </fo:table-header>
@@ -184,19 +235,44 @@
 				<fo:table-row>
 					<fo:table-cell border-style="none" padding="1pt 2pt 2pt 2pt" border-width="0">
 						<fo:block xsl:use-attribute-sets="Default">
-							<xsl:apply-templates select="properties[contains(type, 'ContextElementLink')]" />
+							<xsl:apply-templates select="keywords"></xsl:apply-templates>
 						</fo:block>
 					</fo:table-cell>
 					<fo:table-cell border-style="none" padding="1pt 2pt 2pt 2pt" border-width="0">
 						<fo:block xsl:use-attribute-sets="Default">
-							<xsl:apply-templates select="properties[contains(type, 'QASElementLink')]" />
+							<xsl:apply-templates select="group/name"></xsl:apply-templates>
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell border-style="none" padding="1pt 2pt 2pt 2pt" border-width="0">
+						<xsl:choose>
+							<xsl:when test="tecdebtidx='hh'">
+								<xsl:attribute name="background-color">#FF8D70</xsl:attribute>
+							</xsl:when>
+							<xsl:when test="tecdebtidx='hm' or tecdebtidx='mh'">
+								<xsl:attribute name="background-color">#FFAF9B</xsl:attribute>
+							</xsl:when>
+							<xsl:when test="tecdebtidx='mm' or tecdebtidx='hl' or tecdebtidx='lh'">
+								<xsl:attribute name="background-color">#FFD685</xsl:attribute>
+							</xsl:when>
+							<xsl:when test="tecdebtidx='ml' or tecdebtidx='lm'">
+								<xsl:attribute name="background-color">#94D494</xsl:attribute>
+							</xsl:when>
+							<xsl:when test="tecdebtidx='ll'">
+								<xsl:attribute name="background-color">#5CBD5C</xsl:attribute>
+							</xsl:when>
+						</xsl:choose>
+						<fo:block xsl:use-attribute-sets="Default">
+							<xsl:apply-templates select="tecdebtidx"></xsl:apply-templates>
 						</fo:block>
 					</fo:table-cell>
 				</fo:table-row>
 			</fo:table-body>
 		</fo:table>
 		<xsl:apply-templates select="description"/>
-		<xsl:apply-templates/>
+		<fo:block xsl:use-attribute-sets="Ueberschrift-Titel3">
+			Questions
+		</fo:block>
+		<xsl:apply-templates select="questions"/>
 	</xsl:template>
 	<xsl:template match="description">
 		<fo:block xsl:use-attribute-sets="Ueberschrift-Titel3">
@@ -204,11 +280,22 @@
 		</fo:block>
 		<xsl:apply-templates/>
 	</xsl:template>
-	<xsl:template match="smells">
-		<xsl:apply-templates/>
+	<xsl:template match="questions">
+		<fo:list-block provisional-distance-between-starts="0.5cm" provisional-label-separation="0.5cm">
+			<xsl:apply-templates select="question"/>
+		</fo:list-block>
 	</xsl:template>
-	<xsl:template match="tasks">
-		<xsl:apply-templates/>
+	<xsl:template match="question">
+		<fo:list-item>
+			<fo:list-item-label end-indent="label-end()">
+		      <fo:block>&#x2022;</fo:block>
+		    </fo:list-item-label>
+		    <fo:list-item-body start-indent="body-start()">
+		      <fo:block>
+				<xsl:apply-templates/>
+		      </fo:block>
+		    </fo:list-item-body>
+		</fo:list-item>	
 	</xsl:template>
 	<xsl:template match="created">
 		<xsl:variable name="timestamp" select="xs:dateTime('1970-01-01T00:00:00') + current() * xs:dayTimeDuration('PT0.001S')" />
@@ -221,39 +308,50 @@
 	<xsl:template match="status">
 		<xsl:apply-templates/>
 	</xsl:template>
-	<xsl:template match="properties">
+	<xsl:template match="weight">
 		<xsl:apply-templates/>
 	</xsl:template>
-	<xsl:template match="uri">
-	    <fo:basic-link external-destination="current()" show-destination="replace">
-        	<xsl:value-of select="."/>
-   		</fo:basic-link>
-    </xsl:template>
+	<xsl:template match="keywords">
+		<xsl:apply-templates/>
+	</xsl:template>
+	<xsl:template match="group/name">
+		<xsl:apply-templates/>
+	</xsl:template>
+	<xsl:template match="tecdebtidx">
+		<xsl:apply-templates/>
+	</xsl:template>
+    <xsl:template match="id"></xsl:template>
+    <xsl:template match="type"></xsl:template>
 <!-- 
 ****************************************
 ** HTML Tags
 ****************************************
  -->
 	<xsl:template match="p">
-		<xsl:apply-templates/>
+		<fo:block xsl:use-attribute-sets="Default" space-after="12pt">
+    		<xsl:apply-templates select="*|text()"/>
+		</fo:block>
+	</xsl:template>
+	<xsl:template match="br">
+		<fo:block> </fo:block>
 	</xsl:template>
 	<xsl:template match="h1">
-		<fo:block xsl:use-attribute-sets="Ueberschrift-Titel3">
+		<fo:block xsl:use-attribute-sets="Ueberschrift-Titel2">
 			<xsl:apply-templates/>
 		</fo:block>
 	</xsl:template>
 	<xsl:template match="h2">
-		<fo:block xsl:use-attribute-sets="Ueberschrift-Titel4">
+		<fo:block xsl:use-attribute-sets="Ueberschrift-Titel3">
 			<xsl:apply-templates/>
 		</fo:block>
 	</xsl:template>
 	<xsl:template match="h3">
-		<fo:block xsl:use-attribute-sets="Default">
+		<fo:block xsl:use-attribute-sets="Ueberschrift-Titel4">
 			<xsl:apply-templates/>
 		</fo:block>
 	</xsl:template>
 	<xsl:template match="h4">
-		<fo:block xsl:use-attribute-sets="Default">
+		<fo:block xsl:use-attribute-sets="Ueberschrift-Titel5">
 			<xsl:apply-templates/>
 		</fo:block>
 	</xsl:template>
@@ -303,16 +401,13 @@
 ** Überschriften
 ****************************************
  -->
-	<xsl:template match="name">
+	<xsl:template match="smell/name">
 		<fo:block xsl:use-attribute-sets="Ueberschrift-Titel1">
 			<xsl:apply-templates/>
 		</fo:block>
-		<fo:block xsl:use-attribute-sets="Ueberschrift-Titel2">
-			Architectural Refactoring
-		</fo:block>
 	</xsl:template>
 	<xsl:template match="name">
-		<fo:block xsl:use-attribute-sets="Ueberschrift-Titel4">
+		<fo:block xsl:use-attribute-sets="Default">
 			<xsl:apply-templates/>
 		</fo:block>
 	</xsl:template>
@@ -472,7 +567,7 @@
 	</xsl:template -->
 	
 <xsl:template match="ol | ul">
-  <fo:list-block provisional-distance-between-starts="1cm"
+  <fo:list-block provisional-distance-between-starts="0.5cm"
     provisional-label-separation="0.5cm">
     <xsl:attribute name="space-after">
       <xsl:choose>
@@ -625,7 +720,7 @@
   <fo:block space-after="12pt">
     <fo:external-graphic src="{@src}">
       <xsl:if test="@width">
-        <xsl:attribute name="width">
+        <xsl:attribute name="content-width">
           <xsl:choose>
             <xsl:when test="contains(@width, 'px')">
               <xsl:value-of select="@width"/>
@@ -637,7 +732,7 @@
         </xsl:attribute>
       </xsl:if>
       <xsl:if test="@height">
-        <xsl:attribute name="height">
+        <xsl:attribute name="content-height">
           <xsl:choose>
             <xsl:when test="contains(@height, 'px')">
               <xsl:value-of select="@height"/>
@@ -648,39 +743,28 @@
           </xsl:choose>
         </xsl:attribute>
       </xsl:if>
+      <xsl:if test="@style">
+        <xsl:for-each select="tokenize(@style,';')">
+	      	<xsl:variable name="vLinksParts" select="tokenize(normalize-space(.),':')" as="xs:string*"/>
+	      	<xsl:choose>
+	            <xsl:when test="$vLinksParts[1] = 'width'">
+	            	<xsl:attribute name="content-width">
+		           		<xsl:value-of select="normalize-space($vLinksParts[2])"/>
+	        		</xsl:attribute>
+	            </xsl:when>
+	            <xsl:when test="$vLinksParts[1] = 'height'">
+	            	<xsl:attribute name="content-height">
+		           		<xsl:value-of select="normalize-space($vLinksParts[2])"/>
+	        		</xsl:attribute>
+	            </xsl:when>
+	            <xsl:otherwise>
+	            </xsl:otherwise>
+	        </xsl:choose>
+        </xsl:for-each>
+      </xsl:if>
     </fo:external-graphic>
   </fo:block>
 </xsl:template>
-	<!-- 
-****************************************
-** Grafiken
-****************************************
- -->
-	<xsl:template match="section">
-		<fo:block>
-			<xsl:if test="@id">
-				<xsl:attribute name="id"><xsl:value-of select="@id"/></xsl:attribute>
-			</xsl:if>
-			<xsl:apply-templates/>
-		</fo:block>
-	</xsl:template>
-	<xsl:template match="link">
-		<xsl:apply-templates/>
-		<xsl:for-each select="//*[@id=current()/@linkend]">
-			<fo:inline>
-				<fo:basic-link internal-destination="{@id}">
-(Vgl. S. <fo:page-number-citation ref-id="{@id}"/>)</fo:basic-link>
-			</fo:inline>
-		</xsl:for-each>
-	</xsl:template>
-	<xsl:template match="ulink">
-		<fo:inline text-decoration="underline">
-			<fo:basic-link>
-				<xsl:attribute name="external-destination"><xsl:value-of select="@url"/></xsl:attribute>
-				<xsl:apply-templates/>
-			</fo:basic-link>
-		</fo:inline>
-	</xsl:template>
 <!-- 
 ****************************************
 ** Links
@@ -715,6 +799,30 @@
         <fo:page-number-citation ref-id="{substring(@href, 2)}"/>
       </xsl:if>
     </xsl:when>
+  </xsl:choose>
+</xsl:template>
+<xsl:template match="link | uri">
+  	<xsl:choose>
+   		<xsl:when test="text() != 'null'">
+	   		<fo:basic-link color="blue">
+	     		<xsl:attribute name="external-destination">
+	       			<xsl:value-of select="text()"/>
+	     		</xsl:attribute>
+	     		<xsl:apply-templates select="*|text()"/>
+	   		</fo:basic-link>
+		</xsl:when>
+	</xsl:choose>
+</xsl:template>
+<!-- 
+****************************************
+** Abbreviations
+****************************************
+ -->		
+<xsl:template match="abbr">
+  <xsl:choose>
+    <xsl:when test="@title">
+		<xsl:value-of select="text()"/><xsl:text> (</xsl:text><xsl:value-of select="@title"/><xsl:text>)</xsl:text>
+    </xsl:when> 
   </xsl:choose>
 </xsl:template>
 	
