@@ -1,453 +1,495 @@
 <arversion>
-	<editor>
-		<firstname>Christian</firstname>
-		<password>null</password>
-		<startpage>stay</startpage>
-		<role>
-			<name>Admin</name>
-			<description>ART Administrator</description>
-			<id>1</id>
-		</role>
-		<created>1444664638000</created>
-		<organisation>HSR</organisation>
-		<modified>1444664638000</modified>
-		<id>1</id>
-		<email>cbisig@hsr.ch</email>
-		<lastname>Bisig</lastname>
-		<homepage>http://www.hsr.ch</homepage>
-	</editor>
-	<smells>
-		<keywords>keyword5,keyword6,keyword7</keywords>
-		<created>1444664638000</created>
-		<tecdebtidx>lm</tecdebtidx>
-		<name>Smell11</name>
-		<questions>
-			<question>Question14</question>
-			<id>14</id>
-		</questions>
-		<description>This is Smell11</description>
-		<weight>1</weight>
-		<modified>1444664638000</modified>
-		<id>11</id>
-		<group>
-			<name>Dependency</name>
-			<id>3</id>
-		</group>
-		<status>published</status>
-	</smells>
-	<smells>
-		<keywords>keyword5,keyword6,keyword7</keywords>
-		<created>1444664638000</created>
-		<tecdebtidx>lm</tecdebtidx>
-		<name>Smell14</name>
-		<questions>
-			<question>Question9</question>
-			<id>9</id>
-		</questions>
-		<description>This is Smell14</description>
-		<weight>1</weight>
-		<modified>1444664638000</modified>
-		<id>14</id>
-		<group>
-			<name>Performance</name>
-			<id>1</id>
-		</group>
-		<status>published</status>
-	</smells>
-	<smells>
-		<keywords>keyword5,keyword6,keyword7</keywords>
-		<created>1444664638000</created>
-		<tecdebtidx>lm</tecdebtidx>
-		<name>Smell4</name>
-		<questions>
-			<question>Question13</question>
-			<id>13</id>
-		</questions>
-		<questions>
-			<question>Question26</question>
-			<id>26</id>
-		</questions>
-		<description>This is Smell4</description>
-		<weight>1</weight>
-		<modified>1444664638000</modified>
-		<id>4</id>
-		<group>
-			<name>Complexity</name>
-			<id>2</id>
-		</group>
-		<status>published</status>
-	</smells>
-	<created>1430996402000</created>
-	<description>
-		<p>Architectural Refactoring 1</p>
-		<p>
-			<br />
-		</p>
-		<ul>
-			<li>aasdfsadf</li>
-			<li>asdfsadf</li>
-			<li>asdfsdaf</li>
-		</ul>
-		<p>
-			<br />
-		</p>
-		<ol>
-			<li>asdfsadf</li>
-			<li>asdf</li>
-			<li>asdf</li>
-			<li>asdf</li>
-		</ol>
-		<p>
-			<br />
-		</p>
-		<p>
-			<img
-				src="http://img3.wikia.nocookie.net/__cb20140818084540/spongebob/de/images/2/2d/SPONGEBOB!!!!.jpg" />
-			<br />
-		</p>
-	</description>
-	<discussion>
-		<comments>
-			<created>1444664638000</created>
-			<modified>1444664638000</modified>
-			<comment>Comment 3</comment>
-			<likeCount>0</likeCount>
-			<id>3</id>
-			<user>
-				<firstname>Christian</firstname>
-				<password>null</password>
-				<startpage>stay</startpage>
-				<role>
-					<name>Admin</name>
-					<description>ART Administrator</description>
-					<id>1</id>
-				</role>
-				<created>1444664638000</created>
-				<organisation>HSR</organisation>
-				<modified>1444664638000</modified>
-				<id>1</id>
-				<email>cbisig@hsr.ch</email>
-				<lastname>Bisig</lastname>
-				<homepage>http://www.hsr.ch</homepage>
-			</user>
-		</comments>
-		<created>1444664638000</created>
-		<id>3</id>
-		<type>DISCUSSION</type>
-	</discussion>
-	<arhead>
-		<versions>null</versions>
-		<id>1</id>
-	</arhead>
-	<name>AR 1</name>
-	<modified>1444664638000</modified>
-	<id>3</id>
-	<user>
-		<firstname>Christian</firstname>
-		<password>null</password>
-		<startpage>stay</startpage>
-		<role>
-			<name>Admin</name>
-			<description>ART Administrator</description>
-			<id>1</id>
-		</role>
-		<created>1444664638000</created>
-		<organisation>HSR</organisation>
-		<modified>1444664638000</modified>
-		<id>1</id>
-		<email>cbisig@hsr.ch</email>
-		<lastname>Bisig</lastname>
-		<homepage>http://www.hsr.ch</homepage>
-	</user>
-	<tasks>
-		<parent>null</parent>
-		<name>Create SAD</name>
-		<id>1</id>
-		<properties>
-			<property>
-				<name>Type</name>
-				<id>8</id>
-			</property>
-			<id>1</id>
-			<value>Design Task</value>
-		</properties>
-		<properties>
-			<property>
-				<name>Priority</name>
-				<id>10</id>
-			</property>
-			<id>2</id>
-			<value>high</value>
-		</properties>
-		<properties>
-			<property>
-				<name>Estimated Duration</name>
-				<id>12</id>
-			</property>
-			<id>3</id>
-			<value>20h</value>
-		</properties>
-	</tasks>
-	<tasks>
-		<parent>null</parent>
-		<name>Organise project status meeting</name>
-		<id>2</id>
-		<properties>
-			<property>
-				<name>Type</name>
-				<id>8</id>
-			</property>
-			<id>4</id>
-			<value>Communication Task</value>
-		</properties>
-		<properties>
-			<property>
-				<name>Priority</name>
-				<id>10</id>
-			</property>
-			<id>5</id>
-			<value>medium</value>
-		</properties>
-		<properties>
-			<property>
-				<name>Estimated Duration</name>
-				<id>12</id>
-			</property>
-			<id>6</id>
-			<value>10h</value>
-		</properties>
-	</tasks>
-	<tasks>
-		<parent>null</parent>
-		<name>Implement change</name>
-		<id>4</id>
-		<properties>
-			<property>
-				<name>Type</name>
-				<id>8</id>
-			</property>
-			<id>10</id>
-			<value>Development Task</value>
-		</properties>
-		<properties>
-			<property>
-				<name>Priority</name>
-				<id>10</id>
-			</property>
-			<id>11</id>
-			<value>medium</value>
-		</properties>
-		<properties>
-			<property>
-				<name>Estimated Duration</name>
-				<id>12</id>
-			</property>
-			<id>12</id>
-			<value>1h</value>
-		</properties>
-	</tasks>
-	<tasks>
-		<parent>null</parent>
-		<name>Purchase 3rd party software license</name>
-		<id>8</id>
-		<properties>
-			<property>
-				<name>Type</name>
-				<id>8</id>
-			</property>
-			<id>22</id>
-			<value>Commercial Task</value>
-		</properties>
-		<properties>
-			<property>
-				<name>Priority</name>
-				<id>10</id>
-			</property>
-			<id>23</id>
-			<value>high</value>
-		</properties>
-		<properties>
-			<property>
-				<name>Estimated Duration</name>
-				<id>12</id>
-			</property>
-			<id>24</id>
-			<value>40h</value>
-		</properties>
-	</tasks>
-	<tasks>
-		<parent>null</parent>
-		<name>Software Architecture Design sign-off</name>
-		<id>10</id>
-		<properties>
-			<property>
-				<name>Type</name>
-				<id>8</id>
-			</property>
-			<id>28</id>
-			<value>Design Task</value>
-		</properties>
-		<properties>
-			<property>
-				<name>Priority</name>
-				<id>10</id>
-			</property>
-			<id>29</id>
-			<value>medium</value>
-		</properties>
-		<properties>
-			<property>
-				<name>Estimated Duration</name>
-				<id>12</id>
-			</property>
-			<id>30</id>
-			<value>1h</value>
-		</properties>
-		<properties>
-			<property>
-				<name>Description</name>
-				<id>9</id>
-			</property>
-			<id>31</id>
-			<value>The project leader or the software architect calls a meeting
-				with all project stakeholders and responsibles. The meeting is used
-				to give the last feedback to the Software architecture Document
-				which has been spread beforehand. After that the architecture has to
-				be signed off by all stakeholders. Make sure all major issues were
-				discussed and resolved before the meeting, so no delay in the sign
-				off can occur.</value>
-		</properties>
-	</tasks>
-	<tasks>
-		<parent>null</parent>
-		<name>Order Server Hardware</name>
-		<id>11</id>
-		<properties>
-			<property>
-				<name>Type</name>
-				<id>8</id>
-			</property>
-			<id>32</id>
-			<value>Systemmanagement Task</value>
-		</properties>
-		<properties>
-			<property>
-				<name>Priority</name>
-				<id>10</id>
-			</property>
-			<id>33</id>
-			<value>low</value>
-		</properties>
-		<properties>
-			<property>
-				<name>Estimated Duration</name>
-				<id>12</id>
-			</property>
-			<id>34</id>
-			<value>19h</value>
-		</properties>
-	</tasks>
-	<properties>
-		<name>Costs</name>
-		<link>null</link>
-		<id>13</id>
-		<type>QASElementLink</type>
-	</properties>
-	<properties>
-		<name>Performance</name>
-		<link>http://en.wikipedia.org/wiki/Computer_performance</link>
-		<id>11</id>
-		<type>QASElementLink</type>
-	</properties>
-	<properties>
-		<name>Scalability</name>
-		<link>null</link>
-		<id>12</id>
-		<type>QASElementLink</type>
-	</properties>
-	<properties>
-		<name>Data integrety</name>
-		<link>null</link>
-		<id>17</id>
-		<type>QASElementLink</type>
-	</properties>
-	<properties>
-		<name>Context View</name>
-		<link>null</link>
-		<id>1</id>
-		<type>ContextElementLink</type>
-	</properties>
-	<properties>
-		<name>Logical View</name>
-		<link>null</link>
-		<id>5</id>
-		<type>ContextElementLink</type>
-	</properties>
-	<properties>
-		<name>Development View</name>
-		<link>null</link>
-		<id>7</id>
-		<type>ContextElementLink</type>
-	</properties>
-	<properties>
-		<name>Hardware (server)</name>
-		<link>null</link>
-		<id>26</id>
-		<type>ComponentElementLink</type>
-	</properties>
-	<properties>
-		<name>Middleware</name>
-		<link>null</link>
-		<id>29</id>
-		<type>ComponentElementLink</type>
-	</properties>
-	<properties>
-		<name>Approach to threading (concurrency management)</name>
-		<link>null</link>
-		<id>24</id>
-		<type>DecisionElementLink</type>
-	</properties>
-	<properties>
-		<name>Choice of thirdparty vendor</name>
-		<link>null</link>
-		<id>22</id>
-		<type>DecisionElementLink</type>
-	</properties>
-	<properties>
-		<name>Choice of thirdparty vendor</name>
-		<link>null</link>
-		<id>23</id>
-		<type>DecisionElementLink</type>
-	</properties>
-	<properties>
-		<name>High parallelisation</name>
-		<link>null</link>
-		<id>18</id>
-		<type>DecisionElementLink</type>
-	</properties>
-	<properties>
-		<name>Choice of hardware plattform</name>
-		<link>null</link>
-		<id>19</id>
-		<type>DecisionElementLink</type>
-	</properties>
-	<properties>
-		<name>Just Enough Software Architecture [Fairbanks]</name>
-		<link>null</link>
-		<id>39</id>
-		<type>ReferenceElementLink</type>
-	</properties>
-	<properties>
-		<name>Software Systems Architecture [Rozanski &amp; Woods]</name>
-		<link>null</link>
-		<id>35</id>
-		<type>ReferenceElementLink</type>
-	</properties>
-	<properties>
-		<name>UML Distilled [Fowler]</name>
-		<link>null</link>
-		<id>37</id>
-		<type>ReferenceElementLink</type>
-	</properties>
-	<status>published</status>
+    <uri>http://localhost:9085/#/ar/20</uri>
+    <editor>
+        <firstname>Christian</firstname>
+        <password>null</password>
+        <startpage>stay</startpage>
+        <role>
+            <name>Admin</name>
+            <description>ART Administrator</description>
+            <id>1</id>
+        </role>
+        <arsearches>
+            <result>null</result>
+            <search>{"smellids":[18,19,24,27]}</search>
+            <name>My Search</name>
+            <id>1</id>
+        </arsearches>
+        <created>1432626312000</created>
+        <organisation>HSR</organisation>
+        <modified>1432626312000</modified>
+        <id>1</id>
+        <email>cbisig@hsr.ch</email>
+        <lastname>Bisig</lastname>
+        <homepage>http://ch.linkedin.com/in/cbisig</homepage>
+    </editor>
+    <smells>
+        <keywords>bottleneck</keywords>
+        <created>1448571195000</created>
+        <tecdebtidx>hm</tecdebtidx>
+        <name>Bottleneck component</name>
+        <questions>
+            <question>Does a component or a part of your software system thwart the whole system?</question>
+            <id>55</id>
+        </questions>
+        <description>
+            <p>If multiple components or system parts are running on the same hardware or even on separate hardware, on part can thwart the rest of the system.&#160;</p>
+        </description>
+        <weight>2</weight>
+        <modified>1449648586000</modified>
+        <id>39</id>
+        <group>
+            <name>Performance</name>
+            <id>1</id>
+        </group>
+        <status>published</status>
+    </smells>
+    <created>1448570362000</created>
+    <description>
+        <h3>Initial position</h3>
+        <p>A software system with multiple parts (components) running on the same server respectively on the same tier, lacks on flexibility.  Which means, it is possible, that one part (component) of the system scales well while another does not (on the same hardware). E.g. a system where the business logic is placed on the same tier (server) as the database. If the application does many and large data requests, the hardware requirements between the business logic layer and the database may be uneven. The application might be waiting a lot for answers from the database since the database might not perform well on the hardware. Since the database is on the same hardware, it is not possible to scale it separately. </p>
+        <p></p>
+        <hr/>
+        <h3>Revised design</h3>
+        <p>The goal of this architectural refactoring is to extract parts (components) of a software system and place it on a separat tier. The benefit of this will be the possibility to scale the extracted component separately. For this it is necessary to put a load balancer between the existing and the newly created tier (See AR: <a href="https://thawing-taiga-6031.herokuapp.com/art-app/#/ar/19" target="_blank">https://thawing-taiga-6031.herokuapp.com/art-app/#/ar/19</a>).</p>
+        <p>Additionally, the newly freed resources on the existing tier, can be used by the remaining components on the system (e.g. create a second instance of business application).</p>
+        <p><img src="https://lh3.googleusercontent.com/tivpeO8i7lQQfGvSbdn38CFrOwcl11KxCYhSIPUMlqLHl2mgi5_6-N8bpxbjrYVMznyf3z7pkhvFyzgDPjEbyzDJ3wuIPBSgtU5wUnNFIN-9CglWpp7QR8AM7N5VvC6hd3qXn80I9Zy5g2rHwygGIvXsclDNkFKwmHq172fx1DJxVHyhukTAGcwjcPycSLbe9KXMZ8VnOe7curn54aimeyQ2EIhSZpXqLpCxbVidi99lb9nk-v6bIveBlbosQQP23MlG3pDghOT2U67xrzNwN7vDUAh3z2yYpJEBkwov4vhJ2yEE1LyrwgMSU4QnUMvXu7htbZd-_7X8Thn9Ce_HVjXVYoQ9U5TGcm8NysfgeZJoSU-WtCUxFeZfeH-x2ghun8rSJVp3SIpM8D4KlvhaLaP3ZF2TRfy1FSB2NbICj1cYVWITY2XKafvu3S_ymWYK3rOFvZ_O136b-g93KrkS6JndEfAST4MSCK8hS2wY_wgI_VYGK_-yRFLkSKv-gez7hZggVWQnU-wENIhWLA6T_AJtxb3hg3ysET_SCt3iFb0-Pno1AuGeh0TZIta2lyvRmvHz=w665-h382-no" style="height: 176px;width: 354px;" />
+            <br/>
+        </p>
+        <p>The figure shows a classical three-tier-architecture where  the data storage, the business logic and the presentation logic are separated on different physical hardware. Smaller applications often have two-tier-architecture where the data and the business logic share the same server. This might become a problem as soon as traffic and data volume raise in a system.</p>
+        <p></p>
+        <hr/>
+        <h3>Pitfalls to avoid</h3>
+        <ul>
+            <li>Do not create too many tiers - otherwise your maintenance costs and systems management effort will increase; the latency for application requests will rise too.</li>
+            <li>Make sure that you don&apos;t forget to secure the connections between the existing and the new tier(s). (Depending on your security requirements.)</li>
+        </ul>
+    </description>
+    <discussion>
+        <comments>
+            <created>1454147279000</created>
+            <modified>1454147279000</modified>
+            <comment>asdfasdfasd</comment>
+            <likeCount>1</likeCount>
+            <id>4</id>
+            <user>
+                <firstname>Christian</firstname>
+                <password>null</password>
+                <startpage>stay</startpage>
+                <role>
+                    <name>Admin</name>
+                    <description>ART Administrator</description>
+                    <id>1</id>
+                </role>
+                <arsearches>
+                    <result>null</result>
+                    <search>{"smellids":[18,19,24,27]}</search>
+                    <name>My Search</name>
+                    <id>1</id>
+                </arsearches>
+                <created>1432626312000</created>
+                <organisation>HSR</organisation>
+                <modified>1432626312000</modified>
+                <id>1</id>
+                <email>cbisig@hsr.ch</email>
+                <lastname>Bisig</lastname>
+                <homepage>http://ch.linkedin.com/in/cbisig</homepage>
+            </user>
+        </comments>
+        <comments>
+            <created>1454147298000</created>
+            <modified>1454147298000</modified>
+            <comment>jksdfaljksljksdfalkj</comment>
+            <likeCount>0</likeCount>
+            <id>5</id>
+            <user>
+                <firstname>Christian</firstname>
+                <password>null</password>
+                <startpage>stay</startpage>
+                <role>
+                    <name>Admin</name>
+                    <description>ART Administrator</description>
+                    <id>1</id>
+                </role>
+                <arsearches>
+                    <result>null</result>
+                    <search>{"smellids":[18,19,24,27]}</search>
+                    <name>My Search</name>
+                    <id>1</id>
+                </arsearches>
+                <created>1432626312000</created>
+                <organisation>HSR</organisation>
+                <modified>1432626312000</modified>
+                <id>1</id>
+                <email>cbisig@hsr.ch</email>
+                <lastname>Bisig</lastname>
+                <homepage>http://ch.linkedin.com/in/cbisig</homepage>
+            </user>
+        </comments>
+        <created>1448570362000</created>
+        <id>28</id>
+        <type>DISCUSSION</type>
+    </discussion>
+    <arhead>
+        <versions>null</versions>
+        <id>20</id>
+    </arhead>
+    <name>Add tier to improve independent scalability</name>
+    <modified>1448570362000</modified>
+    <id>28</id>
+    <user>
+        <firstname>Christian</firstname>
+        <password>null</password>
+        <startpage>stay</startpage>
+        <role>
+            <name>Admin</name>
+            <description>ART Administrator</description>
+            <id>1</id>
+        </role>
+        <arsearches>
+            <result>null</result>
+            <search>{"smellids":[18,19,24,27]}</search>
+            <name>My Search</name>
+            <id>1</id>
+        </arsearches>
+        <created>1432626312000</created>
+        <organisation>HSR</organisation>
+        <modified>1432626312000</modified>
+        <id>1</id>
+        <email>cbisig@hsr.ch</email>
+        <lastname>Bisig</lastname>
+        <homepage>http://ch.linkedin.com/in/cbisig</homepage>
+    </user>
+    <tasks>
+        <parent>null</parent>
+        <name>Estimate future maintenance and support costs</name>
+        <id>64</id>
+        <properties>
+            <property>
+                <name>Assignee</name>
+                <id>7</id>
+            </property>
+            <id>150</id>
+            <value>Projectmanager</value>
+        </properties>
+        <properties>
+            <property>
+                <name>Type</name>
+                <id>8</id>
+            </property>
+            <id>151</id>
+            <value>Analysis Task</value>
+        </properties>
+        <properties>
+            <property>
+                <name>Description</name>
+                <id>9</id>
+            </property>
+            <id>152</id>
+            <value>
+                <p>If hardware is added to a system, there will be higher maintenance and support costs which have to be considered.</p>
+            </value>
+        </properties>
+    </tasks>
+    <tasks>
+        <parent>null</parent>
+        <name>Assess security impact (security architecture review)</name>
+        <id>37</id>
+        <properties>
+            <property>
+                <name>Assignee</name>
+                <id>7</id>
+            </property>
+            <id>73</id>
+            <value>Softwarearchitect</value>
+        </properties>
+        <properties>
+            <property>
+                <name>Type</name>
+                <id>8</id>
+            </property>
+            <id>74</id>
+            <value>Analysis Task</value>
+        </properties>
+        <properties>
+            <property>
+                <name>Description</name>
+                <id>9</id>
+            </property>
+            <id>75</id>
+            <value>
+                <p>Due to the change of a central component, framework or technology in a software system, the whole or a part of the system should be taken under a security architecture review (depending on the confidentiality level of the system).</p>
+            </value>
+        </properties>
+    </tasks>
+    <tasks>
+        <parent>null</parent>
+        <name>Design system architecture (component to tier distribution)</name>
+        <id>66</id>
+        <properties>
+            <property>
+                <name>Assignee</name>
+                <id>7</id>
+            </property>
+            <id>156</id>
+            <value>Softwarearchitect</value>
+        </properties>
+        <properties>
+            <property>
+                <name>Type</name>
+                <id>8</id>
+            </property>
+            <id>157</id>
+            <value>Design Task</value>
+        </properties>
+        <properties>
+            <property>
+                <name>Description</name>
+                <id>9</id>
+            </property>
+            <id>158</id>
+            <value>
+                <p>You have to decide how many tiers you&apos;d like to have and which component will be placed on which tier.</p>
+            </value>
+        </properties>
+    </tasks>
+    <tasks>
+        <parent>null</parent>
+        <name>Introduce load balancer to scale newly added tiers</name>
+        <id>65</id>
+        <properties>
+            <property>
+                <name>Assignee</name>
+                <id>7</id>
+            </property>
+            <id>153</id>
+            <value>Software integrator</value>
+        </properties>
+        <properties>
+            <property>
+                <name>Type</name>
+                <id>8</id>
+            </property>
+            <id>154</id>
+            <value>Integration Task</value>
+        </properties>
+        <properties>
+            <property>
+                <name>Description</name>
+                <id>9</id>
+            </property>
+            <id>155</id>
+            <value>
+                <p>To allow optimal scalability and resilience of a newly added tier, a load balancer has to be put in place.</p>
+            </value>
+        </properties>
+    </tasks>
+    <tasks>
+        <parent>null</parent>
+        <name>Extract component from existing tier</name>
+        <id>35</id>
+        <properties>
+            <property>
+                <name>Assignee</name>
+                <id>7</id>
+            </property>
+            <id>67</id>
+            <value>Software integrator</value>
+        </properties>
+        <properties>
+            <property>
+                <name>Type</name>
+                <id>8</id>
+            </property>
+            <id>68</id>
+            <value>Integration Task</value>
+        </properties>
+        <properties>
+            <property>
+                <name>Description</name>
+                <id>9</id>
+            </property>
+            <id>69</id>
+            <value>
+                <p>Move a software component from an existing server to another.</p>
+            </value>
+        </properties>
+    </tasks>
+    <tasks>
+        <parent>null</parent>
+        <name>Change connectivity configuration</name>
+        <id>36</id>
+        <properties>
+            <property>
+                <name>Assignee</name>
+                <id>7</id>
+            </property>
+            <id>70</id>
+            <value>Software integrator</value>
+        </properties>
+        <properties>
+            <property>
+                <name>Type</name>
+                <id>8</id>
+            </property>
+            <id>71</id>
+            <value>Integration Task</value>
+        </properties>
+        <properties>
+            <property>
+                <name>Description</name>
+                <id>9</id>
+            </property>
+            <id>72</id>
+            <value>
+                <p>E.g. change the connectivity configuration of a message queue.</p>
+                <p>Or change target address of a <abbr title="Domain Name System">DNS</abbr>-alias.</p>
+            </value>
+        </properties>
+    </tasks>
+    <tasks>
+        <parent>null</parent>
+        <name>Execute load test</name>
+        <id>76</id>
+        <properties>
+            <property>
+                <name>Assignee</name>
+                <id>7</id>
+            </property>
+            <id>198</id>
+            <value>Software tester</value>
+        </properties>
+        <properties>
+            <property>
+                <name>Type</name>
+                <id>8</id>
+            </property>
+            <id>199</id>
+            <value>Testing Task</value>
+        </properties>
+        <properties>
+            <property>
+                <name>Description</name>
+                <id>9</id>
+            </property>
+            <id>200</id>
+            <value>
+                <p>Execute a mass test to evaluate the limits of a system.</p>
+            </value>
+        </properties>
+    </tasks>
+    <tasks>
+        <parent>null</parent>
+        <name>Update software architecture document (SAD)</name>
+        <id>31</id>
+        <properties>
+            <property>
+                <name>Assignee</name>
+                <id>7</id>
+            </property>
+            <id>59</id>
+            <value>Software architect</value>
+        </properties>
+        <properties>
+            <property>
+                <name>Description</name>
+                <id>9</id>
+            </property>
+            <id>64</id>
+            <value>
+                <p>The software architecture document (SAD) is theoretically an artifact described in the software engineering process <abbr title="Rational Unified Process">RUP</abbr> from IBM. This task is not a specific RUP task. Every software engineering process should have some document describing the architecture in place or to-be in place.</p>
+                <p>Description of the SAD in RUP:</p>
+                <p>&#34;The Software Architecture Document provides a comprehensive architectural overview of the system, using a number of different architectural views to depict different aspects of the system.&#34;
+                    <br/>
+                </p>
+            </value>
+        </properties>
+        <properties>
+            <property>
+                <name>Type</name>
+                <id>8</id>
+            </property>
+            <id>142</id>
+            <value>Documentation Task</value>
+        </properties>
+    </tasks>
+    <properties>
+        <name>Scalability</name>
+        <link>https://en.wikipedia.org/wiki/Scalability</link>
+        <id>12</id>
+        <type>QASElementLink</type>
+    </properties>
+    <properties>
+        <name>Performance</name>
+        <link>https://en.wikipedia.org/wiki/Computer_performance</link>
+        <id>11</id>
+        <type>QASElementLink</type>
+    </properties>
+    <properties>
+        <name>Flexibility</name>
+        <link>https://en.wikipedia.org/wiki/Flexibility_(engineering)</link>
+        <id>47</id>
+        <type>QASElementLink</type>
+    </properties>
+    <properties>
+        <name>Logical View [4+1, Kruchten]</name>
+        <link>http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=469759</link>
+        <id>5</id>
+        <type>ContextElementLink</type>
+    </properties>
+    <properties>
+        <name>Conceptual Level [Architectural Decision Level]</name>
+        <link>http://www.springer.com/us/book/9783642023736</link>
+        <id>64</id>
+        <type>ContextElementLink</type>
+    </properties>
+    <properties>
+        <name>Application software (Business software)</name>
+        <link>null</link>
+        <id>34</id>
+        <type>ComponentElementLink</type>
+    </properties>
+    <properties>
+        <name>Middleware</name>
+        <link>null</link>
+        <id>36</id>
+        <type>ComponentElementLink</type>
+    </properties>
+    <properties>
+        <name>Hardware (server)</name>
+        <link>null</link>
+        <id>33</id>
+        <type>ComponentElementLink</type>
+    </properties>
+    <properties>
+        <name>Choice of tier architecture</name>
+        <link>null</link>
+        <id>92</id>
+        <type>DecisionElementLink</type>
+    </properties>
+    <properties>
+        <name>Patterns of Enterprise Application Architecture [Martin Fowler]</name>
+        <link>http://martinfowler.com/books/eaa.html</link>
+        <id>61</id>
+        <type>ReferenceElementLink</type>
+    </properties>
+    <properties>
+        <name>Load balancing [Wikipedia]</name>
+        <link>https://en.wikipedia.org/wiki/Load_balancing_(computing)</link>
+        <id>108</id>
+        <type>ReferenceElementLink</type>
+    </properties>
+    <properties>
+        <name>Scalability [Wikipedia]</name>
+        <link>https://en.wikipedia.org/wiki/Scalability</link>
+        <id>109</id>
+        <type>ReferenceElementLink</type>
+    </properties>
+    <properties>
+        <name>Microsoft Application Architecture Guide, 2nd Edition</name>
+        <link>https://msdn.microsoft.com/en-us/library/ff650706.aspx</link>
+        <id>154</id>
+        <type>ReferenceElementLink</type>
+    </properties>
+    <status>published</status>
 </arversion>

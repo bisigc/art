@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8">
             <div class="panel panel-default">
-                <div class="panel-heading"><h3 class="panel-title">User Details</h3></div>
+                <div class="panel-heading"><h3 class="panel-title">User details</h3></div>
                 <div class="panel-body">
                     <form name="userProfileForm" ng-submit="userProfileForm.$valid && updateProfile()" novalidate>
                         <fieldset class="form-group">
@@ -84,7 +84,7 @@
                         <br/>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn btn-primary btn-file" type="button">Browse <input id="avatar" name="avatar" type="file" file-model="avatarimage" required></button>
+                                <span class="btn btn-primary btn-file" type="button">Browse <input id="avatar" name="avatar" type="file" file-model="avatarimage" required></span>
                             </span>
                             <span class="form-control" ng-class="{ 'text-warning': avatarimage.name != null }">{{avatarimage.name || "No file selected"}}</span>
                         </div>

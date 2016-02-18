@@ -8,6 +8,8 @@ import org.junit.Test;
 
 import play.twirl.api.Content;
 
+import html.index;
+
 
 /**
 *
@@ -25,7 +27,7 @@ public class ApplicationTest {
 
     @Test
     public void renderTemplate() {
-        Content html = views.html.index.render("");
+        Content html = index.render("");
         assertThat("Content Type", contentType(html), is("text/html"));
         assertThat("Content Body Tag", contentAsString(html), containsString("<body"));
     }

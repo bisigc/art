@@ -13,6 +13,7 @@
                             <a class="btn btn-sm btn-primary" ng-click="$state.go('root.properties.edit',{id: property.id})" uib-tooltip="Edit Property"><span class="glyphicon glyphicon-pencil"></span></a>
                             <a class="btn btn-sm btn-danger" ng-if="isAllowed.check(['Admin'])" ng-click="deleteProperty(property.id)" uib-tooltip="Delete this Property"><span class="glyphicon glyphicon-trash"></span></a>
                         </p>
+                        <p>&nbsp;</p>
                     </div>
                 </div>
             </div>
@@ -80,6 +81,7 @@
                         <a class="btn btn-sm btn-primary" ng-click="$state.go('root.properties.edit',{id: property.id})" uib-tooltip="Edit Property"><span class="glyphicon glyphicon-pencil"></span></a>
                         <a class="btn btn-sm btn-danger" ng-if="isAllowed.check(['Admin'])" ng-click="deleteProperty(property.id)" uib-tooltip="Delete this Property"><span class="glyphicon glyphicon-trash"></span></a>
                     </p>
+                    <p>&nbsp;</p>
                 </div>
             </div>
         </div>

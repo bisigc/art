@@ -16,4 +16,18 @@
            <property name="hibernate.hbm2ddl.import_files_sql_extractor" value="org.hibernate.tool.hbm2ddl.MultipleLinesSqlCommandExtractor" />
         </properties>
     </persistence-unit>
+    <persistence-unit name="testPersistenceUnit" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <non-jta-data-source>TestDS</non-jta-data-source>
+        <properties>
+           <property name="hibernate.archive.autodetection" value="class, hbm" />
+           <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+           <!-- property name="hibernate.show_sql" value="true"/ -->
+           <property name="hibernate.flushMode" value="FLUSH_AUTO" />
+           <!-- property name="hibernate.hbm2ddl.auto" value="create" / -->
+           <!-- property name="hibernate.hbm2ddl.auto" value="update" / -->
+           <!-- property name="hibernate.hbm2ddl.import_files" value="import.sql"/ -->
+           <property name="hibernate.hbm2ddl.import_files_sql_extractor" value="org.hibernate.tool.hbm2ddl.MultipleLinesSqlCommandExtractor" />
+        </properties>
+    </persistence-unit>
 </persistence>

@@ -7,6 +7,8 @@ version := "1.1-FINAL"
 // Only used to be picked up from the jenkins build script to emit the webserver port.
 javaOptions in run += "-Dhttp.port=9085"
 
+javaOptions in Test += "-Dconfig.file=conf/application.test.conf"
+
 lazy val root = (project in file(".")).enablePlugins(PlayJava)
 
 scalaVersion := "2.11.6"
@@ -19,6 +21,7 @@ libraryDependencies ++= Seq(
   "com.heroku.sdk" % "heroku-jdbc" % "0.1.1",
   "mysql" % "mysql-connector-java" % "5.1.34",
   "commons-io" % "commons-io" % "2.4",
+  "commons-logging" % "commons-logging" % "1.2",
   cache,
   javaWs
 )

@@ -45,7 +45,7 @@
             <tr ng-repeat="propertyItem in propertylist | filter:search" ng-dblclick="$state.go('root.singleproperty',{id: propertyItem.id})">
                 <td>
                     <script id="popoverdesc.html" type="text/ng-template">
-                        <div ng-bind-html="property.description | toSafeHtml"></div>
+                        <div ng-bind-html="propertyItem.description | toSafeHtml"></div>
                     </script>
                     <a ui-sref="root.singleproperty({id: propertyItem.id})" uib-popover-template="'popoverdesc.html'" popover-title="Description" popover-trigger="mouseenter" popover-placement="right" popover-append-to-body>{{propertyItem.attribute | limit: 50}}</a>
                 </td>

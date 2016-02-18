@@ -19,6 +19,7 @@ import play.db.jpa.Transactional;
 import play.libs.Json;
 import play.mvc.Result;
 import utils.exceptions.ItemNotFoundException;
+import utils.xml.XmlHelper;
 import utils.xslfo.XslfoFromatter;
 
 /**
@@ -62,12 +63,14 @@ public class TaskTemplateController extends AbstractCRUDController<TaskTemplate,
 			String requestUri =  "http://" + request().host() + "/#/task/" + task.getId();
 			Logger.debug("Request URL: " + requestUri);
 
-			StringBuffer xmlString = new StringBuffer(XML.toString(jsonobject, "task"));
-			int firstbracket = xmlString.indexOf(">") + 1;
-			xmlString.insert(firstbracket, "<uri>" + requestUri + "</uri>");
+			StringBuffer xmlstringbuffer = new StringBuffer(XML.toString(jsonobject, "task"));
+			int firstbracket = xmlstringbuffer.indexOf(">") + 1;
+			xmlstringbuffer.insert(firstbracket, "<uri>" + requestUri + "</uri>");
 			
-			Logger.debug("XML-String to format: " + xmlString);
-			InputStream stream = new ByteArrayInputStream(xmlString.toString().getBytes(StandardCharsets.UTF_8));
+			// remove the not needed homepage tag, which can contain unmasked special characters
+			String xmlstring = XmlHelper.removeTag("homepage", xmlstringbuffer.toString());
+			Logger.debug("XML-String to format: " + xmlstring);
+			InputStream stream = new ByteArrayInputStream(xmlstring.getBytes(StandardCharsets.UTF_8));
 
 			pdfbytes = XslfoFromatter.format(stream, "Task.xsl");
 		} catch (ItemNotFoundException e) {

@@ -32,6 +32,7 @@ import play.libs.Json;
 import play.mvc.Result;
 import utils.actions.SessionAuth;
 import utils.exceptions.ItemNotFoundException;
+import utils.xml.XmlHelper;
 import utils.xslfo.XslfoFromatter;
 
 /**
@@ -235,12 +236,15 @@ public class ArVersionController extends AbstractCRUDController<ArVersion, Long>
 			String requestUri =  "http://" + request().host() + "/#/ar/" + ar.getArhead().getId();
 			Logger.debug("Request URL: " + requestUri);
 
-			StringBuffer xmlString = new StringBuffer(XML.toString(jsonobject, "arversion"));
-			int firstbracket = xmlString.indexOf(">") + 1;
-			xmlString.insert(firstbracket, "<uri>" + requestUri + "</uri>");
+			StringBuffer xmlstringbuffer = new StringBuffer(XML.toString(jsonobject, "arversion"));
 			
-			Logger.debug("XML-String to format: " + xmlString);
-			InputStream stream = new ByteArrayInputStream(xmlString.toString().getBytes(StandardCharsets.UTF_8));
+			int firstbracket = xmlstringbuffer.indexOf(">") + 1;
+			xmlstringbuffer.insert(firstbracket, "<uri>" + requestUri + "</uri>");
+			
+			// remove the not needed homepage tag, which can contain unmasked special characters
+			String xmlstring = XmlHelper.removeTag("homepage", xmlstringbuffer.toString());
+			Logger.debug("XML-String to format: " + xmlstring);
+			InputStream stream = new ByteArrayInputStream(xmlstring.getBytes(StandardCharsets.UTF_8));
 
 			pdfbytes = XslfoFromatter.format(stream, "ArVersion.xsl");
 		} catch (ItemNotFoundException e) {
