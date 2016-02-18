@@ -12,6 +12,7 @@ tmp
 node_modules
 .sbtserver
 project/.sbtserver
+npm-debug.log
 
 # Eclipse
 .settings
