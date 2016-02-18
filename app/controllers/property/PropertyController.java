@@ -40,6 +40,7 @@ public class PropertyController extends AbstractCRUDController<Property, Long> {
 	 * categorie attribute.
 	 * 
 	 * @param cat categorie String
+	 * @param lang language String
 	 * @return HTTP result
 	 */
 	@Transactional(readOnly=true)

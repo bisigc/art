@@ -20,9 +20,9 @@ public class XmlHelper {
 	/**
 	 * Replaces a tag given by a tagname in an xmlstring.
 	 * 
-	 * @param tagname
-	 * @param xmlstring
-	 * @return
+	 * @param tagname Name of the tag to be removed
+	 * @param xmlstring XmlString to be modified
+	 * @return modified XmlString
 	 */
 	public static String removeTag(String tagname, String xmlstring) {
 		if(!patterns.containsKey(tagname)) { 
