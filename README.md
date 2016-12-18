@@ -5,6 +5,9 @@ Architectural Refactoring Tool
 #### Logo
 <img src="https://github.com/bisigc/art/blob/master/ui/app/images/ART_Logo.png" alt="Logo Architectural Refactoring Tool" width="300px" height="300px">
 
+## Running example on Heroku
+[https://thawing-taiga-6031.herokuapp.com/](https://thawing-taiga-6031.herokuapp.com/#/)
+
 ## Download
 * [Version 1.1](https://github.com/bisigc/art/archive/master.zip)
 
